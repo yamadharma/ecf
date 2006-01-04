@@ -31,6 +31,10 @@
 ;; If mail-host-address isn't set then use the system name minus the
 ;; first component.
 
+(if (equal system-name "localhost")
+  (setq mail-host-address "localhost")
+)
+
 (if (not mail-host-address)
   (setq mail-host-address
     (substring (system-name) (+ 1 (string-match "\\." (system-name))))

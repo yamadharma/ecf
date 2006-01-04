@@ -18,5 +18,6 @@ install:
 	    cp -R rc.d ${DESTDIR}/${SITELISPROOT}
 	cd src ; \
 	    cp -R ecf ${DESTDIR}/${SITELISP}
+	mkdir -p ${DESTDIR}/etc/ecf
 
 

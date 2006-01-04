@@ -429,7 +429,7 @@ is not loaded; so load the file FNAME."
   (if (require feature fname 1)
     t
     (
-      message "No found package: %s" fname
+      message "Package not found : %s" fname
     )
   )    
 )

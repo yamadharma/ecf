@@ -3,7 +3,8 @@
 ;;{{{ Win32 environment hook
 
 (if (eq system-type 'windows-nt)
-  (setenv "USER" (downcase (getenv "USERNAME"))
+  (progn
+    (setenv "USER" (downcase (getenv "USERNAME")))
     (setenv "HOME" (getenv "USERPROFILE"))
   )
 )

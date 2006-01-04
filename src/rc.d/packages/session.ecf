@@ -5,12 +5,20 @@
 (custom-set-variables
   '(session-save-file 
     (expand-file-name 
-      (concat home-cache-path "/session.gz")
+      (concat home-cache-path "/session.el")
     )
   )
   '(save-place t)
   '(uniquify-buffer-name-style 
     'forward nil (uniquify)
   )
+  '(session-globals-max-size 50)
 )
+
+; (setq session-save-file-coding-system 'mule-utf-8)
+
 ; (setq desktop-globals-to-save '(desktop-missing-file-warning))
+
+
+
+ 
