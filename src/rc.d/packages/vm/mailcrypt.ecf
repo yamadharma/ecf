@@ -1,0 +1,4 @@
+(add-hook 'vm-mode-hook 'mc-install-read-mode)
+(add-hook 'vm-summary-mode-hook 'mc-install-read-mode)
+(add-hook 'vm-virtual-mode-hook 'mc-install-read-mode)
+(add-hook 'vm-mail-mode-hook 'mc-install-write-mode)

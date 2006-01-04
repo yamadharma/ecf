@@ -1,0 +1,67 @@
+;;;
+
+(defvar user-full-name       
+  (user-full-name)
+  "*User's full name."
+)
+
+;; It would be nice if there was a plain version of mapcar which
+;; returned a string...
+
+(defvar user-mail-alias
+  (mapconcat 
+    (lambda (c)
+      (char-to-string
+	(if (equal c ? ) ?. c)
+      )
+    ) 
+    (user-full-name) ""
+  )
+  "*String for a mail alias taken from the user's full name."
+)
+
+(defvar user-mail-names
+  (concat
+    "\\<" (user-login-name) "\\>@\\|"
+    "\\<" (regexp-quote user-mail-alias) "\\>@"
+  )
+  "*Regular expression for mail names for this user. Includes any aliases."
+)
+
+;; If mail-host-address isn't set then use the system name minus the
+;; first component.
+
+(if (not mail-host-address)
+  (setq mail-host-address
+    (substring (system-name) (+ 1 (string-match "\\." (system-name))))
+  )
+)
+
+(defvar user-mail-address
+  (concat (user-login-name) "@" mail-host-address)
+  "*User's mail address."
+)
+
+(defvar user-www-address
+  (concat "http://" mail-host-address "/people/" (user-login-name) "/")
+  "*User's WWW address."
+)
+
+(defvar news-server-name
+  (concat "news." mail-host-address)
+  "*NetNews server name."
+)
+
+(defvar mail-server-name
+  (concat "mail." mail-host-address)
+  "*Mail server name."
+)
+
+
+
+;;(setq user-name            "jf")   ;; my user name
+;;(setq user-full-name       "Jens Frederich") ;; my complete name
+;;(setq user-mail-address    "jfrederich@mac.com") ;; my email address
+;;(setq mail-host-address    "mac.com") ;; my default mailserver
+
+;;;

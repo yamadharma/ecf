@@ -1,0 +1,25 @@
+;; BBDB IN A SEPARATE FRAME
+;; Some packages are broken!  They don't tell get-buffer-window to
+;; look in all frames for a window containing their buffer.  Here's
+;; some advice to fix these particular packages.
+
+(defvar mms-get-buffer-window-broken-packages
+  (list bbdb-buffer-name)
+  "*List of buffer names which get-buffer-window is forced to search
+for in other frames..")
+
+(require 'advice)
+(defadvice get-buffer-window (around mms-get-buffer-window act)
+  (if (member
+       (let ((b (ad-get-arg 0))) (if (bufferp b) (buffer-name b) b))
+       mms-get-buffer-window-broken-packages)
+      (ad-set-args 1 '(t)))
+  ad-do-it)
+(ad-activate 'get-buffer-window)
+
+(add-to-list 'special-display-buffer-names
+	     (cons bbdb-buffer-name '((name . "BBDB")
+				      (unsplittable . t)
+				      (menu-bar-lines . 0)
+				      (width . 80)
+				      (height . 8))))

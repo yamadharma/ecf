@@ -1,0 +1,6 @@
+;; archive.cis.ohio-state.edu:/pub/gnu/emacs/elisp-archive/packages/
+
+(autoload
+  'turn-on-filladapt-mode
+  "filladapt" "Filladapt minor mode" t nil)
+(add-hook 'text-mode-hook 'turn-on-filladapt-mode)

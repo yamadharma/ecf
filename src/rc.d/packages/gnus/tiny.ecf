@@ -1,0 +1,6 @@
+;(add-hook 
+;  'gnus-startup-hook 
+;    '(lambda () (require 'tinygnus))
+;)
+
+(require 'tinygnus)

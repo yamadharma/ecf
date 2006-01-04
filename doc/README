@@ -1,0 +1,148 @@
+
+ECF (Emacs Configuration Framework)
+
+For path searching `ecf' use package `tiny-tools'.
+
+The overall structure of whole site-lisp looks something like
+this:
+
+
+                   rootpath/  ( /usr/share/ or equivalent )
+                   |
+		   +--emacs/
+		   |  |  ...Emacs distribution files
+		   +--xemacs/
+		   |  |  ...XEmacs distribution files
+                   |
+		   +--site-lisp/
+                      |
+                      +--emacs/
+                      |  |  ...Emacs only files
+                      |  +--packages/
+                      |  |  +-
+                      |  |  +-... and so on
+                      |  +--win32/
+                      |     +-
+                      |     +-... and so on
+                      +--xemacs/
+                      |  |  ...XEmacs only files
+                      |  +--cvs-packages/
+                      |     +--xemacs-packages/
+                      +--common/
+                      |  |  ...COMMON for both Emacs and XEmacs
+                      |  |  =======================================
+                      |  |  ...Packages that you find posted to the
+                      |  |  ...gnu.emacs.sources and whose author's
+                      |  |  ...do not have a homepage
+                      |  |  ...Emacs only files
+                      |  +--packages/
+                      |  |  +-
+                      |  |  +-... and so on
+                      |  +--win32/
+                      |     +-
+                      |     +-... and so on
+
+
+`ecf' directories (`desire-config-dir-list')
+
+    /usr/share/site-lisp/rc.d		first search this 	site-wide
+    /etc/ecf				then this		host-wide
+    ~/.config/ecf			then this		user-wide
+    
+`ecf' directory structure (`desire-load-subpath-list')
+
+    desire-config-dir (z.B. /usr/share/site-lisp/rc.d)
+	packages/			config files for packages 
+	emacs/				emacs specific config files
+	    common/    
+	    19/
+	    20/
+	    21/
+	    22/
+	xemacs/				xemacs specific config files
+	    common/
+	system/				OS specific config files
+	    ms-dos/
+	    w32/
+	window-system/			window system specific config files
+	    common/
+	    console/
+	    mac/
+	    pc/
+	    w32/
+	    x/
+
+Each directory is searched in order to see if configuration data 
+for PACKAGE exists.  The configuration data takes
+one of 2 forms:
+
+1. A file named PACKAGE followed by the `.ecf'. If such a file exists, 
+   then that file is taken to be the configuration file for the package.  
+   This file is loaded immediately. The file might contain autoloads 
+   or might load the package itself.
+
+2. A directory named PACKAGE. If the directory contains a file
+   `loaddefs.ecf' then that file is loaded immediately.  Other files 
+   in the directory are processed using the function `desire-process-directory' 
+   after the package is actually loaded. 
+
+Note that a single file, as described in (1), takes precedence over a
+directory, as described in (2).  For a directory, if the package has
+already been loaded then the configuration data *is* loaded but the
+package is *not*.  This depends on the `eval-after-load' function
+behaving similarly.
+
+If a package is successfully configured then it is `desired' and,
+therefore, marked as `desirable'.  Desirability can be checked using
+the function `desiredp'.  If PACKAGE has been previously `desired'
+then nothing happens and nil is returned."
+	
+
+File `loaddefs.ecf' is loaded before a package itself is loaded.  
+This is useful for autoloading functions.
+
+File `desire.ecf' is loaded after a package itself is loaded, but before 
+the configuration files for any other desirable package.  This is useful 
+for performing some initial setup.
+
+If a configuration file for a previously desired package is present in
+DIR, then that file is loaded.  For example, if a package called
+"goodthing" has previously been desired, then if a file exists in
+DIR called "goodthing.ecf" it will be loaded. If "goodthing" has not previously 
+been desired, then this file will be ignored.
+
+A file for the pseudo-package specified by `desire.ecf' is always
+loaded first.  A file for the pseudo-package specified by
+`execute.ecf' is always loaded last.
+
+Each package-file may be splitted in many files, placed in directory
+PACKAGE.d (z.B. desire.d).
+
+Configuration files for `ecf'.
+
+1. Site-wide files:
+
+* `site-start.el'
+* `default.el'
+
+2. This files may be placed in one (or many) of `desire-config-dir-list' 
+directory. Only first is loaded:
+
+* `rc.tinypath.el' is a configuration file for `tinypath' package;
+* `rc.desire.el' is a path configuration for `desire.el';
+	
+		    
+    		    
+
+
+
+
+
+
+
+
+
+
+
+
+

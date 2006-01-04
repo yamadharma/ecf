@@ -1,0 +1,14 @@
+
+ecf-0.0.3
+
+* Mod: ecf-mule reorganised
+* Add: precondition to desire. Now desire format (desire 'package "fname" "precond")
+
+ecf-0.0.2
+
+* Add: config dirs (z.B. desire.d) 
+* Mod: prefix `rc' from config dirs removed
+* Mod: host-wide configs in `/etc/ecf/'
+* Mod: user configs in `~/.config/ecf/' (by `Desktop base directory spec' http://www.freedesktop.org/Standards/basedir-spec)
+* Mod: cache files in `~/.cache/elisp/' (by `Desktop base directory spec' http://www.freedesktop.org/Standards/basedir-spec)
+

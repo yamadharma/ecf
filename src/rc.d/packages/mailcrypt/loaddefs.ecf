@@ -1,0 +1,4 @@
+(autoload 'mc-install-write-mode "mailcrypt" nil t)
+(autoload 'mc-install-read-mode  "mailcrypt" nil t)
+
+(setq mc-pgp-user-id user-mail-address)

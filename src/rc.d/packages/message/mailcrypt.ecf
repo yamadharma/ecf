@@ -1,0 +1,1 @@
+(add-hook 'message-setup-hook 'mc-install-write-mode)

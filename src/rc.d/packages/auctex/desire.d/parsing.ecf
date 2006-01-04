@@ -1,0 +1,6 @@
+;;;
+
+;; Automatically remove all tabs from a file before saving it.
+(setq TeX-auto-untabify t)
+
+;;;

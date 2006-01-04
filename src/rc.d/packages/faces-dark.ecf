@@ -1,0 +1,39 @@
+(desire 'font-lock)
+
+(add-to-list 'default-frame-alist '(cursor-color . "red"))
+(add-to-list 'default-frame-alist '(mouse-color  . "red"))
+(add-to-list 'special-display-frame-alist '(cursor-color . "red"))
+(add-to-list 'special-display-frame-alist '(mouse-color  . "red"))
+	      
+(set-face-background 'highlight "dodgerblue")
+(set-face-background 'region "slategrey")
+(set-face-background 'secondary-selection "blue")
+
+;; Some faces for messages... variables are for font-lock.
+
+(copy-face 'default 'message-header-face)
+(set-face-foreground 'message-header-face "cyan")
+(setq message-header-face 'message-header-face)
+
+(copy-face 'message-header-face 'message-header-strong-face)
+(make-face-bold 'message-header-strong-face)
+(setq message-header-strong-face 'message-header-strong-face)
+
+(copy-face 'default 'message-from-header-face)
+(set-face-foreground 'message-from-header-face "green")
+(setq message-from-header-face 'message-from-header-face)
+
+(copy-face 'message-from-header-face 'message-from-text-face)
+(make-face-bold 'message-from-text-face)
+(setq message-from-text-face 'message-from-text-face)
+
+(copy-face 'default 'message-subject-header-face)
+(set-face-foreground 'message-subject-header-face "yellow")
+(setq message-subject-header-face 'message-subject-header-face)
+
+(copy-face 'message-subject-header-face 'message-subject-text-face)
+(make-face-bold 'message-subject-text-face)
+(setq message-subject-text-face 'message-subject-text-face)
+
+(copy-face 'region 'message-mail-header-separator-face)
+(setq message-mail-header-separator-face 'message-mail-header-separator-face)

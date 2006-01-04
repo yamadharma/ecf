@@ -1,0 +1,24 @@
+(autoload 'vm "vm" "Start VM on your primary inbox." t)
+(autoload 'vm-other-frame "vm" "Like `vm' but starts in another frame." t)
+(autoload 'vm-visit-folder "vm" "Start VM on an arbitrary folder." t)
+(autoload 'vm-visit-virtual-folder "vm" "Visit a VM virtual folder." t)
+(autoload 'vm-mode "vm" "Run VM major mode on a buffer" t)
+(autoload 'vm-mail "vm" "Send a mail message using VM." t)
+(autoload 'vm-submit-bug-report "vm" "Send a bug report about VM." t)
+
+(global-set-key "\M-R" 'vm) ;; to stop me using rmail
+(global-set-key "\M-V" 'vm)
+
+;; This is bad, because things like BBDB might want to override the
+;; default settings, but VM goes and loads the silly thing again.
+;;(setq vm-init-file (expand-file-name "~/share/emacs/desire/vm/desire.ecf"))
+
+;; This is here because it is used by GNUS, which interacts with
+;; rmail.  GNUS should desire rmail but that doesn't mean anything
+;; except rmail/loaddefs.ecf gets loaded.
+
+(setq vm-folder-directory "~/Mail/")
+(setq gnus-author-copy
+      (expand-file-name "GNUS" vm-folder-directory))
+
+; (require 'mail-netscape)

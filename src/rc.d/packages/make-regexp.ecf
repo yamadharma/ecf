@@ -1,0 +1,5 @@
+(autoload 'make-regexp "make-regexp"
+  "Return a regexp to match a string item in STRINGS.")
+
+(autoload 'make-regexps "make-regexp"
+  "Return a regexp to REGEXPS.")

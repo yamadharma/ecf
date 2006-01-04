@@ -1,0 +1,7 @@
+;(setq gnus-secondary-select-methods
+;    '((nnimap "mail.sci.pfu.edu.ru"
+;                     (nnimap-list-pattern ("INBOX.admin.*" "maillists.*" "maillists.admin.ark*" ))
+;                     (nnimap-stream network)
+;		     )
+;)		     
+;)

@@ -1,0 +1,7 @@
+;; ftp@ftp.reed.edu:/pub/src/html-helper-mode.tar.Z
+
+(autoload 'html-helper-mode
+  "html-helper-mode" "Major mode for editing HTML files" t)
+
+(add-to-list 'auto-mode-alist
+	     '("\\.s?html\\'" . html-helper-mode))

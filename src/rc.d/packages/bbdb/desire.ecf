@@ -1,0 +1,115 @@
+(setq bbdb-file (expand-file-name "bbdb" emacs-etc-dir))
+
+(setq bbdb-electric-p nil)
+
+(setq bbdb/mail-auto-create-p nil)
+(setq bbdb-completion-type 'primary-or-name)
+(setq bbdb-completion-display-record nil)
+(setq bbdb-user-mail-names user-mail-names)
+(setq bbdb/gnus-header-prefer-real-names t)
+
+;; INFO
+;;(setq bbdb-info-file
+;;      (expand-file-name "~/share/lib/emacs/lisp/bbdb/bbdb.info"))
+
+;; TELEPHONE NUMBERS
+(setq bbdb-default-area-code 2)
+(setq bbdb-north-american-phone-numbers-p nil)
+
+;; EXTRA FUNCTIONS/KEY BINDINGS
+;(require 'bbdb-query)
+;; The space keybinding gets smashed by bbdb-display-records.  This is
+;; unfortunate, so we add bindings for return as well.
+(define-key bbdb-mode-map " " 'scroll-up)  
+(define-key bbdb-mode-map "\r" 'scroll-up)
+(define-key bbdb-mode-map "\n" 'scroll-up)
+(define-key bbdb-mode-map "\C-?" 'scroll-down)
+(define-key bbdb-mode-map "a" 'bbdb-create)
+
+;; CANONICALISING EMAIL ADDRESSES
+(setq bbdb-canonicalize-net-hook 'mms-bbdb-canonicalize-net-hook)
+
+(defvar bbdb-canonical-domain-alist
+  '(("rsphy[0-9]+\\.anu\\.edu\\.au" . "rsphysse.anu.edu.au")
+    (".+\\.grenoble\\.hp\\.com" . "grenoble.hp.com")
+    (".+\\.cs\\.uiuc\\.edu" . "cs.uiuc.edu")
+    (".+\\.cs\\.umass\\.edu" . "cs.umass.edu"))
+  "*Alist used to perform BBDB address canonicalisation.
+The car of each pair is a regexp which matches the machine name, while
+the cdr is a string to substitute for it.")
+
+(defun mms-bbdb-canonicalize-net-hook (addr)
+  (let ((dl bbdb-canonical-domain-alist)
+	(answer))
+    (while (and (not answer) dl)
+      (if (string-match (concat "\\`\\([^@]+@\\)" (car (car dl)) "\\'")
+			addr)
+	  (setq answer (concat
+			(substring addr (match-beginning 1) (match-end 1))
+			(cdr (car dl))))
+	(setq dl (cdr dl))))
+    (or answer addr)))
+
+;; PRINTING
+;;(autoload 'bbdb-print "bbdb-print" "BBDB print package" t)
+;;(autoload 'bbdb-phone "bbdb-print" "BBDB print package" t)
+
+(setq bbdb-print-file-name "~/tmp/bbdb.tex")
+(setq bbdb-print-elide
+      '(aka attribution creation-date mail-alias mail-folder mail-folders
+	    nic nic-updated tex-name timestamp anniversary gnokii))
+(setq bbdb-print-require '(and (or name company) (or address phone)))
+(setq bbdb-print-alist '((columns . 2) 
+			 (separator . 2) 
+			 (phone-on-first-line . "^[ \t]*$")
+			 (ps-fonts . t)
+			 (font-size . 8)
+			 (quad-hsize . "3.15in")
+			 (quad-vsize . "4.5in")))
+(setq bbdb-print-full-alist
+      '((columns . 2) 
+	(separator . 2)
+	(include-files "bbdb-print" "bbdb-cols")))
+(setq bbdb-print-prolog 
+      (concat "% -*-TeX-*-\n%\n"
+	      "% Address Book in TeX Format from bbdb-print, version 3.0\n\n"
+	      "\\voffset=-0.5in\n\\vsize=10.5in\n\n"))
+
+;; Dialing
+
+(setq bbdb-dial-local-prefix "1")
+(setq bbdb-sound-player "/usr/bin/audioplay")
+
+;; Work-around the ZIP-code parsing.
+;;(defun bbdb-parse-zip-string (string)
+;;   (string-to-int string))
+;; This doesn't parse zip strings, it just inserts them as strings.
+(defun bbdb-parse-zip-string (string)
+  string)
+;; If the zip code is just a string then it is returned.  The other
+;; hack is that non-string numeric zip codes aren't padded to 5
+;; digits.
+(defun bbdb-address-zip-string (addr)
+  (if (consp (bbdb-address-zip addr))
+      (if (stringp (car (bbdb-address-zip addr)))
+	  (concat (car (bbdb-address-zip addr))
+		  " "
+		  (car (cdr (bbdb-address-zip addr))))
+	(format "%05d-%04d" (car (bbdb-address-zip addr))
+		(car (cdr (bbdb-address-zip addr)))))
+    (if (or (eq 0 (bbdb-address-zip addr))
+	    (null (bbdb-address-zip addr)))
+	""
+      (if (stringp (bbdb-address-zip addr))
+	  (bbdb-address-zip addr)
+	(format "%d" (bbdb-address-zip addr))))))
+
+
+(autoload
+  'bbdb-to-gnokii-file
+  "bbdb-gnokii"
+  "Export phone entries from BBDB to a Gnokii contacts file."
+  t)
+
+(setq bbdb-gnokii-extras-file
+      (expand-file-name "bbdb-gnokii-extras.txt" emacs-etc-dir))

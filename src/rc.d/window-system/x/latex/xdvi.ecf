@@ -1,0 +1,10 @@
+;;;
+
+;; xdvi can jump to (and visually highlight) a position in the DVI file that corresponds to a
+;; certain line number in the (La)TeX source file (`forward search').
+
+(require 'xdvi-search)
+
+; (local-set-key "\C-c\C-j" 'xdvi-jump-to-line)
+
+;;;

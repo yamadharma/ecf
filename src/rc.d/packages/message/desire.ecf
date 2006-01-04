@@ -1,0 +1,30 @@
+;; Prompt for deletion of CC: line from replies.  This stops 
+;; embarrassment...
+(add-hook 'message-header-setup-hook 'message-reply-check-CC:-hook t)
+
+(require 'message)
+  
+(defun message-reply-check-CC:-hook ()
+  "Some standard reply mechanisms cause CC: headers to be
+unconditionally copied into every reply.  This little hook prompts
+every time it sees a CC: header being inserted into a reply, and
+deletes it if required."
+  (save-excursion
+    (widen)
+    (goto-char (point-min))
+    (if (mail-header 'cc (mail-header-extract-no-properties))
+	(if  (y-or-n-p "Kill *all* CC: headers? ")
+	    (message-remove-header "cc")))))
+
+;; Copy all messages to myself.
+;;(setq mail-self-blind t)
+
+(add-hook 'message-header-setup-hook 'message-bcc-self t)
+
+(defun message-bcc-self ()
+  "Insert a Bcc: to the current user into a message buffer."
+  (interactive)
+  (save-excursion
+    (widen)
+    (message-goto-bcc)
+    (insert user-mail-address)))

@@ -1,0 +1,13 @@
+(setq calendar-and-diary-frame-parameters
+      '((name . "Diary and Calendar")
+	(dedicated . nil)
+	(unsplittable . nil)
+	(left . 230)
+	(top . 1)
+	(width . 80)
+	(height . 40)))
+
+(setq calendar-setup 'one-frame)
+
+;;(load-library "appt") ;; Need to leave this here due to bug in cal-x.el
+(require 'cal-x)

@@ -1,0 +1,13 @@
+;;;
+
+;; Inhibit the question and always or never start the server respectively.
+(custom-set-variables
+  '(TeX-source-specials-view-start-server t)
+)
+
+(custom-set-variables
+  '(gnuserv-frame t)
+  '(gnuserv-visit-hook (lambda () (raise-frame) (recenter)))
+)
+
+;;;

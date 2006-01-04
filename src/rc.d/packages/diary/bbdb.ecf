@@ -1,0 +1,4 @@
+(require 'bbdb-anniv)
+(setq bbdb-anniversary-reminder-days 7)
+(setq bbdb-anniversaries t)
+(add-hook 'list-diary-entries-hook 'bbdb-include-anniversaries)

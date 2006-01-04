@@ -1,0 +1,16 @@
+(defvar gnus-newsrc-save-frequency 10
+  "*Number of gnus groups to read between saving ~/.newsrc.")
+(defvar gnus-read-groups 0
+  "*Number of gnus groups read since last save of ~/.newsrc.")
+(defun gnus-save-every-so-often ()
+  "Save the .newsrc file every time some number of groups are read.
+Since the .newsrc file doesn't change much, it isn't autosaved as
+often as might be necessary when using an unreliable modem connection.
+The variable gnus-newsrc-save-frequency controls how many groups are
+read before the .newsrc is saved."
+  (if (>= gnus-read-groups gnus-newsrc-save-frequency)
+      (progn
+	(gnus-save-newsrc-file)
+	(setq gnus-read-groups 1))
+    (setq gnus-read-groups (+ gnus-read-groups 1))))
+(add-hook 'gnus-select-group-hook 'gnus-save-every-so-often)

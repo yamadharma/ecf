@@ -1,0 +1,5 @@
+(autoload 'hugs-mode "hugs-mode" "Autoload Hugs mode" t nil)
+
+(add-to-list
+ 'auto-mode-alist
+ '("\\.hs\\'\\|\\.lhs\\'" . hugs-mode))

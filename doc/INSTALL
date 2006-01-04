@@ -1,0 +1,12 @@
+The very fast start
+
+1. Install emacs-tiny-tools.
+
+    i) Unpack tiny-tools-NNNN.NNNN.tar.bz
+    ii) cd tiny-tools-NNNN.NNNN
+    iii) run make process
+	make all
+    iv) install
+	make install		
+
+

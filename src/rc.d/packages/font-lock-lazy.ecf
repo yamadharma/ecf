@@ -1,0 +1,10 @@
+(desire 'font-lock)
+
+(require 'lazy-lock)
+
+(setq font-lock-support-mode 'lazy-lock-mode)
+; (lazy-lock-defer-contextually t)
+(setq font-lock-defer-on-scrolling nil) 
+(setq font-lock-defer-on-the-fly nil) 
+(setq lazy-lock-defer-time 0)         
+(setq lazy-lock-minimum-size 10240)   

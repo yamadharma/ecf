@@ -1,0 +1,15 @@
+;;;
+
+;; bbdb:
+;;     Insidious Big Brother Database.  Nice for keeping track of
+;;     people!  Also handles mail aliases expansion.
+;;
+;;     archive.cis.ohio-state.edu:/pub/gnu/emacs/elisp-archive/packages/
+;;
+
+;;;Not under bbdb-2.2 ;;; (require 'bbdb-autoloads)
+
+(require 'bbdb)
+(bbdb-initialize)
+
+;;;

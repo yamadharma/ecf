@@ -1,0 +1,5 @@
+;; Turn on warnings.
+(setq appt-issue-message t)
+
+;; This probably done somewhere else too, but who cares?
+(display-time)

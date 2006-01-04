@@ -1,0 +1,33 @@
+;;;
+
+(if (desiredp 'xemacs)
+    (defun x-get-frame-display (f)
+      "Return the display for frame F in XEmacs."
+      (device-connection (frame-device f)))
+  (defun x-get-frame-display (f)
+    "Return the display for frame F in GNU Emacs."
+    (frame-parameter f 'display)))
+
+(defun x-close-connection-if-no-frames (display)
+  "Close an open connection to DISPLAY if DISPLAY has no frames."
+
+  (if (and
+       (member display (x-display-list))
+       (not 
+	(eval (cons 'or
+		    (mapcar
+		     '(lambda (f) (equal (x-get-frame-display f)
+					 display))
+		     (frame-list))))))
+      (x-close-connection display)))
+
+(defadvice delete-frame (around
+			 x-close-connection-delete-frame
+			 first
+			 nil
+			 activate)
+    (let ((display (x-get-frame-display frame)))
+      ad-do-it
+      (x-close-connection-if-no-frames display)))
+
+;;;

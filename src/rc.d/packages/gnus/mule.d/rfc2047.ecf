@@ -1,0 +1,19 @@
+;;;
+
+;;
+;; RFC 2047 is "MIME (Multipurpose Internet Mail Extensions) Part
+;; Three:  Message Header Extensions for Non-ASCII Text".
+;;
+
+(require 'rfc2047)
+
+(setq rfc2047-header-encoding-alist 
+  '(
+    ("Newsgroups" . nil)
+    ("Message-ID" . nil)
+    ("Subject"    . nil)
+    (t . mime)
+  )
+)
+
+;;;

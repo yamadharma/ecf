@@ -1,0 +1,15 @@
+;;; Extra Headers
+
+(setq gnus-extra-headers
+  '(To X-Newsreader X-Comment-To)
+)
+
+(setq nntp-extra-headers
+  gnus-extra-headers
+)
+
+(setq nnmail-extra-headers
+  gnus-extra-headers
+)
+
+;;;

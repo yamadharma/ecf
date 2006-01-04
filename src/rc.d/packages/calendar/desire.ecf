@@ -1,0 +1,40 @@
+;; SITE WIDE CONFIGURATION
+
+;; Some holidays which are more Australian than the American defaults.
+(setq general-holidays
+      '((holiday-fixed 1 1   "New Year's Day")
+	(holiday-fixed 1 26  "Australia Day")
+	(holiday-fixed 2 14  "Valentine's Day")
+	(holiday-fixed 3 17  "St. Patrick's Day")
+	(holiday-fixed 4 1   "April Fool's Day")
+	(holiday-fixed 4 25  "ANZAC Day")
+	(holiday-float 5 0 2 "Mother's Day")
+	(holiday-float 9 0 1 "Father's Day")
+	(holiday-fixed 12 26 "Boxing Day")))
+(setq local-holidays
+      '((holiday-float 3 1 3 "Canberra Day")
+	(holiday-float 6 1 2 "Queen's Birthday")
+	(holiday-float 10 1 1 "Labour Day (NSW/ACT)")))
+
+(setq calendar-holidays
+      (append general-holidays local-holidays other-holidays
+          christian-holidays solar-holidays))
+
+;; Also latitude and longitude for Canberra, ACT, Australia.
+(setq calendar-location-name "Canberra, ACT, Australia")
+(setq calendar-latitude -35.283)
+(setq calendar-longitude 149.15)
+
+;; JUST FOR ME
+
+;; Mark holidays in calendar.
+(setq mark-holidays-in-calendar t)
+
+;; Mark current day on calendar.
+(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+
+;; European dates, with the date in front of the month.
+(european-calendar)
+
+(define-key calendar-mode-map "D"    'diary)
+(define-key calendar-mode-map "\C-?" 'scroll-other-window-down)

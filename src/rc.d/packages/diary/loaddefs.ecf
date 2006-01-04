@@ -1,0 +1,5 @@
+;; Mark diary entries in the calendar.
+(setq mark-diary-entries-in-calendar t)
+
+;; Show the diary when the calendar starts up.
+(setq view-diary-entries-initially t)

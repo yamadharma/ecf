@@ -1,0 +1,12 @@
+;; Uses:
+;;
+;; lispdir.el:
+;;     Search engine for the elisp archive.
+;;
+;;     archive.cis.ohio-state.edu:/pub/gnu/emacs/elisp-archive/lispdir.el.Z
+;;
+
+(autoload 'format-lisp-code-directory "lispdir" nil t)
+(autoload 'lisp-dir-apropos "lispdir" nil t)
+(autoload 'lisp-dir-retrieve "lispdir" nil t)
+(autoload 'lisp-dir-verify "lispdir" nil t)

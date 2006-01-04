@@ -1,0 +1,19 @@
+(setq default-major-mode 'text-mode)
+
+;;{{{ autofill mode
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+;;}}}
+
+
+(show-paren-mode 1) ; Parenthesis matching via highlighting.
+(require 'paren)
+
+(setq transient-mark-mode t)
+
+;;{{{ Unix -> DOS
+
+; (require 'eol-conversion)
+
+;;}}}

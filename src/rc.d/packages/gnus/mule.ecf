@@ -1,0 +1,45 @@
+(require 'gnus-setup)
+;(require 'gnus-mule)
+;(require 'gnus-charset)
+;(gnus-set-newsgroup-default-charset ".*" "koi8-r")
+;(charset . koi8-r) 
+;(setq default-mime-charset 'koi8-r)
+;(setq gnus-mule-coding-system 'cyrillic-koi8)
+; (gnus-mule-add-group "fido7" 'cyrillic-koi8)
+; (gnus-mule-add-group "ray" 'cyrillic-koi8)
+; (gnus-mule-add-group "psy" 'cyrillic-koi8)
+; (add-hook 'gnus-visual-mark-article-hook 'gnus-article-highlight)
+;(require 'smiley)
+;(put-charset-property 'cyrillic-iso8859-5 'prefer-coding-system 'koi8-r)
+;;
+;; Charsets
+;;
+;(put-charset-property 'cyrillic-iso8859-5
+;  'preferred-coding-system 'koi8-r	
+;)
+; (charset . koi8-r)
+;(setq gnus-group-charset-alist
+;  (append
+;    '(
+;      ("^ray\\>"  koi8-r)
+;      ("^psy\\>"  koi8-r)
+;    )
+;    gnus-group-charset-alist
+;  )
+;)
+;(group-charset-alist
+;  '("^ray\\>"  koi8-r)
+;)
+
+(setq gnus-show-mime t)
+
+;;{{{ Charsets
+
+(setq 
+  message-default-charset 'koi8-r
+  gnus-default-posting-charset 'koi8-r
+)
+;;gnus-group-posting-charset-alist
+
+
+;;}}}

@@ -1,0 +1,8 @@
+;; Uses:
+;;
+;; w3:
+;;     Major mode for browsing the World Wide Web
+;;
+;;     ftp.cs.indiana.edu:/pub/elisp/w3
+
+(require 'w3-auto)

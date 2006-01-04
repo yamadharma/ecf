@@ -1,0 +1,25 @@
+;;;
+
+(custom-set-variables
+  '(gnus-group-charset-alist
+    '(
+      ("^ray\\>"  koi8-r)
+      ("^psy\\>"  koi8-r)
+      ("^hk\\>\\|^tw\\>\\|\\<big5\\>" cn-big5)
+      ("^cn\\>\\|\\<chinese\\>" cn-gb-2312)
+      ("^fj\\>\\|^japan\\>" iso-2022-jp-2)
+      ("^tnn\\>\\|^pin\\>\\|^sci.lang.japan" iso-2022-7bit)
+      ("^relcom\\>" koi8-r)
+      ("^fido7\\>" koi8-r)
+      ("^\\(cz\\|hun\\|pl\\|sk\\|hr\\)\\>" iso-8859-2)
+      ("^israel\\>" iso-8859-1)
+      ("^han\\>" euc-kr)
+      ("^alt.chinese.text.big5\\>" chinese-big5)
+      ("^soc.culture.vietnamese\\>" vietnamese-viqr)
+      ("^\\(comp\\|rec\\|alt\\|sci\\|soc\\|news\\|gnu\\|bofh\\)\\>" iso-8859-1)
+      (".*" iso-8859-1)
+    )
+  )
+)
+
+;;;

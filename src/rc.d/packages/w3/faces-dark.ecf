@@ -1,0 +1,6 @@
+(copy-face 'default 'w3-visited-node-style)
+(set-face-foreground 'w3-visited-node-style "orange")
+
+(copy-face 'default 'w3-node-style)
+(set-face-foreground 'w3-node-style "cyan")
+(make-face-bold 'w3-node-style)

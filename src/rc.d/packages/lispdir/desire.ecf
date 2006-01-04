@@ -1,0 +1,3 @@
+(setq lisp-code-directory "~/share/lib/emacs/etc/LCD-datafile.gz")
+(setq elisp-archive-host "src.doc.ic.ac.uk")
+(setq elisp-archive-directory "/gnu/EmacsBits/elisp-archive/")

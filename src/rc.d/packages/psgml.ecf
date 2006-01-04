@@ -1,0 +1,9 @@
+(autoload 'sgml-mode "psgml" "Major mode to edit SGML files." t)
+(autoload 'html-mode "xxml" "Major mode to edit HTML files." t)
+(autoload 'xxml-mode-routine "xxml")
+(add-hook 'sgml-mode-hook 'xxml-mode-routine)
+
+;(add-to-list 'sgml-ecat-files
+;	     (expand-file-name "sgml/ECAT" emacs-etc-dir))
+
+(folding-mode 1)

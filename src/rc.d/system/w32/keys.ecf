@@ -1,0 +1,7 @@
+(setq w32-pass-lwindow-to-system nil)
+(setq w32-pass-rwindow-to-system nil)
+;(setq w32-lwindow-modifier 'meta)
+(setq w32-lwindow-modifier 'super)
+(setq w32-rwindow-modifier 'hyper)
+(setq w32-apps-modifier 'super)
+(setq w32-scroll-lock-modifier nil)

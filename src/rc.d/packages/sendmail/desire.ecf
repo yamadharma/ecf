@@ -1,0 +1,32 @@
+;; Copy all mail to myself.
+;;(setq mail-self-blind t)
+
+(setq sendmail-program       (expand-file-name "mail.sendmail"
+					       "~/share/bin")
+      mail-archive-file-name (expand-file-name "SMAIL"
+					       vm-folder-directory))
+
+;; Prompt for deletion of CC: line from replies.  This stops 
+;; embarrassment...
+;;(add-hook 'mail-setup-hook 'mail-reply-check-CC:-hook t)
+;;(defun mail-reply-check-CC:-hook ()
+;;  "The standard reply mechanism in rmail causes CC: headers to be
+;;unconditionally copied into every reply.  This little hook prompts
+;;every time it sees a CC: header being inserted into a reply, and 
+;;deletes it if required."
+;;  (if (memq this-command '(rmail-reply rmail-summary-reply))
+;;      (save-excursion
+;;	(if (mail-position-on-field "CC" t)
+;;	    (if  (y-or-n-p "Kill CC: header ? ")
+;;		(while (mail-position-on-field "CC" t)
+;;		  (let ((end (point)))
+;;		    (if (= (forward-line -1) 0)
+;;			(end-of-line)
+;;		      ;; Can a CC be on the first line?  Not usually,
+;;		      ;; but handle it anyway...
+;;		      (forward-line 1)
+;;		      (beginning-of-line)
+;;		      (setq end (point))
+;;		      (forward-line -1)
+;;		      (beginning-of-line))
+;;		    (delete-region (point) end))))))))

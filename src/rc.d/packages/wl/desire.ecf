@@ -1,0 +1,46 @@
+;(setq wl-icon-dir "/usr/local/lib/emacs/etc")
+;;{{{ Network
+
+  ;;{{{ cache setting.
+  
+  ;; (messages in localdir, localnews, maildir are not cached.)
+  (setq elmo-archive-use-cache nil)
+  (setq elmo-nntp-use-cache t)
+;  (setq elmo-imap4-use-cache nil)
+  (setq elmo-imap4-use-cache t)
+  (setq elmo-pop3-use-cache t)
+
+  ;;}}}
+
+  ;;{{{ Enable disconnected operation in IMAP folder.
+
+  (setq elmo-enable-disconnected-operation t)
+
+  ;;}}}
+
+;; Store draft message in queue folder if message is sent in unplugged status.
+(setq wl-draft-enable-queuing t)
+;; when plug status is changed from unplugged to plugged,
+;; queued message is flushed automatically.
+(setq wl-auto-flush-queue t)
+
+;; offline at startup.
+;(setq wl-plugged nil)
+;; change plug status by server or port at startup.
+;(add-hook 'wl-make-plugged-hook
+;	  '(lambda ()
+;	     (elmo-set-plugged plugged(t/nil) server port)
+;	     (elmo-set-plugged plugged(t/nil) server)
+;	     ))
+
+;;}}}
+
+(setq wl-nntp-posting-server "news4.fido7.ru")
+(setq wl-smtp-posting-server "mail.sci.pfu.edu.ru")
+
+(setq wl-local-domain "sci.pfu.edu.ru") 
+
+(setq elmo-imap4-default-server "mail.sci.pfu.edu.ru")
+(setq elmo-imap4-force-login t)
+(setq elmo-nntp-default-server "news4.fido7.ru")
+

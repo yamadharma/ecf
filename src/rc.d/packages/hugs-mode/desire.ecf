@@ -1,0 +1,7 @@
+(add-to-list
+ 'hugs-switches
+ "-E(gnudoit -q \"(progn (find-file \\\"%s\\\") (goto-line %d))\")")
+
+(add-to-list
+ 'hugs-switches
+ "-h1000000")

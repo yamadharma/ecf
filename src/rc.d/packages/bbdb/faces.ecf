@@ -1,0 +1,5 @@
+;(require 'bbdb-display)
+
+;(mms-copy-face 'message-from-text-face    'bbdb-name)
+;(mms-copy-face 'message-header-face       'bbdb-field-name)
+;(mms-copy-face 'message-subject-text-face 'bbdb-company)

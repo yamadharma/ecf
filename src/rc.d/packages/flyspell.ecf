@@ -1,0 +1,16 @@
+(desire 'spell)
+;(ispell-change-dictionary "russian")
+;(setq-default ispell-program-name "aspell")
+; (load "incr-ispell")
+(require 'flyspell)
+;(flyspell-mode 1)
+;(global-flyspell-mode t)
+
+;(define-key esc-map "?" 'flyspell-auto-correct-word)
+
+;(local-unset-key "\M-\t")
+;(global-unset-key "\M-\t")
+
+;(defvar flyspell-mode-map nil)
+
+;;

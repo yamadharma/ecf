@@ -1,0 +1,6 @@
+;;(defun bbdb-insinuate-message ()
+;;  "Call this function to hook BBDB completion into message"
+;;  (define-key message-mode-map "\M-\t" 'bbdb-complete-name))
+(bbdb-insinuate-message)
+;; This gets bbdb up in its own window.
+;;(bbdb "ZZZ" nil)

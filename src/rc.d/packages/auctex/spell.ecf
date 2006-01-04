@@ -1,0 +1,6 @@
+(add-hook 
+  'LaTeX-mode-hook
+    (function 
+      (lambda () (setq ispell-parser 'tex))
+    )
+)

@@ -1,0 +1,2 @@
+;; Don't auto-fill citations
+(setq sc-auto-fill-region-p nil)

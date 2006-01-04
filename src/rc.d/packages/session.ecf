@@ -1,0 +1,16 @@
+(require 'session)
+
+(add-hook 'after-init-hook 'session-initialize)
+
+(custom-set-variables
+  '(session-save-file 
+    (expand-file-name 
+      (concat home-cache-path "/session.gz")
+    )
+  )
+  '(save-place t)
+  '(uniquify-buffer-name-style 
+    'forward nil (uniquify)
+  )
+)
+; (setq desktop-globals-to-save '(desktop-missing-file-warning))

@@ -1,0 +1,22 @@
+;;;
+
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus) 
+
+;;(require 'gnus-bbdb)
+
+;;(gnus-bbdb-insinuate-summary-buffer)
+
+;; This gets bbdb up in its own window.
+;(bbdb "ZZZ" nil)
+
+;; Enable BBDB-assisted scoring
+
+(setq gnus-score-find-score-files-function
+  '(gnus-score-find-bnews bbdb/gnus-score)
+)
+
+;(define-key message-minibuffer-local-map 
+;  [(tab)] 'bbdb-complete-name
+;)
+
+;;;

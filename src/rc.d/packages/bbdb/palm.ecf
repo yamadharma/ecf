@@ -1,0 +1,13 @@
+;; Palm pilot support for BBDB.
+;;(autoload 'bbdbpalm "bbdbpalm" "Export BBDB data into Palm Pilot" t)
+;;(setq bbdbpalm-export-file
+;;      (expand-file-name "bbdbpalm-export" emacs-etc-dir))
+;;(setq bbdbpalm-only-export-first-net t)
+;; Use JWZ's stuff instead.
+;;(autoload 'bbdb-to-pilot "bbdb-pilot-jwz" "Export BBDB data into Palm Pilot" t)
+(load-library "bbdb-pilot-jwz")
+(setq bbdb-pilot-ignored-notes
+      '(
+	mail-name mail-alias face mark-char
+	mail-folders AKA other-email gnokii
+	))

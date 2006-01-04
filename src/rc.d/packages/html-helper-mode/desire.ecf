@@ -1,0 +1,9 @@
+(setq html-helper-do-write-file-hooks t)
+(setq html-helper-build-new-buffer t)
+(setq html-helper-address-string 
+  (concat "<a href=\"" user-www-address "\">" (user-full-name) "</a>"
+	  " "
+	  "&lt;<a href=\"mailto:" user-mail-address "\">"
+	  user-mail-address "</a>&gt;"))
+
+(setq tempo-interactive t)

@@ -1,0 +1,10 @@
+(setq font-lock-maximum-decoration 3)
+(global-font-lock-mode 1)
+(setq font-lock-auto-fontify t)
+
+
+;(if (fboundp 'global-font-lock-mode)
+;    (global-font-lock-mode 1)
+;  (setq font-lock-auto-fontify t))
+
+; (require 'font-menus)

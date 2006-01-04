@@ -1,0 +1,66 @@
+;;(setq gnus-select-method '(nntp "news4.fido7.ru")) 
+;(setq gnus-select-method 
+;  '(nntp "necromancer.sci.pfu.edu.ru")
+;) 
+(setq
+  
+  ;;{{{ Checking newsgroups
+  
+  gnus-check-new-newsgroups		'ask-server
+  gnus-save-killed-list			nil
+  
+  ;;}}}   
+
+ ;; Reading news.
+
+ gnus-large-newsgroup                   100
+
+
+ gnus-auto-select-first                 nil
+
+ gnus-subscribe-newsgroup-method 	'gnus-subscribe-killed
+
+ ;; Saving messages.
+
+ ;;gnus-mail-save-name ???
+ gnus-default-article-saver		'gnus-summary-save-in-mail
+
+ ;; Reading mail.
+
+ gnus-secondary-select-methods          '((nnfolder ""))
+ nnmail-split-methods                   '(("mail.misc" ""))
+
+ nnfolder-directory                     (expand-file-name "~/Mail/Incoming")
+ nnfolder-get-new-mail                  nil
+
+ ;; Click on buttons?
+ gnus-button-url                        'gnus-netscape-open-url
+ )
+
+;; Save all GNUS in gnus-author-copy (which is defined by the rmail
+;; config!).  It will appear in RMAIL to be saved in the correct
+;; place...  This depends on RMAIL being configured first!!!  Outgoing
+;; GNUS also goes there!
+;;(desire 'vm)
+;; Ignore that... hardcode it... using VM anyway...
+(setq gnus-mail-save-name
+      '(lambda (newsgroup headers &optional last-file)
+	 "~/Mail/GNUS"))
+
+;;{{{ Group Topics
+
+(add-hook 
+  'gnus-group-mode-hook 'gnus-topic-mode
+)
+;; Croup Timestamp
+(add-hook 
+  'gnus-select-group-hook 'gnus-group-set-timestamp
+)
+
+;;}}}
+
+(setq gnus-posting-styles
+  nil
+)  
+
+;;;

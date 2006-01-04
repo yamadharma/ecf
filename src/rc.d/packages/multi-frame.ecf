@@ -1,0 +1,22 @@
+;; attributes of the initial window
+(add-to-list 'initial-frame-alist
+	     '(minibuffer . t))
+(add-to-list 'initial-frame-alist
+	     '(width . 80))
+(add-to-list 'initial-frame-alist
+	     '(height . 40))
+
+(add-to-list 'default-frame-alist
+	     '(width . 80))
+(add-to-list 'default-frame-alist
+	     (cond
+	      ((string-match "meltin" (system-name))
+	       '(height . 25))
+	      (t
+	       '(height . 40))))
+
+;; Some buffers get their own frames.
+(add-to-list 'special-display-regexps
+	     '("\\*Man .*\\*" (width . 80) (height . 25)))
+(add-to-list 'special-display-regexps
+	     "\\*Help\\|\\*Apropos\\|\\*vc")

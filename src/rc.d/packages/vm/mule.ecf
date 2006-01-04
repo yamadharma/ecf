@@ -1,0 +1,16 @@
+;; This is strictly incorrect, since iso-8859-15 is really
+;; iso-latin-15, which doesn't seem to be directly supported.
+;; However, latin-15 is an update to latin-1, so this is close!
+;; 
+(add-to-list 
+  'vm-mime-mule-charset-to-coding-alist
+    '("iso-8859-15" iso-latin-1)
+)
+
+(setq
+  vm-mime-8bit-composition-charset 'koi8-r
+)
+
+(setq
+  vm-mime-8bit-text-transfer-encoding '8bit
+)

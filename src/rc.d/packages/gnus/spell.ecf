@@ -1,0 +1,5 @@
+;;;
+
+(add-hook 'message-send-hook 'ispell-message)
+
+;;;

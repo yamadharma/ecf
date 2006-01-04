@@ -1,0 +1,31 @@
+;;; Threading
+
+(setq
+
+;;{{{ Filling in Threads
+
+  ; gnus-build-sparse-threads t
+  gnus-fetch-old-headers t
+
+;;}}}
+;;{{{ More Threading
+
+  gnus-thread-hide-subtree t
+  gnus-thread-ignore-subject t
+  gnus-thread-indent-level 8
+  gnus-sort-gathered-threads-function 'gnus-thread-sort-by-date
+
+;;}}}
+;;{{{ Sorting
+
+  gnus-thread-sort-function
+    '(
+      gnus-thread-sort-by-date
+      (not gnus-thread-sort-by-total-score)
+    )
+
+;;}}}
+
+)
+
+;;;

@@ -1,0 +1,3 @@
+(setq ps-spool-duplex t)
+(setq ps-paper-type 'a4)
+(setq ps-lpr-command "lpr")

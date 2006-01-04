@@ -1,0 +1,3 @@
+(setq explicit-shell-file-name "/bin/sh")
+
+(add-hook 'shell-mode-hook 'rename-uniquely)

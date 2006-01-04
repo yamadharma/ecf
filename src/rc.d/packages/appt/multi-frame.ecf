@@ -1,0 +1,32 @@
+(defun mms-appt-disp-frame (min-to-app new-time appt-msg)
+  "Display appointments in a dedicated frame.  See also
+appt-disp-window."
+  
+  (display-buffer (get-buffer-create appt-buffer-name))
+  (set-buffer appt-buffer-name)
+  (setq mode-line-format 
+	(concat "-------------------- Appointment in "
+		min-to-app " minute" (if (= 1 min-to-app) "" "s") ". "
+		new-time " %-"))
+  (insert-string appt-msg)
+  (set-buffer-modified-p nil)
+  (toggle-read-only 1)
+  (if appt-audible
+      (beep 1)))
+
+(defun mms-appt-delete-frame ()
+  "Deletes appointments frame."
+  (kill-buffer appt-buffer-name)
+  (if appt-audible
+	    (beep 1)))
+
+(add-to-list 'special-display-buffer-names
+	     (cons appt-buffer-name '((name . "Appointment")
+				      (minibuffer . nil)
+				      (vertical-scroll-bars . nil)
+				      (menu-bar-lines . 0)
+				      (width . 80)
+				      (height . 2))))
+
+(setq appt-disp-window-function (function mms-appt-disp-frame))
+(setq appt-delete-window-function (function mms-appt-delete-frame))

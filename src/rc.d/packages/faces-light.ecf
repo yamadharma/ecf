@@ -1,0 +1,52 @@
+(desire 'font-lock)
+
+(add-to-list 'default-frame-alist '(cursor-color . "red"))
+(add-to-list 'default-frame-alist '(mouse-color  . "red"))
+(add-to-list 'special-display-frame-alist '(cursor-color . "red"))
+(add-to-list 'special-display-frame-alist '(mouse-color  . "red"))
+	      
+;; Modify font-lock-string-face.
+(custom-set-faces
+ '(font-lock-string-face
+   ((((class color) (background light))
+     (:foreground "Navy")))))
+
+;; Some faces for messages... variables are for font-lock.
+
+(defface message-header-face nil
+  "Face for header part of message headers.")
+; (mms-copy-face 'font-lock-keyword-face 'message-header-face)
+(setq message-header-face 'message-header-face)
+
+(defface message-header-strong-face nil
+  "Face for text part of message headers.")
+(mms-copy-face 'message-header-face 'message-header-strong-face)
+(setq message-header-strong-face 'message-header-strong-face)
+(make-face-bold 'message-header-strong-face)
+
+(defface message-from-header-face nil
+  "Face for header part of message from headers.")
+; (mms-copy-face 'font-lock-function-name-face 'message-from-header-face)
+(setq message-from-header-face 'message-from-header-face)
+
+(defface message-from-text-face nil
+  "Face for text part of message from headers.")
+(mms-copy-face 'message-from-header-face 'message-from-text-face)
+(setq message-from-text-face 'message-from-text-face)
+(make-face-bold 'message-from-text-face)
+
+(defface message-subject-header-face nil
+  "Face for header part of message subject headers.")
+; (mms-copy-face 'font-lock-type-face 'message-subject-header-face)
+(setq message-subject-header-face 'message-subject-header-face)
+
+(defface message-subject-text-face nil
+  "Face for text part of message subject headers.")
+(mms-copy-face 'message-subject-header-face 'message-subject-text-face)
+(setq message-subject-text-face 'message-subject-text-face)
+(make-face-bold 'message-subject-text-face)
+
+(defface message-mail-header-separator-face nil
+  "Face for mail header separator.")
+(mms-copy-face 'region 'message-mail-header-separator-face)
+(setq message-mail-header-separator-face 'message-mail-header-separator-face)

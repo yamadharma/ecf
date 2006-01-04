@@ -1,0 +1,3 @@
+(autoload 'todo-mode "todo-mode" "Major mode for editing TODO lists." t)
+(autoload 'todo-show "todo-mode" "Show TODO items." t)
+(autoload 'todo-insert-item "todo-mode" "Add TODO item." t)

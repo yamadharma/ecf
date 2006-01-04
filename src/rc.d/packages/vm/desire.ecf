@@ -1,0 +1,238 @@
+;; READING MAIL
+
+;;{{{ For GNU Emacs 20
+
+(defun vm-check-emacs-version () t)
+
+;;}}}
+;; Default spool files.  Assume all mail is delivered locally.  For
+;; POP mail, fetchmail is used...
+;(setq display-time-mail-file 'no   ;; Let VM do this...
+;      vm-spool-files         (list (getenv "MAIL")
+;				   (expand-file-name "SMAIL"
+;						     vm-folder-directory)
+;				   gnus-author-copy))
+
+;;----------------------------------------------------------------------
+
+;(setq vm-primary-inbox       (expand-file-name "INBOX" vm-folder-directory)
+;      vm-crash-box           (expand-file-name "CRASHBOX" vm-folder-directory)
+;      vm-preview-lines       nil
+;      vm-auto-center-summary nil)
+
+;(let ((vm-dir (expand-file-name (file-name-directory (locate-library "vm")))))
+;  (mapcar 
+;   '(lambda (p) (eval `(setq ,(car p) ,(expand-file-name (cadr p) vm-dir))))
+;   '((vm-toolbar-pixmap-directory    "pixmaps")
+;     (vm-mime-base64-decoder-program "base64-decode")
+;     (vm-mime-base64-encoder-program "base64-encode")
+;     (vm-mime-qp-decoder-program     "qp-decode")
+;     (vm-mime-qp-encoder-program     "qp-encode"))))
+
+;; Display "+" next to mail that is really addressed to me.
+;(defun vm-summary-function-A (m)
+;  (if (string-match user-mail-names (vm-su-to m))
+;      "+" " "))
+
+;(setq vm-summary-format
+;      "%n %UA%*%a %-15.15F %2d-%3.3m-%2.-2y [%4l] %s\n")
+
+;(setq vm-summary-uninteresting-senders
+;      user-mail-names)
+
+;; Get new mail clears "Mail" from mode line.
+;(add-hook 'vm-retrieved-spooled-mail-hook
+;	  'display-time-event-handler)
+
+;(define-key vm-mode-map         "A" nil)
+;(define-key vm-summary-mode-map "A" nil)
+;(define-key vm-mode-map         "S" 'vm-save-and-expunge-folder)
+;(define-key vm-summary-mode-map "S" 'vm-save-and-expunge-folder)
+
+;;----------------------------------------------------------------------
+
+;; Textual mime types.
+
+(setq vm-mime-internal-content-type-exceptions       nil
+      vm-auto-displayed-mime-content-type-exceptions nil
+      vm-mime-type-converter-alist                   nil)
+
+;; Allow easy conversion/display of these.
+;(add-to-list 'vm-mime-type-converter-alist
+;	     '("application/msword" "text/plain" "catdoc -"))
+;(add-to-list 'vm-mime-type-converter-alist
+;	     '("application/pgp-signature" "text/plain" "cat"))
+
+;; HTML: Automatically display, but use external script instead of w3.
+(add-to-list 'vm-mime-internal-content-type-exceptions
+	     '"text/html")
+(add-to-list 'vm-mime-type-converter-alist
+	     '("text/html" "text/plain" "unhtml"))
+
+;(require 'vm-vcard)
+
+
+;;----------------------------------------------------------------------
+
+;;{{{ Virtual folders.
+
+;(add-hook 'vm-virtual-mode-hook 'vm-summarize)
+
+;; Use VM's virtual folders.  This means I'm able to focus on a
+;; particular mailing list or whatever at a time.  This means that I
+;; can be more careless...  or just faster...
+
+;; Use backquote to quote the whole thing because we want to mess with
+;; user-mail-names in there.
+;(setq vm-virtual-folder-alist
+;      `(("*martins*"
+;	 (("INBOX")
+;	  (recipient ,user-mail-names)
+;	  ))
+;	("*sysadmin*"
+;	 (("INBOX")
+;	  (recipient "\\<\\(root\\|postmaster\\|mailer-daemon\\)\\>@")
+;	  ))
+;	("*spam*"
+;	 (("INBOX")
+;	  (and
+;	   (or (text "\\$")
+;	       (header-or-text "work at home")
+;	       (header-or-text "become a millionaire"))
+;	   (header-or-text "\\(online business\\|free\\|works!\\|[Tt]o be removed.*reply.*remove\\|bulk e-?mail software\\|find out how\\|adult.*\\(products\\|only\\)\\)")
+;	   )))
+;	 ("auscert"
+;	  (("INBOX")
+;	   (recipient "@auscert\\.org")))
+;	 ("bbdb"
+;	  (("INBOX")
+;	   (or (recipient "bbdb@")
+;	       (recipient "bbdb-info@"))))
+;	 ("bugtraq"
+;	  (("INBOX")
+;	   (recipient "bugtraq.*@")))
+;	 ("clug"
+;	  (("INBOX")
+;	   (recipient "linux@.*samba")))
+;	 ("debian"
+;	  (("INBOX")
+;	   (recipient "@.*debian.org")))
+;	 ("haskell"
+;	  (("INBOX")
+;	   (or (header "\\(owner-\\)?haskell\\(-outgoing\\|-cafe\\)?@"))))
+;	 ("hugs"
+;	  (("INBOX")
+;	   (recipient "hugs.*@")))
+;	 ("jokes"
+;	  (("INBOX")
+;	   (or (recipient "jokes@"))))
+;	 ("linuxcare-au"
+;	  (("INBOX")
+;	   (and (or (recipient "@.*linuxcare\\.com\\.au")
+;		    (recipient "oz.*@.*linuxcare\\.com"))
+;		(not (recipient ,user-mail-names)))))
+;	 ("linuxcare"
+;	  (("INBOX")
+;	   (and (recipient "@.*linuxcare\\.com")
+;		(not (recipient ,user-mail-names))
+;		(not (recipient "@.*linuxcare\\.com\\.au"))
+;		(not (recipient "oz.*@.*linuxcare\\.com")))))
+;	 ("pilot-unix"
+;	  (("INBOX")
+;	   (recipient "pilot-unix@")))
+;	 ("rsync"
+;	  (("INBOX")
+;	   (recipient "rsync@")))
+;	 ("spam-l"
+;	  (("INBOX")
+;	   (author-or-recipient "spam-l@peach.ease.lsoft.com")))
+;	 ))
+
+;;}}}
+;;{{{ SAVING MAIL
+
+(setq vm-delete-after-saving	      t
+      vm-delete-after-archiving	      t
+      vm-move-after-deleting	      t
+      vm-auto-folder-case-fold-search t
+      vm-confirm-new-folders          t
+      vm-default-folder-type          'From_)
+
+;(setq vm-auto-folder-alist
+;     '(
+;	("To:"
+;	 ("@.*\\.linuxcare\\.com" . "linuxcare/misc")
+;	 ("bbdb.*@" . "emacs/bbdb")
+;	 )
+;	("Sender"
+;	 ("bbdb.*@"    . "emacs/bbdb")
+;	 ("haskell@"   . "functional/haskell")
+;	 ("hugs-bugs@" . "functional/hugs")
+;	 ("jokes@"     . "jokes")
+;	 ("@.*\\.linuxcare\\.com" . "linuxcare/misc")
+;	 )
+;	("Newsgroups"
+;	 ("rec\.humor\.funny" . "jokes")
+;	 ("gnu\.emacs\.vm\..*" . "emacs/vm")
+;	 )
+;	))
+
+;;}}}
+;;{{{ REPLYING
+
+;(setq vm-reply-ignored-addresses       (list user-mail-names)
+;      vm-reply-subject-prefix          "Re: "
+;     vm-forwarding-subject-format     "[%f: %s]"
+;      vm-mail-header-insert-message-id nil)
+
+;(load-library "spookmime")
+
+;; (require 'vm-multdom)
+;; (vm-multdom-install)
+;; (setq vm-multdom-user-addresses
+;;       '(("[Mm]artin\\(s\\|\\.Schwenke\\)?@meltin\\.net"
+;; 	 "martin@meltin.net"
+;; 	 "Martin Schwenke")
+;; 	("[Mm]artin\\(s\\|\\.Schwenke\\)?@linuxcare\\.com\\(\\.au\\)?"
+;; 	 "martin@meltin.net"
+;; 	 "Martin Schwenke")
+;; 	("[Mm]artin\\(s\\|\\.Schwenke\\)?@\\(cs\\.\\)?anu\\.edu\\.au"
+;; 	 "Martin.Schwenke@cs.anu.edu.au"
+;; 	 "Martin Schwenke")
+;; 	(".*@meltin\\.net")))
+
+;(load-library "vm-pcrisis")
+;(setq vmpc-auto-profiles-file
+;      (expand-file-name "vmpc-auto-profiles" emacs-etc-dir))
+
+;(setq vmpc-conditions
+;      '(
+;	("ALWAYS"
+;	 't)))
+
+;(setq vmpc-actions
+;      '(
+;	("martin at meltin"
+;	 (let ((martin-at-meltin "\"Martin Schwenke\" <martin@meltin.net>"))
+;	   (vmpc-substitute-header "From" 
+;				   martin-at-meltin)
+;	   (vmpc-substitute-header "Reply-To" 
+;				   martin-at-meltin)
+;	   ;;(vmpc-signature "~/.signature")
+;	   ))
+;	))
+
+
+;(setq vmpc-replies-alist
+;      '(
+;	("ALWAYS" "martin at meltin")
+;	))
+
+;;}}}
+;;{{{ Threading
+
+;(setq-default
+;  vm-summary-show-threads t
+;)
+
+;;}}}

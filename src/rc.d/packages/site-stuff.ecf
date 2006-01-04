@@ -1,0 +1,23 @@
+;;; ----------------------------------------------------------------------
+;;; Automatic decompression, hooks for tar-mode
+;;;
+;(require 'jka-compr)		 
+(auto-compression-mode t)
+
+(require 'icomplete) ; Interactive completion in minibuffer.
+
+;; Strip hostname from domain when posting news
+;(setq gnus-use-generic-from t)
+
+;(auto-compression-mode t)
+;; Time in 24 hour format, plus day and date.
+(setq display-time-day-and-date t)
+(setq display-time-24hr-format t)
+(display-time)
+;;
+(add-hook 'write-file-hooks 'time-stamp)
+; (require 'mc)
+;; Scroll bar mode
+(set-scroll-bar-mode 'left)
+
+(setq max-specpdl-size 1000)

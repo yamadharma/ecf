@@ -1,0 +1,12 @@
+;;;
+
+;; Uses:
+;;
+;; AUC TeX:
+;;     Excellent (La)TeX mode.
+;;
+;;     http://www.gnu.org/software/auctex/
+
+(require 'tex-site)
+
+;;;

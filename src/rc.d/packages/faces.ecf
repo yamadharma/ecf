@@ -1,0 +1,19 @@
+(defun mms-copy-face (oldface newface)
+  "Copy a face in a portable way."
+
+  (cond
+   ((string-match "XEmacs" emacs-version)
+    (copy-face oldface newface))
+   (t
+    (custom-set-faces
+     `(,newface
+       ((t
+	 ,(face-attr-construct oldface))))))))
+
+(let ((mode (cdr-safe (assq 'background-mode (frame-parameters)))))
+  (cond ((eq mode 'light)
+	 (desire 'faces-light))
+	((eq mode 'dark)
+	 (desire  'faces-dark))
+	(t
+	 (error "Unknown background mode"))))

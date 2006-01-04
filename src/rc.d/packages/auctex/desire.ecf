@@ -1,0 +1,38 @@
+;;;
+
+;; Make AUCTeX aware of style files and multi-file documents
+(setq TeX-parse-self t)                 ; Enable parse on load
+(setq TeX-auto-save t)                  ; Enable parse on save
+(setq-default TeX-master nil)  		; Query for master file
+
+;(add-hook 
+;  'LaTeX-mode-hook
+;    (function (lambda () (outline-minor-mode 1)))
+;)
+
+
+(add-hook 
+  'LaTeX-mode-hook 'turn-on-bib-cite
+)
+
+(add-hook 
+  'LaTeX-mode-hook
+    (function (lambda () (require 'latex-paren)))
+)
+
+(desire-require 'bib-cite)
+(desire-require 'func-doc)
+(desire-require 'latex-units)
+
+(custom-set-variables
+  '(LaTeX-section-label
+    '(
+      ("chapter" . "ch:")
+      ("section" . "sec:")
+      ("subsection" . "sec:")
+      ("subsubsection" . "sec:")      
+    )
+  )
+)
+
+;;;

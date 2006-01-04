@@ -1,0 +1,4 @@
+(setq vm-highlighted-header-regexp "From:\\|Subject:"
+      vm-highlighted-header-face   'bold
+      vm-summary-highlight-face    'region
+      vm-highlight-url-face        'gui-button-face)

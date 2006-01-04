@@ -1,0 +1,8 @@
+;; Uses:
+;;
+;; AUC TeX:
+;;     Excellent (La)TeX mode.
+;;
+;;     ftp.iesd.auc.dk:/pub/emacs-lisp
+
+(require 'tex-site)

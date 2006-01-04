@@ -1,0 +1,4 @@
+(autoload 'diary-to-pilot "diary-pilot" "Export Emacs diary to palm pilot" t)
+(setq diary-pilot-list-entries-hook list-diary-entries-hook)
+(setq diary-pilot-list-entries-hook
+      (delete 'diary-include-todo-file diary-pilot-list-entries-hook))

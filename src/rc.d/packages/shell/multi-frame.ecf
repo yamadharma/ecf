@@ -1,0 +1,6 @@
+(setq same-window-buffer-names
+      (delete "*shell*" same-window-buffer-names))
+
+(add-to-list 'special-display-regexps
+	     '("\\`\\*shell\\*.*" . ((width . 80)
+				     (height . 25))))

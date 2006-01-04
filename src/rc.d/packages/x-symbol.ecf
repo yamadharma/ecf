@@ -1,0 +1,8 @@
+;;;
+(require 'x-symbol)
+
+; (setq x-symbol-default-coding 'iso-8859-5)
+
+(x-symbol-initialize)
+
+;;;

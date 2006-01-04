@@ -1,0 +1,19 @@
+;; Some of these aren't necessarily multi-frame specific, but this may
+;; be the best place to put them...
+
+(setq vm-mime-external-content-types-alist
+      '(("image/gif"                "xv")
+	("image/jpeg"               "xv")
+	("image/png"                "xv")
+	("application/postscript"   "gv")
+	;;("application/pdf"          "acroread")
+	("application/pdf"          "xpdf")
+	("audio/x-wav"              "play")
+	;;("application/msword"       "wordview")
+	("application/ms-excel"     "gnumeric")
+	("application/vnd.ms-excel" "gnumeric")
+	;;("video/mpeg"               "xanim")
+	("video/mpeg"               "xmps-gnome")
+	))
+
+(setq vm-url-browser 'vm-mouse-send-url-to-netscape)

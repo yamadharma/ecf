@@ -1,0 +1,5 @@
+(desire' font-lock)
+
+(custom-set-variables
+  '(font-lock-support-mode 'jit-lock-mode)
+)

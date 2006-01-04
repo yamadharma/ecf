@@ -1,0 +1,20 @@
+;; searching and replace
+(global-set-key "\M-s" 'search-forward)
+(global-set-key "\M-r" 'search-backward)
+(global-set-key "\M-S" 'tags-search)
+(global-set-key [?\C-\M-%] 'query-replace-regexp)
+
+;; bind backspace to be sensible, and help to M-h.
+;(global-set-key "\C-h" 'backward-delete-char-untabify)
+;(define-key global-map "\M-h" 'help-command)
+;(setq help-char ?\M-h )
+
+;; goto line n
+(global-set-key "\M-g" 'goto-line)
+
+;; miscellaneous
+(global-set-key "\M-M" 'manual-entry)
+; (define-key esc-map "?" 'ispell-complete-word)
+
+
+

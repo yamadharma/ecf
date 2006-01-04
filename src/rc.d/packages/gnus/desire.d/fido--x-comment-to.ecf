@@ -1,0 +1,30 @@
+;;; fido--x-comment-to.ecf --- add X-Comment-To, if not already there.
+
+(add-to-list 'gnus-extra-headers
+  'X-Comment-To
+)
+
+(add-to-list 'gnus-posting-styles
+  '("^fido.*"
+     ("X-Comment-To" "All")
+  )
+)
+
+;    
+;      (let 
+;        (
+;	  (whofrom (mail-header-from message-reply-headers))
+;	)
+;	(save-excursion
+;	  (unless 
+;	    (mail-position-on-field "X-Comment-To")
+;	    ("X-Comment-To" (mail-header-from message-reply-headers))
+;;	    (insert whofrom)
+;	  )
+;        )
+;      )
+;    )
+
+
+
+;;;

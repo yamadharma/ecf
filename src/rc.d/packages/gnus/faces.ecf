@@ -1,0 +1,10 @@
+(setq gnus-cite-minimum-match-count 1)
+
+(setq gnus-visual t)
+
+
+(setq gnus-header-face-alist
+      '(("From" message-from-text-face message-from-header-face)
+	("Subject" message-subject-text-face message-subject-header-face)
+	("Newsgroups:.*," nil bold)
+	("" message-header-face default)))

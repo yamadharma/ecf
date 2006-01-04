@@ -1,0 +1,6 @@
+;;;
+
+;; If non-nil, append a empty pair of braces after inserting a macro.
+(setq TeX-insert-braces t)
+
+;;;

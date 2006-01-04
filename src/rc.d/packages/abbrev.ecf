@@ -1,0 +1,5 @@
+(setq abbrev-file-name (expand-file-name "abbrevs" emacs-etc-dir))
+(read-abbrev-file)
+(add-hook 'text-mode-hook '(lambda () (abbrev-mode 1)))
+;; Edit the abbrevs file directly.  No saving all that rubbish!
+(setq save-abbrevs nil)

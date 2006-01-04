@@ -1,0 +1,1 @@
+(setq message-cite-function 'sc-cite-original)

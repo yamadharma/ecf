@@ -1,0 +1,17 @@
+;;(setq todo-prefix "&%%(todo-cp)")
+(setq todo-prefix "*/*")
+(setq todo-time-string-format
+      "%:y-%02m-%02d")
+(setq todo-entry-prefix-function
+      '(lambda ()
+	 (let ((time-stamp-format todo-time-string-format))
+	   (concat (time-stamp-string) " - "))))
+
+(setq todo-directory
+      (expand-file-name "diary" emacs-etc-dir))
+(setq todo-file-do
+      (expand-file-name "todo-do" todo-directory))
+(setq todo-file-done
+      (expand-file-name "todo-done" todo-directory))
+(setq todo-file-top
+      (expand-file-name "todo-top" todo-directory))

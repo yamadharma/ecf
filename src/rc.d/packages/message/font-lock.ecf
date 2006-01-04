@@ -1,0 +1,19 @@
+(setq message-font-lock-keywords
+      (let* ((cite-prefix "A-Za-z")
+	     (cite-suffix (concat cite-prefix "0-9_.@-")))
+	(list
+	 '("^\\(To:\\|Newsgroups:\\) \\(.*\\)$"
+	   (1 message-from-header-face)
+	   (2 message-from-text-face))
+	 '("^\\(Subject:\\) \\(.*\\)$"
+	   (1 message-subject-header-face)
+	   (2 message-subject-text-face))
+	 '("^[GBF]?[Cc][Cc]:" . message-header-strong-face)
+	 '("^Date:" . message-header-strong-face)
+	 (cons mail-header-separator 'message-mail-header-separator-face)
+	 (cons (concat "^[ \t]*"
+		       "\\([" cite-prefix "]+[" cite-suffix "]*\\)?"
+		       "[>|}].*")
+	       'font-lock-reference-face)
+	 '("^\\(Reply-to\\|In-reply-to\\|References\\):"
+	   . message-header-face))))

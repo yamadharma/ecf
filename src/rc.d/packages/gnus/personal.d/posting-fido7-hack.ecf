@@ -1,0 +1,15 @@
+;;; posting-fido7-hack.ecf --- add fido7 password to the keywords <http://www.fido7.ru/passwords.html>
+
+;; Copy this file in your home config
+
+;; (add-to-list 'gnus-extra-headers
+;;   'Keywords
+;; )
+
+;; (add-to-list 'gnus-posting-styles
+;;   '("^fido7\\..*"
+;;     ("Keywords" "1234567890")
+;;   )
+;; )
+
+;;;

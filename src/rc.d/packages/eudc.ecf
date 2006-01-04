@@ -1,0 +1,6 @@
+(setq ldap-default-host "intranet")
+(setq ldap-default-base "dc=linuxcare, dc=com")
+
+(require 'eudc-autoloads)
+(require 'eudc)
+

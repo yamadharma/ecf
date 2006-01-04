@@ -1,0 +1,10 @@
+(custom-set-variables
+ '(save-place t)
+ '(save-place-file 
+   (expand-file-name 
+     (concat home-cache-path "/saveplace.gz")
+   )
+ )
+)
+
+(require 'saveplace)

@@ -1,0 +1,35 @@
+;; Change the modeline
+;;
+;(setq mode-line-system-identification  
+;  (substring (system-name) 0
+;             (string-match "\\..+" (system-name))))
+;(setq default-mode-line-format
+;      (list ""
+;            'mode-line-modified
+;            "<"
+;            'mode-line-system-identification
+;            "> "
+;            "%14b"
+;            " "
+;            'default-directory
+;            " "
+;            "%[(" 
+;            'mode-name 
+;            'minor-mode-alist 
+;            "%n" 
+;            'mode-line-process  
+;            ")%]--" 
+;             "L %l--"
+;	     "C %c--"
+;            '(-3 . "%P")
+;            "-%-"))
+;; Start with new default.
+;(setq mode-line-format default-mode-line-format)
+
+;; Show column number
+(column-number-mode t)
+
+;; Time in 24 hour format, plus day and date.
+(setq display-time-day-and-date t)
+(setq display-time-24hr-format t)
+(display-time)

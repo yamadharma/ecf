@@ -1,0 +1,85 @@
+;(require 'u-vm-color)
+;(add-hook 'vm-mode-hook              'u-vm-color-presentation-mode)
+;(add-hook 'vm-presentation-mode-hook 'u-vm-color-presentation-mode)
+;(add-hook 'vm-summary-mode-hook      'u-vm-color-summary-mode)
+
+
+;(mms-copy-face 'message-from-text-face    'u-vm-color-author-face)
+;(mms-copy-face 'message-subject-text-face 'u-vm-color-subject-face)
+;(mms-copy-face 'message-header-face       'u-vm-color-header-face)
+
+
+;; Known bugs:
+;;
+;; * The hook below doesn't help!  The rmail buffer isn't fontified on
+;;   startup.
+
+;;; (desire 'make-regexp)
+
+;;; (setq vm-font-lock-keywords
+;;;       (let* ((cite-prefix "A-Za-z")
+;;; 	     (cite-suffix (concat cite-prefix "0-9_.@-")))
+;;; 	(list
+;;; 	 '("^\\(From:\\) \\(.*\\)$"
+;;; 	   (1 message-from-header-face)
+;;; 	   (2 message-from-text-face))
+;;; 	 '("^\\(Subject:\\) \\(.*\\)$"
+;;; 	   (1 message-subject-header-face)
+;;; 	   (2 message-subject-text-face))
+;;; 	 (cons (concat "^\\("
+;;; 		       (make-regexp
+;;; 			'("To"
+;;; 			  "Reply-To" "Reply-to"
+;;; 			  "Apparently-To" "Apparently-to"
+;;; 			  "CC" "Cc"
+;;; 			  "Date"
+;;; 			  "Sender"))
+;;; 		       "\\):")
+;;; 	       'message-header-strong-face)
+;;; 	 (cons (concat "^[ \t]*"
+;;; 		       "\\([" cite-prefix "]+[" cite-suffix "]*\\)?"
+;;; 		       "[>|}].*")
+;;; 	       'font-lock-reference-face)
+;;; 	 (cons (concat "^\\("
+;;; 		       (make-regexp
+;;; 			'("In-Reply-To" "In-reply-to"
+;;; 			  "Return-Path" "Return-path"
+;;; 			  "References"
+;;; 			  "Encoding"
+;;; 			  "Newsgroups" 
+;;; 			  "Organization"
+;;; 			  "Path"
+;;; 			  "Lines"
+;;; 			  "Approved"
+;;; 			  "Distribution"))
+;;; 		       "\\|" "X-[A-Za-z0-9-]+"
+;;; 		       "\\|" "M[Ii][Mm][Ee]-.*"
+;;; 		       "\\|" "N[Nn][Tt][Pp]-.*"
+;;; 		       "\\|" "Content.*\\):")
+;;; 	       'message-header-face))))
+
+;;; (require 'font-lock)
+;;; (and (boundp 'font-lock-defaults-alist)
+;;;      (or (assq 'vm-mode font-lock-defaults-alist)
+;;; 	 (add-to-list 'font-lock-defaults-alist
+;;; 		      (cons 'vm-mode
+;;; 			    '(vm-font-lock-keywords
+;;; 			      t t
+;;; 			      ((?\" . ".")))))))
+
+;;; (add-hook 'vm-mode-hook
+;;; 	  'turn-on-font-lock)
+
+
+;; AJK/GEC: VM summary buffer
+
+;;(setq vm-summary-font-lock-keywords
+;;      '(
+;;	("^\\( *[0-9]+ \\*.*\\)$" 1 font-lock-summary-marked-face  t)
+;;	("^\\( *[0-9]+   .*\\)$"  1 font-lock-summary-seen-face    t)
+;;	("^\\( *[0-9]+  D.*\\)$"  1 font-lock-summary-deleted-face t)
+;;	("^\\( *[0-9]+  U.*\\)$"  1 font-lock-summary-unread-face  t)
+;;	("^\\( *[0-9]+  N.*\\)$"  1 font-lock-summary-new-face     t)
+;;	("^\\(->.*\\)$"           1 font-lock-summary-current-face t)
+;;        ))
+

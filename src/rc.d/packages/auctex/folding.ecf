@@ -1,0 +1,4 @@
+(add-hook 
+  'LaTeX-mode-hook
+    (function (lambda () (folding-mode 1)))
+)

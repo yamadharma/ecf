@@ -1,0 +1,5 @@
+;; Use Emacs 20.4 sql-mode instead.
+
+;;(autoload 'sqlplus-mode "sqlplus-mode" "SQL Editing Mode" t)
+;;(add-to-list 'auto-mode-alist
+;;	     '("\\.sql$" . sqlplus-mode))

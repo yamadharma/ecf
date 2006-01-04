@@ -1,0 +1,61 @@
+;; Use a slightly nonstandard diary file.
+(setq diary-file (expand-file-name "diary/DIARY" emacs-etc-dir))
+
+(add-hook 'diary-display-hook 'fancy-diary-display t)
+
+;; This combination should be OK.
+(setq diary-list-include-blanks nil)
+(setq number-of-diary-entries 31)
+
+;; Make sure diary entries are sorted, and includes are processed.
+(add-hook 'list-diary-entries-hook 'include-other-diary-files)
+(add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+(add-hook 'list-diary-entries-hook 'diary-include-todo-file t)
+
+(autoload 'diary-include-todo-file "diary-todo"
+  "Include `to do' list in diary.")
+
+;; Mark diary entries on calendar.  Allow nested diary files and make
+;; sure that entries from all files are marked on the calendar.
+(add-hook 'mark-diary-entries-hook 'mark-included-diary-files)
+
+;; How to print the visible diary.
+(setq print-diary-entries-hook 'print-buffer)
+
+(defun mms-mail-diary ()
+  "Mail the contents of the fancy diary buffer to `user-mail-address'."
+  
+  (interactive)
+  (save-excursion
+    ;; Grab the entries.
+    (set-buffer "*Fancy Diary Entries*")
+    (let ((text (buffer-substring (point-min) (point-max)))
+	  (b (generate-new-buffer "*#diary-mail#*")))
+
+      ;; Now send text as a mail message.
+      (set-buffer b)
+      (require 'sendmail)
+      (mail-setup user-mail-address
+		  (concat "DIARY: "
+			  (format-time-string "%a %d %b %Y" (current-time)))
+		  nil nil nil nil)
+      (goto-char (point-max))
+      (insert text)
+      (mail-send)
+      (kill-buffer b))))
+
+;;(add-hook 'diary-hook 'mms-mail-diary)
+
+(require 'solar)
+(defun solar-sunrise-sunset-string (date)
+  "String of *local* times of sunrise, sunset, and daylight on Gregorian DATE."
+  (let ((l (solar-sunrise-sunset date)))
+    (format
+     "%s, %s at %s"
+     (if (car l)
+         (concat "Sunrise " (apply 'solar-time-string (car l)))
+       "No sunrise")
+     (if (car (cdr l))
+         (concat "sunset " (apply 'solar-time-string (car (cdr l))))
+       "no sunset")
+     (eval calendar-location-name))))

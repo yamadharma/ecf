@@ -1,0 +1,9 @@
+;; BibTeX mode
+
+(setq bibtex-mode-user-optional-fields
+      '(("isbn"     "ISBN number")
+	("anu"      "Where to find this item at the ANU")
+	("url"      "URL of online document")
+	("abstract" "Abstract, if available")))
+(setq bibtex-sort-ignore-string-entries t)
+(add-hook 'bibtex-mode-hook 'turn-on-auto-fill)

@@ -1,0 +1,7 @@
+;;(setq url-proxy-services
+;;      '(("http" . "http://wwwcache.anu.edu.au/")
+;;	("gopher" . "http://wwwcache.anu.edu.au/")
+;;	("no_proxy" . "anu.edu.au")))
+
+;(setq w3-configuration-directory
+;      (expand-file-name "w3/" emacs-etc-dir))

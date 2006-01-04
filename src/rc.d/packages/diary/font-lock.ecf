@@ -1,0 +1,31 @@
+(defvar fancy-diary-font-lock-keywords
+  (let* ((dayname (concat
+		  "\\("
+		  (diary-name-pattern calendar-day-name-array)
+		  "\\)"))
+	(monthname (concat
+		    "\\("
+		    (diary-name-pattern calendar-month-name-array)
+		    "\\)"))
+	(day "[1-3]?[0-9]")
+	(year "[0-9]+")
+	(date (concat (mapconcat 'eval calendar-date-display-form "")
+		      ".*\n=+"))
+	(time (concat "^[0-2]?[0-9]:?"
+		      "\\([0-5][0-9]\\)\\(-[0-2]?[0-9]:?"
+		      "\\([0-5][0-9]\\)?\\)?\\(am\\|pm\\)?")))
+    (list
+     (cons date 'font-lock-type-face)
+     (cons time 'font-lock-variable-name-face)))
+  "*Default expressions to highlight in fancy diary buffer.")
+
+(add-hook 'diary-display-hook
+	  '(lambda ()
+	     (if (get-buffer fancy-diary-buffer)
+		 (save-excursion
+		   (set-buffer fancy-diary-buffer)
+		   (make-local-variable 'font-lock-defaults)
+		   (setq font-lock-defaults
+			 '(fancy-diary-font-lock-keywords t))
+		   (font-lock-fontify-buffer))))
+	  t)
