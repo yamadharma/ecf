@@ -1,0 +1,12 @@
+;;
+
+(load "preview-latex.el" nil t t)
+;(desire-require 'preview-latex)
+
+(custom-set-variables
+  '(preview-auto-cache-preamble t)
+  '(preview-preserve-counters t)
+  '(preview-prefer-TeX-bb t)
+)
+
+
