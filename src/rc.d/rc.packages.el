@@ -80,11 +80,15 @@
 (desire 'font-lock-jit)
 ; (desire 'font-lock-lazy)
 ; (desire 'font-lock-fast)
-;(desire 'faces)
+; (desire 'faces)
 
 ;;
 
 (desire 'folding)
+;(desire 'outline)
+
+;;
+(desire 'toolbar)
 
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell

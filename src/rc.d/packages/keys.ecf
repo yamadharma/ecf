@@ -1,4 +1,6 @@
+;;
 ;; searching and replace
+
 (global-set-key "\M-s" 'search-forward)
 (global-set-key "\M-r" 'search-backward)
 (global-set-key "\M-S" 'tags-search)
@@ -14,7 +16,7 @@
 
 ;; miscellaneous
 (global-set-key "\M-M" 'manual-entry)
-; (define-key esc-map "?" 'ispell-complete-word)
+
 
 
 

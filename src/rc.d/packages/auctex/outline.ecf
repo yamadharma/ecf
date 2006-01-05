@@ -1,0 +1,6 @@
+;;
+
+(add-hook 
+  'LaTeX-mode-hook
+    (function (lambda () (outline-minor-mode 1)))
+)

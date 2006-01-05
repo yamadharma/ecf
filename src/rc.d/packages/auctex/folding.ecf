@@ -1,4 +1,15 @@
+;; -*- coding: iso-2022-7bit-unix; -*-
+
+;; folding
+
 (add-hook 
   'LaTeX-mode-hook
     (function (lambda () (folding-mode 1)))
+)
+
+;; TeX-folding
+
+(add-hook 
+  'TeX-mode-hook 
+    (function (lambda () (TeX-fold-mode 1)))
 )
