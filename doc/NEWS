@@ -1,8 +1,12 @@
 
+ecf-0.0.4
+
+* Mod: config dirs extension changed from ".d" to ".ecd" (z.B. desire.d -> desire.ecd) (for aestetic reason 8-)) 
+
 ecf-0.0.3
 
 * Mod: ecf-mule reorganised
-* Add: precondition to desire. Now desire format (desire 'package "fname" "precond")
+* Add: precondition to desire. Now desire format is: (desire 'package "fname" "precond")
 
 ecf-0.0.2
 
@@ -11,4 +15,3 @@ ecf-0.0.2
 * Mod: host-wide configs in `/etc/ecf/'
 * Mod: user configs in `~/.config/ecf/' (by `Desktop base directory spec' http://www.freedesktop.org/Standards/basedir-spec)
 * Mod: cache files in `~/.cache/elisp/' (by `Desktop base directory spec' http://www.freedesktop.org/Standards/basedir-spec)
-

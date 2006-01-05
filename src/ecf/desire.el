@@ -2,14 +2,14 @@
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
-;;		    Dmitry S. Kulyabov <dharma@mx.pfu.edu.ru>	
-;; Maintainer:      dharma@mx.pfu.edu.ru
+;;		    Dmitry S. Kulyabov <yamadharma@gmail.com> <dharma@mx.pfu.edu.ru>	
+;; Maintainer:      Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;; Created:         20-Jun-1995
 
 ;; Keywords: setup configuration
 
 ;; Copyright (C) 1995, 1996, 1997, 1998, 1999, 2000, 2001 Martin Schwenke and Graham Williams
-;; Copyright (C) 2002-2005 Dmitry S. Kulyabov
+;; Copyright (C) 2002-2006 Dmitry S. Kulyabov
 
 ;; This file is NOT part of GNU Emacs.  It is, however, distributed
 ;; under the same conditions as GNU Emacs, which are as follows:
@@ -35,7 +35,7 @@ data.")
 (defvar desire-extension ".ecf"
   "*The extension given to configuration files used by `desire'.")
 
-(defvar desire-dir-extension ".d"
+(defvar desire-dir-extension ".ecd"
   "*The extension given to configuration directories used by `desire'.")
 
 (defvar desire-loaddefs "loaddefs"
