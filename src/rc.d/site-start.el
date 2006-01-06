@@ -33,7 +33,7 @@
 )
 
 (defvar site-lisp-path
-  (concat rootpath "share/site-lisp")
+  (concat rootpath "share/site-lisp/")
   "*Name of directory where various emacs related site-wide files reside."    
 )
 

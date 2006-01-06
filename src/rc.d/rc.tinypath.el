@@ -51,7 +51,8 @@
 ;; Configure load path `tinypath-:load-path-root'
 (let 
   (
-    (main-xe-load-path)				;; Emacs or Xemacs main dir
+;    (main-xe-load-path)				;; Emacs or Xemacs main dir
+;    (main-site-lisp-xe-root-path)		;; Emacs or Xemacs main site-lisp root dir
     (site-lisp-xe-root-path)			;; Emacs or Xemacs site-lisp root dir
     (site-lisp-common-root-path)		;; Site-lisp common root dir
     (site-lisp-xe-packages-path)		;; Emacs or Xemacs site-lisp dir
@@ -59,23 +60,62 @@
     (site-lisp-system-path)			;; Site-lisp system depended dir
   )
 
+
+;  (setq main-xe-load-path
+;    (if (boundp 'xemacs-logo)          
+;      (list 
+;        (concat rootpath "share/xemacs/lisp")
+;      )
+;      (list	
+;        (concat rootpath "share/emacs")  ;; FIXME??? (concat rootpath "share/emacs/" emacs-version)          
+;      )
+;    )
+;  ) 
+
   ;; Emacs or Xemacs main dir
-  (setq main-xe-load-path
+  
+  (if (boundp 'xemacs-logo)          
+    (setq main-xe-load-path    
+      (list 
+        (concat rootpath "share/xemacs/lisp")
+      )
+    )
+    ;; Emacs part
+    (mapc
+      (function
+        (lambda (a) 
+          (if (string-match "[/\\]emacs[/\\][0-9]+\.[0-9]+.*[/\\]lisp$"  a) 
+            (setq main-xe-load-path
+              (list
+	        (substring a 0 -5)
+              )
+	    )
+	    t
+          )
+        )
+      )  
+      load-path
+    )
+    ;;
+  )  
+
+;; FIXME??? This is very dirty
+  (setq main-site-lisp-xe-root-path
     (if (boundp 'xemacs-logo)          
       (list 
         (concat rootpath "share/xemacs/lisp")
       )
       (list	
-        (concat rootpath "share/emacs")  ;; FIXME??? (concat rootpath "share/emacs/" emacs-version)          
+        (concat rootpath "share/emacs/site-lisp")  
       )
     )
   ) 
-  
+
   ;; Emacs or Xemacs site-lisp root dir
   (setq site-lisp-xe-root-path
     (if (boundp 'xemacs-logo)
-      (concat site-lisp-path "xemacs")
-      (concat site-lisp-path "emacs")
+      (expand-file-name "xemacs" site-lisp-path)
+      (expand-file-name "emacs" site-lisp-path)
     )
   ) 
   
@@ -115,6 +155,7 @@
     (append
       ecf-config-load-path			;; Configuration ecf path
       main-xe-load-path				;; Emacs or Xemacs main dir
+      main-site-lisp-xe-root-path		;; Emacs or Xemacs main site-lisp root dir
       site-lisp-xe-packages-path		;; Emacs or Xemacs site-lisp dir
       site-lisp-common-packages-path	        ;; Site-lisp common packages dir
       site-lisp-system-path			;; Site-lisp system depended dir
@@ -129,6 +170,26 @@
     "\\|[/\\]ecf-mule"
 )
 
+;; Ignored dirs for other version of emacs
+;(mapc
+; (function
+;  (lambda (a) 
+;    (if (string-match a emacs-version) () 
+;      (setq tinypath-:load-path-ignore-regexp-extra
+;	    (concat
+;	     "\\|/usr/share/emacs/" a "/site-lisp"
+;	     tinypath-:load-path-ignore-regexp-extra 
+;	     )
+;       )
+;    )
+;   )
+;  )  
+;  (directory-files "/usr/share/emacs" nil "[0-9].*" nil)
+;)
+
+;;"\\|[/\\]emacs[/\\]" a "[/\\]+"
+;;"\\|[/\\]emacs[/\\]" a "[/\\]leim"
+
 ;; Ignored dirs
 (setq tinypath-:load-path-ignore-regexp-extra
   (concat
@@ -138,6 +199,8 @@
   )
 )
 
+; "\\|21\\.4[/\\]"
+; "\\|/usr/share/emacs/23\\.0\\.0/site-lisp"
 ;    "\\|[/\\]quail"
 ;    "\\|[/\\]flim"
 ;    "\\|[/\\]wl"    

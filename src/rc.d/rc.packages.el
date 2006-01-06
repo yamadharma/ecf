@@ -76,7 +76,7 @@
 ;; ----------------------------------------------------------------------
 
 (desire 'fontset)
-; (desire 'font-lock)
+(desire 'font-lock)
 (desire 'font-lock-jit)
 ; (desire 'font-lock-lazy)
 ; (desire 'font-lock-fast)
@@ -88,6 +88,7 @@
 ;(desire 'outline)
 
 ;;
+
 (desire 'toolbar)
 
 ;; ----------------------------------------------------------------------
