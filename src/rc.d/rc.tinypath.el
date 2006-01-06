@@ -5,10 +5,10 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2004 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2006 Dmitry S. Kulyabov
 ;;      Keywords:      tinypath
-;;      Author:        Dmitry S. Kulyabov
-;;      Maintainer:    Dmitry S. Kulyabov <dharma@mx.pfu.edi.ru>
+;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
+;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;
 ;;      This code is free software in terms of GNU Gen. pub. Lic. v2 or later
 ;;
@@ -38,21 +38,27 @@
 ; (setq tinypath-:cache-file-hostname-function nil)
 
 ;; Compressed lisp file support
-;(custom-set-variables
-;  '(tinypath-:compression-support 
-;    'all
-;  )
+(custom-set-variables
+  '(tinypath-:compression-support 
+    'all
+  )
 ;  '(tinypath-:cache-file-postfix
 ;    ".el.gz"
 ;  )
-;)
+)
+
+;;  Peiodic load path syncronization watchdog
+; (setq tinypath-:load-hook
+;  '(tinypath-install tinypath-install-timer)
+; )
+
 
 
 ;; Configure load path `tinypath-:load-path-root'
 (let 
   (
-;    (main-xe-load-path)				;; Emacs or Xemacs main dir
-;    (main-site-lisp-xe-root-path)		;; Emacs or Xemacs main site-lisp root dir
+    (main-xe-load-path)				;; Emacs or Xemacs main dir
+    (main-site-lisp-xe-root-path)		;; Emacs or Xemacs main site-lisp root dir
     (site-lisp-xe-root-path)			;; Emacs or Xemacs site-lisp root dir
     (site-lisp-common-root-path)		;; Site-lisp common root dir
     (site-lisp-xe-packages-path)		;; Emacs or Xemacs site-lisp dir
@@ -84,7 +90,7 @@
     (mapc
       (function
         (lambda (a) 
-          (if (string-match "[/\\]emacs[/\\][0-9]+\.[0-9]+.*[/\\]lisp$"  a) 
+          (if (string-match "\\([/\\]Resources[/\\]lisp$\\|[/\\]emacs[/\\][0-9]+\.[0-9]+.*[/\\]lisp$\\)"  a) 
             (setq main-xe-load-path
               (list
 	        (substring a 0 -5)
@@ -99,7 +105,7 @@
     ;;
   )  
 
-;; FIXME??? This is very dirty
+;; FIXME This is very dirty
   (setq main-site-lisp-xe-root-path
     (if (boundp 'xemacs-logo)          
       (list 

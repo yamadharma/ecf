@@ -1,3 +1,5 @@
+;;;
+
 (require 'desktop)
 (setq desktop-enable t)
 (setq-default save-place t)

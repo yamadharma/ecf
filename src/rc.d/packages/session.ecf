@@ -17,8 +17,10 @@
 
 ; (setq session-save-file-coding-system 'mule-utf-8)
 
-; (setq desktop-globals-to-save '(desktop-missing-file-warning))
-
+(if (desiredp 'desktop)
+  (setq desktop-globals-to-save '(desktop-missing-file-warning))
+  nil
+)
 
 
  
