@@ -62,13 +62,32 @@ The function `desired' will add an item to this list.")
 (defvar desire-precondition nil
   "*Precondition for package loading.")
 
-(defun desired (package)
-  "Add PACKAGE (a symbol) as something which is `desirable'."
+(defun desired (package &optional fname precond)
+  "Add PACKAGE (a symbol) as something which is `desirable'.
+  The optional argument FNAME is a string containing 
+  the name of the file that, when loaded, will
+  trigger dynamic loading of extra configuration files.  If FNAME is
+  omitted then the string corresponding to PACKAGE is used instead.
+  PRECOND is name of file as precondition for package loadind."
   (or (symbolp package)
       (error "Wrong type argument to `desired': symbolp, %s"
 	     (prin1-to-string package))
   )
-  (add-to-list 'desirable (symbol-name package))
+  ;; Check precondition
+  (if (and
+	(not (desiredp package))
+	(if precond 
+	  (
+	    if (stringp precond)
+	      (locate-library precond)
+	      nil
+	  ) 
+	  t
+	)
+      )
+    (add-to-list 'desirable (symbol-name package))
+    nil
+  )      
 )
 
 (defun desiredp (package)

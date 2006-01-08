@@ -137,6 +137,7 @@
 (desired 'reftex)
 (desire 'bibtex)
 (desire 'tex)
+(desired 'preview-latex nil "preview-latex")
 (desire 'auctex "latex" "tex-site")
 
 ;;}}}
