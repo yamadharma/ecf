@@ -2,6 +2,7 @@
 ecf-0.0.4
 
 * Mod: config dirs extension changed from ".d" to ".ecd" (z.B. desire.d -> desire.ecd) (for aestetic reason 8-)) 
+* Add: precondition to desired function (like in desire). 
 
 ecf-0.0.3
 

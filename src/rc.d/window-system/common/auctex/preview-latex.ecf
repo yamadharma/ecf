@@ -1,7 +1,6 @@
 ;;
 
-(load "preview-latex.el" nil t t)
-;(desire-require 'preview-latex)
+(load "preview-latex")
 
 (custom-set-variables
   '(preview-auto-cache-preamble t)
