@@ -18,7 +18,7 @@
 ; (setq session-save-file-coding-system 'mule-utf-8)
 
 (if (desiredp 'desktop)
-  (setq desktop-globals-to-save '(desktop-missing-file-warning))
+  (add-to-list 'desktop-globals-to-save 'desktop-missing-file-warning)
   nil
 )
 

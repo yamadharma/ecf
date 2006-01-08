@@ -1,5 +1,29 @@
-;;;
+;;; desktop.ecf --- Load desktop settings -*- coding: iso-2022-7bit-unix; -*-
 
 (require 'desktop)
 (setq desktop-enable t)
 (setq-default save-place t)
+
+(mapcar
+ (lambda (symbol) 
+   (add-to-list 'desktop-globals-to-save symbol)
+ )
+ '(
+   (buffer-name-history      . 100)
+   (dired-regexp-history     . 20)
+   (extended-command-history . 100)
+   (file-name-history        . 500)
+   (grep-history             . 50)
+   (minibuffer-history       . 100)
+   (query-replace-history    . 60)
+   (read-expression-history  . 60)
+   (regexp-history           . 60)
+   (regexp-search-ring       . 20)
+   (search-ring              . 20)
+   (shell-command-history    . 50)
+ )
+)
+
+(add-to-list 'desktop-locals-to-save 'buffer-file-coding-system)
+
+;;; desktop.ecf ends here
