@@ -1,4 +1,4 @@
-;; ecf-mule.el -*- coding: iso-2022-7bit-unix; -*-
+;;; ecf-mule.el -*- coding: iso-2022-7bit-unix; -*-
 
 ;; function name: suffix-cut-from
 ;;   Cuts str after mychar and return.
@@ -90,7 +90,8 @@
   (setq dot-cands-list 
     (list 
       (downcase 
-        (concat system-dot-emacs lang ".el")
+;        (concat system-dot-emacs lang ".el")
+        lang
       )
     )
   )
@@ -101,7 +102,8 @@
       (append 
         (list 
           (downcase
-            (concat system-dot-emacs (prefix-cut-from lang ".") ".el")
+;            (concat system-dot-emacs (prefix-cut-from lang ".") ".el")
+            (prefix-cut-from lang ".")
    	  )
         )
 	dot-cands-list
@@ -115,7 +117,8 @@
       (append 
         (list 
           (downcase
-            (concat system-dot-emacs (suffix-cut-from lang ".") ".el")
+;            (concat system-dot-emacs (suffix-cut-from lang ".") ".el")
+            (suffix-cut-from lang ".")
    	  )
         )
 	dot-cands-list
@@ -129,7 +132,8 @@
       (append 
         (list 
           (downcase
-            (concat system-dot-emacs (suffix-cut-from lang "_") ".el")
+;            (concat system-dot-emacs (suffix-cut-from lang "_") ".el")
+            (suffix-cut-from lang "_")
 	  )
         )
 	dot-cands-list
@@ -142,9 +146,16 @@
 ;(append dot-cands-list (list (concat system-dot-emacs ".el"))))
   ;;(append dot-cands-list)
 
- (setq my-dot-cands-list 
-        dot-cands-list)
+;; Set global variables
+  (setq ecf-lang 
+    lang)
+  (setq ecf-lang-list 
+    dot-cands-list)
 
+;;
+  (setq dot-cands-list
+    (mapcar (function (lambda (x) (concat system-dot-emacs x ".el"))) dot-cands-list)
+  )    
   
   (while (consp dot-cands-list)
     (if (locate-library (car dot-cands-list))
@@ -164,4 +175,4 @@
 
 (provide 'ecf-mule)
 
-;;
+;;; ecf-mule.el ends here
