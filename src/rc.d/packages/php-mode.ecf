@@ -1,2 +1,6 @@
+;;; php-mode.ecf -*- coding: iso-2022-7bit-unix; -*-
+
 (autoload 'php-mode "php-mode" "PHP editing mode" t)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+
+;;; php-mode.ecf ends here

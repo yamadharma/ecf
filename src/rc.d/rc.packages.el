@@ -165,7 +165,6 @@
 ;(desire 'diary "diary-lib")
 
 ;;}}}
-
 ;;{{{ These provide options for the various message handling packages.
 
 ; (desire 'browse-url)
@@ -182,7 +181,12 @@
 ;(desire 'sendmail)
 
 ;;}}}
+;;{{{ Programming
 
+(desire 'php-mode nil "php-mode")
+(desire 'eiffel-mode nil "eiffel-mode")
+
+;;}}}
 ;;{{{ Miscellaneous
 
 ;(desire 'abbrev)
@@ -209,7 +213,4 @@
 ;(require 'discography) ; variant of BibTeX mode for discographies.
 
 
-
-
-
-
+;;; rc.packages.el ends here

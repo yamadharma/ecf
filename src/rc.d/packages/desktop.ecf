@@ -26,4 +26,8 @@
 
 (add-to-list 'desktop-locals-to-save 'buffer-file-coding-system)
 
+(custom-set-variables
+  '(desktop-base-file-name (expand-file-name "desktop.el" home-cache-path))
+)
+
 ;;; desktop.ecf ends here

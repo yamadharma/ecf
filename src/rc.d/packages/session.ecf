@@ -1,3 +1,5 @@
+;;; session.ecf -*- coding: iso-2022-7bit-unix; -*-
+
 (require 'session)
 
 (add-hook 'after-init-hook 'session-initialize)
@@ -22,5 +24,4 @@
   nil
 )
 
-
- 
+;;; session.ecf ends here

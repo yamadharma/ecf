@@ -1,2 +1,6 @@
-(add-to-list 'auto-mode-alist '("\\.e\\'" . eiffel-mode))
+;;; eiffel.ecf -*- coding: iso-2022-7bit-unix; -*-
+
 (autoload 'eiffel-mode "eiffel-mode" "Major mode for Eiffel programs" t)
+(add-to-list 'auto-mode-alist '("\\.e\\'" . eiffel-mode))
+
+;;; eiffel.ecf ends here
