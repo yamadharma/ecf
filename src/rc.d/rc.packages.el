@@ -151,7 +151,7 @@
 
 (desire 'desktop)
 (desire 'session nil "session")
-
+(desire 'saveplace nil "saveplace")
 
 ;;}}}
 ;;{{{ Appointments, diary, calendar.
