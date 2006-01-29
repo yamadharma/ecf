@@ -1,0 +1,6 @@
+;;; spell.ecf -*- coding: iso-2022-7bit-unix; -*-
+
+(setq ispell-dictionary "russian")
+(setq ispell-alternate-dictionary "english")
+
+;;; spell.ecf ends here

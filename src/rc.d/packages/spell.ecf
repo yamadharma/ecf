@@ -1,9 +1,9 @@
-;;;
+;;; spell.ecf -*- coding: iso-2022-7bit-unix; -*-
 
 ; (setq-default ispell-program-name "ispell")
 
-(setq ispell-dictionary "russian")
-(setq ispell-alternate-dictionary "english")
+;(setq ispell-dictionary "russian")
+;(setq ispell-alternate-dictionary "english")
 
 
 ; (load "incr-ispell")
@@ -13,4 +13,4 @@
 
 ;(define-key esc-map "?" 'ispell-complete-word)
 
-;;;
+;;; spell.ecf ends here

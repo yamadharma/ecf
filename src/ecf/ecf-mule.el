@@ -6,9 +6,7 @@
   (
     (dot-cands-list ecf-lang-list)
   )
-
-
-;;
+;
   (setq dot-cands-list
     (mapcar (function (lambda (x) (concat system-dot-emacs x ".el"))) dot-cands-list)
   )    
@@ -27,7 +25,7 @@
       )
     )
   )
-)
+) ;; let ends here
 
 (provide 'ecf-mule)
 

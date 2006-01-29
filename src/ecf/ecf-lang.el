@@ -171,7 +171,7 @@
 ;      )
 ;    )
 ;  )
-)
+) ;; let ends here
 
 (provide 'ecf-lang)
 
