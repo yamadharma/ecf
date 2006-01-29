@@ -21,3 +21,11 @@
 (set-scroll-bar-mode 'left)
 
 (setq max-specpdl-size 1000)
+
+;; Strip iccc encoding when paste from clipboard
+;(defun fix-rus-letter ()
+;  (interactive)
+;  (goto-char (point-min))
+;  (while (search-forward-regexp ".%/1..koi8-r." nil t) 
+;    (replace-match ""))
+;)
