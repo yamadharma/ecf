@@ -1,4 +1,8 @@
 
+ecf-0.0.5
+
+* Add: new rc.d/lang dirs.
+
 ecf-0.0.4
 
 * Mod: config dirs extension changed from ".d" to ".ecd" (z.B. desire.d -> desire.ecd) (for aestetic reason 8-)) 
