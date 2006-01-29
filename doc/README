@@ -71,6 +71,10 @@ this:
 	    pc/
 	    w32/
 	    x/
+	    ns/
+	lang/				LANG specific config files
+	    ru/
+	    koi8r/
 
 Each directory is searched in order to see if configuration data 
 for PACKAGE exists.  The configuration data takes
@@ -116,7 +120,7 @@ loaded first.  A file for the pseudo-package specified by
 `execute.ecf' is always loaded last.
 
 Each package-file may be splitted in many files, placed in directory
-PACKAGE.d (z.B. desire.d).
+PACKAGE.d (z.B. desire.ecd).
 
 Configuration files for `ecf'.
 
