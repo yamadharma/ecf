@@ -21,12 +21,14 @@
 ;;; Code:
 
 (require 'desire)
+(require 'ecf-lang)
 
 (let 
   (
     (desire-window-system-load-path)		;; Window System
     (desire-system-load-path)			;; OS
     (desire-xe-version-load-path)		;; Emacs or Xemacs
+    (desire-lang-load-path)			;; Languages
     (desire-load-subpath-list)			;; Main subdirs    
     (desire-config-dir-list)			;; Main config dirs    
   )
@@ -65,7 +67,12 @@
       )
     ) ;; end if
   )
-
+  
+  ;; Languages
+  (setq desire-lang-load-path
+    (mapcar (function (lambda (x) (concat "lang/" x))) ecf-lang-list)
+  )
+  
   ;; Main subdirs        
   (setq desire-load-subpath-list
     (append		
@@ -77,6 +84,8 @@
       desire-system-load-path
       ;; Emacs or Xemacs
       desire-xe-version-load-path
+      ;; Languages
+      desire-lang-load-path
     )
   )
 
@@ -111,3 +120,5 @@
   )
 
 ) ;; end let
+
+;;; rc.desire.el ends here
