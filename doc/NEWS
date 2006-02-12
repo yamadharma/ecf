@@ -2,6 +2,11 @@
 ecf-0.0.5
 
 * Add: new rc.d/lang dirs.
+* Modes added:
+    speedbar
+    semantic
+    cedet
+    ecb
 
 ecf-0.0.4
 

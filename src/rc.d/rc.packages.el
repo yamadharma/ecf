@@ -149,7 +149,7 @@
 
 ;;{{{ Save desktop
 
-(desire 'desktop)
+; (desire 'desktop)
 (desire 'session nil "session")
 (desire 'saveplace nil "saveplace")
 
@@ -182,6 +182,12 @@
 
 ;;}}}
 ;;{{{ Programming
+
+(desire 'speedbar nil "speedbar")
+(desire 'semantic nil "semantic")
+
+(desire 'cedet nil "cedet")
+(desire 'ecb nil "ecb")
 
 (desire 'php-mode nil "php-mode")
 (desire 'eiffel-mode nil "eiffel-mode")

@@ -1,0 +1,6 @@
+;;; ecb.ecf --- Emacs Code Browser -*- coding: iso-2022-7bit-unix; -*-
+
+(require 'ecb)
+;(require 'ecb-autoloads)
+
+;;; ecb.ecf ends here

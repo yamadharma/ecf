@@ -1,0 +1,5 @@
+;;; cedet.ecf --- Collection of Emacs Development Enviromnent Tools -*- coding: iso-2022-7bit-unix; -*-
+
+(require 'cedet)
+
+;;; cedet.ecf ends here

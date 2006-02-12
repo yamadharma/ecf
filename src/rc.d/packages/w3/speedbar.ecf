@@ -1,0 +1,7 @@
+;;; speedbar.ecf --- Load speedbar settings -*- coding: iso-2022-7bit-unix; -*-
+
+;; w3 link listings
+(autoload 'w3-speedbar-buttons "sb-w3" "s3 specific speedbar button generator.")
+
+;;; speedbar.ecf ends here
+

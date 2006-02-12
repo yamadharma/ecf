@@ -1,0 +1,6 @@
+;;;
+
+(setq semantic-load-turn-everything-on t)
+(require 'semantic-load)
+
+;;;
