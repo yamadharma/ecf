@@ -141,6 +141,13 @@
 (desire 'auctex "latex" "tex-site")
 
 ;;}}}
+;;{{{ XML, XHTML, HTML
+
+(desire 'nxml nil "rng-auto")
+; (desire 'psgml)
+
+;;}}}
+
 ;;{{{ Palm pilot support
 
 ;(desire 'palm)
@@ -205,7 +212,6 @@
 ;(desire 'lispdir)
 ;(desire 'php-mode)
 ;(desire 'ps-print)
-; (desire 'psgml)
 ;(desire 'sh-script)
 ;(desire 'shell)
 ;;(desire 'sql-mode)
