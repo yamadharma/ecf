@@ -28,9 +28,4 @@
 (put-charset-property 'cyrillic-iso8859-5 'preferred-coding-system 'koi8-r)
 
 ;;}}}
-;;{{{
-
-(set-input-method 'cyrillic-jcuken)
-
-;;}}}
 

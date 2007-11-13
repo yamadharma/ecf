@@ -1,4 +1,4 @@
-;;
+;;; -*- coding: utf-8 -*-
 
 (load "preview-latex")
 
@@ -8,4 +8,4 @@
   '(preview-prefer-TeX-bb t)
 )
 
-
+;;;

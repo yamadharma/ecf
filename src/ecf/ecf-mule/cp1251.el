@@ -21,8 +21,3 @@
 (set-selection-coding-system 'cp1251)
 
 ;;}}}
-;;{{{ Input method
-
-(set-input-method 'cyrillic-jcuken)
-
-;;}}}

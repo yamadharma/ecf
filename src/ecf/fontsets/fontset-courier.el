@@ -1,3 +1,5 @@
+;;; -*- coding: utf-8 -*-
+
 (create-fontset-from-fontset-spec
  "-*-Courier New-normal-r-*-*-12-*-*-*-c-*-fontset-courier,
  latin-iso8859-2:-*-Courier New-normal-r-*-*-12-*-*-*-c-*-iso8859-2,
@@ -15,6 +17,8 @@
  chinese-big5-1:-*-MingLiU-normal-r-*-*-12-*-*-*-c-*-big5-*,
  chinese-big5-2:-*-MingLiU-normal-r-*-*-12-*-*-*-c-*-big5-*" t)
 
+(set-default-font "fontset-courier")
+
 (setq default-frame-alist
   (append
         '((font . 
@@ -22,3 +26,5 @@
           default-frame-alist
   )
 )
+
+;;;

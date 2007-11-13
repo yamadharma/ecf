@@ -1,3 +1,7 @@
+;;; -*- coding: utf-8 -*-
+
 (load "dlgopen")
 ; define a short-cut key
 (global-set-key [(super o)] 'dlgopen-open-files)
+
+;;;

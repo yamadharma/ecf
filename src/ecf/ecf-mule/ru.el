@@ -39,9 +39,14 @@ nil
 )
 
 ;;}}}
+;;{{{
+
+(set-input-method 'cyrillic-jcuken)
+
+;;}}}
 
 
 (define-coding-system-alias 'koi8-u 'koi8-r)
 
-(message "ru.el !!!!!!!!!!!!!!!!!!!!")
+; (message "ru.el !!!!!!!!!!!!!!!!!!!!")
 

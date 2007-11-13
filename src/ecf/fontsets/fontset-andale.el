@@ -1,3 +1,5 @@
+;;; -*- coding: utf-8 -*-
+
 (create-fontset-from-fontset-spec
   "-*-Andale Mono-normal-r-*-*-12-*-*-*-c-*-fontset-andale,
   latin-iso8859-2:-*-Andale Mono-normal-r-*-*-12-*-*-*-c-*-iso8859-2,
@@ -18,3 +20,5 @@
        default-frame-alist
   )
 )
+
+;;;

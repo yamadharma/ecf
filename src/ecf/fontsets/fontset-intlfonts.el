@@ -1,3 +1,4 @@
+;;; -*- coding: utf-8 -*-
 ;;; intlfonts setup
 
 ;; For small screen users (eg. 640x480 or 800x600)

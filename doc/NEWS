@@ -1,4 +1,8 @@
 
+ecf-0.0.5.1
+
+* Add: emacs 23-unicode branch fonts support.
+
 ecf-0.0.5
 
 * Add: new rc.d/lang dirs.
