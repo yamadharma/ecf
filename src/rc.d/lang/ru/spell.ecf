@@ -1,6 +1,13 @@
-;;; spell.ecf -*- coding: iso-2022-7bit-unix; -*-
+;;; spell.ecf -*- coding: utf-8-unix; -*-
 
-(setq ispell-dictionary "russian")
+(if (string-match "ispell" ispell-program-name)
+    (setq ispell-dictionary "russian")
+)
+
+(if (string-match "aspell" ispell-program-name)
+    (setq ispell-dictionary "ru-yo")
+)
+
 (setq ispell-alternate-dictionary "english")
 
 ;;; spell.ecf ends here

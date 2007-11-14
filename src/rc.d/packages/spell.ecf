@@ -1,4 +1,6 @@
-;;; spell.ecf -*- coding: iso-2022-7bit-unix; -*-
+;;; spell.ecf -*- coding: utf-8-unix; -*-
+
+(require 'ispell)
 
 ; (setq-default ispell-program-name "ispell")
 

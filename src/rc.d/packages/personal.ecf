@@ -1,4 +1,4 @@
-;;;
+;;; personal.ecf -*- coding: utf-8-unix; -*-
 
 (defvar user-full-name       
   (user-full-name)
@@ -30,6 +30,10 @@
 
 ;; If mail-host-address isn't set then use the system name minus the
 ;; first component.
+
+(if (null system-name)
+  (setq mail-host-address "localhost")
+)
 
 (if (equal system-name "localhost")
   (setq mail-host-address "localhost")
@@ -68,4 +72,4 @@
 ;;(setq user-mail-address    "jfrederich@mac.com") ;; my email address
 ;;(setq mail-host-address    "mac.com") ;; my default mailserver
 
-;;;
+;;; personal.ecf ends here
