@@ -38,12 +38,17 @@
 (if (equal system-name "localhost")
   (setq mail-host-address "localhost")
 )
+;;{{{
 
-(if (not mail-host-address)
-  (setq mail-host-address
-    (substring (system-name) (+ 1 (string-match "\\." (system-name))))
-  )
-)
+(setq mail-host-address "localhost")
+
+;(if (not mail-host-address)
+;  (setq mail-host-address
+;    (substring (system-name) (+ 1 (string-match "\\." (system-name))))
+;  )
+;)
+
+;;}}}
 
 (defvar user-mail-address
   (concat (user-login-name) "@" mail-host-address)
