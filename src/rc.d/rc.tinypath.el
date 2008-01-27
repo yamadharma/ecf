@@ -197,10 +197,17 @@
 ;;"\\|[/\\]emacs[/\\]" a "[/\\]leim"
 
 ;; Ignored dirs
+;(setq tinypath-:load-path-ignore-regexp-extra
+;  (concat
+;    "\\|[/\\]lisp[/\\]language"
+;    "\\|[/\\]auctex"
+;    tinypath-:load-path-ignore-regexp-extra
+;  )
+;)
+
 (setq tinypath-:load-path-ignore-regexp-extra
   (concat
     "\\|[/\\]lisp[/\\]language"
-    "\\|[/\\]auctex"
     tinypath-:load-path-ignore-regexp-extra
   )
 )
