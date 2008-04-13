@@ -11,8 +11,8 @@ The very fast start
 
 2. Insatall ecf
 
-    i) Unpack ecf-0.0.5.1.tar.bz
-    ii) cd ecf-0.0.5.1
+    i) Unpack ecf-0.0.5.3.tar.bz
+    ii) cd ecf-0.0.5.3
     iii) run make process
 	make all
     iv) run make install process
