@@ -1,22 +1,12 @@
 ;;; -*- coding: utf-8 -*-
 
-(load "fontset-intlfonts")
-
-;;(load "fontset-dejavu")
-
-;;(set-default-font "-misc-dejavu sans mono-medium-r-normal--12-*-*-*-*-*-iso10646-1")
-
-;(if (null (x-list-fonts "*DejaVu*"))
-;    (load "fontset-intlfonts")
-;    (prog1
-;	(set-default-font "DejaVu Sans Mono:size=12")
-;	(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono:size=12"))
-;    )
-;)
-
-;(set-fontset-font (frame-parameter nil 'font)
-;      'han '("cwTeXHeiBold" . "unicode-bmp"))
-
-;(set-fontset-font "fontset-default" 'latin '("arial" . "unicode-bmp"))
+(if (> emacs-major-version 22)
+    (prog1
+	(set-default-font "consolas:size=14")
+	(set-fontset-font "fontset-default" 'cyrillic '("consolas" . "ISO10646-1"))
+	(set-fontset-font "fontset-default" 'greek '("consolas" . "ISO10646-1"))
+    )
+    (load "fontset-intlfonts")
+)
 
 ;;;
