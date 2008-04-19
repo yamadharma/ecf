@@ -3,6 +3,7 @@
 (if (> emacs-major-version 22)
     (prog1
 	(set-default-font "consolas:size=14")
+	(add-to-list 'default-frame-alist '(font . "consolas:size=14"))
 	(set-fontset-font "fontset-default" 'cyrillic '("consolas" . "ISO10646-1"))
 	(set-fontset-font "fontset-default" 'greek '("consolas" . "ISO10646-1"))
     )
