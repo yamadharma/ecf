@@ -12,12 +12,9 @@ all:
 
 install:
 	mkdir -p ${DESTDIR}/$(SITELISP)
-	cd src/skeleton ; \
-	    cp -R * ${DESTDIR}/${SITELISPROOT}
-	cd src ; \
-	    cp -R rc.d ${DESTDIR}/${SITELISPROOT}
-	cd src ; \
-	    cp -R ecf ${DESTDIR}/${SITELISP}
+	cp -R src/skeleton/* ${DESTDIR}/${SITELISPROOT}
+	cp -R src/rc.d ${DESTDIR}/${SITELISPROOT}
+	cp -R src/ecf ${DESTDIR}/${SITELISP}
 	mkdir -p ${DESTDIR}/etc/ecf
-
-
+	mkdir ${DESTDIR}/$(prefix)/bin
+	cp other/bin/* ${DESTDIR}/$(prefix)/bin

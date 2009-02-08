@@ -80,7 +80,7 @@
 ;;}}}
 ;;{{{ Gnuserv
 
-;(desire 'gnuserv)
+(desire 'gnuserv nil "gnuserv")
 
 ;; Rely on dtemacs to do this, otherwise a race condition can cause
 ;; dtemacs to fail.
@@ -100,7 +100,7 @@
 (desire 'font-lock-jit)
 ; (desire 'font-lock-lazy)
 ; (desire 'font-lock-fast)
-; (desire 'faces)
+(desire 'faces)
 
 ;;
 

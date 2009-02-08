@@ -31,5 +31,6 @@
 
 ;(define-key map "\e\t"   'TeX-complete-symbol) 
 
+; (load "flyspell-babel")
 
 
