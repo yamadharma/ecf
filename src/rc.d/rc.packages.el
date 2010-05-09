@@ -87,7 +87,11 @@
 ;; (gnuserv-start)
 
 ;;}}}
+;;{{{ Emacs daemon
 
+;; (desire 'emacs-daemon)
+
+;;}}}
 ;; ----------------------------------------------------------------------
 
 (desire 'keys)
@@ -194,10 +198,10 @@
 (desire 'semantic nil "semantic")
 
 (desire 'cedet nil "cedet")
-(desire 'ecb nil "ecb")
+;(desire 'ecb nil "ecb")
 
-(desire 'php-mode nil "php-mode")
-(desire 'eiffel-mode nil "eiffel-mode")
+;(desire 'php-mode nil "php-mode")
+;(desire 'eiffel-mode nil "eiffel-mode")
 
 ;;}}}
 ;;{{{ Miscellaneous

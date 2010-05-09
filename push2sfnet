@@ -1,0 +1,20 @@
+#!/bin/bash
+
+PROJNAME=`cat PROJECT`
+TMP=/tmp
+VERSION=`cat VERSION`
+
+TMPDIR=$TMP/$PROJNAME
+
+rm -rf $TMPDIR
+mkdir -p $TMPDIR/$PROJNAME-$VERSION
+
+cp -RL * $TMPDIR/$PROJNAME-$VERSION
+rm $TMPDIR/$PROJNAME/{VERSION*,PROJECT,push2sfnet}
+
+cd $TMPDIR
+
+tar -cJvf $PROJNAME-$VERSION.tar.xz $PROJNAME-$VERSION
+tar -cjvf $PROJNAME-$VERSION.tar.bz2 $PROJNAME-$VERSION
+
+scp $PROJNAME-$VERSION.tar.xz $PROJNAME-$VERSION.tar.bz2 yama_dharma,ecf@frs.sourceforge.net:/home/frs/project/e/ec/ecf/$PROJNAME
