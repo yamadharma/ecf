@@ -1,6 +1,10 @@
 ;;;
 
-(setq semantic-load-turn-everything-on t)
-(require 'semantic-load)
+;(setq semantic-load-turn-everything-on t)
+;(require 'semantic-load)
+
+(global-ede-mode 1)
+; (require 'semantic/sb)
+(semantic-mode 1)
 
 ;;;

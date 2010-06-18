@@ -41,12 +41,15 @@ nil
 ;;}}}
 ;;{{{
 
-(set-input-method 'cyrillic-jcuken)
+(if (>= emacs-major-version 22)
+  (set-input-method 'russian-computer)
+  (set-input-method 'cyrillic-jcuken)
+)
 
 ;;}}}
 
 
 (define-coding-system-alias 'koi8-u 'koi8-r)
 
-; (message "ru.el !!!!!!!!!!!!!!!!!!!!")
+;;
 

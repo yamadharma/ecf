@@ -39,7 +39,7 @@
 
 ;; Compressed lisp file support
 (custom-set-variables
-  '(tinypath-:compression-support 
+  '(tinypath-:compression-support
     'all
   )
 ;  '(tinypath-:cache-file-postfix
@@ -107,12 +107,12 @@
 
 ;; FIXME This is very dirty
   (setq main-site-lisp-xe-root-path
-    (if (boundp 'xemacs-logo)          
+    (if (boundp 'xemacs-logo)
       (list 
         (concat rootpath "share/xemacs/lisp")
       )
       (list	
-        (concat rootpath "share/emacs/site-lisp")  
+        (concat rootpath "share/emacs/site-lisp")
       )
     )
   ) 
@@ -142,9 +142,9 @@
     (list
       (expand-file-name "packages" site-lisp-xe-root-path)
     )
-  )    
+  )
 
-  ;; Site-lisp system depended dir    
+  ;; Site-lisp system depended dir
   (setq site-lisp-system-path
     (cond
       ((eq system-type 'windows-nt)
@@ -208,6 +208,7 @@
 (setq tinypath-:load-path-ignore-regexp-extra
   (concat
     "\\|[/\\]lisp[/\\]language"
+    "\\|[/\\]lisp[/\\]cedet"
     tinypath-:load-path-ignore-regexp-extra
   )
 )

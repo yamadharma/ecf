@@ -81,15 +81,15 @@
 ;;{{{ Prepare needed dirs
 
 (if (not (file-directory-p home-cache-path))
-  (make-directory home-cache-path t)          
+  (make-directory home-cache-path t)
 )
 
 (if (not (file-directory-p emacs-etc-dir))
-  (make-directory emacs-etc-dir t)          
+  (make-directory emacs-etc-dir t)
 )
 
 (if (not (file-directory-p "~/tmp"))
-  (make-directory "~/tmp" t)          
+  (make-directory "~/tmp" t)
 )
 
 ;;}}}
@@ -108,7 +108,7 @@
 (setq load-path
   (append
     ecf-config-load-path
-    load-path	
+    load-path
   )
 )
 
@@ -121,7 +121,7 @@
 (setq load-path
   (append
     ecf-config-load-path
-    load-path	
+    load-path
   )
 )
 

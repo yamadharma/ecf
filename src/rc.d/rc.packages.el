@@ -194,10 +194,10 @@
 ;;}}}
 ;;{{{ Programming
 
-(desire 'speedbar nil "speedbar")
-(desire 'semantic nil "semantic")
+;(desire 'speedbar nil "speedbar")
+;(desire 'semantic nil "semantic")
 
-(desire 'cedet nil "cedet")
+;(desire 'cedet nil "cedet")
 ;(desire 'ecb nil "ecb")
 
 ;(desire 'php-mode nil "php-mode")
