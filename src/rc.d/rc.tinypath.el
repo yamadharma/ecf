@@ -29,32 +29,32 @@
 
 ;; Cache file location
 (custom-set-variables
-  '(tinypath-:cache-file-prefix
+  '(tinypath--cache-file-prefix
     (concat home-cache-path "emacs-config-tinypath-cache")
   )
 )
 
 ;; Disable HOST part in cache file name
-; (setq tinypath-:cache-file-hostname-function nil)
+; (setq tinypath--cache-file-hostname-function nil)
 
 ;; Compressed lisp file support
 (custom-set-variables
-  '(tinypath-:compression-support
+  '(tinypath--compression-support
     'all
   )
-;  '(tinypath-:cache-file-postfix
+;  '(tinypath--cache-file-postfix
 ;    ".el.gz"
 ;  )
 )
 
 ;;  Peiodic load path syncronization watchdog
-; (setq tinypath-:load-hook
+; (setq tinypath--load-hook
 ;  '(tinypath-install tinypath-install-timer)
 ; )
 
 
 
-;; Configure load path `tinypath-:load-path-root'
+;; Configure load path `tinypath--load-path-root'
 (let 
   (
     (main-xe-load-path)				;; Emacs or Xemacs main dir
@@ -157,7 +157,7 @@
   )    
 
 
-  (setq tinypath-:load-path-root
+  (setq tinypath--load-path-root
     (append
       ecf-config-load-path			;; Configuration ecf path
       main-xe-load-path				;; Emacs or Xemacs main dir
@@ -172,7 +172,7 @@
 ) ;; end let
 
 ;; Ignored dirs for ecf-mule
-(setq tinypath-:load-path-ignore-regexp-extra
+(setq tinypath--load-path-ignore-regexp-extra
     "\\|[/\\]ecf-mule"
 )
 
@@ -181,10 +181,10 @@
 ; (function
 ;  (lambda (a) 
 ;    (if (string-match a emacs-version) () 
-;      (setq tinypath-:load-path-ignore-regexp-extra
+;      (setq tinypath--load-path-ignore-regexp-extra
 ;	    (concat
 ;	     "\\|/usr/share/emacs/" a "/site-lisp"
-;	     tinypath-:load-path-ignore-regexp-extra 
+;	     tinypath--load-path-ignore-regexp-extra 
 ;	     )
 ;       )
 ;    )
@@ -197,19 +197,19 @@
 ;;"\\|[/\\]emacs[/\\]" a "[/\\]leim"
 
 ;; Ignored dirs
-;(setq tinypath-:load-path-ignore-regexp-extra
+;(setq tinypath--load-path-ignore-regexp-extra
 ;  (concat
 ;    "\\|[/\\]lisp[/\\]language"
 ;    "\\|[/\\]auctex"
-;    tinypath-:load-path-ignore-regexp-extra
+;    tinypath--load-path-ignore-regexp-extra
 ;  )
 ;)
 
-(setq tinypath-:load-path-ignore-regexp-extra
+(setq tinypath--load-path-ignore-regexp-extra
   (concat
     "\\|[/\\]lisp[/\\]language"
     "\\|[/\\]lisp[/\\]cedet"
-    tinypath-:load-path-ignore-regexp-extra
+    tinypath--load-path-ignore-regexp-extra
   )
 )
 
