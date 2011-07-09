@@ -23,14 +23,14 @@
 (require 'desire)
 (require 'ecf-lang)
 
-(let
+(let 
   (
     (desire-window-system-load-path)		;; Window System
     (desire-system-load-path)			;; OS
     (desire-xe-version-load-path)		;; Emacs or Xemacs
     (desire-lang-load-path)			;; Languages
-    (desire-load-subpath-list)			;; Main subdirs
-    (desire-config-dir-list)			;; Main config dirs
+    (desire-load-subpath-list)			;; Main subdirs    
+    (desire-config-dir-list)			;; Main config dirs    
   )
 
   ;; Window System
