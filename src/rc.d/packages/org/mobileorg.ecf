@@ -1,0 +1,30 @@
+;;
+;; mobileorg dirs
+;;
+
+(defvar mobileorg-home-dir
+  (expand-file-name "~/me/mobileorg/")
+  "*Name of directory where various mobileorg related files reside."
+)
+
+(if (not (file-directory-p mobileorg-home-dir))
+  (make-directory mobileorg-home-dir t)
+)
+
+(setq org-mobile-directory mobileorg-home-dir)
+
+;; Set to the location of your Org files on your local system
+(setq org-directory "~/me/org")
+;; Set to the name of the file where new notes will be stored
+(setq org-mobile-inbox-for-pull "~/me/org/flagged.org")
+
+;; Enable encryption
+;(setq org-mobile-use-encryption t)
+;; Set a password
+;(setq org-mobile-encryption-password "mypassword")
+
+(custom-set-variables
+  '(org-mobile-files
+    '(org-agenda-files "todo.org")
+  )
+)

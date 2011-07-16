@@ -1,0 +1,27 @@
+;;
+;; org-mode dirs
+;;
+
+(defvar orgmode-home-dir
+  (expand-file-name "~/me/org/")
+  "*Name of directory where various org-mode related files reside."
+)
+
+(if (not (file-directory-p orgmode-home-dir))
+  (make-directory orgmode-home-dir t)
+)
+
+;;
+;; Agenda
+;;
+
+;; Agenda Setup
+;(setq org-agenda-files
+;  (quote
+;    (
+;      (concat orgmode-home-dir "agenda.org")
+;    )
+;  )
+;)
+
+

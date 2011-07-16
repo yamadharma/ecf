@@ -1,0 +1,5 @@
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
+(require 'org-install)
+
+
+

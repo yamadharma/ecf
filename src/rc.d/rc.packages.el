@@ -135,6 +135,10 @@
 (desire 'text)
 
 ;;}}}
+;;{{{ org-mode
+(desired 'mobileorg)
+(desire 'org)
+;;}}}
 ;;{{{ LaTeX
 
 (desire 'xdvi nil "xdvi-search")
@@ -220,6 +224,8 @@
 ;(desire 'shell)
 ;;(desire 'sql-mode)
 ;(desire 'w3)
+(desired 'mobileorg)
+(desire 'org-mode)
 
 ;;}}}
 
