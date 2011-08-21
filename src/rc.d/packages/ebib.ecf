@@ -1,5 +1,6 @@
 ;; ebib mode
-;;;
+;;; HOME: http://ebib.sourceforge.net/
+;;; RU: http://typedef.ru/2009/01/ebib/
 
 (autoload 'ebib "ebib" "Ebib, a BibTeX database manager." t)
 (global-set-key "\C-ce" 'ebib)
