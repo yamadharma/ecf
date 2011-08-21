@@ -1,0 +1,2 @@
+(add-hook 'LaTeX-mode-hook #'(lambda () (local-set-key "\C-cb" 'ebib-insert-bibtex-key)))
+(add-hook 'LaTeX-mode-hook #'(lambda () (local-set-key "\C-cs" 'ebib-entry-summary)))

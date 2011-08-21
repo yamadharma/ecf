@@ -1,11 +1,48 @@
 ;;
 ;; set RefTeX
 ;;
+
 (autoload 'reftex-mode     "reftex" "RefTeX Minor Mode" t)
 (autoload 'turn-on-reftex  "reftex" "RefTeX Minor Mode" nil)
 (autoload 'reftex-citation "reftex-cite" "Make citation" nil)
 (autoload 'reftex-index-phrase-mode "reftex-index" "Phrase mode" t)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
+
+;;{{{ auctex integration 
+
 (setq reftex-plug-into-AUCTeX t)
+
+;;}}}
+
+(setq reftex-enable-partial-scans t)
 (setq reftex-save-parse-info t)
+(setq reftex-use-multiple-selection-buffers t)
+
+;; Custom Sections and Labels
+;;;  One nice feature of RefTeX is the ability to create custom labels 
+;;; in addition to those it recognizes from packages. These become 
+;;; available for shortcuts and navigation in the TOC feature
+
+;; Poem label
+(add-hook 'reftex-load-hook
+  (lambda ()
+    (setq reftex-section-levels
+        (cons '("poemtitle" . -3) reftex-section-levels))))
+
+(setq reftex-label-alist
+    '(("\\poemtitle" ?P "poem:" "\\ref{%s}" nil ("poem" "poemtitle"))))
+
+;; Automatically insert non-breaking space before citation
+;;; RefTeX automatically inserts a tilde before the \ref macro if it’s
+;;; needed, i.e. if the preceding character isn’t whitespace or a tilde.
+;;; I don’t know why it doesn’t do the same thing for the \cite macro, 
+;;; but you can add the behaviour by setting reftex-format-cite-function.
+
+(setq reftex-format-cite-function 
+      '(lambda (key fmt)
+ (let ((cite (replace-regexp-in-string "%l" key fmt)))
+   (if (or (= ?~ (string-to-char fmt))
+   (member (preceding-char) '(?\ ?\t ?\n ?~)))
+       cite
+     (concat "~" cite)))))

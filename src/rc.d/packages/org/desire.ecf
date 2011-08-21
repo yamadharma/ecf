@@ -10,18 +10,3 @@
 (if (not (file-directory-p orgmode-home-dir))
   (make-directory orgmode-home-dir t)
 )
-
-;;
-;; Agenda
-;;
-
-;; Agenda Setup
-;(setq org-agenda-files
-;  (quote
-;    (
-;      (concat orgmode-home-dir "agenda.org")
-;    )
-;  )
-;)
-
-

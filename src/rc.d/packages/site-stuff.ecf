@@ -32,3 +32,7 @@
 
 ; Показывает пробелы и табы в конце строк
 ;(setq show-trailing-whitespace t)
+
+;; Prevent horizontal window splitting for Emacs 23
+;(setq split-width-threshold 9999)
+

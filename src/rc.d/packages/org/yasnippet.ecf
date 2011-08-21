@@ -1,0 +1,38 @@
+;; Yasnippet
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins"))
+
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
+
+;; Make TAB the yas trigger key in the org-mode-hook and enable flyspell mode and autofill
+(add-hook 'org-mode-hook
+          (lambda ()
+            ;; yasnippet
+            (make-variable-buffer-local 'yas/trigger-key)
+            (org-set-local 'yas/trigger-key [tab])
+            (define-key yas/keymap [tab] 'yas/next-field-group)
+            ;; flyspell mode for spell checking everywhere
+            (flyspell-mode 1)
+            ;; auto-fill mode on
+            (auto-fill-mode 1)))
+
+;; Make TAB the yas trigger key in the org-mode-hook and turn on flyspell mode
+(add-hook 'org-mode-hook
+          (lambda ()
+            ;; yasnippet
+            (make-variable-buffer-local 'yas/trigger-key)
+            (org-set-local 'yas/trigger-key [tab])
+            (define-key yas/keymap [tab] 'yas/next-field-group)
+            ;; Undefine C-c [ and C-c ] since this breaks my org-agenda files when directories are include
+            ;; It expands the files in the directories individually
+            (org-defkey org-mode-map "\C-c["    'undefined)
+            (org-defkey org-mode-map "\C-c]"    'undefined)
+            (local-set-key (kbd "C-c M-o") 'ecf/mail-subtree)) 'append)
+
+(defun ecf/mail-subtree ()
+  (interactive)
+  (org-mark-subtree)
+  (org-mime-subtree))
+

@@ -42,3 +42,25 @@
               ("CLOSED" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
+;; Fast Todo Selection
+
+;; Fast todo selection allows changing from any task todo state to any other 
+;; state directly by selecting the appropriate key from the fast todo selection key menu.
+(setq org-use-fast-todo-selection t)
+
+;; Allows changing todo states with S-left and S-right skipping all of the normal 
+;; processing when entering or leaving a todo state.
+(setq org-treat-S-cursor-todo-selection-as-state-change nil)
+
+;; ToDo state triggers
+
+(setq org-todo-state-tags-triggers
+      (quote (("CANCELLED" ("CANCELLED" . t))
+              ("WAITING" ("WAITING" . t))
+              ("SOMEDAY" ("WAITING" . t))
+              (done ("WAITING"))
+              ("TODO" ("WAITING") ("CANCELLED"))
+              ("NEXT" ("WAITING"))
+              ("STARTED" ("WAITING"))
+              ("DONE" ("WAITING") ("CANCELLED")))))
+

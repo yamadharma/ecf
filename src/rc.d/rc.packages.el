@@ -130,17 +130,21 @@
 (desire 'bbdb nil "bbdb")
 
 ;;}}}
+;(desire 'yasnippet)
 ;;{{{ Text
 
 (desire 'text)
 
 ;;}}}
 ;;{{{ org-mode
+
 (desired 'mobileorg)
 (desire 'org)
+
 ;;}}}
 ;;{{{ LaTeX
 
+(desire 'ebib nil "ebib")
 (desire 'xdvi nil "xdvi-search")
 (desired 'reftex)
 (desire 'bibtex)

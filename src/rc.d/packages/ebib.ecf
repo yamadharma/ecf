@@ -1,0 +1,6 @@
+;; ebib mode
+;;;
+
+(autoload 'ebib "ebib" "Ebib, a BibTeX database manager." t)
+(global-set-key "\C-ce" 'ebib)
+

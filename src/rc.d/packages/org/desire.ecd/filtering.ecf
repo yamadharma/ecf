@@ -1,0 +1,41 @@
+;; Filtering
+
+(defun ecf/weekday-p ()
+  (let ((wday (nth 6 (decode-time))))
+    (and (< wday 6)
+         (> wday 0))))
+
+(defun ecf/working-p ()
+  (let ((hour (nth 2 (decode-time))))
+    (and (ecf/weekday-p)
+         (or (and (>= hour 8) (<= hour 11))
+             (and (>= hour 13) (<= hour 16))))))
+
+(defun ecf/mark-p ()
+  (let ((hour (nth 2 (decode-time))))
+    (or (and (ecf/weekday-p)
+             (or (= hour 8)
+                 (and (>= hour 16) (<= hour 21))))
+        (and (not (ecf/weekday-p))
+             (>= hour 9)
+             (<= hour 21)))))
+
+(defun ecf/org-auto-exclude-function (tag)
+  "Automatic task exclusion in the agenda with / RET"
+  (and (cond
+        ((string= tag "@farm")
+         t)
+        ((string= tag "mark")
+         (not (ecf/mark-p)))
+        ((or (string= tag "@errand") (string= tag "phone"))
+         (let ((hour (nth 2 (decode-time))))
+           (or (< hour 8) (> hour 21))))
+        (t
+         (if (ecf/working-p)
+             (setq tag "PERSONAL")
+           (setq tag "WORK"))
+         (unless (member (concat "-" tag) org-agenda-filter)
+           tag)))
+       (concat "-" tag)))
+
+(setq org-agenda-auto-exclude-function 'ecf/org-auto-exclude-function)
