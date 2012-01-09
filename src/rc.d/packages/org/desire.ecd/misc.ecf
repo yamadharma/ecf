@@ -1,0 +1,78 @@
+;; Org Protocol
+
+(require 'org-protocol)
+
+;; Require a final newline when saving files
+(setq require-final-newline t)
+
+;; Insert inactive timestamps and exclude from export
+
+(defun ecf/insert-inactive-timestamp ()
+  (interactive)
+  (org-insert-time-stamp nil t t nil nil nil))
+
+(defun ecf/insert-heading-inactive-timestamp ()
+  (save-excursion
+    (org-return)
+    (org-cycle)
+    (ecf/insert-inactive-timestamp)))
+
+(add-hook 'org-insert-heading-hook 'ecf/insert-heading-inactive-timestamp 'append)
+
+(global-set-key (kbd "<f9> t") 'ecf/insert-inactive-timestamp)
+
+; To prevent the timestamps from being exported in documents
+(setq org-export-with-timestamps nil)
+
+;; Return follows links
+
+(setq org-return-follows-link t)
+
+;; Highlight clock when running overtime
+
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(org-mode-line-clock ((t (:background "grey75" :foreground "red" :box (:line-width -1 :style released-button)))) t))
+
+;; Meeting Notes
+
+(defun ecf/prepare-meeting-notes ()
+  "Prepare meeting notes for email
+   Take selected region and convert tabs to spaces, mark TODOs with leading >>>, and copy to kill ring for pasting"
+  (interactive)
+  (let (prefix)
+    (save-excursion
+      (save-restriction
+        (narrow-to-region (region-beginning) (region-end))
+        (untabify (point-min) (point-max))
+        (goto-char (point-min))
+        (while (re-search-forward "^\\( *-\\\) \\(TODO\\|DONE\\): " (point-max) t)
+          (replace-match (concat (make-string (length (match-string 1)) ?>) " " (match-string 2) ": ")))
+        (goto-char (point-min))
+        (kill-ring-save (point-min) (point-max))))))
+
+;; Highlights persist after changes
+
+(setq org-remove-highlights-with-change nil)
+
+;; Getting up to date org-mode info documentation
+
+;(add-to-list 'Info-default-directory-list "~/git/org-mode/doc")
+
+;; Prefer future dates or not?
+
+(setq org-read-date-prefer-future nil)
+
+;; Automatically change list bullets
+
+(setq org-list-demote-modify-bullet (quote (("+" . "-")
+                                            ("*" . "-")
+                                            ("1." . "-")
+                                            ("1)" . "-"))))
+
+
+
+

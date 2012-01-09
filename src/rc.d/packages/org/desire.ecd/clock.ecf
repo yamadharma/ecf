@@ -1,15 +1,15 @@
 ;; Clock Setup
 
 ;;
-;; Resume clocking tasks when emacs is restarted
+;; Resume clocking task when emacs is restarted
 (org-clock-persistence-insinuate)
 ;;
-;; Small windows on my Eee PC displays only the end of long lists which isn't very useful
-(setq org-clock-history-length 10)
+;; Show lot sof clocking history so it's easy to pick items off the C-F11 list
+(setq org-clock-history-length 36)
 ;; Resume clocking task on clock-in if the clock is open
 (setq org-clock-in-resume t)
-;; Change task to STARTED when clocking in
-(setq org-clock-in-switch-to-state 'ecf/clock-in-to-started)
+;; Change tasks to NEXT when clocking in
+(setq org-clock-in-switch-to-state 'ecf/clock-in-to-next)
 ;; Separate drawers for clocking and logs
 (setq org-drawers (quote ("PROPERTIES" "LOGBOOK")))
 ;; Save clock data and state changes and notes in the LOGBOOK drawer
@@ -19,7 +19,9 @@
 ;; Clock out when moving task to a done state
 (setq org-clock-out-when-done t)
 ;; Save the running clock and all clock history when exiting Emacs, load it on startup
-(setq org-clock-persist (quote history))
+(setq org-clock-persist t)
+;; Do not prompt to resume an active clock
+(setq org-clock-persist-query-resume nil)
 ;; Enable auto clock resolution for finding open clocks
 (setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
 ;; Include current clocking task in clock reports
@@ -27,60 +29,35 @@
 
 (setq ecf/keep-clock-running nil)
 
-(defun ecf/clock-in-to-started (kw)
-  "Switch task from TODO or NEXT to STARTED when clocking in.
-Skips capture tasks."
-  (if (and (member (org-get-todo-state) (list "TODO" "NEXT"))
-           (not (and (boundp 'org-capture-mode) org-capture-mode)))
-      "STARTED"))
+(defun ecf/clock-in-to-next (kw)
+  "Switch a task from TODO to NEXT when clocking in.
+Skips capture tasks, projects, and subprojects.
+Switch projects and subprojects from NEXT back to TODO"
+  (when (not (and (boundp 'org-capture-mode) org-capture-mode))
+    (cond
+     ((and (member (org-get-todo-state) (list "TODO"))
+           (ecf/is-task-p))
+      "NEXT")
+     ((and (member (org-get-todo-state) (list "NEXT"))
+           (ecf/is-project-p))
+      "TODO"))))
 
 (defun ecf/find-project-task ()
   "Move point to the parent (project) task if any"
-  (let ((parent-task (save-excursion (org-back-to-heading) (point))))
-    (while (org-up-heading-safe)
-      (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
-        (setq parent-task (point))))
-    (goto-char parent-task)
-    parent-task))
+  (save-restriction
+    (widen)
+    (let ((parent-task (save-excursion (org-back-to-heading 'invisible-ok) (point))))
+      (while (org-up-heading-safe)
+        (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
+          (setq parent-task (point))))
+      (goto-char parent-task)
+      parent-task)))
 
-(defun ecf/clock-in-and-set-project-as-default (pom)
-  "Clock in the current task and set the parent project (if any) as the
-default clocking task.  Agenda filter tags are set from the default task"
-  ;; Find the parent project task if any and set that as the default
-  (save-excursion
-    (save-excursion
-      (org-with-point-at pom
-        (ecf/find-project-task)
-        (org-clock-in '(16))))
-    (save-excursion
-      (org-with-point-at pom
-        (org-clock-in nil)))))
-
-(defun ecf/set-agenda-restriction-lock ()
-  "Set filter to tags of POM, current task, or current project and refresh"
-  (interactive)
-  ;;
-  ;; We're in the agenda
-  ;;
-  (let* ((pom (org-get-at-bol 'org-hd-marker))
-         (tags (org-with-point-at pom (org-get-tags-at))))
-    (if (equal major-mode 'org-agenda-mode)
-        (if tags
-            (org-with-point-at pom
-              (ecf/find-project-task)
-              (org-agenda-set-restriction-lock))
-          (org-agenda-remove-restriction-lock))
-      (if (equal org-clock-default-task (org-id-find "eb155a82-92b2-4f25-a3c6-0304591af2f9" 'marker))
-          (org-agenda-remove-restriction-lock)
-        (org-with-point-at pom
-          (ecf/find-project-task)
-          (org-agenda-set-restriction-lock))))))
-
-(defun ecf/punch-in ()
-  "Start continuous clocking and set the default task to the project task
-of the selected task.  If no task is selected set the Organization task as
-the default task."
-  (interactive)
+(defun ecf/punch-in (arg)
+  "Start continuous clocking and set the default task to the
+selected task.  If no task is selected set the Organization task
+as the default task."
+  (interactive "p")
   (setq ecf/keep-clock-running t)
   (if (equal major-mode 'org-agenda-mode)
       ;;
@@ -88,8 +65,8 @@ the default task."
       ;;
       (let* ((marker (org-get-at-bol 'org-hd-marker))
              (tags (org-with-point-at marker (org-get-tags-at))))
-        (if tags
-            (ecf/clock-in-and-set-project-as-default marker)
+        (if (and (eq arg 4) tags)
+            (org-agenda-clock-in '(16))
           (ecf/clock-in-organization-task-as-default)))
     ;;
     ;; We are not in the agenda
@@ -97,10 +74,9 @@ the default task."
     (save-restriction
       (widen)
       ; Find the tags on the current task
-      (if (and (equal major-mode 'org-mode) (not (org-before-first-heading-p)))
-          (ecf/clock-in-and-set-project-as-default nil)
-        (ecf/clock-in-organization-task-as-default))))
-  (ecf/set-agenda-restriction-lock))
+      (if (and (equal major-mode 'org-mode) (not (org-before-first-heading-p)) (eq arg 4))
+          (org-clock-in '(16))
+        (ecf/clock-in-organization-task-as-default)))))
 
 (defun ecf/punch-out ()
   (interactive)
@@ -114,25 +90,40 @@ the default task."
     (org-with-point-at org-clock-default-task
       (org-clock-in))))
 
+(defun ecf/clock-in-parent-task ()
+  "Move point to the parent (project) task if any and clock in"
+  (let ((parent-task))
+    (save-excursion
+      (save-restriction
+        (widen)
+        (while (and (not parent-task) (org-up-heading-safe))
+          (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
+            (setq parent-task (point))))
+        (if parent-task
+            (org-with-point-at parent-task
+              (org-clock-in))
+          (when ecf/keep-clock-running
+            (ecf/clock-in-default-task)))))))
+
+(defvar ecf/organization-task-id "253e47ab-8705-4360-a04b-18ed353a6587")
+
 (defun ecf/clock-in-organization-task-as-default ()
   (interactive)
-  (save-restriction
-    (widen)
-    (org-with-point-at (org-id-find "eb155a82-92b2-4f25-a3c6-0304591af2f9" 'marker)
-      (org-clock-in '(16)))))
+  (org-with-point-at (org-id-find ecf/organization-task-id 'marker)
+    (org-clock-in '(16))))
 
 (defun ecf/clock-out-maybe ()
   (when (and ecf/keep-clock-running
              (not org-clock-clocking-in)
              (marker-buffer org-clock-default-task)
              (not org-clock-resolving-clocks-due-to-idleness))
-    (ecf/clock-in-default-task)))
+    (ecf/clock-in-parent-task)))
 
 (add-hook 'org-clock-out-hook 'ecf/clock-out-maybe 'append)
 
 ;; Switches the clock back to the previously clocked task
 
-(require 'org-id)  
+(require 'org-id)
 (defun ecf/clock-in-task-by-id (id)
   "Clock in a task by id"
   (save-restriction

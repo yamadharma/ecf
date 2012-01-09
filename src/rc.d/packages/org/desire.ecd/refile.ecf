@@ -1,8 +1,8 @@
 ;; Refile Setup
 
-; Targets include this file and any file contributing to the agenda - up to 2 levels deep
-(setq org-refile-targets (quote ((nil :maxlevel . 3)
-                                 (org-agenda-files :maxlevel . 3))))
+; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+(setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                 (org-agenda-files :maxlevel . 9))))
 
 ; Stop using paths for refile targets - we file directly with IDO
 (setq org-refile-use-outline-path nil)
@@ -26,5 +26,3 @@
   (not (member (nth 2 (org-heading-components)) org-done-keywords)))
 
 (setq org-refile-target-verify-function 'ecf/verify-refile-target)
-
-

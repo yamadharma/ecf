@@ -2,17 +2,6 @@
 ;; Tasks and States
 ;;
 
-;; Fast todo selection allows changing from any task todo state to any
-;; other state directly by selecting the appropriate key from the fast
-;; todo selection key menu.
-(setq org-use-fast-todo-selection t)
-
-;; allows changing todo states with S-left and S-right skipping all of
-;; the normal processing when entering or leaving a todo state. This cycles
-;; through the todo states but skips setting timestamps and entering notes which
-;; is very convenient when all you want to do is fix up the status of an entry.
-(setq org-treat-S-cursor-todo-selection-as-state-change nil)
-
 ;; The tags are used to filter tasks in the agenda views conveniently.
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
@@ -46,6 +35,7 @@
 
 ;; Fast todo selection allows changing from any task todo state to any other 
 ;; state directly by selecting the appropriate key from the fast todo selection key menu.
+;; Changing a task state is done with C-c C-t KEY
 (setq org-use-fast-todo-selection t)
 
 ;; Allows changing todo states with S-left and S-right skipping all of the normal 
