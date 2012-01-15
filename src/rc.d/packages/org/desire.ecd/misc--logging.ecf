@@ -1,0 +1,7 @@
+;; Logging stuff
+(setq org-log-done (quote time))
+(setq org-log-into-drawer "LOGBOOK")
+
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
+              (sequence "WAITING(w@/@)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE"))))
