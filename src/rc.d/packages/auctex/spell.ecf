@@ -1,6 +1,2 @@
-(add-hook 
-  'LaTeX-mode-hook
-    (function 
-      (lambda () (setq ispell-parser 'tex))
-    )
-)
+
+(add-hook 'LaTeX-mode-hook 'ecf/turn-spell-checking-on)

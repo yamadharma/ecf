@@ -42,10 +42,10 @@
 ;;{{{ Window System
 
 (if (null window-system)
-  ()    
+  ()
   (progn
     (desire 'window-system)
-    (desire  'faces)
+;    (desire  'faces)
 ;    (desire  'multi-frame)
   )
 )
@@ -104,7 +104,8 @@
 (desire 'font-lock-jit)
 ; (desire 'font-lock-lazy)
 ; (desire 'font-lock-fast)
-(desire 'faces)
+; (desire 'faces)
+; (desire 'color-theme nil "color-theme")
 
 ;;
 
@@ -119,7 +120,10 @@
 ;;{{{ Spell
 
 (desire 'spell)
+(desire 'ispell)
 (desire 'flyspell)
+;(desire 'speck)
+;(desire 'wcheck-mode)
 
 ;;}}}
 ;;{{{ BBDB

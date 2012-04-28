@@ -1,0 +1,50 @@
+;;; speck.ecf --- on-the-fly spell checking -*- coding: iso-2022-7bit-unix; -*-
+
+(require 'speck)
+;(setq speck-engine (quote Hunspell))
+(setq speck-engine (quote Aspell))
+
+;; (setq speck-hunspell-language-options
+;;       (quote (("da" utf-8 nil t nil)
+;;               ("de" iso-8859-1 nil t nil)
+;;               ("en" utf-8 nil nil nil)
+;;               ("fr" iso-8859-1 nil nil nil)
+;;               ("it" iso-8859-1 nil nil nil)
+;;               ("ru" koi8-r nil nil nil))))
+
+;(setq speck-hunspell-language-options
+;  (quote (("en" utf-8 nil nil nil)
+;   ("ru" utf-8 nil nil nil))))
+
+(setq speck-aspell-language-options
+  (quote (("en" utf-8 nil nil nil)
+   ("ru" utf-8 nil nil nil))))
+
+;; (setq speck-hunspell-program (concat (file-name-directory (or load-file-name buffer-file-name)) "../hunspell/hunspell.exe"))
+;; (setq speck-hunspell-library-directory (concat (file-name-directory (or load-file-name buffer-file-name)) "../hunspell/"))
+
+
+;(add-to-list 'speck-hunspell-dictionary-alist
+;  '("ru" . "ru_RU_yo")
+;)
+;(add-to-list 'speck-hunspell-dictionary-alist
+;  '("en" . "en_US")
+;)
+
+;(add-to-list 'speck-aspell-dictionary-name
+;  '("ru-yo")
+;)
+;(add-to-list 'speck-aspell-dictionary-name
+;  '("en_US")
+;)
+
+;(setq speck-hunspell-default-dictionary-name "ru_RU_yo")
+(setq speck-aspell-default-dictionary-name "ru-yo")
+
+(defun ecf/turn-spell-checking-on ()
+  "Turn speck-mode or flyspell-mode on."
+  (speck-mode 1)
+  ;; (flyspell-mode 1)
+)
+
+;;; speck.ecf ends here

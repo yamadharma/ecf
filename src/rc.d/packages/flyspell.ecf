@@ -20,4 +20,14 @@
 
 ;(defvar flyspell-mode-map nil)
 
+(custom-set-faces
+  '(flyspell-incorrect ((t (:foreground "red" :underline t))))
+)
+
+(defun ecf/turn-spell-checking-on ()
+  "Turn speck-mode or flyspell-mode on."
+  ;; (speck-mode 1)
+  (flyspell-mode 1)
+)
+
 ;;

@@ -1,0 +1,9 @@
+;;; color-theme.ecf --- package with more than 50 color themes for your use -*- coding: iso-2022-7bit-unix; -*-
+;;; http://emacswiki.org/emacs/ColorTheme
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-blue-sea)
+; (color-theme-robin-hood)
+
+;;; color-theme.ecf ends here

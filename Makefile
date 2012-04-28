@@ -18,3 +18,6 @@ install:
 	mkdir -p ${DESTDIR}/etc/ecf
 	mkdir ${DESTDIR}/$(prefix)/bin
 	cp other/bin/* ${DESTDIR}/$(prefix)/bin
+	mkdir -p ${DESTDIR}/${SITELISP}/ecf/other
+	cp other/lisp/* ${DESTDIR}/${SITELISP}/ecf/other
+
