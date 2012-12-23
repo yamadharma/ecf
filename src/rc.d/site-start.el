@@ -5,12 +5,12 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2006 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2012 Dmitry S. Kulyabov
 ;;      Keywords:      site-start
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;
-;;      This code is free software in terms of GNU Gen. pub. Lic. v2 or later
+;;      This code is free software in terms of GNU Gen. pub. Lic. v3 or later
 ;;
 ;;  Description
 ;;
@@ -80,17 +80,17 @@
 
 (defvar site-lisp-path
   (concat rootpath "share/site-lisp/")
-  "*Name of directory where various emacs related site-wide files reside."    
+  "*Name of directory where various emacs related site-wide files reside."
 )
 
 (defvar ecf-site-lisp-path
-  (expand-file-name "rc.d" site-lisp-path)     
+  (expand-file-name "rc.d" site-lisp-path)
   "*Site-wide ecf config files directory."
 )
 
 (defvar tiny-path-lisp-path
   (expand-file-name "common/packages/tiny-tools/tiny" site-lisp-path)
-  "*Name of directory where tinypath.el reside."    
+  "*Name of directory where tinypath.el reside."
 )
 
 (defvar home-etc-path
