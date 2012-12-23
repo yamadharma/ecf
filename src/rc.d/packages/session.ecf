@@ -7,7 +7,7 @@
 (custom-set-variables
   '(session-save-file 
     (expand-file-name 
-      (concat home-cache-path "/session.el")
+      (concat home-data-path "/session.el")
     )
   )
   '(save-place t)

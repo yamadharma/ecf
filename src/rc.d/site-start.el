@@ -32,19 +32,45 @@
 ;;}}}
 ;;{{{ Global Variables
 
+;;{{{ XDG Base Directory Specification
+;; http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+
+(defvar xdg_data_home
+  (or (getenv "XDG_DATA_HOME") (expand-file-name "~/.local/share/"))
+)
+
+(defvar xdg_config_home
+  (or (getenv "XDG_CONFIG_HOME") (expand-file-name "~/.config"))
+)
+
+;(defvar xdg_data_dirs
+;  (getenv "XDG_DATA_DIRS")
+;)
+
+(defvar xdg_cache_home
+  (or (getenv "XDG_CACHE_HOME") (expand-file-name "~/.cache"))
+)
+
+;;}}}
+
 (defvar rootpath
   (expand-file-name "/usr/")
   "*Name of emacs prefix directory."
 )
 
 (defvar home-cache-path
-  (expand-file-name "~/.cache/elisp/")
-  "*Name of directory where various emacs related files reside."
+  (expand-file-name "elisp" xdg_cache_home)
+  "*Name of directory where various temporal emacs related files reside."
 )
 
 (defvar ecf-home-etc-path
-  (expand-file-name "~/.config/ecf/")
+  (expand-file-name "ecf" xdg_config_home)
   "*Name ecf config files directory."
+)
+
+(defvar home-data-path
+  (expand-file-name "elisp" xdg_data_home)
+  "*Name of directory where various temporal emacs related files reside."
 )
 
 (defvar ecf-etc-path
@@ -68,12 +94,14 @@
 )
 
 (defvar home-etc-path
-  (expand-file-name "~/.config/")
+  xdg_config_home
+  ;(expand-file-name "~/.config/")
   "*Name home config files directory."
 )
 
 (defvar emacs-etc-dir
-  (expand-file-name "~/.config/")
+  xdg_config_home
+  ;(expand-file-name "~/.config/")
   "*Name of directory where various emacs related files reside."
 )
 
@@ -82,6 +110,10 @@
 
 (if (not (file-directory-p home-cache-path))
   (make-directory home-cache-path t)
+)
+
+(if (not (file-directory-p home-data-path))
+  (make-directory home-data-path t)
 )
 
 (if (not (file-directory-p emacs-etc-dir))
