@@ -235,6 +235,8 @@
 (desired 'mobileorg)
 (desire 'org-mode)
 
+(desire 'markdown nil "markdown-mode")
+
 ;;}}}
 
 ;; PERSONAL
