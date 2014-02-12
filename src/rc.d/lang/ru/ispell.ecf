@@ -1,13 +1,41 @@
 ;;; spell.ecf -*- coding: utf-8-unix; -*-
 
 (if (string-match "ispell" ispell-program-name)
-    (setq ispell-dictionary "russian")
+    (progn
+        (setq ispell-dictionary "russian")
+	(setq ispell-alternate-dictionary "english")
+    )
 )
 
 (if (string-match "aspell" ispell-program-name)
-    (setq ispell-dictionary "ru-yo")
+    (progn
+	;(setq ispell-dictionary "ru-yo")
+	(add-to-list 'ispell-aspell-dictionary-alist
+	    '("enru" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru")
+		nil utf-8)
+	)
+	(add-to-list 'ispell-aspell-dictionary-alist
+	    '("enru-ye" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru-ye")
+		nil utf-8)
+	)
+	(add-to-list 'ispell-aspell-dictionary-alist
+            '("enru-yeyo" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru-yeyo")
+		nil utf-8)
+	)
+	(add-to-list 'ispell-aspell-dictionary-alist
+
+	    '("enru-yo" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru-yo")
+		nil utf-8)
+	)
+	(setq ispell-dictionary "enru-yeyo")
+	(setq ispell-alternate-dictionary "ru")
+    )
 )
 
-(setq ispell-alternate-dictionary "english")
+
 
 ;;; spell.ecf ends here
