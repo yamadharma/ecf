@@ -5,7 +5,7 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2006 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2014 Dmitry S. Kulyabov
 ;;      Keywords:      rc.desire
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
@@ -64,6 +64,7 @@
       (list
         "emacs/common"
         (concat "emacs/" (format "%s" emacs-major-version))
+        (concat "emacs/" (format "%s" emacs-major-version) "/" (format "%s" emacs-minor-version))
       )
     ) ;; end if
   )

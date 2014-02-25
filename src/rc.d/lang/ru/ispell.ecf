@@ -31,7 +31,7 @@
 		("-d" "enru-yo")
 		nil utf-8)
 	)
-	(setq ispell-dictionary "enru-yeyo")
+	(setq ispell-dictionary "enru-yo")
 	(setq ispell-alternate-dictionary "ru")
     )
 )
