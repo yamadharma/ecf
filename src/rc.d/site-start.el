@@ -89,7 +89,7 @@
 )
 
 (defvar tiny-path-lisp-path
-  (expand-file-name "common/packages/tiny-tools/tiny" site-lisp-path)
+  (expand-file-name "common/packages/ecf/tiny" site-lisp-path)
   "*Name of directory where tinypath.el reside."
 )
 

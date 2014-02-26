@@ -20,4 +20,6 @@ install:
 	cp other/bin/* ${DESTDIR}/$(prefix)/bin
 	mkdir -p ${DESTDIR}/${SITELISP}/ecf/other
 	cp other/lisp/* ${DESTDIR}/${SITELISP}/ecf/other
+	mkdir -p ${DESTDIR}/${SITELISP}/ecf/tiny
+	cp other/tiny/* ${DESTDIR}/${SITELISP}/ecf/tiny
 

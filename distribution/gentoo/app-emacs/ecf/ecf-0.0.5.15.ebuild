@@ -17,8 +17,7 @@ RESTRICT=nomirror
 
 IUSE="${IUSE}"
 
-DEPEND="virtual/emacs
-	( app-emacs/tiny-tools )"
+DEPEND="virtual/emacs"
 
 S="${WORKDIR}/${P}"
 
