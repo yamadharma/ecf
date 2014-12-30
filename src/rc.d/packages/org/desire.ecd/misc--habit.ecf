@@ -7,7 +7,7 @@
                           org-gnus
                           org-id
                           org-info
-                          org-jsinfo
+;                          org-jsinfo
                           org-habit
                           org-inlinetask
                           org-irc

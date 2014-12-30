@@ -6,7 +6,7 @@
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
               ("WAITING" ("WAITING" . t))
-              ("SOMEDAY" ("WAITING" . t))
+              ("HOLD" ("WAITING" . t))
               (done ("WAITING"))
               ("TODO" ("WAITING") ("CANCELLED"))
               ("NEXT" ("WAITING"))
@@ -16,7 +16,7 @@
 ;; TODO keywords
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "|" "DONE(d!/!)")
-              (sequence "WAITING(w@/!)" "SOMEDAY(S!)" "|" "CANCELLED(c@/!)" "PHONE")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")
               (sequence "OPEN(O!)" "|" "CLOSED(C!)"))))
 
 (setq org-todo-keyword-faces 
@@ -25,10 +25,11 @@
               ("STARTED" :foreground "blue" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
-              ("SOMEDAY" :foreground "magenta" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "forest green" :weight bold)
               ("OPEN" :foreground "blue" :weight bold)
               ("CLOSED" :foreground "forest green" :weight bold)
+              ("MEETING" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
 ;; Fast Todo Selection
@@ -47,10 +48,10 @@
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
               ("WAITING" ("WAITING" . t))
-              ("SOMEDAY" ("WAITING" . t))
-              (done ("WAITING"))
-              ("TODO" ("WAITING") ("CANCELLED"))
-              ("NEXT" ("WAITING"))
-              ("STARTED" ("WAITING"))
-              ("DONE" ("WAITING") ("CANCELLED")))))
+              ("HOLD" ("WAITING") ("HOLD" . t))
+              (done ("WAITING") ("HOLD"))
+              ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+              ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+	      ("STARTED" ("WAITING") ("CANCELLED") ("HOLD"))
+              ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
 

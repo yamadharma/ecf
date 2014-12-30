@@ -20,24 +20,26 @@
 
 ;;; Code:
 
-(require 'cl)
+;(require 'cl)
 
 (setq debug-on-error nil)   ;; Must be like this in batch byte compile
 
-(autoload 'ti::package-autoload-create-on-file            "tinylib")
-(autoload 'ti::package-autoload-loaddefs-build-recursive  "tinylib")
+;(autoload 'ti::package-autoload-create-on-file            "tinylib")
+;(autoload 'ti::package-autoload-loaddefs-build-recursive  "tinylib")
 
 ;; Cache file location
 (custom-set-variables
   '(tinypath--cache-file-prefix
-    (concat home-cache-path "emacs-config-tinypath-cache")
+    (concat home-cache-path "/emacs-config-tinypath-cache")
   )
 )
 
 ;; Disable HOST part in cache file name
 ; (setq tinypath--cache-file-hostname-function nil)
+;(setq tinypath--cache-file-hostname-function 'tinypath-cache-file-hostname)
 
 ;; Compressed lisp file support
+; (setq tinypath--compression-support 'default)
 (custom-set-variables
   '(tinypath--compression-support
     'all
@@ -81,9 +83,12 @@
   ;; Emacs or Xemacs main dir
   
   (if (boundp 'xemacs-logo)          
-    (setq main-xe-load-path    
+    (setq main-xe-load-path
       (list 
         (concat rootpath "share/xemacs/lisp")
+        (concat rootpath "share/xemacs/xemacs-package")
+        (concat rootpath "share/xemacs/site-packages")
+        (concat rootpath "share/xemacs/mule-packages")
       )
     )
     ;; Emacs part
@@ -103,7 +108,11 @@
       load-path
     )
     ;;
-  )  
+  )
+
+  (setq  tinypath--core-emacs-load-path-list
+    main-xe-load-path
+  )
 
 ;; FIXME This is very dirty
   (setq main-site-lisp-xe-root-path
@@ -160,7 +169,7 @@
   (setq tinypath--load-path-root
     (append
       ecf-config-load-path			;; Configuration ecf path
-      main-xe-load-path				;; Emacs or Xemacs main dir
+;      main-xe-load-path				;; Emacs or Xemacs main dir
       main-site-lisp-xe-root-path		;; Emacs or Xemacs main site-lisp root dir
       site-lisp-xe-packages-path		;; Emacs or Xemacs site-lisp dir
       site-lisp-common-packages-path	        ;; Site-lisp common packages dir
@@ -220,6 +229,7 @@
 ;    "\\|[/\\]wl"    
 
 ;; `tinypath' load
+(require 'cl)
 (pushnew tiny-path-lisp-path load-path)
 
 (load "tinypath")

@@ -9,8 +9,8 @@
 
 ;; Custom Key Bindings
 (global-set-key (kbd "<f12>") 'org-agenda)
-(global-set-key (kbd "<f5>") 'ecf/org-todo)
-(global-set-key (kbd "<S-f5>") 'ecf/widen)
+;(global-set-key (kbd "<f5>") 'ecf/org-todo)
+;(global-set-key (kbd "<S-f5>") 'ecf/widen)
 (global-set-key (kbd "<f7>") 'ecf/set-truncate-lines)
 (global-set-key (kbd "<f8>") 'org-cycle-agenda-files)
 (global-set-key (kbd "<f9> <f9>") 'ecf/show-org-agenda)
@@ -19,9 +19,7 @@
 (global-set-key (kbd "<f9> f") 'boxquote-insert-file)
 (global-set-key (kbd "<f9> g") 'gnus)
 (global-set-key (kbd "<f9> h") 'ecf/hide-other)
-(global-set-key (kbd "<f9> n") 'org-narrow-to-subtree)
-(global-set-key (kbd "<f9> w") 'widen)
-(global-set-key (kbd "<f9> u") 'ecf/narrow-up-one-level)
+(global-set-key (kbd "<f9> n") 'ecf/toggle-next-task-display)
 
 (global-set-key (kbd "<f9> I") 'ecf/punch-in)
 (global-set-key (kbd "<f9> O") 'ecf/punch-out)
@@ -32,27 +30,27 @@
 (global-set-key (kbd "<f9> s") 'ecf/switch-to-scratch)
 
 (global-set-key (kbd "<f9> t") 'ecf/insert-inactive-timestamp)
-(global-set-key (kbd "<f9> T") 'tabify)
-(global-set-key (kbd "<f9> U") 'untabify)
+(global-set-key (kbd "<f9> T") 'ecf/toggle-insert-inactive-timestamp)
 
 (global-set-key (kbd "<f9> v") 'visible-mode)
+(global-set-key (kbd "<f9> l") 'org-toggle-link-display)
 (global-set-key (kbd "<f9> SPC") 'ecf/clock-in-last-task)
 (global-set-key (kbd "C-<f9>") 'previous-buffer)
-(global-set-key (kbd "M-<f9>") 'org-display-inline-images)
+(global-set-key (kbd "M-<f9>") 'org-toggle-inline-images)
 (global-set-key (kbd "C-x n r") 'narrow-to-region)
 (global-set-key (kbd "C-<f10>") 'next-buffer)
 (global-set-key (kbd "<f11>") 'org-clock-goto)
 (global-set-key (kbd "C-<f11>") 'org-clock-in)
 (global-set-key (kbd "C-s-<f12>") 'ecf/save-then-publish)
-(global-set-key (kbd "C-M-r") 'org-capture)
-(global-set-key (kbd "C-c r") 'org-capture)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 (defun ecf/hide-other ()
   (interactive)
   (save-excursion
     (org-back-to-heading 'invisible-ok)
-    (org-shifttab)
-    (org-reveal)
+    (hide-other)
+    (org-cycle)
+    (org-cycle)
     (org-cycle)))
 
 (defun ecf/set-truncate-lines ()

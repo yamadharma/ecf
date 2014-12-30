@@ -73,6 +73,7 @@
                                             ("1." . "-")
                                             ("1)" . "-"))))
 
-
+;; Create unique IDs for tasks when linking
+(setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
 

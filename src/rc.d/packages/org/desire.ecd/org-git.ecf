@@ -1,0 +1,42 @@
+(global-auto-revert-mode 1)
+(defun org-git-push ()
+  (let ((dir org-directory)
+        (commit-message (concat (system-name) ": emacs automatic commit")))
+    (cd org-directory)
+    (start-process "org-git-push" "*Messages*" "bash" "-c" (concat "git commit -am '" commit-message "'&& git push"))
+    (cd dir)
+    ))
+
+(defun org-git-pull ()
+  (let ((dir org-directory))
+    (cd org-directory)
+    (start-process "org-git-pull" "*Messages*" "bash" "-c" "git pull")
+    (cd dir)
+    ))
+
+;; Run pull automatically on startup 
+(org-git-pull)
+
+;; Automatic Pull - Do a pull every 5 minutes
+(run-with-timer (* 5 60) (* 5 60) 'org-git-pull)
+
+;; Automatic Push - Monitors files that are located in org-directory
+;; and runs push after a delay. Every time a file org file is edited
+;; the delay timer is reset to prevent unnecessary commits during
+;; longer editing sessions.
+(defvar org-git-push-timer nil
+  "Timer that `org-git-push-timer' used to reschedule itself, or nil.")
+
+(defun org-git-push-with-delay (secs)
+  (when org-git-push-timer
+    (cancel-timer org-git-push-timer))
+  (setq org-git-push-timer
+        (run-with-idle-timer
+         (* 1 secs) nil 'org-git-push)))
+
+(add-hook 'after-save-hook 
+ (lambda () 
+   (when (eq major-mode 'org-mode)
+       (if (string-prefix-p (expand-file-name org-directory) (buffer-file-name))
+           (org-git-push-with-delay (* 3 60)))
+   )))

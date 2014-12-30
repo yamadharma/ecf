@@ -10,3 +10,7 @@
 (if (not (file-directory-p orgmode-home-dir))
   (make-directory orgmode-home-dir t)
 )
+
+;; Set to the location of your Org files on your local system
+(setq org-directory orgmode-home-dir)
+

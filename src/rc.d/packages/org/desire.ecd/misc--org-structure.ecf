@@ -26,9 +26,8 @@
 (setq org-show-siblings (quote ((default))))
 
 ;; Editing and Special key handling
-(setq org-special-ctrl-a/e 'reversed)
+(setq org-special-ctrl-a/e t)
 (setq org-special-ctrl-k t)
 (setq org-yank-adjusted-subtrees t)
-
 
 
