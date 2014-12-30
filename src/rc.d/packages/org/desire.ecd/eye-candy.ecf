@@ -1,4 +1,4 @@
-(custom-set-variables
-  '(org-pretty-entities t)
-)
+;(custom-set-variables
+;  '(org-pretty-entities t)
+;)
 
