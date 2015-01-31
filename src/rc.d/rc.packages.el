@@ -109,6 +109,7 @@
 
 ;;
 
+(desire 'show-paren)
 (desire 'folding)
 ;(desire 'outline)
 
