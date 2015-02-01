@@ -16,7 +16,7 @@
        (not 
 	(eval (cons 'or
 		    (mapcar
-		     '(lambda (f) (equal (x-get-frame-display f)
+		     (lambda (f) (equal (x-get-frame-display f)
 					 display))
 		     (frame-list))))))
       (x-close-connection display)))
