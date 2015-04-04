@@ -120,6 +120,10 @@
     )
   )
 
+  (setq desire-custom-theme-load-path
+    (concat site-lisp-path "themes")
+  )
+
 ) ;; end let
 
 ;;; rc.desire.el ends here

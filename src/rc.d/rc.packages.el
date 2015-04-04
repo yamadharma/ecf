@@ -106,6 +106,7 @@
 ; (desire 'font-lock-fast)
 ; (desire 'faces)
 ; (desire 'color-theme nil "color-theme")
+(desire 'theme)
 
 ;;
 

@@ -1,3 +1,5 @@
-(desire 'faces)
+; (desire 'faces)
 ; (desire 'multi-frame)
+;; Themes from desire
+(add-to-list 'custom-theme-load-path desire-custom-theme-load-path)
 

@@ -1,0 +1,9 @@
+;;;
+
+(custom-set-variables
+ '(custom-safe-themes t)
+)
+
+(load-theme 'plan9)
+
+;;;
