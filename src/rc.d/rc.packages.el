@@ -124,8 +124,8 @@
 (desire 'spell)
 (desire 'ispell)
 (desire 'flyspell)
-;(desire 'speck)
-;(desire 'wcheck-mode)
+;;(desire 'speck)
+;;(desire 'wcheck)
 
 ;;}}}
 ;;{{{ BBDB

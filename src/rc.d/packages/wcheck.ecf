@@ -1,0 +1,175 @@
+;;; wcheck-mode.ecf --- spell checking -*- coding: utf-8-unix; -*-
+
+(require 'wcheck-mode)
+
+;;{{{ Borrowed from http://reangdblog.blogspot.com/2015/06/emacs.html
+
+(defvar ecf-var:spelling-ignore nil)
+
+(defun ecf:spelling-add-to-dictionary (marked-text)
+  (let* ((word (downcase (aref marked-text 0)))
+         (dict (if (string-match "[a-zA-Z]" word)
+                   (message "en_US.dic")
+                 (message "ru_RU.dic")))
+         (file (concat "~/.config/enchant/" dict)))
+    (when (and file (file-writable-p file))
+      (with-temp-buffer
+        (insert word) (newline)
+        (append-to-file (point-min) (point-max) file)
+        (message "Added word \"%s\" to the \"%s\" dictionary" word dict))
+      (wcheck-mode 0)
+      (wcheck-mode 1))))
+
+(defun ecf:spelling-add-to-ignore (marked-text)
+  (let ((word (aref marked-text 0)))
+    (add-to-list 'ecf-var:spelling-ignore word)
+    (message "Added word \"%s\" to the ignore list" word)
+    (wcheck--hook-outline-view-change)))
+
+;; Помимо результатов добавлен вывод пунктов меню "Add to dictionary"
+;; и "Ignore". Если выбрать первый, то слово добавится в
+;; пользовательский русский или английский словарь enchant, которых
+;; находится тут: "~/.config/enchant/". Само добавление написано в
+;; "ecf:spelling-add-to-dictionary", принадлежность слова к
+;; определённому языку, опять же определяется по тому есть в нем
+;; английские символы или нет. А добавление слова в "Ignore" означает,
+;; что в текущей сессии работы с Emacs это слово не будет проверяться
+;; во всех буферах. Добавление происходит в
+;; "ecf:spelling-add-to-ignore" и фактически сводится к добавлению в
+;; переменную "ecf-var:spelling-ignore".
+
+(defun ecf:spelling-action-menu (marked-text)
+  (append (wcheck-parser-ispell-suggestions)
+          (list (cons "[Add to dictionary]" 'ecf:spelling-add-to-dictionary)
+                (cons "[Ignore]" 'ecf:spelling-add-to-ignore))))
+
+(defun ecf:delete-list (delete-list list)
+  (dolist (el delete-list)
+    (setq list (remove el list)))
+  list)
+
+;; Из результатов удаляю слова добавленные в "ignore"
+(defun ecf:spelling-parser-lines (&rest ignored)
+  (ecf:delete-list ecf-var:spelling-ignore
+                   (delete-dups
+                    (split-string
+                     (buffer-substring-no-properties (point-min) (point-max))
+                     "\n+" t))))
+
+;;}}}
+
+(autoload 'wcheck-mode "wcheck-mode"
+  "Toggle wcheck-mode." t)
+(autoload 'wcheck-change-language "wcheck-mode"
+  "Switch wcheck-mode languages." t)
+(autoload 'wcheck-actions "wcheck-mode"
+  "Open actions menu." t)
+(autoload 'wcheck-jump-forward "wcheck-mode"
+  "Move point forward to next marked text area." t)
+(autoload 'wcheck-jump-backward "wcheck-mode"
+  "Move point backward to previous marked text area." t)
+
+;; (global-set-key (kbd "C-c s") 'wcheck-mode)
+(global-set-key (kbd "C-c l") 'wcheck-change-language)
+(global-set-key (kbd "C-c c") 'wcheck-actions)
+(global-set-key (kbd "C-c n") 'wcheck-jump-forward)
+(global-set-key (kbd "C-c p") 'wcheck-jump-backward)
+
+;; (setq wcheck-language-data
+;;   '(
+;;     ("British English"
+;;    (program . "/usr/bin/ispell")
+;;    (args "-l" "-d" "british")
+;;    (action-program . "/usr/bin/ispell")
+;;    (action-args "-a" "-d" "british")
+;;    (action-parser . wcheck-parser-ispell-suggestions)
+;;     )
+;;     ("Finnish"
+;;    (program . "/usr/bin/enchant")
+;;    (args  "-l" "-d" "fi")
+;;    (syntax . my-finnish-syntax-table)
+;;    (action-program . "/usr/bin/enchant")
+;;    (action-args "-a" "-d" "fi")
+;;    (action-parser . wcheck-parser-ispell-suggestions))
+;;     ("Russian"
+;;    (program . "/usr/bin/enchant")
+;;    (args  "-l" "-d" "ru")
+;;    (action-program . "/usr/bin/enchant")
+;;    (action-args "-a" "-d" "ru")
+;;    (action-parser . wcheck-parser-ispell-suggestions))
+;;    )
+;; )
+
+(defun enchant-suggestions-menu (marked-text)
+  (cons
+   (cons "[Add to dictionary]" 'enchant-add-to-dictionary)
+   (wcheck-parser-ispell-suggestions)
+   )
+  )
+
+(defvar enchant-dictionaries-dir "~/.config/enchant")
+
+(defun enchant-add-to-dictionary (marked-text)
+  (let* ((word (aref marked-text 0))
+	 (language (aref marked-text 4))
+	 (file (let ((code (nth 1 (member "-d" (wcheck-query-language-data
+						language 'action-args)))))
+		 (when (stringp code)
+		   (concat (file-name-as-directory enchant-dictionaries-dir)
+			   code ".dic")))))
+    
+    (when (and file (file-writable-p file))
+      (with-temp-buffer
+	(insert word) (newline)
+	(append-to-file (point-min) (point-max) file)
+	(message "Added word \"%s\" to the %s dictionary"
+		 word language)))))
+
+;;{{{ Настройка
+
+;; Переопределяется функция "wcheck–choose-action-minibuffer" из
+;; плагина, что бы список вариантов исправления выдавался через ido
+(defun wcheck--choose-action-minibuffer (actions)
+  (cdr
+   (assoc
+    (ido-completing-read "Choose " (mapcar #'car actions))
+    actions)))
+
+;; Заполняется переменная "wcheck-language-data"
+(setq-default
+ wcheck-language "All"
+ wcheck-language-data
+ '(("All"
+    ;; Какой script будем вызывать для нахождения всех ошибочных слов
+    ;; в тексте
+    (program . "/usr/libexec/emacs/ecf/enchant_text_ruen")
+    (parser . ecf:spelling-parser-lines)
+    ;; Какой скрипт вызывать для того, что бы показать варианты
+    ;; правильного написания для слова для слова
+    (action-program . "/usr/libexec/emacs/ecf/enchant_word_ruen")
+    (action-parser . ecf:spelling-action-menu)
+    ;; Установлено, что в режимах "emacs-lisp-mode c-mode c++-mode
+    ;; python-mode" нужно проверять только тот текст, который имеет
+    ;; face "font-lock-comment-face", т.е. только в комментариях. А в
+    ;; режиме "org-mode" проверять весь текст кроме того, который
+    ;; имеет face один из: "org-block-begin-line org-block-end-line
+    ;; org-meta-line org-link", т.е. убираем проверку в служебных
+    ;; тегах и т.п.
+    (read-or-skip-faces
+     ((emacs-lisp-mode c-mode c++-mode python-mode)
+      read font-lock-comment-face)
+     (org-mode
+      skip org-block-begin-line org-block-end-line org-meta-line org-link)
+     (nil))
+    ))
+ )
+
+;;}}}
+
+;; This is wrapper for enable spell checking
+(defun ecf/turn-spell-checking-on ()
+  "Turn speck-mode or flyspell-mode on."
+  (wcheck-mode 1)
+)
+
+;;; wcheck-mode.ecf ends here

@@ -129,7 +129,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-doc-face ((t (:foreground ,green))))
    `(font-lock-function-name-face ((t (:foreground ,fg :weight bold))))
    `(font-lock-keyword-face ((t (:foreground ,yellow))))
-   `(font-lock-negation-char-face ((t (:foreground ,blue-light :weight bold))))
+   `(font-lock-negation-char-face ((t (:foreground ,red :weight bold))))
    `(font-lock-preprocessor-face ((t (:foreground ,green :weight bold))))
    `(font-lock-regexp-grouping-construct ((t (:foreground ,red :weight bold))))
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,red :weight bold))))
@@ -142,7 +142,13 @@ Also bind `class' to ((class color) (min-colors 89))."
  ;;;; ledger
    `(ledger-font-directive-face ((t (:foreground ,cyan))))
    `(ledger-font-periodic-xact-face ((t (:inherit ledger-font-directive-face))))
-   `(ledger-occur-xact-face ((t (:background ,yellow-light))))
+   `(ledger-font-posting-account-face ((t (:foreground ,blue))))
+   `(ledger-font-posting-amount-face ((t (:foreground ,red))))
+   `(ledger-font-posting-date-face ((t (:foreground ,red :weight bold))))
+   `(ledger-font-payee-uncleared-face ((t (:foreground ,purple))))
+   `(ledger-font-payee-cleared-face ((t (:foreground ,fg))))
+   `(ledger-font-payee-pending-face ((t (:foreground ,yellow))))
+   `(ledger-font-xact-highlight-face ((t (:background ,bg-alt))))
 ;;;; Third-party
 ;;;;; ace-jump
    ;; `(ace-jump-face-background
@@ -318,11 +324,11 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;    ;; `(ack-file ((t (:foreground ,zenburn-blue))))
 ;;    ;; `(ack-line ((t (:foreground ,zenburn-yellow))))
 ;;    ;; `(ack-match ((t (:foreground ,zenburn-orange :background ,zenburn-bg-1 :weight bold))))
-;; ;;;;; git-gutter
-;;    `(git-gutter:added ((t (:foreground ,emerald :weight bold))))
-;;    `(git-gutter:deleted ((t (:foreground ,alizarin :weight bold))))
-;;    `(git-gutter:modified ((t (:foreground ,carrot :weight bold))))
-;;    `(git-gutter:unchanged ((t (:foreground ,midnight-blue :weight bold))))
+;;;;; git-gutter
+   `(git-gutter:added ((t (:foreground ,green :weight bold))))
+   `(git-gutter:deleted ((t (:foreground ,red :weight bold))))
+   `(git-gutter:modified ((t (:foreground ,yellow :weight bold))))
+   `(git-gutter:unchanged ((t (:foreground ,fg :weight bold))))
 ;;;;; git-gutter-fr
    `(git-gutter-fr:added ((t (:foreground ,green  :weight bold))))
    `(git-gutter-fr:deleted ((t (:foreground ,red :weight bold))))
@@ -370,14 +376,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ido-indicator ((t (:foreground ,yellow))))
 ;;;;; indent-guide
    `(indent-guide-face ((t (:foreground ,highlight))))
-;; ;;;;; js2-mode
-;;    `(js2-warning ((t (:underline ,pumpkin))))
-;;    `(js2-error ((t (:foreground ,alizarin :weight bold))))
-;;    `(js2-jsdoc-tag ((t (:foreground ,amethyst))))
-;;    `(js2-jsdoc-type ((t (:foreground ,wisteria))))
-;;    `(js2-jsdoc-value ((t (:foreground ,peter-river))))
-;;    `(js2-function-param ((t (:foreground, wet-asphalt))))
-;;    `(js2-external-variable ((t (:foreground ,pumpkin))))
+;;;;; js2-mode
+   `(js2-warning ((t (:underline ,yellow))))
+   `(js2-error ((t (:foreground ,red :weight bold))))
+   `(js2-jsdoc-tag ((t (:foreground ,purple))))
+   `(js2-jsdoc-type ((t (:foreground ,blue))))
+   `(js2-jsdoc-value ((t (:foreground ,cyan))))
+   `(js2-function-param ((t (:foreground ,fg))))
+   `(js2-external-variable ((t (:foreground ,cyan))))
 ;;;;; linum-mode
    `(linum ((t (:foreground ,purple :background ,purple-light))))
 ;;;;; magit
@@ -386,7 +392,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-branch ((t (:foreground ,fg :background ,yellow-light
                                    :weight bold
                                    :box (:line-width 1 :color ,yellow)))))
-   `(magit-item-highlight ((t (:background ,highlight))))
+   `(magit-item-highlight ((t (:background ,bg-alt))))
    `(magit-log-author ((t (:foreground ,blue))))
    `(magit-log-sha1 ((t (:foreground ,yellow :weight bold))))
    `(magit-tag ((t (:foreground ,purple :weight bold))))
