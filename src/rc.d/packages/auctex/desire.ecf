@@ -15,10 +15,10 @@
   'LaTeX-mode-hook 'turn-on-bib-cite
 )
 
-(add-hook 
-  'LaTeX-mode-hook
-    (function (lambda () (desire-require 'latex-paren)))
-)
+;; (add-hook 
+;;   'LaTeX-mode-hook
+;;     (function (lambda () (desire-require 'latex-paren)))
+;; )
 
 (desire-require 'bib-cite)
 (desire-require 'func-doc)

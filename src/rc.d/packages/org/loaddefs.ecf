@@ -1,5 +1,5 @@
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (require 'org-install)
 
-
+(global-set-key (kbd "<f12>") 'org-agenda)
 
