@@ -1,0 +1,41 @@
+;; Auto-Indenting \if statements with AUCTeX
+;; http://emacs.stackexchange.com/questions/5439/auto-indenting-if-statements-with-auctex
+
+
+
+(setq LaTeX-begin-regexp "\\(?:begin\\|if@\\|ifx\\|ifnum\\)\\b")
+(setq LaTeX-end-regexp "\\(?:end\\|else\\|fi\\)\\b")
+
+; Note that I had to re-define LaTeX-indent-level-count. The diff is simply one cond branch:
+; ((looking-at "else\\b"))
+
+(defun LaTeX-indent-level-count ()
+  "Count indentation change caused by all \\left, \\right, \\begin, and
+\\end commands in the current line."
+  (save-excursion
+    (save-restriction
+      (let ((count 0))
+        (narrow-to-region (point)
+                          (save-excursion
+                            (re-search-forward
+                             (concat "[^" TeX-esc "]"
+                                     "\\(" LaTeX-indent-comment-start-regexp
+                                     "\\)\\|\n\\|\\'"))
+                            (backward-char)
+                            (point)))
+        (while (search-forward TeX-esc nil t)
+          (cond
+            ((looking-at "left\\b")
+             (setq count (+ count LaTeX-left-right-indent-level)))
+            ((looking-at "right\\b")
+             (setq count (- count LaTeX-left-right-indent-level)))
+            ((looking-at LaTeX-begin-regexp)
+             (setq count (+ count LaTeX-indent-level)))
+            ((looking-at "else\\b"))
+            ((looking-at LaTeX-end-regexp)
+             (setq count (- count LaTeX-indent-level)))
+            ((looking-at (regexp-quote TeX-esc))
+             (forward-char 1))))
+        count))))
+
+ 
