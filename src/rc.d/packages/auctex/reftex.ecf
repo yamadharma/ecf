@@ -46,3 +46,17 @@
    (member (preceding-char) '(?\ ?\t ?\n ?~)))
        cite
      (concat "~" cite)))))
+
+
+;; biblatex support
+(setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
+(setq reftex-use-external-file-finders t)
+
+;; Using \eqref
+(setq reftex-label-alist '(AMSTeX))
+; (setq reftex-label-alist '((nil ?e nil "~\\eqref{%s}" nil nil)))
+
+;; Disabling the ``select reference format'' menu in reftex
+(setq reftex-ref-macro-prompt nil)
+
+
