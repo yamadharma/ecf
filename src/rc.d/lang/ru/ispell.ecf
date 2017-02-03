@@ -26,11 +26,32 @@
 		nil utf-8)
 	)
 	(add-to-list 'ispell-aspell-dictionary-alist
-
 	    '("enru-yo" "[[:alpha:]]" "[^[:alpha:]]" "" t
 		("-d" "enru-yo")
 		nil utf-8)
 	)
+
+	(add-to-list 'ispell-local-dictionary-alist
+	    '("enru" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru")
+		nil utf-8)
+	)
+	(add-to-list 'ispell-local-dictionary-alist
+	    '("enru-ye" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru-ye")
+		nil utf-8)
+	)
+	(add-to-list 'ispell-local-dictionary-alist
+            '("enru-yeyo" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru-yeyo")
+		nil utf-8)
+	)
+	(add-to-list 'ispell-local-dictionary-alist
+	    '("enru-yo" "[[:alpha:]]" "[^[:alpha:]]" "" t
+		("-d" "enru-yo")
+		nil utf-8)
+	)
+
 	(setq ispell-dictionary "enru-yo")
 	(setq ispell-alternate-dictionary "ru")
     )
