@@ -39,13 +39,13 @@
 ;;; I don’t know why it doesn’t do the same thing for the \cite macro, 
 ;;; but you can add the behaviour by setting reftex-format-cite-function.
 
-(setq reftex-format-cite-function 
-      '(lambda (key fmt)
- (let ((cite (replace-regexp-in-string "%l" key fmt)))
-   (if (or (= ?~ (string-to-char fmt))
-   (member (preceding-char) '(?\ ?\t ?\n ?~)))
-       cite
-     (concat "~" cite)))))
+;(setq reftex-format-cite-function 
+;      '(lambda (key fmt)
+; (let ((cite (replace-regexp-in-string "%l" key fmt)))
+;   (if (or (= ?~ (string-to-char fmt))
+;   (member (preceding-char) '(?\ ?\t ?\n ?~)))
+;       cite
+;     (concat "~" cite)))))
 
 
 ;; biblatex support
