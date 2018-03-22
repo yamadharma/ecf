@@ -217,6 +217,10 @@
 ;(desire 'php-mode nil "php-mode")
 ;(desire 'eiffel-mode nil "eiffel-mode")
 
+(desire 'lua nil "lua-mode")
+(desire 'julia-mode nil "julia-mode")
+(desire 'yaml-mode nil "yaml-mode")
+
 ;;}}}
 ;;{{{ Miscellaneous
 

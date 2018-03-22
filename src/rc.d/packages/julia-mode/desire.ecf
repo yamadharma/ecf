@@ -1,0 +1,36 @@
+;; Fill docstrings
+;; This is useful if you want to use M-q on docstrings.
+(defun julia-fill-string ()
+  "Fill a docstring, preserving newlines before and after triple quotation marks."
+  (interactive)
+  (if (and transient-mark-mode mark-active)
+      (fill-region (region-beginning) (region-end) nil t)
+    (cl-flet ((fill-if-string ()
+                              (when (or (looking-at (rx "\"\"\""
+                                                        (group
+                                                         (*? (or (not (any "\\"))
+                                                                 (seq "\\" anything))))
+                                                        "\"\"\""))
+                                        (looking-at (rx "\""
+                                                        (group
+                                                         (*? (or (not (any "\\"))
+                                                                 (seq "\\" anything))))
+                                                        "\"")))
+                                (let ((start (match-beginning 1))
+                                      (end (match-end 1)))
+                                  ;; (ess-blink-region start end)
+                                  (fill-region start end nil nil nil)))))
+      (save-excursion
+        (let ((s (syntax-ppss)))
+          (when (fourth s) (goto-char (ninth s))))
+        (fill-if-string)))))
+
+(local-set-key (kbd "M-q") 'julia-fill-string)
+(set-fill-column 80)
+
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
+;(hungry-delete-mode)
+
+

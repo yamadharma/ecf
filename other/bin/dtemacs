@@ -11,6 +11,8 @@ GNUCLIENTPINGOPTIONS="-batch -eval t"
 EMACS=emacs
 TIMEOUT=20
 
+[[ -z $LC_NUMERIC ]] && export LC_NUMERIC=C
+
 # If Emacs doesn't seem to be running then make it so.
 if ${GNUCLIENT} ${GNUCLIENTPINGOPTIONS} >/dev/null 2>&1 ; then
     :
@@ -29,5 +31,5 @@ until ${GNUCLIENT} ${GNUCLIENTPINGOPTIONS} >/dev/null 2>&1 ; do
     sleep 1
     count=`expr ${count} + 1`
 done
- 
+
 exec ${GNUCLIENT} ${1+"$@"}
