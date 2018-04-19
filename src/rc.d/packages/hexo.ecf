@@ -1,0 +1,5 @@
+(require 'hexo)
+(defun hexo-my-blog ()
+    (interactive)
+    (hexo "~/work/blog/yamadharma.bitbucket.org/")
+)

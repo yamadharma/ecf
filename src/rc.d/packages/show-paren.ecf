@@ -2,13 +2,17 @@
 (show-paren-mode t)                 ; turn paren-mode on
 (setq show-paren-style 'mixed) ; alternatives are 'expression', 'parenthesis' and 'mixed'
 
-(set-face-background 'show-paren-match-face "#aaaaaa")
-(set-face-attribute 'show-paren-match-face nil 
-        :weight 'bold :underline nil :overline nil :slant 'normal)
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#def")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 
-(set-face-foreground 'show-paren-mismatch-face "red") 
-(set-face-attribute 'show-paren-mismatch-face nil 
-                    :weight 'bold :underline t :overline nil :slant 'normal)
+;(set-face-background 'show-paren-match-face "#aaaaaa")
+;(set-face-attribute 'show-paren-match-face nil 
+;        :weight 'bold :underline nil :overline nil :slant 'normal)
+
+;(set-face-foreground 'show-paren-mismatch-face "red") 
+;(set-face-attribute 'show-paren-mismatch-face nil 
+;                    :weight 'bold :underline t :overline nil :slant 'normal)
 
 ;; There are default keybindings for jumping to opening and closing delimiters
 ;; C-M b (move backward)

@@ -119,6 +119,12 @@
 (desire 'toolbar)
 
 ;; ----------------------------------------------------------------------
+;;{{{ Package repositories
+
+; MELPA
+(desire 'melpa)
+
+;;}}}
 ;;{{{ Spell
 
 (desire 'spell)
@@ -140,6 +146,7 @@
 ;;{{{ Text
 
 (desire 'text)
+(desire 'markdown nil "markdown-mode")
 
 ;;}}}
 ;;{{{ org-mode
@@ -222,6 +229,12 @@
 (desire 'yaml-mode nil "yaml-mode")
 
 ;;}}}
+;;{{{ Blogs
+
+(desire 'hexo nil "hexo")
+;(desire 'blog-admin nil "blog-admin")
+
+;;}}}
 ;;{{{ Miscellaneous
 
 ;(desire 'abbrev)
@@ -238,10 +251,6 @@
 ;(desire 'shell)
 ;;(desire 'sql-mode)
 ;(desire 'w3)
-(desired 'mobileorg)
-(desire 'org-mode)
-
-(desire 'markdown nil "markdown-mode")
 
 ;;}}}
 
