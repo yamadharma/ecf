@@ -1,5 +1,2 @@
 (require 'hexo)
-(defun hexo-my-blog ()
-    (interactive)
-    (hexo "~/work/blog/yamadharma.bitbucket.org/")
-)
+(setq hexo-posix-compatible-shell-file-path "/bin/bash")
