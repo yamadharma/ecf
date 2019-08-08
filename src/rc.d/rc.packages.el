@@ -146,7 +146,7 @@
 ;;{{{ Text
 
 (desire 'text)
-(desire 'markdown nil "markdown-mode")
+(desire 'markdown-mode nil "markdown-mode")
 
 ;;}}}
 ;;{{{ org-mode
