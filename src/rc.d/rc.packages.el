@@ -237,6 +237,7 @@
 ;;}}}
 ;;{{{ Miscellaneous
 
+(desire 'graphviz-dot-mode nil "graphviz-dot-mode")
 ;(desire 'abbrev)
 ;(desire 'bibtex)
 ;(desire 'calc)

@@ -1,0 +1,5 @@
+;;; Mode for the dot-language used by graphviz
+
+(require 'graphviz-dot-mode)
+
+;;;
