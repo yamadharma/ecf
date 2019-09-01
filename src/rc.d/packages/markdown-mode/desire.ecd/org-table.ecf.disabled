@@ -1,0 +1,19 @@
+;;;
+
+;; Editing Markdown Tables with Org Table Mode
+(require'org-table)
+
+;; Alignment function. Converts the intersections back to Markdown pipe table form
+(defun markdown-org-table-align-advice ()
+"Replace \"+\" sign with \"|\" in tables."
+(when (member major-mode '(markdown-mode gfm-mode))
+(save-excursion
+(save-restriction
+(narrow-to-region (org-table-begin) (org-table-end))
+(goto-char (point-min))
+(while (search-forward "-+-" nil t)
+(replace-match "-|-"))))))
+
+(advice-add 'org-table-align :after 'markdown-org-table-align-advice)
+
+;;;

@@ -1,0 +1,9 @@
+;;;
+
+;; Use asymmetric header styling, placing header characters only on the left of headers
+(setq markdown-asymmetric-header t)
+
+;; Use a variable-pitch font for headings where the size corresponds to the level of the heading
+(setq markdown-header-scaling t)
+
+;;;
