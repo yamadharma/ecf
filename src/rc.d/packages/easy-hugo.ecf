@@ -1,0 +1,8 @@
+;;; easy-hugo.ecf --- Load emacs major mode for managing hugo -*- coding: iso-2022-7bit-unix; -*- 
+
+(require 'easy-hugo)
+
+(setq easy-hugo-basedir "~/work/blog/yamadharma/")
+(setq easy-hugo-postdir "content/ru/post")
+
+;;;

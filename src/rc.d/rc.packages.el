@@ -232,7 +232,8 @@
 ;;{{{ Blogs
 
 (desire 'hexo nil "hexo")
-;(desire 'blog-admin nil "blog-admin")
+;(desire 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
+(desire 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
 
 ;;}}}
 ;;{{{ Miscellaneous
