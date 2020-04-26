@@ -65,3 +65,32 @@
              (when (and (eq (org-element-type element) 'keyword)
                         (string= (org-element-property :key element) "INCLUDE"))
                (replace-match "EXPORT \\1" nil nil nil 1)))))))))
+
+;; org-mode 9.3
+;; The following function will help switching your links to the new syntax:
+
+(defun org-update-link-syntax (&optional no-query)
+  "Update syntax for links in current buffer.
+Query before replacing a link, unless optional argument NO-QUERY
+is non-nil."
+  (interactive "P")
+  (org-with-point-at 1
+    (let ((case-fold-search t))
+      (while (re-search-forward "\\[\\[[^]]*?%\\(?:2[05]\\|5[BD]\\)" nil t)
+        (let ((object (save-match-data (org-element-context))))
+          (when (and (eq 'link (org-element-type object))
+                     (= (match-beginning 0)
+                        (org-element-property :begin object)))
+            (goto-char (org-element-property :end object))
+            (let* ((uri-start (+ 2 (match-beginning 0)))
+                   (uri-end (save-excursion
+                              (goto-char uri-start)
+                              (re-search-forward "\\][][]" nil t)
+                              (match-beginning 0)))
+                   (uri (buffer-substring-no-properties uri-start uri-end)))
+              (when (or no-query
+                        (y-or-n-p
+                         (format "Possibly obsolete URI syntax: %S.  Fix? "
+                                 uri)))
+                (setf (buffer-substring uri-start uri-end)
+                      (org-link-escape (org-link-decode uri)))))))))))
