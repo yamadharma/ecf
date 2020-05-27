@@ -1762,7 +1762,7 @@ with XEmacs.")
           (while (> len 0)
             (if (char-equal (aref str (1- len)) char)
                 (aset ret (1- len) to-char))
-            (decf len))
+            (cl-decf len))
           ret)))
 
     (defadvice kill-new (around folding-win32-fix-selective-display act)
@@ -2575,7 +2575,7 @@ Return t ot nil if marks were removed."
       (when (called-interactively-p 'interactive)
         (message "Folding: Cursor not over fold. Can't remove fold marks.")
         nil)
-    (destructuring-bind (beg end)
+    (cl-destructuring-bind (beg end)
         (folding-show-current-entry)
       (let ((kill-whole-line t))
         ;;  must be done in this order, because point moves after kill.
@@ -3056,7 +3056,7 @@ It prevents 'binary pollution' upon save."
   "Return folding font-lock keywords for MODE."
   ;;  Add support mode-by-mode basis. Check if mode is already
   ;;  handled from the property list.
-  (destructuring-bind (beg end ignore)
+  (cl-destructuring-bind (beg end ignore)
       (folding-get-mode-marks (or mode major-mode))
     ;; `ignore' is not used, add no-op for byte compiler
     (or ignore
@@ -3416,7 +3416,7 @@ Return:
          (bm    (regexp-quote (nth 0 elt))) ; markers defined for mode
          (em    (regexp-quote (nth 1 elt))) ; markers defined for mode
          (re    (concat "^" bm "\\|^" em))
-         (count 0)
+         (cl-count 0)
          stat
          moved)
     (save-excursion
@@ -3651,7 +3651,7 @@ ellipsis), the position of the point in the buffer is preserved, and as
 many folds as necessary are entered to make the surrounding text
 visible. This is useful after some commands eg., search commands."
   (interactive)
-  (labels
+  (cl-labels
       ((open-fold nil
                   (let ((data (folding-show-current-entry noerror t)))
                     (and data
@@ -5315,11 +5315,11 @@ The result will be:
   (when (and (stringp comment-end)
              (string-match "[^ \t]" comment-end))
     (error "Folding: Mode defines non-empty `comment-end'."))
-  (let* ((count          0)
+  (let* ((cl-count          0)
          (comment-regexp (concat "^" comment-start))
          (marker         (point-marker))
          done)
-    (destructuring-bind (left right ignore)
+    (cl-destructuring-bind (left right ignore)
         (folding-get-mode-marks)
       ;; Bytecomp silencer: variable ignore bound but not referenced
       (if ignore (setq ignore ignore))
@@ -5340,7 +5340,7 @@ The result will be:
               (goto-char (marker-position marker))
               (beginning-of-line)
               (insert  left " " (int-to-string count) "\n\n")
-              (incf count)
+              (cl-incf count)
               (setq done t)))
           (goto-char (marker-position marker))
           (when done

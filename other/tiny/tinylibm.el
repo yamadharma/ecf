@@ -80,7 +80,7 @@
 
 (eval-and-compile
   (autoload 'gensym  "cl-macs")
-  (autoload 'member* "cl-seq"))
+  (autoload 'cl-member "cl-seq"))
 
 (require 'tinylibb)                     ;Backward compatible functions
 
@@ -467,7 +467,7 @@ Example:
 (put 'ti::dotimes 'lisp-indent-function 3)
 (defmacro ti::dotimes (var beg end &rest body)
   "Loop using VAR from BEG to END and do BODY."
-  `(loop for ,var from ,beg to ,end
+  `(cl-loop for ,var from ,beg to ,end
 	 do
 	 (progn
 	   ,@body)))
@@ -712,7 +712,7 @@ Input:
 The match is case sensitive."
   (when char
     (let (case-fold-search)
-      (member* char list :test 'char-equal))))
+      (cl-member char list :test 'char-equal))))
 
 ;;; ----------------------------------------------------------------------
 ;;; #todo: read-char-exclusive?
@@ -1890,7 +1890,7 @@ Stack is at kept in property 'definition-stack"
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defsubst ti::use-prefix-key (map key)
+(defsubst ti::use-prefix-key (cl-map key)
   "Define to MAP a prefix KEY. If KEY is not keymap, allocate the key.
 Return KEY's original binding."
   (if (not (keymapp (lookup-key map key)))
@@ -1945,7 +1945,7 @@ After that your commands with `local-set-key' are buffer local."
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defmacro ti::define-key-if-free (map key object &optional callback)
+(defmacro ti::define-key-if-free (cl-map key object &optional callback)
   "Put key to map if key is not assigned already.
 
 Key can be assigned if
@@ -2022,7 +2022,7 @@ Example:
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defmacro ti::copy-key-definition (map to-key from-key)
+(defmacro ti::copy-key-definition (cl-map to-key from-key)
   "Put to MAP a TO-KEY that is bound to FROM-KEY.
 You can use this function e.g. in minor modes, where when minor
 mode is turned on, it moves some key definitions to somewhere

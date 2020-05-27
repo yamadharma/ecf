@@ -709,7 +709,7 @@ To start loader process, call \\[tinyload-install]."
          (funcs (ti::system-autoload-function-list))
          (load (when funcs
                  (ti::system-autoload-function-file-list funcs)))
-         (count 0)
+         (cl-count 0)
          str)
     (unless fid ;; No-op. XEmacs byte compiler silencer
       (setq fid nil))
@@ -804,7 +804,7 @@ See PKG and FEATURE from `tinyload--load-list'"
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defun tinyload-load-list-search-elt (search position)
+(defun tinyload-load-list-search-elt (cl-search position)
   "SEARCH item in `tinyload--load-list' by checking POSITION.
 
 package feature noerr nomsg before after
@@ -816,7 +816,7 @@ The SEARCH item is checked with `equal' function."
       ;;  package feature noerr nomsg before after
       (setq picked (nth position elt))
       (when (equal picked search)
-        (return elt)))))
+        (cl-return elt)))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -1092,7 +1092,7 @@ Return:
  '(load-list pointer)."
   (let ((orig (get 'tinyload--load-list 'original)))
     ;; first invocation
-    (put 'tinyload--process-busy-p 'count 0)
+    (put 'tinyload--process-busy-p 'cl-count 0)
     ;;  No original values available, so set defaults
     (unless orig
       (put 'tinyload--load-list 'original tinyload--load-list))
@@ -1120,7 +1120,7 @@ Return:
 ;;;
 (defun tinyload-busy-count ()
   "Return `tinyload--process-busy-p' busy count."
-  (get 'tinyload--process-busy-p 'count))
+  (get 'tinyload--process-busy-p 'cl-count))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -1130,14 +1130,14 @@ Return:
   ;;    then the main loop never cleared the flag
   ;;  - Keep on eye on the counter and prevent deadlock by resetting
   ;;    the busy signal.
-  (let  ((busy-count (get 'tinyload--process-busy-p 'count)))
+  (let  ((busy-count (get 'tinyload--process-busy-p 'cl-count)))
     (cond
      ;; Not yet defined, set initial value
      ((not (integerp busy-count))
       (setq busy-count 0))
      (t
       (cl-incf busy-count)))
-    (put 'tinyload--process-busy-p 'count  busy-count)
+    (put 'tinyload--process-busy-p 'cl-count  busy-count)
     (put 'tinyload--process-busy-p 'count2 busy-count)))
 
 ;;; ----------------------------------------------------------------------
@@ -1145,7 +1145,7 @@ Return:
 (defun tinyload-continue-check (&optional force)
   "Check if process can continue with FORCE.
 Return CONTINUE if there is no activity."
-  (multiple-value-bind (continue no-act no-input)
+  (cl-multiple-value-bind (continue no-act no-input)
       (tinyload-process-continue force)
     (tinyload-message
      (format
@@ -1237,7 +1237,7 @@ Return:
             ;;  ==> if too hight, only then FORCE load.
             ;;
             deadlock t))
-    (put  'tinyload--process-busy-p 'count busy-count)
+    (put  'tinyload--process-busy-p 'cl-count busy-count)
     deadlock))
 
 ;;; ----------------------------------------------------------------------
@@ -1306,7 +1306,7 @@ If called interactively, FORCE loading all packages in the list."
               ;;  simple STRING is package name only
               (when elt
                 (setq elt (ti::list-make elt)))
-              (multiple-value-bind (pkg feature noerr nomsg
+              (cl-multiple-value-bind (pkg feature noerr nomsg
                                         form-before form-after)
                   elt
                 ;;  Remove entry from failed list

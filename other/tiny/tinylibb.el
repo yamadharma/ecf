@@ -251,7 +251,7 @@ arguments.  If ARGS is not a list, no argument will be passed."
 ;; See cplus-md.el
 (defun-maybe count-char-in-string (c s)
   "Count CHARACTER in STRING."
-  (let ((count 0)
+  (let ((cl-count 0)
         (pos   0))
     (while (< pos (length s))
       (if (char-equal (aref s pos) c)

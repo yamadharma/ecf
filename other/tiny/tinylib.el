@@ -387,7 +387,7 @@ Return:
 Optionally adds to the END. COUNT is by default 1
 
 If string length is 0, do nothing."
-  (let* ((count (or count 1))
+  (let* ((cl-count (or count 1))
          (padd  (make-string count ?\ )))
     (ti::string-verify-ends str padd padd (not end))))
 
@@ -879,7 +879,7 @@ one slash actually when assigned to string to form the regexp."
 	(len     (length str))
 	(look-ch ?\\)
 	(prev-ch ?d)             ;just some dummy
-	(count   0)
+	(cl-count   0)
 	chs
 	ch)
     (while (< i len)
@@ -1125,7 +1125,7 @@ Note, the return value is LIST."
         ret)
     (setq dir (file-name-as-directory dir))
     (dolist (elt check)
-      (multiple-value-bind (try type) elt
+      (cl-multiple-value-bind (try type) elt
         (setq try (concat dir try))
         (if (or (file-exists-p try)
                 (file-directory-p try))
@@ -1246,7 +1246,7 @@ Input:
              ((eq type 'file)     (nth 0 info))
              ((eq type 'revision) (nth 1 info))
              ((eq type 'time)     (nth 2 info))
-             ((eq type 'rest)     (nth 4 info))
+             ((eq type 'cl-rest)     (nth 4 info))
              ((error "Invalid WHAT arg %s" type)))
             ret))
     ;; preserve order.
@@ -1549,7 +1549,7 @@ Return:
         (if (not (string= elt version))
             (setq tmp elt)
           (setq ret tmp)
-          (return)))))
+          (cl-return)))))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -1840,10 +1840,10 @@ E.g. if you want to calculate days; you'd do
 \(/ (ti::date-time-difference a b) 86400) ;; 60sec * 60min * 24h"
   (if float
       (progn
-        (multiple-value-bind (s0 s1 s2) a
+        (cl-multiple-value-bind (s0 s1 s2) a
           (setq a (+ (* (float (ash 1 16)) s0)
                      (float s1) (* 0.0000001 s2))))
-        (multiple-value-bind (s0 s1 s2) b
+        (cl-multiple-value-bind (s0 s1 s2) b
           (setq b (+ (* (float (ash 1 16)) s0)
                      (float s1) (* 0.0000001 s2))))
         (- a b))
@@ -1964,7 +1964,7 @@ Return:
 ;;; ----------------------------------------------------------------------
 ;;; #defalias (defalias 'string-repeat 'ti::string-repeat)
 ;;;
-(defun ti::string-repeat (count char-or-string)
+(defun ti::string-repeat (cl-count char-or-string)
   "Repeat COUNT times CHAR-OR-STRING."
   (let ((i 0)
 	ret)
@@ -2050,7 +2050,7 @@ Return:
       (if (and terminate (null str))
           (progn
             (setq ret nil)              ;that's it then...
-            (return))
+            (cl-return))
         (push str ret)))
     (nreverse ret)))
 
@@ -2306,7 +2306,7 @@ Return:
     (when (with-current-buffer buffer
             (and (eq major-mode 'dired-mode)
                  (string= dired-directory dir)))
-      (return buffer))))
+      (cl-return buffer))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -2889,7 +2889,7 @@ Return:
 	(prev-func     (if back 'forward-word 'backward-word))
 	(next-skip     (if back 'skip-chars-backward 'skip-chars-forward))
 	(cmp-func      (if back '< '>))
-	(count         (or count 0))
+	(cl-count         (or count 0))
 	limit
 	ret)
     (save-excursion
@@ -3057,7 +3057,7 @@ Return:
   nil           sitting at eob, cannot kill line"
   (interactive "*P")
   (let ((null-line-re "^$")
-	(count        (or count 1))
+	(cl-count        (or count 1))
 	(i            0))
     ;;  emacs kill-line is little awkward, because if you're at the
     ;;  end of buffer it signals an error...
@@ -3218,7 +3218,7 @@ Return:
   ;;
   (interactive "*r\nsStart line[1]: \nsInterval[1]: ")
   (let* (;;  convert strings to sensible value
-         (count         (cond
+         (cl-count         (cond
                          ((integerp line) ;; calling lisp
                           line)
                          (t ;; interactive
@@ -4105,7 +4105,7 @@ Input:
 (defun ti::window-list (&optional buffers)
   "Gather all visible windows or BUFFERS visible in current frame."
   (let* ((s     (selected-window))      ;start window
-         (loop  t)
+         (cl-loop  t)
          (w     s)                      ;current cycle
          l
          ww)
@@ -4146,7 +4146,7 @@ in some other frame window than in the current frame."
       ;;  maybe in other frame...
       (when (setq win (get-buffer-window buffer frame))
         (setq ret (cons frame win))
-        (return)))
+        (cl-return)))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -4474,7 +4474,7 @@ Live example:
       (ti::keymap-bind-control 'mail-mode-map 'get 'my \"\C-c\C-c\")
       arg)
     ;; Function ends here.)"
-  (let (map
+  (let (cl-map
 	map-key
 	sym
 	val
@@ -4550,7 +4550,7 @@ Return:
 ;;; - For preventing Emacs to beep and disabling the normal keys
 ;;;   (for mail, gnus, ... )
 ;;;
-(defun ti::keymap-put-abc-map (map &optional func)
+(defun ti::keymap-put-abc-map (cl-map &optional func)
   "Put function `ignore' to abc key MAP, optionally put FUNC."
   (let ((i    0)
 	(func (or func 'ignore))
@@ -4566,7 +4566,7 @@ Return:
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defun ti::keymap-put-map (map &optional func)
+(defun ti::keymap-put-map (cl-map &optional func)
   "Put function `ignore' to a0 > x <128 key MAP, optionally put FUNC."
   (let ((i    20)
 	(func (or func 'ignore)))
@@ -4656,7 +4656,7 @@ Return:
                ;; cannot set
                nil))
         ;; succesfull; stop the loop
-        (return)))
+        (cl-return)))
     status))
 
 ;;}}}
@@ -5625,7 +5625,7 @@ Unix path handling:
 	(setq try (w32-cygwin-path-to-dos try)))
     (when (and try
 	       (file-directory-p try))
-      (return try))))
+      (cl-return try))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -5791,7 +5791,7 @@ Return:
   str           first match if all-paths is nil
   list          list of matches along paths."
   (interactive
-   (let ((map (copy-keymap minibuffer-local-map))
+   (let ((cl-map (copy-keymap minibuffer-local-map))
 	 var1
 	 var2)
      (define-key map "\t"   'lisp-complete-symbol)
@@ -5809,7 +5809,7 @@ Return:
           (if all-paths
               (push file found)
             (setq  found file)
-            (return)))))
+            (cl-return)))))
     (if (and found all-paths)           ;preserve order
         (setq found (nreverse found)))
     (if (and found verb)
@@ -6022,7 +6022,7 @@ Example 2:
     (setq result (call-interactively 'my-example)) \"test\" RET <files> RET
     result
     --> (\"test\" (\"~/\" \"~/bin\" \"~/exe/\"))"
-  `(let ((map (copy-keymap minibuffer-local-map)))
+  `(let ((cl-map (copy-keymap minibuffer-local-map)))
      ;;  this event also exists for tab
      (define-key map [kp-tab]   'ti::file-complete-file-name-word)
      (define-key map [tab]      'ti::file-complete-file-name-word)
@@ -7284,7 +7284,7 @@ Input:
 	(with-current-buffer buffer
 	  (insert "\n")                   ;list arguments for functions.
 	  (dolist (elt list)
-	    (multiple-value-bind (func args) elt
+	    (cl-multiple-value-bind (func args) elt
 	      (if (and (stringp args)
 		       (string-match "[a-z]" args))
 		  (insert (format ";; %-35s %s\n" func args))
@@ -7725,7 +7725,7 @@ otherwise `load-path' is conculted."
                           "^\\(.*xemacs[-\\/][0-9]+\\.[0-9.]*[0-9]\\)[\\/]"
                           1 path))))
         (setq ret (concat match "/lisp"))
-        (return)))
+        (cl-return)))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -7880,7 +7880,7 @@ then FACE is assigned to it (default 'highlight)"
 (defun ti::compat-key-local-map (key)
   "Return local map function for KEY"
   (let* ((prop      (text-properties-at (point)))
-         (map       (and  prop
+         (cl-map       (and  prop
                           (nth 1 (memq 'keymap prop))))
          (function  (and  map
                           (lookup-key map key))))
@@ -7891,7 +7891,7 @@ then FACE is assigned to it (default 'highlight)"
 (defun ti::compat-key-call-original (minor-mode-symbol key-binding)
   "Turn of MINOR-MODE-SYMBOL and execute original KEY-BINDING.
 This won't work on mouse commands that examine the mouse `event'"
-  (let* ((map           (or (current-local-map)
+  (let* ((cl-map           (or (current-local-map)
 			    global-map))
          (function      (lookup-key map key-binding))
          (this-command  (if function
@@ -7928,11 +7928,11 @@ If mouse is not supported, return nil."
 	;;  window-list returns all windows starting from TOP. Count
 	;;  Lines in every window and compare that to mouse-position
 	(let ((win (get-buffer-window (current-buffer)))
-	      (count 0))
+	      (cl-count 0))
 	  (save-window-excursion
 	    (dolist (elt (window-list))
 	      (when (eq elt win)
-		(return))
+		(cl-return))
 	      (select-window elt)
 	      ;;  Modeline is not counted as +1
 	      (setq count (+ count (window-height)))))
@@ -8081,7 +8081,7 @@ Return:
   selection     member or nbr
   nil           nothing selected"
   (interactive "e")
-  (let ((count  0)
+  (let ((cl-count  0)
 	;;  Allow calling from key press also.
 	(event  (or event
 		    (ti::compat-make-x-popup-event
@@ -8148,7 +8148,7 @@ Return:
             (when (and (vectorp arg)
                        (string= ret (elt arg 0)))
               (setq ret  (1- count))
-              (return))
+              (cl-return))
             (cl-incf count))))))
     ret))
 
@@ -8433,7 +8433,7 @@ Return:
                                          (prin1-to-string
                                           (get-elt elt (1+ pos))))))
               (setq ret (list elt (car timer)))
-              (return))))))
+              (cl-return))))))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -9132,7 +9132,7 @@ BODY"
   (let ((sym (intern (symbol-name `,func-def-sym))))
     `(defun ,sym ()
        (let ((root-map  ,keymap-sym)
-	     (map       ,prefix-keymap-sym)
+	     (cl-map       ,prefix-keymap-sym)
 	     (p         ,prefix-key-sym))
          (when (stringp ,easymenu-doc-str) ;This could be nil (no menus)
            (if (ti::xemacs-p)

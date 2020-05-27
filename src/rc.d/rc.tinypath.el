@@ -230,9 +230,7 @@
 
 ;; `tinypath' load
 (require 'cl)
-;(pushnew tiny-path-lisp-path load-path)
-(setq load-path (push tiny-path-lisp-path load-path))
-
+(cl-pushnew tiny-path-lisp-path load-path)
 (load "tinypath")
 
 ;;; rc.tinypath.el ends here
