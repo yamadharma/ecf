@@ -20,7 +20,7 @@
 
 ;;; Code:
 
-;(require 'cl)
+;(require 'cl-lib)
 
 (setq debug-on-error nil)   ;; Must be like this in batch byte compile
 
@@ -229,7 +229,7 @@
 ;    "\\|[/\\]wl"    
 
 ;; `tinypath' load
-(require 'cl)
+(require 'cl-lib)
 (pushnew tiny-path-lisp-path load-path)
 
 (load "tinypath")
