@@ -102,7 +102,7 @@ This function is run only once at tinynyliba.el load."
         (let ((location (locate-library "cl")))
           (error "\
 ** tinyliba.el: Core library `cl' [%s] is dysfunctional.
-                (require 'cl) dind't provide standard CL statement
+                (require 'cl-lib) dind't provide standard CL statement
                 `return'. This may be a problem in `load-path' order.
                 Do you need to re-arrange it?"
                  location)))

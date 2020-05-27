@@ -204,7 +204,7 @@
 (require 'tinylibm)                     ;macro package
 
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 
 (eval-and-compile
   (defvar generated-autoload-file) ;; See autoload.el

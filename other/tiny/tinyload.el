@@ -199,7 +199,7 @@
 ;;
 ;;          ;; $HOME/.emacs -- Emacs startup controller
 ;;
-;;          (require 'cl)   ;; Tell location of startup files
+;;          (require 'cl-lib)   ;; Tell location of startup files
 ;;          (pushnew "~/elisp/rc" load-path :test 'string=)
 ;;
 ;;          (require 'emacs-rc-path)
@@ -236,7 +236,7 @@
 ;;
 ;;          ;; $HOME/.emacs -- Emacs startup controller
 ;;
-;;          (require 'cl)   ;; Tell location of startup files
+;;          (require 'cl-lib)   ;; Tell location of startup files
 ;;          (pushnew "~/elisp/rc" load-path :test 'string=)
 ;;
 ;;          ;; Have these minimum features immediately available
@@ -457,7 +457,7 @@
 ;; #todo: 2000-11 Emacs 2?.7 seems to include reportmail.el
 
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 
 (eval-and-compile
   (autoload 'display-time "time"))

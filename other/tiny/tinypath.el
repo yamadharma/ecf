@@ -364,7 +364,7 @@
 ;;      `pushnew' ensures that the directories are not added multiple
 ;;      times.
 ;;
-;;          (require 'cl)
+;;          (require 'cl-lib)
 ;;          (dolist (path ("~/elisp"
 ;;                         ;;  For both Emacs and XEmacs
 ;;                         "/usr/share/emacs/site-lisp/common"
@@ -523,7 +523,7 @@
 ;;                "\\|[/\\]x?emacs[/\\0-9.]+[/\\]lisp[/\\]gnus")
 ;;          ;; PLEASE COPY VERBATIM. THERE ARE OPTIMIZATIONS
 ;;          ;; THAT ACTIVATE If YOU ADD THE PATH
-;;          (require 'cl)
+;;          (require 'cl-lib)
 ;;          (pushnew "~/elisp/tiny/lisp" load-path :test 'string=)
 ;;          (load "tinypath.el")
 ;;
@@ -819,7 +819,7 @@
 ;;      `defvar', `defconst': (setq woman-manpath ... and change the code
 ;;      to _add_ to the variable instead:
 ;;
-;;          (require 'cl)
+;;          (require 'cl-lib)
 ;;          (dolist (path '("one" "two" "three"))
 ;;            (pushnew (expand-file-name path) woman-manpath :test 'string))
 ;;
@@ -1081,7 +1081,7 @@
 ;;      In the installation section it is instructed that the location of the
 ;;      package is pushed into the `load-path' before the package is loaded:
 ;;
-;;          (require 'cl)
+;;          (require 'cl-lib)
 ;;          (pushnew "~/elisp/tiny/lisp/tiny" load-path :test 'string=)
 ;;          (load "tinypath.el")
 ;;
@@ -1298,7 +1298,7 @@
 (provide 'tinypath)
 
 (eval-when-compile
-  (require 'cl)
+  (require 'cl-lib)
   (require 'advice))
 
 (eval-and-compile

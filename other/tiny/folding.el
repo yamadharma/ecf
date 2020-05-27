@@ -1633,7 +1633,7 @@
 ;;; ......................................................... &require ...
 
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 
 (eval-and-compile
   (autoload 'font-lock-fontify-region "font-lock")

@@ -68,7 +68,7 @@
 ;;{{{ Load forms
 
 (eval-when-compile
-  (require 'cl)
+  (require 'cl-lib)
   ;; 2010-11-20 A bogus warning:
   ;;
   ;;     Warning: Function `xxxx' from cl package called at runtime
