@@ -226,11 +226,12 @@
 ; "\\|/usr/share/emacs/23\\.0\\.0/site-lisp"
 ;    "\\|[/\\]quail"
 ;    "\\|[/\\]flim"
-;    "\\|[/\\]wl"    
+;    "\\|[/\\]wl"
 
 ;; `tinypath' load
-(require 'cl-lib)
-(pushnew tiny-path-lisp-path load-path)
+(require 'cl)
+;(pushnew tiny-path-lisp-path load-path)
+(setq load-path (push tiny-path-lisp-path load-path))
 
 (load "tinypath")
 
