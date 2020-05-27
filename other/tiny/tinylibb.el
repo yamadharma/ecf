@@ -4,7 +4,7 @@
 
 ;;{{{ Id
 
-;; Copyright (C)    1998-2013 Jari Aalto
+;; Copyright (C)    1998-2019 Jari Aalto
 ;; Keywords:        extensions
 ;; Author:          Jari Aalto
 ;; Maintainer:      Jari Aalto
@@ -79,14 +79,14 @@
 (eval-and-compile
   (autoload 'ti::replace-match "tinylibm"))
 
-(defconst tinylibb-version-time "2013.0613.1819"
+(defconst tinylibb-version-time "2019.0525.1340"
   "Latest version number as last modified time.")
 
 ;;; ....................................................... &emulation ...
 
-(defun-maybe replace-char-in-string (ch1 ch2 string)
-  ;;  "Search CH1, change it with CH2 in STRING."
-  (nsubstitute ch1 ch2 string))
+(defun-maybe subst-char-in-string (old new string)
+  "Search OLD character with NEW in STRING. Changes STRING."
+  (cl-nsubstitute new old string))
 
 (defun-maybe bin-string-to-int (8bit-string)
   "Convert 8BIT-STRING  string to integer."
@@ -96,7 +96,7 @@
     (while (< i 8)
       (if (not (string= "0" (substring 8bit-string i (1+ i))))
           (setq int (+ int (nth i list) )))
-      (incf  i))
+      (cl-incf i))
     int))
 
 (defun-maybe int-to-bin-string (n &optional length)
@@ -197,12 +197,14 @@ PAD says to padd hex string with leading zeroes."
                    (ti::string-value j)))))
 
 ;;; .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. higher Emacs . .
-;;:  Features found from new emacs only 20.xx
+;;:  Features found from Newer Emacs
 
 (defun-maybe byte-compiling-files-p ()
   "Return t if currently byte-compiling files."
   (string= (buffer-name) " *Compiler Input*"))
 
+(defmacro-maybe cl-flet (&rest args)
+  `(flet ,@args))
 
 (defmacro-maybe with-output-to-file (file &rest body)
   "Open FILE and run BODY.
@@ -253,8 +255,8 @@ arguments.  If ARGS is not a list, no argument will be passed."
         (pos   0))
     (while (< pos (length s))
       (if (char-equal (aref s pos) c)
-          (incf  count))
-      (incf  pos))
+          (cl-incf count))
+      (cl-incf pos))
     count))
 
 (defun-maybe count-char-in-region  (beg end char)
@@ -269,7 +271,7 @@ count-lines function , but (count-char-in-region ?\\n)"
     (save-excursion
       (goto-char (min beg end))
       (while (search-forward char end  t)
-        (incf  i)))
+        (cl-incf i)))
     (if (called-interactively-p 'interactive)
         (message "%d hits in region." i))
     i))
@@ -305,7 +307,7 @@ Default is to convert all tabs in STRING with spaces."
         (if (char-equal char (aref string i))
             (setq elt to-string))
         (setq ret (concat ret elt))
-        (incf  i))))
+        (cl-incf i))))
     ret))
 
 ;; shell.el, term.el, terminal.el
@@ -341,8 +343,8 @@ seen my `buffer-read-only'
    (set-text-properties 1 10 '(face highlight)))
 
 "
-    (let ((modified (gensym "modified-"))
-	  (read-only (gensym "read-only-")))
+    (let ((modified (cl-gensym "modified-"))
+	  (read-only (cl-gensym "read-only-")))
       `(let ((,modified (buffer-modified-p))
 	     (,read-only buffer-read-only))
 	 (unwind-protect
