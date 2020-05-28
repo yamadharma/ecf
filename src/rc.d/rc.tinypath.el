@@ -229,8 +229,8 @@
 ;    "\\|[/\\]wl"
 
 ;; `tinypath' load
-(require 'cl)
-(cl-pushnew tiny-path-lisp-path load-path)
+(require 'cl-lib)
+(cl-pushnew tiny-path-lisp-path load-path :test 'string=)
 (load "tinypath")
 
 ;;; rc.tinypath.el ends here
