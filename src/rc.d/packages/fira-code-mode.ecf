@@ -1,0 +1,15 @@
+;;; Simple minor mode for Fira Code ligatures
+;;; Using this minor mode will give you just the ligatures from the Fira Code font; it won't alter your fonts or faces in any other way.
+;;; https://github.com/jming422/fira-code-mode
+
+(require 'fira-code-mode)
+
+;; (custom-set-variable 'fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x")) ;; List of ligatures to turn off
+
+;;; Enable fira-code-mode automatically for programming major modes
+;; (add-hook 'prog-mode-hook 'fira-code-mode)
+
+;; Or, you can use the global mode instead of adding a hook:
+(global-fira-code-mode)
+
+;;;

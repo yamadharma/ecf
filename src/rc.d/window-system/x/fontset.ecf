@@ -1,17 +1,24 @@
 ;;; -*- coding: utf-8 -*-
 
-;(if (> emacs-major-version 22)
-;    (prog1
-;	(set-default-font "consolas:size=14")
-;	(add-to-list 'default-frame-alist '(font . "consolas:size=14"))
-;	(set-fontset-font "fontset-default" 'cyrillic '("consolas" . "ISO10646-1"))
-;	(set-fontset-font "fontset-default" 'greek '("consolas" . "ISO10646-1"))
-;    )
-;    ()
-;    (load "fontset-intlfonts")
-;)
-
-(add-to-list 'default-frame-alist '(font . "Hack-12" ))
-(set-face-attribute 'default t :font "Hack-12" )
+(cond
+ ((find-font (font-spec :name "Fira Code"))
+  (add-to-list 'default-frame-alist '(font . "Fira Code-12" ))
+  (set-face-attribute 'default t :font "Fira Code-12" ))
+ ((find-font (font-spec :name "Hack"))
+  (add-to-list 'default-frame-alist '(font . "Hack-12" ))
+  (set-face-attribute 'default t :font "Hack-12" ))
+ ((find-font (font-spec :name "Inconsolata"))
+  (add-to-list 'default-frame-alist '(font . "Inconsolata-12" ))
+  (set-face-attribute 'default t :font "Inconsolata-12" ))
+ ((find-font (font-spec :name "DejaVu Sans Mono"))
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12" ))
+  (set-face-attribute 'default t :font "DejaVu Sans Mono-12" ))
+ ((find-font (font-spec :name "Lucida Console"))
+  (add-to-list 'default-frame-alist '(font . "Lucida Console-12" ))
+  (set-face-attribute 'default t :font "Lucida Console-12" ))
+ ((find-font (font-spec :name "Courier"))
+  (add-to-list 'default-frame-alist '(font . "Courier-12" ))
+  (set-face-attribute 'default t :font "Courier-12" ))
+ )
 
 ;;;
