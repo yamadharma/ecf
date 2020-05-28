@@ -1,4 +1,23 @@
 
+0.6.0 / 2020-05-28
+==================
+
+  * Emacs-27 compatibility issues
+  * Added GPL-3 license
+  * Added script for github mirroring
+  * Fixed backquotes in desire.el
+  * Replaced cl -> cl-lib in tinypath loading
+  * Changed cl-count -> count in let operator
+  * Updated folding.cl
+  * Fixed tinypath.el for cl-lib
+  * Used cl-libify.el
+  * Reverted cl in script
+  * Replaced cl -> cl-lib in config scripts
+  * Removed old speck.el
+  * Removed old julia-mode
+  * Replaced cl -> cl-lib in tiny-tools
+  * Updated tiny-tools files
+
 0.5.31 / 2020-04-26
 ==================
 
