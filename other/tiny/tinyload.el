@@ -709,7 +709,7 @@ To start loader process, call \\[tinyload-install]."
          (funcs (ti::system-autoload-function-list))
          (load (when funcs
                  (ti::system-autoload-function-file-list funcs)))
-         (cl-count 0)
+         (count 0)
          str)
     (unless fid ;; No-op. XEmacs byte compiler silencer
       (setq fid nil))

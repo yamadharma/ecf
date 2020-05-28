@@ -387,7 +387,7 @@ Return:
 Optionally adds to the END. COUNT is by default 1
 
 If string length is 0, do nothing."
-  (let* ((cl-count (or count 1))
+  (let* ((count (or count 1))
          (padd  (make-string count ?\ )))
     (ti::string-verify-ends str padd padd (not end))))
 
@@ -879,7 +879,7 @@ one slash actually when assigned to string to form the regexp."
 	(len     (length str))
 	(look-ch ?\\)
 	(prev-ch ?d)             ;just some dummy
-	(cl-count   0)
+	(count   0)
 	chs
 	ch)
     (while (< i len)
@@ -1964,7 +1964,7 @@ Return:
 ;;; ----------------------------------------------------------------------
 ;;; #defalias (defalias 'string-repeat 'ti::string-repeat)
 ;;;
-(defun ti::string-repeat (cl-count char-or-string)
+(defun ti::string-repeat (count char-or-string)
   "Repeat COUNT times CHAR-OR-STRING."
   (let ((i 0)
 	ret)
@@ -2889,7 +2889,7 @@ Return:
 	(prev-func     (if back 'forward-word 'backward-word))
 	(next-skip     (if back 'skip-chars-backward 'skip-chars-forward))
 	(cmp-func      (if back '< '>))
-	(cl-count         (or count 0))
+	(count         (or count 0))
 	limit
 	ret)
     (save-excursion
@@ -3057,7 +3057,7 @@ Return:
   nil           sitting at eob, cannot kill line"
   (interactive "*P")
   (let ((null-line-re "^$")
-	(cl-count        (or count 1))
+	(count        (or count 1))
 	(i            0))
     ;;  emacs kill-line is little awkward, because if you're at the
     ;;  end of buffer it signals an error...
@@ -3218,7 +3218,7 @@ Return:
   ;;
   (interactive "*r\nsStart line[1]: \nsInterval[1]: ")
   (let* (;;  convert strings to sensible value
-         (cl-count         (cond
+         (count         (cond
                          ((integerp line) ;; calling lisp
                           line)
                          (t ;; interactive
@@ -7928,7 +7928,7 @@ If mouse is not supported, return nil."
 	;;  window-list returns all windows starting from TOP. Count
 	;;  Lines in every window and compare that to mouse-position
 	(let ((win (get-buffer-window (current-buffer)))
-	      (cl-count 0))
+	      (count 0))
 	  (save-window-excursion
 	    (dolist (elt (window-list))
 	      (when (eq elt win)
@@ -8081,7 +8081,7 @@ Return:
   selection     member or nbr
   nil           nothing selected"
   (interactive "e")
-  (let ((cl-count  0)
+  (let ((count  0)
 	;;  Allow calling from key press also.
 	(event  (or event
 		    (ti::compat-make-x-popup-event
