@@ -1,8 +1,22 @@
 ;;; easy-hugo.ecf --- Load emacs major mode for managing hugo -*- coding: iso-2022-7bit-unix; -*- 
 
+(autoload 'popup-menu* "popup" "Show a popup menu" nil)
+
 (require 'easy-hugo)
 
-(setq easy-hugo-basedir "~/work/blog/yamadharma/")
+(setq easy-hugo-server-flags "-D")
+
+;; Main blog
+(setq easy-hugo-basedir "~/work/blog/git/")
+;(setq easy-hugo-url "https://yourblogdomain")
+(setq easy-hugo-url "https://yamadharma.github.io")
+;(setq easy-hugo-sshdomain "blogdomain")
+(setq easy-hugo-root "~/work/blog/git")
+(setq easy-hugo-previewtime "300")
 (setq easy-hugo-postdir "content/ru/post")
+(setq
+    easy-hugo-preview-url "http://localhost:1313/"
+    easy-hugo-default-ext ".md"
+)
 
 ;;;
