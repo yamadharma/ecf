@@ -4,7 +4,7 @@
 
 ;;{{{ Id
 
-;; Copyright (C)    2003-2013 Jari Aalto
+;; Copyright (C)    2003-2019 Jari Aalto
 ;; Keywords:        extensions
 ;; Author:          Jari Aalto
 ;; Maintainer:      Jari Aalto
@@ -137,7 +137,7 @@
 ;;;
 (defsubst ti::xemacs-p (&optional version-string)
   "Check if running XEmacs. Optionally at least VERSION-STRING.
-Tested string is like  \"20.4\". Value t is returned if version
+Tested string is like  \"20.4\". Return version string if version
 is equal or greater than VERSION-STRING."
   ;; `emacs-version' can't be modified, be bomb sure
   (let ((case-fold-search t))
@@ -237,7 +237,7 @@ is equal or greater than VERSION-STRING."
                  ;;  is it on disk too?
                  (file-directory-p (concat try "/lisp" )))
         (setq ret try)
-        (return)))
+        (cl-return)))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -377,7 +377,7 @@ functions `ti::os-check-linux-like-p' or `ti::win32-cygwin-p'."
             (when (string= ret "")
               (setq ret "/"))
             (put 'ti::win32-cygwin-p 'cache-value ret)
-            (return))))))
+            (cl-return))))))
     ret))
 
 ;;; ----------------------------------------------------------------------

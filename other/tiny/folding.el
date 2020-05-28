@@ -2,7 +2,7 @@
 
 ;; This file is not part of Emacs
 
-;; Copyright (C) 2000-2013 Jari Aalto
+;; Copyright (C) 2000-2019 Jari Aalto
 ;; Copyright (C) 1995, 1996, 1997, 1998, 1999 Jari Aalto, Anders Lindgren.
 ;; Copyright (C) 1994 Jari Aalto
 ;; Copyright (C) 1992, 1993 Jamie Lokier, All rights reserved.
@@ -17,15 +17,15 @@
 ;; [Latest devel version]
 ;; Vcs-URL:     http://savannah.nongnu.org/projects/emacs-tiny-tools
 
-(defconst folding-version-time "2014.0401.0703"
+(defconst folding-version-time "2019.0524.1621"
   "Last edit time in format YYYY.MMDD.HHMM.")
 
 ;;{{{ GPL
 
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation,
-;; or (at your option) any later version.
+;; This file is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.
 ;;
 ;; GNU Emacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -553,7 +553,7 @@
 ;;  Old documentation
 ;;
 ;;      The following text was written by Jamie Lokier for the release
-;;      of Folding V1.6. It is included here for no particular reason:
+;;      of Folding 1.6. It is included here for history.
 ;;
 ;;      Emacs 18:
 ;;      Folding mode has been tested with versions 18.55 and
@@ -636,9 +636,9 @@
 
 ;;{{{ History
 
-;; [person version] = developer and his revision tree number.
 ;; NOTE: History records were stopped in 2009 when code was moved under
 ;; version control. See VCS logs.
+;; [person version] = developer and his revision tree number.
 ;;
 ;; Sep  20  2009  23.1             [jari git a80c2d6]
 ;; - Remove 'defmacro custom' for very old Emacs version that did
@@ -1616,7 +1616,6 @@
 ;; <
 ;; < ;;}}}
 ;;
-;;
 ;; X.x  Dec 1   1994    19.28           [jari]
 ;; - Only minor change. Made the folding mode string user configurable.
 ;;   Added these variables:
@@ -1633,7 +1632,7 @@
 ;;; ......................................................... &require ...
 
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 
 (eval-and-compile
   (autoload 'font-lock-fontify-region "font-lock")
@@ -1643,7 +1642,7 @@
 (require 'easymenu)
 
 (defvar folding-package-url-location
-  "Latest folding is available at http://cvs.xemacs.org/viewcvs.cgi/XEmacs/packages/xemacs-packages/text-modes/")
+  "https://github.com/jaalto/project-emacs--folding-mode.")
 
 ;;}}}
 ;;{{{ setup: byte compiler hacks
@@ -1661,20 +1660,19 @@
   (defvar folding-xemacs-p (or (boundp 'xemacs-logo)
                                (featurep 'xemacs))
     "Folding determines which emacs version it is running. t if Xemacs.")
-  ;;  loading overlay.el package removes some byte compiler whinings.
+  ;;  By loading overlay.el package, it clears some byte compiler messages.
   ;;  By default folding does not use overlay code.
   (if folding-xemacs-p
       (or (fboundp 'overlay-start)  ;; Already loaded
           (load "overlay" 'noerr)   ;; No? Try loading it.
           (message "\
 ** folding.el: XEmacs 19.15+ has package overlay.el, try to get it.
-               This is only warning. Folding does not use overlays by
+               This is only a warning. Folding does not use overlays by
                default.  You can safely ignore possible overlay byte
                compilation error
                messages."))))
 
 (eval-when-compile
-
   (when nil ;; Disabled 2000-01-05
     ;; While byte compiling
     (if (string= (buffer-name) " *Compiler Input*")
@@ -1722,18 +1720,14 @@
     "This advice does nothing except adding an optional argument
 to keep the byte compiler happy when compiling Emacs specific code
 with XEmacs.")
-
   ;; XEmacs and Emacs 19 differs when it comes to obsolete functions.
   ;; We're using the Emacs 19 versions, and this simply makes the
   ;; byte-compiler stop wining. (Why isn't there a warning flag which
   ;; could have turned off?)
-
   (and (boundp 'mode-line-format)
        (put 'mode-line-format 'byte-obsolete-variable nil))
-
   (and (fboundp 'byte-code-function-p)
        (put 'byte-code-function-p 'byte-compile nil))
-
   (and (fboundp 'eval-current-buffer)
        (put 'eval-current-buffer 'byte-compile nil)))
 
@@ -1762,7 +1756,7 @@ with XEmacs.")
           (while (> len 0)
             (if (char-equal (aref str (1- len)) char)
                 (aset ret (1- len) to-char))
-            (decf len))
+            (cl-decf len))
           ret)))
 
     (defadvice kill-new (around folding-win32-fix-selective-display act)
@@ -1871,6 +1865,34 @@ See also `folding-mode-prefix-key'."
   `(define-key
      folding-mode-prefix-map
      ,key ,function))
+
+(put 'folding-labels 'lisp-indent-function 0)
+(put 'folding-labels 'edebug-form-spec '(body))
+(defmacro folding-labels (&rest body)
+  "Call `cl-labels' if available."
+  (if (fboundp 'cl-labesl)
+      `(cl-labels ,@body)
+    `(labels ,@body)))
+
+(defmacro folding-exit-minibuffer ()
+  "Select `eval-buffer' or `eval-current-buffer'."
+  (if (fboundp 'exit-minibuffer)
+      `(exit-minibuffer) ;; Emacs 24.4+
+    `(isearch-nonincremental-exit-minibuffer)))
+
+;; (put 'folding-eval-buffer 'lisp-indent-function 0)
+(put 'folding-eval-buffer 'edebug-form-spec '(body))
+(defmacro folding-eval-buffer (&rest args)
+  "Select `eval-buffer' or `eval-current-buffer'."
+  (if (fboundp 'eval-buffer)
+      `(eval-buffer ,@args)
+    `(eval-curren-buffer ,@args))) ;; Old Emacs
+
+(defmacro folding-called-interactively-p ()
+  "Return t if interactive."
+  (if (fboundp 'called-interactively-p)
+       `(called-interactively-p 'interactive) ;; Emacs 23+
+     `(not (or executing-kbd-macro noninteractive))))
 
 (defun folding-bind-default-mouse ()
   "Bind default mouse keys used by Folding mode."
@@ -2572,10 +2594,10 @@ References:
 Return t ot nil if marks were removed."
   (interactive)
   (if (not (folding-mark-look-at))
-      (when (called-interactively-p 'interactive)
+      (when (folding-called-interactively-p)
         (message "Folding: Cursor not over fold. Can't remove fold marks.")
         nil)
-    (destructuring-bind (beg end)
+    (cl-destructuring-bind (beg end)
         (folding-show-current-entry)
       (let ((kill-whole-line t))
         ;;  must be done in this order, because point moves after kill.
@@ -2611,7 +2633,7 @@ Point must be over beginning fold mark."
       (if (and beg end)
           (folding-region-open-close beg end hide)))
      (t
-      (if (called-interactively-p 'interactive)
+      (if (folding-called-interactively-p)
           (message "point is not at fold beginning."))))))
 
 (defun folding-display-name ()
@@ -2685,8 +2707,7 @@ In XEmacs user could also set `zmacs-region-stays'."
     `'(interactive "p")))
 
 (defmacro folding-mouse-yank-at-p ()
-  "Check if user use \"yank at mouse point\" feature.
-
+  "Check if user uses \"yank at mouse point\" feature.
 Please see the variable `folding-mouse-yank-at-point'."
   'folding-mouse-yank-at-point)
 
@@ -3056,7 +3077,7 @@ It prevents 'binary pollution' upon save."
   "Return folding font-lock keywords for MODE."
   ;;  Add support mode-by-mode basis. Check if mode is already
   ;;  handled from the property list.
-  (destructuring-bind (beg end ignore)
+  (cl-destructuring-bind (beg end ignore)
       (folding-get-mode-marks (or mode major-mode))
     ;; `ignore' is not used, add no-op for byte compiler
     (or ignore
@@ -3168,7 +3189,7 @@ Overview
 
 Folding-mode function
 
-    If Folding mode is not called interactively (`(called-interactively-p 'interactive)' is nil),
+    If Folding mode is not called interactively (`(folding-called-interactively-p)' is nil),
     and it is called with two or less arguments, all of which are nil, then
     the point will not be altered if `folding-folding-on-startup' is set
     and `folding-whole-buffer' is called. This is generally not a good
@@ -3315,7 +3336,7 @@ Mouse behavior
                      (run-hooks hook-symbol)))
             (folding-set-mode-line))
           (and folding-folding-on-startup
-               (if (or (called-interactively-p 'interactive)
+               (if (or (folding-called-interactively-p)
                        arg
                        inter)
                    (folding-whole-buffer)
@@ -3608,6 +3629,7 @@ placed inside the folded text, which is not normally useful."
        (forward-line (1- arg)))
      (skip-chars-forward "^\r\n")))
 
+;; Instantiate
 (folding-end-of-line-macro)
 
 (defun folding-skip-ellipsis-backward ()
@@ -3651,7 +3673,7 @@ ellipsis), the position of the point in the buffer is preserved, and as
 many folds as necessary are entered to make the surrounding text
 visible. This is useful after some commands eg., search commands."
   (interactive)
-  (labels
+  (folding-labels
       ((open-fold nil
                   (let ((data (folding-show-current-entry noerror t)))
                     (and data
@@ -4219,8 +4241,7 @@ the title."
          prefix)
     ;;  was obsolete function: (buffer-flush-undo new-buffer)
     (buffer-disable-undo new-buffer)
-    (save-excursion
-      (set-buffer new-buffer)
+    (with-current-buffer new-buffer
       (delete-region (point-min)
                      (point-max)))
     (save-restriction
@@ -4713,12 +4734,12 @@ nil means discard it; anything else is stream for print."
                    (fset 'message real-message-def)
                    (apply 'message args))))
           (unwind-protect
-              (eval-current-buffer printflag)
+              (folding-eval-buffer printflag)
             (fset 'message real-message-def)
             (kill-buffer temp-buffer))
           (or suppress-eval-message
               (message "Evaluating unfolded buffer... Done"))))
-    (eval-current-buffer printflag)))
+    (folding-eval-buffer printflag)))
 
 ;;}}}
 
@@ -4963,8 +4984,7 @@ nil means discard it; anything else is stream for print."
   "Replace `isearch-forward-exit-minibuffer' when in `folding-mode'."
   (interactive)
   ;; Make sure we can continue searching outside narrowing.
-  (save-excursion
-    (set-buffer folding-isearch-current-buffer)
+  (with-current-buffer folding-isearch-current-buffer
     (widen))
   (isearch-forward-exit-minibuffer))
 
@@ -4972,19 +4992,17 @@ nil means discard it; anything else is stream for print."
   "Replace `isearch-reverse-exit-minibuffer' when in `folding-mode'."
   (interactive)
   ;; Make sure we can continue searching outside narrowing.
-  (save-excursion
-    (set-buffer folding-isearch-current-buffer)
+  (with-current-buffer folding-isearch-current-buffer
     (widen))
   (isearch-reverse-exit-minibuffer))
 
 (defun folding-isearch-nonincremental-exit-minibuffer ()
-  "Replace `isearch-reverse-exit-minibuffer' when in `folding-mode'."
+  "Replace `isearch-reverse-exit-minibuffer' while in `folding-mode'."
   (interactive)
   ;; Make sure we can continue searching outside narrowing.
-  (save-excursion
-    (set-buffer folding-isearch-current-buffer)
+  (with-current-buffer folding-isearch-current-buffer
     (widen))
-  (isearch-nonincremental-exit-minibuffer))
+  (folding-exit-minibuffer))
 
 ;;}}}
 ;;{{{ Special XEmacs support
@@ -5319,7 +5337,7 @@ The result will be:
          (comment-regexp (concat "^" comment-start))
          (marker         (point-marker))
          done)
-    (destructuring-bind (left right ignore)
+    (cl-destructuring-bind (left right ignore)
         (folding-get-mode-marks)
       ;; Bytecomp silencer: variable ignore bound but not referenced
       (if ignore (setq ignore ignore))
@@ -5340,7 +5358,7 @@ The result will be:
               (goto-char (marker-position marker))
               (beginning-of-line)
               (insert  left " " (int-to-string count) "\n\n")
-              (incf count)
+              (cl-incf count)
               (setq done t)))
           (goto-char (marker-position marker))
           (when done

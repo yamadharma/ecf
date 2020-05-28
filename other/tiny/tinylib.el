@@ -1,10 +1,12 @@
+;; -*- enable-local-variables: :all;  -*-
+
 ;;; tinylib.el --- Library of general functions
 
 ;; This file is not part of Emacs
 
 ;;{{{ Id
 
-;; Copyright (C)    1995-2013 Jari Aalto
+;; Copyright (C)    1995-2019 Jari Aalto
 ;; Keywords:        extensions
 ;; Author:          Jari Aalto
 ;; Maintainer:      Jari Aalto
@@ -201,8 +203,10 @@
 
 (require 'tinylibm)                     ;macro package
 
-(eval-and-compile
+(eval-when-compile
+  (require 'cl-lib))
 
+(eval-and-compile
   (defvar generated-autoload-file) ;; See autoload.el
   (defvar flyspell-mode)
 
@@ -253,8 +257,8 @@
     (?w  "Word")
     (?_  "Symbol, variables and commands")
     (?.  "Punctuation, separate symbols from one another")
-    (?(  "Open parenthesis")
-      (?)  "Close parenthesis")
+    (?\( "Open parenthesis")
+    (?\) "Close parenthesis")
     (?\" "String quote, string as a single token")
     (?\\ "Escape")
     (?/  "Character quote, only the character immediately following.")
@@ -403,8 +407,8 @@ If STRING is not stringp, then returns STRING as is."
 (defun ti::string-mangle (string)
   "Mangle STRING ie. make STRING unreadable.
 Same mangling is performed for the same STRING. Mangling can't be reversed."
-  (let* ((ch-list (coerce string 'list))
-         ;; (coerce list 'string) to get list of ints to string
+  (let* ((ch-list (cl-coerce string 'list))
+         ;; (cl-coerce list 'string) to get list of ints to string
          (abc "zaybxcwdveuftgshriqjpkolnm0918273645ZAYBXCWDVEUFTGSHRIQJPKOLNM")
          (len (length abc))
          (ret "")
@@ -453,7 +457,7 @@ Same mangling is performed for the same STRING. Mangling can't be reversed."
         (if (char-equal ch ?%)
             (setq extra ch-string))
         (setq ret (concat ret ch-string extra))
-        (incf i))))
+        (cl-incf i))))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -882,7 +886,7 @@ one slash actually when assigned to string to form the regexp."
       (setq ch      (aref str i)
             chs     (char-to-string ch))
       (if (eq ch look-ch)               ;add counter when EQ
-          (incf count))
+          (cl-incf count))
       (cond
        ((eq count 2)                    ;two successive ?
         (if (eq prev-ch look-ch)
@@ -903,7 +907,7 @@ one slash actually when assigned to string to form the regexp."
        (t
         (setq ret (concat ret chs))))
       (setq prev-ch ch )
-      (incf i))
+      (cl-incf i))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -1121,7 +1125,7 @@ Note, the return value is LIST."
         ret)
     (setq dir (file-name-as-directory dir))
     (dolist (elt check)
-      (multiple-value-bind (try type) elt
+      (cl-multiple-value-bind (try type) elt
         (setq try (concat dir try))
         (if (or (file-exists-p try)
                 (file-directory-p try))
@@ -1242,7 +1246,7 @@ Input:
              ((eq type 'file)     (nth 0 info))
              ((eq type 'revision) (nth 1 info))
              ((eq type 'time)     (nth 2 info))
-             ((eq type 'rest)     (nth 4 info))
+             ((eq type 'cl-rest)     (nth 4 info))
              ((error "Invalid WHAT arg %s" type)))
             ret))
     ;; preserve order.
@@ -1545,7 +1549,7 @@ Return:
         (if (not (string= elt version))
             (setq tmp elt)
           (setq ret tmp)
-          (return)))))
+          (cl-return)))))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -1836,10 +1840,10 @@ E.g. if you want to calculate days; you'd do
 \(/ (ti::date-time-difference a b) 86400) ;; 60sec * 60min * 24h"
   (if float
       (progn
-        (multiple-value-bind (s0 s1 s2) a
+        (cl-multiple-value-bind (s0 s1 s2) a
           (setq a (+ (* (float (ash 1 16)) s0)
                      (float s1) (* 0.0000001 s2))))
-        (multiple-value-bind (s0 s1 s2) b
+        (cl-multiple-value-bind (s0 s1 s2) b
           (setq b (+ (* (float (ash 1 16)) s0)
                      (float s1) (* 0.0000001 s2))))
         (- a b))
@@ -1868,9 +1872,9 @@ In calculation each month is supposed to have 30 days and a year 356 days."
     (if (>= (- d2 d1) 0)                ;day2 is smaller
         (setq ret (- d2 d1))
       (setq ret (- (+ 30 d2) d1))
-      (decf m2))
-    (incf ret (* 30  (- m2 m1)))
-    (incf ret (* 356 (- y2 y1)))
+      (cl-decf m2))
+    (cl-incf ret (* 30  (- m2 m1)))
+    (cl-incf ret (* 356 (- y2 y1)))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -1971,7 +1975,7 @@ Return:
       (setq ret "")
       (while (< i count)
         (setq ret (concat ret char-or-string))
-        (incf i)))
+        (cl-incf i)))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -2046,7 +2050,7 @@ Return:
       (if (and terminate (null str))
           (progn
             (setq ret nil)              ;that's it then...
-            (return))
+            (cl-return))
         (push str ret)))
     (nreverse ret)))
 
@@ -2138,7 +2142,7 @@ If the model is too short the variable REST-CASE instructs what to do
               (setq ch (upcase ch))
             (setq ch (downcase ch)))))
         (setq ret (concat ret ch))
-        (incf i))
+        (cl-incf i))
       ;; ............................................. REST characters ...
       ;;  if MODEL is too short, then determine what to do to the rest
       ;;  of the characters theat are left.
@@ -2173,13 +2177,13 @@ If REVERSE is non-nil, start searching at the end of string."
         (i   -1))
     (cond
      (reverse
-      (while (and (>= (decf len) 0)
+      (while (and (>= (cl-decf len) 0)
                   (/= (aref str len) char))) ;check character in string
       (if (>= len 0)
           len
         nil))
      (t
-      (while (and   (< (incf i) len)
+      (while (and   (< (cl-incf i) len)
                     (/= (aref str i) char)))
       (if (< i len)
           i
@@ -2302,7 +2306,7 @@ Return:
     (when (with-current-buffer buffer
             (and (eq major-mode 'dired-mode)
                  (string= dired-directory dir)))
-      (return buffer))))
+      (cl-return buffer))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -2365,8 +2369,7 @@ Return:
 	end
 	bol
 	leading)
-    (save-excursion
-      (set-buffer (or data-buffer (current-buffer)))
+    (with-current-buffer (or data-buffer (current-buffer))
       (and (re-search-forward beg-re nil t)
            (setq bol (line-beginning-position))
            (setq beg (match-beginning 0))
@@ -3059,7 +3062,7 @@ Return:
     ;;  emacs kill-line is little awkward, because if you're at the
     ;;  end of buffer it signals an error...
     (while (< i count)
-      (incf i)
+      (cl-incf i)
       (cond
        ((eobp)                          ;nothing to kill
         nil)
@@ -3123,7 +3126,7 @@ Example:
                   ;; Maybe last line does not have newline?
                   (when (looking-at ".*\015$")
                     (end-of-line)
-                    (delete-backward-char 1)))
+                    (delete-char -1)))
               ;; ....................................... unix --> dos ...
               (end-of-line)
               (if (not (char-equal (preceding-char) ?\015))
@@ -3361,7 +3364,7 @@ You just give RE \"r\\([0-9]+\\)\" and start value 1, increment 1"
         (delete-region beg end)
         (goto-char beg)
         (insert (format fmt inc-val))
-        (incf inc-val increment)))))
+        (cl-incf inc-val increment)))))
 
 ;;; ----------------------------------------------------------------------
 ;;; - Here is slightly different version. this increments every number
@@ -3483,7 +3486,7 @@ Point is not preserved."
             (delete-region pb pe)
             (setq count nbr)
             (while (> count 0)          ;leave that many
-              (decf count) (insert "\n"))
+              (cl-decf count) (insert "\n"))
             (if (> count 1)
                 (beginning-of-line)
               ;;  nothing done, next line
@@ -4102,7 +4105,7 @@ Input:
 (defun ti::window-list (&optional buffers)
   "Gather all visible windows or BUFFERS visible in current frame."
   (let* ((s     (selected-window))      ;start window
-         (loop  t)
+         (cl-loop  t)
          (w     s)                      ;current cycle
          l
          ww)
@@ -4143,7 +4146,7 @@ in some other frame window than in the current frame."
       ;;  maybe in other frame...
       (when (setq win (get-buffer-window buffer frame))
         (setq ret (cons frame win))
-        (return)))
+        (cl-return)))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -4300,14 +4303,13 @@ Key C-c h   replaces original C-h call
       (define-key key-translation-map "\177" "\C-h")
       (define-key key-translation-map "\C-h" "\177")
       (global-set-key BACKSPACE 'backward-delete-char)
-      (cl-flet ((key-warning
-              (key def)
-              (message "tinylib: Warning, key already occupied: %s %s"
-                       key def)))
-        ;; (ti::define-key-if-free global-map
-        ;;   "\C-x\C-?" 'help-for-help 'key-warning)
-        (ti::define-key-if-free global-map
-                                "\C-ch"    'help-command  'key-warning)))))
+      (ti::define-key-if-free
+       global-map
+       "\C-ch"
+       'help-command
+       (lambda (key def)
+	 (message "tinylib: Warning, key already occupied: %s %s"
+		  key def))))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -4472,7 +4474,7 @@ Live example:
       (ti::keymap-bind-control 'mail-mode-map 'get 'my \"\C-c\C-c\")
       arg)
     ;; Function ends here.)"
-  (let (map
+  (let (cl-map
 	map-key
 	sym
 	val
@@ -4548,7 +4550,7 @@ Return:
 ;;; - For preventing Emacs to beep and disabling the normal keys
 ;;;   (for mail, gnus, ... )
 ;;;
-(defun ti::keymap-put-abc-map (map &optional func)
+(defun ti::keymap-put-abc-map (cl-map &optional func)
   "Put function `ignore' to abc key MAP, optionally put FUNC."
   (let ((i    0)
 	(func (or func 'ignore))
@@ -4560,17 +4562,17 @@ Return:
             up  (char-to-string (+ 97 i)))
       (define-key map low func)
       (define-key map  up func)
-      (incf i))))
+      (cl-incf i))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defun ti::keymap-put-map (map &optional func)
+(defun ti::keymap-put-map (cl-map &optional func)
   "Put function `ignore' to a0 > x <128 key MAP, optionally put FUNC."
   (let ((i    20)
 	(func (or func 'ignore)))
     (while (< i 128 )
       (define-key map (char-to-string i) func)
-      (incf i))))
+      (cl-incf i))))
 
 ;;; ----------------------------------------------------------------------
 ;;; - Mapping keysto functions easily.
@@ -4654,7 +4656,7 @@ Return:
                ;; cannot set
                nil))
         ;; succesfull; stop the loop
-        (return)))
+        (cl-return)))
     status))
 
 ;;}}}
@@ -4736,9 +4738,9 @@ Also makes a great gift."
   (let ((begchar char)
 	(endchar char))
     (cond
-     ((or (char-equal char ?{) (char-equal char ?}))
-      (setq begchar ?{)
-      (setq endchar ?}))
+     ((or (char-equal char ?\{) (char-equal char ?\}))
+      (setq begchar ?\{)
+      (setq endchar ?\}))
      ((or (char-equal char ?\() (char-equal char ?\)))
       (setq begchar ?\()
       (setq endchar ?\)))
@@ -4746,22 +4748,24 @@ Also makes a great gift."
       (setq begchar ?<)
       (setq endchar ?>))
      ((or (char-equal char ?`) (char-equal char ?'))
-      (setq begchar ?`)
-      (setq endchar ?'))
-     ((or (char-equal char ?[) (char-equal char ?]))
-      (setq begchar ?[)
-            (setq endchar ?])))
+      (setq begchar ?\`)
+      (setq endchar ?\'))
+     ((or (char-equal char ?\[) (char-equal char ?\]))
+      (setq begchar ?\[)
+      (setq endchar ?\])))
     (re-search-backward "^\\|\\s-" (point-min))
     (if (not (bolp))
         (re-search-forward "\\s-")
-      (if (looking-at "\\s-") (re-search-forward "\\s-")))
+      (if (looking-at "\\s-")
+	  (re-search-forward "\\s-")))
     (insert-char begchar 1)
     (let ((opoint (point)))
       (if (re-search-forward "\\s-\\|\n" (point-max) t)
           (forward-char -1)
         (goto-char (point-max)))
       (insert-char endchar 1)
-      (if (eq (point) (+ opoint 1))
+      (if (eq (point)
+	      (+ opoint 1))
           (forward-char -1)))))
 
 ;;; ----------------------------------------------------------------------
@@ -4930,7 +4934,7 @@ Sort can optionally be NUMERIC, REVERSE or CASE sensitive.
 
 Return:
   sorted list."
-  (let ((clist (copy-list list)))      ;sort modifies it otw.
+  (let ((clist (cl-copy-list list)))      ;sort modifies it otw.
     (sort clist
           (function
            (lambda (l r &optional ret elt1 elt2)
@@ -5383,7 +5387,7 @@ Return:
                  ;;  ftp> 250 CWD command successful.
                  (not (string-match "success" (ti::read-current-line))))
                (< try max-try))
-        (incf try)))
+        (cl-incf try)))
     (push mode file-list)               ;command for ange
     (with-current-buffer (process-buffer proc)
       (ti::pmax)
@@ -5399,7 +5403,7 @@ Return:
          (list func)                    ;called after completion ?
          (not not-bg))                  ;continue without wait
         (ti::pmax)
-        (incf try)))
+        (cl-incf try)))
     ;;  The status value is valid only when process finishes.
     (if not-bg
         (with-current-buffer (process-buffer proc)
@@ -5621,7 +5625,7 @@ Unix path handling:
 	(setq try (w32-cygwin-path-to-dos try)))
     (when (and try
 	       (file-directory-p try))
-      (return try))))
+      (cl-return try))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -5744,13 +5748,13 @@ if MODE is non-nil, return empty string instead."
 ;;;
 (defsubst ti::file-path-to-unix (path)
   "Convert PATH to Unix forward slash format."
-  (replace-char-in-string ?/ ?\\  path))
+  (subst-char-in-string ?\\ ?/ path))
 
 ;;; ----------------------------------------------------------------------
 ;;;
 (defsubst ti::file-path-to-msdos (path)
   "Convert PATH to MS-DOS backward slash format."
-  (replace-char-in-string ?\\ ?/  path))
+  (subst-char-in-string ?/ ?\\ path))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -5764,10 +5768,10 @@ You need to call this function if you pass a absolute path to
 external processes. Emacs in the other hand can handle both \\ and /
 internally."
   (if (ti::emacs-type-win32-p)
-      (replace-char-in-string
-       ?\\ ?/  (concat (file-name-as-directory dir) (or file "")))
-    (replace-char-in-string
-     ?/ ?\\  (concat (file-name-as-directory dir) (or file "")))))
+      (ti::file-path-to-msdos (concat (file-name-as-directory dir)
+				      (or file "")))
+    (ti::file-path-to-unix (concat (file-name-as-directory dir)
+				   (or file "")))))
 
 ;;; ----------------------------------------------------------------------
 ;;; #defalias (defalias 'which 'ti::file-get-load-path)
@@ -5787,7 +5791,7 @@ Return:
   str           first match if all-paths is nil
   list          list of matches along paths."
   (interactive
-   (let ((map (copy-keymap minibuffer-local-map))
+   (let ((cl-map (copy-keymap minibuffer-local-map))
 	 var1
 	 var2)
      (define-key map "\t"   'lisp-complete-symbol)
@@ -5805,7 +5809,7 @@ Return:
           (if all-paths
               (push file found)
             (setq  found file)
-            (return)))))
+            (cl-return)))))
     (if (and found all-paths)           ;preserve order
         (setq found (nreverse found)))
     (if (and found verb)
@@ -6018,7 +6022,7 @@ Example 2:
     (setq result (call-interactively 'my-example)) \"test\" RET <files> RET
     result
     --> (\"test\" (\"~/\" \"~/bin\" \"~/exe/\"))"
-  `(let ((map (copy-keymap minibuffer-local-map)))
+  `(let ((cl-map (copy-keymap minibuffer-local-map)))
      ;;  this event also exists for tab
      (define-key map [kp-tab]   'ti::file-complete-file-name-word)
      (define-key map [tab]      'ti::file-complete-file-name-word)
@@ -7280,7 +7284,7 @@ Input:
 	(with-current-buffer buffer
 	  (insert "\n")                   ;list arguments for functions.
 	  (dolist (elt list)
-	    (multiple-value-bind (func args) elt
+	    (cl-multiple-value-bind (func args) elt
 	      (if (and (stringp args)
 		       (string-match "[a-z]" args))
 		  (insert (format ";; %-35s %s\n" func args))
@@ -7721,7 +7725,7 @@ otherwise `load-path' is conculted."
                           "^\\(.*xemacs[-\\/][0-9]+\\.[0-9.]*[0-9]\\)[\\/]"
                           1 path))))
         (setq ret (concat match "/lisp"))
-        (return)))
+        (cl-return)))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -7876,7 +7880,7 @@ then FACE is assigned to it (default 'highlight)"
 (defun ti::compat-key-local-map (key)
   "Return local map function for KEY"
   (let* ((prop      (text-properties-at (point)))
-         (map       (and  prop
+         (cl-map       (and  prop
                           (nth 1 (memq 'keymap prop))))
          (function  (and  map
                           (lookup-key map key))))
@@ -7887,7 +7891,7 @@ then FACE is assigned to it (default 'highlight)"
 (defun ti::compat-key-call-original (minor-mode-symbol key-binding)
   "Turn of MINOR-MODE-SYMBOL and execute original KEY-BINDING.
 This won't work on mouse commands that examine the mouse `event'"
-  (let* ((map           (or (current-local-map)
+  (let* ((cl-map           (or (current-local-map)
 			    global-map))
          (function      (lookup-key map key-binding))
          (this-command  (if function
@@ -7917,26 +7921,30 @@ If mouse is not supported, return nil."
     (let ( ;; (frame (car (mouse-position)))
           (x  (cadr (mouse-position)))
           (y  (cddr (mouse-position))))
-      ;;  window-list returns all windows starting from TOP. Count
-      ;;  Lines in every window and compare that to mouse-position
-      (let ((win (get-buffer-window (current-buffer)))
-            (count 0))
-        (save-window-excursion
-          (dolist (elt (window-list))
-            (when (eq elt win)
-              (return))
-            (select-window elt)
-            ;;  Modeline is not counted as +1
-            (setq count (+ count (window-height)))))
-        ;; (ti::d! count x y)
-        (list (1+ (- y count))
-              ;;  In Emacs 21.x there is a "fringe" that mouse-position
-              ;;  reports as X=0,
-              (if (eq x 0)
-                  ;; Consider "fringe" as column 0
-                  0
-                ;; Removed "fringe" count
-                (1- x)))))))
+      (if (not (and x y))		;No info available
+	  (list
+	   (ti::current-line-number)
+	   (current-column))
+	;;  window-list returns all windows starting from TOP. Count
+	;;  Lines in every window and compare that to mouse-position
+	(let ((win (get-buffer-window (current-buffer)))
+	      (count 0))
+	  (save-window-excursion
+	    (dolist (elt (window-list))
+	      (when (eq elt win)
+		(cl-return))
+	      (select-window elt)
+	      ;;  Modeline is not counted as +1
+	      (setq count (+ count (window-height)))))
+	  ;; (ti::d! count x y)
+	  (list (1+ (- y count))
+		;;  In Emacs 21.x there is a "fringe" that mouse-position
+		;;  reports as X=0,
+		(if (eq x 0)
+		    ;; Consider "fringe" as column 0
+		    0
+		  ;; Removed "fringe" count
+		  (1- x))))))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -8140,8 +8148,8 @@ Return:
             (when (and (vectorp arg)
                        (string= ret (elt arg 0)))
               (setq ret  (1- count))
-              (return))
-            (incf count))))))
+              (cl-return))
+            (cl-incf count))))))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -8425,7 +8433,7 @@ Return:
                                          (prin1-to-string
                                           (get-elt elt (1+ pos))))))
               (setq ret (list elt (car timer)))
-              (return))))))
+              (cl-return))))))
     ret))
 
 ;;; ----------------------------------------------------------------------
@@ -9124,7 +9132,7 @@ BODY"
   (let ((sym (intern (symbol-name `,func-def-sym))))
     `(defun ,sym ()
        (let ((root-map  ,keymap-sym)
-	     (map       ,prefix-keymap-sym)
+	     (cl-map       ,prefix-keymap-sym)
 	     (p         ,prefix-key-sym))
          (when (stringp ,easymenu-doc-str) ;This could be nil (no menus)
            (if (ti::xemacs-p)

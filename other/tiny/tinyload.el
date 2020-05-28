@@ -4,7 +4,7 @@
 
 ;;{{{ Id
 
-;; Copyright (C)    1997-2013 Jari Aalto
+;; Copyright (C)    1997-2019 Jari Aalto
 ;; Keywords:        extensions
 ;; Author:          Jari Aalto
 ;; Maintainer:      Jari Aalto
@@ -199,7 +199,7 @@
 ;;
 ;;          ;; $HOME/.emacs -- Emacs startup controller
 ;;
-;;          (require 'cl)   ;; Tell location of startup files
+;;          (require 'cl-lib)   ;; Tell location of startup files
 ;;          (pushnew "~/elisp/rc" load-path :test 'string=)
 ;;
 ;;          (require 'emacs-rc-path)
@@ -236,7 +236,7 @@
 ;;
 ;;          ;; $HOME/.emacs -- Emacs startup controller
 ;;
-;;          (require 'cl)   ;; Tell location of startup files
+;;          (require 'cl-lib)   ;; Tell location of startup files
 ;;          (pushnew "~/elisp/rc" load-path :test 'string=)
 ;;
 ;;          ;; Have these minimum features immediately available
@@ -455,6 +455,9 @@
 
 ;; #todo: Does Xemacs reportmail.el define this function too?
 ;; #todo: 2000-11 Emacs 2?.7 seems to include reportmail.el
+
+(eval-when-compile
+  (require 'cl-lib))
 
 (eval-and-compile
   (autoload 'display-time "time"))
@@ -724,7 +727,7 @@ To start loader process, call \\[tinyload-install]."
                     file (prin1-to-string err)))
          (message str)
          (tinyload-debug str)))
-      (incf count)
+      (cl-incf count)
       (when verb
         (message "Tinyload: autoloading clean %d/%d %s"
                  count (length load) file)))
@@ -801,7 +804,7 @@ See PKG and FEATURE from `tinyload--load-list'"
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defun tinyload-load-list-search-elt (search position)
+(defun tinyload-load-list-search-elt (cl-search position)
   "SEARCH item in `tinyload--load-list' by checking POSITION.
 
 package feature noerr nomsg before after
@@ -813,7 +816,7 @@ The SEARCH item is checked with `equal' function."
       ;;  package feature noerr nomsg before after
       (setq picked (nth position elt))
       (when (equal picked search)
-        (return elt)))))
+        (cl-return elt)))))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -1089,7 +1092,7 @@ Return:
  '(load-list pointer)."
   (let ((orig (get 'tinyload--load-list 'original)))
     ;; first invocation
-    (put 'tinyload--process-busy-p 'count 0)
+    (put 'tinyload--process-busy-p 'cl-count 0)
     ;;  No original values available, so set defaults
     (unless orig
       (put 'tinyload--load-list 'original tinyload--load-list))
@@ -1117,7 +1120,7 @@ Return:
 ;;;
 (defun tinyload-busy-count ()
   "Return `tinyload--process-busy-p' busy count."
-  (get 'tinyload--process-busy-p 'count))
+  (get 'tinyload--process-busy-p 'cl-count))
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -1127,14 +1130,14 @@ Return:
   ;;    then the main loop never cleared the flag
   ;;  - Keep on eye on the counter and prevent deadlock by resetting
   ;;    the busy signal.
-  (let  ((busy-count (get 'tinyload--process-busy-p 'count)))
+  (let  ((busy-count (get 'tinyload--process-busy-p 'cl-count)))
     (cond
      ;; Not yet defined, set initial value
      ((not (integerp busy-count))
       (setq busy-count 0))
      (t
-      (incf busy-count)))
-    (put 'tinyload--process-busy-p 'count  busy-count)
+      (cl-incf busy-count)))
+    (put 'tinyload--process-busy-p 'cl-count  busy-count)
     (put 'tinyload--process-busy-p 'count2 busy-count)))
 
 ;;; ----------------------------------------------------------------------
@@ -1142,7 +1145,7 @@ Return:
 (defun tinyload-continue-check (&optional force)
   "Check if process can continue with FORCE.
 Return CONTINUE if there is no activity."
-  (multiple-value-bind (continue no-act no-input)
+  (cl-multiple-value-bind (continue no-act no-input)
       (tinyload-process-continue force)
     (tinyload-message
      (format
@@ -1213,7 +1216,7 @@ Return:
   deadlock     if non-nil, deadlock was detected."
   (let ((busy-count (tinyload-busy-count-incf))
 	deadlock)
-    (incf  busy-count)
+    (cl-incf busy-count)
     (when (> busy-count 5)
       (tinyload-debug "Tinyload: busy count too high, clearing DEADLOCK")
       (tinyload-message "TinyLoad: Deadlock detected, clearing...")
@@ -1234,7 +1237,7 @@ Return:
             ;;  ==> if too hight, only then FORCE load.
             ;;
             deadlock t))
-    (put  'tinyload--process-busy-p 'count busy-count)
+    (put  'tinyload--process-busy-p 'cl-count busy-count)
     deadlock))
 
 ;;; ----------------------------------------------------------------------
@@ -1303,7 +1306,7 @@ If called interactively, FORCE loading all packages in the list."
               ;;  simple STRING is package name only
               (when elt
                 (setq elt (ti::list-make elt)))
-              (multiple-value-bind (pkg feature noerr nomsg
+              (cl-multiple-value-bind (pkg feature noerr nomsg
                                         form-before form-after)
                   elt
                 ;;  Remove entry from failed list
@@ -1329,7 +1332,7 @@ If called interactively, FORCE loading all packages in the list."
                       (throw 'exit t)))
                   (tinyload-debug "TinyLoad: >>> 2 -- feature present?")
                   (setq stat (tinyload-feature-p pkg feature))
-                  (incf  pos)
+                  (cl-incf pos)
                   (put 'tinyload--load-list 'pos pos)
                   (tinyload-debug
                    (format "TinyLoad: >>> 3, pkg %s feature `%s' status: %s"

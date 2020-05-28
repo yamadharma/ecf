@@ -20,7 +20,7 @@
 
 ;;; Code:
 
-;(require 'cl)
+;(require 'cl-lib)
 
 (setq debug-on-error nil)   ;; Must be like this in batch byte compile
 
@@ -226,12 +226,11 @@
 ; "\\|/usr/share/emacs/23\\.0\\.0/site-lisp"
 ;    "\\|[/\\]quail"
 ;    "\\|[/\\]flim"
-;    "\\|[/\\]wl"    
+;    "\\|[/\\]wl"
 
 ;; `tinypath' load
-(require 'cl)
-(pushnew tiny-path-lisp-path load-path)
-
+(require 'cl-lib)
+(cl-pushnew tiny-path-lisp-path load-path :test 'string=)
 (load "tinypath")
 
 ;;; rc.tinypath.el ends here

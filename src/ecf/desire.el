@@ -2,7 +2,7 @@
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
-;;		    Dmitry S. Kulyabov <yamadharma@gmail.com> <dharma@mx.pfu.edu.ru>
+;;		    Dmitry S. Kulyabov <yamadharma@gmail.com> <dharma@sci.pfu.edu.ru>
 ;; Maintainer:      Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;; Created:         20-Jun-1995
 
@@ -217,7 +217,7 @@ then nothing happens and nil is returned."
 	      ;; Setup processing of directory.
 	      (eval-after-load
 	       lname
-	       (` (desire-process-directory (, prefix))))
+	       `(desire-process-directory, prefix))
 	      
 	      ;; Finished!
 	      (desired package)

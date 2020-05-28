@@ -4,7 +4,7 @@
 
 ;;{{{ Id
 
-;; Copyright (C)    1998-2013 Jari Aalto
+;; Copyright (C)    1998-2019 Jari Aalto
 ;; Keywords:        extensions
 ;; Author:          Jari Aalto
 ;; Maintainer:      Jari Aalto
@@ -74,7 +74,7 @@
 
 (provide 'tinyliba)
 
-(defconst tinyliba-version-time "2013.0613.1737"
+(defconst tinyliba-version-time "2019.0524.1812"
   "Latest version number as last modified time.")
 
 (autoload 'with-timeout      "timer"        "" nil 'macro)
@@ -95,14 +95,14 @@ This function is run only once at tinynyliba.el load."
           (let ((func 'tinypath-cache-mode))
             (if (fboundp func)
                 (funcall func -1))))
-      (unless (fboundp 'return)
+      (unless (fboundp 'cl-return)
         ;;  cl.el version 3.0 does not define macro `return'. cl
         ;;  2.02(19.34) is ok. This was noticed by Sami Khoury
         ;;  <skhoury@cse.dnd.ca>
         (let ((location (locate-library "cl")))
           (error "\
 ** tinyliba.el: Core library `cl' [%s] is dysfunctional.
-                (require 'cl) dind't provide standard CL statement
+                (require 'cl-lib) dind't provide standard CL statement
                 `return'. This may be a problem in `load-path' order.
                 Do you need to re-arrange it?"
                  location)))
@@ -111,7 +111,9 @@ This function is run only once at tinynyliba.el load."
       ;;  broken implementation.
       (condition-case err
           (dolist (elt '(1))
-            (return elt))
+	    (if (fboundp 'cl-return)
+		(funcall 'cl-return elt)
+	      (funcall 'cl-return elt)))
         (error
          (message "\
 ** tinyliba.el [ERROR] Broken `dolist' implementation.
@@ -122,7 +124,9 @@ This function is run only once at tinynyliba.el load."
       ;;  Do post-check if everything is ok.
       (condition-case nil
           (dolist (elt '(1))
-            (return elt))
+	    (if (fboundp 'cl-return)
+		(funcall 'cl-return elt)
+	      (funcall 'cl-return elt)))
         (error
          (message "\
 ** tinyliba.el [ERROR] Still broken `dolist' implementation!
@@ -135,22 +139,22 @@ This function is run only once at tinynyliba.el load."
             (if (fboundp func)
                 (funcall func 1)))))))
 
-(eval-and-compile
-  ;;  TODO: Probably should be gone by now.
-  ;;  Long story short: At a time Emacs shipped with crippled cl.el
-  ;;  library which broke everything. This check was necessary to
-  ;;  regain sane environment.
-  (unless (fboundp 'return)  ;; CL is not loaded yet
-    (autoload 'return "cl-macs" nil nil 'macro)
-    (when (string< emacs-version "24")
-      ;; Broken subr.el::dolist implementation which is not same
-      ;; as cl-macs.el::dolist => Delete sub.el::dolist and arrange
-      ;; Emacs to load it from CL library.
-      ;;
-      ;; See http://debbugs.gnu.org/cgi/bugreport.cgi?bug=7408
-      ;; FIXME: Remove (ti::tmp-cl-library-check)
-      (fmakunbound 'dolist)
-      (autoload 'dolist "cl-macs" "" nil 'macro))))
+;; (eval-and-compile
+;;   ;;  TODO: Probably should be gone by now.
+;;   ;;  Long story short: At a time Emacs shipped with crippled cl.el
+;;   ;;  library which broke everything. This check was necessary to
+;;   ;;  regain sane environment.
+;;   (unless (fboundp 'return)  ;; CL is not loaded yet
+;;     (autoload 'return "cl-macs" nil nil 'macro)
+;;     (when (string< emacs-version "24")
+;;       ;; Broken subr.el::dolist implementation which is not same
+;;       ;; as cl-macs.el::dolist => Delete sub.el::dolist and arrange
+;;       ;; Emacs to load it from CL library.
+;;       ;;
+;;       ;; See http://debbugs.gnu.org/cgi/bugreport.cgi?bug=7408
+;;       ;; FIXME: Remove (ti::tmp-cl-library-check)
+;;       (fmakunbound 'dolist)
+;;      (autoload 'dolist "cl-macs" "" nil 'macro))))
 
 ;;}}}
 
@@ -187,53 +191,23 @@ This function is run only once at tinynyliba.el load."
   ;;}}}
   ;;{{{ code: Autoload cl
 
-  ;; cl-compat.el Emacs 19.34
-
-  (autoload 'defkeyword                           "cl-compat" "" nil 'macro)
-  (autoload 'keywordp                             "cl-compat" "" nil)
-  (autoload 'keyword-of                           "cl-compat" "" nil)
-  (autoload 'values                               "cl-compat" "" nil)
-  (autoload 'values-list                          "cl-compat" "" nil)
-  (autoload 'multiple-value-list                  "cl-compat" "" nil 'macro)
-  (autoload 'multiple-value-call                  "cl-compat" "" nil 'macro)
-  (autoload 'multiple-value-bind                  "cl-compat" "" nil 'macro)
-  (autoload 'multiple-value-setq                  "cl-compat" "" nil 'macro)
-  (autoload 'multiple-value-prog1                 "cl-compat" "" nil 'macro)
-  (autoload 'build-klist                          "cl-compat" "" nil)
-  (autoload 'extract-from-klist                   "cl-compat" "" nil)
-  (autoload 'keyword-argument-supplied-p          "cl-compat" "" nil)
-  (autoload 'elt-satisfies-test-p                 "cl-compat" "" nil)
-  (autoload 'cl-floor                             "cl-compat" "" nil)
-  (autoload 'cl-ceiling                           "cl-compat" "" nil)
-  (autoload 'cl-round                             "cl-compat" "" nil)
-  (autoload 'cl-truncate                          "cl-compat" "" nil)
-  (autoload 'safe-idiv                            "cl-compat" "" nil)
-  (autoload 'pair-with-newsyms                    "cl-compat" "" nil)
-  (autoload 'zip-lists                            "cl-compat" "" nil)
-  (autoload 'unzip-lists                          "cl-compat" "" nil)
-  (autoload 'reassemble-argslists                 "cl-compat" "" nil)
-  (autoload 'duplicate-symbols-p                  "cl-compat" "" nil)
-  (autoload 'setnth                               "cl-compat" "" nil)
-  (autoload 'setnthcdr                            "cl-compat" "" nil)
-  (autoload 'setelt                               "cl-compat" "" nil)
-
   ;; cl-extra.el 19.34
 
   ;; (autoload 'cl-push                              "cl-extra" "" nil 'macro)
   ;; (autoload 'cl-pop                               "cl-extra" "" nil 'macro)
-  (autoload 'coerce                               "cl-extra" "" nil)
-  (autoload 'equalp                               "cl-extra" "" nil)
+  (autoload 'cl-coerce                               "cl-extra" "" nil)
+  (autoload 'cl-equalp                               "cl-extra" "" nil)
   (autoload 'cl-mapcar-many                       "cl-extra" "" nil)
-  (autoload 'map                                  "cl-extra" "" nil)
-  (autoload 'maplist                              "cl-extra" "" nil)
+  (autoload 'cl-map                                  "cl-extra" "" nil)
+  (autoload 'cl-maplist                              "cl-extra" "" nil)
   (autoload 'mapc                                 "cl-extra" "" nil)
-  (autoload 'mapl                                 "cl-extra" "" nil)
+  (autoload 'cl-mapl                                 "cl-extra" "" nil)
   (autoload 'mapcan                               "cl-extra" "" nil)
-  (autoload 'mapcon                               "cl-extra" "" nil)
-  (autoload 'some                                 "cl-extra" "" nil)
-  (autoload 'every                                "cl-extra" "" nil)
-  (autoload 'notany                               "cl-extra" "" nil)
-  (autoload 'notevery                             "cl-extra" "" nil)
+  (autoload 'cl-mapcon                               "cl-extra" "" nil)
+  (autoload 'cl-some                                 "cl-extra" "" nil)
+  (autoload 'cl-every                                "cl-extra" "" nil)
+  (autoload 'cl-notany                               "cl-extra" "" nil)
+  (autoload 'cl-notevery                             "cl-extra" "" nil)
   (autoload 'cl-map-keymap                        "cl-extra" "" nil)
   (autoload 'cl-map-keymap-recursively            "cl-extra" "" nil)
   (autoload 'cl-map-intervals                     "cl-extra" "" nil)
@@ -241,31 +215,31 @@ This function is run only once at tinynyliba.el load."
   (autoload 'cl-set-frame-visible-p               "cl-extra" "" nil)
   (autoload 'cl-progv-before                      "cl-extra" "" nil)
   (autoload 'cl-progv-after                       "cl-extra" "" nil)
-  (autoload 'gcd                                  "cl-extra" "" nil)
-  (autoload 'lcm                                  "cl-extra" "" nil)
-  (autoload 'isqrt                                "cl-extra" "" nil)
+  (autoload 'cl-gcd                                  "cl-extra" "" nil)
+  (autoload 'cl-lcm                                  "cl-extra" "" nil)
+  (autoload 'cl-isqrt                                "cl-extra" "" nil)
   (autoload 'cl-expt                              "cl-extra" "" nil)
-  (autoload 'floor*                               "cl-extra" "" nil)
-  (autoload 'ceiling*                             "cl-extra" "" nil)
-  (autoload 'truncate*                            "cl-extra" "" nil)
-  (autoload 'round*                               "cl-extra" "" nil)
-  (autoload 'mod*                                 "cl-extra" "" nil)
-  (autoload 'rem*                                 "cl-extra" "" nil)
-  (autoload 'signum                               "cl-extra" "" nil)
-  (autoload 'random*                              "cl-extra" "" nil)
-  (autoload 'make-random-state                    "cl-extra" "" nil)
-  (autoload 'random-state-p                       "cl-extra" "" nil)
+  (autoload 'cl-floor                               "cl-extra" "" nil)
+  (autoload 'cl-ceiling                             "cl-extra" "" nil)
+  (autoload 'cl-truncate                            "cl-extra" "" nil)
+  (autoload 'cl-round                               "cl-extra" "" nil)
+  (autoload 'cl-mod                                 "cl-extra" "" nil)
+  (autoload 'cl-rem                                 "cl-extra" "" nil)
+  (autoload 'cl-signum                               "cl-extra" "" nil)
+  (autoload 'cl-random                              "cl-extra" "" nil)
+  (autoload 'cl-make-random-state                    "cl-extra" "" nil)
+  (autoload 'cl-random-state-p                       "cl-extra" "" nil)
   (autoload 'cl-finite-do                         "cl-extra" "" nil)
   (autoload 'cl-float-limits                      "cl-extra" "" nil)
-  (autoload 'subseq                               "cl-extra" "" nil)
-  (autoload 'concatenate                          "cl-extra" "" nil)
-  (autoload 'revappend                            "cl-extra" "" nil)
-  (autoload 'nreconc                              "cl-extra" "" nil)
-  (autoload 'list-length                          "cl-extra" "" nil)
-  (autoload 'tailp                                "cl-extra" "" nil)
+  (autoload 'cl-subseq                               "cl-extra" "" nil)
+  (autoload 'cl-concatenate                          "cl-extra" "" nil)
+  (autoload 'cl-revappend                            "cl-extra" "" nil)
+  (autoload 'cl-nreconc                              "cl-extra" "" nil)
+  (autoload 'cl-list-length                          "cl-extra" "" nil)
+  (autoload 'cl-tailp                                "cl-extra" "" nil)
   (autoload 'cl-copy-tree                         "cl-extra" "" nil)
-  (autoload 'get*                                 "cl-extra" "" nil)
-  (autoload 'getf                                 "cl-extra" "" nil)
+  (autoload 'cl-get                                 "cl-extra" "" nil)
+  (autoload 'cl-getf                                 "cl-extra" "" nil)
   (autoload 'cl-set-getf                          "cl-extra" "" nil)
   (autoload 'cl-do-remf                           "cl-extra" "" nil)
   (autoload 'cl-remprop                           "cl-extra" "" nil)
@@ -300,70 +274,70 @@ This function is run only once at tinynyliba.el load."
     (autoload 'cl-check-test-nokey                  "cl-seq" "" nil 'macro)
     (autoload 'cl-check-test                        "cl-seq" "" nil 'macro)
     (autoload 'cl-check-match                       "cl-seq" "" nil 'macro)
-    (autoload 'reduce                               "cl-seq" "" nil)
-    (autoload 'fill                                 "cl-seq" "" nil)
-    (autoload 'replace                              "cl-seq" "" nil)
-    (autoload 'remove*                              "cl-seq" "" nil)
-    (autoload 'remove-if                            "cl-seq" "" nil)
-    (autoload 'remove-if-not                        "cl-seq" "" nil)
-    (autoload 'delete*                              "cl-seq" "" nil)
-    (autoload 'delete-if                            "cl-seq" "" nil)
-    (autoload 'delete-if-not                        "cl-seq" "" nil)
+    (autoload 'cl-reduce                               "cl-seq" "" nil)
+    (autoload 'cl-fill                                 "cl-seq" "" nil)
+    (autoload 'cl-replace                              "cl-seq" "" nil)
+    (autoload 'cl-remove                              "cl-seq" "" nil)
+    (autoload 'cl-remove-if                            "cl-seq" "" nil)
+    (autoload 'cl-remove-if-not                        "cl-seq" "" nil)
+    (autoload 'cl-delete                              "cl-seq" "" nil)
+    (autoload 'cl-delete-if                            "cl-seq" "" nil)
+    (autoload 'cl-delete-if-not                        "cl-seq" "" nil)
     (autoload 'remove                               "cl-seq" "" nil)
     (autoload 'remq                                 "cl-seq" "" nil)
-    (autoload 'remove-duplicates                    "cl-seq" "" nil)
-    (autoload 'delete-duplicates                    "cl-seq" "" nil)
+    (autoload 'cl-remove-duplicates                    "cl-seq" "" nil)
+    (autoload 'cl-delete-duplicates                    "cl-seq" "" nil)
     (autoload 'cl-delete-duplicates                 "cl-seq" "" nil)
-    (autoload 'substitute                           "cl-seq" "" nil)
-    (autoload 'substitute-if                        "cl-seq" "" nil)
-    (autoload 'substitute-if-not                    "cl-seq" "" nil)
-    (autoload 'nsubstitute                          "cl-seq" "" nil)
-    (autoload 'nsubstitute-if                       "cl-seq" "" nil)
-    (autoload 'nsubstitute-if-not                   "cl-seq" "" nil)
-    (autoload 'find                                 "cl-seq" "" nil)
-    (autoload 'find-if                              "cl-seq" "" nil)
-    (autoload 'find-if-not                          "cl-seq" "" nil)
-    (autoload 'position                             "cl-seq" "" nil)
+    (autoload 'cl-substitute                           "cl-seq" "" nil)
+    (autoload 'cl-substitute-if                        "cl-seq" "" nil)
+    (autoload 'cl-substitute-if-not                    "cl-seq" "" nil)
+    (autoload 'cl-nsubstitute                          "cl-seq" "" nil)
+    (autoload 'cl-nsubstitute-if                       "cl-seq" "" nil)
+    (autoload 'cl-nsubstitute-if-not                   "cl-seq" "" nil)
+    (autoload 'cl-find                                 "cl-seq" "" nil)
+    (autoload 'cl-find-if                              "cl-seq" "" nil)
+    (autoload 'cl-find-if-not                          "cl-seq" "" nil)
+    (autoload 'cl-position                             "cl-seq" "" nil)
     (autoload 'cl-position                          "cl-seq" "" nil)
-    (autoload 'position-if                          "cl-seq" "" nil)
-    (autoload 'position-if-not                      "cl-seq" "" nil)
-    (autoload 'count                                "cl-seq" "" nil)
-    (autoload 'count-if                             "cl-seq" "" nil)
-    (autoload 'count-if-not                         "cl-seq" "" nil)
-    (autoload 'mismatch                             "cl-seq" "" nil)
-    (autoload 'search                               "cl-seq" "" nil)
-    (autoload 'sort*                                "cl-seq" "" nil)
-    (autoload 'stable-sort                          "cl-seq" "" nil)
-    (autoload 'merge                                "cl-seq" "" nil)
-    (autoload 'member*                              "cl-seq" "" nil)
-    (autoload 'member-if                            "cl-seq" "" nil)
-    (autoload 'member-if-not                        "cl-seq" "" nil)
+    (autoload 'cl-position-if                          "cl-seq" "" nil)
+    (autoload 'cl-position-if-not                      "cl-seq" "" nil)
+    (autoload 'cl-count                                "cl-seq" "" nil)
+    (autoload 'cl-count-if                             "cl-seq" "" nil)
+    (autoload 'cl-count-if-not                         "cl-seq" "" nil)
+    (autoload 'cl-mismatch                             "cl-seq" "" nil)
+    (autoload 'cl-search                               "cl-seq" "" nil)
+    (autoload 'cl-sort                                "cl-seq" "" nil)
+    (autoload 'cl-stable-sort                          "cl-seq" "" nil)
+    (autoload 'cl-merge                                "cl-seq" "" nil)
+    (autoload 'cl-member                              "cl-seq" "" nil)
+    (autoload 'cl-member-if                            "cl-seq" "" nil)
+    (autoload 'cl-member-if-not                        "cl-seq" "" nil)
     (autoload 'cl-adjoin                            "cl-seq" "" nil)
-    (autoload 'assoc*                               "cl-seq" "" nil)
-    (autoload 'assoc-if                             "cl-seq" "" nil)
-    (autoload 'assoc-if-not                         "cl-seq" "" nil)
-    (autoload 'rassoc*                              "cl-seq" "" nil)
-    (autoload 'rassoc-if                            "cl-seq" "" nil)
-    (autoload 'rassoc-if-not                        "cl-seq" "" nil)
-    (autoload 'union                                "cl-seq" "" nil)
-    (autoload 'nunion                               "cl-seq" "" nil)
-    (autoload 'intersection                         "cl-seq" "" nil)
-    (autoload 'nintersection                        "cl-seq" "" nil)
-    (autoload 'set-difference                       "cl-seq" "" nil)
-    (autoload 'nset-difference                      "cl-seq" "" nil)
-    (autoload 'set-exclusive-or                     "cl-seq" "" nil)
-    (autoload 'nset-exclusive-or                    "cl-seq" "" nil)
-    (autoload 'subsetp                              "cl-seq" "" nil)
-    (autoload 'subst-if                             "cl-seq" "" nil)
-    (autoload 'subst-if-not                         "cl-seq" "" nil)
-    (autoload 'nsubst                               "cl-seq" "" nil)
-    (autoload 'nsubst-if                            "cl-seq" "" nil)
-    (autoload 'nsubst-if-not                        "cl-seq" "" nil)
-    (autoload 'sublis                               "cl-seq" "" nil)
+    (autoload 'cl-assoc                               "cl-seq" "" nil)
+    (autoload 'cl-assoc-if                             "cl-seq" "" nil)
+    (autoload 'cl-assoc-if-not                         "cl-seq" "" nil)
+    (autoload 'cl-rassoc                              "cl-seq" "" nil)
+    (autoload 'cl-rassoc-if                            "cl-seq" "" nil)
+    (autoload 'cl-rassoc-if-not                        "cl-seq" "" nil)
+    (autoload 'cl-union                                "cl-seq" "" nil)
+    (autoload 'cl-nunion                               "cl-seq" "" nil)
+    (autoload 'cl-intersection                         "cl-seq" "" nil)
+    (autoload 'cl-nintersection                        "cl-seq" "" nil)
+    (autoload 'cl-set-difference                       "cl-seq" "" nil)
+    (autoload 'cl-nset-difference                      "cl-seq" "" nil)
+    (autoload 'cl-set-exclusive-or                     "cl-seq" "" nil)
+    (autoload 'cl-nset-exclusive-or                    "cl-seq" "" nil)
+    (autoload 'cl-subsetp                              "cl-seq" "" nil)
+    (autoload 'cl-subst-if                             "cl-seq" "" nil)
+    (autoload 'cl-subst-if-not                         "cl-seq" "" nil)
+    (autoload 'cl-nsubst                               "cl-seq" "" nil)
+    (autoload 'cl-nsubst-if                            "cl-seq" "" nil)
+    (autoload 'cl-nsubst-if-not                        "cl-seq" "" nil)
+    (autoload 'cl-sublis                               "cl-seq" "" nil)
     (autoload 'cl-sublis-rec                        "cl-seq" "" nil)
-    (autoload 'nsublis                              "cl-seq" "" nil)
+    (autoload 'cl-nsublis                              "cl-seq" "" nil)
     (autoload 'cl-nsublis-rec                       "cl-seq" "" nil)
-    (autoload 'tree-equal                           "cl-seq" "" nil)
+    (autoload 'cl-tree-equal                           "cl-seq" "" nil)
     (autoload 'cl-tree-equal-rec                    "cl-seq" "" nil)
 
     ;; cl-indent.el 19.34
