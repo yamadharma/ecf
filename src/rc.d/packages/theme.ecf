@@ -5,7 +5,6 @@
  )
 
 ;; (load-theme 'plan9)
-
-(load-theme 'acme t)
+;; (load-theme 'acme t)
 
 ;;;

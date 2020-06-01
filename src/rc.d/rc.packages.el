@@ -225,9 +225,9 @@
 ;(desire 'php-mode nil "php-mode")
 ;(desire 'eiffel-mode nil "eiffel-mode")
 
-(desire 'lua nil "lua-mode")
-(desire 'julia-mode nil "julia-mode")
-(desire 'yaml-mode nil "yaml-mode")
+(desire 'lua-mode nil "lua-mode" t)
+(desire 'julia-mode nil "julia-mode" t)
+(desire 'yaml-mode nil "yaml-mode" t)
 
 ;;}}}
 ;;{{{ Blogs

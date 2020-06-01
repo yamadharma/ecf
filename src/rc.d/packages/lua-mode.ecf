@@ -1,3 +1,5 @@
+;;;
+
 ;; Lua-mode
 ;; Emacs major mode for editing Lua
 ;; https://immerrr.github.io/lua-mode/
@@ -6,4 +8,4 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
-
+;;;
