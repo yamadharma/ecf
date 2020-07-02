@@ -16,7 +16,7 @@ install:
 	cp -R src/rc.d ${DESTDIR}/${SITELISPROOT}
 	cp -R src/ecf ${DESTDIR}/${SITELISP}
 	mkdir -p ${DESTDIR}/etc/ecf
-	mkdir ${DESTDIR}/$(prefix)/bin
+	mkdir -p ${DESTDIR}/$(prefix)/bin
 	cp other/bin/* ${DESTDIR}/$(prefix)/bin
 	mkdir -p ${DESTDIR}/${SITELISP}/ecf/other
 	cp other/lisp/* ${DESTDIR}/${SITELISP}/ecf/other
