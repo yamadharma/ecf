@@ -9,7 +9,6 @@
 ;; Main blog
 (setq easy-hugo-basedir "~/work/blog/git/")
 ;(setq easy-hugo-url "https://yourblogdomain")
-(setq easy-hugo-url "https://yamadharma.github.io")
 ;(setq easy-hugo-sshdomain "blogdomain")
 (setq easy-hugo-root "~/work/blog/git")
 (setq easy-hugo-previewtime "300")
