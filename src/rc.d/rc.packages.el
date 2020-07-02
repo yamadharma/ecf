@@ -36,6 +36,12 @@
 )
 
 ;;}}}
+;;{{{ Package repositories
+
+; MELPA
+(desire 'melpa)
+
+;;}}}
 
 (desire 'site-stuff)
 
@@ -102,10 +108,11 @@
 (desire 'fontset)
 (desire 'font-lock)
 (desire 'font-lock-jit)
-; (desire 'font-lock-lazy)
-; (desire 'font-lock-fast)
-; (desire 'faces)
-; (desire 'color-theme nil "color-theme")
+;; (desire 'font-lock-lazy)
+;; (desire 'font-lock-fast)
+;; (desire 'faces)
+;; (desire 'color-theme nil "color-theme")
+(desire 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 (desire 'theme)
 
 ;;
@@ -116,15 +123,9 @@
 
 ;;
 
-(desire 'toolbar)
+;; (desire 'toolbar)
 
 ;; ----------------------------------------------------------------------
-;;{{{ Package repositories
-
-; MELPA
-(desire 'melpa)
-
-;;}}}
 ;;{{{ Spell
 
 (desire 'spell)
@@ -224,9 +225,9 @@
 ;(desire 'php-mode nil "php-mode")
 ;(desire 'eiffel-mode nil "eiffel-mode")
 
-(desire 'lua nil "lua-mode")
-(desire 'julia-mode nil "julia-mode")
-(desire 'yaml-mode nil "yaml-mode")
+(desire 'lua-mode nil "lua-mode" t)
+(desire 'julia-mode nil "julia-mode" t)
+(desire 'yaml-mode nil "yaml-mode" t)
 
 ;;}}}
 ;;{{{ Blogs

@@ -1,5 +1,19 @@
 
-0.6.0 / 2020-05-28
+v0.6.1 / 2020-07-02
+==================
+
+  * Changed: gentoo ebuild
+  * Fixed: Makefile for installation
+  * Added: gentoo need fira-code
+  * Changed: temparary remove personal information
+  * Changed: disable toolbar by default
+  * Added: config for lua-mode
+  * Added: disabled some ligatures in Fira Code
+  * Added: preliminary support of easy-hugo
+  * Added: acme theme
+  * Added: support Fira Code ligatures
+
+v0.6.0 / 2020-05-28
 ==================
 
   * Emacs-27 compatibility issues
@@ -18,7 +32,7 @@
   * Replaced cl -> cl-lib in tiny-tools
   * Updated tiny-tools files
 
-0.5.31 / 2020-04-26
+v0.5.31 / 2020-04-26
 ==================
 
   * Updated org-mode incompatible changes

@@ -2,8 +2,9 @@
 
 (custom-set-variables
  '(custom-safe-themes t)
-)
+ )
 
-; (load-theme 'plan9)
+;; (load-theme 'plan9)
+;; (load-theme 'acme t)
 
 ;;;
