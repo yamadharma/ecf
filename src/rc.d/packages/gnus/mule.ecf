@@ -1,4 +1,4 @@
-(require 'gnus-setup)
+;(require 'gnus-setup)
 ;(require 'gnus-mule)
 ;(require 'gnus-charset)
 ;(gnus-set-newsgroup-default-charset ".*" "koi8-r")
