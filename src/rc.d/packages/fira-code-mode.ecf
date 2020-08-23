@@ -5,7 +5,11 @@
 (require 'fira-code-mode)
 
 (custom-set-variables
- '(fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x"))) ;; List of ligatures to turn off
+ ;; List of ligatures to turn off
+ '(fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x"))
+ ;; When non-nil, display the "x" in hex literals (like 0x12) with a ligature
+ '(fira-code-mode-enable-hex-literal nil)
+ )
 
 ;;; Enable fira-code-mode automatically for programming major modes
 ;; (add-hook 'prog-mode-hook 'fira-code-mode)
