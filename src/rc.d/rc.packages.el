@@ -38,8 +38,10 @@
 ;;}}}
 ;;{{{ Package repositories
 
-; MELPA
+;; MELPA
 (desire 'melpa)
+;; Auto update packages
+(desire 'auto-package-update nil "auto-package-update" t)
 
 ;;}}}
 
