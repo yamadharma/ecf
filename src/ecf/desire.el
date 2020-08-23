@@ -63,7 +63,7 @@ The function `desired' will add an item to this list.")
 
 (defun desired (package &optional fname precond)
   "Add PACKAGE (a symbol) as something which is `desirable'.
-  The optional argument FNAME is a string containing 
+  The optional argument FNAME is a string containing
   the name of the file that, when loaded, will
   trigger dynamic loading of extra configuration files. If FNAME is
   omitted then the string corresponding to PACKAGE is used instead.
@@ -75,18 +75,18 @@ The function `desired' will add an item to this list.")
   ;; Check precondition
   (if (and
 	(not (desiredp package))
-	(if precond 
+	(if precond
 	  (
 	    if (stringp precond)
 	      (locate-library precond)
 	      nil
-	  ) 
+	  )
 	  t
 	)
       )
     (add-to-list 'desirable (symbol-name package))
     nil
-  )      
+  )
 )
 
 (defun desiredp (package)
@@ -114,7 +114,7 @@ omitted then the string corresponding to PACKAGE is used instead.
 PRECOND is name of file as precondition for package loadind.
 
 AUTOINSTALL: if equal 't then package autoinstalled.
- 
+
 Each directory in `desire-load-path' is searched in order to see if
 configuration data for PACKAGE exists.  The configuration data takes
 one of 2 forms:
@@ -129,7 +129,7 @@ one of 2 forms:
    corresponding to `desire-loaddefs' then that file is loaded
    immediately.  Other files in the directory are processed using the
    function `desire-process-directory' after the package is actually
-   loaded. 
+   loaded.
 
 Note that a single file, as described in (1), takes precedence over a
 directory, as described in (2).  For a directory, if the package has
@@ -156,27 +156,27 @@ then nothing happens and nil is returned."
       (desire-install-package package)
     nil
     )
-  
+
   ;; Check precondition
   (if (and
        (not (desiredp package))
-       (if precond 
+       (if precond
 	   (if (stringp precond)
 	       (locate-library precond)
 	     nil
-	  ) 
+	  )
 	  t
 	)
       )
-    (let* 
+    (let*
       (
-        (dirs desire-load-path)
+	(dirs desire-load-path)
 	(pname (symbol-name package))
 	(lname (if fname fname pname))
       )
 
       (while dirs
-	  
+
 	(let ((prefix (expand-file-name pname (car dirs))))
 
 	  (cond
@@ -184,17 +184,17 @@ then nothing happens and nil is returned."
 
 	    (
 	      (desire-readable-regular-file-p
-	        (concat prefix desire-extension)
+		(concat prefix desire-extension)
 	      )
-	      
+
 	      ;; Load configuration data.
 	      (desire-load-file (car dirs) pname)
-	      
+
 	      ;; Finished!
 	      (desired package)
 	      ;(setq dirs nil)
 	      (setq dirs (cdr dirs))
-            )
+	    )
 
 	    ;;}}}
 	    ;;{{{ Check for configuration directory
@@ -203,22 +203,22 @@ then nothing happens and nil is returned."
 	      (and (file-directory-p prefix)
 		   (file-readable-p prefix)
 	      )
-	      
+
 	      ;; If file specified by desire-loaddefs exists then load it.
 	      (if (and desire-loaddefs
 		       (desire-readable-regular-file-p
 			(expand-file-name
 			 (concat desire-loaddefs desire-extension)
 			 prefix)))
-		  
+
 		  (desire-load-file prefix desire-loaddefs)
-              )
-	      
+	      )
+
 	      ;; Setup processing of directory.
 	      (eval-after-load
 	       lname
 	       `(desire-process-directory, prefix))
-	      
+
 	      ;; Finished!
 	      (desired package)
 	      ;(setq dirs nil)
@@ -230,11 +230,11 @@ then nothing happens and nil is returned."
 
 	    (t
 	       (setq dirs (cdr dirs))
-            )
+	    )
 
 	    ;;}}}
-          ) ; end cond
-        ) ; end let
+	  ) ; end cond
+	) ; end let
       ) ; end while
     ) ; end let*
   ) ; end if
@@ -243,29 +243,29 @@ then nothing happens and nil is returned."
 (defun desire-load-file (dir file)
   "Load FILE from DIR after appending `desire-extension'."
 
-  (load-file 
+  (load-file
     (expand-file-name (concat file desire-extension) dir)
   )
 )
 
 (defun desire-load-dir (prefix dir)
   "Load files from PREFIX/DIR after appending `desire-dir-extension'."
-  
+
   (let
     (
       (dir-list)
     )
     (setq dir-list
-      (directory-files 
-        (expand-file-name (concat dir desire-dir-extension) prefix)
-        t
-        (concat ".*" (regexp-quote desire-extension) "$")
+      (directory-files
+	(expand-file-name (concat dir desire-dir-extension) prefix)
+	t
+	(concat ".*" (regexp-quote desire-extension) "$")
       )
     )
     (if (not (null dir-list))
-      (mapcar 'load-file    
-        dir-list
-      )  
+      (mapcar 'load-file
+	dir-list
+      )
     )
   ) ;; end let
 )
@@ -289,7 +289,7 @@ loaded first.  A file for the pseudo-package specified by
 
   ;;}}}
 
-  (let 
+  (let
     (
       (fs (desire-directory-file-prefixes dir))
       (ds (desire-directory-dir-prefixes dir))
@@ -300,8 +300,8 @@ loaded first.  A file for the pseudo-package specified by
     (if (member desire-desire fs)
 
       (progn
-        (desire-load-file dir desire-desire)
-        (setq fs (delete desire-desire fs))
+	(desire-load-file dir desire-desire)
+	(setq fs (delete desire-desire fs))
       )
     )
 
@@ -309,8 +309,8 @@ loaded first.  A file for the pseudo-package specified by
     (if (member desire-desire ds)
 
       (progn
-        (desire-load-dir dir desire-desire)
-        (setq ds (delete desire-desire ds))
+	(desire-load-dir dir desire-desire)
+	(setq ds (delete desire-desire ds))
       )
     )
 
@@ -347,7 +347,7 @@ loaded first.  A file for the pseudo-package specified by
     ;; Load desire-execute if required.
     (if exec
 	(desire-load-file dir desire-execute))))
-    
+
 (defun desire-directory-file-prefixes (dir)
 
   ;;{{{ Description
@@ -359,7 +359,7 @@ is the file name with the directory and extension removed."
 
   ;;}}}
 
-  (let 
+  (let
     (
       (ext-regexp (concat (regexp-quote desire-extension) "$"))
       (out)
@@ -390,7 +390,7 @@ is the directory name with the prefix directory and extension removed."
 
   ;;}}}
 
-  (let 
+  (let
       (
        (ext-regexp (concat (regexp-quote desire-dir-extension) "$"))
        (out)
@@ -419,11 +419,12 @@ is the directory name with the prefix directory and extension removed."
 (defun desire-readable-regular-file-p (f)
 
   "Determine if F is a readable, regular file."
-
-  (and (if (fboundp 'file-regular-p)
-	   (file-regular-p f)
-	 t)
-       (file-readable-p  f)
+  
+  (and
+   (if (fboundp 'file-regular-p)
+       (file-regular-p f)
+     t)
+   (file-readable-p  f)
   )
 )
 
@@ -431,9 +432,9 @@ is the directory name with the prefix directory and extension removed."
 
   "Determine if DIR is a readable directory."
 
-  (and 
-    (file-directory-p dir)
-    (file-readable-p  dir)
+  (and
+   (file-directory-p dir)
+   (file-readable-p  dir)
   )
 )
 
@@ -448,15 +449,13 @@ is not loaded; so load the file FNAME."
 
 ;;}}}
 
-  (if (not fname)
+(if (not fname)
     (setq fname (prin1-to-string feature))
-  )    
-  (if (require feature fname 1)
+  )
+(if (require feature fname 1)
     t
-    (
-      message "Package not found : %s" fname
-    )
-  )    
+  (message "Package not found : %s" fname)
+  )
 )
 
 (defun desire-install-package (package)
