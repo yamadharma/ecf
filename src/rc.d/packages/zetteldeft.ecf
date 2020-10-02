@@ -1,0 +1,8 @@
+;;; Zetteldeft - basic Zettelkasten note-taking system
+;; https://github.com/EFLS/zetteldeft
+
+(require 'zetteldeft)
+
+(setq zetteldeft-set-classic-keybindings t)
+
+;;;

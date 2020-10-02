@@ -88,7 +88,7 @@
 ;;}}}
 ;;{{{ Gnuserv
 
-(desire 'gnuserv nil "gnuserv")
+;; (desire 'gnuserv nil "gnuserv")
 
 ;; Rely on dtemacs to do this, otherwise a race condition can cause
 ;; dtemacs to fail.
@@ -97,7 +97,7 @@
 ;;}}}
 ;;{{{ Emacs daemon
 
-;; (desire 'emacs-daemon)
+(desire 'emacs-daemon)
 
 ;;}}}
 ;; ----------------------------------------------------------------------
@@ -158,6 +158,12 @@
 
 (desired 'mobileorg)
 (desire 'org)
+
+;;}}}
+;;{{{ Notes
+
+(desire 'deft nil "deft" t)
+(desire 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
 ;;{{{ LaTeX
