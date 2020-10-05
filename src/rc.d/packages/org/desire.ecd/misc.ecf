@@ -17,7 +17,7 @@
     (org-cycle)
     (ecf/insert-inactive-timestamp)))
 
-(add-hook 'org-insert-heading-hook 'ecf/insert-heading-inactive-timestamp 'append)
+;; (add-hook 'org-insert-heading-hook 'ecf/insert-heading-inactive-timestamp 'append)
 
 (global-set-key (kbd "<f9> t") 'ecf/insert-inactive-timestamp)
 

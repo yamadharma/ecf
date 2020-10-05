@@ -129,6 +129,8 @@
 
 ;; (desire 'toolbar)
 
+(desire 'centaur-tabs nil "centaur-tabs" t)
+
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
 
@@ -159,11 +161,13 @@
 (desired 'mobileorg)
 (desire 'org)
 
+(desire 'org-roam nil "org-roam" t)
+
 ;;}}}
 ;;{{{ Notes
 
 (desire 'deft nil "deft" t)
-(desire 'zetteldeft nil "zetteldeft" t)
+;; (desire 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
 ;;{{{ LaTeX
