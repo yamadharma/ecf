@@ -12,7 +12,7 @@
 
 ;;;; Tab Styles
 ;;;; bar, alternate, box, chamfer, rounded, slant, wave, zigzag
-(setq centaur-tabs-style "rounded")
+(setq centaur-tabs-style "slant")
 
 ;;;; Tab height
 (setq centaur-tabs-height 32)
