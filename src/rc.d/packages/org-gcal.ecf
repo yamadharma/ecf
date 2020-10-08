@@ -1,0 +1,8 @@
+;;; Org sync with Google Calendar
+;; https://github.com/kidd/org-gcal.el
+
+(require 'org-gcal)
+
+;; Automatic fetch
+;; fetch every 5 minutes
+(run-with-timer (* 5 60) (* 5 60) 'org-gcal-fetch)
