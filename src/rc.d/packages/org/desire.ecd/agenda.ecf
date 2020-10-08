@@ -1,10 +1,33 @@
 ;; Agenda Setup
-(setq org-agenda-files
-    (quote
-	("~/me/org"
-	)
-    )
-)
+;;(setq org-agenda-files
+;;    (quote
+;;	("~/me/org"
+;;	)
+;;    )
+;;)
+
+(unless org-agenda-files
+  (setq org-agenda-files (list org-directory)))
+
+(setq-default 
+ ;; Different colors for different priority levels
+ org-agenda-deadline-faces
+ '((1.001 . error)
+   (1.0 . org-warning)
+   (0.5 . org-upcoming-deadline)
+   (0.0 . org-upcoming-distant-deadline))
+ ;; Don't monopolize the whole frame just for the agenda
+ org-agenda-window-setup 'current-window
+ org-agenda-skip-unavailable-files t
+ ;; Shift the agenda to show the previous 3 days and the next 7 days for
+ ;; better context on your week. The past is less important than the future.
+ org-agenda-span 10
+ org-agenda-start-on-weekday nil
+ org-agenda-start-day "-3d"
+ ;; Optimize `org-agenda' by inhibiting extra work while opening agenda
+ ;; buffers in the background. They'll be "restarted" if the user switches to
+ ;; them anyway
+ org-agenda-inhibit-startup t)
 
 ;; Do not dim blocked tasks
 (setq org-agenda-dim-blocked-tasks nil)
@@ -94,7 +117,7 @@
                 (org-agenda-skip-function 'ecf/skip-non-archivable-tasks))))))
 
 ;; Automatically removing context based tasks with / RET
-(defun ecf/org-auto-exclude-function (tag)
+(defun ecf/org/org-auto-exclude-function (tag)
   "Automatic task exclusion in the agenda with / RET"
   (and (cond
         ((string= tag "@farm")
@@ -103,5 +126,6 @@
          t))
        (concat "-" tag)))
 
-(setq org-agenda-auto-exclude-function 'ecf/org-auto-exclude-function)
+(setq org-agenda-auto-exclude-function 'ecf/org/org-auto-exclude-function)
+
 
