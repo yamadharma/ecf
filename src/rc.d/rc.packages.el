@@ -107,6 +107,10 @@
 (desire 'mouse)
 ;; ----------------------------------------------------------------------
 
+;;{{{ UI
+
+(desire 'all-the-icons nil "all-the-icons" t)
+
 (desire 'fontset)
 (desire 'font-lock)
 (desire 'font-lock-jit)
@@ -117,6 +121,7 @@
 (desire 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 (desire 'theme)
 
+;;}}}
 ;;
 
 (desire 'show-paren)
