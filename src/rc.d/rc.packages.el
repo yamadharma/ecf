@@ -161,6 +161,9 @@
 (desired 'mobileorg)
 (desire 'org)
 
+;;(desire 'org-super-agenda nil "org-super-agenda" t)
+;;(desired 'org-super-agenda)
+
 (desire 'org-roam nil "org-roam" t)
 
 ;;}}}
