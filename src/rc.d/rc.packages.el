@@ -107,6 +107,10 @@
 (desire 'mouse)
 ;; ----------------------------------------------------------------------
 
+;;{{{ UI
+
+(desire 'all-the-icons nil "all-the-icons" t)
+
 (desire 'fontset)
 (desire 'font-lock)
 (desire 'font-lock-jit)
@@ -117,6 +121,7 @@
 (desire 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 (desire 'theme)
 
+;;}}}
 ;;
 
 (desire 'show-paren)
@@ -130,6 +135,8 @@
 ;; (desire 'toolbar)
 
 (desire 'centaur-tabs nil "centaur-tabs" t)
+
+(desire 'treemacs nil "treemacs" t)
 
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
@@ -158,8 +165,15 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-gcal nil "org-gcal" t)
+
 (desired 'mobileorg)
 (desire 'org)
+
+;;(desire 'org-super-agenda nil "org-super-agenda" t)
+;;(desired 'org-super-agenda)
+
+
 
 (desire 'org-roam nil "org-roam" t)
 

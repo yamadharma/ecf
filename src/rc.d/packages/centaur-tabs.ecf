@@ -12,7 +12,7 @@
 
 ;;;; Tab Styles
 ;;;; bar, alternate, box, chamfer, rounded, slant, wave, zigzag
-(setq centaur-tabs-style "slant")
+(setq centaur-tabs-style "bar")
 
 ;;;; Tab height
 (setq centaur-tabs-height 32)
@@ -20,13 +20,13 @@
 ;;;; Tab icons 
 (setq centaur-tabs-set-icons t
       ;;;; To make icons plain (same color as tabs’ text)
-      ;; centaur-tabs-plain-icons t
+      centaur-tabs-plain-icons t
       ;;;; To gray out icons for the unselected tabs:
       centaur-tabs-gray-out-icons 'buffer
       ;;;; To display a colored bar at the left of the selected tab
-      ;; centaur-tabs-set-bar 'left
+      centaur-tabs-set-bar 'left
       ;;;; To display an overline over the selected tab
-      ;; centaur-tabs-set-bar 'over
+      centaur-tabs-set-bar 'over
       ;;;; To display an underline over the selected tab
       ;; (setq centaur-tabs-set-bar 'under)
       ;;;; Note: If you're not using Spacmeacs, in order for the underline to display
