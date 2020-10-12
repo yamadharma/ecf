@@ -3,6 +3,9 @@
 
 (require 'org-gcal)
 
+;;; Minimize alerts
+(setq org-gcal-notify-p nil)
+
 ;; Automatic fetch
 ;; fetch every 5 minutes
 (run-with-timer (* 5 60) (* 5 60) 'org-gcal-fetch)
