@@ -26,9 +26,9 @@
 
 ;;;; Refile settings
 ; Exclude DONE state tasks from refile targets
-(defun ecf/verify-refile-target ()
+(defun org/verify-refile-target ()
   "Exclude todo keywords with a done state from refile targets"
   (not (member (nth 2 (org-heading-components)) org-done-keywords)))
 
-(setq org-refile-target-verify-function 'ecf/verify-refile-target)
+(setq org-refile-target-verify-function 'org/verify-refile-target)
 
