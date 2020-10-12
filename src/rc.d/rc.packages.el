@@ -136,6 +136,8 @@
 
 (desire 'centaur-tabs nil "centaur-tabs" t)
 
+(desire 'treemacs nil "treemacs" t)
+
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
 
