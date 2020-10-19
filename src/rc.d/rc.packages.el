@@ -88,7 +88,7 @@
 ;;}}}
 ;;{{{ Gnuserv
 
-;; (desire 'gnuserv nil "gnuserv")
+(desire 'gnuserv nil "gnuserv")
 
 ;; Rely on dtemacs to do this, otherwise a race condition can cause
 ;; dtemacs to fail.
@@ -97,7 +97,7 @@
 ;;}}}
 ;;{{{ Emacs daemon
 
-(desire 'emacs-daemon)
+;; (desire 'emacs-daemon)
 
 ;;}}}
 ;; ----------------------------------------------------------------------
@@ -120,6 +120,11 @@
 ;; (desire 'color-theme nil "color-theme")
 (desire 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 (desire 'theme)
+
+;;}}}
+;;{{{ Themes
+
+(desire 'spacemacs-theme nil "spacemacs-theme-pkg" t)
 
 ;;}}}
 ;;
