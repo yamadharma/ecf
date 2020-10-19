@@ -1,6 +1,6 @@
 ;;;
 
 ;;; String to be inserted to create an unordered list item
-(setq markdown-unordered-list-item-prefix "- ")
+;;(setq markdown-unordered-list-item-prefix "- ")
 
 ;;;

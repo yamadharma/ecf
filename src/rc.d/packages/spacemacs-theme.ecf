@@ -1,0 +1,7 @@
+;;; Light and dark theme for spacemacs that supports GUI and terminal
+;; https://github.com/nashamri/spacemacs-theme
+
+;; (load-theme 'spacemacs-light t)
+(load-theme 'spacemacs-dark t)
+
+;;;
