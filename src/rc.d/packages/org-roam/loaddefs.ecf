@@ -1,0 +1,9 @@
+;;;
+
+(setq org-roam-directory "~/notes")
+
+(if (not (file-directory-p org-roam-directory))
+  (make-directory org-roam-directory t)
+)
+
+;;;
