@@ -121,6 +121,8 @@
 (desire 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 (desire 'theme)
 
+(desire 'modeline)
+
 ;;}}}
 ;;{{{ Themes
 
