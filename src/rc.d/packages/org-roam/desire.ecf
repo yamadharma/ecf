@@ -1,16 +1,25 @@
 ;;;
 
 ;;; Enable the global minor mode org-roam-mode
-(add-hook 'after-init-hook 'org-roam-mode)
+;; (add-hook 'after-init-hook 'org-roam-mode)
 
 ;;; Define key bindings for Org-roam
-(global-set-key (kbd "C-c n r") 'org-roam-buffer-toggle-display)
-(global-set-key (kbd "C-c n i") 'org-roam-insert)
-(global-set-key (kbd "C-c n /") 'org-roam-find-file)
-(global-set-key (kbd "C-c n b") 'org-roam-switch-to-buffer)
-(global-set-key (kbd "C-c n d") 'org-roam-find-directory)
+;;(global-set-key (kbd "C-c n r") 'org-roam-buffer-toggle-display)
+;;(global-set-key (kbd "C-c n i") 'org-roam-insert)
+;;(global-set-key (kbd "C-c n /") 'org-roam-find-file)
+;;(global-set-key (kbd "C-c n b") 'org-roam-switch-to-buffer)
+;;(global-set-key (kbd "C-c n d") 'org-roam-find-directory)
 
-;;;
+(global-set-key (kbd "C-c n l") 'org-roam)
+(global-set-key (kbd "C-c n f") 'org-roam-find-file)
+(global-set-key (kbd "C-c n d") 'org-roam-find-directory)
+(global-set-key (kbd "C-c n g") 'org-roam-graph)
+(global-set-key (kbd "C-c n i") 'org-roam-insert)
+(global-set-key (kbd "C-c n I") 'org-roam-insert-immediate)
+(global-set-key (kbd "C-c n b") 'org-roam-switch-to-buffer)
+;; (global-set-key (kbd "C-c n r") 'org-roam-buffer-toggle-display)
+
+;;; 
 (setq org-roam-verbose nil)
 
 ;;; Make org-roam buffer sticky; i.e. don't replace it when opening a
