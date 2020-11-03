@@ -1,4 +1,50 @@
 
+v0.6.2 / 2020-11-03
+==================
+
+  * feat(markdown): add org-table support
+  * feat(org): fix org config
+  * feat(org): add helm and ido
+  * feat: add modeline config
+  * fix: system-name in tinypath.el
+  * feat: remove push2sfnet
+  * feat: add helm support
+  * feat(org-roam) add capture template with LAST_MODIFIED field
+  * feat: convert org-roam to directory
+  * feat: tune deft mode
+  * feat: add spacemacs theme
+  * feat(markdown): change list marker
+  * feat(org): change fetch time for gcal
+  * feat(org): minimize alerts in org-gcal
+  * feat(org): disable export underscore
+  * feat: add  treemacs package
+  * feat(org): cleanup refile
+  * feat(org): restore TODO capture
+  * feat(org): add keys to org-mode
+  * feat(org): tuning agenda
+  * feat: add all-the-icons package
+  * feat(org): add org-gcal
+  * feat(org): add org-gcal
+  * feat(org): add stub for org-super-agenda
+  * feat(org): add agenda appearance
+  * feat(centaur-tabs): set slanted tabs
+  * feat(centaur-tabs): add centaur-tabs config
+  * feat(org-roam): add org-roam config
+  * feat(org): disable section timestamp
+  * feat: add start emacs server
+  * feat: add deft package
+  * feat(markdown-mode): add fontify code blocs
+  * feat(markdown-mode): add imenu support
+  * feat(markdown-mode): add markdown-command
+  * feat(fira-code-mode): enable only in prog mode
+  * feat(markdown-mode): add image size
+  * feat: disable hex x in fira-code
+  * feat: add auto-package-update
+  * feat: add melpa refresh contents
+  * fix: fix code aligment
+  * Fixed: cannot find gnus-setup
+  * Chaged: ecf ebuild
+
 v0.6.1 / 2020-07-02
 ==================
 
