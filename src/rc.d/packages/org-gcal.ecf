@@ -1,0 +1,11 @@
+;;; Org sync with Google Calendar
+;; https://github.com/kidd/org-gcal.el
+
+(require 'org-gcal)
+
+;;; Minimize alerts
+(setq org-gcal-notify-p nil)
+
+;; Automatic fetch
+;; fetch every 30 minutes
+(run-with-timer (* 30 60) (* 30 60) 'org-gcal-fetch)

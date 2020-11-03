@@ -6,6 +6,7 @@
 
 ;;{{{ Id
 
+;; Copyright (C)    2020 Dmitry S. Kulyabov
 ;; Copyright (C)    1999-2019 Jari Aalto
 ;; Keywords:        extensions
 ;; Author:          Jari Aalto
@@ -4875,12 +4876,19 @@ If FLAG is non-nil, return package names, not cache elements."
 
 ;;; ----------------------------------------------------------------------
 ;;;
-(defun tinypath-cache-file-hostname ()
+(defun tinypath-cache-file-hostname-old ()
   "Return `system-name'."
   (downcase
-   (or (or (getenv "HOST")              ;Unix
-	   (getenv "COMPUTERNAME"))     ;Win32
-       "unknownhost")))
+  (or
+   (or
+    (getenv "HOST")		;Unix
+    (getenv "HOSTNAME")		;Unix
+    (getenv "COMPUTERNAME"))	;Win32
+    "unknownhost")))
+
+(defun tinypath-cache-file-hostname ()
+  "Return `system-name'."
+  (system-name))
 
 ;;; ----------------------------------------------------------------------
 ;;;

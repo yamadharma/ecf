@@ -5,12 +5,13 @@
 (require 'fira-code-mode)
 
 (custom-set-variables
- '(fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x"))) ;; List of ligatures to turn off
+ '(fira-code-mode-disabled-ligatures '("[]" "#{" "#(" "#_" "#_(" "x" "{-")) ;; List of ligatures to turn off
+'(fira-code-mode-enable-hex-literal nil))
 
-;;; Enable fira-code-mode automatically for programming major modes
-;; (add-hook 'prog-mode-hook 'fira-code-mode)
+;; Enable fira-code-mode automatically for programming major modes
+(add-hook 'prog-mode-hook 'fira-code-mode)
 
 ;; Or, you can use the global mode instead of adding a hook:
-(global-fira-code-mode)
+; (global-fira-code-mode)
 
 ;;;

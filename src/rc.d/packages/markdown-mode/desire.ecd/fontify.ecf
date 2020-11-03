@@ -1,0 +1,6 @@
+;;; Native Font Lock
+
+;; When non-nil, fontify code in code blocks using the native major mode.
+(setq markdown-fontify-code-blocks-natively t)
+
+;;;

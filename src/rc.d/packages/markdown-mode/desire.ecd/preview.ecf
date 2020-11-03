@@ -1,0 +1,15 @@
+;;; Preview & Export Customization
+
+;; When set to a nonempty string, an http-equiv attribute will be included in the HTML <head> block.
+(setq markdown-content-type "application/xhtml+xml")
+
+;; Used for specifying the character set identifier in the http-equiv attribute when included.
+(setq markdown-coding-system "utf-8")
+
+;; Additional content to include in the HTML <head> block.
+(setq markdown-xhtml-header-content
+      (concat "<link rel=\"shortcut icon\""
+	      " href=\"/favicon.ico\""
+	      " type=\"image/png\"/>"))
+
+;;;

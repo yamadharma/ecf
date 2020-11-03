@@ -1,0 +1,48 @@
+;;; Deft for Emacs
+;; https://github.com/jrblevin/deft
+
+;; Deft is a major mode for browsing and filtering notes written in plain text formats, such as org-mode, markdown, and LaTeX.
+;; To use this module, in your config file set the value of the variable deft-directory to the folder in which you want to keep your notes.
+;; The default note format is org-mode. You can change this by setting the value of the variable deft-default-extension. Changing the value to ~”md”~ for example, will change the default note format to markdown.
+
+(require 'deft)
+
+;;(setq deft-extensions '("md" "txt" "text" "markdown" "org"))
+(add-to-list 'deft-extensions "tex")
+(setq deft-default-extension "org")
+(setq deft-text-mode 'org-mode)
+(setq deft-directory "~/notes")
+
+(setq deft-auto-save-interval 0)
+;;; disable auto-save
+;; (setq deft-auto-save-interval -1.0)
+
+(setq deft-use-filter-string-for-filename t)
+
+
+;; Enable searching for files in subdirectories
+(setq deft-recursive t)
+
+;; Global keyboard binding for Deft
+
+;; (global-set-key [f8] 'deft)
+
+;; For compatibility with other applications which use the filename as the title of a note
+;;(setq deft-use-filename-as-title t)
+
+;;; When non-nil, automatically generated titles in new org-mode files will be prefixed with #+TITLE:
+(setq deft-org-mode-title-prefix t)
+
+;;; New filenames will be generated from the filter string and processed according to the rules
+;;; By default, slashes are removed and replaced by hyphens
+(setq deft-use-filter-string-for-filename t)
+
+;;; converts the filter string into a readable file-name using kebab-case:
+(setq deft-file-naming-rules
+    '((noslash . "-")
+      (nospace . "-")
+      (case-fn . downcase)))
+
+(global-set-key (kbd "C-x C-g") 'deft-find-file)
+
+;;;

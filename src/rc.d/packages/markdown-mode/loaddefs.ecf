@@ -1,10 +1,26 @@
 ;;; markdown.ecf -*- coding: utf-8-unix; -*-
 
-(custom-set-variables
- '(markdown-command "/usr/bin/markdown2")
-)
+;; https://leanpub.com/markdown-mode/
+
+(cond
+ ((executable-find "pandoc")
+  (custom-set-variables
+   '(markdown-command (concat
+		       (executable-find "pandoc")
+		       " --from=markdown --to=html"
+		       " --standalone --mathjax --highlight-style=pygments"))))
+ ((executable-find "markdown2")
+  (custom-set-variables
+   '(markdown-command (executable-find "markdown2"))))
+ ((executable-find "multimarkdown")
+  (custom-set-variables
+   '(markdown-command (concat
+		       (executable-find "multimarkdown")
+		       " --smart --notes"))))
+ )
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mdown\\'" . markdown-mode))
@@ -12,15 +28,15 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 
 (autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
+  "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 (add-hook 'markdown-mode-hook
-            (lambda ()
-              (when buffer-file-name
-                (add-hook 'after-save-hook
-                          'check-parens
-                          nil t))))
+          (lambda ()
+            (when buffer-file-name
+              (add-hook 'after-save-hook
+                        'check-parens
+                        nil t))))
 
 (add-hook 'markdown-mode-hook (lambda () (modify-syntax-entry ?\" "\"" markdown-mode-syntax-table)))
 
@@ -29,11 +45,11 @@
 ;     (define-key markdown-mode-map (kbd "C-c C-v") 'markdown-preview)
 ;))
 
-; HTML 5 and UTF-8
+;; HTML 5 and UTF-8
 ;; This does the following:
-;;    generates a HTML 5 header instead of an XHTML header
-;;    adds a UTF-8 charset declaration and ignores markdown-content-type and markdown-coding-system
-;;    markdown-xhtml-header-content is also ignored
+;; - generates a HTML 5 header instead of an XHTML header
+;; - adds a UTF-8 charset declaration and ignores markdown-content-type and markdown-coding-system
+;; - markdown-xhtml-header-content is also ignored
 
 (eval-after-load "markdown-mode"
   '(defalias 'markdown-add-xhtml-header-and-footer 'as/markdown-add-xhtml-header-and-footer))
@@ -56,7 +72,7 @@
         "</body>\n"
         "</html>\n"))
 
-; Visual Lines
+;; Visual Lines
 ;; The Markdown files I write using IA Writer use newlines to separate
 ;; paragraphs. That's why I need Visual Line Mode. I also need to
 ;; disable M-q. If I fill paragraphs, that introduces unwanted
@@ -66,9 +82,10 @@
 ;(defun as/markdown-config ()
 ;  (local-set-key (kbd "M-q") 'ignore))
 
-; Google+ Export
+;; Google+ Export
 ;; I write a lot of Markdown but then I want to post the text on
 ;; Google+ so here's a quick export.
+
 (defun as/markdown-region-to-google (start end)
   (interactive "r")
   (goto-char start)
@@ -84,6 +101,7 @@
 ; LaTeX Export
 ;; Often Markdown gets added to a LaTeX project, too. So I eventually
 ;; need a LaTeX export.
+
 (defun as/markdown-region-to-latex (start end)
   (interactive "r")
   (goto-char start)

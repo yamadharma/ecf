@@ -1,0 +1,52 @@
+;;; Emacs plugin aiming to become an aesthetic, modern looking tabs plugin
+;; https://github.com/ema2159/centaur-tabs
+
+
+(require 'centaur-tabs)
+(centaur-tabs-mode t)
+(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
+(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
+
+;;;; You can make the headline face match the centaur-tabs-default face.
+(centaur-tabs-headline-match)
+
+;;;; Tab Styles
+;;;; bar, alternate, box, chamfer, rounded, slant, wave, zigzag
+(setq centaur-tabs-style "bar")
+
+;;;; Tab height
+(setq centaur-tabs-height 32)
+
+;;;; Tab icons 
+(setq centaur-tabs-set-icons t
+      ;;;; To make icons plain (same color as tabs’ text)
+      centaur-tabs-plain-icons t
+      ;;;; To gray out icons for the unselected tabs:
+      centaur-tabs-gray-out-icons 'buffer
+      ;;;; To display a colored bar at the left of the selected tab
+      centaur-tabs-set-bar 'left
+      ;;;; To display an overline over the selected tab
+      centaur-tabs-set-bar 'over
+      ;;;; To display an underline over the selected tab
+      ;; (setq centaur-tabs-set-bar 'under)
+      ;;;; Note: If you're not using Spacmeacs, in order for the underline to display
+      ;;;; correctly you must add the following line:
+      ;; (setq x-underline-at-descent-line t)
+      centaur-tabs-set-modified-marker t
+      centaur-tabs-modified-marker "•"
+      centaur-tabs-close-button "✕"
+      )
+
+;;;; Show buffer groups names instead of buffer names in tabs
+;; (setq centaur-tabs--buffer-show-groups t)
+
+;;;; Tab cycling
+;;; default: Cycle through all the tabs in the current group and then change the group
+;;; tabs: Cycle through visible tabs (that is, the tabs in the current group)
+;;; groups: Navigate through tab groups only
+(setq centaur-tabs-cycle-scope 'tabs)
+
+;;;; Buffer reordering
+;; (centaur-tabs-enable-buffer-reordering)
+
+;;;

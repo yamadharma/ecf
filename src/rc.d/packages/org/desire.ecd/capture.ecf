@@ -1,36 +1,39 @@
-;; Capture Templates
+;;; Capture Templates
 
 (setq org-default-notes-file (concat orgmode-home-dir "refile.org"))
 
-;; I use C-c c to start capture mode
+;;; Use C-c c to start capture mode
 (global-set-key (kbd "C-c c") 'org-capture)
 
-;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
+;;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file (concat orgmode-home-dir "refile.org"))
+      (quote (("t" "todo" entry (file org-default-notes-file)
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("r" "respond" entry (file (lambda () (concat orgmode-home-dir "refile.org")))
+              ("r" "respond" entry (file org-default-notes-file)
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
-              ("n" "note" entry (file (lambda () (concat orgmode-home-dir "refile.org")))
+              ("n" "note" entry (file org-default-notes-file)
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
               ("j" "Journal" entry (file+olp+datetree (lambda () (concat orgmode-home-dir "diary.org")))
                "* %?\n%U\n" :clock-in t :clock-resume t)
-              ("w" "org-protocol" entry (file (lambda () (concat orgmode-home-dir "refile.org")))
+              ("w" "org-protocol" entry (file org-default-notes-file)
                "* TODO Review %c\n%U\n" :immediate-finish t)
-              ("m" "Meeting" entry (file (lambda () (concat orgmode-home-dir "refile.org")))
+              ("m" "Meeting" entry (file org-default-notes-file)
                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-              ("p" "Phone call" entry (file (lambda () (concat orgmode-home-dir "refile.org")))
+              ("p" "Phone call" entry (file org-default-notes-file)
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
-              ("h" "Habit" entry (file (lambda () (concat orgmode-home-dir "refile.org")))
+              ("h" "Habit" entry (file org-default-notes-file)
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
 
-;; Remove empty LOGBOOK drawers on clock out
+;;; Remove empty LOGBOOK drawers on clock out
 (defun ecf/remove-empty-drawer-on-clock-out ()
   (interactive)
   (save-excursion
     (beginning-of-line 0)
     (org-remove-empty-drawer-at (point))))
-;; in org-9 function org-remove-empty-drawer-at changed 
-;    (org-remove-empty-drawer-at "LOGBOOK" (point))))
+
+;;; in org-9 function org-remove-empty-drawer-at changed 
+;;    (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
 (add-hook 'org-clock-out-hook 'ecf/remove-empty-drawer-on-clock-out 'append)
+
+;;;

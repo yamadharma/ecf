@@ -38,8 +38,10 @@
 ;;}}}
 ;;{{{ Package repositories
 
-; MELPA
+;; MELPA
 (desire 'melpa)
+;; Auto update packages
+(desire 'auto-package-update nil "auto-package-update" t)
 
 ;;}}}
 
@@ -86,7 +88,7 @@
 ;;}}}
 ;;{{{ Gnuserv
 
-(desire 'gnuserv nil "gnuserv")
+;;(desire 'gnuserv nil "gnuserv")
 
 ;; Rely on dtemacs to do this, otherwise a race condition can cause
 ;; dtemacs to fail.
@@ -95,7 +97,7 @@
 ;;}}}
 ;;{{{ Emacs daemon
 
-;; (desire 'emacs-daemon)
+(desire 'emacs-daemon)
 
 ;;}}}
 ;; ----------------------------------------------------------------------
@@ -104,6 +106,10 @@
 (desire 'dialog)
 (desire 'mouse)
 ;; ----------------------------------------------------------------------
+
+;;{{{ UI
+
+(desire 'all-the-icons nil "all-the-icons" t)
 
 (desire 'fontset)
 (desire 'font-lock)
@@ -115,6 +121,14 @@
 (desire 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 (desire 'theme)
 
+(desire 'modeline)
+
+;;}}}
+;;{{{ Themes
+
+(desire 'spacemacs-theme nil "spacemacs-theme-pkg" t)
+
+;;}}}
 ;;
 
 (desire 'show-paren)
@@ -123,7 +137,13 @@
 
 ;;
 
+(desired 'imenu)
+
 ;; (desire 'toolbar)
+
+(desire 'centaur-tabs nil "centaur-tabs" t)
+
+(desire 'treemacs nil "treemacs" t)
 
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
@@ -143,17 +163,37 @@
 (desire 'bbdb nil "bbdb")
 
 ;;}}}
+;;{{{ Completion
+
+(desire 'helm nil "helm" t)
+
+;;}}}
 ;(desire 'yasnippet)
 ;;{{{ Text
 
 (desire 'text)
-(desire 'markdown-mode nil "markdown-mode")
+(desire 'markdown-mode nil "markdown-mode" t)
 
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-gcal nil "org-gcal" t)
+
 (desired 'mobileorg)
 (desire 'org)
+
+;;(desire 'org-super-agenda nil "org-super-agenda" t)
+;;(desired 'org-super-agenda)
+
+
+
+(desire 'org-roam nil "org-roam" t)
+
+;;}}}
+;;{{{ Notes
+
+(desire 'deft nil "deft" t)
+;; (desire 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
 ;;{{{ LaTeX

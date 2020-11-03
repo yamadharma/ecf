@@ -1,15 +1,52 @@
-;; Agenda Setup
-(setq org-agenda-files
-    (quote
-	("~/me/org"
-	)
-    )
-)
+;;; Agenda Setup
+
+;;(unless org-agenda-files
+;;  (setq org-agenda-files (list org-directory)))
+
+(setq-default 
+ ;; Different colors for different priority levels
+ org-agenda-deadline-faces
+ '((1.001 . error)
+   (1.0 . org-warning)
+   (0.5 . org-upcoming-deadline)
+   (0.0 . org-upcoming-distant-deadline))
+ ;; Don't monopolize the whole frame just for the agenda
+ org-agenda-window-setup 'current-window
+ org-agenda-skip-unavailable-files t
+ ;; Shift the agenda to show the previous 3 days and the next 7 days for
+ ;; better context on your week. The past is less important than the future.
+ org-agenda-span 10
+ org-agenda-start-on-weekday nil
+ org-agenda-start-day "-3d"
+ ;; Optimize `org-agenda' by inhibiting extra work while opening agenda
+ ;; buffers in the background.
+ ;;org-agenda-inhibit-startup t
+ )
+
+(setq org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-include-deadlines t
+      org-agenda-block-separator nil
+      org-agenda-tags-column 100 ;; from testing this seems to be a good value
+      org-agenda-compact-blocks t)
+
+;; Clocktable
+
+;; (setq org-clocktable-defaults '(:maxlevel 2 :lang "en" :scope file
+;; :block nil :wstart 1 :mstart 1 :tstart nil :tend nil :step nil
+;; :stepskip0 nil :fileskip0 t :tags nil :match nil :emphasize nil
+;; :link nil :narrow 40! :indent t :formula nil :timestamp nil :level
+;; nil :tcolumns nil :formatter nil))
+
+;; Enable Clocktable by default
+
+;;(setq org-agenda-clockreport-mode t)
 
 ;; Do not dim blocked tasks
 (setq org-agenda-dim-blocked-tasks nil)
 
 ;; Custom agenda command definitions
+
 (setq org-agenda-custom-commands
       (quote (("N" "Notes" tags "NOTE"
                ((org-agenda-overriding-header "Notes")
@@ -105,3 +142,4 @@
 
 (setq org-agenda-auto-exclude-function 'ecf/org-auto-exclude-function)
 
+;;; 
