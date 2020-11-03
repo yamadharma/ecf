@@ -11,7 +11,7 @@
 	 :file-name "%<%Y%m%d%H%M%S>-${slug}"
 	 ;; :file-name "%(format-time-string \"%Y-%m-%d--%H-%M-%SZ--${slug}\" (current-time) t)"
 	 ;; :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS: \n\n- tags :: "
-	 :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS: \n\n#+ROAM_TAGS: "
+	 :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS:\n#+ROAM_TAGS: "
 	 :unnarrowed t)))
 
 ;;; Update the LAST_MODIFIED file property in the preamble when save file
