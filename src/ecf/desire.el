@@ -327,13 +327,8 @@ then nothing happens and nil is returned."
   nil)
 
 
-;; Check autoinstall key
-(setq autoinst ensure)
-
-(message "ensure: %s" ensure)
-(message "autoinst: %s" autoinst)
-
-(if autoinst
+;; Check ensure key
+(if ensure
     ;; install package
     (desire-install-package package)
   nil)
@@ -354,10 +349,15 @@ then nothing happens and nil is returned."
 	 (pname (symbol-name package))
 	 (lname (if fname fname pname)))
 
+	  ;;Test
+	  ;; unconditional desirable
+	  ;; Возможно, нужно внести дополнительный ключ
+	  (desired package)
+
       (while dirs
 
 	(let ((prefix (expand-file-name pname (car dirs))))
-	  
+	
 	  (cond
 	   ;; Check for configuration file
 	   ((desire-readable-regular-file-p
@@ -395,7 +395,7 @@ then nothing happens and nil is returned."
 	    (setq dirs (cdr dirs)))
 
 	   ;; Otherwise
-	   
+	
 	   (t
 	    (setq dirs (cdr dirs)))
 	   ) ;; end cond
