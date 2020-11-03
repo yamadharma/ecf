@@ -30,6 +30,6 @@
 ;; using the tab key may be more intuitive. 
 ;; Use tab key to cycle through suggestions.
 ;; ('tng' means 'tab and go')
-(company-tng-configure-default)
+;;(company-tng-configure-default)
 
 ;;;
