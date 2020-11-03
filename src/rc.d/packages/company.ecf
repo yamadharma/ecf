@@ -1,0 +1,35 @@
+;;; Company-mode configuration
+
+;;; Require
+
+;;(require 'lazy-set-key)
+(require 'company)
+;;(require 'company-posframe)
+;;(require 'company-yasnippet)
+;;(require 'company-dabbrev)
+;;(require 'company-files)
+;;(require 'desktop)
+
+
+;; To use company-mode in all buffers.
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; No delay in showing suggestions.
+(setq company-idle-delay 0)
+
+;; Show suggestions after entering one character.
+(setq company-minimum-prefix-length 1)
+
+;; When the list of suggestions is shown, and you go through the list of 
+;; suggestions and reach the end of the list, the end of the list of 
+;; suggestions does not wrap around to the top of the list again. 
+;; This is a minor inconvenience that can be solved.
+(setq company-selection-wrap-around t)
+
+;; Instead of using Meta+n and Meta+p to navigate the list of suggestions, 
+;; using the tab key may be more intuitive. 
+;; Use tab key to cycle through suggestions.
+;; ('tng' means 'tab and go')
+(company-tng-configure-default)
+
+;;;
