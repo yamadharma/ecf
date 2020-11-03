@@ -14,3 +14,12 @@
 ;; Set to the location of your Org files on your local system
 (setq org-directory orgmode-home-dir)
 
+;; Agenda files
+(unless org-agenda-files
+  (setq org-agenda-files (list org-directory)))
+
+(org-remove-file "diary.org")
+(org-remove-file "flagged.org")
+(org-remove-file "refile.org")
+
+;;;

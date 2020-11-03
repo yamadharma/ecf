@@ -1,0 +1,6 @@
+;;;
+
+(setq org-roam-completion-everywhere t)
+(setq org-roam-completion-system 'ivy)
+
+;;;
