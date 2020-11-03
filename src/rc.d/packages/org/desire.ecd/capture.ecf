@@ -25,7 +25,7 @@
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
 
 ;;; Remove empty LOGBOOK drawers on clock out
-(defun org/remove-empty-drawer-on-clock-out ()
+(defun ecf/remove-empty-drawer-on-clock-out ()
   (interactive)
   (save-excursion
     (beginning-of-line 0)
@@ -34,6 +34,6 @@
 ;;; in org-9 function org-remove-empty-drawer-at changed 
 ;;    (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
-(add-hook 'org-clock-out-hook 'org/remove-empty-drawer-on-clock-out 'append)
+(add-hook 'org-clock-out-hook 'ecf/remove-empty-drawer-on-clock-out 'append)
 
 ;;;

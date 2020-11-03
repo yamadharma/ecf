@@ -1,7 +1,7 @@
 ;;; Agenda Setup
 
-(unless org-agenda-files
-  (setq org-agenda-files (list org-directory)))
+;;(unless org-agenda-files
+;;  (setq org-agenda-files (list org-directory)))
 
 (setq-default 
  ;; Different colors for different priority levels
@@ -131,7 +131,7 @@
                 (org-agenda-skip-function 'ecf/skip-non-archivable-tasks))))))
 
 ;; Automatically removing context based tasks with / RET
-(defun org/org-auto-exclude-function (tag)
+(defun ecf/org-auto-exclude-function (tag)
   "Automatic task exclusion in the agenda with / RET"
   (and (cond
         ((string= tag "@farm")
@@ -140,6 +140,6 @@
          t))
        (concat "-" tag)))
 
-(setq org-agenda-auto-exclude-function 'org/org-auto-exclude-function)
+(setq org-agenda-auto-exclude-function 'ecf/org-auto-exclude-function)
 
 ;;; 
