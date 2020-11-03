@@ -179,17 +179,16 @@
 ;;}}}
 ;;{{{ org-mode
 
-(desire-old 'org-gcal nil "org-gcal" t)
+;;(desire-old 'org-gcal nil "org-gcal" t)
+(desire 'org-gcal :ensure t)
 
 (desired 'mobileorg)
-(desire-old 'org)
+(desire 'org)
 
 ;;(desire-old 'org-super-agenda nil "org-super-agenda" t)
 ;;(desired 'org-super-agenda)
 
-
-
-(desire-old 'org-roam nil "org-roam" t)
+(desire 'org-roam :ensure t)
 
 ;;}}}
 ;;{{{ Notes

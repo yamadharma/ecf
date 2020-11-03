@@ -1,8 +1,11 @@
-;;; Personal information for org-gcal
-;; Follow the instructions at https://github.com/kidd/org-gcal.el#Installation,
-;; and then run org-gcal-fetch to download Google Calendar events into your Org-mode files using the Google Calendar API.
+;;; Org sync with Google Calendar
+;; https://github.com/kidd/org-gcal.el
 
-;;(setq org-gcal-client-id "your-id-foo.apps.googleusercontent.com"
-;;      org-gcal-client-secret "your-secret"
-;;      org-gcal-fetch-file-alist '(("your-mail@gmail.com" .  "~/schedule.org")
-;;                                  ("another-mail@gmail.com" .  "~/task.org")))
+(require 'org-gcal)
+
+;;; Minimize alerts
+(setq org-gcal-notify-p nil)
+
+;; Automatic fetch
+;; fetch every 30 minutes
+(run-with-timer (* 30 60) (* 30 60) 'org-gcal-fetch)
