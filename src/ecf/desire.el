@@ -1,4 +1,4 @@
-;; desire.el --- versatile configuration for emacs lisp packages -*- coding: iso-2022-7bit-unix; -*-
+;; desire.el --- versatile configuration for emacs lisp packages -*- coding: utf-8-unix; -*-
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
@@ -246,7 +246,7 @@ then nothing happens and nil is returned."
 ) ; end defun desire
 
 (cl-defun desire (package
-    &key initname ensure-lisp-library ensure-system-executable ensure)
+    &key initname precondition-lisp-library precondition-system-executable (ensure desire-package-autoinstall))
 "Arrange loading and configuration of a desired emacs PACKAGE.
 PACKAGE is a symbol representing the name of a package.  The aim is to
 set up some autoloads and other initial configuration, and possibly
@@ -300,8 +300,7 @@ then nothing happens and nil is returned."
 
 (or (symbolp package)
     (error "Wrong type argument to `desire': symbolp, %s"
-	   (prin1-to-string package)
-	   ))
+	   (prin1-to-string package)))
 
 ;; Set initial file/directory name
 (setq fname initname)
@@ -310,13 +309,10 @@ then nothing happens and nil is returned."
 (message "fname: %s" fname)
 
 ;; Set lisp library precondition
-(setq precond ensure-lisp-library)
-
-(message "precondition: %s" ensure-lisp-library)
-(message "precond: %s" precond)
+(setq precond precondition-lisp-library)
 
 ;; check executable precondition
-(if ensure-system-executable
+(if precondition-system-executable
     (if (executable-find ensure-system-executable)
 	(message "Executable file found %s to load package %s" 
 		 (prin1-to-string ensure-system-executable)
@@ -326,34 +322,46 @@ then nothing happens and nil is returned."
 	     (prin1-to-string package)))
   nil)
 
-
-;; Check ensure key
-(if ensure
-    ;; install package
-    (desire-install-package package)
-  nil)
-
 ;; Check precondition
-  (if (and
-       (not (desiredp package))
-       (if precond
-	   (if (stringp precond)
-	       (locate-library precond)
-	     nil
-	  )
-	  t
-	)
-      )
+(if (and
+     (not (desiredp package))
+     (if precond
+	 (if (stringp precond)
+	     (locate-library precond)
+	   nil)
+       t)
+     )
     (let*
 	((dirs desire-load-path)
 	 (pname (symbol-name package))
 	 (lname (if fname fname pname)))
+      
+      (message "precondition: %s" precondition-lisp-library)
+      (message "precond: %s" precond)
 
-	  ;;Test
-	  ;; unconditional desirable
-	  ;; Возможно, нужно внести дополнительный ключ
-	  (desired package)
+      ;; Check ensure key
+      (if ensure
+	  ;; check if the package is already installed
+	  (if (or
+	       (if (stringp package)
+		   (locate-library package)
+		 nil)
+	       (if (stringp precond)
+		   (locate-library precond)
+		 nil)
+	       )
+	      t
+	    ;; install package
+	    (desire-install-package package)
+	    ))
+     
+      (message "ensure: %s : %s" package ensure)
 
+      ;;Test
+      ;; unconditional desirable
+      ;; Возможно, нужно внести дополнительный ключ
+      (desired package)
+      
       (while dirs
 
 	(let ((prefix (expand-file-name pname (car dirs))))
