@@ -20,13 +20,13 @@
 
 ;;; Code:
 
-; (desire 'tiny)
-(desire 'personal)
+; (desire-old 'tiny)
+(desire-old 'personal)
 ;;
 ;; Mule
 ;;
-(desire 'mule)
-;(desire 'mule-fontset)
+(desire-old 'mule)
+;(desire-old 'mule-fontset)
 ;; ----------------------------------------------------------------------
 ;;
 ;;{{{ Xemacs
@@ -39,33 +39,33 @@
 ;;{{{ Package repositories
 
 ;; MELPA
-(desire 'melpa)
+(desire-old 'melpa)
 ;; Auto update packages
-(desire 'auto-package-update nil "auto-package-update" t)
+(desire-old 'auto-package-update nil "auto-package-update" t)
 
 ;;}}}
 
-(desire 'site-stuff)
+(desire-old 'site-stuff)
 
 ;;{{{ Window System
 
 (if (null window-system)
   ()
   (progn
-    (desire 'window-system)
-;    (desire  'faces)
-;    (desire  'multi-frame)
+    (desire-old 'window-system)
+;    (desire-old  'faces)
+;    (desire-old  'multi-frame)
   )
 )
 
 
 ;(if (null window-system)
 ;  ()
-;  (desire 'window-system)
+;  (desire-old 'window-system)
 ;)
 
-;(desire 'window-system)
-;(desire 'test)
+;(desire-old 'window-system)
+;(desire-old 'test)
 
 ;(if (eq window-system 'w32)
 ;  (progn
@@ -80,15 +80,15 @@
 ;    )
 ;    (progn
 ;      (desired 'window-system)
-;      (desire  'faces)
-;      (desire  'multi-frame)
+;      (desire-old  'faces)
+;      (desire-old  'multi-frame)
 ;    )
 ;)
 
 ;;}}}
 ;;{{{ Gnuserv
 
-;;(desire 'gnuserv nil "gnuserv")
+;;(desire-old 'gnuserv nil "gnuserv")
 
 ;; Rely on dtemacs to do this, otherwise a race condition can cause
 ;; dtemacs to fail.
@@ -97,62 +97,62 @@
 ;;}}}
 ;;{{{ Emacs daemon
 
-(desire 'emacs-daemon)
+(desire-old 'emacs-daemon)
 
 ;;}}}
 ;; ----------------------------------------------------------------------
 
-(desire 'keys)
-(desire 'dialog)
-(desire 'mouse)
+(desire-old 'keys)
+(desire-old 'dialog)
+(desire-old 'mouse)
 ;; ----------------------------------------------------------------------
 
 ;;{{{ UI
 
-(desire 'all-the-icons nil "all-the-icons" t)
+(desire-old 'all-the-icons nil "all-the-icons" t)
 
-(desire 'fontset)
-(desire 'font-lock)
-(desire 'font-lock-jit)
-;; (desire 'font-lock-lazy)
-;; (desire 'font-lock-fast)
-;; (desire 'faces)
-;; (desire 'color-theme nil "color-theme")
-(desire 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
-(desire 'theme)
+(desire-old 'fontset)
+(desire-old 'font-lock)
+(desire-old 'font-lock-jit)
+;; (desire-old 'font-lock-lazy)
+;; (desire-old 'font-lock-fast)
+;; (desire-old 'faces)
+;; (desire-old 'color-theme nil "color-theme")
+(desire-old 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
+(desire-old 'theme)
 
-(desire 'modeline)
+(desire-old 'modeline)
 
 ;;}}}
 ;;{{{ Themes
 
-(desire 'spacemacs-theme nil "spacemacs-theme-pkg" t)
+(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
 
 ;;}}}
 ;;
 
-(desire 'show-paren)
-(desire 'folding)
-;(desire 'outline)
+(desire-old 'show-paren)
+(desire-old 'folding)
+;(desire-old 'outline)
 
 ;;
 
 (desired 'imenu)
 
-;; (desire 'toolbar)
+;; (desire-old 'toolbar)
 
-(desire 'centaur-tabs nil "centaur-tabs" t)
+(desire-old 'centaur-tabs nil "centaur-tabs" t)
 
-(desire 'treemacs nil "treemacs" t)
+(desire-old 'treemacs nil "treemacs" t)
 
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
 
-(desire 'spell)
-(desire 'ispell)
-(desire 'flyspell)
-;;(desire 'speck)
-;;(desire 'wcheck)
+(desire-old 'spell)
+(desire-old 'ispell)
+(desire-old 'flyspell)
+;;(desire-old 'speck)
+;;(desire-old 'wcheck)
 
 ;;}}}
 ;;{{{ BBDB
@@ -160,71 +160,72 @@
 ;; BBDB - Must be loaded before most other things, since other things
 ;;        may perform special configuration if BBDB is present.
 
-(desire 'bbdb nil "bbdb")
+(desire-old 'bbdb nil "bbdb")
 
 ;;}}}
 ;;{{{ Completion
 
-(desire 'helm nil "helm" t)
+(desire 'company :ensure t)
+
+(desire-old 'helm nil "helm" t)
 
 ;;}}}
-;(desire 'yasnippet)
+;(desire-old 'yasnippet)
 ;;{{{ Text
 
-(desire 'text)
-(desire 'markdown-mode nil "markdown-mode" t)
+(desire-old 'text)
+(desire-old 'markdown-mode nil "markdown-mode" t)
 
 ;;}}}
 ;;{{{ org-mode
 
-(desire 'org-gcal nil "org-gcal" t)
+;;(desire-old 'org-gcal nil "org-gcal" t)
+(desire 'org-gcal :ensure t)
 
 (desired 'mobileorg)
 (desire 'org)
 
-;;(desire 'org-super-agenda nil "org-super-agenda" t)
+;;(desire-old 'org-super-agenda nil "org-super-agenda" t)
 ;;(desired 'org-super-agenda)
 
-
-
-(desire 'org-roam nil "org-roam" t)
+(desire 'org-roam :ensure t)
 
 ;;}}}
 ;;{{{ Notes
 
-(desire 'deft nil "deft" t)
-;; (desire 'zetteldeft nil "zetteldeft" t)
+(desire-old 'deft nil "deft" t)
+;; (desire-old 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
 ;;{{{ LaTeX
 
-(desire 'ebib nil "ebib")
-(desire 'xdvi nil "xdvi-search")
+(desire-old 'ebib nil "ebib")
+(desire-old 'xdvi nil "xdvi-search")
 (desired 'reftex)
-(desire 'bibtex)
-(desire 'tex)
+(desire-old 'bibtex)
+(desire-old 'tex)
 (desired 'preview-latex nil "preview-latex")
-(desire 'auctex "latex" "tex-site")
+(desire-old 'auctex "latex" "tex-site")
 
 ;;}}}
 ;;{{{ XML, XHTML, HTML
 
-(desire 'nxml nil "rng-auto")
-; (desire 'psgml)
+;;(desire-old 'nxml nil "rng-auto")
+; (desire-old 'psgml)
 
 ;;}}}
 
 ;;{{{ Palm pilot support
 
-;(desire 'palm)
+;(desire-old 'palm)
 
 ;;}}}
 
 ;;{{{ Save desktop
 
-; (desire 'desktop)
-(desire 'session nil "session")
-(desire 'saveplace nil "saveplace")
+; (desire-old 'desktop)
+(desire-old 'session nil "session")
+(desire-old 'saveplace nil "saveplace")
 
 ;;}}}
 ;;{{{ Appointments, diary, calendar.
@@ -232,68 +233,68 @@
 ;; Use "M-x calendar RET" to display the calendar and start
 ;; appointment warnings.
 
-;(desire 'appt)
-;(desire 'calendar)
-;(desire 'todo-mode)
-;(desire 'diary "diary-lib")
+;(desire-old 'appt)
+;(desire-old 'calendar)
+;(desire-old 'todo-mode)
+;(desire-old 'diary "diary-lib")
 
 ;;}}}
 ;;{{{ These provide options for the various message handling packages.
 
-; (desire 'browse-url)
-; (desire 'mailcrypt)
-; (desire 'supercite)
+; (desire-old 'browse-url)
+; (desire-old 'mailcrypt)
+; (desire-old 'supercite)
 
 ;;}}}
 ;;{{{ Message handing packages.
 
-(desire 'gnus)
-;(desire 'message)
-;(desire 'vm)
-;(desire 'wl)
-;(desire 'sendmail)
+;;(desire-old 'gnus)
+;(desire-old 'message)
+;(desire-old 'vm)
+;(desire-old 'wl)
+;(desire-old 'sendmail)
 
 ;;}}}
 ;;{{{ Programming
 
-;(desire 'speedbar nil "speedbar")
-;(desire 'semantic nil "semantic")
+;(desire-old 'speedbar nil "speedbar")
+;(desire-old 'semantic nil "semantic")
 
-;(desire 'cedet nil "cedet")
-;(desire 'ecb nil "ecb")
+;(desire-old 'cedet nil "cedet")
+;(desire-old 'ecb nil "ecb")
 
-;(desire 'php-mode nil "php-mode")
-;(desire 'eiffel-mode nil "eiffel-mode")
+;(desire-old 'php-mode nil "php-mode")
+;(desire-old 'eiffel-mode nil "eiffel-mode")
 
-(desire 'lua-mode nil "lua-mode" t)
-(desire 'julia-mode nil "julia-mode" t)
-(desire 'yaml-mode nil "yaml-mode" t)
+(desire-old 'lua-mode nil "lua-mode" t)
+(desire-old 'julia-mode nil "julia-mode" t)
+(desire-old 'yaml-mode nil "yaml-mode" t)
 
 ;;}}}
 ;;{{{ Blogs
 
-(desire 'hexo nil "hexo")
-;(desire 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
-(desire 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
+;;(desire-old 'hexo nil "hexo")
+;(desire-old 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
+(desire-old 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
 
 ;;}}}
 ;;{{{ Miscellaneous
 
-(desire 'graphviz-dot-mode nil "graphviz-dot-mode")
-;(desire 'abbrev)
-;(desire 'bibtex)
-;(desire 'calc)
-;(desire 'eiffel-mode)
-;(desire 'filladapt)
-;(desire 'hugs-mode)
-;(desire 'html-helper-mode)
-;(desire 'lispdir)
-;(desire 'php-mode)
-;(desire 'ps-print)
-;(desire 'sh-script)
-;(desire 'shell)
-;;(desire 'sql-mode)
-;(desire 'w3)
+(desire-old 'graphviz-dot-mode nil "graphviz-dot-mode")
+;(desire-old 'abbrev)
+;(desire-old 'bibtex)
+;(desire-old 'calc)
+;(desire-old 'eiffel-mode)
+;(desire-old 'filladapt)
+;(desire-old 'hugs-mode)
+;(desire-old 'html-helper-mode)
+;(desire-old 'lispdir)
+;(desire-old 'php-mode)
+;(desire-old 'ps-print)
+;(desire-old 'sh-script)
+;(desire-old 'shell)
+;;(desire-old 'sql-mode)
+;(desire-old 'w3)
 
 ;;}}}
 
