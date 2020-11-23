@@ -1,5 +1,10 @@
+;;;
+
 (custom-set-variables
   '(org-pretty-entities t)
 )
 
+;; Hide * and / in org text
+;;(setq org-hide-emphasis-markers t)
 
+;;;
