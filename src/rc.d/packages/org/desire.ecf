@@ -15,8 +15,9 @@
 (setq org-directory orgmode-home-dir)
 
 ;; Agenda files
-(unless org-agenda-files
-  (setq org-agenda-files (list org-directory)))
+;;(unless org-agenda-files
+;;  (setq org-agenda-files (list org-directory)))
+(setq org-agenda-files (list org-directory))
 
 (org-remove-file "diary.org")
 (org-remove-file "flagged.org")
