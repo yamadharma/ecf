@@ -165,7 +165,7 @@
 ;;}}}
 ;;{{{ Completion
 
-(desire 'company :ensure t)
+(desire 'company)
 
 (desire-old 'helm nil "helm" t)
 
@@ -179,8 +179,10 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-superstar)
+
 ;;(desire-old 'org-gcal nil "org-gcal" t)
-(desire 'org-gcal :ensure t)
+(desire 'org-gcal)
 
 (desired 'mobileorg)
 (desire 'org)
@@ -188,7 +190,7 @@
 ;;(desire-old 'org-super-agenda nil "org-super-agenda" t)
 ;;(desired 'org-super-agenda)
 
-(desire 'org-roam :ensure t)
+(desire 'org-roam)
 
 ;;}}}
 ;;{{{ Notes
