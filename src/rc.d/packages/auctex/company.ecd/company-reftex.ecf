@@ -1,0 +1,6 @@
+;;; RefTeX backends for company-mode -*- coding: utf-8-unix; -*-
+;; https://github.com/TheBB/company-reftex
+
+(desire 'company-reftex)
+
+;;;
