@@ -126,8 +126,10 @@
 ;;}}}
 ;;{{{ Themes
 
-(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
-(desire 'spaceline)
+;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
+;;(desire 'spaceline)
+
+(desire 'doom-themes)
 
 ;;}}}
 ;;
