@@ -11,14 +11,14 @@
 	 :file-name "%<%Y%m%d%H%M%S>-${slug}"
 	 ;; :file-name "%(format-time-string \"%Y-%m-%d--%H-%M-%SZ--${slug}\" (current-time) t)"
 	 ;; :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS: \n\n- tags :: "
-	 :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS:\n#+ROAM_TAGS:\n#+HUGO_BASE_DIR: ~/work/blog/git\n#+HUGO_SECTION: blog\n#+hugo_lastmod: Time-stamp: <>\n\n"
+	 :head "#+title: ${title} \n#+created: %U\n#+last_modified: %U\n#+roam_alias:\n#+roam_tags:\n#+setupfile: ../templates/hugo.org\n#+hugo_lastmod: Time-stamp: <>\n\n"
 	 :unnarrowed t)))
 
 ;;; Update the LAST_MODIFIED file property in the preamble when save file
 
-(add-hook 'before-save-hook #'org/org-set-last-modified)
+(add-hook 'before-save-hook #'ecf/org-set-last-modified)
 
-(defun org/org-find-time-file-property (property &optional anywhere)
+(defun ecf/org-find-time-file-property (property &optional anywhere)
   "Return the position of the time file PROPERTY if it exists.
 When ANYWHERE is non-nil, search beyond the preamble."
   (save-excursion
@@ -31,11 +31,11 @@ When ANYWHERE is non-nil, search beyond the preamble."
                                t)
         (point)))))
 
-(defun org/org-has-time-file-property-p (property &optional anywhere)
+(defun ecf/org-has-time-file-property-p (property &optional anywhere)
   "Return the position of time file PROPERTY if it is defined.
 As a special case, return -1 if the time file PROPERTY exists but
 is not defined."
-  (when-let ((pos (org/org-find-time-file-property property anywhere)))
+  (when-let ((pos (ecf/org-find-time-file-property property anywhere)))
     (save-excursion
       (goto-char pos)
       (if (and (looking-at-p " ")
@@ -44,13 +44,13 @@ is not defined."
           pos
         -1))))
 
-(defun org/org-set-time-file-property (property &optional anywhere pos)
+(defun ecf/org-set-time-file-property (property &optional anywhere pos)
   "Set the time file PROPERTY in the preamble.
 When ANYWHERE is non-nil, search beyond the preamble.
 If the position of the file PROPERTY has already been computed,
 it can be passed in POS."
   (when-let ((pos (or pos
-                      (org/org-find-time-file-property property))))
+                      (ecf/org-find-time-file-property property))))
     (save-excursion
       (goto-char pos)
       (if (looking-at-p " ")
@@ -60,9 +60,9 @@ it can be passed in POS."
       (let* ((now (format-time-string "[%Y-%m-%d %a %H:%M]")))
         (insert now)))))
 
-(defun org/org-set-last-modified ()
+(defun ecf/org-set-last-modified ()
   "Update the LAST_MODIFIED file property in the preamble."
   (when (derived-mode-p 'org-mode)
-    (org/org-set-time-file-property "LAST_MODIFIED")))
+    (ecf/org-set-time-file-property "LAST_MODIFIED")))
 
 ;;;
