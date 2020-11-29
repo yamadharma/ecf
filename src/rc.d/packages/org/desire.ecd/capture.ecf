@@ -1,6 +1,6 @@
 ;;; Capture Templates
 
-(setq org-default-notes-file (concat orgmode-home-dir "refile.org"))
+(setq org-default-notes-file (concat org-directory-todo "/refile.org"))
 
 ;;; Use C-c c to start capture mode
 (global-set-key (kbd "C-c c") 'org-capture)
@@ -13,7 +13,7 @@
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file org-default-notes-file)
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("j" "Journal" entry (file+olp+datetree (lambda () (concat orgmode-home-dir "diary.org")))
+              ("j" "Journal" entry (file+olp+datetree (lambda () (concat org-directory-todo "/diary.org")))
                "* %?\n%U\n" :clock-in t :clock-resume t)
               ("w" "org-protocol" entry (file org-default-notes-file)
                "* TODO Review %c\n%U\n" :immediate-finish t)
