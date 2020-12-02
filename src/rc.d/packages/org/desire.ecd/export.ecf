@@ -8,6 +8,7 @@
 ;; Explicitly load required exporters
 
 ;; HTML
+(desire 'htmlize)
 (require 'ox-html)
 ; Export HTML without XML header
 (setq org-html-xml-declaration (quote (("html" . "")
