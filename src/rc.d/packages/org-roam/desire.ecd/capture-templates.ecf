@@ -1,6 +1,9 @@
-;;; -*- coding: utf-8-unix; -*-
+;;; Capture template for org-roam -*- coding: utf-8-unix; -*-
 
-;; (setq 
+;;; do enable time-stamps
+(setq time-stamp-active t)
+
+;; (setq
 ;;  time-stamp-active t          ; do enable time-stamps
 ;;  time-stamp-pattern "5/#+LAST_MODIFIED: [%04y-%02m-%02d %a %02H:%02M]"
 ;;  time-stamp-format "%04y-%02m-%02d %a %02H:%02M") ; date format
@@ -12,7 +15,17 @@
 	 ;; :file-name "%(format-time-string \"%Y-%m-%d--%H-%M-%SZ--${slug}\" (current-time) t)"
 	 ;; :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS: \n\n- tags :: "
 	 ;; :head "#+title: ${title} \n#+created: %U\n#+last_modified: %U\n#+roam_alias:\n#+roam_tags:\n#+setupfile: ../templates/hugo.org\n#+hugo_lastmod: Time-stamp: <>\n\n"
-	 :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+STARTUP: overview hidestars hideblocks#+SETUPFILE: ~me/org/templates/hugo.org\n#+HUGO_FRONT_MATTER_FORMAT: yaml\n#+HUGO_LASTMOD: Time-stamp: <>\n\n"
+	 :head "#+TITLE: ${title}
+#+CREATED: %U
+#+LAST_MODIFIED: %U
+#+STARTUP: overview hidestars hideblocks
+#+LANGUAGE: ru
+#+SETUPFILE: ~/me/org/templates/hugo.org
+#+EXPORT_FILE_NAME: "%(format-time-string \"%Y-%m-%d-${slug}\" (current-time) t)"
+#+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
+#+HUGO_CATEGORIES: blog
+#+HUGO_TAGS:
+#+DATE: Time-stamp: <>\n\n"
 	 :unnarrowed t)))
 
 ;;;
