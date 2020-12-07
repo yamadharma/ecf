@@ -7,24 +7,24 @@
 
 (setq org-journal-dir org-directory-journal)
 
-;; Agenda integration
+;;; Agenda integration
 (add-to-list 'org-agenda-files org-journal-dir)
 
-;; When =org-journal-file-pattern= has the default value, this would be the regex
+;;; When =org-journal-file-pattern= has the default value, this would be the regex
 (setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
 
 (setq org-journal-date-format "%Y-%m-%d, %A")
 
-;; Disable timestamps
+;;; Disable timestamps
 ;;(setq org-journal-time-format "")
 
-;; Automatically adds the current and all future journal entries to the agenda
+;;; Automatically adds the current and all future journal entries to the agenda
 (setq org-journal-enable-agenda-integration t)
 
-;; The journal file type either ‘daily (default), ‘weekly, ‘monthly or ‘yearly.
+;;; The journal file type either ‘daily (default), ‘weekly, ‘monthly or ‘yearly.
 (setq org-journal-file-type 'monthly)
 
-;; Setting org-journal-file-format to include a file extension like %Y-%m-%d.org would break the calendar search functionality
+;;; Setting org-journal-file-format to include a file extension like %Y-%m-%d.org would break the calendar search functionality
 (setq org-journal-file-format
       (concat
        (pcase org-journal-file-type
@@ -33,7 +33,7 @@
 	 (`monthly "%Y-%m")
 	 (`yearly "%Y"))))
 
-;; Customization options related to the journal file contents
+;;; Customization options related to the journal file contents
 (defun org-journal-file-header-func (time)
   "Custom function to create journal header."
   (concat
@@ -44,7 +44,7 @@
      (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
 (setq org-journal-file-header 'org-journal-file-header-func)
 
-;; Capture
+;;; Capture
 (defvar org-journal--date-location-scheduled-time nil)
 
 (defun org-journal-date-location (&optional scheduled-time)
@@ -58,6 +58,21 @@
 (add-to-list 'org-capture-templates '("J" "Journal entry" plain (function org-journal-date-location)
                                "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
                                :jump-to-captured t))
+
+;;; Default key-bindings in org-journal conflict with org-mode key bindings
+;; Minor modes are supposed to only use key bindings of the form C-c
+;; C-?, where ? can be any letter, and to not overwrite major mode
+;; bindings. With org-mode already using most interesting keys,
+;; collisions are inevitable. This means that some org-journal key
+;; bindings will not work as expected in an org-mode buffer, and also
+;; that some org-mode key bindings will not work as expected in an
+;; org-journal buffer.
+;; When working in an org-mode buffer the following org-journal key bindings are overwritten:
+;; C-c C-s (org-journal-search) with org-schedule
+;; C-c C-f (org-journal-open-next-entry) with org-forward-heading-same-level
+;; C-c C-b (org-journal-open-previous-entry) with org-backward-heading-same-level
+;; C-c C-j (org-journal-new-entry) with org-goto
+
 (require 'org-journal)
 
 ;;;
