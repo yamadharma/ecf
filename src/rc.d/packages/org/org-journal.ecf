@@ -14,16 +14,6 @@
 
 (setq org-journal-date-format "%Y-%m-%d, %A")
 
-;; Setting org-journal-file-format to include a file extension like %Y-%m-%d.org would break the calendar search functionality
-(defun ecf/org-journal-file-format-func (time)
-  "Custom function to create journal header."
-  (concat
-    (pcase org-journal-file-type
-      (`daily "%Y-%m-%d")
-      (`weekly "%Y-%m-%d")
-      (`monthly "%Y-%m")
-      (`yearly "%Y"))))
-(setq org-journal-file-format 'ecf/org-journal-file-format-func)
 
 ;; Disable timestamps
 ;;(setq org-journal-time-format "")
@@ -34,6 +24,15 @@
 ;; The journal file type either ‘daily (default), ‘weekly, ‘monthly or ‘yearly.
 ;;(setq org-journal-file-type 'daily)
 (setq org-journal-file-type 'yearly)
+
+;; Setting org-journal-file-format to include a file extension like %Y-%m-%d.org would break the calendar search functionality
+(setq org-journal-file-format
+  (concat
+    (pcase org-journal-file-type
+      (`daily "%Y-%m-%d")
+      (`weekly "%Y-%m-%d")
+      (`monthly "%Y-%m")
+      (`yearly "%Y"))))
 
 ;; Customization options related to the journal file contents
 (defun org-journal-file-header-func (time)
