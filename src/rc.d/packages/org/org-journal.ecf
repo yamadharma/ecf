@@ -1,0 +1,67 @@
+;;; A simple org-mode based journaling mode -*- coding: utf-8-unix; -*-
+;; https://github.com/bastibe/org-journal
+
+(setq org-directory-journal (concat org-directory "/journal/"))
+(if (not (file-directory-p org-directory-journal))
+  (make-directory org-directory-journal t))
+
+(setq org-journal-dir org-directory-journal)
+
+;; Agenda integration
+(add-to-list 'org-agenda-files org-journal-dir)
+;; When =org-journal-file-pattern= has the default value, this would be the regex
+(setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
+
+(setq org-journal-date-format "%Y-%m-%d, %A")
+
+;; Setting org-journal-file-format to include a file extension like %Y-%m-%d.org would break the calendar search functionality
+(defun ecf/org-journal-file-format-func (time)
+  "Custom function to create journal header."
+  (concat
+    (pcase org-journal-file-type
+      (`daily "%Y-%m-%d")
+      (`weekly "%Y-%m-%d")
+      (`monthly "%Y-%m")
+      (`yearly "%Y"))))
+(setq org-journal-file-format 'ecf/org-journal-file-format-func)
+
+;; Disable timestamps
+;;(setq org-journal-time-format "")
+
+;; Automatically adds the current and all future journal entries to the agenda
+(setq org-journal-enable-agenda-integration t)
+
+;; The journal file type either ‘daily (default), ‘weekly, ‘monthly or ‘yearly.
+;;(setq org-journal-file-type 'daily)
+(setq org-journal-file-type 'yearly)
+
+;; Customization options related to the journal file contents
+(defun org-journal-file-header-func (time)
+  "Custom function to create journal header."
+  (concat
+    (pcase org-journal-file-type
+      (`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything")
+      (`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
+      (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
+      (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
+
+(setq org-journal-file-header 'org-journal-file-header-func)
+
+;; Capture
+(defvar org-journal--date-location-scheduled-time nil)
+
+(defun org-journal-date-location (&optional scheduled-time)
+  (let ((scheduled-time (or scheduled-time (org-read-date nil nil nil "Date:"))))
+    (setq org-journal--date-location-scheduled-time scheduled-time)
+    (org-journal-new-entry t (org-time-string-to-time scheduled-time))
+    (unless (eq org-journal-file-type 'daily)
+      (org-narrow-to-subtree))
+    (goto-char (point-max))))
+
+(setq org-capture-templates '(("J" "Journal entry" plain (function org-journal-date-location)
+                               "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
+                               :jump-to-captured t)))
+
+(require 'org-journal)
+
+;;;
