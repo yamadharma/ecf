@@ -1,4 +1,4 @@
-;;;
+;;; -*- coding: utf-8-unix; -*-
 
 ;; (setq 
 ;;  time-stamp-active t          ; do enable time-stamps
