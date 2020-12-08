@@ -14,7 +14,7 @@
 ;; Set to the location of your Org files on your local system
 (setq org-directory orgmode-home-dir)
 
-(setq org-directory-todo (concat org-directory "/todo"))
+(setq org-directory-todo (concat org-directory "/todo/"))
 
 ;; Agenda files
 ;;(unless org-agenda-files

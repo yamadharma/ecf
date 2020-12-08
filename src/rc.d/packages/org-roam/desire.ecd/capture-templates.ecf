@@ -21,11 +21,11 @@
 #+STARTUP: overview hidestars hideblocks
 #+LANGUAGE: ru
 #+SETUPFILE: ~/me/org/templates/hugo.org
-#+EXPORT_FILE_NAME: "%(format-time-string \"%Y-%m-%d-${slug}\" (current-time) t)"
+#+EXPORT_FILE_NAME: %<%Y-%m-%d>-${slug}
 #+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
 #+HUGO_CATEGORIES: blog
 #+HUGO_TAGS:
-#+DATE: Time-stamp: <>\n\n"
+#+DATE: %<%Y-%m-%dT%H:%M:%S%:z>\n\n"
 	 :unnarrowed t)))
 
 ;;;
