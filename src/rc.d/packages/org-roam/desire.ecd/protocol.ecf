@@ -1,0 +1,6 @@
+;;; Roam Protocol -*- coding: utf-8-unix; -*-
+;;
+
+(require 'org-roam-protocol)
+
+;;;

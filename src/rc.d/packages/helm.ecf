@@ -1,5 +1,5 @@
 ;;; Helm. Emacs incremental completion and selection narrowing framework
-;;; https://emacs-helm.github.io/helm/
+;; https://emacs-helm.github.io/helm/
 
 (require 'helm-config)
 (blink-cursor-mode -1)
@@ -8,6 +8,10 @@
 (helm-mode 1)
 
 (global-set-key (kbd "C-c h") 'helm-mini)
+
+;;; Bind to M-x
+;;(global-set-key (kbd "M-x") 'helm-M-x)
+
 
 (define-key global-map [remap find-file] 'helm-find-files)
 (define-key global-map [remap occur] 'helm-occur)

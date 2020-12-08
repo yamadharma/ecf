@@ -1,4 +1,4 @@
-;; desire.el --- versatile configuration for emacs lisp packages -*- coding: iso-2022-7bit-unix; -*-
+;; desire.el --- versatile configuration for emacs lisp packages -*- coding: utf-8-unix; -*-
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
@@ -28,6 +28,8 @@
 ;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
+(require 'cl-lib)
+
 (defvar desire-load-path nil
   "*List of directories to be searched by `desire' for configuration data.")
 
@@ -53,6 +55,14 @@ initial setup.")
 after a package itself is loaded, and also after the configuration
 files for any other desirable package.  This is useful for performing
 some final setup.")
+
+(defvar desire-postinstall "postinstall"
+  "*A string which is the name of a configuration file that is loaded
+after a package itself is installed. This is useful for performing
+some final setup.")
+
+(defvar desire-package-autoinstall t
+  "*Enable automatic installation of a package if it is not present on the system.")
 
 (defvar desirable nil
   "A list of strings for packages which have been successfully desired.
@@ -99,10 +109,7 @@ The function `desired' will add an item to this list.")
 	     (prin1-to-string package)))))
     (and (member p desirable) t)))
 
-(defun desire (package &optional fname precond autoinstall)
-
-;;{{{ Description
-
+(defun desire-old (package &optional fname precond autoinstall)
 "Arrange loading and configuration of a desired emacs PACKAGE.
 PACKAGE is a symbol representing the name of a package.  The aim is to
 set up some autoloads and other initial configuration, and possibly
@@ -141,8 +148,6 @@ If a package is successfully configured then it is `desired' and,
 therefore, marked as `desirable'.  Desirability can be checked using
 the function `desiredp'.  If PACKAGE has been previously `desired'
 then nothing happens and nil is returned."
-
-;;}}}
 
   (or (symbolp package)
     (error "Wrong type argument to `desire': symbolp, %s"
@@ -240,41 +245,200 @@ then nothing happens and nil is returned."
   ) ; end if
 ) ; end defun desire
 
+(cl-defun desire (package
+    &key initname precondition-lisp-library precondition-system-executable (ensure desire-package-autoinstall))
+"Arrange loading and configuration of a desired emacs PACKAGE.
+PACKAGE is a symbol representing the name of a package.  The aim is to
+set up some autoloads and other initial configuration, and possibly
+organise for more configuration files to be dynamically loaded when
+the package itself is finally loaded. 
+
+Accepts the following optional arguments:
+
+Accepts the following properties:
+
+  :initname FNAME
+    FNAME is a string containing the name of the file that, when loaded, will
+    trigger dynamic loading of extra configuration files. If FNAME is
+    omitted then the string corresponding to PACKAGE is used instead.
+  :precondition PRECOND
+    PRECOND is name of lisp file as precondition for package loadind.
+  :executable EXECUTABLE
+    EXECUTABLE is name of executable file as precondition for package loadind.
+  :autoinstall BOOL
+    Specifies package autoinstallation.
+    `t' - package autoinstalled.
+    `nil' - package not autoinstalled.
+    Default from `desire-package-autoinstall' variable.
+
+Each directory in `desire-load-path' is searched in order to see if
+configuration data for PACKAGE exists.  The configuration data takes
+one of 2 forms:
+
+1. A file named PACKAGE followed by the value of the variable
+   `desire-extension'.  If such a file exists, then that file is taken
+   to be the sole configuration file for the package.  This file is
+   loaded immediately.  The file might contain autoloads or might load
+   the package itself.
+
+2. A directory named PACKAGE. If the directory contains a file
+   corresponding to `desire-loaddefs' then that file is loaded
+   immediately.  Other files in the directory are processed using the
+   function `desire-process-directory' after the package is actually
+   loaded.
+
+Note that a single file, as described in (1), takes precedence over a
+directory, as described in (2).  For a directory, if the package has
+already been loaded then the configuration data *is* loaded but the
+package is *not*.  This depends on the `eval-after-load' function
+behaving similarly.
+
+If a package is successfully configured then it is `desired' and,
+therefore, marked as `desirable'.  Desirability can be checked using
+the function `desiredp'.  If PACKAGE has been previously `desired'
+then nothing happens and nil is returned."
+
+(or (symbolp package)
+    (error "Wrong type argument to `desire': symbolp, %s"
+	   (prin1-to-string package)))
+
+;; Set initial file/directory name
+(setq fname initname)
+
+(message "initname: %s" initname)
+(message "fname: %s" fname)
+
+;; Set lisp library precondition
+(setq precond precondition-lisp-library)
+
+;; check executable precondition
+(if precondition-system-executable
+    (if (executable-find ensure-system-executable)
+	(message "Executable file found %s to load package %s" 
+		 (prin1-to-string ensure-system-executable)
+		 (prin1-to-string package))
+      (error "Cannot find executable %s to load package %s"
+	     (prin1-to-string ensure-system-executable)
+	     (prin1-to-string package)))
+  nil)
+
+;; Check precondition
+(if (and
+     (not (desiredp package))
+     (if precond
+	 (if (stringp precond)
+	     (locate-library precond)
+	   nil)
+       t)
+     )
+    (let*
+	((dirs desire-load-path)
+	 (pname (symbol-name package))
+	 (lname (if fname fname pname)))
+      
+      (message "precondition: %s" precondition-lisp-library)
+      (message "precond: %s" precond)
+
+      ;; Check ensure key
+      (if ensure
+	  ;; check if the package is already installed
+	  (if (or
+	       (if (stringp package)
+		   (locate-library package)
+		 nil)
+	       (if (stringp precond)
+		   (locate-library precond)
+		 nil)
+	       )
+	      t
+	    ;; install package
+	    (desire-install-package package)
+	    ))
+     
+      (message "ensure: %s : %s" package ensure)
+
+      ;;Test
+      ;; unconditional desirable
+      ;; Возможно, нужно внести дополнительный ключ
+      (desired package)
+      
+      (while dirs
+
+	(let ((prefix (expand-file-name pname (car dirs))))
+	
+	  (cond
+	   ;; Check for configuration file
+	   ((desire-readable-regular-file-p
+	     (concat prefix desire-extension))
+	    
+	    ;;; Load configuration data.
+	    (desire-load-file (car dirs) pname)
+	    
+	    ;; Finished!
+	    (desired package)
+	    ;;(setq dirs nil)
+	    (setq dirs (cdr dirs)))
+
+	   ;; Check for configuration directory
+	   ((and (file-directory-p prefix)
+		 (file-readable-p prefix))
+	    
+	    ;; If file specified by desire-loaddefs exists then load it.
+	    (if (and desire-loaddefs
+		     (desire-readable-regular-file-p
+		      (expand-file-name
+		       (concat desire-loaddefs desire-extension)
+		       prefix)))
+		
+		(desire-load-file prefix desire-loaddefs))
+
+	    ;; Setup processing of directory.
+	    (eval-after-load
+		lname
+	      `(desire-process-directory, prefix))
+	    
+	    ;; Finished!
+	    (desired package)
+	    ;;(setq dirs nil)
+	    (setq dirs (cdr dirs)))
+
+	   ;; Otherwise
+	
+	   (t
+	    (setq dirs (cdr dirs)))
+	   ) ;; end cond
+	  ) ;; end let
+	) ;; end while
+      ) ;; end let*
+  ) ;; end if
+) ;; end defun desire
+
 (defun desire-load-file (dir file)
   "Load FILE from DIR after appending `desire-extension'."
 
   (load-file
-    (expand-file-name (concat file desire-extension) dir)
-  )
+   (expand-file-name (concat file desire-extension) dir))
 )
 
 (defun desire-load-dir (prefix dir)
   "Load files from PREFIX/DIR after appending `desire-dir-extension'."
 
   (let
-    (
-      (dir-list)
-    )
+    ((dir-list))
     (setq dir-list
-      (directory-files
-	(expand-file-name (concat dir desire-dir-extension) prefix)
-	t
-	(concat ".*" (regexp-quote desire-extension) "$")
-      )
-    )
+	  (directory-files
+	   (expand-file-name (concat dir desire-dir-extension) prefix)
+	   t
+	   (concat ".*" (regexp-quote desire-extension) "$")))
     (if (not (null dir-list))
-      (mapcar 'load-file
-	dir-list
-      )
-    )
-  ) ;; end let
-)
+	(mapcar 'load-file
+		dir-list))
+    ) ;; end let
+  )
 
 (defun desire-process-directory (dir)
 
-  ;;{{{ Description
-
-  "Load files in DIR if they correspond to desirable packages.
+"Load files in DIR if they correspond to desirable packages.
 
 If a configuration file for a previously desired package is present in
 DIR, then that file is loaded.  For example, if a package called
@@ -287,79 +451,64 @@ A file for the pseudo-package specified by `desire-desire' is always
 loaded first.  A file for the pseudo-package specified by
 `desire-execute' is always loaded last."
 
-  ;;}}}
+(let
+    ((fs (desire-directory-file-prefixes dir))
+     (ds (desire-directory-dir-prefixes dir))
+     exec)
 
-  (let
-    (
-      (fs (desire-directory-file-prefixes dir))
-      (ds (desire-directory-dir-prefixes dir))
-      exec
-    )
-
-    ;; Check for the desire-desire file.
-    (if (member desire-desire fs)
+  ;; Check for the desire-desire file.
+  (if (member desire-desire fs)
 
       (progn
 	(desire-load-file dir desire-desire)
-	(setq fs (delete desire-desire fs))
-      )
-    )
+	(setq fs (delete desire-desire fs))))
 
-    ;; Check for the desire-desire dir.
-    (if (member desire-desire ds)
+  ;; Check for the desire-desire dir.
+  (if (member desire-desire ds)
 
       (progn
 	(desire-load-dir dir desire-desire)
-	(setq ds (delete desire-desire ds))
-      )
-    )
+	(setq ds (delete desire-desire ds))))
 
-    ;; Check for the desire-execute file.
-    (if (member desire-execute fs)
-	(progn
-	  (setq exec t)
-	  (setq fs (delete desire-execute fs))))
+  ;; Check for the desire-execute file.
+  (if (member desire-execute fs)
+      (progn
+	(setq exec t)
+	(setq fs (delete desire-execute fs))))
 
-    ;; Load desirable files.
-    (while fs
-      (let ((hd (car fs)))
+  ;; Load desirable files.
+  (while fs
+    (let ((hd (car fs)))
 
-	;; Check to see if the prefix represents a feature.
-	(if (desiredp hd)
-	    (desire-load-file dir hd))
-      )
+      ;; Check to see if the prefix represents a feature.
+      (if (desiredp hd)
+	  (desire-load-file dir hd)))
+    (setq fs (cdr fs)))
 
-      (setq fs (cdr fs))
-    )
+  ;; Load desirable dirs.
+  (while ds
+    (let ((hd (car ds)))
 
-    ;; Load desirable dirs.
-    (while ds
-      (let ((hd (car ds)))
+      ;; Check to see if the prefix represents a feature.
+      (if (desiredp hd)
+	  (desire-load-dir dir hd)))
 
-	;; Check to see if the prefix represents a feature.
-	(if (desiredp hd)
-	    (desire-load-dir dir hd))
-      )
+    (setq ds (cdr ds)))
 
-      (setq ds (cdr ds))
-    )
-
-    ;; Load desire-execute if required.
-    (if exec
-	(desire-load-file dir desire-execute))))
+  ;; Load desire-execute if required.
+  (if exec
+      (desire-load-file dir desire-execute))
+  )
+)
 
 (defun desire-directory-file-prefixes (dir)
 
-  ;;{{{ Description
-
-  "Return the prefixes of configuration files in DIR.
+"Return the prefixes of configuration files in DIR.
 Configuration files are those that readable, regular files which have
 the extension specified by variable `desire-extension'.  The prefix
 is the file name with the directory and extension removed."
 
-  ;;}}}
-
-  (let
+(let
     (
       (ext-regexp (concat (regexp-quote desire-extension) "$"))
       (out)
@@ -459,11 +608,10 @@ is not loaded; so load the file FNAME."
 )
 
 (defun desire-install-package (package)
-  "Install PACKAGE from repository"
-  (unless (package-installed-p package)
-    (package-install package)
-    )
-  )
+"Install PACKAGE from repository"
+(unless (package-installed-p package)
+  (package-install package))
+)
 
 (provide 'desire)
 

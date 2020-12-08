@@ -1,0 +1,7 @@
+;;; An opinionated pack of modern color-themes  -*- coding: utf-8-unix; -*-
+;; https://github.com/hlissner/emacs-doom-themes
+
+;; Corrects (and improves) org-mode's native fontification
+(doom-themes-org-config)
+
+;;;

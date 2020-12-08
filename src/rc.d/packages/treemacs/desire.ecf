@@ -1,12 +1,5 @@
 ;;;
 
-(require 'treemacs)
-
-;; set the correct python3 executable path. This is needed for
-;; treemacs-git-mode extended
-(setq treemacs-python-executable (executable-find "python"))
-
-
 (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
           treemacs-deferred-git-apply-delay      0.5
           treemacs-directory-name-transformer    #'identity

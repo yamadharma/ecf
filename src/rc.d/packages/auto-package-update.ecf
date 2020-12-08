@@ -12,4 +12,7 @@
 ;; Hide the results buffer after auto package update is complete
 (setq auto-package-update-hide-results t)
 
+;; Update installed Emacs packages if at least auto-package-update-interval days have passed since the last update
+(auto-package-update-maybe)
+
 ;;;

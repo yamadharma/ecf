@@ -1,0 +1,24 @@
+;;; Completion back-ends for for math unicode symbols and latex tags -*- coding: utf-8-unix; -*-
+;; https://github.com/vspinu/company-math
+
+(desire 'company-math)
+
+;; Clear Latex
+;; (defun ecf/company-math-latex-mode-setup ()
+;;   (setq-local company-backends
+;;               (append '((company-math-symbols-latex company-math-symbols-unicode))
+;;                       company-backends)))
+
+;; If you are using the package unicode-math
+(defun ecf/company-math-latex-mode-setup ()
+  (setq-local company-math-allow-unicode-symbols-in-faces (quote (tex-math font-latex-math-face)))
+  (setq-local company-math-disallow-unicode-symbols-in-faces nil)
+  (setq-local company-math-allow-latex-symbols-in-faces nil)
+  (setq-local company-backends
+              (append '((company-math-symbols-latex company-math-symbols-unicode))
+                      company-backends)))
+
+(add-hook 'LaTeX-mode-hook 'ecf/company-math-latex-mode-setup)
+(add-hook 'after-init-hook 'global-company-mode)
+
+;;;

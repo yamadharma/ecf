@@ -1,0 +1,18 @@
+;;; Daily-notes -*- coding: utf-8-unix; -*-
+;;
+
+;; Excluding Nodes and Edges
+(setq org-roam-graph-exclude-matcher '("private" "dailies"))
+
+;; Path to daily-notes
+(setq org-roam-dailies-directory "daily/")
+
+;; Capture templates for daily-notes in Org-roam
+(setq org-roam-dailies-capture-templates
+      '(("d" "default" entry
+         #'org-roam-capture--get-point
+         "* %?"
+         :file-name "daily/%<%Y-%m-%d>"
+         :head "#+title: %<%Y-%m-%d>\n\n")))
+
+;;;

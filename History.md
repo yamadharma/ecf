@@ -1,4 +1,42 @@
 
+v0.7.0 / 2020-12-08
+=============
+
+  * feat(org): set directory for export
+  * feat(org): change key for start agenda
+  * feat(org-roam): add hugo support to capture template
+  * feat(org): rename files
+  * feat(org-journal): add remark about key binding
+  * feat(org-journal): fix org-capture-templates
+  * feat(org): customize org-journal-file-format
+  * feat(org): add org-journal
+  * feat(org-roam): add dailies
+  * feat(org-roam): stplit capture templates
+  * feat(org-roam): disable company for org-roam
+  * feat(org): extend org-git to list of directories
+  * feat(org-roam): add automatic start org-roam-server
+  * feat(org): move org-file to ~/me/org/todo
+  * feat(org-roam): add org-roam-server
+  * feat(org-roam): add company support
+  * feat(org): add ox-hugo support
+  * feat(doom-themes): add doom themes
+  * feat(spacemacs-theme): add spaceline
+  * feat(org-roam): prelimenary hugo in template
+  * feat(auctex): add company support
+  * feat(org): add org-roam to agenda files
+  * feat(org): disable different size headings
+  * feat(org): add org-superstar
+  * feat(org): support hide textface macros
+  * feat(auto-package-update): add update option
+  * feat: tune helm config
+  * feat(org-roam): disable autoload org-roam
+  * feat(org): move org-gcal config into org config
+  * feat(desire): add package without config into desirable list
+  * feat(emacs-daemon): disable autostart emacs deamon
+  * feat(company): disable tng mode in company
+  * feat(company): add company package support
+  * feat(desire): change disare interface to keys support
+
 v0.6.2 / 2020-11-03
 ==================
 

@@ -1,0 +1,9 @@
+;;;
+
+(require 'treemacs)
+
+;; set the correct python3 executable path. This is needed for
+;; treemacs-git-mode extended
+(setq treemacs-python-executable (executable-find "python"))
+
+;;;

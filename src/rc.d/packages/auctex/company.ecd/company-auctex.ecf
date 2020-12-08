@@ -1,0 +1,9 @@
+;;; Company-mode autocompletion for auctex -*- coding: utf-8-unix; -*-
+;; https://github.com/alexeyr/company-auctex
+
+(desire 'company-auctex)
+
+(require 'company-auctex)
+(company-auctex-init)
+
+;;;

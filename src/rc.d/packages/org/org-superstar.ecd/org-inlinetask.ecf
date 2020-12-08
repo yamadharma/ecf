@@ -1,0 +1,35 @@
+;;; Org Inline Tasks -*- coding: utf-8-unix; -*-
+;; Inline tasks behave as you would expect them to, for the most
+;; part. They have two bullets instead of one, but are otherwise
+;; treated the same as regular headlines by Org Superstar, meaning
+;; org-superstar-headline-bullets-list controls the bullet used as if
+;; it were a regular headline. If org-inlinetask-show-first-star is
+;; non-nil, you can customize the additional marker. Just like with
+;; the rest of Superstar’s decorations, you can more or less fully
+;; control how it looks, with independent settings for graphical and
+;; terminal displays and a dedicated face, should you find the default
+;; of using org-warn a little… unsubtle. We again use the LaTeX setup
+;; as a base and add a few tweaks.
+
+(require 'org-inlinetask)
+(setq org-inlinetask-show-first-star t)
+
+;; Less gray please.
+(set-face-attribute 'org-inlinetask nil
+                    :foreground nil
+		    :inherit 'bold)
+(with-eval-after-load 'org-superstar
+  (set-face-attribute 'org-superstar-first nil
+                      :foreground "#9000e1"))
+
+;; Set different bullets, with one getting a terminal fallback.
+;; (setq org-superstar-headline-bullets-list
+;;       '("◉" ("🞛" ?◈) "○" "▷"))
+
+;; Set up a different marker for graphic display.
+(setq org-superstar-first-inlinetask-bullet ?🞸)
+
+;; Stop cycling bullets to emphasize hierarchy of headlines.
+(setq org-superstar-cycle-headline-bullets nil)
+
+;;;
