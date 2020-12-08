@@ -1,0 +1,16 @@
+;;; A carefully crafted Org exporter back-end for Hugo -*- coding: utf-8-unix; -*-
+;; https://github.com/kaushalmodi/ox-hugo
+
+(desire 'ox-hugo)
+
+(with-eval-after-load 'ox
+  (require 'ox-hugo))
+
+(require 'org-id)
+
+;; Hugo orgmode exporter
+;; If you want the auto-exporting on file saves
+;;(require 'ox-hugo-auto-export)
+
+;;;
+

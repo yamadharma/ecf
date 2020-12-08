@@ -1,0 +1,7 @@
+;;; An opinionated pack of modern color-themes  -*- coding: utf-8-unix; -*-
+;; https://github.com/hlissner/emacs-doom-themes
+
+;; Enable custom neotree theme (all-the-icons must be installed!)
+(doom-themes-neotree-config)
+
+;;;

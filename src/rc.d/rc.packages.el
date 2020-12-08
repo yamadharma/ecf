@@ -126,7 +126,10 @@
 ;;}}}
 ;;{{{ Themes
 
-(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
+;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
+;;(desire 'spaceline)
+
+(desire 'doom-themes)
 
 ;;}}}
 ;;
@@ -190,6 +193,7 @@
 ;;(desire-old 'org-super-agenda nil "org-super-agenda" t)
 ;;(desired 'org-super-agenda)
 
+(desire 'org-roam-server)
 (desire 'org-roam)
 
 ;;}}}
@@ -201,7 +205,7 @@
 ;;}}}
 ;;{{{ LaTeX
 
-(desire-old 'ebib nil "ebib")
+(desire 'ebib)
 (desire-old 'xdvi nil "xdvi-search")
 (desired 'reftex)
 (desire-old 'bibtex)

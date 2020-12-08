@@ -1,0 +1,6 @@
+;;; Customizing Tag Extraction -*- coding: utf-8-unix; -*-
+;;
+
+(setq org-roam-tag-sources '(prop last-directory))
+
+;;;

@@ -1,0 +1,7 @@
+;;; Company completion backend for Org-roam -*- coding: utf-8-unix; -*-
+
+(desire 'company-org-roam)
+
+(push 'company-org-roam company-backends)
+
+;;;

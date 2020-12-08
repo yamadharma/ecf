@@ -1,19 +1,20 @@
-;; Publishing and Exporting
+;;; Publishing and Exporting
 
 (setq org-alphabetical-lists t)
 
 ; Allow binding variables on export without confirmation
-(setq org-export-allow-BIND t)
+(setq org-export-allow-bind t)
+(setq org-export-allow-bind-keywords t)
 
 ;; Explicitly load required exporters
 
 ;; HTML
+(desire 'htmlize)
 (require 'ox-html)
 ; Export HTML without XML header
 (setq org-html-xml-declaration (quote (("html" . "")
-                                       ("was-html" . "<?xml version=\"1.0\" encoding=\"%s\"?>")
-                                       ("php" . "<?php echo \"<?xml version=\\\"1.0\\\" encoding=\\\"%s\\\" ?>\"; ?>"))))
-
+				       ("was-html" . "<?xml version=\"1.0\" encoding=\"%s\"?>")
+				       ("php" . "<?php echo \"<?xml version=\\\"1.0\\\" encoding=\\\"%s\\\" ?>\"; ?>"))))
 
 ;; LaTeX
 (require 'ox-latex)
@@ -31,4 +32,17 @@
 ;(setq org-export-with-entities nil)
 
 
+;;; Set export directory
+(setq exported-org-files-dir (concat org-directory "/export/"))
+(if (not (file-directory-p exported-org-files-dir))
+    (make-directory exported-org-files-dir t))
 
+(defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
+  (unless pub-dir
+    (setq pub-dir exported-org-files-dir)
+    (unless (file-directory-p pub-dir)
+      (make-directory pub-dir)))
+  (apply orig-fun extension subtreep pub-dir nil))
+(advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
+
+;;;
