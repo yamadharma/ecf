@@ -6,6 +6,10 @@
 (setq org-export-allow-bind t)
 (setq org-export-allow-bind-keywords t)
 
+;;; Set the default export scope to subtree
+(setf org-export-initial-scope 'subtree)
+
+
 ;; Explicitly load required exporters
 
 ;; HTML
@@ -15,11 +19,6 @@
 (setq org-html-xml-declaration (quote (("html" . "")
 				       ("was-html" . "<?xml version=\"1.0\" encoding=\"%s\"?>")
 				       ("php" . "<?php echo \"<?xml version=\\\"1.0\\\" encoding=\\\"%s\\\" ?>\"; ?>"))))
-
-;; LaTeX
-(require 'ox-latex)
-; Fontify Latex listings for source blocks
-(setq org-latex-listings t)
 
 ;;
 (require 'ox-ascii)

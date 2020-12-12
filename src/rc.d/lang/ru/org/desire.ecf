@@ -1,0 +1,5 @@
+;;;
+
+(setq org-export-default-language "ru")
+
+;;;
