@@ -22,7 +22,6 @@
 
 ;;
 (require 'ox-ascii)
-(require 'ox-beamer)
 (require 'ox-md)
 ;(require 'ox-man)
 (require 'ox-odt)
