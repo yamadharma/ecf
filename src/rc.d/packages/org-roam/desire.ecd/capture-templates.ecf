@@ -18,14 +18,27 @@
 	 :head "#+TITLE: ${title}
 #+CREATED: %U
 #+LAST_MODIFIED: %U
-#+STARTUP: overview hidestars hideblocks
 #+LANGUAGE: ru
-#+SETUPFILE: ~/me/org/templates/hugo.org
+#+DATE: %<%Y-%m-%dT%H:%M:%S%:z>
+
+:LOCALSETUP:
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+STARTUP: hideblocks
+#+STARTUP: indent
+#+OPTIONS: ^:nil
+:END:
+
+:SETUP_EXPORT:
+#+HUGO_BASE_DIR: ~/work/blog/git
+#+HUGO_SECTION: ru/post
+#+HUGO_FRONT_MATTER_FORMAT: yaml
+#+HUGO_AUTO_SET_LASTMOD: t
 #+EXPORT_FILE_NAME: %<%Y-%m-%d>-${slug}
 #+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
 #+HUGO_CATEGORIES: blog
 #+HUGO_TAGS:
-#+DATE: %<%Y-%m-%dT%H:%M:%S%:z>\n\n"
+:END:\n\n"
 	 :unnarrowed t)))
 
 ;;;
