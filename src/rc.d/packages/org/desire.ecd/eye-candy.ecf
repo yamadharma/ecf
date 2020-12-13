@@ -7,4 +7,7 @@
 ;; Hide * and / in org text
 ;;(setq org-hide-emphasis-markers t)
 
+;;; Toggle TeX-like syntax for sub- and superscripts
+(setq org-use-sub-superscripts '{})
+
 ;;;

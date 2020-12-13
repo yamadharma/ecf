@@ -9,6 +9,8 @@
 ;;; Set the default export scope to subtree
 (setf org-export-initial-scope 'subtree)
 
+;;; Toggle TeX-like syntax for sub- and superscripts
+(setq org-export-with-sub-superscripts '{})
 
 ;; Explicitly load required exporters
 
