@@ -48,4 +48,9 @@
            (org-git-push-with-delay (* 5 60)))
    )))
 
+;; Run push automatically on startup 
+(ecf/org-git-push)
+;; Automatic unattended push - Do a push every 30 minutes
+(org-git-push-with-delay (* 30 60))
+
 ;;;
