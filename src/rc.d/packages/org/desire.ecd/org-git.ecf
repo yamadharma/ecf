@@ -2,7 +2,9 @@
 
 (global-auto-revert-mode 1)
 
-(setq org-directory-git (list org-directory-todo))
+;;; Find all directories with .git directory under org-directory
+(setq org-directory-git
+      (mapcar 'file-name-directory (directory-files-recursively org-directory "^\.git$" t t t)))
 
 (defun ecf/org-git-push ()
   (let ((git-dir org-directory-git)
