@@ -11,7 +11,7 @@
         (commit-message (concat (system-name) ": emacs automatic commit")))
     (dolist (dir git-dir)
       (cd dir)
-      (start-process "org-git-push" "*Messages*" "bash" "-c" (concat "git commit -am '" commit-message "'&& git push"))
+      (start-process "org-git-push" "*Messages*" "bash" "-c" (concat "git add . && " "git commit -am '" commit-message "'&& git push"))
       (cd dir))))
 
 (defun ecf/org-git-pull ()
