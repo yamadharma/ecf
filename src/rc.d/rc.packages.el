@@ -140,7 +140,7 @@
 
 ;;
 
-(desired 'imenu)
+(desire 'imenu)
 
 ;; (desire-old 'toolbar)
 
