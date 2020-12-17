@@ -20,13 +20,13 @@
 
 ;;; Code:
 
-; (desire-old 'tiny)
+;; (desire-old 'tiny)
 (desire-old 'personal)
 ;;
 ;; Mule
 ;;
 (desire-old 'mule)
-;(desire-old 'mule-fontset)
+;;(desire-old 'mule-fontset)
 ;; ----------------------------------------------------------------------
 ;;
 ;;{{{ Xemacs
@@ -168,9 +168,11 @@
 ;;}}}
 ;;{{{ Completion
 
+(desire 'marginalia)
+
 (desire 'company)
 
-(desire-old 'helm nil "helm" t)
+(desire 'helm)
 
 ;;}}}
 ;(desire-old 'yasnippet)
