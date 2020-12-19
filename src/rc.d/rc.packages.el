@@ -1,4 +1,4 @@
-;;; rc.packages.el -*- coding: iso-2022-7bit-unix; -*-
+;;; rc.packages.el -*- coding: utf-8-unix; -*-
 
 ;;; Commentary:
 
@@ -260,7 +260,7 @@
 ;; (desire-old 'message)
 ;; (desire-old 'vm)
 ;; (desire 'wl)
-(desire-old 'wl)
+(desire 'wl :ensurename 'wanderlust)
 ;; (desire-old 'sendmail)
 
 ;;}}}

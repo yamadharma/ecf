@@ -1,4 +1,4 @@
-;; desire.el --- versatile configuration for emacs lisp packages -*- coding: utf-8-unix; -*-
+;;; desire.el --- versatile configuration for emacs lisp packages -*- coding: utf-8-unix; -*-
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
@@ -246,7 +246,7 @@ then nothing happens and nil is returned."
 ) ; end defun desire
 
 (cl-defun desire (package
-    &key initname precondition-lisp-library precondition-system-executable (ensure desire-package-autoinstall))
+    &key initname precondition-lisp-library precondition-system-executable ensurename (ensure desire-package-autoinstall))
 "Arrange loading and configuration of a desired emacs PACKAGE.
 PACKAGE is a symbol representing the name of a package.  The aim is to
 set up some autoloads and other initial configuration, and possibly
@@ -265,6 +265,7 @@ Accepts the following properties:
     PRECOND is name of lisp file as precondition for package loadind.
   :executable EXECUTABLE
     EXECUTABLE is name of executable file as precondition for package loadind.
+  :ensurename PACKAGE-NAME Name of package on repository (like melpa).
   :autoinstall BOOL
     Specifies package autoinstallation.
     `t' - package autoinstalled.
@@ -352,10 +353,12 @@ then nothing happens and nil is returned."
 	       )
 	      t
 	    ;; install package
-	    (desire-install-package package)
+	    (if ensurename
+		(desire-install-package ensurename)
+	      (desire-install-package package))
 	    ))
-     
-      (message "ensure: %s : %s" package ensure)
+
+      (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
 
       ;;Test
       ;; unconditional desirable
@@ -580,12 +583,10 @@ is the directory name with the prefix directory and extension removed."
 (defun desire-readable-dir-p (dir)
 
   "Determine if DIR is a readable directory."
-
+  
   (and
    (file-directory-p dir)
-   (file-readable-p  dir)
-  )
-)
+   (file-readable-p dir)))
 
 (defun desire-require (feature &optional fname)
 
@@ -608,10 +609,11 @@ is not loaded; so load the file FNAME."
 )
 
 (defun desire-install-package (package)
-"Install PACKAGE from repository"
-(unless (package-installed-p package)
-  (package-install package))
-)
+  
+  "Install PACKAGE from repository"
+ 
+  (unless (package-installed-p package)
+    (package-install package)))
 
 (provide 'desire)
 
