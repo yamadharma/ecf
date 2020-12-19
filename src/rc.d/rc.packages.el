@@ -50,7 +50,7 @@
 ;;{{{ Window System
 
 (if (null window-system)
-  ()
+    ()
   (progn
     (desire-old 'window-system)
 ;    (desire-old  'faces)
@@ -59,31 +59,31 @@
 )
 
 
-;(if (null window-system)
-;  ()
-;  (desire-old 'window-system)
-;)
+;; (if (null window-system)
+;;  ()
+;;  (desire-old 'window-system)
+;; )
 
-;(desire-old 'window-system)
-;(desire-old 'test)
+;; (desire-old 'window-system)
+;; (desire-old 'test)
 
-;(if (eq window-system 'w32)
-;  (progn
-;    (desired 'window-system)
-;    (desired 'window-system-w32)
-;  )	
-;)
+;; (if (eq window-system 'w32)
+;;  (progn
+;;    (desired 'window-system)
+;;    (desired 'window-system-w32)
+;;  )	
+;; )
 
-;(if (and window-system
-;	 (member window-system '(x gtk))
-;	 (x-display-color-p)
-;    )
-;    (progn
-;      (desired 'window-system)
-;      (desire-old  'faces)
-;      (desire-old  'multi-frame)
-;    )
-;)
+;; (if (and window-system
+;; 	 (member window-system '(x gtk))
+;; 	 (x-display-color-p)
+;;    )
+;;    (progn
+;;      (desired 'window-system)
+;;      (desire-old  'faces)
+;;      (desire-old  'multi-frame)
+;;    )
+;; )
 
 ;;}}}
 ;;{{{ Gnuserv
@@ -241,10 +241,10 @@
 ;; Use "M-x calendar RET" to display the calendar and start
 ;; appointment warnings.
 
-;(desire-old 'appt)
-;(desire-old 'calendar)
-;(desire-old 'todo-mode)
-;(desire-old 'diary "diary-lib")
+;; (desire-old 'appt)
+;; (desire-old 'calendar)
+;; (desire-old 'todo-mode)
+;; (desire-old 'diary "diary-lib")
 
 ;;}}}
 ;;{{{ These provide options for the various message handling packages.
@@ -256,23 +256,24 @@
 ;;}}}
 ;;{{{ Message handing packages.
 
-;;(desire-old 'gnus)
-;(desire-old 'message)
-;(desire-old 'vm)
-;(desire-old 'wl)
-;(desire-old 'sendmail)
+;; (desire-old 'gnus)
+;; (desire-old 'message)
+;; (desire-old 'vm)
+;; (desire 'wl)
+(desire-old 'wl)
+;; (desire-old 'sendmail)
 
 ;;}}}
 ;;{{{ Programming
 
-;(desire-old 'speedbar nil "speedbar")
-;(desire-old 'semantic nil "semantic")
+;; (desire-old 'speedbar nil "speedbar")
+;; (desire-old 'semantic nil "semantic")
 
-;(desire-old 'cedet nil "cedet")
-;(desire-old 'ecb nil "ecb")
+;; (desire-old 'cedet nil "cedet")
+;; (desire-old 'ecb nil "ecb")
 
-;(desire-old 'php-mode nil "php-mode")
-;(desire-old 'eiffel-mode nil "eiffel-mode")
+;; (desire-old 'php-mode nil "php-mode")
+;; (desire-old 'eiffel-mode nil "eiffel-mode")
 
 (desire-old 'lua-mode nil "lua-mode" t)
 (desire-old 'julia-mode nil "julia-mode" t)
@@ -281,35 +282,35 @@
 ;;}}}
 ;;{{{ Blogs
 
-;;(desire-old 'hexo nil "hexo")
-;(desire-old 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
+;; (desire-old 'hexo nil "hexo")
+;; (desire-old 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
 (desire-old 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
 
 ;;}}}
 ;;{{{ Miscellaneous
 
 (desire-old 'graphviz-dot-mode nil "graphviz-dot-mode")
-;(desire-old 'abbrev)
-;(desire-old 'bibtex)
-;(desire-old 'calc)
-;(desire-old 'eiffel-mode)
-;(desire-old 'filladapt)
-;(desire-old 'hugs-mode)
-;(desire-old 'html-helper-mode)
-;(desire-old 'lispdir)
-;(desire-old 'php-mode)
-;(desire-old 'ps-print)
-;(desire-old 'sh-script)
-;(desire-old 'shell)
-;;(desire-old 'sql-mode)
-;(desire-old 'w3)
+;; (desire-old 'abbrev)
+;; (desire-old 'bibtex)
+;; (desire-old 'calc)
+;; (desire-old 'eiffel-mode)
+;; (desire-old 'filladapt)
+;; (desire-old 'hugs-mode)
+;; (desire-old 'html-helper-mode)
+;; (desire-old 'lispdir)
+;; (desire-old 'php-mode)
+;; (desire-old 'ps-print)
+;; (desire-old 'sh-script)
+;; (desire-old 'shell)
+;; (desire-old 'sql-mode)
+;; (desire-old 'w3)
 
 ;;}}}
 
 ;; PERSONAL
 
-;(require 'chord-mode)  ; edit guitar music.
-;(require 'discography) ; variant of BibTeX mode for discographies.
+;; (require 'chord-mode)  ; edit guitar music.
+;; (require 'discography) ; variant of BibTeX mode for discographies.
 
 
 ;;; rc.packages.el ends here

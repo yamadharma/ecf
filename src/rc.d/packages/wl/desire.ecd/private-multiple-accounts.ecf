@@ -1,0 +1,38 @@
+;;; Private config for Wanderlust - Multiple accounts -*- coding: utf-8-unix; -*-
+;; https://www.emacswiki.org/emacs/WlMultipleAccounts
+
+;;; You should set this variable if you use multiple e-mail addresses.
+;; (setq wl-user-mail-address-list (quote ("myname@gmail.com" "myname@company.com")))
+
+;;; (NOTE: "M-: wl-draft-parent-folder" => %INBOX:myname/clear@imap.gmail.com:993)
+;; (setq wl-draft-config-alist
+;;       '(((string-match "company.com" wl-draft-parent-folder)
+;; 	 (template . "work"))
+;; 	((string-match "gmail.com" wl-draft-parent-folder)
+;; 	 (template . "gmail"))
+;; 	;; automatic for replies
+;; 	(reply "\\(To\\|Cc\\|Delivered-To\\): .*company.com.*"
+;; 	 (template . "work"))
+;; 	(reply "\\(To\\|Cc\\|Delivered-To\\): .*gmail.com.*"
+;; 	 (template . "gmail"))))
+
+;;; choose template with C-c C-j
+;; (setq wl-template-alist
+;;       '(("gmail"
+;; 	 (wl-from . "My Name <myname@gmail.com>")
+;; 	 (wl-smtp-posting-user . "myname")
+;; 	 (wl-smtp-posting-server . "smtp.gmail.com")
+;; 	 (wl-smtp-authenticate-type ."plain")
+;; 	 (wl-smtp-connection-type . 'starttls)
+;; 	 (wl-smtp-posting-port . 587)
+;; 	 (wl-local-domain . "gmail.com")
+;; 	 (wl-message-id-domain . "smtp.gmail.com"))
+;; 	("work"
+;; 	 ("Fcc" . "%INBOX.Sent:\"myname@company.com\"/clear@mail.company.com")
+;; 	 (wl-from . "My Name <myname@company.com>")
+;; 	 (wl-smtp-posting-user . "myname@company.com")
+;; 	 (wl-smtp-posting-server . "mail.company.com")
+;; 	 (wl-local-domain . "mail.company.com"))
+;; 	 ("From" . wl-from))))
+
+;;;

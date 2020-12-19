@@ -1,2 +1,2 @@
-(require 'bbdb-wl)
-(bbdb-wl-setup)
+;;(require 'bbdb-wl)
+;;(bbdb-wl-setup)
