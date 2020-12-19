@@ -259,8 +259,7 @@
 ;; (desire-old 'gnus)
 ;; (desire-old 'message)
 ;; (desire-old 'vm)
-;; (desire 'wl)
-(desire 'wl :ensurename 'wanderlust)
+;; (desire 'wl :ensurename 'wanderlust)
 ;; (desire-old 'sendmail)
 
 ;;}}}
