@@ -1,41 +1,83 @@
 ;;;; Supercharge your Org daily/weekly agenda by grouping items
 ;; https://github.com/alphapapa/org-super-agenda
 
-(let ((org-agenda-span 'day)
-      (org-super-agenda-groups
-       '((:name "Time grid items in all-uppercase with RosyBrown1 foreground"
-                :time-grid t
-                :transformer (--> it
-                                  (upcase it)
-                                  (propertize it 'face '(:foreground "RosyBrown1"))))
-         (:name "Priority >= C items underlined, on black background"
-                :face (:background "black" :underline t)
-                :not (:priority>= "C")
-                :order 100))))
-  (org-agenda nil "a"))
+(require 'org-super-agenda)
 
-;; (let ((org-super-agenda-groups
-;;        '((:log t)  ; Automatically named "Log"
-;;          (:name "Schedule"
-;;                 :time-grid t)
-;;          (:name "Today"
-;;                 :scheduled today)
-;;          (:habit t)
-;;          (:name "Due today"
-;;                 :deadline today)
-;;          (:name "Overdue"
-;;                 :deadline past)
-;;          (:name "Due soon"
-;;                 :deadline future)
-;;          (:name "Unimportant"
-;;                 :todo ("SOMEDAY" "MAYBE" "CHECK" "TO-READ" "TO-WATCH")
-;;                 :order 100)
-;;          (:name "Waiting..."
-;;                 :todo "WAITING"
-;;                 :order 98)
-;;          (:name "Scheduled earlier"
-;;                 :scheduled past))))
-;;   (org-agenda-list))
+;; (org-super-agenda-mode)
+
+;; (setq org-agenda-custom-commands
+;;       '(("c" "Super view"
+;;          ((agenda "" ((org-agenda-overriding-header "")
+;;                       (org-super-agenda-groups
+;;                        '((:name "Today"
+;;                                 :time-grid t
+;;                                 :date today
+;;                                 :order 1)))))
+;;           (alltodo "" ((org-agenda-overriding-header "")
+;;                        (org-super-agenda-groups
+;;                         '((:log t)
+;;                           (:name "To refile"
+;;                                  :file-path "refile\\.org")
+;;                           (:name "Next to do"
+;;                                  :todo "NEXT"
+;;                                  :order 1)
+;;                           (:name "Important"
+;;                                  :priority "A"
+;;                                  :order 6)
+;;                           (:name "Today's tasks"
+;;                                  :file-path "journal/")
+;;                           (:name "Due Today"
+;;                                  :deadline today
+;;                                  :order 2)
+;;                           (:name "Scheduled Soon"
+;;                                  :scheduled future
+;;                                  :order 8)
+;;                           (:name "Overdue"
+;;                                  :deadline past
+;;                                  :order 7)
+;;                           (:name "Meetings"
+;;                                  :and (:todo "MEET" :scheduled future)
+;;                                  :order 10)
+;;                           (:discard (:not (:todo "TODO")))))))))))
+
+(org-super-agenda-mode)
+
+
+;; (let ((org-agenda-span 'day)
+;;       (org-super-agenda-groups
+;;        '((:name "Time grid items in all-uppercase with RosyBrown1 foreground"
+;;                 :time-grid t
+;;                 :transformer (--> it
+;;                                   (upcase it)
+;;                                   (propertize it 'face '(:foreground "RosyBrown1"))))
+;;          (:name "Priority >= C items underlined, on black background"
+;;                 :face (:background "black" :underline t)
+;;                 :not (:priority>= "C")
+;;                 :order 100))))
+;;   (org-agenda nil "a"))
+
+(let ((org-super-agenda-groups
+       '((:log t)  ; Automatically named "Log"
+         (:name "Schedule"
+                :time-grid t)
+         (:name "Today"
+                :scheduled today)
+         (:habit t)
+         (:name "Due today"
+                :deadline today)
+         (:name "Overdue"
+                :deadline past)
+         (:name "Due soon"
+                :deadline future)
+         (:name "Unimportant"
+                :todo ("SOMEDAY" "MAYBE" "CHECK" "TO-READ" "TO-WATCH")
+                :order 100)
+         (:name "Waiting..."
+                :todo "WAITING"
+                :order 98)
+         (:name "Scheduled earlier"
+                :scheduled past))))
+  (org-agenda-list))
 
 ;; (let ((org-super-agenda-groups
 ;;        '(;; Each group has an implicit boolean OR operator between its selectors.
