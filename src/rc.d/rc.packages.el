@@ -32,8 +32,7 @@
 ;;{{{ Xemacs
 
 (if (string-match "XEmacs" emacs-version)
-    (desired 'xemacs)
-)
+    (desired 'xemacs))
 
 ;;}}}
 ;;{{{ Package repositories
