@@ -330,8 +330,7 @@ then nothing happens and nil is returned."
 	 (if (stringp precond)
 	     (locate-library precond)
 	   nil)
-       t)
-     )
+       t))
     (let*
 	((dirs desire-load-path)
 	 (pname (symbol-name package))
@@ -370,7 +369,7 @@ then nothing happens and nil is returned."
 	(let ((prefix (expand-file-name pname (car dirs))))
 	
 	  (cond
-	   ;; Check for configuration file
+	   ;;; Check for configuration file
 	   ((desire-readable-regular-file-p
 	     (concat prefix desire-extension))
 	    
@@ -382,11 +381,11 @@ then nothing happens and nil is returned."
 	    ;;(setq dirs nil)
 	    (setq dirs (cdr dirs)))
 
-	   ;; Check for configuration directory
+	   ;;; Check for configuration directory
 	   ((and (file-directory-p prefix)
 		 (file-readable-p prefix))
 	    
-	    ;; If file specified by desire-loaddefs exists then load it.
+	    ;;; If file specified by desire-loaddefs exists then load it.
 	    (if (and desire-loaddefs
 		     (desire-readable-regular-file-p
 		      (expand-file-name

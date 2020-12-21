@@ -185,15 +185,12 @@
 ;;{{{ org-mode
 
 (desire 'org-superstar)
+(desire 'org-super-agenda)
 
-;;(desire-old 'org-gcal nil "org-gcal" t)
 (desire 'org-gcal)
 
 (desired 'mobileorg)
 (desire 'org)
-
-;;(desire-old 'org-super-agenda nil "org-super-agenda" t)
-;;(desired 'org-super-agenda)
 
 (desire 'org-roam-server)
 (desire 'org-roam)
@@ -207,10 +204,11 @@
 ;;}}}
 ;;{{{ LaTeX
 
+(desire 'bibtex)
+
 (desire 'ebib)
 (desire-old 'xdvi nil "xdvi-search")
 (desired 'reftex)
-(desire-old 'bibtex)
 (desire-old 'tex)
 (desired 'preview-latex nil "preview-latex")
 (desire-old 'auctex "latex" "tex-site")
