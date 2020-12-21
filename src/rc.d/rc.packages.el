@@ -128,7 +128,8 @@
 ;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
 ;;(desire 'spaceline)
 
-(desire 'doom-themes)
+;; (desire 'doom-themes)
+(desire 'zenburn-theme)
 
 ;;}}}
 ;;
@@ -152,9 +153,9 @@
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
 
-(desire-old 'spell)
-(desire-old 'ispell)
-(desire-old 'flyspell)
+;; (desire-old 'spell)
+(desire 'ispell)
+(desire 'flyspell)
 ;;(desire-old 'speck)
 ;;(desire-old 'wcheck)
 

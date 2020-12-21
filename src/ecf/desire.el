@@ -314,6 +314,28 @@ then nothing happens and nil is returned."
     (setq precond precondition-lisp-library)
   (setq precond (prin1-to-string package)))
 
+(message "precond: %s" precond)
+
+;; Check ensure key
+(if ensure
+    ;; check if the package is already installed
+    (if (or
+	 (if (stringp package)
+	     (locate-library package)
+	   nil)
+	 (if (stringp precond)
+	     (locate-library precond)
+	   nil)
+	 )
+	t
+      ;; install package
+      (if ensurename
+	  (desire-install-package ensurename)
+	(desire-install-package package))
+      ))
+
+(message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
+
 ;; check executable precondition
 (if precondition-system-executable
     (if (executable-find ensure-system-executable)
@@ -341,25 +363,25 @@ then nothing happens and nil is returned."
       (message "precondition: %s" precondition-lisp-library)
       (message "precond: %s" precond)
 
-      ;; Check ensure key
-      (if ensure
-	  ;; check if the package is already installed
-	  (if (or
-	       (if (stringp package)
-		   (locate-library package)
-		 nil)
-	       (if (stringp precond)
-		   (locate-library precond)
-		 nil)
-	       )
-	      t
-	    ;; install package
-	    (if ensurename
-		(desire-install-package ensurename)
-	      (desire-install-package package))
-	    ))
+      ;; ;; Check ensure key
+      ;; (if ensure
+      ;; 	  ;; check if the package is already installed
+      ;; 	  (if (or
+      ;; 	       (if (stringp package)
+      ;; 		   (locate-library package)
+      ;; 		 nil)
+      ;; 	       (if (stringp precond)
+      ;; 		   (locate-library precond)
+      ;; 		 nil)
+      ;; 	       )
+      ;; 	      t
+      ;; 	    ;; install package
+      ;; 	    (if ensurename
+      ;; 		(desire-install-package ensurename)
+      ;; 	      (desire-install-package package))
+      ;; 	    ))
 
-      (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
+      ;; (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
 
       ;;Test
       ;; unconditional desirable

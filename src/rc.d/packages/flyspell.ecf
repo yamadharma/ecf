@@ -1,4 +1,4 @@
-(desire 'spell)
+;;(desire 'spell)
 
 ;(ispell-change-dictionary "russian")
 ;(setq-default ispell-program-name "aspell")

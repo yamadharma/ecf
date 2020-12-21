@@ -1,0 +1,6 @@
+;;; The Zenburn colour theme ported to Emacs -*- coding: utf-8-unix; -*-
+;; https://github.com/bbatsov/zenburn-emacs
+
+(load-theme 'zenburn t)
+
+;;;
