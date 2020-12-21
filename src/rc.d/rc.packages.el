@@ -136,7 +136,9 @@
 
 (desire-old 'show-paren)
 (desire-old 'folding)
-;(desire-old 'outline)
+;; (desire-old 'outline)
+(desire 'origami)
+
 
 ;;
 

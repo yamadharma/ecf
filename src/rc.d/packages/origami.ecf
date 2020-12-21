@@ -1,0 +1,6 @@
+;;; A folding minor mode for Emacs -*- coding: utf-8-unix; -*-
+;; https://github.com/gregsexton/origami.el
+
+(require 'origami)
+
+;;;
