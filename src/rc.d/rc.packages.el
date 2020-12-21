@@ -190,6 +190,7 @@
 (desire 'org-super-agenda)
 
 (desire 'org-gcal)
+(desire 'org-journal)
 
 (desired 'mobileorg)
 (desire 'org)
