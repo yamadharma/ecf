@@ -41,7 +41,7 @@
 ;; Packaging
 (desire 'package)
 ;; Auto update packages
-(desire-old 'auto-package-update nil "auto-package-update" t)
+(desire 'auto-package-update)
 
 ;;}}}
 

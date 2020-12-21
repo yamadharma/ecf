@@ -310,7 +310,9 @@ then nothing happens and nil is returned."
 (message "fname: %s" fname)
 
 ;; Set lisp library precondition
-(setq precond precondition-lisp-library)
+(if precondition-lisp-library
+    (setq precond precondition-lisp-library)
+  (setq precond (prin1-to-string package)))
 
 ;; check executable precondition
 (if precondition-system-executable
