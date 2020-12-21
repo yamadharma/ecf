@@ -325,8 +325,7 @@ then nothing happens and nil is returned."
 	   nil)
 	 (if (stringp precond)
 	     (locate-library precond)
-	   nil)
-	 )
+	   nil))
 	t
       ;; install package
       (if ensurename
