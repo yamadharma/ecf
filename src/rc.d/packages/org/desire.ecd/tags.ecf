@@ -1,11 +1,18 @@
-;; Tags
+;;; Tags -*- coding: utf-8-unix; -*-
 
-; Tags with fast selection keys
+;;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)
                             ("@errand" . ?e)
                             ("@office" . ?o)
                             ("@home" . ?h)
                             (:endgroup)
+			    (:startgrouptag)
+			    ("science")
+			    (:grouptags)
+			    ("education")
+			    ("research")
+			    ("sci_admin")
+			    (:endgrouptag)
                             ("@computer" . ?C)
                             ("PHONE" . ?p)
                             ("QUOTE" . ?q)
@@ -23,9 +30,10 @@
                             ("CANCELLED" . ?c)
                             ("FLAGGED" . ??))))
 
-; Allow setting single tags without the menu
+;; Allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
 
-; For tag searches ignore tasks with scheduled and deadline dates
+;; For tag searches ignore tasks with scheduled and deadline dates
 (setq org-agenda-tags-todo-honor-ignore-options t)
 
+;;;
