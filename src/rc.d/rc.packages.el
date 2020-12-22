@@ -109,7 +109,7 @@
 ;;{{{ UI
 
 (desire-old 'all-the-icons nil "all-the-icons" t)
-(desire 'mixed-pitch)
+;; (desire 'mixed-pitch)
 
 (desire-old 'fontset)
 (desire-old 'font-lock)
