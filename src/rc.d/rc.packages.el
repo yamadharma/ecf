@@ -175,6 +175,8 @@
 (desire 'company)
 
 (desire 'helm)
+;; (desire 'ivy)
+;; (desire 'selectrum)
 
 ;;}}}
 ;(desire-old 'yasnippet)

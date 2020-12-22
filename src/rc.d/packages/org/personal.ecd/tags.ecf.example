@@ -1,0 +1,35 @@
+;;; Personal tags -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Tags with fast selection keys
+
+;; - science
+;;   - education
+;;   - research
+;;     - emacs
+;;     - tex
+;;     - maxwell
+;;     - kinetic
+;;   - sci_admin
+;; #+TAGS: [ science : education research sci_admin ]
+;; #+TAGS: [ research : emacs tex maxwell kinetic ]
+
+(setq org-tag-alist
+      (append org-tag-alist
+	      '((:startgrouptag)
+		("science")
+		(:grouptags)
+		("education")
+		("research")
+		("sci_admin")
+		(:endgrouptag)
+		(:startgrouptag)
+		("research")
+		(:grouptags)
+		("emacs")
+		("tex")
+		("maxwell")
+		("kinetic")
+		(:endgrouptag))))
+
+;;;
+
