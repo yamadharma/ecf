@@ -257,7 +257,7 @@
 ;;}}}
 ;;{{{ Message handing packages.
 
-;; (desire-old 'gnus)
+(desire 'gnus)
 ;; (desire-old 'message)
 ;; (desire-old 'vm)
 ;; (desire 'wl :ensurename 'wanderlust)

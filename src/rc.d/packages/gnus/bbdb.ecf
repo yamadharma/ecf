@@ -1,6 +1,6 @@
 ;;;
 
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus) 
+;;(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus) 
 
 ;;(require 'gnus-bbdb)
 

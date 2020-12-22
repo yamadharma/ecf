@@ -1,4 +1,4 @@
-;;;; Supercharge your Org daily/weekly agenda by grouping items
+;;;; Supercharge your Org daily/weekly agenda by grouping items -*- coding: utf-8-unix; -*-
 ;; https://github.com/alphapapa/org-super-agenda
 
 (require 'org-super-agenda)
