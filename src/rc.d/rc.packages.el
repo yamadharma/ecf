@@ -1,4 +1,4 @@
-;;; rc.packages.el -*- coding: utf-8-unix; -*-
+;;; rc.packages.el -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;;; Commentary:
 
@@ -175,6 +175,7 @@
 
 (desire 'company)
 
+(desire 'helm-rg :precondition-system-executable "rg")
 (desire 'helm)
 ;; (desire 'ivy)
 ;; (desire 'selectrum)

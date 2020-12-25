@@ -1,0 +1,7 @@
+;;; Helm. Emacs incremental completion and selection narrowing framework -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://emacs-helm.github.io/helm/
+;; https://github.com/emacs-helm/helm/wiki
+
+(require 'helm-config)
+
+;;;
