@@ -335,14 +335,14 @@ then nothing happens and nil is returned."
 
 (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
 
-;; check executable precondition
+;; Message: found executable precondition
 (if precondition-system-executable
-    (if (executable-find ensure-system-executable)
+    (if (executable-find precondition-system-executable)
 	(message "Executable file found %s to load package %s" 
-		 (prin1-to-string ensure-system-executable)
+		 (prin1-to-string precondition-system-executable)
 		 (prin1-to-string package))
-      (error "Cannot find executable %s to load package %s"
-	     (prin1-to-string ensure-system-executable)
+      (message "Cannot find executable %s to load package %s"
+	     (prin1-to-string precondition-system-executable)
 	     (prin1-to-string package)))
   nil)
 
@@ -352,6 +352,11 @@ then nothing happens and nil is returned."
      (if precond
 	 (if (stringp precond)
 	     (locate-library precond)
+	   nil)
+       t)
+     (if precondition-system-executable
+	 (if (stringp precondition-system-executable)
+	     (executable-find precondition-system-executable)
 	   nil)
        t))
     (let*

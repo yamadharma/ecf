@@ -265,6 +265,7 @@
 ;; (desire-old 'vm)
 ;; (desire 'wl :ensurename 'wanderlust)
 ;; (desire-old 'sendmail)
+(desire 'mu4e :precondition-system-executable "mu")
 
 ;;}}}
 ;;{{{ Programming
