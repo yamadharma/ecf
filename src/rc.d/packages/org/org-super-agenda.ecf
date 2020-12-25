@@ -18,6 +18,8 @@
         (:name "Today"
 	       :time-grid t  ; Items that appear on the time grid
 	       :scheduled today)
+	(:name "Quick Picks"
+	       :effort< "0:30")
 	(:habit t)
 	(:name "Due today"
 	       :deadline today)
@@ -34,7 +36,8 @@
         (:name "Scheduled earlier"
                 :scheduled past)
         ;; normal priority
-        (:name "Misc" :not (:priority "A"))))
+        (:name "Misc"
+	       :not (:priority "A"))))
 
 (org-super-agenda-mode)
 
