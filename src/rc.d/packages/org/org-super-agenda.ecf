@@ -12,6 +12,8 @@
                :order 1)
 	(:name "Important"
                :priority "A")
+	(:name "Important B"
+               :priority "B")
         (:auto-property "WAITING_ON" :log t)
         (:name "Schedule"
                :time-grid t)
@@ -37,7 +39,8 @@
                 :scheduled past)
         ;; normal priority
         (:name "Misc"
-	       :not (:priority "A"))))
+	       :not (:priority "A")
+	       :not (:priority "B"))))
 
 (org-super-agenda-mode)
 
