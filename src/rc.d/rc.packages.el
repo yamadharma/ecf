@@ -284,6 +284,8 @@
 (desire-old 'julia-mode nil "julia-mode" t)
 (desire-old 'yaml-mode nil "yaml-mode" t)
 
+;; (desire 'magit)
+
 ;;}}}
 ;;{{{ Blogs
 

@@ -1,0 +1,6 @@
+;;; A Git porcelain inside Emacs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/magit/magit
+
+(require 'magit)
+
+;;
