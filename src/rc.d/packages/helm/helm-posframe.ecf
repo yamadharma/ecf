@@ -1,0 +1,12 @@
+;;; helm extension, which let helm use posframe to show its candidate menu  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/tumashu/helm-posframe
+
+(require 'helm-posframe)
+(helm-posframe-enable)
+
+;;; Posframe position
+;; (setq helm-posframe-parameters
+;;       '((left-fringe . 10)
+;;         (right-fringe . 10)))
+
+;;;

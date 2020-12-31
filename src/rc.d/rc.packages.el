@@ -174,7 +174,9 @@
 (desire 'company)
 
 (desire 'helm-rg :precondition-system-executable "rg")
+(desire 'helm-posframe)
 (desire 'helm)
+
 ;; (desire 'ivy)
 ;; (desire 'selectrum)
 
