@@ -2,11 +2,23 @@
 ;; https://github.com/tumashu/helm-posframe
 
 (require 'helm-posframe)
-(helm-posframe-enable)
+
+;;; Posframe parameters
+(setq helm-posframe-parameters
+      '((min-width . 90)
+        (min-height . 15)
+        (border-width . 4)
+        (left-fringe . 8)
+        (right-fringe . 8)))
 
 ;;; Posframe position
-;; (setq helm-posframe-parameters
-;;       '((left-fringe . 10)
-;;         (right-fringe . 10)))
+;; posframe-poshandler-frame-top-center
+;; posframe-poshandler-frame-bottom-center
+;; posframe-poshandler-frame-center
+;; posframe-poshandler-window-center
+;;;
+(setq helm-posframe-poshandler #'posframe-poshandler-frame-center)
+
+(helm-posframe-enable)
 
 ;;;
