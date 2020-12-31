@@ -1,0 +1,11 @@
+;;; Helm UI for Projectile -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/bbatsov/helm-projectile
+
+(desire 'helm-projectile)
+
+;; (setq helm-projectile-fuzzy-match nil)
+(require 'helm-projectile)
+(helm-projectile-on)
+
+;;;
+

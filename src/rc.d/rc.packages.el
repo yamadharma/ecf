@@ -108,7 +108,7 @@
 
 ;;{{{ UI
 
-(desire-old 'all-the-icons nil "all-the-icons" t)
+(desire 'all-the-icons)
 ;; (desire 'mixed-pitch)
 
 (desire-old 'fontset)
@@ -149,8 +149,6 @@
 
 (desire-old 'centaur-tabs nil "centaur-tabs" t)
 
-(desire-old 'treemacs nil "treemacs" t)
-
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
 
@@ -181,7 +179,10 @@
 ;; (desire 'selectrum)
 
 ;;}}}
-;(desire-old 'yasnippet)
+
+(desire 'projectile)
+
+;;(desire-old 'yasnippet)
 ;;{{{ Text
 
 (desire-old 'text)
@@ -313,6 +314,8 @@
 ;; (desire-old 'w3)
 
 (desire 'multiple-cursors)
+
+(desire 'treemacs)
 
 ;;}}}
 
