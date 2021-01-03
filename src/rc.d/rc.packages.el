@@ -285,7 +285,7 @@
 
 (desire-old 'lua-mode nil "lua-mode" t)
 (desire-old 'julia-mode nil "julia-mode" t)
-(desire-old 'yaml-mode nil "yaml-mode" t)
+(desire 'yaml-mode)
 
 ;; (desire 'magit)
 
