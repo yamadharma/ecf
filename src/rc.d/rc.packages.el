@@ -5,12 +5,12 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2006 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2021 Dmitry S. Kulyabov
 ;;      Keywords:      rc.packages
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;
-;;      This code is free software in terms of GNU Gen. pub. Lic. v2 or later
+;;      This code is free software in terms of GNU Gen. pub. Lic. v3 or later
 ;;
 ;;  Description
 ;;

@@ -1,11 +1,11 @@
-;;; site-start.el -*- coding: iso-2022-7bit-unix; -*-
+;;; site-start.el -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;;; Commentary:
 
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2012 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2021 Dmitry S. Kulyabov
 ;;      Keywords:      site-start
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
@@ -19,6 +19,15 @@
 ;;; Change Log:
 
 ;;; Code:
+
+;;; Variables
+
+(defconst EMACS27+   (> emacs-major-version 26))
+(defconst EMACS28+   (> emacs-major-version 27))
+(defconst IS-MAC     (eq system-type 'darwin))
+(defconst IS-LINUX   (eq system-type 'gnu/linux))
+(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
+(defconst IS-BSD     (or IS-MAC (eq system-type 'berkeley-unix)))
 
 ;;{{{ Win32 environment hook
 
@@ -74,7 +83,7 @@
 )
 
 (defvar ecf-etc-path
-    "/etc/ecf"    
+    "/etc/ecf"
     "*Host-wide ecf config files directory."
 )
 
@@ -162,4 +171,3 @@
 ;;}}}
 
 ;;;  end of site-start.el
-
