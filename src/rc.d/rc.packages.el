@@ -187,6 +187,8 @@
 ;;(desire-old 'yasnippet)
 ;;{{{ Text
 
+(desire' mermaid-mode :precondition-system-executable "mmdc")
+
 (desire-old 'text)
 (desire-old 'markdown-mode nil "markdown-mode" t)
 
