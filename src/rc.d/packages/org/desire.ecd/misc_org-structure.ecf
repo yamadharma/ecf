@@ -1,4 +1,4 @@
-;; Org Task structure and presentation -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org Task structure and presentation -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;;; Controlling display of leading stars on headlines
 (setq org-hide-leading-stars nil)

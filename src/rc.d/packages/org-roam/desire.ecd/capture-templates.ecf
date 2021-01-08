@@ -30,7 +30,7 @@
 :END:
 :SETUP_EXPORT:
 #+HUGO_BASE_DIR: ~/work/blog/git
-#+HUGO_SECTION: ru/post
+#+HUGO_SECTION: ru/post/%<%Y>
 #+HUGO_FRONT_MATTER_FORMAT: yaml
 #+HUGO_AUTO_SET_LASTMOD: t
 #+EXPORT_FILE_NAME: %<%Y-%m-%d>-${slug}

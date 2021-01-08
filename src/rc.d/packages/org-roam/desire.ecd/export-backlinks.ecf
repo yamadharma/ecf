@@ -1,27 +1,31 @@
-;;; Export Backlinks + Content -*- coding: utf-8-unix; -*-
+;;; Export Backlinks + Content -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;
 
-(defun ecf/org-roam-export-all ()
-   "Re-exports all Org-roam files to Hugo markdown."
-   (interactive)
-   (dolist (f (org-roam--list-all-files))
-     (with-current-buffer (find-file f)
-       (when (s-contains? "SETUPFILE" (buffer-string))
-     (org-hugo-export-wim-to-md)))))
- (defun ecf/org-roam--backlinks-list (file)
-   (when (org-roam--org-roam-file-p file)
-     (mapcar #'car (org-roam-db-query [:select :distinct [from]
-		       :from links
-		       :where (= to $s1)
-		       :and from :not :like $s2] file "%private%"))))
+(defun ecf/org-roam--backlinks-list-with-content (file)
+  (with-temp-buffer
+    (if-let* ((backlinks (org-roam--get-backlinks file))
+              (grouped-backlinks (--group-by (nth 0 it) backlinks)))
+        (progn
+          ;; (insert (format "\n\n* %d Backlinks\n"
+          ;;                 (length backlinks)))
+          (dolist (group grouped-backlinks)
+            (let ((file-from (car group))
+                  (bls (cdr group)))
+              (insert (format "** [[file:%s][%s]]\n"
+                              file-from
+                              (org-roam-db--get-title file-from)))
+              (dolist (backlink bls)
+                (pcase-let ((`(,file-from _ ,props) backlink))
+                  (insert (s-trim (s-replace "\n" " " (plist-get props :content))))
+                  (insert "\n\n")))))))
+    (buffer-string)))
 
-(defun ecf/org-export-preprocessor (_backend)
-   (when-let ((links (ecf/org-roam--backlinks-list (buffer-file-name))))
-     (insert "\n** Backlinks\n")
-     (dolist (link links)
-       (insert (format "- [[file:%s][%s]]\n"
-	       (file-relative-name link org-roam-directory)
-	       (org-roam--get-title-or-slug link))))))
+(defun ecf/org-export-preprocessor (backend)
+  (let ((links (ecf/org-roam--backlinks-list-with-content (buffer-file-name))))
+    (unless (string= links "")
+      (save-excursion
+        (goto-char (point-max))
+        (insert (concat "\n* Backlinks\n") links)))))
 
 (add-hook 'org-export-before-processing-hook 'ecf/org-export-preprocessor)
 
