@@ -38,6 +38,13 @@
 #+HUGO_CATEGORIES: blog
 #+HUGO_TAGS:
 :END:\n\n"
+
+#+hugo: more
+
+#+begin_export hugo
+{{< toc >}}
+#+end_export
+	 
 	 :unnarrowed t)))
 
 ;;;
