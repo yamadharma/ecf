@@ -32,13 +32,14 @@
 #+HUGO_AUTO_SET_LASTMOD: t
 #+EXPORT_FILE_NAME: %<%Y-%m-%d>-${slug}
 #+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
+#+OPTIONS: num:nil
 #+HUGO_CATEGORIES: blog
 #+HUGO_TAGS:
 :END:\n\n
 #+hugo: more\n\n
 #+begin_export hugo
 {{< toc >}}
-#+end_export"	 
+#+end_export"
 	 :unnarrowed t)))
 
 ;;;
