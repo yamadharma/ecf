@@ -23,7 +23,7 @@
 #+STARTUP: hidestars
 #+STARTUP: hideblocks
 #+STARTUP: indent
-#+OPTIONS: ^:{}
+#+OPTIONS: ^:{} num:t
 :END:
 :SETUP_EXPORT:
 #+HUGO_BASE_DIR: ~/work/blog/git
