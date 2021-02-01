@@ -1,11 +1,35 @@
 ;;;
 
 (custom-set-variables
-  '(org-pretty-entities t)
-)
+  '(org-pretty-entities t))
 
-;; Hide * and / in org text
-;;(setq org-hide-emphasis-markers t)
+;;; Turn on fontification for marked up text
+(setq org-fontify-emphasized-text t)
+
+;;; Hide * and / in org text
+(setq org-hide-emphasis-markers t)
+
+(setq org-indirect-buffer-display 'current-window
+      org-eldoc-breadcrumb-separator " → "
+      org-enforce-todo-dependencies t
+      org-entities-user
+      '(("flat"  "\\flat" nil "" "" "266D" "♭")
+        ("sharp" "\\sharp" nil "" "" "266F" "♯"))
+      org-fontify-done-headline t
+      org-fontify-quote-and-verse-blocks t
+      org-fontify-whole-heading-line t
+      org-footnote-auto-label 'plain
+      org-hide-leading-stars t
+      org-image-actual-width nil
+      org-imenu-depth 8
+      ;;; Sub-lists should have different bullets
+      ;; org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+") ("1." . "a."))
+      org-priority-faces
+      '((?A . error)
+        (?B . warning)
+        (?C . success))
+      org-tags-column 0)
+
 
 ;;; Toggle TeX-like syntax for sub- and superscripts
 (setq org-use-sub-superscripts '{})

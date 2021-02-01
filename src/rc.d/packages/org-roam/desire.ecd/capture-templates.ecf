@@ -23,6 +23,7 @@
 #+STARTUP: hidestars
 #+STARTUP: hideblocks
 #+STARTUP: indent
+#+STARTUP: num
 #+OPTIONS: ^:{} num:t
 :END:
 :SETUP_EXPORT:
@@ -34,11 +35,11 @@
 #+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
 #+HUGO_CATEGORIES: blog
 #+HUGO_TAGS:
-:END:\n\n
-#+hugo: more\n\n
+:END:\n
+#+hugo: more\n
 #+begin_export hugo
 {{< toc >}}
-#+end_export"
+#+end_export\n"
 	 :unnarrowed t)))
 
 ;;;
