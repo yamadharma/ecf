@@ -99,6 +99,9 @@
 (desire-old 'emacs-daemon)
 
 ;;}}}
+
+(desire 'exec-path-from-shell)
+
 ;; ----------------------------------------------------------------------
 
 (desire-old 'keys)
