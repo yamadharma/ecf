@@ -290,6 +290,7 @@
 (desire 'yaml-mode)
 
 (desire 'magit)
+(desire 'magit-gitflow)
 
 ;;}}}
 ;;{{{ Blogs
