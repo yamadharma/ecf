@@ -3,9 +3,9 @@
 
 (desire 'ob-mermaid)
 
-(cl-pushnew '(mermaid . t) load-language-list)
+;; (cl-pushnew '(mermaid . t) load-language-list)
 
-(org-babel-do-load-languages 'org-babel-load-languages
-			     load-language-list)
+;; (org-babel-do-load-languages 'org-babel-load-languages
+;; 			     load-language-list)
 
 ;;;
