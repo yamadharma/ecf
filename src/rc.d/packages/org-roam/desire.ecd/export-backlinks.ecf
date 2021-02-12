@@ -21,11 +21,14 @@
     (buffer-string)))
 
 (defun ecf/org-export-preprocessor (backend)
-  (let ((links (ecf/org-roam--backlinks-list-with-content (buffer-file-name))))
-    (unless (string= links "")
-      (save-excursion
-        (goto-char (point-max))
-        (insert (concat "\n* Backlinks\n") links)))))
+  (let (
+	(links (ecf/org-roam--backlinks-list-with-content (buffer-file-name))))
+    ;;; Export backlinks only for ox-hugo
+    (when (org-export-derived-backend-p backend 'hugo)
+      (unless (string= links "")
+	(save-excursion
+          (goto-char (point-max))
+          (insert (concat "\n* Backlinks\n") links))))))
 
 (add-hook 'org-export-before-processing-hook 'ecf/org-export-preprocessor)
 
