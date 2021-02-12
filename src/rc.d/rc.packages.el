@@ -289,7 +289,7 @@
 (desire-old 'julia-mode nil "julia-mode" t)
 (desire 'yaml-mode)
 
-;; (desire 'magit)
+(desire 'magit)
 
 ;;}}}
 ;;{{{ Blogs
