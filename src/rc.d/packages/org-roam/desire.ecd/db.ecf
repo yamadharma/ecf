@@ -1,0 +1,6 @@
+;;; Org-roam database -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;
+
+(setq org-roam-db-update-method 'immediate)
+
+;;;

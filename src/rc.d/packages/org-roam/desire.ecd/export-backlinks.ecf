@@ -1,35 +1,101 @@
-;;; Export Backlinks + Content -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Export Backlinks -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;
 
-(defun ecf/org-roam--backlinks-list-with-content (file)
+
+;; (defun ecf/org-roam--backlinks-list (file)
+;;   (if (org-roam--org-roam-file-p file)
+;;       (--reduce-from
+;;        (concat acc (format "- [[file:%s][%s]]\n"
+;; 			   (file-relative-name (car it) org-roam-directory)
+;; 			   (org-roam-db--get-title (car it))))
+;;        ;; "" (org-roam-db-query [:select [from] :from links :where (= to $s1)] file))
+;;        "" (org-roam-db-query [:select [from] :from links :where (= to $s1)] file))
+;;     ""))
+
+(defun ecf/org-roam--backlinks-list (file)
   (with-temp-buffer
     (if-let* ((backlinks (org-roam--get-backlinks file))
-              (grouped-backlinks (--group-by (nth 0 it) backlinks)))
-        (progn
-          ;; (insert (format "\n\n* %d Backlinks\n"
-          ;;                 (length backlinks)))
-          (dolist (group grouped-backlinks)
-            (let ((file-from (car group))
-                  (bls (cdr group)))
-              (insert (format "** [[file:%s][%s]]\n"
-                              file-from
-                              (org-roam-db--get-title file-from)))
-              (dolist (backlink bls)
-                (pcase-let ((`(,file-from _ ,props) backlink))
-                  (insert (s-trim (s-replace "\n" " " (plist-get props :content))))
-                  (insert "\n\n")))))))
+	      (grouped-backlinks (--group-by (nth 0 it) backlinks)))
+	(progn
+	  ;; (insert (format "\n\n* %d Backlinks\n"
+	  ;;                 (length backlinks)))
+	  (dolist (group grouped-backlinks)
+	    (let ((file-from (car group))
+		  (bls (cdr group)))
+	      (insert (format "- [[file:%s][%s]]\n"
+			      file-from
+			      (org-roam-db--get-title file-from)))
+	      (dolist (backlink bls)
+		(pcase-let ((`(,file-from _ ,props) backlink))
+		  ;; (insert (s-trim (s-replace "\n" " " (plist-get props :content))))
+		  (s-trim (s-replace "\n" " " (prin1-to-string (plist-get props :content))))
+		  (insert "\n\n")))))))
     (buffer-string)))
 
 (defun ecf/org-export-preprocessor (backend)
   (let (
-	(links (ecf/org-roam--backlinks-list-with-content (buffer-file-name))))
-    ;;; Export backlinks only for ox-hugo
-    (when (org-export-derived-backend-p backend 'hugo)
+	;; (links (ecf/org-roam--backlinks-list-with-content (buffer-file-name))))
+	(links (ecf/org-roam--backlinks-list (buffer-file-name))))
       (unless (string= links "")
 	(save-excursion
-          (goto-char (point-max))
-          (insert (concat "\n* Backlinks\n") links))))))
+	  (goto-char (point-max))
+	  (insert (concat "\n* Backlinks\n") links)))))
 
-(add-hook 'org-export-before-processing-hook 'ecf/org-export-preprocessor)
+;;; Export backlinks only for ox-hugo
+(defun ecf/org-export-preprocessor-hugo (backend)
+  (when (org-export-derived-backend-p backend 'hugo)
+    (ecf/org-export-preprocessor 'hugo)
+    ))
+
+;; (add-hook 'org-export-before-processing-hook 'ecf/org-export-preprocessor)
+(add-hook 'org-export-before-processing-hook 'ecf/org-export-preprocessor-hugo)
+
+;; -------
+
+;; (defun ecf/org-roam--backlinks-list (file)
+;;   (if (org-roam--org-roam-file-p file)
+;;       (--reduce-from
+;;        (concat acc (format "- [[file:%s][%s]]\n"
+;;                            (file-relative-name (car it) org-roam-directory)
+;;			   (org-roam--get-title-or-slug (car it))))
+;;        "" (org-roam-db-query [:select [from] :from links :where (= to $s1)] file))
+;;     ""))
+
+;; (defun ecf/org-export-preprocessor (backend)
+;;   (let ((links (ecf/org-roam--backlinks-list (buffer-file-name))))
+;;     (unless (string= links "")
+;;       (save-excursion
+;;		(goto-char (point-max))
+;;		(insert (concat "\n* Backlinks\n") links)))))
+
+;; (add-hook 'org-export-before-processing-hook 'ecf/org-export-preprocessor)
+
+;; -----
+
+;; (defun ecf/org-roam--backlinks-list (file depth &optional indent-level)
+;;   (if (and (org-roam--org-roam-file-p file) (not (eq depth 0)))
+;;       (--reduce-from
+;;        (concat acc (if indent-level (make-string (* 2 indent-level) ? ) "")
+;;	       (format " - [[file:%s][%s]]\n"
+;;		       (file-relative-name (car it) org-roam-directory)
+;;		       (org-roam--get-title-or-slug (car it)))
+;;	       (ecf/org-roam--backlinks-list
+;;		(car it) (- depth 1) (+ (if (not indent-level) 0 indent-level) 1)))
+;;        "" (org-roam-db-query [:select [from] :from links :where (= to $s1)] file))
+;;     ""))
+
+
+;; (defun ecf/org-property-values (prop)
+;;   (if-let ((s (org-macro--find-keyword-value prop t)))
+;;       (split-string s)))
+
+;; (defun ecf/org-export-preprocessor (backend)
+;;   (if-let ((values (ecf/org-property-values "backlinks")))
+;;       (let ((links (ecf/org-roam--backlinks-list (buffer-file-name) (string-to-number (car values)))))
+;;	(unless (string= links "")
+;;	  (goto-char (point-max))
+;;	  (insert (concat "\n* Backlinks\n" links))))))
+
+;; (add-to-list 'org-export-before-processing-hook #'ecf/org-export-preprocessor)
 
 ;;;
