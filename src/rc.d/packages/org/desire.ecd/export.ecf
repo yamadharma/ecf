@@ -29,7 +29,10 @@
 (require 'ox-odt)
 (require 'ox-publish)
 
-;(setq org-export-with-entities nil)
+;;; Allow exporting with 'allegedly' broken links
+(setq org-export-with-broken-links t)
+
+;;(setq org-export-with-entities nil)
 
 
 ;;; Set export directory
@@ -44,5 +47,8 @@
       (make-directory pub-dir)))
   (apply orig-fun extension subtreep pub-dir nil))
 (advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
+
+
+
 
 ;;;
