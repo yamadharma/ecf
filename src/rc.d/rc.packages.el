@@ -121,7 +121,7 @@
 ;; (desire-old 'font-lock-fast)
 ;; (desire-old 'faces)
 ;; (desire-old 'color-theme nil "color-theme")
-(desire-old 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
+;; (desire-old 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 (desire-old 'theme)
 
 (desire-old 'modeline)
@@ -129,11 +129,14 @@
 ;;}}}
 ;;{{{ Themes
 
+(desire 'moody)
+
 ;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
 ;;(desire 'spaceline)
 
 ;; (desire 'doom-themes)
-(desire 'zenburn-theme)
+;; (desire 'zenburn-theme)
+(desire 'modus-themes)
 
 ;;}}}
 ;;
