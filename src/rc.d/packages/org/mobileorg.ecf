@@ -1,28 +1,27 @@
-;;
-;; mobileorg dirs
-;;
+;;; mobileorg dirs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 (defvar mobileorg-home-dir
   (expand-file-name "~/me/mobileorg/")
   "*Name of directory where various mobileorg related files reside."
-)
+  )
 
 (if (not (file-directory-p mobileorg-home-dir))
-  (make-directory mobileorg-home-dir t)
-)
+    (make-directory mobileorg-home-dir t)
+  )
 
 (setq org-mobile-directory mobileorg-home-dir)
 
-;; Set to the name of the file where new notes will be stored
+;;; Set to the name of the file where new notes will be stored
 (setq org-mobile-inbox-for-pull (concat org-directory-todo "/flagged.org"))
 
-;; Enable encryption
-;(setq org-mobile-use-encryption t)
-;; Set a password
-;(setq org-mobile-encryption-password "mypassword")
+;;; Enable encryption
+;; (setq org-mobile-use-encryption t)
+;;; Set a password
+;; (setq org-mobile-encryption-password "mypassword")
 
-;(custom-set-variables
-;  '(org-mobile-files
-;    '(org-agenda-files "todo.org")
-;  )
-;)
+
+;;; org-mobile-files
+;; default value: org-agenda-files
+(custom-set-variables '(org-mobile-files (list org-directory-todo)))
+
+;;; 
