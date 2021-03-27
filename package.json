@@ -1,0 +1,14 @@
+{
+    "name": "ecf",
+    "version": "1.0.0",
+    "description": "Emacs Configuration Framework",
+    "main": "index.js",
+    "repository": "git@github.com:yamadharma/ecf.git",
+    "author": "Dmitry S. Kulyabov <yamadharma@gmail.com>",
+    "license": "GPL-3.0-or-later",
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    }   
+}
