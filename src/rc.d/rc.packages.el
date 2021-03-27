@@ -193,6 +193,8 @@
 ;;(desire-old 'yasnippet)
 ;;{{{ Text
 
+(desire 'pandoc-mode)
+
 (desire' mermaid-mode :precondition-system-executable "mmdc")
 
 (desire-old 'text)
