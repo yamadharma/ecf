@@ -215,6 +215,8 @@
 (desire 'org-roam-server)
 (desire 'org-roam)
 
+(desire 'org-appear)
+
 ;;}}}
 ;;{{{ Notes
 
