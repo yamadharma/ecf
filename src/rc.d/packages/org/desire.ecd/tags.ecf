@@ -1,31 +1,32 @@
-;; Tags
+;;; Tags -*- coding: utf-8-unix; -*-
 
-; Tags with fast selection keys
-(setq org-tag-alist (quote ((:startgroup)
-                            ("@errand" . ?e)
-                            ("@office" . ?o)
-                            ("@home" . ?h)
-                            (:endgroup)
-                            ("@computer" . ?C)
-                            ("PHONE" . ?p)
-                            ("QUOTE" . ?q)
-                            ("WAITING" . ?w)
-                            ("PERSONAL" . ?P)
-                            ("Read" . ?R)
-                            ("Write" . ?W)
-                            ("Think" . ?T)
-                            ("Talk" . ?K)
-                            ("Buy" . ?B)
-                            ("WORK" . ?O)
-                            ("crypt" . ?E)
-                            ("MARK" . ?M)
-                            ("NOTE" . ?n)
-                            ("CANCELLED" . ?c)
-                            ("FLAGGED" . ??))))
+;;; Tags with fast selection keys
+(setq org-tag-alist '((:startgroup)
+                      ("@errand" . ?e)
+                      ("@office" . ?o)
+                      ("@home" . ?h)
+                      (:endgroup)
+                      ("@computer" . ?C)
+                      ("PHONE" . ?p)
+                      ("QUOTE" . ?q)
+                      ("WAITING" . ?w)
+                      ("PERSONAL" . ?P)
+                      ("Read" . ?R)
+                      ("Write" . ?W)
+                      ("Think" . ?T)
+                      ("Talk" . ?K)
+                      ("Buy" . ?B)
+                      ("WORK" . ?O)
+                      ("crypt" . ?E)
+                      ("MARK" . ?M)
+                      ("NOTE" . ?n)
+                      ("CANCELLED" . ?c)
+                      ("FLAGGED" . ??)))
 
-; Allow setting single tags without the menu
+;; Allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
 
-; For tag searches ignore tasks with scheduled and deadline dates
+;; For tag searches ignore tasks with scheduled and deadline dates
 (setq org-agenda-tags-todo-honor-ignore-options t)
 
+;;;

@@ -1,12 +1,15 @@
 ;;; -*- coding: utf-8 -*-
 
 (cond
- ((find-font (font-spec :name "Fira Code"))
-  (add-to-list 'default-frame-alist '(font . "Fira Code-12" ))
-  (set-face-attribute 'default t :font "Fira Code-12" ))
  ((find-font (font-spec :name "Hack"))
   (add-to-list 'default-frame-alist '(font . "Hack-12" ))
   (set-face-attribute 'default t :font "Hack-12" ))
+ ((find-font (font-spec :name "Source Code Pro"))
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-12" ))
+  (set-face-attribute 'default t :font "Source Code Pro-12" ))
+ ((find-font (font-spec :name "Fira Code"))
+  (add-to-list 'default-frame-alist '(font . "Fira Code-12" ))
+  (set-face-attribute 'default t :font "Fira Code-12" ))
  ((find-font (font-spec :name "Inconsolata"))
   (add-to-list 'default-frame-alist '(font . "Inconsolata-12" ))
   (set-face-attribute 'default t :font "Inconsolata-12" ))

@@ -1,0 +1,13 @@
+;;; Mu4e mail client  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://www.djcbsoftware.nl/code/mu/
+
+(require 'mu4e)
+
+;;; save attachment 
+(setq mu4e-attachment-dir "~/Downloads")
+
+;;; attempt to show images when viewing messages
+(setq mu4e-view-show-images t)
+
+;;;
+

@@ -1,21 +1,21 @@
-(custom-set-variables
-  '(default-mime-charset-for-write 'koi8-r)
-  '(default-mime-charset 'koi8-r)	
-  '(elmo-mime-charset 'koi8-r)
-  '(elmo-lang "ru")	
-  '(wl-mime-charset 'koi8-r)
-  '(wl-summary-buffer-mime-charset 'koi8-r)
-  '(wl-score-mode-mime-charset 'koi8-r)
-  '(wl-summary-weekday-name-lang "en")
-  '(wl-folder-mime-charset-alist
-    '(
-      ("^-alt\\.chinese" . big5)
-      ("^-relcom\\." . koi8-r)
-      ("^-fido7\\." . koi8-r)
-      ("^-tw\\." . big5)
-      ("^-han\\." . euc-kr)
-      ("^%" . koi8-r)
-    )
-  )
-)
+;; (custom-set-variables
+;;   '(default-mime-charset-for-write 'koi8-r)
+;;   '(default-mime-charset 'koi8-r)	
+;;   '(elmo-mime-charset 'koi8-r)
+;;   '(elmo-lang "ru")	
+;;   '(wl-mime-charset 'koi8-r)
+;;   '(wl-summary-buffer-mime-charset 'koi8-r)
+;;   '(wl-score-mode-mime-charset 'koi8-r)
+;;   '(wl-summary-weekday-name-lang "en")
+;;   '(wl-folder-mime-charset-alist
+;;     '(
+;;       ("^-alt\\.chinese" . big5)
+;;       ("^-relcom\\." . koi8-r)
+;;       ("^-fido7\\." . koi8-r)
+;;       ("^-tw\\." . big5)
+;;       ("^-han\\." . euc-kr)
+;;       ("^%" . koi8-r)
+;;     )
+;;   )
+;; )
 

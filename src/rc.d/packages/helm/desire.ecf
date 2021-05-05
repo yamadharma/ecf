@@ -1,0 +1,25 @@
+;;; Helm. Emacs incremental completion and selection narrowing framework -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://emacs-helm.github.io/helm/
+;; https://github.com/emacs-helm/helm/wiki
+
+;;; Auto-Resize
+;; It is possible to have Helm to resize its buffer window to adapt to
+;; the length of the candidate list. By default the buffer size is
+;; fixed
+;;;
+(setq-default helm-enable-auto-resize t)
+
+;;; Disable Helm header
+;; default value is nil
+;;;
+;; (setq-default helm-no-header t)
+
+;;; Define Helm position
+;; The supported values are bottom, top, left and right
+;;;
+(setq-default helm-position 'top)
+
+;;; Enable helm completion everywhere
+(helm-mode 1)
+
+;;;

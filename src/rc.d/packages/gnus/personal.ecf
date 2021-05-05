@@ -1,6 +1,6 @@
 ;;(setq gnus-select-method '(nntp "news4.fido7.ru")) 
-(setq gnus-select-method 
-  '(nntp "news")
-) 
+;;(setq gnus-select-method 
+;;  '(nntp "news")
+;;) 
 
 ;;  '(nntp (eval (format "%s" news-server-name)))

@@ -12,20 +12,34 @@
       '(("d" "default" plain (function org-roam--capture-get-point)
 	 "%?"
 	 :file-name "%<%Y%m%d%H%M%S>-${slug}"
-	 ;; :file-name "%(format-time-string \"%Y-%m-%d--%H-%M-%SZ--${slug}\" (current-time) t)"
-	 ;; :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS: \n\n- tags :: "
-	 ;; :head "#+title: ${title} \n#+created: %U\n#+last_modified: %U\n#+roam_alias:\n#+roam_tags:\n#+setupfile: ../templates/hugo.org\n#+hugo_lastmod: Time-stamp: <>\n\n"
 	 :head "#+TITLE: ${title}
 #+CREATED: %U
 #+LAST_MODIFIED: %U
-#+STARTUP: overview hidestars hideblocks
 #+LANGUAGE: ru
-#+SETUPFILE: ~/me/org/templates/hugo.org
+#+DATE: %<%Y-%m-%dT%H:%M:%S%:z>
+
+:LOCALSETUP:
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+STARTUP: hideblocks
+#+STARTUP: indent
+#+STARTUP: num
+#+OPTIONS: ^:{} num:t
+:END:
+:SETUP_EXPORT:
+#+HUGO_BASE_DIR: ~/work/blog/git
+#+HUGO_SECTION: ru/post/%<%Y>
+#+HUGO_FRONT_MATTER_FORMAT: yaml
+#+HUGO_AUTO_SET_LASTMOD: t
 #+EXPORT_FILE_NAME: %<%Y-%m-%d>-${slug}
 #+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
 #+HUGO_CATEGORIES: blog
 #+HUGO_TAGS:
-#+DATE: %<%Y-%m-%dT%H:%M:%S%:z>\n\n"
+:END:\n
+#+hugo: more\n
+#+begin_export hugo
+{{< toc >}}
+#+end_export\n"
 	 :unnarrowed t)))
 
 ;;;

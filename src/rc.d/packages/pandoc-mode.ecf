@@ -1,0 +1,10 @@
+;;; An Emacs minor mode for interacting with Pandoc. -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/joostkremers/pandoc-mode
+;; http://joostkremers.github.io/pandoc-mode/
+
+(require 'pandoc-mode)
+
+;;; Pandoc mode to convert org files to other formats such as .docx, .md, or .pdf via LaTex
+(add-hook 'text-mode-hook 'pandoc-mode)
+
+;;;

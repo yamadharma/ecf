@@ -1,0 +1,20 @@
+;;; Project Interaction Library for Emacs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/bbatsov/projectile
+;; https://docs.projectile.mx/projectile/index.html
+
+(setq projectile-cache-file (concat home-cache-path "/projectile.cache"))
+(setq projectile-known-projects-file (concat home-cache-path "/projectile.projects"))
+
+;; Auto-discovery is slow to do by default. Better to update the list
+;; when you need to (`projectile-discover-projects-in-search-path').
+(setq projectile-auto-discover nil)
+(setq projectile-enable-caching t)
+(setq projectile-globally-ignored-files '(".DS_Store" "TAGS"))
+(setq projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o"))
+(setq projectile-kill-buffers-filter 'kill-only-files)
+(setq projectile-ignored-projects '("~/" "/tmp"))
+(setq projectile-project-search-path '("~/projects/" "~/work/"))
+(setq projectile-git-submodule-command nil)
+(setq projectile-indexing-method 'hybrid)
+
+;;;

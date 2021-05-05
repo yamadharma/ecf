@@ -1,0 +1,26 @@
+;;; Private config for Wanderlust - Single account -*- coding: utf-8-unix; -*-
+
+;;; Gmail IMAP
+;; (setq elmo-imap4-default-server "imap.gmail.com")
+;; (setq elmo-imap4-default-user "<accountname>@gmail.com")
+;; (setq elmo-imap4-default-authenticate-type 'clear)
+;; (setq elmo-imap4-default-port '993)
+;; (setq elmo-imap4-default-stream-type 'ssl)
+
+;;; Gmail SMTP
+;; (setq wl-smtp-connection-type 'starttls)
+;; (setq wl-smtp-posting-port 587)
+;; (setq wl-smtp-authenticate-type "plain")
+;; (setq wl-smtp-posting-user "<accountname>")
+;; (setq wl-smtp-posting-server "smtp.gmail.com")
+;; (setq wl-local-domain "gmail.com")
+;; (setq wl-message-id-domain "smtp.gmail.com")
+
+;; (setq wl-from "Your name <accountname>@gmail.com")
+;; (setq wl-default-folder "%inbox")
+;; (setq wl-default-spec "%")
+;; (setq wl-draft-folder "%[Gmail]/Drafts") ; Gmail IMAP
+;; (setq wl-trash-folder "%[Gmail]/Trash")
+;; (setq wl-fcc "%[Gmail]/Sent")
+
+;;;

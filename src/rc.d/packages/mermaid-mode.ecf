@@ -1,0 +1,6 @@
+;;; Emacs major mode for working with mermaid graphs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/abrochard/mermaid-mode
+
+(require 'mermaid-mode)
+
+;;;

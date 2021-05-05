@@ -1,45 +1,32 @@
-;;; Make org-mode stars a little more super -*- coding: utf-8-unix; -*-
+;;; Make org-mode stars a little more super -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;; https://github.com/integral-dw/org-superstar-mode
 
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
-;;(with-eval-after-load 'org-superstar
-;;  ;; Every non-TODO headline now have no bullet
-;;  (setq org-superstar-headline-bullets-list '("\u200b"))
-;;  (setq org-superstar-leading-bullet "\u200b")
-;;  (setq org-superstar-item-bullet-alist
-;;        '((?* . ?•)
-;;          (?+ . ?➤)
-;;          (?- . ?•)))
-;;  ;; Enable custom bullets for TODO items
-;;  (setq org-superstar-special-todo-items t)
-;;  (setq org-superstar-todo-bullet-alist
-;;        '(("TODO" "☐")
-;;          ("NEXT" "✒")
-;;          ("HOLD" "✰")
-;;          ("WAITING" "☕")
-;;          ("CANCELLED" "✘")
-;;          ("DONE" "✔")))
-;;  (org-superstar-restart))
+;;; This function configures superstar-mode to be as similar to org-bullets as possible
+(setq org-superstar-configure-like-org-bullets t)
 
-;;
-(setq org-ellipsis "⤵")
-
-;;
-(setq org-highlight-latex-and-related '(native script entities))
-
-;; This is usually the default, but keep in mind it must be nil
+;;; This is usually the default, but keep in mind it must be nil
 (setq org-hide-leading-stars nil)
 
-;; This line is necessary.
+;;; This line is necessary.
 (setq org-superstar-leading-bullet ?\s)
 
-;; 
-(setq org-superstar-todo-bullet-alist
-      '(("TODO" . 9744)
-        ("[ ]"  . 9744)
-        ("DONE" . 9745)
-        ("[X]"  . 9745)))
+;;; If you use Org Indent you also need to add this, otherwise the
+;;; above has no effect while Indent is enabled
+(setq org-indent-mode-turns-on-hiding-stars nil)
+
+;; Hide away leading stars on terminal
+(setq org-superstar-leading-fallback ?\s)
+
+;;;
+(setq org-ellipsis "⤵")
+
+;;;
+(setq org-highlight-latex-and-related '(native script entities))
+
+;; Stop cycling bullets to emphasize hierarchy of headlines
+(setq org-superstar-cycle-headline-bullets nil)
 
 ;;;

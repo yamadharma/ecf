@@ -1,0 +1,23 @@
+;;; A folding minor mode for Emacs -*- coding: utf-8-unix; -*-
+;; https://github.com/gregsexton/origami.el
+
+(require 'origami)
+
+(define-prefix-command 'origami-mode-map)
+(define-key ctl-x-map (kbd "z") 'origami-mode-map)
+(define-key origami-mode-map "o" 'origami-open-node)
+(define-key origami-mode-map "O" 'origami-open-node-recursively)
+(define-key origami-mode-map "c" 'origami-close-node)
+(define-key origami-mode-map "C" 'origami-close-node-recursively)
+(define-key origami-mode-map "a" 'origami-toggle-node)
+(define-key origami-mode-map "A" 'origami-recursively-toggle-node)
+(define-key origami-mode-map "R" 'origami-open-all-nodes)
+(define-key origami-mode-map "M" 'origami-close-all-nodes)
+(define-key origami-mode-map "v" 'origami-show-only-node)
+(define-key origami-mode-map "k" 'origami-previous-fold)
+(define-key origami-mode-map "j" 'origami-forward-fold)
+(define-key origami-mode-map "x" 'origami-reset)
+
+(global-origami-mode)
+
+;;;

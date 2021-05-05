@@ -1,0 +1,14 @@
+;;; Marginalia in the minibuffer -*- coding: utf-8-unix; -*-
+;; https://github.com/minad/marginalia
+
+;; Note that this forces loading the package.
+(marginalia-mode)
+
+;; Prefer richer, more heavy, annotations over the lighter default variant.
+;; E.g. M-x will show the documentation string additional to the keybinding.
+;; By default only the keybinding is shown as annotation.
+;; Note that there is the command `marginalia-cycle-annotators` to
+;; switch between the annotators.
+(setq marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light))
+
+;;;

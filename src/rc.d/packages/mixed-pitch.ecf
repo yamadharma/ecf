@@ -1,0 +1,12 @@
+;;; Mix fixed-pitch and variable-pitch fonts in Emacs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://gitlab.com/jabranham/mixed-pitch
+
+(require 'mixed-pitch)
+
+;;; Apply everywhere
+(mixed-pitch-mode)
+
+;;; To apply mixed-pitch-mode in all text modes:
+;; (text-mode . mixed-pitch-mode)
+
+;;;

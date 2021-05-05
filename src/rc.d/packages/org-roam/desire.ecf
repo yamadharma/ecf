@@ -26,7 +26,7 @@
 ;;; file with an *-other-window command.
 (setq org-roam-buffer-window-parameters '((no-delete-other-windows . t)))
 
-;; Agenda files
+;;; Agenda files
 (add-to-list 'org-agenda-files org-roam-directory)
 
 ;;;

@@ -2,14 +2,16 @@
 
 (global-auto-revert-mode 1)
 
-(setq org-directory-git (list org-directory-todo))
+;;; Find all directories with .git directory under org-directory
+(setq org-directory-git
+      (mapcar 'file-name-directory (directory-files-recursively org-directory "^\.git$" t t t)))
 
 (defun ecf/org-git-push ()
   (let ((git-dir org-directory-git)
         (commit-message (concat (system-name) ": emacs automatic commit")))
     (dolist (dir git-dir)
       (cd dir)
-      (start-process "org-git-push" "*Messages*" "bash" "-c" (concat "git commit -am '" commit-message "'&& git push"))
+      (start-process "org-git-push" "*Messages*" "bash" "-c" (concat "git add . && " "git commit -am '" commit-message "'&& git push"))
       (cd dir))))
 
 (defun ecf/org-git-pull ()
@@ -45,5 +47,10 @@
        (if (string-prefix-p (expand-file-name org-directory) (buffer-file-name))
            (org-git-push-with-delay (* 5 60)))
    )))
+
+;; Run push automatically on startup 
+(ecf/org-git-push)
+;; Automatic unattended push - Do a push every 30 minutes
+(org-git-push-with-delay (* 30 60))
 
 ;;;
