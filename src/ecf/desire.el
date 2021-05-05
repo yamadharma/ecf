@@ -1,4 +1,4 @@
-;;; desire.el --- versatile configuration for emacs lisp packages -*- coding: utf-8-unix; -*-
+;;; desire.el --- versatile configuration for emacs lisp packages -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
@@ -9,7 +9,7 @@
 ;; Keywords: setup configuration
 
 ;; Copyright (C) 1995, 1996, 1997, 1998, 1999, 2000, 2001 Martin Schwenke and Graham Williams
-;; Copyright (C) 2002-2020 Dmitry S. Kulyabov
+;; Copyright (C) 2002-2021 Dmitry S. Kulyabov
 
 ;; This file is NOT part of GNU Emacs.  It is, however, distributed
 ;; under the same conditions as GNU Emacs, which are as follows:
@@ -617,14 +617,10 @@ is the directory name with the prefix directory and extension removed."
 
 (defun desire-require (feature &optional fname)
 
-;;{{{ Description
-
-"Work like function require.
-If feature FEATURE is not loaded, load it from FNAME.
-If FEATURE is not a member of the list `features', then the feature
-is not loaded; so load the file FNAME."
-
-;;}}}
+  "Work like function require.
+  If feature FEATURE is not loaded, load it from FNAME.
+  If FEATURE is not a member of the list `features', then the feature
+  is not loaded; so load the file FNAME."
 
 (if (not fname)
     (setq fname (prin1-to-string feature))
@@ -640,7 +636,9 @@ is not loaded; so load the file FNAME."
   "Install PACKAGE from repository"
  
   (unless (package-installed-p package)
-    (package-install package)))
+    (progn
+      (package-refresh-contents)
+      (package-install package))))
 
 (provide 'desire)
 
