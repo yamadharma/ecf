@@ -203,6 +203,8 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-ref)
+
 (desire 'org-superstar)
 (desire 'org-super-agenda)
 

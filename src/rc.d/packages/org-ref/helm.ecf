@@ -1,0 +1,5 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(setq org-ref-completion-library 'org-ref-helm-cite)
+
+;;;
