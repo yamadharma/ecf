@@ -1,0 +1,38 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(setq mu4e-update-interval nil
+      mu4e-compose-format-flowed t ; visual-line-mode + auto-fill upon sending
+      mu4e-view-show-addresses t
+      mu4e-sent-messages-behavior 'sent
+      mu4e-hide-index-messages t
+      ;; try to show images
+      mu4e-view-show-images t
+      mu4e-view-image-max-width 800
+      ;; configuration for sending mail
+      message-send-mail-function #'smtpmail-send-it
+      smtpmail-stream-type 'starttls
+      message-kill-buffer-on-exit t ; close after sending
+      ;; start with the first (default) context;
+      mu4e-context-policy 'pick-first
+      ;; compose with the current context, or ask
+      mu4e-compose-context-policy 'ask-if-none
+      ;; use helm/ivy
+      mu4e-completing-read-function
+      ;; (cond ((featurep! :completion ivy) #'ivy-completing-read)
+      ;;       ((featurep! :completion helm) #'completing-read)
+      ;;       (t #'ido-completing-read))
+      ;; no need to ask
+      mu4e-confirm-quit nil
+      ;; remove 'lists' column
+      mu4e-headers-fields
+      '((:account . 12)
+        (:human-date . 12)
+        (:flags . 4)
+        (:from . 25)
+        (:subject)))
+
+;; set mail user agent
+(setq mail-user-agent 'mu4e-user-agent)
+
+;;;
+

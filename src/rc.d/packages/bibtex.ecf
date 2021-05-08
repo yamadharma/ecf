@@ -1,9 +1,20 @@
-;; BibTeX mode
+;;; BibTeX mode -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
-(setq bibtex-mode-user-optional-fields
-      '(("isbn"     "ISBN number")
-	("anu"      "Where to find this item at the ANU")
-	("url"      "URL of online document")
-	("abstract" "Abstract, if available")))
+;; (setq bibtex-mode-user-optional-fields
+;;       '(("isbn"     "ISBN number")
+;;	("anu"      "Where to find this item at the ANU")
+;;	("url"      "URL of online document")
+;;	("abstract" "Abstract, if available")))
+
+;;; Predefined dialects include BibTeX and biblatex
+(setq bibtex-dialect 'biblatex)
+
+(setq bibtex-align-at-equal-sign t)
+(setq bibtex-text-indentation 20)
+
+;; (define-key bibtex-mode-map (kbd "C-c \\") #'bibtex-fill-entry))
+
 (setq bibtex-sort-ignore-string-entries t)
 (add-hook 'bibtex-mode-hook 'turn-on-auto-fill)
+
+;;;

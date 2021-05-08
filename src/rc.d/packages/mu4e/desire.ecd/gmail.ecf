@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
+
+;;; don't need to run cleanup after indexing for gmail
+(setq mu4e-index-cleanup nil)
+
+;;; because gmail uses labels as folders we can use lazy check since messages don't really "move"
+(setq mu4e-index-lazy-check t)
+
+;;;
+
