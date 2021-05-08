@@ -153,8 +153,6 @@
 
 ;; (desire-old 'toolbar)
 
-(desire-old 'centaur-tabs nil "centaur-tabs" t)
-
 ;; ----------------------------------------------------------------------
 ;;{{{ Spell
 
@@ -191,6 +189,9 @@
 (desire 'projectile)
 
 ;;(desire-old 'yasnippet)
+
+(desire 'centaur-tabs)
+
 ;;{{{ Text
 
 (desire 'pandoc-mode)
@@ -301,8 +302,8 @@
 (desire-old 'julia-mode nil "julia-mode" t)
 (desire 'yaml-mode)
 
-(desire 'magit)
-(desire 'magit-gitflow)
+;; (desire 'magit)
+;; (desire 'magit-gitflow)
 
 ;;}}}
 ;;{{{ Blogs

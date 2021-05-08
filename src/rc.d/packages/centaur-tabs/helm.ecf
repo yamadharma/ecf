@@ -1,0 +1,6 @@
+;;; Helm integration -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/ema2159/centaur-tabs#helm-integration
+
+(centaur-tabs-build-helm-source)
+
+;;;
