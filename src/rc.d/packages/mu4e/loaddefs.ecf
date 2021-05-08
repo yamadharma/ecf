@@ -1,7 +1,7 @@
 ;;; Mu4e mail client  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;; https://www.djcbsoftware.nl/code/mu/
 
-(defun mu4e ()
+(defun mu4e-load ()
   "Start email client."
   (interactive)
   (require 'mu4e))
