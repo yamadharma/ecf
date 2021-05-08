@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; The file for remembering in which file an ID was defined
+;; (setq org-id-locations-file (expand-file-name ".orgids" org-directory)
+
+(setq org-id-method 'uuidgen)
+
+;;;
