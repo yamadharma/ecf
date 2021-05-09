@@ -1,0 +1,30 @@
+;;; Search and manage bibliographies in Emacs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;  https://github.com/tmalsburg/helm-bibtex
+
+;;; If the BibTeX entries have a field that specifies the full path to the PDFs, that field can also be used.
+(setq bibtex-completion-pdf-field "File")
+
+;;; The variable `bibtex-completion-display-formats` can be used to customize how search results are presented on a per-entry-type basis. 
+;;; The default is
+;;; '((t . "${author:36} ${title:*} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}"))
+;; (setq bibtex-completion-display-formats
+;;       '((article       . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} ${journal:40}")
+;; 	(inbook        . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+;; 	(incollection  . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+;; 	(inproceedings . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+;; 	(t             . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*}")))
+
+;;; The default fields used for searching are: author, title, year,
+;;; BibTeX key, entry type (article, inproceedings, …). The variable
+;;; `bibtex-completion-addition-search-fields` can be used to extend
+;;; this list.
+(setq bibtex-completion-additional-search-fields '(keywords))
+
+;;; Symbols used for indicating the availability of notes and PDF files
+(setq bibtex-completion-pdf-symbol "⌘")
+(setq bibtex-completion-notes-symbol "✎")
+
+;;; Other file types than PDF
+(setq bibtex-completion-pdf-extension '(".pdf" ".djvu"))
+
+;;;

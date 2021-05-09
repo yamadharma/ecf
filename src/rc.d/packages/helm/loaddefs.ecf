@@ -2,6 +2,7 @@
 ;; https://emacs-helm.github.io/helm/
 ;; https://github.com/emacs-helm/helm/wiki
 
+(require 'helm)
 (require 'helm-config)
 
 ;;;

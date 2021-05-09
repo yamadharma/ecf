@@ -227,6 +227,11 @@
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
+;;{{{ Bibliography
+
+(desire 'bibtex-completion)
+
+;;}}}
 ;;{{{ LaTeX
 
 (desire 'bibtex)
