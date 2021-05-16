@@ -1,50 +1,157 @@
 ;;; Mu4e mail client personal configuration  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;
 
-;;; I have my "default" parameters from Gmail
-(setq mu4e-sent-folder "/[Gmail].Sent Mail"
-      ;; mu4e-sent-messages-behavior 'delete ;; Unsure how this should be configured
-      mu4e-drafts-folder "/[Gmail].Drafts"
-      mu4e-trash-folder "/[Gmail].Trash"
-      user-mail-address "dskulyabov@gmail.com"
-      smtpmail-default-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587)
+;; Macro for Contexts
+(cl-defmacro ecf/mu4e-context (&key c-name maildir mail smtp
+                                   (smtp-mail mail)
+                                   (smtp-port 587)
+                                   (smtp-type 'starttls)
+                                   (sent-action 'sent)
+                                   (name "Daniel Fleischer")
+                                   (sig "Daniel Fleischer"))
+  (let
+      ((inbox    (concat "/" maildir "/Inbox"))  
+       (sent	   (concat "/" maildir "/Sent"))
+       (trash	   (concat "/" maildir "/Trash"))
+       (refile   (concat "/" maildir "/Archive"))
+       (draft	   (concat "/" maildir "/Drafts")))
+    
+    `(make-mu4e-context
+      :name ,c-name
+      :match-func (lambda (msg)
+		    (when msg
+                      (string-match-p (concat "^/" ,maildir "/")
+                                      (mu4e-message-field msg :maildir))))
+      :vars '((user-mail-address . ,mail)
+	      (user-full-name . ,name)
+	      (mu4e-sent-folder . ,sent)
+	      (mu4e-drafts-folder . ,draft)
+	      (mu4e-trash-folder . ,trash)
+              (mu4e-refile-folder . ,refile)
+	      (mu4e-compose-signature . (concat ,sig))
+              (mu4e-sent-messages-behavior . ,sent-action)
+	      (smtpmail-smtp-user . ,smtp-mail)
+	      (smtpmail-starttls-credentials . ((,smtp ,smtp-port nil nil)))
+              (smtpmail-auth-credentials . '((,smtp ,smtp-port ,smtp-mail nil)))
+	      (smtpmail-default-smtp-server . ,smtp)
+	      (smtpmail-smtp-server . ,smtp)
+              (smtpmail-stream-type . ,smtp-type)
+	      (smtpmail-smtp-service . ,smtp-port)
+	      (mu4e-maildir-shortcuts . 
+                                      ((,inbox   . ?i)
+				       (,sent    . ?s)
+				       (,trash   . ?t)
+				       (,refile  . ?a)
+				       (,draft   . ?d)))))))
 
-;;; Now I set a list of 
-(defvar my-mu4e-account-alist
-  '(("dskulyabov@gmail.com"
-     (mu4e-sent-folder "/dskulyabov@gmail.com/[Gmail].Sent Mail")
-     (user-mail-address "dskulyabov@gmail.com")
-     (smtpmail-smtp-user "dskulyabov")
-     (smtpmail-local-domain "gmail.com")
-     (smtpmail-default-smtp-server "smtp.gmail.com")
-     (smtpmail-smtp-server "smtp.gmail.com")
-     (smtpmail-smtp-service 587)
-     )
-    ;; Include any other accounts here ...
-    ))
+(setq ecf-mail-accounts '("yamadharma@yandex.ru"))
 
-(defun my-mu4e-set-account ()
-  "Set the account for composing a message.
-   This function is taken from: 
-     https://www.djcbsoftware.nl/code/mu/mu4e/Multiple-accounts.html"
-  (let* ((account
-	  (if mu4e-compose-parent-message
-	      (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-		(string-match "/\\(.*?\\)/" maildir)
-		(match-string 1 maildir))
-	    (completing-read (format "Compose with account: (%s) "
-				     (mapconcat #'(lambda (var) (car var))
-						my-mu4e-account-alist "/"))
-			     (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-			     nil t nil nil (caar my-mu4e-account-alist))))
-	 (account-vars (cdr (assoc account my-mu4e-account-alist))))
-    (if account-vars
-	(mapc #'(lambda (var)
-		  (set (car var) (cadr var)))
-	      account-vars)
-      (error "No email account found"))))
-(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+(setq mu4e-contexts
+
+      `(;; ,(ecf/mu4e-context
+        ;;   :c-name  "Google"
+        ;;   :maildir "Gmail"
+        ;;   :mail    "a@gmail.com"
+        ;;   :smtp    "smtp.gmail.com"
+        ;;   :sent-action delete)
+        
+        ;; ,(ecf/mu4e-context
+        ;;   :c-name  "1-GMX"
+        ;;   :maildir "GMX"
+        ;;   :mail    "a@gmx.com"
+        ;;   :smtp    "mail.gmx.com")
+
+        ,(ecf/mu4e-context
+          :c-name  "yamadharma@yandex.ru"
+          :maildir "yamadharma@yandex.ru"
+          :mail    "yamadharma@yandex.ru"
+          :smtp    "smtp.yandex.ru"
+	  :smtp-type ssl
+          :smtp-port 465)
+	
+	
+        ;; ,(ecf/mu4e-context
+        ;;   :c-name    "2-GMX-alias"
+        ;;   :maildir   "GMX"
+        ;;   :mail      "a.alias@gmx.com"
+        ;;   :smtp      "mail.gmx.com"
+        ;;   :smtp-mail "a@gmx.com")
+        
+        ;; ,(ecf/mu4e-context
+        ;;   :c-name  "Apple"
+        ;;   :maildir "Apple"
+        ;;   :mail    "a@icloud.com"
+        ;;   :smtp    "smtp.mail.me.com")
+        
+        ;; ,(ecf/mu4e-context
+        ;;   :c-name  "3-Apple-alias"
+        ;;   :maildir "Apple"
+        ;;   :mail    "a@me.com"
+        ;;   :smtp    "smtp.mail.me.com"
+        ;;   :smtp-mail "a@icloud.com")
+        
+        ;; ,(ecf/mu4e-context
+        ;;   :c-name    "Proton"
+        ;;   :maildir   "Proton"
+        ;;   :mail      "a@protonmail.com"
+        ;;   :smtp      "127.0.0.1"
+        ;;   :smtp-type ssl
+        ;;   :smtp-port 999)
+        
+        ;; ,(ecf/mu4e-context
+        ;;   :c-name    "4-Proton-alias"
+        ;;   :maildir   "Proton"
+        ;;   :mail      "a@pm.com"
+        ;;   :smtp      "127.0.0.1"
+        ;;   :smtp-mail "a@protonmail.com"
+        ;;   :smtp-type ssl
+        ;;   :smtp-port 999)
+	))
+
+;; ;;; I have my "default" parameters from Gmail
+;; (setq mu4e-sent-folder "/[Gmail].Sent Mail"
+;;       ;; mu4e-sent-messages-behavior 'delete ;; Unsure how this should be configured
+;;       mu4e-drafts-folder "/[Gmail].Drafts"
+;;       mu4e-trash-folder "/[Gmail].Trash"
+;;       user-mail-address "dskulyabov@gmail.com"
+;;       smtpmail-default-smtp-server "smtp.gmail.com"
+;;       smtpmail-smtp-server "smtp.gmail.com"
+;;       smtpmail-smtp-service 587)
+
+;; ;;; Now I set a list of 
+;; (defvar my-mu4e-account-alist
+;;   '(("dskulyabov@gmail.com"
+;;      (mu4e-sent-folder "/dskulyabov@gmail.com/[Gmail].Sent Mail")
+;;      (user-mail-address "dskulyabov@gmail.com")
+;;      (smtpmail-smtp-user "dskulyabov")
+;;      (smtpmail-local-domain "gmail.com")
+;;      (smtpmail-default-smtp-server "smtp.gmail.com")
+;;      (smtpmail-smtp-server "smtp.gmail.com")
+;;      (smtpmail-smtp-service 587)
+;;      )
+;;     ;; Include any other accounts here ...
+;;     ))
+
+;; (defun my-mu4e-set-account ()
+;;   "Set the account for composing a message.
+;;    This function is taken from: 
+;;      https://www.djcbsoftware.nl/code/mu/mu4e/Multiple-accounts.html"
+;;   (let* ((account
+;; 	  (if mu4e-compose-parent-message
+;; 	      (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+;; 		(string-match "/\\(.*?\\)/" maildir)
+;; 		(match-string 1 maildir))
+;; 	    (completing-read (format "Compose with account: (%s) "
+;; 				     (mapconcat #'(lambda (var) (car var))
+;; 						my-mu4e-account-alist "/"))
+;; 			     (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+;; 			     nil t nil nil (caar my-mu4e-account-alist))))
+;; 	 (account-vars (cdr (assoc account my-mu4e-account-alist))))
+;;     (if account-vars
+;; 	(mapc #'(lambda (var)
+;; 		  (set (car var) (cadr var)))
+;; 	      account-vars)
+;;       (error "No email account found"))))
+;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
 ;;;
