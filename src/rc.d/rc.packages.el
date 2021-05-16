@@ -306,6 +306,7 @@
 (desire-old 'lua-mode nil "lua-mode" t)
 (desire-old 'julia-mode nil "julia-mode" t)
 (desire 'yaml-mode)
+(desire 'ini-mode)
 
 ;; (desire 'magit)
 ;; (desire 'magit-gitflow)
