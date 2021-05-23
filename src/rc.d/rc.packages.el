@@ -343,6 +343,10 @@
 
 ;;}}}
 
+
+(desire 'grammarly)
+(desire 'flycheck-grammarly)
+
 ;; PERSONAL
 
 ;; (require 'chord-mode)  ; edit guitar music.

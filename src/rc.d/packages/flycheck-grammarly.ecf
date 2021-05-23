@@ -1,0 +1,10 @@
+;;; Grammarly support for Flycheck -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/emacs-grammarly/flycheck-grammarly
+
+(require 'flycheck-grammarly)
+
+;;; If you encounter the performance issue, try raise
+;;; `flycheck-grammarly-check-time` higher.
+;; (setq flycheck-grammarly-check-time 0.8)
+
+;;;
