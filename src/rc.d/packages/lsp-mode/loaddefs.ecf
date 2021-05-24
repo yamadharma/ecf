@@ -1,0 +1,8 @@
+;;; Language Server Protocol support for Emacs  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://emacs-lsp.github.io/
+;; https://github.com/emacs-lsp/lsp-mode
+
+(require 'lsp-mode)
+
+;;;
+

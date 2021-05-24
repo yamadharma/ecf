@@ -1,0 +1,10 @@
+;;; Alternative of the build-in lsp-mode `xref-appropos` -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/emacs-lsp/helm-lsp
+
+(desire 'helm-lsp)
+(require 'helm-lsp)
+
+;;; Replace `xref-find-apropos` in lsp-mode controlled buffers
+(define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
+
+;;;

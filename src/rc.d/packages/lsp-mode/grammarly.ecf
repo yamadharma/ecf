@@ -1,0 +1,9 @@
+;;; lsp-mode client leveraging unofficial-grammarly-language-server -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/emacs-grammarly/lsp-grammarly
+
+(desire 'lsp-grammarly)
+
+(add-hook 'text-mode-hook #'(lambda () (require 'lsp-grammarly) (lsp)))
+
+;;;
+

@@ -343,9 +343,10 @@
 
 ;;}}}
 
-
 (desire 'grammarly)
-(desire 'flycheck-grammarly)
+(desire 'lsp-mode)
+
+;; (desire 'flycheck-grammarly)
 
 ;; PERSONAL
 
