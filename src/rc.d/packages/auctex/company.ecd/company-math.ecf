@@ -2,6 +2,7 @@
 ;; https://github.com/vspinu/company-math
 
 (desire 'company-math)
+(require 'company-math)
 
 ;; Clear Latex
 ;; (defun ecf/company-math-latex-mode-setup ()

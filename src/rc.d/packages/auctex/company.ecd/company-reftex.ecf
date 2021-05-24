@@ -2,5 +2,6 @@
 ;; https://github.com/TheBB/company-reftex
 
 (desire 'company-reftex)
+(require 'company-reftex)
 
 ;;;
