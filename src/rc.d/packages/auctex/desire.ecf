@@ -1,21 +1,34 @@
-;;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
-;; Make AUCTeX aware of style files and multi-file documents
+;;; Make AUCTeX aware of style files and multi-file documents
 (setq TeX-parse-self t)                 ; Enable parse on load
 (setq TeX-auto-save t)                  ; Enable parse on save
-(setq-default TeX-master nil)  		; Query for master file
+(setq-default TeX-master nil)		; Query for master file
 
-;(add-hook 
+;(add-hook
 ;  'LaTeX-mode-hook
 ;    (function (lambda () (outline-minor-mode 1)))
 ;)
 
 
-(add-hook 
-  'LaTeX-mode-hook 'turn-on-bib-cite
-)
+;;; use hidden dirs for auctex files
+;; (setq TeX-auto-local ".auctex-auto")
+;; (setq TeX-style-local ".auctex-style")
 
-;; (add-hook 
+(setq TeX-source-correlate-mode t)
+(setq TeX-source-correlate-method 'synctex)
+
+
+;;; don't start the emacs server when correlating sources
+(setq TeX-source-correlate-start-server nil)
+;;; automatically insert braces after sub/superscript in math mode
+(setq TeX-electric-sub-and-superscript t)
+;;; just save, dont ask me before each compilation
+(setq TeX-save-query nil)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-bib-cite)
+
+;; (add-hook
 ;;   'LaTeX-mode-hook
 ;;     (function (lambda () (desire-require 'latex-paren)))
 ;; )
@@ -30,7 +43,7 @@
       ("chapter" . "ch:")
       ("section" . "sec:")
       ("subsection" . "sec:")
-      ("subsubsection" . "sec:")      
+      ("subsubsection" . "sec:")
     )
   )
 )
