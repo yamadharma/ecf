@@ -234,14 +234,17 @@
 ;;}}}
 ;;{{{ LaTeX
 
+(desire 'cdlatex)
+
 (desire 'bibtex)
 
 (desire 'ebib)
 (desire-old 'xdvi nil "xdvi-search")
 (desired 'reftex)
-(desire-old 'tex)
+;; (desire-old 'tex)
 (desired 'preview-latex nil "preview-latex")
-(desire-old 'auctex "latex" "tex-site")
+;; (desire-old 'auctex "latex" "tex-site")
+(desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
 
 ;;}}}
 ;;{{{ XML, XHTML, HTML
