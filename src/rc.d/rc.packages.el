@@ -314,8 +314,8 @@
 (desire 'yaml-mode)
 (desire 'ini-mode)
 
-;; (desire 'magit)
-;; (desire 'magit-gitflow)
+(desire 'magit)
+(desire 'magit-gitflow)
 
 ;;}}}
 ;;{{{ Blogs
