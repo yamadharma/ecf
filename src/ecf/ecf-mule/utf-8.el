@@ -7,7 +7,7 @@
 (set-selection-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
-(setq default-process-coding-system 'utf-8)
+(setq default-process-coding-system '(utf-8 . utf-8))
 
 ;;; Backwards compatibility as default-buffer-file-coding-system is deprecated in 23.2.
 (if (boundp 'buffer-file-coding-system)

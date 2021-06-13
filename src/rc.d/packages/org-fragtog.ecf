@@ -1,0 +1,6 @@
+;;; Automatically toggle Org mode LaTeX fragment previews as the cursor enters and exits them -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/io12/org-fragtog
+
+(add-hook 'org-mode-hook 'org-fragtog-mode)
+
+;;;

@@ -221,6 +221,7 @@
 (desire 'org-roam)
 
 (desire 'org-appear)
+(desire 'org-fragtog)
 
 ;;}}}
 ;;{{{ Notes
