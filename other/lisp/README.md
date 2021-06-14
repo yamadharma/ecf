@@ -7,3 +7,9 @@ Major mode for editing Julia source code.
 
 <https://github.com/JuliaLang/julia-emacs/blob/master/julia-mode.el>
 <https://raw.githubusercontent.com/JuliaEditorSupport/julia-emacs/master/julia-mode.el>
+
+## ligature.el
+
+Display typographical ligatures in Emacs
+
+<https://github.com/mickeynp/ligature.el>
