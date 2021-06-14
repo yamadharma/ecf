@@ -111,6 +111,8 @@
 
 ;;{{{ UI
 
+(desire 'ligature)
+
 (desire 'all-the-icons)
 ;; (desire 'mixed-pitch)
 
