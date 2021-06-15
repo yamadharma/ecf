@@ -1,0 +1,11 @@
+;;; Calendar  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;
+
+(require 'holidays)
+
+;; Mark holidays in calendar.
+(setq mark-holidays-in-calendar t)
+
+;;;
+
+

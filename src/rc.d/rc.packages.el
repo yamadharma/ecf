@@ -278,7 +278,7 @@
 ;; appointment warnings.
 
 ;; (desire-old 'appt)
-;; (desire-old 'calendar)
+(desire 'calendar)
 ;; (desire-old 'todo-mode)
 ;; (desire-old 'diary "diary-lib")
 

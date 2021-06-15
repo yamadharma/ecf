@@ -1,2 +1,2 @@
-(set-face-background 'holiday-face "blue")
-(set-face-foreground 'diary-face "cyan")
+;; (set-face-background 'holiday-face "blue")
+;; (set-face-foreground 'diary-face "cyan")
