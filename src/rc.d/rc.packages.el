@@ -345,6 +345,8 @@
 ;; (desire-old 'sql-mode)
 ;; (desire-old 'w3)
 
+(desire 'pass)
+
 (desire 'multiple-cursors)
 
 (desire 'treemacs)
