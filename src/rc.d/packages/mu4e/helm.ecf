@@ -1,0 +1,33 @@
+;;; Helm sources for searching emails and contacts using mu  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/emacs-helm/helm-mu
+
+(desire 'helm-mu)
+(require 'helm-mu)
+
+;;; Use `helm-mu` instead of Mu4e’s search
+;;;
+(define-key mu4e-main-mode-map "s" 'helm-mu)
+(define-key mu4e-headers-mode-map "s" 'helm-mu)
+(define-key mu4e-view-mode-map "s" 'helm-mu)
+
+(global-set-key (kbd "C-c h h c")  'helm-mu-contacts)
+
+(setq helm-mu-append-implicit-wildcard t)
+;; (setq helm-mu-gnu-sed-program "sed")
+
+;;; Only show contacts who sent you emails directly
+;;;
+;; (setq helm-mu-contacts-personal t)
+
+;;; Only show contacts first recorded after a certain date
+;; (setq helm-mu-contacts-after "01-Jan-1995 00:00:00")
+
+;;; Default search string
+;; The default search string is the empty
+;; string. This means that if you fire up helm-mu, initially you see
+;; all emails from all mailboxes.
+;;;
+;; (setq helm-mu-default-search-string "(maildir:/INBOX OR maildir:/Sent)")
+
+;;;
+

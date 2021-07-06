@@ -1,6 +1,6 @@
 ;;; personal.ecf -*- coding: utf-8-unix; -*-
 
-(defvar user-full-name       
+(defvar user-full-name
   (user-full-name)
   "*User's full name."
 )

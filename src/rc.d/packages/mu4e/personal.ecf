@@ -1,14 +1,15 @@
 ;;; Mu4e mail client personal configuration  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;
 
-;; Macro for Contexts
+;;; Macro for Contexts
+;; https://github.com/danielfleischer/mu4easy
 (cl-defmacro ecf/mu4e-context (&key c-name maildir mail smtp
-                                   (smtp-mail mail)
-                                   (smtp-port 587)
-                                   (smtp-type 'starttls)
-                                   (sent-action 'sent)
-                                   (name "Daniel Fleischer")
-                                   (sig "Daniel Fleischer"))
+                                    (smtp-mail mail)
+                                    (smtp-port 587)
+                                    (smtp-type 'starttls)
+                                    (sent-action 'sent)
+                                    (name user-full-name)
+                                    (sig user-full-name))
   (let
       ((inbox    (concat "/" maildir "/Inbox"))  
        (sent	   (concat "/" maildir "/Sent"))
@@ -44,11 +45,56 @@
 				       (,refile  . ?a)
 				       (,draft   . ?d)))))))
 
-(setq ecf-mail-accounts '("yamadharma@yandex.ru"))
 
-(setq mu4e-contexts
 
-      `(;; ,(ecf/mu4e-context
+(setq ecf-mail-accounts '("kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru"))
+
+(setq
+ ecf/inbox-query (mapconcat
+                  (lambda (d) (format "m:/%s/Inbox" d))
+                  ecf-mail-accounts " OR ")
+ ecf/today-query (concat "date:today..now AND NOT "
+                         (mapconcat
+                          (lambda (d) (format "m:/%s/Trash" d))
+                          ecf-mail-accounts " AND NOT "))
+ ecf/trash-query (mapconcat
+                  (lambda (d) (format "m:/%s/Trash" d))
+                  ecf-mail-accounts " OR ")
+ ecf/unread-query (concat "flag:unseen AND NOT (" ecf/trash-query ")"))
+
+(setq mu4e-bookmarks  `(( :name  "Unread"
+				 :query ,ecf/unread-query
+				 :key   ?u)
+                        ( :name  "Inbox"
+				 :query ,ecf/inbox-query
+				 :key   ?i)
+                        ( :name "Today"
+				:query ,ecf/today-query
+				:key   ?t)
+                        ( :name "Flagged"
+				:query "flag:flagged"
+				:key   ?f)
+                        ( :name "Tags"
+				:query "tag://"
+				:key   ?T)
+                        ( :name "Trash"
+				:query ,ecf/trash-query
+				:key ?x
+				:hide-unread t)
+                        ( :name "Attachments"
+				:query "mime:application/pdf or mime:image/jpg or mime:image/png"
+				:key   ?a
+				:hide-unread t)))
+
+(setq mu4e-headers-fields '((:human-date . 18)
+                            (:flags      . 6)
+                            (:maildir    . 16)
+                            (:from-or-to . 26)
+                            (:subject    . 90)))
+
+(setq mu4e-contexts      
+      `(
+	;; ,(ecf/mu4e-context
         ;;   :c-name  "Google"
         ;;   :maildir "Gmail"
         ;;   :mail    "a@gmail.com"
@@ -62,13 +108,26 @@
         ;;   :smtp    "mail.gmx.com")
 
         ,(ecf/mu4e-context
+          :c-name  "kulyabov_ds@pfur.ru"
+          :maildir "kulyabov_ds@pfur.ru"
+          :mail    "kulyabov_ds@pfur.ru"
+          :smtp    "smtp.office365.com")
+	
+        ,(ecf/mu4e-context
           :c-name  "yamadharma@yandex.ru"
           :maildir "yamadharma@yandex.ru"
           :mail    "yamadharma@yandex.ru"
           :smtp    "smtp.yandex.ru"
 	  :smtp-type ssl
           :smtp-port 465)
-	
+
+        ,(ecf/mu4e-context
+          :c-name  "yama_dharma@mail.ru"
+          :maildir "yama_dharma@mail.ru"
+          :mail    "yama_dharma@mail.ru"
+          :smtp    "smtp.mail.ru"
+	  :smtp-type ssl
+          :smtp-port 465)
 	
         ;; ,(ecf/mu4e-context
         ;;   :c-name    "2-GMX-alias"

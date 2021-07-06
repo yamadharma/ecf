@@ -4,7 +4,8 @@
 (defun mu4e-load ()
   "Start email client."
   (interactive)
-  (require 'mu4e))
+  (require 'mu4e)
+  (mu4e))
 
 
 ;;;

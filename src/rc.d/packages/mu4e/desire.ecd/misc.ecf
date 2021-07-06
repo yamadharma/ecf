@@ -24,12 +24,12 @@
       ;; no need to ask
       mu4e-confirm-quit nil
       ;; remove 'lists' column
-      mu4e-headers-fields
-      '((:account . 12)
-        (:human-date . 12)
-        (:flags . 4)
-        (:from . 25)
-        (:subject))
+;      mu4e-headers-fields
+;      '((:account . 12)
+;        (:human-date . 12)
+;        (:flags . 4)
+;        (:from . 25)
+;        (:subject))
       message-citation-line-format "On %a, %b %d %Y, %N wrote:"
       message-citation-line-function 'message-insert-formatted-citation-line
       message-kill-buffer-on-exit t
@@ -64,20 +64,6 @@
 
 ;; set mail user agent
 (setq mail-user-agent 'mu4e-user-agent)
-
-(setq
- ecf/inbox-query (mapconcat
-                 (lambda (d) (format "m:/%s/Inbox" d))
-                 ecf-mail-accounts " OR ")
- ecf/today-query (concat "date:today..now AND NOT "
-                        (mapconcat
-                         (lambda (d) (format "m:/%s/Trash" d))
-                         ecf-mail-accounts " AND NOT "))
- ecf/trash-query (mapconcat
-                 (lambda (d) (format "m:/%s/Trash" d))
-                 ecf-mail-accounts " OR ")
- ecf/unread-query (concat "flag:unseen AND NOT (" ecf/trash-query ")"))
-
 
 ;;;
 

@@ -292,6 +292,8 @@
 ;;}}}
 ;;{{{ Message handing packages.
 
+(desire 'smtpmail)
+
 (desire 'gnus)
 ;; (desire-old 'message)
 ;; (desire-old 'vm)

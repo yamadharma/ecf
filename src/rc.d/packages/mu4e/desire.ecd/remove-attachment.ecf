@@ -1,0 +1,23 @@
+;;; Remove attachments from emails -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; From https://emacs.stackexchange.com/questions/23812/remove-attachments-from-emails
+
+
+(if (executable-find "altermime")
+    (defun ecf/remove-attachment (msg num) 
+      "Remove attachment." 
+      (let* ((attach (mu4e~view-get-attach msg num))
+             (path (mu4e-msg-field msg :path))
+             (filename (and attach (plist-get attach :name)))
+             (cmd (format "altermime --input='%s' --remove='%s'"  path filename)))
+	(when (and filename
+		   (yes-or-no-p
+                    (format "Are you sure you want to remove '%s'?" filename)))
+	  (shell-command cmd)
+	  (message cmd)))))
+
+(if (executable-find "altermime")
+    (add-to-list 'mu4e-view-attachment-actions
+		 '("remove-attachment" . ecf/remove-attachment)))
+
+;;;
+
