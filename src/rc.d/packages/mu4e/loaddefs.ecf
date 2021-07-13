@@ -4,9 +4,13 @@
 (defun mu4e-load ()
   "Start email client."
   (interactive)
+  ;;; Check presence of mu index
+  (if (eq (call-process "mu" nil nil nil "info") 0)
+      t
+      ;;; Initialize index
+    (shell-command "mu init --maildir=~/Maildir $(grep -e \"^IMAPAccount\" ~/.mbsyncrc | cut -d\" \" -f2 | xargs -I {} -n 1 echo \"--my-address=\"{})"))
   (require 'mu4e)
   (mu4e))
-
 
 ;;;
 
