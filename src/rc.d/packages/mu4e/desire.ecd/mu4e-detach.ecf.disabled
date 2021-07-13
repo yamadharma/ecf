@@ -1,0 +1,33 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Detach email attachments in mu4e, save and remove them
+;; https://github.com/gambhiro/mu4e-detach
+
+
+(if (executable-find "altermime")
+    (progn
+     (require 'mu4e-detach)
+     (mu4e-detach/load)))
+
+;;; Base folder for saving. For each message, a new folder is created for saving attachments.
+;; default `~/Downloads/attachments`
+;;;
+(setq mu4e-detach-save-all-attachments-folder-base
+      (expand-file-name "attachments"
+			(substring
+			 (shell-command-to-string "xdg-user-dir DOWNLOAD")
+			 0 -1)))
+
+;;; Controls if attachments should be saved. 
+(setq mu4e-detach-save t)
+
+;;; Controls if attachments should be removed.
+;; To disable removing the attachments, set to `nil`.
+;; To enable removing the attachments, set to `t`.
+;;;
+(setq mu4e-detach-remove nil)
+
+;;; Controls if the list of removed file names should be appended to the message.
+(setq mu4e-detach-append-removed-filenames t)
+
+;;;
+

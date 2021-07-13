@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; OrgMsg is a GNU/Emacs global minor mode mixing up Org mode and Message mode to compose and reply to emails in a Outlook HTML friendly style
+;; https://github.com/jeremy-compostella/org-msg
+
+(desire 'org-msg)
+(require 'org-msg)
+
+(setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t tex:imagemagick")
+(setq org-msg-startup "hidestars indent inlineimages")
+(setq org-msg-greeting-fmt "\nHi *%s*,\n\n")
+(setq org-msg-greeting-name-limit 3)
+(setq org-msg-default-alternatives '((new	    	. (text html))
+				     (reply-to-html	. (text html))
+				     (reply-to-text	. (text))))
+(setq org-msg-convert-citation t)
+
+(org-msg-mode)
+
+;;;
+

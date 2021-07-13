@@ -1,5 +1,18 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
+;;; Async mode
+(setq mu4e-enable-async-operations t)
+
+;;; Attachment directory
+;; default: `~/Downloads`
+(setq mu4e-attachment-dir
+      (expand-file-name "attachments"
+			(substring
+			 (shell-command-to-string "xdg-user-dir DOWNLOAD")
+			 0 -1)))
+;;; Mode-line notifications
+(setq mu4e-enable-mode-line t)
+
 (setq mu4e-update-interval nil
       mu4e-compose-format-flowed t ; visual-line-mode + auto-fill upon sending
       mu4e-view-show-addresses t
@@ -24,17 +37,17 @@
       ;; no need to ask
       mu4e-confirm-quit nil
       ;; remove 'lists' column
-;      mu4e-headers-fields
-;      '((:account . 12)
-;        (:human-date . 12)
-;        (:flags . 4)
-;        (:from . 25)
-;        (:subject))
+     mu4e-headers-fields
+     '((:account . 12)
+       (:human-date . 12)
+       (:flags . 4)
+       (:from . 25)
+       (:subject))
       message-citation-line-format "On %a, %b %d %Y, %N wrote:"
       message-citation-line-function 'message-insert-formatted-citation-line
       message-kill-buffer-on-exit t
-      message-send-mail-function 'smtpmail-send-it
-      mu4e-attachment-dir (expand-file-name "~/Downloads")
+      message-send-mail-function 'smtpmail-send-it      
+      ;;; Rename files when moving. Needed for mbsync 
       mu4e-change-filenames-when-moving t
       mu4e-completing-read-function 'completing-read
       mu4e-compose-context-policy 'ask

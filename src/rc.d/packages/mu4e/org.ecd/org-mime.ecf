@@ -1,0 +1,16 @@
+;;; org-mime can be used to send HTML email using Org-mode HTML export  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/org-mime/org-mime
+
+(desire 'org-mime)
+(require 'org-mime)
+
+;; for gnus – this is set by default
+(setq org-mime-library 'mml)
+;; OR for Wanderlust (WL)
+;; (setq org-mime-library 'semi)
+;; OR for VM – not yet supported
+;; (setq org-mime-library 'vm)
+
+
+;;;
+

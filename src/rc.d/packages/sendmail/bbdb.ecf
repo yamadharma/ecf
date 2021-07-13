@@ -1,5 +1,5 @@
 (add-hook 'mail-setup-hook 'bbdb-insinuate-sendmail)
-(add-hook 'mail-setup-hook 'bbdb-define-all-aliases)
+;; (add-hook 'mail-setup-hook 'bbdb-define-all-aliases)
 (require 'mailabbrev)
 (add-hook 'mail-setup-hook 'mail-abbrevs-setup)
 ;; This gets bbdb up in its own window.

@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Trash without trashed flag
+;; 
+
+(setf (alist-get 'trash mu4e-marks)
+      '(:char ("d" . "▼")
+              :prompt "dtrash"
+              :dyn-target (lambda (target msg) (mu4e-get-trash-folder msg))
+              ;; Here's the main difference to the regular trash mark, no +T
+              ;; before -N so the message is not marked as IMAP-deleted:
+              :action (lambda (docid msg target)
+                        (mu4e~proc-move docid
+                                        (mu4e~mark-check-target target) "+S-u-N"))))
+
+;;;
+

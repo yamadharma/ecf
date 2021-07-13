@@ -1,0 +1,25 @@
+;;; View emails in mu4e using xwidget-webkit -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/lordpretzel/mu4e-views
+
+(desire 'mu4e-views)
+(require 'mu4e-views)
+
+;;; Select viewing method
+(define-key mu4e-headers-mode-map (kbd "v") #'mu4e-views-mu4e-select-view-msg-method)
+;;; From headers window scroll the email view
+(define-key mu4e-headers-mode-map (kbd "M-n") #'mu4e-views-cursor-msg-view-window-down)
+;;; From headers window scroll the email view
+(define-key mu4e-headers-mode-map (kbd "M-p") #'mu4e-views-cursor-msg-view-window-up)
+;;; Toggle opening messages automatically when moving in the headers view
+(define-key mu4e-headers-mode-map (kbd "f") #'mu4e-views-toggle-auto-view-selected-message)
+;;; Show currently selected email with all remote content
+(define-key mu4e-headers-mode-map (kbd "i") #'mu4e-views-mu4e-view-as-nonblocked-html)
+
+(setq mu4e-views-completion-method 'helm) ;; use helm for completion
+(setq mu4e-views-default-view-method "html") ;; make xwidgets default
+(setq mu4e-views-mu4e-use-view-msg-method "html") ;; select the default
+(setq mu4e-views-next-previous-message-behaviour 'stick-to-current-window) ;; when pressing n and p stay in the current window
+(setq mu4e-views-auto-view-selected-message t) ;; automatically open messages when moving in the headers view
+
+;;;
+

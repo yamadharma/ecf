@@ -1,0 +1,25 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Hooks
+;; 
+
+(add-hook 'mu4e-view-mode-hook
+          (lambda ()
+            (local-set-key (kbd "<tab>") 'shr-next-link)
+            (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+
+(add-hook 'mu4e-compose-mode-hook
+          (lambda ()
+            (set-fill-column 100)
+            (turn-on-auto-fill)
+            (paragraph-indent-minor-mode)
+            (electric-indent-local-mode -1)
+            (turn-on-flyspell)))
+
+(add-to-list 'mu4e-view-actions
+             '("View In Browser" . mu4e-action-view-in-browser) t)
+
+(when (fboundp 'imagemagick-register-types)
+  (imagemagick-register-types))
+
+;;;
+

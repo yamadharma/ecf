@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Using org-mode 
+
+;;; Composing Org mode messages
+;; (setq mu4e-org-compose-support t)
+;;; Convert message to html before sending
+;; (setq org-mu4e-convert-to-html t)
+
+;;;
+

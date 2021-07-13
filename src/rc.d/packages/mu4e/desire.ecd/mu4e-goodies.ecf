@@ -1,8 +1,8 @@
 ;;; Goodies for mu4e  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;; https://github.com/panjie/mu4e-goodies
 
-(desire 'mu4e-goodies)
-(require 'mu4e-goodies)
+;; (desire 'mu4e-goodies)
+;; (require 'mu4e-goodies)
 
 ;;;
 

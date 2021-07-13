@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; mu4e-contrib.el -- part of mu4e, the mu mail user agent
+;; 
+
+(require 'mu4e-contrib)
+
+(define-key mu4e-headers-mode-map (kbd "M") 'mu4e-headers-mark-all)
+(define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-mark-all-unread-read)
+
+;;; enable inline images
+(setq mu4e-view-show-images t)
+;;; use imagemagick, if available
+(when (fboundp 'imagemagick-register-types)
+  (imagemagick-register-types))
+
+;;;
+

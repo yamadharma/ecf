@@ -10,7 +10,7 @@
 (define-key mu4e-headers-mode-map "s" 'helm-mu)
 (define-key mu4e-view-mode-map "s" 'helm-mu)
 
-(global-set-key (kbd "C-c h h c")  'helm-mu-contacts)
+;; (global-set-key (kbd "C-c h h c")  'helm-mu-contacts)
 
 (setq helm-mu-append-implicit-wildcard t)
 ;; (setq helm-mu-gnu-sed-program "sed")
@@ -28,6 +28,9 @@
 ;; all emails from all mailboxes.
 ;;;
 ;; (setq helm-mu-default-search-string "(maildir:/INBOX OR maildir:/Sent)")
+
+;;; Select a folder
+(setq mu4e-completing-read-function #'completing-read)
 
 ;;;
 

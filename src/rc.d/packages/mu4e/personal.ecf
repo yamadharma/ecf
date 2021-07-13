@@ -47,7 +47,7 @@
 
 
 
-(setq ecf-mail-accounts '("kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru"))
+(setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru"))
 
 (setq
  ecf/inbox-query (mapconcat
@@ -60,7 +60,7 @@
  ecf/trash-query (mapconcat
                   (lambda (d) (format "m:/%s/Trash" d))
                   ecf-mail-accounts " OR ")
- ecf/unread-query (concat "flag:unseen AND NOT (" ecf/trash-query ")"))
+ ecf/unread-query (concat "flag:unread AND NOT (" ecf/trash-query ")"))
 
 (setq mu4e-bookmarks  `(( :name  "Unread"
 				 :query ,ecf/unread-query
@@ -92,14 +92,36 @@
                             (:from-or-to . 26)
                             (:subject    . 90)))
 
+;;;
+;; - Jumping to contexts is based on their first (unique) letter, that’s why I’m using numbers in the `c-name` key.
+;; - Google saves the sent messages in the All Mail (Archive) folder
+;; so it is recommended to set the corresponding mu4e setting to
+;; delete sent messages (locally). It’s only for Google; for the
+;; other account, sent messages are saved in the Sent folder.
+;;;
+
 (setq mu4e-contexts      
       `(
-	;; ,(ecf/mu4e-context
-        ;;   :c-name  "Google"
-        ;;   :maildir "Gmail"
-        ;;   :mail    "a@gmail.com"
-        ;;   :smtp    "smtp.gmail.com"
-        ;;   :sent-action delete)
+	,(ecf/mu4e-context
+          :c-name  "1-yamadharma@gmail.com"
+          :maildir "yamadharma@gmail.com"
+          :mail    "yamadharma@gmail.com"
+          :smtp    "smtp.gmail.com"
+          :sent-action delete)
+
+	,(ecf/mu4e-context
+          :c-name  "2-dharma@sci.pfu.edu.ru"
+          :maildir "dharma@sci.pfu.edu.ru"
+          :mail    "dharma@sci.pfu.edu.ru"
+          :smtp    "smtp.gmail.com"
+          :sent-action delete)
+	
+	,(ecf/mu4e-context
+          :c-name  "3-dskulyabov@gmail.com"
+          :maildir "dskulyabov@gmail.com"
+          :mail    "dskulyabov@gmail.com"
+          :smtp    "smtp.gmail.com"
+          :sent-action delete)
         
         ;; ,(ecf/mu4e-context
         ;;   :c-name  "1-GMX"
@@ -108,13 +130,13 @@
         ;;   :smtp    "mail.gmx.com")
 
         ,(ecf/mu4e-context
-          :c-name  "kulyabov_ds@pfur.ru"
+          :c-name  "4-kulyabov_ds@pfur.ru"
           :maildir "kulyabov_ds@pfur.ru"
           :mail    "kulyabov_ds@pfur.ru"
           :smtp    "smtp.office365.com")
 	
         ,(ecf/mu4e-context
-          :c-name  "yamadharma@yandex.ru"
+          :c-name  "5-yamadharma@yandex.ru"
           :maildir "yamadharma@yandex.ru"
           :mail    "yamadharma@yandex.ru"
           :smtp    "smtp.yandex.ru"
@@ -122,7 +144,7 @@
           :smtp-port 465)
 
         ,(ecf/mu4e-context
-          :c-name  "yama_dharma@mail.ru"
+          :c-name  "6-yama_dharma@mail.ru"
           :maildir "yama_dharma@mail.ru"
           :mail    "yama_dharma@mail.ru"
           :smtp    "smtp.mail.ru"
