@@ -47,7 +47,7 @@
 
 
 
-(setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru"))
+(setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru"))
 
 (setq
  ecf/inbox-query (mapconcat
@@ -150,6 +150,14 @@
           :smtp    "smtp.mail.ru"
 	  :smtp-type ssl
           :smtp-port 465)
+
+	,(ecf/mu4e-context
+          :c-name  "7-conference@sci.pfu.edu.ru"
+          :maildir "conference@sci.pfu.edu.ru"
+          :mail    "conference@sci.pfu.edu.ru"
+          :smtp    "smtp.gmail.com"
+          :sent-action delete)
+
 	
         ;; ,(ecf/mu4e-context
         ;;   :c-name    "2-GMX-alias"

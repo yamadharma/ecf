@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; ox-hugo personal settings
+
+;;; The default Hugo section name for all the posts
+;;; You may set the HUGO_SECTION variable per post basis
+(setq org-hugo-section "post")
+
+;;; Root directory of the source for the Hugo site
+;;; You may set the HUGO_BASE_DIR variable per post basis
+(setq org-hugo-base-dir "~/work/blog/git")
+
+;;;
+
