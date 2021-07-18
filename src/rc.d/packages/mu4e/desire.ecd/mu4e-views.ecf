@@ -1,5 +1,8 @@
-;;; View emails in mu4e using xwidget-webkit -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; View emails in mu4e using xwidget-webkit
 ;; https://github.com/lordpretzel/mu4e-views
+
+(require 'dom)
 
 (desire 'mu4e-views)
 (require 'mu4e-views)

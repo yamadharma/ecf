@@ -1,5 +1,5 @@
-;;; Mu4e mail client personal configuration  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Mu4e mail client personal configuration
 
 ;;; Macro for Contexts
 ;; https://github.com/danielfleischer/mu4easy
@@ -45,8 +45,6 @@
 				       (,refile  . ?a)
 				       (,draft   . ?d)))))))
 
-
-
 (setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru"))
 
 (setq
@@ -57,6 +55,10 @@
                          (mapconcat
                           (lambda (d) (format "m:/%s/Trash" d))
                           ecf-mail-accounts " AND NOT "))
+ ecf/week-query (concat "date:7d..now AND NOT "
+                        (mapconcat
+                         (lambda (d) (format "m:/%s/Trash" d))
+                         ecf-mail-accounts " AND NOT "))
  ecf/trash-query (mapconcat
                   (lambda (d) (format "m:/%s/Trash" d))
                   ecf-mail-accounts " OR ")
@@ -71,6 +73,9 @@
                         ( :name "Today"
 				:query ,ecf/today-query
 				:key   ?t)
+                        ( :name "Last 7 days"
+				:query ,ecf/week-query
+				:key   ?w)
                         ( :name "Flagged"
 				:query "flag:flagged"
 				:key   ?f)
@@ -82,7 +87,7 @@
 				:key ?x
 				:hide-unread t)
                         ( :name "Attachments"
-				:query "mime:application/pdf or mime:image/jpg or mime:image/png"
+				:query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/*"
 				:key   ?a
 				:hide-unread t)))
 

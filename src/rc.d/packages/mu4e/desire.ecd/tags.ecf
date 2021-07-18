@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Tags support
+
+(add-to-list 'mu4e-view-actions
+	     '("retag message" . mu4e-action-retag-message) t)
+
+;;;
+
