@@ -1,5 +1,5 @@
-;;; Daily-notes -*- coding: utf-8-unix; -*-
-;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Daily-notes
 
 ;; Excluding Nodes and Edges
 (setq org-roam-graph-exclude-matcher '("private" "dailies"))
@@ -9,10 +9,12 @@
 
 ;; Capture templates for daily-notes in Org-roam
 (setq org-roam-dailies-capture-templates
-      '(("d" "default" entry
-         #'org-roam-capture--get-point
-         "* %?"
-         :file-name "daily/%<%Y-%m-%d>"
-         :head "#+title: %<%Y-%m-%d>\n\n")))
+      '(("d" "default" entry "* %?"
+	 :if-new
+         (file+head "%(concat org-roam-dailies-directory \"/%<%Y-%m-%d>.org\")"
+                    "#+title: %<%Y-%m-%d>"))))
+
+;;; Define key binding
+(global-set-key (kbd "C-c n j") #'org-roam-dailies-capture-today)
 
 ;;;

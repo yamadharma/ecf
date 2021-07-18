@@ -1,4 +1,5 @@
-;;; Capture template for org-roam -*- coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Capture template for org-roam
 
 ;;; do enable time-stamps
 (setq time-stamp-active t)
@@ -8,38 +9,48 @@
 ;;  time-stamp-pattern "5/#+LAST_MODIFIED: [%04y-%02m-%02d %a %02H:%02M]"
 ;;  time-stamp-format "%04y-%02m-%02d %a %02H:%02M") ; date format
 
+
+(setq org-roam-capture-templates-- '(("d" "default" plain "%?"
+     :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                        "#+title: ${title}\n")
+     :unnarrowed t)))
+
 (setq org-roam-capture-templates
-      '(("d" "default" plain (function org-roam--capture-get-point)
-	 "%?"
-	 :file-name "%<%Y%m%d%H%M%S>-${slug}"
-	 :head "#+TITLE: ${title}
-#+CREATED: %U
-#+LAST_MODIFIED: %U
-#+LANGUAGE: ru
-#+DATE: %<%Y-%m-%dT%H:%M:%S%:z>
+      '(("d" "default" plain "%?"
+	 :if-new
+	 (file+head
+	  "%<%Y%m%d%H%M%S>-${slug}.org"
+	  "#+title: ${title}
+#+created: %U
+#+last_modified: %U
+#+language: ru
+#+date: %<%Y-%m-%dT%H:%M:%S%:z>
+#+filetags:
 
 :LOCALSETUP:
-#+STARTUP: overview
-#+STARTUP: hidestars
-#+STARTUP: hideblocks
-#+STARTUP: indent
-#+STARTUP: num
-#+OPTIONS: ^:{} num:t
+#+startup: overview
+#+startup: hidestars
+#+startup: hideblocks
+#+startup: indent
+#+startup: num
+#+options: ^:{} num:t
 :END:
 :SETUP_EXPORT:
-#+HUGO_BASE_DIR: ~/work/blog/git
-#+HUGO_SECTION: ru/post/%<%Y>
-#+HUGO_FRONT_MATTER_FORMAT: yaml
-#+HUGO_AUTO_SET_LASTMOD: t
-#+EXPORT_FILE_NAME: %<%Y-%m-%d>-${slug}
-#+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
-#+HUGO_CATEGORIES: blog
-#+HUGO_TAGS:
+#+hugo_base_dir: ~/work/blog/git
+#+hugo_section: ru/post/%<%Y>
+#+hugo_front_matter_format: yaml
+#+hugo_auto_set_lastmod: t
+#+export_file_name: %<%Y-%m-%d>-${slug}
+#+hugo_custom_front_matter: :slug ${slug}
+#+hugo_categories: blog
+#+hugo_tags:
 :END:\n
 #+hugo: more\n
 #+begin_export hugo
 {{< toc >}}
-#+end_export\n"
+#+end_export\n")
+	 :immediate-finish t
+         :jump-to-captured t
 	 :unnarrowed t)))
 
 ;;;

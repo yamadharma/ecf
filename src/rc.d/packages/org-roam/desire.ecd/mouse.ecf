@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Define mouse bindings for Org-roam
+
+(define-key org-roam-mode-map [mouse-1] #'org-roam-visit-thing)
+
+;;;
+

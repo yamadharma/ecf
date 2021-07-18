@@ -9,4 +9,14 @@
 ;;; Enable the global minor mode org-roam-mode
 ;; (add-hook 'after-init-hook 'org-roam-mode)
 
+;;; Disable warning
+;;; https://github.com/org-roam/org-roam/wiki/Hitchhiker’s-Rough-Guide-to-Org-roam-V2
+(setq org-roam-v2-ack t)
+
+(defun org-roam-load ()
+  "Start org-roam mode."
+  (interactive)
+  (org-roam-setup)
+  (org-roam-teardown))
+
 ;;;
