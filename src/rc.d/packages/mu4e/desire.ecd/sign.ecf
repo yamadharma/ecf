@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Sign/encrypt message
+
+;;; Sign message when sending
+(add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
+
+;;; Prompt with key selection menu before sending a message
+;; (setq mm-sign-option 'guided)
+
+;;; Use message sender to find an OpenPGP key to sign with
+(setq mml-secure-openpgp-sign-with-sender t)
+
+;;;
+(setq mu4e-auto-retrieve-keys t)
+
+;;;
+
