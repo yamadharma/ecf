@@ -3,11 +3,22 @@
 
 (require 'mu4e)
 
-;;; save attachment 
-(setq mu4e-attachment-dir "~/Downloads")
+;;; save attachment
+
+
+;;; Attachment directory
+;; default: `~/Downloads`
+;;; (setq mu4e-attachment-dir "~/Downloads")
+(setq mu4e-attachment-dir
+      (expand-file-name "attachments"
+			(substring
+			 (shell-command-to-string "xdg-user-dir DOWNLOAD")
+			 0 -1)))
+
+(if (not (file-directory-p mu4e-attachment-dir))
+    (make-directory mu4e-attachment-dir t))
 
 ;;; attempt to show images when viewing messages
 (setq mu4e-view-show-images t)
 
 ;;;
-

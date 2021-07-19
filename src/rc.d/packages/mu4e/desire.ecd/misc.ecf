@@ -3,13 +3,6 @@
 ;;; Async mode
 (setq mu4e-enable-async-operations t)
 
-;;; Attachment directory
-;; default: `~/Downloads`
-(setq mu4e-attachment-dir
-      (expand-file-name "attachments"
-			(substring
-			 (shell-command-to-string "xdg-user-dir DOWNLOAD")
-			 0 -1)))
 ;;; Mode-line notifications
 (setq mu4e-enable-mode-line t)
 

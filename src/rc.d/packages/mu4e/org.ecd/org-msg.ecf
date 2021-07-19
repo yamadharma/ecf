@@ -9,12 +9,14 @@
 (setq org-msg-startup "hidestars indent inlineimages")
 (setq org-msg-greeting-fmt "\nHi *%s*,\n\n")
 (setq org-msg-greeting-name-limit 3)
-(setq org-msg-default-alternatives '((new	    	. (text html))
+(setq org-msg-default-alternatives '((new		. (text html))
 				     (reply-to-html	. (text html))
 				     (reply-to-text	. (text))))
 (setq org-msg-convert-citation t)
 
+(setq org-msg-startup "inlineimages")
+(setq org-msg-default-alternatives '(html text))
+
 (org-msg-mode)
 
 ;;;
-
