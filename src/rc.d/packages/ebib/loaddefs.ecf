@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; 
+;;; https://joostkremers.github.io/ebib/
+;;; https://github.com/joostkremers/ebib
+
+(autoload 'ebib "ebib" "Ebib, a BibTeX database manager." t)
+
+;;(global-set-key "\C-ce" 'ebib)
+
+;;;

@@ -1,0 +1,33 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; 
+
+(setq ebib-bibtex-dialect 'biblatex)
+;; (setq ebib-preload-bib-files '("~/bib/Vbib.bib"))
+(setq ebib-use-timestamp t) ;; todo customize on export info:ebib#Timestamps
+;; (setq ebib-file-search-dirs '("~/bib/pdfs"))
+;; (setq ebib-notes-directory "~/bib/notes/")
+;; (setq ebib-notes-file "~/bib/reading_notes.org")
+(setq ebib-keywords-file "~/work/bib/keywords")
+(setq ebib-keywords-field-keep-sorted t)
+(setq ebib-keywords-file-save-on-exit 'always)
+(setq ebib-notes-show-note-method 'all)
+(setq ebib-layout 'full)
+;;; Display ebib in right part of frame
+;; (setq ebib-layout 'custom)
+;; (setq ebib-notes-show-note-method 'top-lines)
+
+(setq ebib-index-columns '(("Entry Key" 40 t)
+			   ("Author/Editor" 40 t)
+			   ("Year" 6 t)
+			   ("Title" 50 t)
+			   ("Url" 3 t)
+			   ("Doi" 3 t)
+			   ("Note" 3 t)
+			   ("Timestamp" 10 t)))
+(setq ebib-file-associations
+      '(("docx" . "soffice") ("odt" . "soffice")("doc" . "soffice")))
+;;(setq ebib-reading-list-file "~/bib/ReadingList.org"
+;;      ebib-reading-list-todo-marker "LIRE"
+;;      ebib-reading-list-template "* %M %T :lire:\n:PROPERTIES:\n%K\n%N\n:END:\n%L\n")
+
+;;;

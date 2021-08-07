@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(setq ebib-preload-bib-files '("~/work/bib/self/self.bib"))
+(setq ebib-bib-search-dirs '("~/work/bib/pdf"))
+
+;;;

@@ -219,7 +219,7 @@
 (desired 'mobileorg)
 (desire 'org)
 
-(desire 'org-roam-server)
+;; (desire 'org-roam-server)
 (desire 'org-roam)
 
 (desire 'org-appear)
@@ -235,15 +235,15 @@
 ;;{{{ Bibliography
 
 (desire 'bibtex-completion)
+(desire 'biblio)
+(desire 'bibtex)
+(desire 'ebib)
 
 ;;}}}
 ;;{{{ LaTeX
 
 (desire 'cdlatex)
 
-(desire 'bibtex)
-
-(desire 'ebib)
 (desire-old 'xdvi nil "xdvi-search")
 (desired 'reftex)
 ;; (desire-old 'tex)

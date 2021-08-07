@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Browse and import bibliographic references from CrossRef, DBLP, HAL, arXiv, Dissemin, and doi.org from Emacs
+;; https://github.com/cpitclaudel/biblio.el
+
+(require 'biblio)
+
+;;; To get better response times from CrossRef
+;;; https://github.com/CrossRef/rest-api-doc#etiquette
+(setq biblio-crossref-user-email-address user-mail-address)
+
+;;;
