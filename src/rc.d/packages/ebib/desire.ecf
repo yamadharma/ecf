@@ -7,7 +7,6 @@
 ;; (setq ebib-file-search-dirs '("~/bib/pdfs"))
 ;; (setq ebib-notes-directory "~/bib/notes/")
 ;; (setq ebib-notes-file "~/bib/reading_notes.org")
-(setq ebib-keywords-file "~/work/bib/keywords")
 (setq ebib-keywords-field-keep-sorted t)
 (setq ebib-keywords-file-save-on-exit 'always)
 (setq ebib-notes-show-note-method 'all)

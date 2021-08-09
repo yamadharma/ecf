@@ -138,7 +138,8 @@
           :c-name  "4-kulyabov_ds@pfur.ru"
           :maildir "kulyabov_ds@pfur.ru"
           :mail    "kulyabov_ds@pfur.ru"
-          :smtp    "smtp.office365.com")
+          :smtp    "smtp.office365.com"
+	  :sent-action delete)
 	
         ,(ecf/mu4e-context
           :c-name  "5-yamadharma@yandex.ru"
