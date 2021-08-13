@@ -16,7 +16,7 @@
 (defun org-roam-load ()
   "Start org-roam mode."
   (interactive)
-  (org-roam-setup)
-  (org-roam-teardown))
+;;  (org-roam-setup)
+  (org-roam-db-autosync-mode +1))
 
 ;;;
