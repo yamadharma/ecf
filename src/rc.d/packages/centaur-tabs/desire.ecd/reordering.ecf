@@ -1,0 +1,22 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Buffer reordering
+
+;;; Enable an automatic buffer reordering
+(centaur-tabs-enable-buffer-reordering)
+
+;;; When the currently selected tab(A) is at the right of the last visited
+;;; tab(B), move A to the right of B. When the currently selected tab(A) is
+;;; at the left of the last visited tab(B), move A to the left of B
+(setq centaur-tabs-adjust-buffer-order t)
+
+;;; Move the currently selected tab to the left of the the last visited tab.
+;; (setq centaur-tabs-adjust-buffer-order 'left)
+
+;;; Move the currently selected tab to the right of the the last visited tab.
+;; (setq centaur-tabs-adjust-buffer-order 'right)
+
+;;; Alphabetical buffer reorderin
+;; (centaur-tabs-enable-buffer-alphabetical-reordering)
+;; (setq centaur-tabs-adjust-buffer-order t)
+
+;;;

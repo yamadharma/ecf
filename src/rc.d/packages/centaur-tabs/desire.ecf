@@ -4,9 +4,6 @@
 ;;; Headline face
 ;; (centaur-tabs-headline-match)
 
-;;; Buffer reordering
-(centaur-tabs-enable-buffer-reordering)
-
 ;;; Movement
 (global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
 (global-set-key (kbd "C-<next>") 'centaur-tabs-forward)

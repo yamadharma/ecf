@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Key bindings
+
+;;; Select the previous available tab
+(global-set-key (kbd "C-{")  'centaur-tabs-backward)
+
+;;; Select the next available tab
+(global-set-key (kbd "C-}") 'centaur-tabs-forward)
+
+;;; Move current tabe to left
+(global-set-key (kbd "C-M-{") 'centaur-tabs-move-current-tab-to-left)
+
+;;; Move current tabe to right
+(global-set-key (kbd "C-M-}") 'centaur-tabs-move-current-tab-to-right)
+
+;;; Group buffer tabs by groups
+(global-set-key (kbd "C-c t g") 'centaur-tabs-group-buffer-groups)
+
+;;;
