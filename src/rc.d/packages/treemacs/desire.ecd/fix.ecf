@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; 
+
+;;; Suppress “ad-handle-definition: .. redefined” warnings during Emacs startup
+(custom-set-variables '(ad-redefinition-action (quote accept)))
+
+;;;

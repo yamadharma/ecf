@@ -1,0 +1,27 @@
+;;; Emacs plugin aiming to become an aesthetic, modern looking tabs plugin
+;; https://github.com/ema2159/centaur-tabs
+
+;;; Headline face
+;; (centaur-tabs-headline-match)
+
+;;; Buffer reordering
+(centaur-tabs-enable-buffer-reordering)
+
+;;; Movement
+(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
+(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
+
+;;; Key bindings
+;; C-c C-left: (centaur-tabs-backward)
+;; C-c C-right: (centaur-tabs-forward)
+;; C-c C-up: (centaur-tabs-backward-group)
+;; C-c C-down: (centaur-tabs-forward-group)
+;; C-c C-f10: (centaur-tabs-local-mode)
+;; C-c C-5: (centaur-tabs-extract-window-to-new-frame)
+;; C-c C-k: (centaur-tabs-kill-other-buffers-in-current-group)
+;; C-c C-o: (centaur-tabs-open-in-external-application)
+;; C-c C-d: (centaur-tabs-open-directory-in-external-application)
+;;;
+;;(setq centaur-tabs-enable-key-bindings t)
+
+;;;

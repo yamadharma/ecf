@@ -4,8 +4,6 @@
 
 (require 'centaur-tabs)
 (centaur-tabs-mode t)
-(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
-(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
 
 ;;;; You can make the headline face match the centaur-tabs-default face.
 (centaur-tabs-headline-match)
@@ -45,8 +43,5 @@
 ;;; tabs: Cycle through visible tabs (that is, the tabs in the current group)
 ;;; groups: Navigate through tab groups only
 (setq centaur-tabs-cycle-scope 'tabs)
-
-;;;; Buffer reordering
-;; (centaur-tabs-enable-buffer-reordering)
 
 ;;;
