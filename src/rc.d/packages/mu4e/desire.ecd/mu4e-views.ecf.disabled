@@ -2,7 +2,7 @@
 ;;; View emails in mu4e using xwidget-webkit
 ;; https://github.com/lordpretzel/mu4e-views
 
-(require 'dom)
+;; (require 'dom)
 
 (desire 'mu4e-views)
 (require 'mu4e-views)
