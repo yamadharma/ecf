@@ -49,8 +49,6 @@
       mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version)
       mu4e-headers-auto-update t
       mu4e-headers-date-format "%d/%m/%Y %H:%M"
-      mu4e-headers-include-related nil
-      mu4e-headers-skip-duplicates t
       mu4e-maildir (expand-file-name "~/Maildir")       ;; IMPORTANT
       mu4e-main-buffer-hide-personal-addresses t
       mu4e-main-buffer-name "*mu4e-main*"
@@ -64,7 +62,16 @@
       smtpmail-smtp-service 587
       starttls-use-gnutls t)
 
-;; set mail user agent
+;;; Including related messages
+;; Include messages that are related to these messages
+;;; You can toggle between including/not-including with `W`
+(setq mu4e-headers-include-related t)
+
+;;; Skipping duplicates
+;;; You can toggle between the skipping/not skipping with `V`
+(setq mu4e-headers-skip-duplicates t)
+
+;;; set mail user agent
 (setq mail-user-agent 'mu4e-user-agent)
 
 ;;;

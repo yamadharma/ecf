@@ -1,7 +1,7 @@
 ;;;
 
 ;; Org-roam now does not resolve symlinks
-(setq org-roam-directory (file-truename "~/me/org/notes"))
+(setq org-roam-directory (file-truename "~/work/org/notes"))
 
 (if (not (file-directory-p org-roam-directory))
     (make-directory org-roam-directory t))

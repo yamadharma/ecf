@@ -1,7 +1,7 @@
 ;;; mobileorg dirs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 (defvar mobileorg-home-dir
-  (expand-file-name "~/me/mobileorg/")
+  (expand-file-name "~/work/org/mobileorg/")
   "*Name of directory where various mobileorg related files reside."
   )
 

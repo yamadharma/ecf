@@ -3,7 +3,7 @@
 ;;
 
 (defvar orgmode-home-dir
-  (expand-file-name "~/me/org/")
+  (expand-file-name "~/work/org/")
   "*Name of directory where various org-mode related files reside."
 )
 
