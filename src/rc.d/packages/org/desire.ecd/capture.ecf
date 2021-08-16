@@ -1,6 +1,6 @@
 ;;; Capture Templates
 
-(setq org-default-notes-file (concat org-directory-todo "/refile.org"))
+(setq org-default-notes-file (concat org-directory-todo "/inbox.org"))
 
 ;;; Use C-c c to start capture mode
 (global-set-key (kbd "C-c c") 'org-capture)

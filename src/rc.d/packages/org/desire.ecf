@@ -24,6 +24,6 @@
 
 (org-remove-file "diary.org")
 (org-remove-file "flagged.org")
-(org-remove-file "refile.org")
+(org-remove-file "inbox.org")
 
 ;;;
