@@ -225,6 +225,9 @@
 (desire 'org-appear)
 (desire 'org-fragtog)
 
+;; (desire 'org-vcard)
+;; (desire 'vdirel)
+
 ;;}}}
 ;;{{{ Notes
 

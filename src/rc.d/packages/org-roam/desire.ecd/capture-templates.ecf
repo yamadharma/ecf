@@ -42,7 +42,7 @@
 #+hugo_auto_set_lastmod: t
 #+export_file_name: %<%Y-%m-%d>-${slug}
 #+hugo_custom_front_matter: :slug ${slug}
-#+hugo_categories: blog
+#+hugo_categories: 
 #+hugo_tags:
 :END:\n
 #+hugo: more\n

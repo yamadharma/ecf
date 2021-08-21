@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Export and import vCards from within GNU Emacs' Org mode
+;; https://github.com/flexibeast/org-vcard
+
+(setq org-vcard-custom-styles-dir (concat user-emacs-directory "org-vcard-styles/"))
+(require 'org-vcard)
+
+;;;

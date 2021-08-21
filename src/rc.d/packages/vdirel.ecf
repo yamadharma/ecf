@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Manipulate vdir (i.e., vcard) repositories from Emacs
+;; https://github.com/DamienCassou/vdirel
+
+(require 'vdirel)
+
+(setq vdirel-repository "~/.config/vdirsyncer/contacts/default")
+
+;;;

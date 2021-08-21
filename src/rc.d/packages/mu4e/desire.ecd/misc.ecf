@@ -65,7 +65,7 @@
 ;;; Including related messages
 ;; Include messages that are related to these messages
 ;;; You can toggle between including/not-including with `W`
-(setq mu4e-headers-include-related t)
+(setq mu4e-headers-include-related nil)
 
 ;;; Skipping duplicates
 ;;; You can toggle between the skipping/not skipping with `V`
