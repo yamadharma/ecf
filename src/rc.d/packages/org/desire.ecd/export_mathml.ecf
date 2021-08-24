@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; LaTeX math snippets 
+;; https://orgmode.org/manual/LaTeX-math-snippets.html
+
+;;; Non-nil means process LaTeX environments and fragments
+;; nil         Ignore math snippets.
+;; 'verbatim'  Keep everything in verbatim.
+;; t           Allow export of math snippets.
+;;;
+(setq org-export-with-latex t)
+
+;;; use LaTeX​ML [[https://dlmf.nist.gov/LaTeXML/]] for export to MathML
+(setq org-latex-to-mathml-convert-command
+      "latexmlmath \"%i\" --presentationmathml=%o")
+
+;;;
