@@ -136,9 +136,9 @@
 ;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
 ;;(desire 'spaceline)
 
-;; (desire 'doom-themes)
+(desire 'doom-themes)
 ;; (desire 'zenburn-theme)
-(desire 'modus-themes)
+;; (desire 'modus-themes)
 
 ;;}}}
 ;;
