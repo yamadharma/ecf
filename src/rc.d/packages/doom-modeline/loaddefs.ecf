@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; A fancy and fast mode-line inspired by minimalism design
+;; https://github.com/seagle0128/doom-modeline
+
+(require 'doom-modeline)
+(add-hook 'after-init-hook #'doom-modeline-mode)
+
+;;;

@@ -131,12 +131,15 @@
 ;;}}}
 ;;{{{ Themes
 
-(desire 'moody)
+;; (desire 'moody)
 
 ;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
 ;;(desire 'spaceline)
 
 (desire 'doom-themes)
+(desire 'doom-modeline)
+
+
 ;; (desire 'zenburn-theme)
 ;; (desire 'modus-themes)
 
