@@ -361,8 +361,8 @@
 
 ;;}}}
 
-(desire 'grammarly)
-(desire 'lsp-mode)
+;; (desire 'grammarly)
+;; (desire 'lsp-mode)
 
 ;; (desire 'flycheck-grammarly)
 
