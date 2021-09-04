@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Show current command and its key in the mode line
+;; https://github.com/tarsius/keycast
+
+(require 'keycast)
+
+;;; Display the command and event in the mode-line
+(keycast-mode)
+
+;;; Display the command and event in a dedicated frame
+;; (keycast-log-mode)
+
+;;;

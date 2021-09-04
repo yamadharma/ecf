@@ -137,8 +137,6 @@
 ;;(desire 'spaceline)
 
 (desire 'doom-themes)
-(desire 'doom-modeline)
-
 
 ;; (desire 'zenburn-theme)
 ;; (desire 'modus-themes)
@@ -354,6 +352,7 @@
 ;; (desire-old 'w3)
 
 (desire 'pass)
+(desire 'keycast)
 
 (desire 'multiple-cursors)
 
@@ -365,6 +364,8 @@
 ;; (desire 'lsp-mode)
 
 ;; (desire 'flycheck-grammarly)
+
+(desire 'doom-modeline)
 
 ;; PERSONAL
 
