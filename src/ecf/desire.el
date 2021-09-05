@@ -1,4 +1,5 @@
-;;; desire.el --- versatile configuration for emacs lisp packages -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; desire.el --- versatile configuration for emacs lisp packages
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
@@ -29,6 +30,7 @@
 ;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 (require 'cl-lib)
+(require 'desire-core-lib)
 
 (defvar desire-load-path nil
   "*List of directories to be searched by `desire' for configuration data.")
@@ -246,8 +248,8 @@ then nothing happens and nil is returned."
 ) ; end defun desire
 
 (cl-defun desire (package
-		  &key initname precondition-lisp-library precondition-system-executable ensurename (ensure desire-package-autoinstall))
-"Arrange loading and configuration of a desired emacs PACKAGE.
+		  &key initname precondition-lisp-library precondition-system-executable ensurename (ensure desire-package-autoinstall) recipe)
+  "Arrange loading and configuration of a desired emacs PACKAGE.
 PACKAGE is a symbol representing the name of a package.  The aim is to
 set up some autoloads and other initial configuration, and possibly
 organise for more configuration files to be dynamically loaded when
@@ -271,6 +273,10 @@ Accepts the following properties:
     `t' - package autoinstalled.
     `nil' - package not autoinstalled.
     Default from `desire-package-autoinstall' variable.
+ :recipe RECIPE
+   Specifies a straight.el recipe to allow you to acquire packages from external
+   sources. See https://github.com/raxod502/straight.el#the-recipe-format for
+   details on this recipe.
 
 Each directory in `desire-load-path' is searched in order to see if
 configuration data for PACKAGE exists.  The configuration data takes
@@ -334,6 +340,9 @@ then nothing happens and nil is returned."
       ))
 
 (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
+
+(when (and recipe (keywordp (car-safe recipe)))
+  (plist-put! plist :recipe `(quote ,recipe)))
 
 ;; Message: found executable precondition
 (if precondition-system-executable
