@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Next-generation, purely functional package manager for the Emacs hacker
+;; https://github.com/raxod502/straight.el
+
+(require 'straight)
+
+;;;

@@ -31,6 +31,7 @@
 
 (require 'cl-lib)
 (require 'desire-core-lib)
+(require 'desire-core-packages)
 
 (defvar desire-load-path nil
   "*List of directories to be searched by `desire' for configuration data.")

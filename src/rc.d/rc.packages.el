@@ -37,10 +37,12 @@
 ;;}}}
 ;;{{{ Package repositories
 
-;; Packaging
+;;; Packaging
 (desire 'package)
-;; Auto update packages
+;;; Auto update packages
 (desire 'auto-package-update)
+;;; A declarative package management system with a command line interface
+(desire 'straight)
 
 ;;}}}
 
@@ -70,12 +72,12 @@
 ;;  (progn
 ;;    (desired 'window-system)
 ;;    (desired 'window-system-w32)
-;;  )	
+;;  )
 ;; )
 
 ;; (if (and window-system
-;; 	 (member window-system '(x gtk))
-;; 	 (x-display-color-p)
+;;	 (member window-system '(x gtk))
+;;	 (x-display-color-p)
 ;;    )
 ;;    (progn
 ;;      (desired 'window-system)
