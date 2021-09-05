@@ -246,7 +246,7 @@ then nothing happens and nil is returned."
 ) ; end defun desire
 
 (cl-defun desire (package
-    &key initname precondition-lisp-library precondition-system-executable ensurename (ensure desire-package-autoinstall))
+		  &key initname precondition-lisp-library precondition-system-executable ensurename (ensure desire-package-autoinstall))
 "Arrange loading and configuration of a desired emacs PACKAGE.
 PACKAGE is a symbol representing the name of a package.  The aim is to
 set up some autoloads and other initial configuration, and possibly
@@ -608,33 +608,24 @@ is the directory name with the prefix directory and extension removed."
 )
 
 (defun desire-readable-dir-p (dir)
-
-  "Determine if DIR is a readable directory."
-  
+  "Determine if DIR is a readable directory."  
   (and
    (file-directory-p dir)
    (file-readable-p dir)))
 
 (defun desire-require (feature &optional fname)
-
   "Work like function require.
   If feature FEATURE is not loaded, load it from FNAME.
   If FEATURE is not a member of the list `features', then the feature
   is not loaded; so load the file FNAME."
-
-(if (not fname)
-    (setq fname (prin1-to-string feature))
-  )
-(if (require feature fname 1)
-    t
-  (message "Package not found : %s" fname)
-  )
-)
+  (if (not fname)
+      (setq fname (prin1-to-string feature)))
+  (if (require feature fname 1)
+      t
+    (message "Package not found : %s" fname)))
 
 (defun desire-install-package (package)
-  
   "Install PACKAGE from repository"
- 
   (unless (package-installed-p package)
     (progn
       (package-refresh-contents)
@@ -642,4 +633,4 @@ is the directory name with the prefix directory and extension removed."
 
 (provide 'desire)
 
-;;
+;;;
