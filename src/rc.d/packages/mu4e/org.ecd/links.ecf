@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;;
+
+;;; To include links to e-mail messages or search queries in your org-mode files
+(setq mu4e-support-org t)
+
+;;; Capture to todo list
+(define-key mu4e-headers-mode-map (kbd "C-c c") 'mu4e-org-store-and-capture)
+(define-key mu4e-view-mode-map    (kbd "C-c c") 'mu4e-org-store-and-capture)
+
+;;; Capture template
+(add-to-list
+ 'org-capture-templates '("M" "TODO from mail" entry (file org-default-notes-file)
+			  "* TODO %:fromname: %a %?\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))"))
+;;;
