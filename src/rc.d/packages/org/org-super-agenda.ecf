@@ -5,11 +5,10 @@
 
 (setq org-super-agenda-groups
       '((:log t)  ; Automatically named "Log"
-        (:name "To refile"
-               :file-path "refile\\.org")
+        (:name "Inbox"
+               :file-path "inbox\\.org")
         (:name "Next to do"
-               :todo "NEXT"
-               :order 1)
+               :todo "NEXT")
 	(:name "Important"
                :priority "A")
 	(:name "Important B"
