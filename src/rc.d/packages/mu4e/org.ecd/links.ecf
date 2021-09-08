@@ -11,5 +11,5 @@
 ;;; Capture template
 (add-to-list
  'org-capture-templates '("M" "TODO from mail" entry (file org-default-notes-file)
-			  "* TODO %:fromname: %a %?\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))"))
+			  "* TODO %:fromname: %:subject %?\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n%a\n"))
 ;;;

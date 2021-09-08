@@ -71,8 +71,5 @@
 ;;; You can toggle between the skipping/not skipping with `V`
 (setq mu4e-headers-skip-duplicates t)
 
-;;; set mail user agent
-(setq mail-user-agent 'mu4e-user-agent)
-
 ;;;
 
