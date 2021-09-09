@@ -1,5 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;;
+;;; Org-links to mu4e messages/queries
+
+(require 'mu4e-org)
 
 ;;; To include links to e-mail messages or search queries in your org-mode files
 (setq mu4e-support-org t)
@@ -11,5 +13,5 @@
 ;;; Capture template
 (add-to-list
  'org-capture-templates '("M" "TODO from mail" entry (file org-default-notes-file)
-			  "* TODO %:fromname: %:subject %?\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n%a\n"))
+			  "* TODO %:fromname: %:subject %?\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n%a\n\n%i"))
 ;;;

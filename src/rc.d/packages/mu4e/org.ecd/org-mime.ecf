@@ -12,6 +12,9 @@
 ;;; OR for VM – not yet supported
 ;; (setq org-mime-library 'vm)
 
+(setq org-mime-export-options '(:section-numbers nil
+                                :with-author nil
+                                :with-toc nil))
 
 ;;; Export the current org-mode buffer to HTML
 (add-hook 'message-mode-hook
@@ -20,6 +23,9 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c M-o") 'org-mime-org-buffer-htmlize)))
+
+;;; Automatically converting mail to HTML
+(add-hook 'message-send-hook 'org-mime-htmlize)
 
 ;;; Latex export
 (setq org-mime-org-html-with-latex-default t)
@@ -35,7 +41,6 @@
 ;;; ASCII export options for text/plain
 ;;; ascii | latin1 | utf-8
 (setq org-mime-export-ascii 'utf-8)
-
 
 (setq org-mime-export-options '(:with-latex mathjax))
 
