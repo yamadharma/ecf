@@ -6,8 +6,10 @@
 ;;; Mode-line notifications
 (setq mu4e-enable-mode-line t)
 
+;;; Make sure plain text mails flow correctly for recipients (visual-line-mode + auto-fill upon sending)
+(setq mu4e-compose-format-flowed t)
+
 (setq mu4e-update-interval nil
-      mu4e-compose-format-flowed t ; visual-line-mode + auto-fill upon sending
       mu4e-view-show-addresses t
       mu4e-sent-messages-behavior 'sent
       mu4e-hide-index-messages t
@@ -42,7 +44,6 @@
       mu4e-change-filenames-when-moving t
       mu4e-completing-read-function 'completing-read
       mu4e-compose-context-policy 'ask
-      mu4e-compose-format-flowed t
       mu4e-compose-signature-auto-include t
       mu4e-confirm-quit nil
       mu4e-context-policy 'pick-first
