@@ -6,6 +6,9 @@
 (global-set-key (kbd "C-c n g") #'org-roam-graph)
 (global-set-key (kbd "C-c n i") #'org-roam-node-insert)
 (global-set-key (kbd "C-c n c") #'org-roam-capture)
+(global-set-key (kbd "C-c n o") #'org-id-get-create)
+(global-set-key (kbd "C-c n t") #'org-roam-tag-add)
+(global-set-key (kbd "C-c n a") #'org-roam-alias-add)
 
 ;;;
 

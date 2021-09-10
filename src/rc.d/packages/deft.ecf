@@ -1,3 +1,4 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Deft for Emacs
 ;; https://github.com/jrblevin/deft
 
@@ -11,24 +12,22 @@
 (add-to-list 'deft-extensions "tex")
 (setq deft-default-extension "org")
 (setq deft-text-mode 'org-mode)
-(setq deft-directory "~/notes")
+(setq deft-directory org-roam-directory)
 
 (setq deft-auto-save-interval 0)
 ;;; disable auto-save
 ;; (setq deft-auto-save-interval -1.0)
 
-(setq deft-use-filter-string-for-filename t)
 
 
 ;; Enable searching for files in subdirectories
 (setq deft-recursive t)
 
-;; Global keyboard binding for Deft
-
-;; (global-set-key [f8] 'deft)
+;;; Global keyboard binding for Deft
+(global-set-key (kbd "C-c n d") 'deft)
 
 ;; For compatibility with other applications which use the filename as the title of a note
-;;(setq deft-use-filename-as-title t)
+;; (setq deft-use-filename-as-title t)
 
 ;;; When non-nil, automatically generated titles in new org-mode files will be prefixed with #+TITLE:
 (setq deft-org-mode-title-prefix t)
@@ -38,11 +37,32 @@
 (setq deft-use-filter-string-for-filename t)
 
 ;;; converts the filter string into a readable file-name using kebab-case:
-(setq deft-file-naming-rules
-    '((noslash . "-")
-      (nospace . "-")
-      (case-fn . downcase)))
+;; (setq deft-file-naming-rules
+;;     '((noslash . "-")
+;;       (nospace . "-")
+;;       (case-fn . downcase)))
 
-(global-set-key (kbd "C-x C-g") 'deft-find-file)
+;;; For org-roam compatibility
+(defun ecf/deft-parse-title (file contents)
+  "Parse the given FILE and CONTENTS and determine the title.
+  If `deft-use-filename-as-title' is nil, the title is taken to
+  be the first non-empty line of the FILE.  Else the base name of the FILE is
+  used as title."
+  (let ((begin (string-match "^#\\+[tT][iI][tT][lL][eE]: .*$" contents)))
+    (if begin
+	(string-trim (substring contents begin (match-end 0)) "#\\+[tT][iI][tT][lL][eE]: *" "[\n\t ]+")
+      (deft-base-filename file))))
+
+(advice-add 'deft-parse-title :override #'ecf/deft-parse-title)
+
+(setq deft-strip-summary-regexp
+      (concat "\\("
+	      "[\n\t]" ;; blank
+	      "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
+	      "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n"
+	      "\\|^:LOCALSETUP:\n\\(.+\n\\)+:END:\n"
+	      "\\|^:SETUP_EXPORT:\n\\(.+\n\\)+:END:\n"
+	      "\\|^#\\+begin_export hugo\n\\(.+\n\\)+#\\+end_export\n"
+	      "\\)"))
 
 ;;;

@@ -234,7 +234,7 @@
 ;;}}}
 ;;{{{ Notes
 
-(desire-old 'deft nil "deft" t)
+(desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
