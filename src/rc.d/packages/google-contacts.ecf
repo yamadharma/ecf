@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Google Contacts for Emacs
+;; https://github.com/jd/google-contacts.el
+
+(require 'google-contacts)
+
+;;; Save password phrase
+(setq plstore-cache-passphrase-for-symmetric-encryption t)
+
+;;;

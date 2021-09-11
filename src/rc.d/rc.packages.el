@@ -211,7 +211,11 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-contacts)
+(desire 'google-contacts)
+
 (desire 'org-ref)
+
 
 (desire 'org-superstar)
 (desire 'org-super-agenda)
@@ -228,7 +232,7 @@
 (desire 'org-appear)
 (desire 'org-fragtog)
 
-;; (desire 'org-vcard)
+(desire 'org-vcard)
 ;; (desire 'vdirel)
 
 ;;}}}
@@ -291,7 +295,7 @@
 ;;}}}
 ;;{{{ These provide options for the various message handling packages.
 
-; (desire-old 'browse-url)
+(desire 'browse-url)
 ; (desire-old 'mailcrypt)
 ; (desire-old 'supercite)
 

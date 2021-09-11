@@ -1,1 +1,14 @@
-(setq browse-url-browser-function 'browse-url-netscape)
+
+;; (setq browse-url-browser-function 'browse-url-netscape)
+
+;;; Chromium
+;; (setq browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "chromium-browser")
+
+;;; Google Chrome
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome-stable")
+
+;;; Epiphany
+;; (setq browse-url-browser-function 'browse-url-epiphany)
+;; (setq browse-url-epiphany-new-window-is-tab t) ;; for tab instead of new window

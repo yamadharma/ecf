@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; 
+
+(require 'org-contacts)
+
+(setq org-contacts-files (list (concat org-directory "personal/contacts.org")))
+
+;;(setq org-contacts-address-property "CITY")
+;;(setq org-contacts-birthday-property "BORN")
+;;(setq org-contacts-icon-property "PHOTOGRAPH")
+
+;;;
