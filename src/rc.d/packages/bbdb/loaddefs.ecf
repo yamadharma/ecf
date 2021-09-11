@@ -9,6 +9,7 @@
 
 ;;;Not under bbdb-2.2 ;;; (require 'bbdb-autoloads)
 
+(require 'bbdb-loaddefs)
 (require 'bbdb)
 (bbdb-initialize)
 

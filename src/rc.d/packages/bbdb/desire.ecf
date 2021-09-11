@@ -1,4 +1,4 @@
-(setq bbdb-file (expand-file-name "bbdb" emacs-etc-dir))
+;; (setq bbdb-file (expand-file-name "bbdb" emacs-etc-dir))
 
 (setq bbdb-electric-p nil)
 
@@ -17,14 +17,14 @@
 (setq bbdb-north-american-phone-numbers-p nil)
 
 ;; EXTRA FUNCTIONS/KEY BINDINGS
-;(require 'bbdb-query)
+;;(require 'bbdb-query)
 ;; The space keybinding gets smashed by bbdb-display-records.  This is
 ;; unfortunate, so we add bindings for return as well.
-(define-key bbdb-mode-map " " 'scroll-up)  
-(define-key bbdb-mode-map "\r" 'scroll-up)
-(define-key bbdb-mode-map "\n" 'scroll-up)
-(define-key bbdb-mode-map "\C-?" 'scroll-down)
-(define-key bbdb-mode-map "a" 'bbdb-create)
+;;(define-key bbdb-mode-map " " 'scroll-up)  
+;;(define-key bbdb-mode-map "\r" 'scroll-up)
+;;(define-key bbdb-mode-map "\n" 'scroll-up)
+;;(define-key bbdb-mode-map "\C-?" 'scroll-down)
+;;(define-key bbdb-mode-map "a" 'bbdb-create)
 
 ;; CANONICALISING EMAIL ADDRESSES
 (setq bbdb-canonicalize-net-hook 'mms-bbdb-canonicalize-net-hook)
@@ -77,7 +77,7 @@ the cdr is a string to substitute for it.")
 
 ;; Dialing
 
-(setq bbdb-dial-local-prefix "1")
+;;(setq bbdb-dial-local-prefix "1")
 (setq bbdb-sound-player "/usr/bin/audioplay")
 
 ;; Work-around the ZIP-code parsing.
@@ -111,5 +111,5 @@ the cdr is a string to substitute for it.")
   "Export phone entries from BBDB to a Gnokii contacts file."
   t)
 
-(setq bbdb-gnokii-extras-file
-      (expand-file-name "bbdb-gnokii-extras.txt" emacs-etc-dir))
+;;(setq bbdb-gnokii-extras-file
+;;      (expand-file-name "bbdb-gnokii-extras.txt" emacs-etc-dir))

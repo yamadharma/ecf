@@ -170,10 +170,12 @@
 ;;}}}
 ;;{{{ BBDB
 
+(desired 'vcard)
+
 ;; BBDB - Must be loaded before most other things, since other things
 ;;        may perform special configuration if BBDB is present.
 
-(desire-old 'bbdb nil "bbdb")
+(desire 'bbdb)
 
 ;;}}}
 ;;{{{ Completion
