@@ -307,7 +307,7 @@
 
 (desire 'smtpmail)
 
-(desire 'gnus)
+;; (desire 'gnus)
 ;; (desire-old 'message)
 ;; (desire-old 'vm)
 ;; (desire 'wl :ensurename 'wanderlust)
