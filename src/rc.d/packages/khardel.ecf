@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Emacs package integrating khard, a console cardav client
+;; https://gitea.petton.fr/DamienCassou/khardel
+
+(require 'khardel)
+
+;;;
