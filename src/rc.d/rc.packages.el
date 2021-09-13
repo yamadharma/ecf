@@ -214,8 +214,8 @@
 ;;}}}
 ;;{{{ org-mode
 
-(desire 'org-contacts)
-(desire 'google-contacts)
+;; (desire 'org-contacts)
+;; (desire 'google-contacts)
 
 (desire 'org-ref)
 
