@@ -168,17 +168,6 @@
 ;;(desire-old 'wcheck)
 
 ;;}}}
-;;{{{ BBDB
-
-(desired 'vcard)
-(desire 'khardel :precondition-system-executable "khard")
-
-;; BBDB - Must be loaded before most other things, since other things
-;;        may perform special configuration if BBDB is present.
-
-(desire 'bbdb)
-
-;;}}}
 ;;{{{ Completion
 
 (desire 'marginalia)
@@ -193,6 +182,18 @@
 ;; (desire 'selectrum)
 
 ;;}}}
+;;{{{ Adress book
+
+(desired 'vcard)
+(desire 'khardel :precondition-system-executable "khard")
+
+;; BBDB - Must be loaded before most other things, since other things
+;;        may perform special configuration if BBDB is present.
+
+(desire 'bbdb)
+
+;;}}}
+
 
 (desire 'projectile)
 
