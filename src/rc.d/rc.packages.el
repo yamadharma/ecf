@@ -297,19 +297,19 @@
 ;; (desire-old 'diary "diary-lib")
 
 ;;}}}
-;;{{{ These provide options for the various message handling packages.
+;;{{{ These provide options for the various message handling packages
 
 (desire 'browse-url)
-; (desire-old 'mailcrypt)
-; (desire-old 'supercite)
+;; (desire-old 'mailcrypt)
+(desire 'supercite)
 
 ;;}}}
-;;{{{ Message handing packages.
+;;{{{ Message handing packages
 
 (desire 'smtpmail)
 
 ;; (desire 'gnus)
-;; (desire-old 'message)
+(desire 'message)
 ;; (desire-old 'vm)
 ;; (desire 'wl :ensurename 'wanderlust)
 ;; (desire-old 'sendmail)
