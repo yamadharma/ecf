@@ -175,7 +175,7 @@
 (desire 'company)
 
 (desire 'helm-rg :precondition-system-executable "rg")
-(desire 'helm-posframe)
+;; (desire 'helm-posframe)
 (desire 'helm)
 
 ;; (desire 'ivy)
@@ -191,6 +191,14 @@
 ;;        may perform special configuration if BBDB is present.
 
 (desire 'bbdb)
+
+;;}}}
+;;{{{ Bibliography
+
+(desire 'bibtex-completion)
+(desire 'biblio)
+(desire 'bibtex)
+(desire 'ebib)
 
 ;;}}}
 
@@ -213,6 +221,8 @@
 (desire-old 'markdown-mode nil "markdown-mode" t)
 
 ;;}}}
+
+
 ;;{{{ org-mode
 
 ;; (desire 'org-contacts)
@@ -244,14 +254,6 @@
 
 (desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
-
-;;}}}
-;;{{{ Bibliography
-
-(desire 'bibtex-completion)
-(desire 'biblio)
-(desire 'bibtex)
-(desire 'ebib)
 
 ;;}}}
 ;;{{{ LaTeX

@@ -2,6 +2,6 @@
 
 (setq ebib-preload-bib-files '("~/work/bib/bib/main.bib"))
 (setq ebib-bib-search-dirs '("~/work/bib/pdf"))
-(setq ebib-keywords-file "~/work/bib/bib/keywords")
+(setq ebib-keywords "~/work/bib/bib/keywords")
 
 ;;;
