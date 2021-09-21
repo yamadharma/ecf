@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Allow using individual faces for the columns in mu4e’s email overview
+;; https://github.com/Alexander-Miller/mu4e-column-faces
+
+(desire 'mu4e-column-faces)
+(mu4e-column-faces-mode)
+
+;;;
