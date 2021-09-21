@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Refile depends on provider
+;; For Google-based accounts it will trash the inbox copy, leaving the other copy in All Mail folder intact, effectively archiving it. For
+;; other email accounts, it will move the message to the refile maildir, marking it as seen and not new. This way, you can
+;;; just press =r= on a list of messages and they will be archived correctly.
+
+(setq ecf/refile-dwim
+      '(:char ("r" . "▶")
+              :prompt "refile"
+              :dyn-target (lambda (target msg) (mu4e-get-refile-folder msg))
+              :action (lambda (docid msg target)
+                        (let ((maildir (mu4e-message-field msg :maildir)))
+                          (if (string-match-p "@gmail.com\\|@sci.pfu.edu.ru" maildir)
+                              (mu4e~proc-remove docid)
+                            (mu4e~proc-move docid (mu4e~mark-check-target target) "+S-u-N"))))))
+(setf (alist-get 'refile mu4e-marks) ecf/refile-dwim)
+
+;;;
+
