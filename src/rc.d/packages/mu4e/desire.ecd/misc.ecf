@@ -56,12 +56,18 @@
       mu4e-mu-binary "/usr/bin/mu"
       mu4e-sent-messages-behavior 'sent
       mu4e-update-interval 600
-      mu4e-use-fancy-chars nil
+      mu4e-use-fancy-chars t
       mu4e-view-prefer-html t
       mu4e-view-show-addresses 't
       mu4e-view-show-images t
       smtpmail-smtp-service 587
       starttls-use-gnutls t)
+
+
+;;; Run cleanup after indexing
+(setq mu4e-index-cleanup t)
+;;; No lazy check and partial indexing
+(setq mu4e-index-lazy-check nil)
 
 ;;; Including related messages
 ;; Include messages that are related to these messages

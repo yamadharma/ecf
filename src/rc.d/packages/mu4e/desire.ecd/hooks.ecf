@@ -16,7 +16,12 @@
             (turn-on-flyspell)))
 
 (add-to-list 'mu4e-view-actions
-             '("View In Browser" . mu4e-action-view-in-browser) t)
+	     '("Apply Email" . mu4e-action-git-apply-mbox) t)
+
+(add-hook 'mu4e-context-changed-hook
+          (lambda ()
+            (when (derived-mode-p 'mu4e-main-mode)
+              (revert-buffer))))
 
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))

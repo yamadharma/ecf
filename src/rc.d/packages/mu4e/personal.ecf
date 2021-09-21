@@ -47,22 +47,30 @@
 
 (setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru"))
 
+;; (setq
+;;  ecf/inbox-query (mapconcat
+;;                   (lambda (d) (format "m:/%s/Inbox" d))
+;;                   ecf-mail-accounts " OR ")
+;;  ecf/today-query (concat "date:today..now AND NOT "
+;;                          (mapconcat
+;;                           (lambda (d) (format "m:/%s/Trash" d))
+;;                           ecf-mail-accounts " AND NOT "))
+;;  ecf/week-query (concat "date:7d..now AND NOT "
+;;                         (mapconcat
+;;                          (lambda (d) (format "m:/%s/Trash" d))
+;;                          ecf-mail-accounts " AND NOT "))
+;;  ecf/trash-query (mapconcat
+;;                   (lambda (d) (format "m:/%s/Trash" d))
+;;                   ecf-mail-accounts " OR ")
+;;  ecf/unread-query (concat "flag:unread AND NOT (" ecf/trash-query ")"))
+
 (setq
- ecf/inbox-query (mapconcat
-                  (lambda (d) (format "m:/%s/Inbox" d))
-                  ecf-mail-accounts " OR ")
- ecf/today-query (concat "date:today..now AND NOT "
-                         (mapconcat
-                          (lambda (d) (format "m:/%s/Trash" d))
-                          ecf-mail-accounts " AND NOT "))
- ecf/week-query (concat "date:7d..now AND NOT "
-                        (mapconcat
-                         (lambda (d) (format "m:/%s/Trash" d))
-                         ecf-mail-accounts " AND NOT "))
- ecf/trash-query (mapconcat
-                  (lambda (d) (format "m:/%s/Trash" d))
-                  ecf-mail-accounts " OR ")
- ecf/unread-query (concat "flag:unread AND NOT (" ecf/trash-query ")"))
+ ecf/inbox-query "maildir:/Inbox/" 
+ ecf/today-query "date:today..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
+ ecf/week-query "date:7d..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
+ ecf/trash-query "maildir:/Trash/"
+ ecf/unread-query "flag:new AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
+
 
 (setq mu4e-bookmarks  `(( :name  "Unread"
 				 :query ,ecf/unread-query

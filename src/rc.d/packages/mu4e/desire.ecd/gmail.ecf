@@ -1,12 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;
 
-;;; don't need to run cleanup after indexing for gmail
-;; (setq mu4e-index-cleanup nil)
-
-;;; because gmail uses labels as folders we can use lazy check since messages don't really "move"
-;; (setq mu4e-index-lazy-check t)
-
 ;; This hook correctly modifies gmail flags on emails when they are marked.
 ;; Without it, refiling (archiving), trashing, and flagging (starring) email
 ;; won't properly result in the corresponding gmail action, since the marks

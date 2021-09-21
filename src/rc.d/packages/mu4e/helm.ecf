@@ -12,7 +12,8 @@
 
 ;; (global-set-key (kbd "C-c h h c")  'helm-mu-contacts)
 
-(setq helm-mu-append-implicit-wildcard t)
+;;; Should a wildcard be appended implicitly to the search string
+(setq helm-mu-append-implicit-wildcard nil)
 ;; (setq helm-mu-gnu-sed-program "sed")
 
 ;;; Only show contacts who sent you emails directly
