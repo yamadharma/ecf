@@ -1,0 +1,43 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Configure Unicode fonts for Emacs
+;; https://github.com/rolandwalker/unicode-fonts
+
+(require 'unicode-fonts)
+
+;;; ligature support
+(setq unicode-fonts-enable-ligatures t)
+
+;;; By default ligatures will be enabled in all programing modes.
+(setq unicode-fonts-ligature-modes '(prog-mode))
+
+;;; You can enable ligatures for specific modes.
+;; (setq unicode-fonts-ligature-modes '(php-mode js-mode))
+
+;;; To enable only for text modes you can use text-mode
+;; (setq unicode-fonts-ligature-modes '(text-mode))
+
+;;; Configure the ligature set
+(setq unicode-fonts-ligature-set '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+				   ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+				   "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+				   "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+				   "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+				   "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+				   "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+				   "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+				   ">=" ">>" ">-" "-~" "-|" "->" "-<" "<~" "<*" "<|" "<:" "<$"
+				   "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!" "##"
+				   "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:" "?="
+				   "?." "??" ";;" "/*" "/**" "/=" "/>" "__" "~~" "(*" "*)"
+				   "://"))
+
+(setq ecf-unicode-font (font-spec :family "Iosevka" :size 12))
+
+(when ecf-unicode-font
+  (let ((ecf-unicode-font-family (plist-get (font-face-attributes ecf-unicode-font) :family)))
+    (dolist (unicode-block unicode-fonts-block-font-mapping)
+      (push ecf-unicode-font-family (cadr unicode-block)))))
+
+(unicode-fonts-setup)
+
+;;;

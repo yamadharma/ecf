@@ -56,7 +56,6 @@
       mu4e-mu-binary "/usr/bin/mu"
       mu4e-sent-messages-behavior 'sent
       mu4e-update-interval 600
-      mu4e-use-fancy-chars t
       mu4e-view-prefer-html t
       mu4e-view-show-addresses 't
       mu4e-view-show-images t

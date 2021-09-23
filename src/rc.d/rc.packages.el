@@ -126,6 +126,9 @@
 ;; (desire-old 'faces)
 ;; (desire-old 'color-theme nil "color-theme")
 ;; (desire-old 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
+
+(desire 'unicode-fonts)
+
 (desire-old 'theme)
 
 (desire-old 'modeline)

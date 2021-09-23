@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Display icons for mu4e markers 
+;; https://github.com/stardiviner/mu4e-marker-icons
+
+(desire 'mu4e-marker-icons)
+(require 'mu4e-marker-icons)
+
+(setq mu4e-marker-icons-use-unicode t)
+(mu4e-marker-icons-mode 1)
+
+;;;
+
