@@ -3,5 +3,9 @@
 (setq ebib-preload-bib-files '("~/work/bib/bib/main.bib"))
 (setq ebib-bib-search-dirs '("~/work/bib/pdf"))
 (setq ebib-keywords "~/work/bib/bib/keywords")
+;; (setq org-ref-bibliography-notes "~/Papers/notes.org")
+;; (setq ebib-preload-bib-files '("path-to-bib-file.bib"))
+;; (setq ebib-file-search-dirs '("/path-to-documents-directory"))
+;; (setq ebib-import-directory "path-to-e.g.-download-directory"))
 
 ;;;

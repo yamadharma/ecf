@@ -2,7 +2,6 @@
 ;;; 
 
 (setq ebib-bibtex-dialect 'biblatex)
-;; (setq ebib-preload-bib-files '("~/bib/Vbib.bib"))
 (setq ebib-use-timestamp t) ;; todo customize on export info:ebib#Timestamps
 ;; (setq ebib-file-search-dirs '("~/bib/pdfs"))
 ;; (setq ebib-notes-directory "~/bib/notes/")
@@ -25,10 +24,5 @@
 			   ("Timestamp" 10 t)))
 (setq ebib-file-associations
       '(("docx" . "soffice") ("odt" . "soffice")("doc" . "soffice")))
-
-(setq ebib-reading-list-file (concat org-directory-todo "readinglist.org"))
-;; (setq ebib-reading-list-todo-marker "TODO")
-;; (setq ebib-reading-list-template "* %M %T :read:\n:PROPERTIES:\n%K\n%N\n:END:\n%L\n")
-;; (setq ebib-reading-list-template "* %M %T :read:\n:PROPERTIES:\n%K\n:END:\n%L\n")
 
 ;;;

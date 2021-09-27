@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Managing a reading list
+
+(setq ebib-reading-list-file (concat org-directory-todo "readinglist.org"))
+(setq ebib-reading-list-todo-marker "TODO")
+;; (setq ebib-reading-list-template "* %M %T :read:\n:PROPERTIES:\n%K\n%N\n:END:\n%L\n")
+;; (setq ebib-reading-list-template "* %M %T :read:\n:PROPERTIES:\n%K\n:END:\n%L\n")
+;; (setq ebib-reading-list-template "* %M %T\n:PROPERTIES:\n%K\n:END:\nL: %L\nF: %F\nD: %D\nU: %U")
+
+(setq ebib-reading-list-template "* %M %T\n:PROPERTIES:\n%K\n:END:\n")
+;;;

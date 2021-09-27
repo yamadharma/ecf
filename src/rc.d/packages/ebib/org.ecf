@@ -3,4 +3,7 @@
 
 (require 'org-ebib)
 
+;;; Link to ebib entry in org mode
+(org-add-link-type "ebib" 'ebib)
+
 ;;;
