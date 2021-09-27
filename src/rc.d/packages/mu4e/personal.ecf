@@ -73,7 +73,8 @@
  ecf/week-query "date:7d..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
  ecf/trash-query "maildir:/Trash/" 
  ecf/spam-query "maildir:/Spam/"
- ecf/unread-query "flag:new AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
+ ecf/unread-query "flag:new AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
+ ecf/attachment-query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/* AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
 
 
 (setq mu4e-bookmarks  `(( :name  "Unread"
@@ -103,7 +104,7 @@
 				:key ?j
 				:hide-unread nil)
                         ( :name "Attachments"
-				:query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/*"
+				:query ,ecf/attachment-query
 				:key   ?a
 				:hide-unread t)))
 
