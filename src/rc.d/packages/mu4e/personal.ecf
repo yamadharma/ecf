@@ -15,6 +15,7 @@
        (sent	   (concat "/" maildir "/Sent"))
        (trash	   (concat "/" maildir "/Trash"))
        (refile   (concat "/" maildir "/Archive"))
+       (spam   (concat "/" maildir "/Spam"))
        (draft	   (concat "/" maildir "/Drafts")))
     
     `(make-mu4e-context
@@ -44,7 +45,8 @@
 				       (,sent    . ?s)
 				       (,trash   . ?t)
 				       (,refile  . ?a)
-				       (,draft   . ?d)))))))
+				       (,draft   . ?d)
+				       (,spam   . ?j)))))))
 
 (setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru"))
 
@@ -69,7 +71,8 @@
  ecf/inbox-query "maildir:/Inbox/" 
  ecf/today-query "date:today..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
  ecf/week-query "date:7d..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
- ecf/trash-query "maildir:/Trash/"
+ ecf/trash-query "maildir:/Trash/" 
+ ecf/spam-query "maildir:/Spam/"
  ecf/unread-query "flag:new AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
 
 
@@ -94,7 +97,11 @@
                         ( :name "Trash"
 				:query ,ecf/trash-query
 				:key ?x
-				:hide-unread t)
+				:hide-unread nil)
+			( :name "Spam"
+				:query ,ecf/spam-query
+				:key ?j
+				:hide-unread nil)
                         ( :name "Attachments"
 				:query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/*"
 				:key   ?a
