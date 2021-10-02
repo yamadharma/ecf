@@ -8,4 +8,7 @@
 ;;; https://github.com/CrossRef/rest-api-doc#etiquette
 (setq biblio-crossref-user-email-address user-mail-address)
 
+;;; Which header to use for BibTeX entries generated from arXiv metadata
+(setq biblio-arxiv-bibtex-header "misc")
+
 ;;;

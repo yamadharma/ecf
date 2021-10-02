@@ -4,4 +4,93 @@
 (require 'ebib-biblio)
 (define-key biblio-selection-mode-map (kbd "e") #'ebib-biblio-selection-import)
 
+;;; You can press `Ctrl-i' and the current record is added to your ebib database
+(define-key biblio-selection-mode-map (kbd "C-i") #'ecf/biblio-to-ebib-and-quit)
+(defun ecf/biblio-to-ebib-and-quit ()
+  (interactive)
+  (biblio--selection-forward-bibtex
+   (lambda (entry metadata)
+     (print entry)
+     (ebib-capture-raw-bibtex entry)
+     (ebib--update-buffers))
+   t))
+
+;;; Extend `ebib' with a function to edit raw Bibtex entries from arbitrary sources
+;;; http://juanjose.garciaripoll.com/blog/managing-bibliographies-from-emacs/index.html
+
+(defvar ebib-capture-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map "\C-c\C-c" #'ebib-capture-finalize)
+    (define-key map "\C-c\C-k" #'ebib-capture-kill)
+    map)
+  "Keymap for `ebib-capture-mode', a minor mode.
+  Use this map to set additional keybindings for when Org mode is used
+  for a capture buffer.")
+
+(defvar ebib-capture-mode-hook nil
+  "Hook for the `ebib-capture-mode' minor mode.")
+
+(define-minor-mode ebib-capture-mode
+  "Minor mode for special key bindings in a capture buffer.
+
+  Turning on this mode runs the normal hook `ebib-capture-mode-hook'."
+  nil " Cap" ebib-capture-mode-map
+  (setq-local
+   header-line-format
+   (substitute-command-keys
+    "\\<ebib-capture-mode-map>Capture buffer.  Finish \
+  `\\[ebib-capture-finalize]', abort `\\[ebib-capture-kill]'.")))
+
+(defun ebib-capture-kill ()
+  "Abort the current capture process."
+  (interactive)
+  ;; FIXME: This does not do the right thing, we need to remove the
+  ;; new stuff by hand it is easy: undo, then kill the buffer
+  (kill-buffer (current-buffer))
+  (quit-window))
+
+(defun ebib-capture-finalize ()
+  "Save entries and finalize."
+  (interactive)
+  (ebib--execute-when
+   ((or slave-db filtered-db)
+    (error "[Ebib] Cannot merge into a filtered or a slave database"))
+   (real-db
+    (unless (ebib-capture-check-duplicates)
+      (let ((result (ebib--bib-find-bibtex-entries ebib--cur-db nil)))
+	(ebib--log 'message "%d entries, %d @Strings and %s @Preamble found in file."
+		   (car result)
+		   (cadr result)
+		   (if (nth 2 result) "a" "no")))
+      (ebib--update-buffers)
+      (ebib--set-modified t ebib--cur-db)
+      (ebib-capture-kill)))
+   (default (beep))))
+
+(defun ebib-capture-check-duplicates ()
+  (interactive)
+  (let ((db (ebib-db-new-database))
+	(duplicates '()))
+    (let ((result (ebib--bib-find-bibtex-entries db nil)))
+      (if (zerop (car result))
+	  (message "No entries found")
+	(maphash
+	 (lambda (key value)
+	   (if (ebib-db-get-entry key ebib--cur-db t)
+	       (push key duplicates)))
+	 (ebib-db-val 'entries db))))
+    (when duplicates
+	  (message "Found duplicate keys: %S" duplicates)
+	  (goto-char 0)
+	  (search-forward (car duplicates)))))
+
+(defun ebib-capture-raw-bibtex (entry)
+  (with-current-buffer (get-buffer-create "*Biblio entry*")
+    (erase-buffer)
+    (insert entry)
+    (bibtex-mode)
+    (ebib-capture-mode)
+    (pop-to-buffer (current-buffer))
+    (current-buffer)))
+
 ;;;
