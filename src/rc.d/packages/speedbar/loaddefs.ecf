@@ -1,21 +1,22 @@
-;;; speedbar.ecf --- Load speedbar settings -*- coding: iso-2022-7bit-unix; -*-
+;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Load speedbar settings
+;;; https://www.gnu.org/software/emacs/manual/html_node/speedbar/
 
 ;; Add bindings to make it easier to use speedbar.
 ;; If you want to choose it from a menu, such as "Tools", and it doesn't
 ;; already exist in your version of Emacs.
 
 (define-key-after (lookup-key global-map [menu-bar tools])
-      [speedbar] '("Speedbar" . speedbar-frame-mode) [calendar]
-)
+  [speedbar] '("Speedbar" . speedbar-frame-mode) [calendar])
 
-;   XEmacs:
-;   (add-menu-button '("Tools")
-;		      ["Speedbar" speedbar-frame-mode
-;		       :style toggle
-;		       :selected (and (boundp 'speedbar-frame)
-;				      (frame-live-p speedbar-frame)
-;				      (frame-visible-p speedbar-frame))]
-;		      "--")
+;;   XEmacs:
+;;   (add-menu-button '("Tools")
+;;		      ["Speedbar" speedbar-frame-mode
+;;		       :style toggle
+;;		       :selected (and (boundp 'speedbar-frame)
+;;				      (frame-live-p speedbar-frame)
+;;				      (frame-visible-p speedbar-frame))]
+;;		      "--")
 
 ;; Access speedbar using only the keyboard.
 (global-set-key [(f4)] 'speedbar-get-focus)
@@ -29,7 +30,7 @@
 ;; For any verison of emacs on a linux RPM based system:
 (autoload 'rpm "sb-rpm" "Rpm package listing in speedbar.")
 
-;   For XEmacs, or Emacs earlier than 20.2:
+;; For XEmacs, or Emacs earlier than 20.2:
 
 ;; chapter listings
 (autoload 'Info-speedbar-buttons "sb-info" "Info specific speedbar button generator.")
@@ -38,9 +39,9 @@
 ;; current stack display
 (autoload 'gud-speedbar-buttons "sb-gud" "GUD specific speedbar button generator.")
 
-;For an info mode in Emacs 20.x and XEmacs, it may be necessary to
-;do this instead:
-;(eval-after-load "info" '(require 'sb-info))
+;;For an info mode in Emacs 20.x and XEmacs, it may be necessary to
+;;do this instead:
+;;(eval-after-load "info" '(require 'sb-info))
 
 
-;;; speedbar.ecf ends here
+;;; 

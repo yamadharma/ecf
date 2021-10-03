@@ -1,0 +1,16 @@
+;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Same frame speedbar
+;;; https://www.emacswiki.org/emacs/download/sr-speedbar.el
+
+(desire 'sr-speedbar)
+(require 'sr-speedbar)
+
+(with-eval-after-load "speedbar"
+  (autoload 'sr-speedbar-toggle "sr-speedbar" nil t)
+  (global-set-key (kbd "s-s") 'sr-speedbar-toggle))
+
+;; (setq sr-speedbar-auto-refresh nil)
+
+;; Put on left side
+(setq sr-speedbar-right-side nil)
+;;; 

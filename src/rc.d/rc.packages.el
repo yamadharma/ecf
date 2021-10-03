@@ -323,7 +323,9 @@
 ;;}}}
 ;;{{{ Programming
 
-;; (desire-old 'speedbar nil "speedbar")
+(desire 'dired)
+
+(desire 'speedbar)
 ;; (desire-old 'semantic nil "semantic")
 
 ;; (desire-old 'cedet nil "cedet")
