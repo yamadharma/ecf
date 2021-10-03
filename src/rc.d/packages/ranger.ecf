@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Bringing the goodness of ranger to dired
+;;; https://github.com/ralesi/ranger.el
+
+(desire 'ranger)
+(require 'ranger)
+
+(setq ranger-override-dired t)
+
+;;;

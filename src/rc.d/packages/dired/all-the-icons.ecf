@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Adds dired support to all-the-icons
+;;; https://github.com/jtbm37/all-the-icons-dired
+
+(desire 'all-the-icons-dired)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+;;; Config for other packages
+
+;;; Theme
+(setq dired-sidebar-theme 'icons)
+
+;;;

@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Twin-pane file manager for Emacs based on Dired and inspired by Midnight Commander
+;;; https://github.com/sunrise-commander/sunrise-commander
+
+(desire 'sunrise-commander)
+(require 'sunrise-commander)
+(require 'sunrise-x-buttons)
+(require 'sunrise-x-modeline)
+
+(add-to-list 'auto-mode-alist '("\\.srvm\\'" . sr-virtual-mode))
+
+;;;

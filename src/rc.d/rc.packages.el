@@ -1,4 +1,5 @@
-;;; rc.packages.el -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; rc.packages.el
 
 ;;; Commentary:
 
@@ -224,8 +225,13 @@
 (desire-old 'markdown-mode nil "markdown-mode" t)
 
 ;;}}}
+;;{{{ 
 
+(desire 'dired)
+;; (desire 'ranger)
+;; (desire 'sunrise-commander)
 
+;;}}}
 ;;{{{ org-mode
 
 ;; (desire 'org-contacts)
@@ -323,9 +329,7 @@
 ;;}}}
 ;;{{{ Programming
 
-(desire 'dired)
-
-(desire 'speedbar)
+;; (desire 'speedbar)
 ;; (desire-old 'semantic nil "semantic")
 
 ;; (desire-old 'cedet nil "cedet")

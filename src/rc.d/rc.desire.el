@@ -1,11 +1,12 @@
-;;; rc.desire.el --- path configuration for `desire.el' -*- coding: iso-2022-7bit-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; rc.desire.el --- path configuration for `desire.el'
 
 ;;; Commentary:
 
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2014 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2021 Dmitry S. Kulyabov
 ;;      Keywords:      rc.desire
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
@@ -46,15 +47,24 @@
     ) ;; end if
   )
 
-  ;; OS
-  (setq desire-system-load-path
-    (cond
-      ((eq system-type 'windows-nt)
-        (list "system/w32")
-      )
-    ) ;; end cond
-  )
+  ;;; OS
+  ;; (setq desire-system-load-path
+  ;;   (cond
+  ;;     ((eq system-type 'windows-nt)
+  ;;       (list "system/w32")
+  ;;     )
+  ;;   ) ;; end cond
+  ;; )
 
+  (setq desire-system-load-path
+	(cond
+	 (IS-WINDOWS (list "system/windows"))
+	 (IS-BSD (list "system/bsd"))
+	 (IS-MAC (list "system/mac"))
+	 ))
+  
+
+  
   ;; Emacs or Xemacs    
   (setq desire-xe-version-load-path
     (if (boundp 'xemacs-logo)

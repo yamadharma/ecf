@@ -5,7 +5,7 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2006 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2021 Dmitry S. Kulyabov
 ;;      Keywords:      tinypath
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>

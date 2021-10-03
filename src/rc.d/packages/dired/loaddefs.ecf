@@ -1,5 +1,8 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;; 
+;;; Dired, the Directory Editor
+;;; https://www.emacswiki.org/emacs/DiredMode
+
+(require 'dired)
 
 ;;;
 

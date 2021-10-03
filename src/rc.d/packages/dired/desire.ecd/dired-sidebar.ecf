@@ -1,0 +1,22 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Sidebar for Emacs leveraging Dired
+;;; https://github.com/jojojames/dired-sidebar
+
+(desire 'dired-sidebar)
+(require 'dired-sidebar)
+
+(global-set-key (kbd "C-x C-n") #'dired-sidebar-toggle-sidebar)
+
+;;; Hook
+(add-hook 'dired-sidebar-mode-hook
+          (lambda ()
+            (unless (file-remote-p default-directory)
+              (auto-revert-mode))))
+(push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+(push 'rotate-windows dired-sidebar-toggle-hidden-commands)
+
+(setq dired-sidebar-subtree-line-prefix "__")
+(setq dired-sidebar-use-term-integration t)
+(setq dired-sidebar-use-custom-font t)
+
+;;;
