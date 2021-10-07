@@ -260,16 +260,16 @@ Accepts the following optional arguments:
 
 Accepts the following properties:
 
-  :initname FNAME
+ :initname FNAME
     FNAME is a string containing the name of the file that, when loaded, will
     trigger dynamic loading of extra configuration files. If FNAME is
     omitted then the string corresponding to PACKAGE is used instead.
-  :precondition PRECOND
+ :precondition PRECOND
     PRECOND is name of lisp file as precondition for package loadind.
-  :executable EXECUTABLE
+ :executable EXECUTABLE
     EXECUTABLE is name of executable file as precondition for package loadind.
-  :ensurename PACKAGE-NAME Name of package on repository (like melpa).
-  :autoinstall BOOL
+ :ensurename PACKAGE-NAME Name of package on repository (like melpa).
+ :autoinstall BOOL
     Specifies package autoinstallation.
     `t' - package autoinstalled.
     `nil' - package not autoinstalled.
@@ -323,6 +323,14 @@ then nothing happens and nil is returned."
 
 (message "precond: %s" precond)
 
+;; Use recipe for straight.el
+(setq straight-recipe nil)
+(if recipe
+    (setq straight-recipe (cons package recipe))
+  nil)
+
+(message "recipe: %s ; %s ; recipe =  %s" package recipe straight-recipe)
+
 ;; Check ensure key
 (if ensure
     ;; check if the package is already installed
@@ -336,14 +344,15 @@ then nothing happens and nil is returned."
 	t
       ;; install package
       (if ensurename
-	  (desire-install-package ensurename)
-	(desire-install-package package))
+	  (desire-install-package ensurename recipe)
+	(desire-install-package package recipe))
       ))
 
 (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
 
-(when (and recipe (keywordp (car-safe recipe)))
-  (plist-put! plist :recipe `(quote ,recipe)))
+;; (when (and recipe (keywordp (car-safe recipe)))
+;;   (plist-put! plist :recipe `(quote ,recipe)))
+
 
 ;; Message: found executable precondition
 (if precondition-system-executable
@@ -634,12 +643,28 @@ is the directory name with the prefix directory and extension removed."
       t
     (message "Package not found : %s" fname)))
 
-(defun desire-install-package (package)
+;; (defun desire-install-package (package recipe)
+;;   "Install PACKAGE from repository"
+;;   (unless (package-installed-p package)
+;;     (if recipe
+;; 	(straight-use-package straight-recipe)
+;;       (progn
+;; 	(package-refresh-contents)
+;; 	(package-install package))
+;;       )))
+
+(defun desire-install-package (package &optional recipe)
   "Install PACKAGE from repository"
   (unless (package-installed-p package)
-    (progn
-      (package-refresh-contents)
-      (package-install package))))
+    (if recipe
+	;; Only clone the package, don't build them.
+	;; Straight hasn't been fully configured by this point.
+	(straight-use-package straight-recipe nil t)
+      (progn
+	(package-refresh-contents)
+	(package-install package))
+      )))
+
 
 (provide 'desire)
 

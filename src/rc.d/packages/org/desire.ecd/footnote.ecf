@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Renumbering and sorting footnotes can be automatic after each insertion or deletion
+;;; "No adjustment" nil
+;;; "Renumber" renumber
+;;; "Sort" sort
+;;;  "Renumber and Sort" t
+(setq org-footnote-auto-adjust t)
+
+;;; Define automatically new labels for footnotes
+;;;  "Prompt for label" nil
+;;; "Create automatic [fn:N]" t
+;;; "Offer automatic [fn:N] for editing" confirm
+;;; "Create a random label" random
+(setq org-footnote-auto-label t)
+
+;;;
