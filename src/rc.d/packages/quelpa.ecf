@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Build and install your Emacs Lisp packages on-the-fly directly from source
+;; https://github.com/quelpa/quelpa
+
+(require 'quelpa)
+
+;;; To run quelpa-upgrade-all at most every 14 days
+(setq quelpa-upgrade-interval 14)
+(add-hook #'after-init-hook #'quelpa-upgrade-all-maybe)
+
+;;;

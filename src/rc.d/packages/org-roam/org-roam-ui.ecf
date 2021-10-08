@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A graphical frontend for exploring your org-roam Zettelkasten
+;; https://github.com/org-roam/org-roam-ui
+
+;;; Extensible Emacs HTTP 1.1 server
+;;; https://github.com/skeeto/emacs-web-server
+(desire 'simple-httpd)
+
+;;; A websocket implementation in elisp, for emacs
+;;; https://github.com/ahyatt/emacs-websocket
+(desire 'websocket)
+
+(require 'org-roam-ui)
+
+(setq org-roam-ui-sync-theme t)
+(setq org-roam-ui-follow t)
+(setq org-roam-ui-update-on-save t)
+(setq org-roam-ui-open-on-start t)
+
+;;;

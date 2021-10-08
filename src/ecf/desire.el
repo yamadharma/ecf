@@ -31,7 +31,7 @@
 
 (require 'cl-lib)
 (require 'desire-core-lib)
-(require 'desire-core-packages)
+;; (require 'desire-core-packages)
 
 (defvar desire-load-path nil
   "*List of directories to be searched by `desire' for configuration data.")
@@ -329,6 +329,9 @@ then nothing happens and nil is returned."
     (setq straight-recipe (cons package recipe))
   nil)
 
+;; (when (and recipe (keywordp (car-safe recipe)))
+;;   (plist-put! plist :recipe `(quote ,recipe)))
+
 (message "recipe: %s ; %s ; recipe =  %s" package recipe straight-recipe)
 
 ;; Check ensure key
@@ -349,10 +352,6 @@ then nothing happens and nil is returned."
       ))
 
 (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
-
-;; (when (and recipe (keywordp (car-safe recipe)))
-;;   (plist-put! plist :recipe `(quote ,recipe)))
-
 
 ;; Message: found executable precondition
 (if precondition-system-executable
@@ -659,7 +658,9 @@ is the directory name with the prefix directory and extension removed."
     (if recipe
 	;; Only clone the package, don't build them.
 	;; Straight hasn't been fully configured by this point.
-	(straight-use-package straight-recipe nil t)
+	;; (straight-use-package straight-recipe nil t)
+	;; (straight-use-package straight-recipe)
+	(quelpa straight-recipe)      
       (progn
 	(package-refresh-contents)
 	(package-install package))

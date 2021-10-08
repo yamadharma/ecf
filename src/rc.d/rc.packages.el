@@ -42,8 +42,10 @@
 (desire 'package)
 ;;; Auto update packages
 (desire 'auto-package-update)
+;;; Build and install your Emacs Lisp packages on-the-fly and directly from source
+(desire 'quelpa)
 ;;; A declarative package management system with a command line interface
-(desire 'straight)
+;; (desire 'straight)
 
 ;;}}}
 
@@ -250,6 +252,8 @@
 (desire 'org)
 
 ;; (desire 'org-roam-server)
+;; (desire 'org-roam-ui :recipe '(:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
+(desire 'org-roam-ui :recipe '(:fetcher github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 (desire 'org-roam)
 
 (desire 'org-appear)
