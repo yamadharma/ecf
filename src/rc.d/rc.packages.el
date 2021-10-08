@@ -231,7 +231,7 @@
 
 (desire 'dired)
 ;; (desire 'ranger)
-;; (desire 'sunrise-commander)
+(desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
 
 ;;}}}
 ;;{{{ org-mode
