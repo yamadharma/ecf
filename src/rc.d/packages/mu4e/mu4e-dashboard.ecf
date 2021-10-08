@@ -1,0 +1,82 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A dashboard for mu4e
+;; https://github.com/rougier/mu4e-dashboard
+
+(require 'mu4e-dashboard)
+
+;;; Based on https://gist.github.com/rougier/009e7d13a816d053d8f319b56836e1c9
+(setq mu4e-sidebar-frame nil)
+(setq mu4e-sidebar-dashboard-file "~/.config/emacs/lisp/dashboard.org")
+
+(defun mu4e-sidebar-create (dashboard-file)
+  (let ((width (frame-pixel-width))
+        (height (frame-pixel-height))
+        (frame (make-frame `((parent-frame . ,(window-frame))
+                             (no-accept-focus . t)
+                             (min-width  . t)
+                             (min-height . t)
+                             (border-width . 0)
+                             (internal-border-width . 0)
+                             (vertical-scroll-bars . nil)
+                             (horizontal-scroll-bars . nil)
+                             (left-fringe . 0)
+                             (right-fringe . 1)
+                             (user-position . nil)
+                             (user-size . nil)
+                             (keep-ratio . t)
+                             (menu-bar-lines . 0)
+                             (tool-bar-lines . 0)
+                             (line-spacing . 0)
+                             (desktop-dont-save . t)
+                             (unsplittable . t)
+                             ;; (background-color . ,nano-color-subtle)
+                             ;; (border-color . ,nano-color-faded)
+                             (no-other-frame . t)
+                             (undecorated . t)
+                             (pixelwise . t)
+                             (modeline . nil)
+                             (visibility . nil)
+                             (cursor-type . nil)
+                             (minibuffer . nil)))))
+    (setq mu4e-sidebar-frame frame)
+    (select-frame frame)
+    (modify-frame-parameters frame `((top . 0)
+                                     (height . (text-pixels . ,height))
+                                     (width . 36)
+                                     (left . ,(* -1 width))))
+    (find-file dashboard-file)
+    (mu4e-dashboard-mode)
+    (set-window-dedicated-p nil t)
+    (set-window-margins (get-buffer-window) 2)
+    ;; (face-remap-add-relative 'fringe `(:background ,nano-color-faded))
+    ;; (face-remap-add-relative 'default `(:background ,nano-color-subtle))
+    ;; (face-remap-add-relative 'org-level-1 `(:background ,nano-color-subtle))
+    ;; (face-remap-add-relative 'org-level-2 `(:background ,nano-color-subtle))
+    ;; (face-remap-add-relative 'org-link `(:background ,nano-color-subtle))
+    (setq-local header-line-format nil)
+    (setq-local mode-line-format nil)))
+
+
+(defun mu4e-sidebar-toggle ()
+  (interactive)
+  
+  (if (or (not mu4e-sidebar-frame)
+          (not (frame-live-p mu4e-sidebar-frame)))
+      (mu4e-sidebar-create mu4e-sidebar-dashboard-file))
+  (let* ((frame mu4e-sidebar-frame)
+         (visible (alist-get 'visibility (frame-parameters frame)))
+         (parent (alist-get 'parent (frame-parameters frame)))
+         (width (frame-pixel-width parent))
+         (height (frame-pixel-height parent)))
+    (modify-frame-parameters frame `((top . 0)
+                                     (height . (text-pixels . ,height))
+                                     (width . 36)
+                                     (left . ,(* -1 width))))
+    (if visible
+        (make-frame-invisible frame)
+      (make-frame-visible frame))))
+
+(mu4e-sidebar-toggle)
+
+;;;
+
