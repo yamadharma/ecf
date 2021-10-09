@@ -261,6 +261,7 @@
 (desire 'org-appear)
 (desire 'org-fragtog)
 
+;; (desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve"))
 
 ;; (desire 'vdirel)
 
