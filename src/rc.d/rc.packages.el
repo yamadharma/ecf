@@ -248,6 +248,8 @@
 (desire 'org-gcal)
 (desire 'org-journal)
 
+(desire 'org-vcard)
+
 (desired 'mobileorg)
 (desire 'org)
 
@@ -259,7 +261,7 @@
 (desire 'org-appear)
 (desire 'org-fragtog)
 
-(desire 'org-vcard)
+
 ;; (desire 'vdirel)
 
 ;;}}}
