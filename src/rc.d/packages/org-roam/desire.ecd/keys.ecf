@@ -10,5 +10,7 @@
 (global-set-key (kbd "C-c n t") #'org-roam-tag-add)
 (global-set-key (kbd "C-c n a") #'org-roam-alias-add)
 
+(define-key org-mode-map (kbd "C-M-i") #'completion-at-point)
+
 ;;;
 

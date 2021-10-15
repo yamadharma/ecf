@@ -24,7 +24,7 @@
 (setq deft-recursive t)
 
 ;;; Global keyboard binding for Deft
-(global-set-key (kbd "C-c n d") 'deft)
+(global-set-key (kbd "C-c n D") 'deft)
 
 ;; For compatibility with other applications which use the filename as the title of a note
 ;; (setq deft-use-filename-as-title t)
