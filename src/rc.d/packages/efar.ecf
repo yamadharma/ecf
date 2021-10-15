@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A FAR-like file manager for Emacs
+;;; https://github.com/suntsov/efar
+
+(desire 'efar)
+
+;;;

@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package to enable transclusion with Org Mode
+;;; https://github.com/nobiot/org-transclusion
+
+(require 'org-transclusion)
+
+(define-key global-map (kbd "<f12>") #'org-transclusion-add)
+(define-key global-map (kbd "C-c n T") #'org-transclusion-mode)
+
+;;;

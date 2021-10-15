@@ -192,6 +192,7 @@
 
 (desired 'vcard)
 (desire 'khardel :precondition-system-executable "khard")
+(desire 'khalel :precondition-system-executable "khal")
 
 ;; BBDB - Must be loaded before most other things, since other things
 ;;        may perform special configuration if BBDB is present.
@@ -231,7 +232,8 @@
 
 (desire 'dired)
 ;; (desire 'ranger)
-(desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
+;; (desire 'efar)
+;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
 
 ;;}}}
 ;;{{{ org-mode
@@ -249,6 +251,8 @@
 (desire 'org-journal)
 
 (desire 'org-vcard)
+
+(desire 'org-transclusion :recipe '(:fetcher github :repo "nobiot/org-transclusion" :branch "main" :files ("*.el")))
 
 (desired 'mobileorg)
 (desire 'org)

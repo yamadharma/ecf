@@ -2,6 +2,9 @@
 ;; https://github.com/arnm/ob-mermaid
 
 (desire 'ob-mermaid)
+(require 'ob-mermaid)
+
+(setq ob-mermaid-cli-path (expand-file-name "~/.yarn/bin/mmdc"))
 
 ;; (cl-pushnew '(mermaid . t) load-language-list)
 

@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Interacting through Emacs with locally-stored calendars via the console application khal and syncing with remote CalDAV calendars using vdirsyncer
+;; https://gitlab.com/hperrey/khalel
+
+(setq khalel-khal-command "khal")
+(setq khalel-vdirsyncer-command "vdirsyncer")
+
+;;;
