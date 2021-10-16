@@ -6,4 +6,8 @@
 
 (require 'all-the-icons)
 
+;;; Check if fonts already installed
+(unless (member "all-the-icons" (font-family-list))
+  (all-the-icons-install-fonts t))
+
 ;;;
