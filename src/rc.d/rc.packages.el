@@ -247,7 +247,7 @@
 (desire 'org-superstar)
 (desire 'org-super-agenda)
 
-(desire 'org-gcal)
+;; (desire 'org-gcal)
 (desire 'org-journal)
 
 (desire 'org-vcard)
