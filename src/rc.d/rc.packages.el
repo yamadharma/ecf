@@ -40,12 +40,12 @@
 
 ;;; Packaging
 (desire 'package)
-;;; Auto update packages
-(desire 'auto-package-update)
 ;;; Build and install your Emacs Lisp packages on-the-fly and directly from source
 (desire 'quelpa)
 ;;; A declarative package management system with a command line interface
 ;; (desire 'straight)
+;;; Auto update packages
+(desire 'auto-package-update)
 
 ;;}}}
 
@@ -215,6 +215,8 @@
 ;;(desire-old 'yasnippet)
 
 (desire 'centaur-tabs)
+
+(desire 'pdf-tools)
 
 ;;{{{ Text
 

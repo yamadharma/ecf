@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs support library for PDF files
+;;; https://github.com/vedang/pdf-tools/ 
+
+(require 'pdf-tools)
+
+;;;
+
