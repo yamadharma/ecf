@@ -230,9 +230,13 @@
 (desire-old 'markdown-mode nil "markdown-mode" t)
 
 ;;}}}
-;;{{{ 
+;;{{{
+
+(desire 'mouse3 :recipe '(:fetcher github :repo "emacsmirror/mouse3" :branch "master" :files ("*.el")))
 
 (desire 'dired)
+(desire 'dired+ :recipe '(:fetcher github :repo "emacsmirror/dired-plus" :branch "master" :files ("*.el")))
+
 ;; (desire 'ranger)
 ;; (desire 'efar)
 ;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))

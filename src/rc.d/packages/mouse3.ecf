@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Customizable behavior for `mouse-3'
+;;; https://github.com/emacsmirror/mouse3
+;;; https://www.emacswiki.org/emacs/Mouse3
+
+(require 'mouse3)
+
+;;;
