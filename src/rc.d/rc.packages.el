@@ -329,7 +329,7 @@
 
 (desire 'browse-url)
 ;; (desire-old 'mailcrypt)
-(desire 'supercite)
+;; (desire 'supercite)
 
 ;;}}}
 ;;{{{ Message handing packages

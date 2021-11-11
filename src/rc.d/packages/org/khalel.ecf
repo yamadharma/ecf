@@ -23,7 +23,7 @@
 (khalel-add-capture-template)
 
 ;;; Automatic fetch every 30 minutes
-(run-with-timer (* 30 60) (* 30 60) 'khalel-run-vdirsyncer)
+;; (run-with-timer (* 30 60) (* 30 60) 'khalel-run-vdirsyncer)
 (run-with-timer (* 30 60) (* 30 60) 'khalel-import-upcoming-events)
 
 ;;;
