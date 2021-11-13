@@ -10,11 +10,20 @@
 ;;; https://github.com/ahyatt/emacs-websocket
 (desire 'websocket)
 
-(require 'org-roam-ui)
-
+;;; Org-Roam-UI can sync your Emacs theme. This is the default behavior
 (setq org-roam-ui-sync-theme t)
+
+;;; ORUI follows you around Emacs by default
 (setq org-roam-ui-follow t)
+
+;;; Updates to the graph
 (setq org-roam-ui-update-on-save t)
+
+;;; By default, org-roam-ui will try to open itself in your default browser
 (setq org-roam-ui-open-on-start t)
+
+(load-library "org-roam-ui")
+
+(org-roam-ui-mode)
 
 ;;;
