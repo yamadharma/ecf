@@ -265,7 +265,8 @@
 
 ;; (desire 'org-roam-server)
 ;; (desire 'org-roam-ui :recipe '(:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
-(desire 'org-roam-ui :recipe '(:fetcher github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
+;; (desire 'org-roam-ui :recipe '(:fetcher github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
+(desire 'org-roam-ui)
 (desire 'org-roam)
 
 (desire 'org-appear)
