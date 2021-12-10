@@ -114,6 +114,9 @@
 (desire-old 'mouse)
 ;; ----------------------------------------------------------------------
 
+(desire 'pcache)
+(desire 'persistent-soft)
+
 ;;{{{ UI
 
 (desire 'ligature)
@@ -358,8 +361,10 @@
 ;; (desire-old 'php-mode nil "php-mode")
 ;; (desire-old 'eiffel-mode nil "eiffel-mode")
 
-(desire-old 'lua-mode nil "lua-mode" t)
-(desire-old 'julia-mode nil "julia-mode" t)
+(desire 'lua-mode)
+(desire 'julia-mode)
+(desire 'julia-snail)
+
 (desire 'yaml-mode)
 (desire 'ini-mode)
 

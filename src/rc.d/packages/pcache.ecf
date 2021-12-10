@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Persistent caching for Emacs
+;; https://github.com/sigma/pcache
+
+(require 'pcache)
+
+;;;

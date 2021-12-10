@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; An Emacs development environment for Julia
+;; https://github.com/gcv/julia-snail
+
+(require 'julia-snail)
+
+(add-hook 'julia-mode-hook #'julia-snail-mode)
+
+;;;
