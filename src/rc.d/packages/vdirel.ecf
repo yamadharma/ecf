@@ -4,6 +4,6 @@
 
 (require 'vdirel)
 
-(setq vdirel-repository "~/.config/vdirsyncer/contacts/default")
+(setq vdirel-repository "~/.config/vdir/contacts/google/default")
 
 ;;;

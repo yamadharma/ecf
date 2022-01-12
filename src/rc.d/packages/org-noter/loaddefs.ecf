@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Emacs document annotator, using Org-mode
+;; https://github.com/weirdNox/org-noter
+
+(require 'org-noter)
+
+(unless org-noter-notes-search-path
+  (setq org-noter-notes-search-path (list org-directory)))
+
+(setq org-noter-auto-save-last-location t)
+(setq org-noter-separate-notes-from-heading t)
+
+;;;

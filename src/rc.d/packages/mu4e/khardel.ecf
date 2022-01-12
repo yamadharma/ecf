@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Add email address by khardel
+
+;;;  I use C-c ] for citations. Lets try that in compose mode.
+(define-key mu4e-compose-mode-map "\C-c]" 'khardel-insert-email)
+
+;;;
+

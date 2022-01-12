@@ -155,10 +155,13 @@
 ;;}}}
 ;;
 
+(desire 'bicycle)
+(desire 'hideshow)
+
 (desire-old 'show-paren)
-(desire-old 'folding)
+;; (desire-old 'folding)
 ;; (desire-old 'outline)
-(desire 'origami)
+;; (desire 'origami)
 
 
 ;;
@@ -196,11 +199,13 @@
 (desired 'vcard)
 (desire 'khardel :precondition-system-executable "khard")
 (desire 'khalel :precondition-system-executable "khal")
+(desire 'org-vcard)
+(desire 'vdirel)
 
 ;; BBDB - Must be loaded before most other things, since other things
 ;;        may perform special configuration if BBDB is present.
 
-(desire 'bbdb)
+;; (desire 'bbdb)
 
 ;;}}}
 ;;{{{ Bibliography
@@ -247,6 +252,8 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'svg-tag-mode)
+
 ;; (desire 'org-contacts)
 ;; (desire 'google-contacts)
 
@@ -259,9 +266,8 @@
 ;; (desire 'org-gcal)
 (desire 'org-journal)
 
-(desire 'org-vcard)
-
-(desire 'org-transclusion :recipe '(:fetcher github :repo "nobiot/org-transclusion" :branch "main" :files ("*.el")))
+;; (desire 'org-transclusion :recipe '(:fetcher github :repo "nobiot/org-transclusion" :branch "main" :files ("*.el")))
+(desire 'org-transclusion)
 
 (desired 'mobileorg)
 (desire 'org)
@@ -277,7 +283,7 @@
 
 ;; (desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve"))
 
-;; (desire 'vdirel)
+(desire 'org-noter)
 
 ;;}}}
 ;;{{{ Notes

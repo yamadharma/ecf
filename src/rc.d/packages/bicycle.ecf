@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Cycle outline and code visibility
+;; https://github.com/tarsius/bicycle
+
+
+(require 'outline)
+(require 'bicycle)
+
+(define-key outline-minor-mode-map (kbd "<C-tab>") #'bicycle-cycle)
+(define-key outline-minor-mode-map (kbd "<S-tab>") #'bicycle-cycle-global)
+;; (define-key outline-minor-mode-map (kbd "<backtab>") #'bicycle-cycle-global)
+
+(add-hook 'prog-mode-hook #'outline-minor-mode)
+(add-hook 'markdown-mode-hook #'outline-minor-mode)
+(add-hook 'TeX-mode-hook #'outline-minor-mode)
+(add-hook 'LaTeX-mode-hook #'outline-minor-mode)
+(add-hook 'rst-mode-hook #'outline-minor-mode)
+
+;;;
