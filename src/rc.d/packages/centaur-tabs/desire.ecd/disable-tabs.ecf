@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Disable centaur-tabs in selected buffers
+
+(add-hook 'dired-mode-hook 'centaur-tabs-local-mode)
+(add-hook 'dashboard-mode 'centaur-tabs-local-mode)
+(add-hook 'term-mode 'centaur-tabs-local-mode)
+(add-hook 'calendar-mode 'centaur-tabs-local-mode)
+(add-hook 'org-agenda-mode 'centaur-tabs-local-mode)
+(add-hook 'helpful-mode 'centaur-tabs-local-mode)
+
+;;;

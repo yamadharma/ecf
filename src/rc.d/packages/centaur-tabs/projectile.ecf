@@ -2,7 +2,7 @@
 ;;; Projectile integration
 ;; https://github.com/ema2159/centaur-tabs#projectile-integration
 
-(centaur-tabs-group-by-projectile-project)
+;; (centaur-tabs-group-by-projectile-project)
 
 ;;; Group buffer tabs by projectile
 (global-set-key (kbd "C-c t p") 'centaur-tabs-group-by-projectile-project)
