@@ -49,6 +49,8 @@
 
 ;;}}}
 
+;; (desire 'esup)
+
 (desire-old 'site-stuff)
 
 ;;{{{ Window System
@@ -371,7 +373,7 @@
 
 ;;; Julia
 ;;; Code completion and syntax checking
-(desire 'eglot-jl)
+;(desire 'eglot-jl)
 ;;; REPL integration
 ;; (desire 'julia-snail)
 (desire 'julia-repl)

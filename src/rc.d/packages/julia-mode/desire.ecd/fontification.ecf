@@ -32,6 +32,6 @@
                  ">>>" OR ">>" OR "<<" OR
                  ">>>=" OR ">>" OR "<<" OR
                  "\\)"))
-      1 font-lock-type-face)))))
+      1 font-lock-type-face))))
 
 ;;; 
