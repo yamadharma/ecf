@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Run an inferior Julia REPL in a terminal inside Emacs
+;; https://github.com/tpapp/julia-repl
+
+(require 'julia-repl)
+(add-hook 'julia-mode-hook 'julia-repl-mode)
+
+;;;

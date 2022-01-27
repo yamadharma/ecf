@@ -368,8 +368,16 @@
 ;; (desire-old 'eiffel-mode nil "eiffel-mode")
 
 (desire 'lua-mode)
+
+;;; Julia
+;;; Code completion and syntax checking
+(desire 'eglot-jl)
+;;; REPL integration
+;; (desire 'julia-snail)
+(desire 'julia-repl)
+;;; Syntax highlighting and latex symbols 
 (desire 'julia-mode)
-(desire 'julia-snail)
+
 
 (desire 'yaml-mode)
 (desire 'ini-mode)
