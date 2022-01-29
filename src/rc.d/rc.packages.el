@@ -201,7 +201,7 @@
 (desired 'vcard)
 (desire 'khardel :precondition-system-executable "khard")
 (desire 'khalel :precondition-system-executable "khal")
-(desire 'org-vcard)
+;; (desire 'org-vcard)
 (desire 'vdirel)
 
 ;; BBDB - Must be loaded before most other things, since other things

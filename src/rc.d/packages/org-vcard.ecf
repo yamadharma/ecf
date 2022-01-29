@@ -2,9 +2,9 @@
 ;; Export and import vCards from within GNU Emacs' Org mode
 ;; https://github.com/flexibeast/org-vcard
 
-(setq org-vcard-custom-styles-dir (concat user-emacs-directory "org-vcard-styles/"))
-(if (not (file-directory-p org-vcard-custom-styles-dir))
-    (make-directory org-vcard-custom-styles-dir t))
+;;(setq org-vcard-custom-styles-dir (concat user-emacs-directory "org-vcard-styles/"))
+;;(if (not (file-directory-p org-vcard-custom-styles-dir))
+;;    (make-directory org-vcard-custom-styles-dir t))
 
 (require 'org-vcard)
 
