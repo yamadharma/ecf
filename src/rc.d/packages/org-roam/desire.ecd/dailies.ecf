@@ -19,8 +19,9 @@
 ;;                             "#+title: %<%Y-%m-%d>\n"))))
 
 (setq org-roam-dailies-capture-templates
-      '(("d" "default" entry "* %<%I:%M %p>: %?"
-	 :if-new (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
+      '(("d" "default" entry "* TODO %<%I:%M %p>: %?"
+	 :target (file+head "%<%Y-%m-%d>.org"
+			    "#+title: %<%Y-%m-%d>\n"))))
 
 ;; (setq org-roam-dailies-capture-templates
 ;;       '(("d" "default" entry "* %?"
