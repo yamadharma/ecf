@@ -1,14 +1,38 @@
-;;; Generate mermaid diagrams within Emacs org-mode babel -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;; https://github.com/arnm/ob-mermaid
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs major mode for working with mermaid graphs
+;;; https://github.com/abrochard/mermaid-mode
 
-(desire 'ob-mermaid)
-(require 'ob-mermaid)
+(require 'mermaid-mode)
 
-(setq ob-mermaid-cli-path (expand-file-name "~/.yarn/bin/mmdc"))
+;;; Location of `mmdc` executable
+;;; The default assumes you have the binary in your PATH
+;; (setq  mermaid-mmdc-location (expand-file-name "~/.yarn/bin/mmdc"))
 
-;; (cl-pushnew '(mermaid . t) load-language-list)
+;;; By default `mmdc` will compile to `png` format
+;; (setq mermaid-output-format ".png")
 
-;; (org-babel-do-load-languages 'org-babel-load-languages
-;; 			     load-language-list)
+;;; Supported key bindings
+;;; C-c C-c - compile current file to an image
+;;; C-c C-f - compile given file to an image
+;;; C-c C-b - compile current buffer to an image
+;;; C-c C-r - compile current region to an image
+;;; C-c C-o - open in the live editor
+;;; C-c C-d - open the official doc
+;; (setq mermaid-mode-map
+;;       (let ((map mermaid-mode-map))
+;; 	(define-key map (kbd "C-c C-c") nil)
+;; 	(define-key map (kbd "C-c C-f") nil)
+;; 	(define-key map (kbd "C-c C-b") nil)
+;; 	(define-key map (kbd "C-c C-r") nil)
+;; 	(define-key map (kbd "C-c C-o") nil)
+;; 	(define-key map (kbd "C-c C-d") nil)
+;; 	(define-key map (kbd "C-c C-d c") 'mermaid-compile)
+;; 	(define-key map (kbd "C-c C-d c") 'mermaid-compile)
+;; 	(define-key map (kbd "C-c C-d f") 'mermaid-compile-file)
+;; 	(define-key map (kbd "C-c C-d b") 'mermaid-compile-buffer)
+;; 	(define-key map (kbd "C-c C-d r") 'mermaid-compile-region)
+;; 	(define-key map (kbd "C-c C-d o") 'mermaid-open-browser)
+;; 	(define-key map (kbd "C-c C-d d") 'mermaid-open-doc)
+;; 	map))
 
 ;;;
