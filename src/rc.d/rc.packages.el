@@ -254,7 +254,7 @@
 ;;}}}
 ;;{{{ org-mode
 
-(desire 'svg-tag-mode)
+;; (desire 'svg-tag-mode)
 
 ;; (desire 'org-contacts)
 ;; (desire 'google-contacts)
@@ -263,6 +263,7 @@
 
 
 (desire 'org-superstar)
+(desire 'org-modern)
 (desire 'org-super-agenda)
 
 ;; (desire 'org-gcal)

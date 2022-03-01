@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern Org Style
+;;; https://github.com/minad/org-modern
+
+(require 'org-modern)
+
+(add-hook 'org-mode-hook #'org-modern-mode)
+
+;;;
