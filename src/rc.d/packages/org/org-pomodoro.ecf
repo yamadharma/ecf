@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Pomodoro technique for org-mode
+;;; https://github.com/marcinkoziej/org-pomodoro
+
+(require 'org-pomodoro)
+
+;;;

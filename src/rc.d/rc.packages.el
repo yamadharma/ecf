@@ -254,6 +254,8 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-pomodoro)
+
 ;; (desire 'svg-tag-mode)
 
 ;; (desire 'org-contacts)
