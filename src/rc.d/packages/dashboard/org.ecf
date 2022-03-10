@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An extensible emacs dashboard
+;;; https://github.com/emacs-dashboard/emacs-dashboard
+
+;;; Add agenda to dashboard-items
+(add-to-list 'dashboard-items '(agenda) t)
+
+;;; Show agenda for the upcoming seven days
+(setq dashboard-week-agenda t)
+
+;;; By default org-agenda entries are filter by time, only showing those task with DEADLINE or SCHEDULE-TIME
+;;; Show all agenda entries (except DONE)
+(setq dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
+
+;;; 
+
+

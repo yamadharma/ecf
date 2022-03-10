@@ -432,6 +432,8 @@
 
 (desire 'doom-modeline)
 
+(desire 'dashboard)
+
 ;; PERSONAL
 
 ;; (require 'chord-mode)  ; edit guitar music.

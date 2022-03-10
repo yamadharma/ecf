@@ -1,0 +1,40 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An extensible emacs dashboard
+;;; https://github.com/emacs-dashboard/emacs-dashboard
+
+;;; Banner
+
+;;; Set the title
+(setq dashboard-banner-logo-title "Emacs Configuration Framework")
+;;; Set the banner
+;; Value can be
+;; 'official which displays the official emacs logo
+;; 'logo which displays an alternative emacs logo
+;; 1, 2 or 3 which displays one of the text banners
+;; "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
+;;;
+(setq dashboard-startup-banner 'logo)
+
+;;; Content is not centered by default. To center, set
+(setq dashboard-center-content t)
+
+;;; To disable shortcut "jump" indicators for each section, set
+(setq dashboard-show-shortcuts nil)
+
+;;; Customize which widgets are displayed
+;; (setq dashboard-items '((recents  . 5)
+;;                         (bookmarks . 5)
+;;                         (projects . 5)
+;;                         (agenda . 5)
+;;                         (registers . 5)))
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)))
+
+;;; Modify the widget heading name
+;; (setq dashboard-item-names '(("Recent Files:" . "Recently opened files:")
+;;                              ("Agenda for today:" . "Today's agenda:")
+;;                              ("Agenda for the coming week:" . "Agenda:")))
+
+;;; 
+
+

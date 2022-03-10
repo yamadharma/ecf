@@ -1,0 +1,32 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Add icons to the widget headings and their items
+
+;;; Add icons to the widget headings and their items
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+
+;;; Modify heading icons with another icon from all-the-icons octicons
+;; (dashboard-modify-heading-icons '((recents . "file-text")
+;;                                   (bookmarks . "book")))
+
+;;; Show navigator below the banner
+(setq dashboard-set-navigator t)
+
+;;; Customize the buttons of the navigator
+;;; Format: "(icon title help action face prefix suffix)"
+;; (setq dashboard-navigator-buttons
+;;       `(;;; line1
+;;         ((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
+;;           "Homepage"
+;;           "Browse homepage"
+;;           (lambda (&rest _) (browse-url "homepage")))
+;;          ("★" "Star" "Show stars" (lambda (&rest _) (show-stars)) warning)
+;;          ("?" "" "?/h" #'show-help nil "<" ">"))
+;;         ;;; line 2
+;;         ((,(all-the-icons-faicon "linkedin" :height 1.1 :v-adjust 0.0)
+;;           "Linkedin"
+;;           ""
+;;           (lambda (&rest _) (browse-url "homepage")))
+;;          ("⚑" nil "Show flags" (lambda (&rest _) (message "flag")) error))))
+
+;;;

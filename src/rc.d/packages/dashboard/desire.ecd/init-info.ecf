@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An extensible emacs dashboard
+;;; https://github.com/emacs-dashboard/emacs-dashboard
+
+;;; Show info about the packages loaded and the init time
+(setq dashboard-set-init-info t)
+
+;;; The message can be customized like this
+;; (setq dashboard-init-info "This is an init message!")
+
+;;;

@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An extensible emacs dashboard
+;;; https://github.com/emacs-dashboard/emacs-dashboard
+
+;;; Disable a randomly selected footnote
+;; (setq dashboard-set-footer nil)
+
+;;; Customize it and customize its icon
+;; (setq dashboard-footer-messages '("Dashboard is pretty cool!"))
+;; (setq dashboard-footer-icon (all-the-icons-octicon "dashboard"
+;;                                                    :height 1.1
+;;                                                    :v-adjust -0.05
+;;                                                    :face 'font-lock-keyword-face))
+
+;;;
