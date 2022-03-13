@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Make Emacs bindings that stick around
+;;; https://github.com/abo-abo/hydra
+
+(require 'hydra)
+
+;;;

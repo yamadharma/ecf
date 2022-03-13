@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Spacemacs-esque major mode leader key powered by Hydra
+;;; https://github.com/jerrypnz/major-mode-hydra.el
+
+(desire 'major-mode-hydra)
+
+;;;
