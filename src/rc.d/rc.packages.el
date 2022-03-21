@@ -427,7 +427,8 @@
 
 (desire 'multiple-cursors)
 
-(desire 'treemacs)
+(desire 'neotree)
+;; (desire 'treemacs)
 
 ;;}}}
 

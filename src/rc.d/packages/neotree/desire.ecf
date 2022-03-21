@@ -1,0 +1,34 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A emacs tree plugin like NerdTree for Vim
+;;; https://github.com/jaypei/emacs-neotree
+
+(setq neo-create-file-auto-open nil
+      neo-auto-indent-point nil
+      neo-autorefresh nil
+      neo-mode-line-type 'none
+      neo-window-width 30
+      neo-show-updir-line nil
+      neo-theme 'icons
+      neo-banner-message nil
+      neo-confirm-create-file #'off-p
+      neo-confirm-create-directory #'off-p
+      neo-show-hidden-files nil
+      neo-keymap-style 'concise
+      neo-show-hidden-files t
+      neo-hidden-regexp-list
+      '(;; vcs folders
+        "^\\.\\(?:git\\|hg\\|svn\\)$"
+        ;; compiled files
+        "\\.\\(?:pyc\\|o\\|elc\\|lock\\|css.map\\|class\\)$"
+        ;; generated files, caches or local pkgs
+        "^\\(?:node_modules\\|vendor\\|.\\(project\\|cask\\|yardoc\\|sass-cache\\)\\)$"
+        ;; org-mode folders
+        "^\\.\\(?:sync\\|export\\|attach\\)$"
+        ;; temp files
+        "~$"
+        "^#.*#$"))
+
+;;; Every time when the neotree window is opened, let it find current file and jump to node.
+(setq neo-smart-open t)
+
+;;;

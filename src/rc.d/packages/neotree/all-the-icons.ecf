@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; NeoTree provides following themes: classic(default) ascii arrow icons nerd
+
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
+;;;

@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Projectile integration for neotree
+
+;;; When running `projectile-switch-project` (C-c p p), `neotree` will change root automatically
+(setq projectile-switch-project-action 'neotree-projectile-action)
+
+;;;

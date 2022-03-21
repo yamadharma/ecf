@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A emacs tree plugin like NerdTree for Vim
+;;; https://github.com/jaypei/emacs-neotree
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+;;;
