@@ -2,8 +2,6 @@
 ;;; Toggle visibility of hidden Org mode element parts upon entering and leaving an element
 ;;; https://github.com/awth13/org-appear
 
-(add-hook 'org-mode-hook 'org-appear-mode)
-
 ;;; Toggle links
 (setq org-appear-autolinks t)
 
@@ -17,12 +15,15 @@
 (setq org-appear-autokeywords t)
 
 ;;; Seconds of delay before toggling
-(setq org-appear-delay t)
+(setq org-appear-delay '0.0)
 
 ;;; When to toggle elements
 ;;; `always`, `on-change`, `manual`
 ;;; `on-change` : elements will be toggled only when the buffer is modified or on mouse click. This option disables delayed toggling.
 ;;; `manual` : toggling must be enabled by calling `org-appear-manual-start`. `org-appear-manual-stop` is used to disable toggling with this option.      
 (setq org-appear-trigger 'always)
+
+(require 'org-appear)
+(add-hook 'org-mode-hook 'org-appear-mode)
 
 ;;;

@@ -256,6 +256,9 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-appear)
+;; (desire 'org-fragtog)
+
 (desire 'org-pomodoro)
 
 ;; (desire 'svg-tag-mode)
@@ -291,9 +294,6 @@
 ;; (desire 'org-roam-ui :recipe '(:fetcher github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 (desire 'org-roam-ui)
 (desire 'org-roam)
-
-(desire 'org-appear)
-;; (desire 'org-fragtog)
 
 ;;}}}
 ;;{{{ Notes
