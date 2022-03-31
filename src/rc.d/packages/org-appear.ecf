@@ -1,6 +1,0 @@
-;;; Toggle visibility of hidden Org mode element parts upon entering and leaving an element -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;; https://github.com/awth13/org-appear
-
-(add-hook 'org-mode-hook 'org-appear-mode)
-
-;;;

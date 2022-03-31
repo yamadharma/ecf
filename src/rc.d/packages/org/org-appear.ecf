@@ -1,0 +1,28 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Toggle visibility of hidden Org mode element parts upon entering and leaving an element
+;;; https://github.com/awth13/org-appear
+
+(add-hook 'org-mode-hook 'org-appear-mode)
+
+;;; Toggle links
+(setq org-appear-autolinks t)
+
+;;; Toggle subscripts and superscripts
+(setq org-appear-autosubmarkers t)
+
+;;; Toggle Org entitites
+(setq org-appear-autoentities t)
+
+;;; Toggle keywords in org-hidden-keywords
+(setq org-appear-autokeywords t)
+
+;;; Seconds of delay before toggling
+(setq org-appear-delay t)
+
+;;; When to toggle elements
+;;; `always`, `on-change`, `manual`
+;;; `on-change` : elements will be toggled only when the buffer is modified or on mouse click. This option disables delayed toggling.
+;;; `manual` : toggling must be enabled by calling `org-appear-manual-start`. `org-appear-manual-stop` is used to disable toggling with this option.      
+(setq org-appear-trigger 'always)
+
+;;;

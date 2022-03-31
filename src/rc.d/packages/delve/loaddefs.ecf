@@ -2,12 +2,5 @@
 ;;; Delve into your org-roam zettelkasten
 ;; https://github.com/publicimageltd/delve
 
-(desire 'lister :recipe '(:fetcher github :repo "publicimageltd/lister"))
-
-(require 'delve-minor-mode)
-(add-hook 'org-mode-hook #'delve-minor-mode-maybe-activate)
-
-(global-set-key (kbd "<f12>") #'delve-open-or-select)
-
 ;;;
 

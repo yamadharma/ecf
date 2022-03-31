@@ -273,6 +273,8 @@
 ;; (desire 'org-gcal)
 (desire 'org-journal)
 
+(desire 'org-noter)
+
 ;; (desire 'org-transclusion :recipe '(:fetcher github :repo "nobiot/org-transclusion" :branch "main" :files ("*.el")))
 (desire 'org-transclusion)
 
@@ -281,7 +283,8 @@
 
 ;;; Org-roam
 
-(desire 'zetteldesk :recipe '(:fetcher github :repo "Vidianos-Giannitsis/zetteldesk.el" :branch "master" :files ("*.el")))
+(desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve" :branch "main"))
+;; (desire 'zetteldesk :recipe '(:fetcher github :repo "Vidianos-Giannitsis/zetteldesk.el" :branch "master" :files ("*.el")))
 
 ;; (desire 'org-roam-server)
 ;; (desire 'org-roam-ui :recipe '(:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
@@ -290,11 +293,7 @@
 (desire 'org-roam)
 
 (desire 'org-appear)
-(desire 'org-fragtog)
-
-;; (desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve"))
-
-(desire 'org-noter)
+;; (desire 'org-fragtog)
 
 ;;}}}
 ;;{{{ Notes

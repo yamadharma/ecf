@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Delve into your org-roam zettelkasten
+;;; https://github.com/publicimageltd/delve
+
+(desire 'lister :recipe '(:fetcher github :repo "publicimageltd/lister"))
+
+(require 'delve)
+
+;;; The main entry point, offering a list of all stored collections and of all open Delve buffers
+(global-set-key (kbd "<f12>") #'delve)
+
+;;; Set meaningful tag names for the dashboard query
+;; (setq delve-dashboard-tags '("Tag1" "Tag2"))
+
+;;; Turn on delve-minor-mode when org roam file is opened
+(delve-global-minor-mode)
+
+;;;
