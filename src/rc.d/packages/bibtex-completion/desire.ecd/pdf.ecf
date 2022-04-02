@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; https://github.com/tmalsburg/helm-bibtex
+
+;;; Bibtex-completion assumes that the name of a PDF consists of the BibTeX key followed plus a user-defined suffix (.pdf by default).
+;;; If the BibTeX entries have a field that specifies the full path to the PDFs
+(setq bibtex-completion-pdf-field "File")
+
+;;; Symbols used for indicating the availability of notes and PDF files
+(setq bibtex-completion-pdf-symbol "⌘")
+(setq bibtex-completion-notes-symbol "✎")
+
+;;; Additional PDFs
+;;; All files whose name start with the BibTeX key will then be associated with an entry.
+(setq bibtex-completion-find-additional-pdfs t)
+
+;;; Other file types than PDF
+;;; If you store files in various formats, then you can specify a list instead of a single file type
+(setq bibtex-completion-pdf-extension '(".pdf" ".djvu"))
+
+;;;

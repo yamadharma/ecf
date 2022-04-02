@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; https://github.com/tmalsburg/helm-bibtex
+
+;;; Format of citations
+;;; Bibtex-completion creates citations based on the major mode in which the citation is inserted:
+;;; `org-mode` insert link for opening the entry in Ebib
+;;; `latex-mode` insert LaTeX citation command
+;;; `markdown-mode` insert Pandoc citation macro
+;;; `python-mode` insert sphinxcontrib-bibtex citation role
+;;; `rst-mode` insert sphinxcontrib-bibtex citation role
+;;; other modes insert plain BibTeX key
+
+;;; People who don’t use Ebib might prefer links to the PDFs instead of Ebib-links in org mode files
+;; (setq bibtex-completion-format-citation-functions
+;;       '((org-mode      . bibtex-completion-format-citation-org-link-to-PDF)
+;; 	(latex-mode    . bibtex-completion-format-citation-cite)
+;; 	(markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+;; 	(default       . bibtex-completion-format-citation-default)))
+
+;;;

@@ -1,5 +1,6 @@
-;;; Search and manage bibliographies in Emacs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;  https://github.com/tmalsburg/helm-bibtex
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Search and manage bibliographies in Emacs
+;;;  https://github.com/tmalsburg/helm-bibtex
 
 (autoload 'helm-bibtex "helm-bibtex" "" t)
 

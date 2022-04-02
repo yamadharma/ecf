@@ -25,6 +25,11 @@
       org-agenda-current-time-string
       "⭠ now ─────────────────────────────────────────────────")
 
+;;; Choose some fonts
+;; (set-face-attribute 'default nil :family "???")
+;; (set-face-attribute 'variable-pitch nil :family "???")
+(set-face-attribute 'org-modern-symbol nil :family "Iosevka")
+
 ;;; Enable org-modern-mode
 (add-hook 'org-mode-hook #'org-modern-mode)
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
