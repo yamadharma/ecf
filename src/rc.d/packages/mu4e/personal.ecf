@@ -4,44 +4,44 @@
 ;;; Macro for Contexts
 ;; https://github.com/danielfleischer/mu4easy
 (cl-defmacro ecf/mu4e-context (&key c-name maildir mail smtp
-                                    (smtp-mail mail)
-                                    (smtp-port 587)
-                                    (smtp-type 'starttls)
-                                    (sent-action 'sent)
-                                    (name user-full-name)
-                                    (sig user-full-name))
+				    (smtp-mail mail)
+				    (smtp-port 587)
+				    (smtp-type 'starttls)
+				    (sent-action 'sent)
+				    (name user-full-name)
+				    (sig user-full-name))
   (let
-      ((inbox    (concat "/" maildir "/Inbox"))  
+      ((inbox    (concat "/" maildir "/Inbox"))
        (sent	   (concat "/" maildir "/Sent"))
        (trash	   (concat "/" maildir "/Trash"))
        (refile   (concat "/" maildir "/Archive"))
        (spam   (concat "/" maildir "/Spam"))
        (draft	   (concat "/" maildir "/Drafts")))
-    
+
     `(make-mu4e-context
       :name ,c-name
       :match-func (lambda (msg)
 		    (when msg
-                      (string-match-p (concat "^/" ,maildir "/")
-                                      (mu4e-message-field msg :maildir))))
+		      (string-match-p (concat "^/" ,maildir "/")
+				      (mu4e-message-field msg :maildir))))
       :vars '((user-mail-address . ,mail)
 	      (user-full-name . ,name)
 	      (mu4e-sent-folder . ,sent)
 	      (mu4e-drafts-folder . ,draft)
 	      (mu4e-trash-folder . ,trash)
-              (mu4e-refile-folder . ,refile)
+	      (mu4e-refile-folder . ,refile)
 	      (mu4e-compose-signature . (concat ,sig))
-              (mu4e-sent-messages-behavior . ,sent-action)
+	      (mu4e-sent-messages-behavior . ,sent-action)
 	      (smtpmail-smtp-user . ,smtp-mail)
 	      (smtpmail-starttls-credentials . ((,smtp ,smtp-port nil nil)))
-              (smtpmail-auth-credentials . '((,smtp ,smtp-port ,smtp-mail nil)))
+	      (smtpmail-auth-credentials . '((,smtp ,smtp-port ,smtp-mail nil)))
 	      (smtpmail-default-smtp-server . ,smtp)
 	      (smtpmail-smtp-server . ,smtp)
-              (smtpmail-stream-type . ,smtp-type)
+	      (smtpmail-stream-type . ,smtp-type)
 	      (smtpmail-smtp-service . ,smtp-port)
 	      (org-msg-signature . ,sig)
-	      (mu4e-maildir-shortcuts . 
-                                      ((,inbox   . ?i)
+	      (mu4e-maildir-shortcuts .
+				      ((,inbox   . ?i)
 				       (,sent    . ?s)
 				       (,trash   . ?t)
 				       (,refile  . ?a)
@@ -68,10 +68,10 @@
 ;;  ecf/unread-query (concat "flag:unread AND NOT (" ecf/trash-query ")"))
 
 (setq
- ecf/inbox-query "maildir:/Inbox/" 
+ ecf/inbox-query "maildir:/Inbox/"
  ecf/today-query "date:today..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
  ecf/week-query "date:7d..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
- ecf/trash-query "maildir:/Trash/" 
+ ecf/trash-query "maildir:/Trash/"
  ecf/spam-query "maildir:/Spam/"
  ecf/unread-query "flag:new AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
  ecf/attachment-query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/* AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
@@ -80,22 +80,22 @@
 (setq mu4e-bookmarks  `(( :name  "Unread"
 				 :query ,ecf/unread-query
 				 :key   ?u)
-                        ( :name  "Inbox"
+			( :name  "Inbox"
 				 :query ,ecf/inbox-query
 				 :key   ?i)
-                        ( :name "Today"
+			( :name "Today"
 				:query ,ecf/today-query
 				:key   ?t)
-                        ( :name "Last 7 days"
+			( :name "Last 7 days"
 				:query ,ecf/week-query
 				:key   ?w)
-                        ( :name "Flagged"
+			( :name "Flagged"
 				:query "flag:flagged"
 				:key   ?f)
-                        ( :name "Tags"
+			( :name "Tags"
 				:query "tag://"
 				:key   ?T)
-                        ( :name "Trash"
+			( :name "Trash"
 				:query ,ecf/trash-query
 				:key ?x
 				:hide-unread nil)
@@ -103,16 +103,16 @@
 				:query ,ecf/spam-query
 				:key ?j
 				:hide-unread nil)
-                        ( :name "Attachments"
+			( :name "Attachments"
 				:query ,ecf/attachment-query
 				:key   ?a
 				:hide-unread t)))
 
 (setq mu4e-headers-fields '((:human-date . 18)
-                            (:flags      . 6)
-                            (:maildir    . 16)
-                            (:from-or-to . 26)
-                            (:subject    . 90)))
+			    (:flags      . 6)
+			    (:maildir    . 16)
+			    (:from-or-to . 26)
+			    (:subject    . 90)))
 
 ;;;
 ;; - Jumping to contexts is based on their first (unique) letter, that’s why I’m using numbers in the `c-name` key.
@@ -122,108 +122,111 @@
 ;; other account, sent messages are saved in the Sent folder.
 ;;;
 
-(setq mu4e-contexts      
+(setq mu4e-contexts
       `(
 	,(ecf/mu4e-context
-          :c-name  "1-yamadharma@gmail.com"
-          :maildir "yamadharma@gmail.com"
-          :mail    "yamadharma@gmail.com"
-          :smtp    "smtp.gmail.com"
-          :sent-action delete)
-
-	,(ecf/mu4e-context
-          :c-name  "2-dharma@sci.pfu.edu.ru"
-          :maildir "dharma@sci.pfu.edu.ru"
-          :mail    "dharma@sci.pfu.edu.ru"
-          :smtp    "smtp.gmail.com"
-          :sent-action delete)
-	
-	,(ecf/mu4e-context
-          :c-name  "3-dskulyabov@gmail.com"
-          :maildir "dskulyabov@gmail.com"
-          :mail    "dskulyabov@gmail.com"
-          :smtp    "smtp.gmail.com"
-          :sent-action delete)
-        
-        ;; ,(ecf/mu4e-context
-        ;;   :c-name  "1-GMX"
-        ;;   :maildir "GMX"
-        ;;   :mail    "a@gmx.com"
-        ;;   :smtp    "mail.gmx.com")
-
-        ,(ecf/mu4e-context
-          :c-name  "4-kulyabov_ds@pfur.ru"
-          :maildir "kulyabov_ds@pfur.ru"
-          :mail    "kulyabov_ds@pfur.ru"
-          :smtp    "smtp.office365.com"
+	  :c-name  "1-yamadharma@gmail.com"
+	  :maildir "yamadharma@gmail.com"
+	  :mail    "yamadharma@gmail.com"
+	  :smtp    "smtp.gmail.com"
 	  :sent-action delete)
 
-        ,(ecf/mu4e-context
-          :c-name  "5-kulyabov@jinr.ru"
-          :maildir "kulyabov@jinr.ru"
-          :mail    "kulyabov@jinr.ru"
-          :smtp    "mail.jinr.ru")
-	
-        ,(ecf/mu4e-context
-          :c-name  "6-yamadharma@yandex.ru"
-          :maildir "yamadharma@yandex.ru"
-          :mail    "yamadharma@yandex.ru"
-          :smtp    "smtp.yandex.ru"
-	  :smtp-type ssl
-          :smtp-port 465)
-
-        ,(ecf/mu4e-context
-          :c-name  "7-yama_dharma@mail.ru"
-          :maildir "yama_dharma@mail.ru"
-          :mail    "yama_dharma@mail.ru"
-          :smtp    "smtp.mail.ru"
-	  :smtp-type ssl
-          :smtp-port 465)
+	,(ecf/mu4e-context
+	  :c-name  "2-dharma@sci.pfu.edu.ru"
+	  :maildir "dharma@sci.pfu.edu.ru"
+	  :mail    "dharma@sci.pfu.edu.ru"
+	  :smtp    "smtp.gmail.com"
+	  :sent-action delete)
 
 	,(ecf/mu4e-context
-          :c-name  "8-conference@sci.pfu.edu.ru"
-          :maildir "conference@sci.pfu.edu.ru"
-          :mail    "conference@sci.pfu.edu.ru"
-          :smtp    "smtp.gmail.com"
-          :sent-action delete)
+	  :c-name  "3-dskulyabov@gmail.com"
+	  :maildir "dskulyabov@gmail.com"
+	  :mail    "dskulyabov@gmail.com"
+	  :smtp    "smtp.gmail.com"
+	  :sent-action delete)
 
-	
-        ;; ,(ecf/mu4e-context
-        ;;   :c-name    "2-GMX-alias"
-        ;;   :maildir   "GMX"
-        ;;   :mail      "a.alias@gmx.com"
-        ;;   :smtp      "mail.gmx.com"
-        ;;   :smtp-mail "a@gmx.com")
-        
-        ;; ,(ecf/mu4e-context
-        ;;   :c-name  "Apple"
-        ;;   :maildir "Apple"
-        ;;   :mail    "a@icloud.com"
-        ;;   :smtp    "smtp.mail.me.com")
-        
-        ;; ,(ecf/mu4e-context
-        ;;   :c-name  "3-Apple-alias"
-        ;;   :maildir "Apple"
-        ;;   :mail    "a@me.com"
-        ;;   :smtp    "smtp.mail.me.com"
-        ;;   :smtp-mail "a@icloud.com")
-        
-        ;; ,(ecf/mu4e-context
-        ;;   :c-name    "Proton"
-        ;;   :maildir   "Proton"
-        ;;   :mail      "a@protonmail.com"
-        ;;   :smtp      "127.0.0.1"
-        ;;   :smtp-type ssl
-        ;;   :smtp-port 999)
-        
-        ;; ,(ecf/mu4e-context
-        ;;   :c-name    "4-Proton-alias"
-        ;;   :maildir   "Proton"
-        ;;   :mail      "a@pm.com"
-        ;;   :smtp      "127.0.0.1"
-        ;;   :smtp-mail "a@protonmail.com"
-        ;;   :smtp-type ssl
-        ;;   :smtp-port 999)
+	;; ,(ecf/mu4e-context
+	;;   :c-name  "1-GMX"
+	;;   :maildir "GMX"
+	;;   :mail    "a@gmx.com"
+	;;   :smtp    "mail.gmx.com")
+
+	,(ecf/mu4e-context
+	  :c-name  "4-kulyabov_ds@pfur.ru"
+	  :maildir "kulyabov_ds@pfur.ru"
+	  :mail    "kulyabov_ds@pfur.ru"
+	  ;; :smtp    "smtp.office365.com"
+	  :smtp "localhost"
+	  :smtp-port 1025
+	  :smtp-type plain
+	  :sent-action delete)
+
+	,(ecf/mu4e-context
+	  :c-name  "5-kulyabov@jinr.ru"
+	  :maildir "kulyabov@jinr.ru"
+	  :mail    "kulyabov@jinr.ru"
+	  :smtp    "mail.jinr.ru")
+
+	,(ecf/mu4e-context
+	  :c-name  "6-yamadharma@yandex.ru"
+	  :maildir "yamadharma@yandex.ru"
+	  :mail    "yamadharma@yandex.ru"
+	  :smtp    "smtp.yandex.ru"
+	  :smtp-type ssl
+	  :smtp-port 465)
+
+	,(ecf/mu4e-context
+	  :c-name  "7-yama_dharma@mail.ru"
+	  :maildir "yama_dharma@mail.ru"
+	  :mail    "yama_dharma@mail.ru"
+	  :smtp    "smtp.mail.ru"
+	  :smtp-type ssl
+	  :smtp-port 465)
+
+	,(ecf/mu4e-context
+	  :c-name  "8-conference@sci.pfu.edu.ru"
+	  :maildir "conference@sci.pfu.edu.ru"
+	  :mail    "conference@sci.pfu.edu.ru"
+	  :smtp    "smtp.gmail.com"
+	  :sent-action delete)
+
+
+	;; ,(ecf/mu4e-context
+	;;   :c-name    "2-GMX-alias"
+	;;   :maildir   "GMX"
+	;;   :mail      "a.alias@gmx.com"
+	;;   :smtp      "mail.gmx.com"
+	;;   :smtp-mail "a@gmx.com")
+
+	;; ,(ecf/mu4e-context
+	;;   :c-name  "Apple"
+	;;   :maildir "Apple"
+	;;   :mail    "a@icloud.com"
+	;;   :smtp    "smtp.mail.me.com")
+
+	;; ,(ecf/mu4e-context
+	;;   :c-name  "3-Apple-alias"
+	;;   :maildir "Apple"
+	;;   :mail    "a@me.com"
+	;;   :smtp    "smtp.mail.me.com"
+	;;   :smtp-mail "a@icloud.com")
+
+	;; ,(ecf/mu4e-context
+	;;   :c-name    "Proton"
+	;;   :maildir   "Proton"
+	;;   :mail      "a@protonmail.com"
+	;;   :smtp      "127.0.0.1"
+	;;   :smtp-type ssl
+	;;   :smtp-port 999)
+
+	;; ,(ecf/mu4e-context
+	;;   :c-name    "4-Proton-alias"
+	;;   :maildir   "Proton"
+	;;   :mail      "a@pm.com"
+	;;   :smtp      "127.0.0.1"
+	;;   :smtp-mail "a@protonmail.com"
+	;;   :smtp-type ssl
+	;;   :smtp-port 999)
 	))
 
 ;; ;;; I have my "default" parameters from Gmail
@@ -236,7 +239,7 @@
 ;;       smtpmail-smtp-server "smtp.gmail.com"
 ;;       smtpmail-smtp-service 587)
 
-;; ;;; Now I set a list of 
+;; ;;; Now I set a list of
 ;; (defvar my-mu4e-account-alist
 ;;   '(("dskulyabov@gmail.com"
 ;;      (mu4e-sent-folder "/dskulyabov@gmail.com/[Gmail].Sent Mail")
@@ -252,23 +255,23 @@
 
 ;; (defun my-mu4e-set-account ()
 ;;   "Set the account for composing a message.
-;;    This function is taken from: 
+;;    This function is taken from:
 ;;      https://www.djcbsoftware.nl/code/mu/mu4e/Multiple-accounts.html"
 ;;   (let* ((account
-;; 	  (if mu4e-compose-parent-message
-;; 	      (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-;; 		(string-match "/\\(.*?\\)/" maildir)
-;; 		(match-string 1 maildir))
-;; 	    (completing-read (format "Compose with account: (%s) "
-;; 				     (mapconcat #'(lambda (var) (car var))
-;; 						my-mu4e-account-alist "/"))
-;; 			     (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-;; 			     nil t nil nil (caar my-mu4e-account-alist))))
-;; 	 (account-vars (cdr (assoc account my-mu4e-account-alist))))
+;;	  (if mu4e-compose-parent-message
+;;	      (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+;;		(string-match "/\\(.*?\\)/" maildir)
+;;		(match-string 1 maildir))
+;;	    (completing-read (format "Compose with account: (%s) "
+;;				     (mapconcat #'(lambda (var) (car var))
+;;						my-mu4e-account-alist "/"))
+;;			     (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+;;			     nil t nil nil (caar my-mu4e-account-alist))))
+;;	 (account-vars (cdr (assoc account my-mu4e-account-alist))))
 ;;     (if account-vars
-;; 	(mapc #'(lambda (var)
-;; 		  (set (car var) (cadr var)))
-;; 	      account-vars)
+;;	(mapc #'(lambda (var)
+;;		  (set (car var) (cadr var)))
+;;	      account-vars)
 ;;       (error "No email account found"))))
 ;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
