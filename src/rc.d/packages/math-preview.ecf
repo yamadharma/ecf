@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs preview math inline 
+;;; https://gitlab.com/matsievskiysv/math-preview
+
+(setq math-preview-scale 1)
+
+(require 'math-preview)
+
+;;;

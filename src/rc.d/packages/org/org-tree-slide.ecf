@@ -1,0 +1,30 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A presentation tool for org-mode based on the visibility of outline trees
+;;; https://github.com/takaxp/org-tree-slide
+
+(require 'org-tree-slide)
+
+;; (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
+;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+
+;; (org-tree-slide-simple-profile)
+(org-tree-slide-presentation-profile)
+;; (org-tree-slide-narrowing-control-profile)
+
+(setq org-tree-slide-cursor-init nil)
+
+(setq org-tree-slide-activate-message " "
+      org-tree-slide-deactivate-message " "
+      org-tree-slide-modeline-display nil
+      org-tree-slide-heading-emphasis t)
+(setq org-tree-slide-skip-outline-level 4)
+(setq org-tree-slide-skip-done nil)
+
+
+(add-hook 'org-tree-slide-after-narrow-hook #'org-display-inline-images)
+
+(define-key org-tree-slide-mode-map [C-left] #'org-tree-slide-move-previous-tree)
+(define-key org-tree-slide-mode-map [C-right] #'org-tree-slide-move-next-tree)
+(define-key org-tree-slide-mode-map (kbd "C-x s c") #'org-tree-slide-content)
+
+;;;

@@ -26,8 +26,8 @@
       "⭠ now ─────────────────────────────────────────────────")
 
 ;;; Choose some fonts
-;; (set-face-attribute 'default nil :family "???")
-;; (set-face-attribute 'variable-pitch nil :family "???")
+(set-face-attribute 'default nil :family "Iosevka")
+(set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
 (set-face-attribute 'org-modern-symbol nil :family "Iosevka")
 
 ;;; Enable org-modern-mode

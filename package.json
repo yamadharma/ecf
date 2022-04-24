@@ -10,5 +10,9 @@
         "commitizen": {
             "path": "cz-conventional-changelog"
         }
-    }   
+    },
+    "dependencies": {
+        "global": "^4.4.0",
+        "math-preview": "git+https://gitlab.com/matsievskiysv/math-preview"
+    }
 }

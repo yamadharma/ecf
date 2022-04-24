@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs minor mode to prettify math formula, include asciimath, tex math via mathjax engine
+;;; https://gitee.com/shaqxu/prettify-math
+
+(setq prettify-math-delimiters-alist
+      '(("$" tex)
+	("$$" tex block)
+	(("\\(" . "\\)") tex)
+	(("\\[" . "\\]") tex block)
+	("`" asciimath)
+	("``" asciimath block)))
+
+(require 'prettify-math)
+;;;

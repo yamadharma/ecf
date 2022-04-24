@@ -232,6 +232,9 @@
 
 ;;{{{ Text
 
+;; (desire 'prettify-math)
+(desire 'math-preview)
+
 (desire 'adaptive-wrap)
 
 (desire 'pandoc-mode)
@@ -268,6 +271,7 @@
 
 (desire 'org-ref)
 
+(desire 'org-tree-slide)
 
 (desire 'org-superstar)
 (desire 'org-modern)
