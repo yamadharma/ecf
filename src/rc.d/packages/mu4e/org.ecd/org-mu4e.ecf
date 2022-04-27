@@ -1,0 +1,24 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Support *deprecated* org-mu4e
+
+(require 'org-mu4e)
+
+(defun htmlize-and-send ()
+  "When in an org-mu4e-compose-org-mode message, htmlize and send it."
+  (interactive)
+  (when (member 'org~mu4e-mime-switch-headers-or-body post-command-hook)
+    (org-mime-htmlize)
+    (org-mu4e-compose-org-mode)
+    (mu4e-compose-mode)
+    (message-send-and-exit)))
+
+;; Overload C-c C-c commands in org-mode
+(add-hook 'org-ctrl-c-ctrl-c-hook 'htmlize-and-send t)
+
+(add-hook 'mu4e-compose-mode-hook
+          (defun do-compose-stuff ()
+            "My settings for message composition."
+            (org-mu4e-compose-org-mode)))
+
+;;;
+

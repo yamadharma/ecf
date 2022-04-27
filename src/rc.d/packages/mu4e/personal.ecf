@@ -48,7 +48,7 @@
 				       (,draft   . ?d)
 				       (,spam   . ?j)))))))
 
-(setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "kulyabov@jinr.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru"))
+(setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "kulyabov@jinr.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru" "dskulyabov@yahoo.com"))
 
 ;; (setq
 ;;  ecf/inbox-query (mapconcat
@@ -189,6 +189,12 @@
 	  :mail    "conference@sci.pfu.edu.ru"
 	  :smtp    "smtp.gmail.com"
 	  :sent-action delete)
+
+	,(ecf/mu4e-context
+	  :c-name  "9-dskulyabov@yahoo.com"
+	  :maildir "dskulyabov@yahoo.com"
+	  :mail    "dskulyabov@yahoo.com"
+	  :smtp    "smtp.mail.yahoo.com")
 
 
 	;; ,(ecf/mu4e-context
