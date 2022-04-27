@@ -233,7 +233,7 @@
 ;;{{{ Text
 
 ;; (desire 'prettify-math)
-(desire 'math-preview)
+;; (desire 'math-preview)
 
 (desire 'adaptive-wrap)
 
@@ -260,7 +260,7 @@
 ;;{{{ org-mode
 
 (desire 'org-appear)
-;; (desire 'org-fragtog)
+(desire 'org-fragtog)
 
 (desire 'org-pomodoro)
 
