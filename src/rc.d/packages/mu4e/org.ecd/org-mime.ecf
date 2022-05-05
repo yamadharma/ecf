@@ -42,7 +42,7 @@
 ;;; ascii | latin1 | utf-8
 (setq org-mime-export-ascii 'utf-8)
 
-(setq org-mime-export-options '(:with-latex mathjax))
+;; (setq org-mime-export-options '(:with-latex mathjax))
 
 ;;;
 

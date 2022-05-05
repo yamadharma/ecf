@@ -2,7 +2,7 @@
 ;;; Sign/encrypt message
 
 ;;; Sign message when sending
-;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
+(add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
 
 ;;; Prompt with key selection menu before sending a message
 ;; (setq mm-sign-option 'guided)
