@@ -12,8 +12,8 @@
     (mu4e-compose-mode)
     (message-send-and-exit)))
 
-;; Overload C-c C-c commands in org-mode
-(add-hook 'org-ctrl-c-ctrl-c-hook 'htmlize-and-send t)
+;;; Overload C-c C-c commands in org-mode
+;; (add-hook 'org-ctrl-c-ctrl-c-hook 'htmlize-and-send t)
 
 (add-hook 'mu4e-compose-mode-hook
           (defun do-compose-stuff ()
