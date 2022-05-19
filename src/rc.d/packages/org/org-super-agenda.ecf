@@ -4,7 +4,7 @@
 (require 'org-super-agenda)
 
 (setq org-super-agenda-groups
-      '((:log t)  ; Automatically named "Log"
+      '((:log t)  ;; Automatically named "Log"
         (:name "Inbox"
                :file-path "inbox\\.org")
         (:name "Next to do"
@@ -19,15 +19,15 @@
         (:name "Today"
 	       :time-grid t  ; Items that appear on the time grid
 	       :scheduled today)
-	(:name "Quick Picks"
-	       :effort< "0:30")
-	(:habit t)
 	(:name "Due today"
 	       :deadline today)
-	(:name "Overdue"
-	       :deadline past)
 	(:name "Due soon"
                :deadline future)
+	(:habit t)
+	(:name "Quick Picks"
+	       :effort< "0:30")
+	(:name "Overdue"
+	       :deadline past)
         (:name "Unimportant"
                 :todo ("SOMEDAY" "MAYBE" "CHECK" "TO-READ" "TO-WATCH")
                 :order 100)
