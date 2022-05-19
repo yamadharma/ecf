@@ -21,11 +21,11 @@
 	       :scheduled today)
 	(:name "Due today"
 	       :deadline today)
-	(:name "Due soon"
-               :deadline future)
 	(:habit t)
 	(:name "Quick Picks"
 	       :effort< "0:30")
+	(:name "Due soon"
+               :deadline future)
 	(:name "Overdue"
 	       :deadline past)
         (:name "Unimportant"

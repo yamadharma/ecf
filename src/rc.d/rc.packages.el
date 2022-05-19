@@ -175,13 +175,17 @@
 ;; (desire-old 'toolbar)
 
 ;; ----------------------------------------------------------------------
+
+(desire 'flycheck)
 ;;{{{ Spell
 
 ;; (desire-old 'spell)
 (desire 'ispell)
-(desire 'flyspell)
+;; (desire 'flyspell)
 ;;(desire-old 'speck)
 ;;(desire-old 'wcheck)
+
+(desire 'flycheck-languagetool)
 
 ;;}}}
 ;;{{{ Completion
