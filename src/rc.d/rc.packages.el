@@ -185,7 +185,8 @@
 ;;(desire-old 'speck)
 ;;(desire-old 'wcheck)
 
-(desire 'flycheck-languagetool)
+;; (desire 'flycheck-languagetool)
+(desire 'langtool)
 
 ;;}}}
 ;;{{{ Completion

@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; LanguageTool for Emacs
+;;; https://github.com/mhayashi1120/Emacs-langtool
+
+;;; Command line
+(setq langtool-bin "/usr/bin/languagetool")
+(require 'langtool)
+
+;;;

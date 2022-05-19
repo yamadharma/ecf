@@ -1,11 +1,11 @@
-;;; Modus Themes -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Flycheck support for LanguageTool
 ;;; https://github.com/emacs-languagetool/flycheck-languagetool
 
-(require 'flycheck-languagetool)
-
 ;;; FIXME: remove hardcoded directory
 (setq flycheck-languagetool-server-jar "/usr/share/languagetool/lib/languagetool-server.jar")
+
+(require 'flycheck-languagetool)
 
 (add-hook 'text-mode-hook 'flycheck-languagetool-setup)
 
