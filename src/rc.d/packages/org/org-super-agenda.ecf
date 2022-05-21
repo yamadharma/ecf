@@ -13,7 +13,6 @@
                :priority "A")
 	(:name "Important B"
                :priority "B")
-        (:auto-property "WAITING_ON" :log t)
         (:name "Schedule"
                :time-grid t)
         (:name "Today"
@@ -24,6 +23,9 @@
 	(:habit t)
 	(:name "Quick Picks"
 	       :effort< "0:30")
+        (:auto-property "WAITING_ON" :log t)
+        (:name "Waiting"
+               :todo "WAITING")
 	(:name "Due soon"
                :deadline future)
 	(:name "Overdue"
@@ -31,9 +33,6 @@
         (:name "Unimportant"
                 :todo ("SOMEDAY" "MAYBE" "CHECK" "TO-READ" "TO-WATCH")
                 :order 100)
-        (:name "Waiting..."
-               :todo "WAITING"
-               :order 98)
         (:name "Scheduled earlier"
                 :scheduled past)
         ;; normal priority
