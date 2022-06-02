@@ -1,4 +1,6 @@
-; (setq default-major-mode 'text-mode)
+;;; Text mode
+
+;; (setq default-major-mode 'text-mode)
 
 ;;{{{ autofill mode
 
@@ -6,11 +8,12 @@
 
 ;;}}}
 
-
 ; (setq transient-mark-mode t)
 
-;;{{{ Unix -> DOS
+;;; Unix -> DOS
 
 ; (require 'eol-conversion)
 
-;;}}}
+(add-hook 'org-mode-hook #'visual-line-mode)
+
+;;;
