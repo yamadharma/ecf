@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Eglot Clients for LTEX
+;; https://github.com/emacs-languagetool/eglot-ltex
+
+(add-hook 'text-mode-hook
+	  '(lambda ()
+	     (desire 'eglot)
+	     (require 'eglot-ltex)
+             (call-interactively #'eglot)))
+
+(setq eglot-languagetool-server-path "/opt/ltex-ls/")
+
+;;;

@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; lsp-mode for LTEX
+;; https://github.com/emacs-languagetool/lsp-ltex
+
+(require 'lsp-ltex)
+(lsp)
+
+;;;
