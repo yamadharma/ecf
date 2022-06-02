@@ -12,9 +12,10 @@
 ;;; OR for VM – not yet supported
 ;; (setq org-mime-library 'vm)
 
-(setq org-mime-export-options '(:section-numbers nil
-                                :with-author nil
-                                :with-toc nil))
+(setq org-mime-export-options '(:with-latex dvipng
+				:section-numbers nil
+				:with-author nil
+				:with-toc nil))
 
 ;;; Export the current org-mode buffer to HTML
 (add-hook 'message-mode-hook
