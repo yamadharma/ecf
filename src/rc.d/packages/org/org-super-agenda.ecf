@@ -7,6 +7,12 @@
       '((:log t)  ;; Automatically named "Log"
         (:name "Inbox"
                :file-path "inbox\\.org")
+        (:name "Today"
+	       :time-grid t  ; Items that appear on the time grid
+	       :scheduled today)
+	(:name "Due today"
+	       :deadline today)
+	(:habit t)
         (:name "Next to do"
                :todo "NEXT")
 	(:name "Important"
@@ -15,12 +21,6 @@
                :priority "B")
         (:name "Schedule"
                :time-grid t)
-        (:name "Today"
-	       :time-grid t  ; Items that appear on the time grid
-	       :scheduled today)
-	(:name "Due today"
-	       :deadline today)
-	(:habit t)
 	(:name "Quick Picks"
 	       :effort< "0:30")
         (:auto-property "WAITING_ON" :log t)
