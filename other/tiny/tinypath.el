@@ -4884,11 +4884,13 @@ If FLAG is non-nil, return package names, not cache elements."
     (getenv "HOST")		;Unix
     (getenv "HOSTNAME")		;Unix
     (getenv "COMPUTERNAME"))	;Win32
-    "unknownhost")))
+    "unknownhost")
+   )
+  )
 
 (defun tinypath-cache-file-hostname ()
-  "Return `system-name'."
-  (system-name))
+    (system-name)
+)
 
 ;;; ----------------------------------------------------------------------
 ;;;
@@ -7148,8 +7150,8 @@ holds the last stored value."
     ;;
     ;; Delay defining advises until this point
     ;;
-    (unless (eq tinypath--compression-support 'none)
-      (tinypath-advice-instantiate))
+;    (unless (eq tinypath--compression-support 'none)
+;      (tinypath-advice-instantiate))
     ;;
     ;;  The autoload statements must be here, because `autoload' is
     ;;  an advised function. The `fboundp' is just an extra measure,
