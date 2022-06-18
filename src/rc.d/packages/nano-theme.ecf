@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; GNU Emacs / N Λ N O Theme
+;; https://github.com/rougier/nano-theme
+
+(require 'nano-theme)
+
+;;; Light theme
+(nano-light)
+
+;;; Dark theme
+;; (nano-dark)
+
+;;;

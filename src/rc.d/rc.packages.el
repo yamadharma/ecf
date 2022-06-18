@@ -149,9 +149,17 @@
 ;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
 ;;(desire 'spaceline)
 
-(desire 'doom-themes)
+;;; Doom themes
+;; (desire 'doom-themes)
+;; (desire 'doom-modeline)
+
 ;; (desire 'zenburn-theme)
 ;; (desire 'modus-themes)
+
+;;; N Λ N O Theme
+(desire 'nano-theme)
+(desire 'nano-modeline)
+;; (desire 'nano-minibuffer :recipe '(:fetcher github :repo "rougier/nano-minibuffer" :branch "master"))
 
 ;;}}}
 ;;
@@ -434,7 +442,7 @@
 ;; (desire-old 'w3)
 
 (desire 'pass)
-(desire 'keycast)
+;; (desire 'keycast)
 
 (desire 'multiple-cursors)
 
@@ -447,8 +455,6 @@
 ;; (desire 'lsp-mode)
 
 ;; (desire 'flycheck-grammarly)
-
-(desire 'doom-modeline)
 
 (desire 'dashboard)
 
