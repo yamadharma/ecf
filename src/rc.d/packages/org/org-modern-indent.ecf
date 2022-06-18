@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; org-modern and org-indent, working together
+;; https://github.com/jdtsmith/org-modern-indent
+
+;;; org-indent mode
+(setq org-startup-indented t)
+
+(require 'org-modern-indent)
+
+(add-hook 'org-indent-mode-hook #'org-modern-indent-mode)
+
+;;;

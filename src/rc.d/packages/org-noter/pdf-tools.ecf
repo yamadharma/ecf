@@ -7,7 +7,7 @@
 
 (require 'org-noter-pdftools)
 
-(add-hook 'org-mode #'org-pdftools-setup-link)
+(add-hook 'org-mode-hook #'org-pdftools-setup-link)
 
 ;;; Add a function to ensure precise note is inserted
 (defun org-noter-pdftools-insert-precise-note (&optional toggle-no-questions)

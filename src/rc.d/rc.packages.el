@@ -281,6 +281,7 @@
 (desire 'org-tree-slide)
 
 (desire 'org-superstar)
+;; (desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
 (desire 'org-modern)
 (desire 'org-super-agenda)
 
