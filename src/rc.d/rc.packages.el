@@ -150,7 +150,6 @@
 ;;(desire 'spaceline)
 
 (desire 'doom-themes)
-
 ;; (desire 'zenburn-theme)
 ;; (desire 'modus-themes)
 
