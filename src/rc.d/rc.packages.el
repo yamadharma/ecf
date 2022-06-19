@@ -150,15 +150,15 @@
 ;;(desire 'spaceline)
 
 ;;; Doom themes
-;; (desire 'doom-themes)
-;; (desire 'doom-modeline)
+(desire 'doom-themes)
+(desire 'doom-modeline)
 
 ;; (desire 'zenburn-theme)
 ;; (desire 'modus-themes)
 
 ;;; N Λ N O Theme
-(desire 'nano-theme)
-(desire 'nano-modeline)
+;; (desire 'nano-theme)
+;; (desire 'nano-modeline)
 ;; (desire 'nano-minibuffer :recipe '(:fetcher github :repo "rougier/nano-minibuffer" :branch "master"))
 
 ;;}}}

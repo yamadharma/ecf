@@ -58,7 +58,7 @@
 #+date: %<%Y-%m-%dT%H:%M:%S%:z>
 #+filetags:
 
-:LOCALSETUP:
+:SETUP_LOCAL:
 #+startup: overview
 #+startup: hidestars
 #+startup: hideblocks
@@ -68,8 +68,6 @@
 :END:
 :SETUP_EXPORT:
 #+hugo_section: ru/post/%<%Y>
-#+hugo_front_matter_format: yaml
-#+hugo_auto_set_lastmod: t
 #+export_file_name: %<%Y-%m-%d>-${slug}
 #+hugo_custom_front_matter: :slug ${slug}
 #+hugo_categories: 
@@ -94,7 +92,7 @@
 #+date: %<%Y-%m-%dT%H:%M:%S%:z>
 #+filetags:
 
-:LOCALSETUP:
+:SETUP_LOCAL:
 #+startup: overview
 #+startup: hidestars
 #+startup: hideblocks
@@ -104,8 +102,6 @@
 :END:
 :SETUP_EXPORT:
 #+hugo_section: ru/post/%<%Y>
-#+hugo_front_matter_format: yaml
-#+hugo_auto_set_lastmod: t
 #+export_file_name: %<%Y-%m-%d>-${slug}
 #+hugo_custom_front_matter: :slug ${slug}
 #+hugo_categories: 
