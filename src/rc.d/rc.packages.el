@@ -306,7 +306,6 @@
 ;;; Org-roam
 
 ;; (desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve" :branch "main"))
-;; (desire 'zetteldesk :recipe '(:fetcher github :repo "Vidianos-Giannitsis/zetteldesk.el" :branch "master" :files ("*.el")))
 (desire 'zetteldesk)
 
 ;; (desire 'org-roam-server)
