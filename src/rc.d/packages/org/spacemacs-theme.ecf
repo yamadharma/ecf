@@ -1,7 +1,11 @@
-;;; Light and dark theme for spacemacs that supports GUI and terminal -*- coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Light and dark theme for spacemacs that supports GUI and terminal
 ;; https://github.com/nashamri/spacemacs-theme
 
-(setq spacemacs-theme-org-agenda-height nil)
-(setq spacemacs-theme-org-height nil)
+
+;;; Toggles the use of varying org agenda heights.
+;; (setq spacemacs-theme-org-agenda-height nil)
+;;; Toggles the use of varying org headings heights.
+;; (setq spacemacs-theme-org-height t)
 
 ;;;

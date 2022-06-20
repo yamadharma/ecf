@@ -1,8 +1,9 @@
-;;; Light and dark theme for spacemacs that supports GUI and terminal -*- coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Light and dark theme for spacemacs that supports GUI and terminal
 ;; https://github.com/nashamri/spacemacs-theme
 
 
-;; (load-theme 'spacemacs-light t)
-(load-theme 'spacemacs-dark t)
+(load-theme 'spacemacs-light t)
+;; (load-theme 'spacemacs-dark t)
 
 ;;;

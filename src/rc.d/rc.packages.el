@@ -146,12 +146,13 @@
 
 ;; (desire 'moody)
 
-;;(desire-old 'spacemacs-theme nil "spacemacs-theme-pkg" t)
-;;(desire 'spaceline)
+;;; Spacemacs theme
+(desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
+(desire 'spaceline)
 
 ;;; Doom themes
-(desire 'doom-themes)
-(desire 'doom-modeline)
+;; (desire 'doom-themes)
+;; (desire 'doom-modeline)
 
 ;; (desire 'zenburn-theme)
 ;; (desire 'modus-themes)
