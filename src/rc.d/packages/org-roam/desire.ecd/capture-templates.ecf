@@ -59,11 +59,7 @@
 #+filetags:
 
 :SETUP_LOCAL:
-#+startup: overview
-#+startup: hidestars
-#+startup: hideblocks
-#+startup: indent
-#+startup: num
+#+startup: overview hidestars hideblocks indent num
 #+options: ^:{} num:t
 :END:
 :SETUP_EXPORT:
@@ -93,11 +89,7 @@
 #+filetags:
 
 :SETUP_LOCAL:
-#+startup: overview
-#+startup: hidestars
-#+startup: hideblocks
-#+startup: indent
-#+startup: num
+#+startup: overview hidestars hideblocks indent num
 #+options: ^:{} num:t
 :END:
 :SETUP_EXPORT:
