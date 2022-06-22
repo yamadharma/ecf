@@ -206,6 +206,7 @@
 
 (desire 'company)
 
+;;; Helm
 (desire 'helm-rg :precondition-system-executable "rg")
 ;; (desire 'helm-posframe)
 (desire 'helm)

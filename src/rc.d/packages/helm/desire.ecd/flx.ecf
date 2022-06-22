@@ -1,4 +1,6 @@
-;;; Helm. Fuzzy search -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Flx-based fuzzy sorting for helm
+;; https://github.com/PythonNut/helm-flx
 ;; https://emacs-helm.github.io/helm/
 ;; https://github.com/emacs-helm/helm/wiki
 
