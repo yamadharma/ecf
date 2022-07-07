@@ -1,43 +1,35 @@
-;;; personal.ecf -*- coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Personal data
 
 (defvar user-full-name
   (user-full-name)
-  "*User's full name."
-)
+  "*User's full name.")
 
-;; It would be nice if there was a plain version of mapcar which
-;; returned a string...
+(defvar user-organization ""
+  "*User's organization.")
 
 (defvar user-mail-alias
   (mapconcat 
-    (lambda (c)
-      (char-to-string
-	(if (equal c ? ) ?. c)
-      )
-    ) 
-    (user-full-name) ""
-  )
-  "*String for a mail alias taken from the user's full name."
-)
+   (lambda (c)
+     (char-to-string
+      (if (equal c ? ) ?. c))) 
+   (user-full-name) "")
+  "*String for a mail alias taken from the user's full name.")
 
 (defvar user-mail-names
   (concat
     "\\<" (user-login-name) "\\>@\\|"
-    "\\<" (regexp-quote user-mail-alias) "\\>@"
-  )
-  "*Regular expression for mail names for this user. Includes any aliases."
-)
+    "\\<" (regexp-quote user-mail-alias) "\\>@")
+  "*Regular expression for mail names for this user. Includes any aliases.")
 
 ;; If mail-host-address isn't set then use the system name minus the
 ;; first component.
 
 (if (null system-name)
-  (setq mail-host-address "localhost")
-)
+  (setq mail-host-address "localhost"))
 
 (if (equal system-name "localhost")
-  (setq mail-host-address "localhost")
-)
+  (setq mail-host-address "localhost"))
 ;;{{{
 
 (setq mail-host-address "localhost")
@@ -52,25 +44,19 @@
 
 (defvar user-mail-address
   (concat (user-login-name) "@" mail-host-address)
-  "*User's mail address."
-)
+  "*User's mail address.")
 
 (defvar user-www-address
   (concat "http://" mail-host-address "/people/" (user-login-name) "/")
-  "*User's WWW address."
-)
+  "*User's WWW address.")
 
 (defvar news-server-name
   (concat "news." mail-host-address)
-  "*NetNews server name."
-)
+  "*NetNews server name.")
 
 (defvar mail-server-name
   (concat "mail." mail-host-address)
-  "*Mail server name."
-)
-
-
+  "*Mail server name.")
 
 ;;(setq user-name            "jf")   ;; my user name
 ;;(setq user-full-name       "Jens Frederich") ;; my complete name

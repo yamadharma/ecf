@@ -8,6 +8,7 @@
 				    (smtp-port 587)
 				    (smtp-type 'starttls)
 				    (sent-action 'sent)
+				    (organization user-organization)
 				    (name user-full-name)
 				    (sig user-full-name))
   (let
@@ -26,6 +27,7 @@
 				      (mu4e-message-field msg :maildir))))
       :vars '((user-mail-address . ,mail)
 	      (user-full-name . ,name)
+	      (message-user-organization . ,organization)
 	      (mu4e-sent-folder . ,sent)
 	      (mu4e-drafts-folder . ,draft)
 	      (mu4e-trash-folder . ,trash)
@@ -78,35 +80,35 @@
 
 
 (setq mu4e-bookmarks  `(( :name  "Unread"
-				 :query ,ecf/unread-query
-				 :key   ?u)
+			  :query ,ecf/unread-query
+			  :key   ?u)
 			( :name  "Inbox"
-				 :query ,ecf/inbox-query
-				 :key   ?i)
+			  :query ,ecf/inbox-query
+			  :key   ?i)
 			( :name "Today"
-				:query ,ecf/today-query
-				:key   ?t)
+			  :query ,ecf/today-query
+			  :key   ?t)
 			( :name "Last 7 days"
-				:query ,ecf/week-query
-				:key   ?w)
+			  :query ,ecf/week-query
+			  :key   ?w)
 			( :name "Flagged"
-				:query "flag:flagged"
-				:key   ?f)
+			  :query "flag:flagged"
+			  :key   ?f)
 			( :name "Tags"
-				:query "tag://"
-				:key   ?T)
+			  :query "tag://"
+			  :key   ?T)
 			( :name "Trash"
-				:query ,ecf/trash-query
-				:key ?x
-				:hide-unread nil)
+			  :query ,ecf/trash-query
+			  :key ?x
+			  :hide-unread nil)
 			( :name "Spam"
-				:query ,ecf/spam-query
-				:key ?j
-				:hide-unread nil)
+			  :query ,ecf/spam-query
+			  :key ?j
+			  :hide-unread nil)
 			( :name "Attachments"
-				:query ,ecf/attachment-query
-				:key   ?a
-				:hide-unread t)))
+			  :query ,ecf/attachment-query
+			  :key   ?a
+			  :hide-unread t)))
 
 (setq mu4e-headers-fields '((:human-date . 18)
 			    (:flags      . 6)
