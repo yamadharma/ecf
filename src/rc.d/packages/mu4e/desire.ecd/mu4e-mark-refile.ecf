@@ -11,7 +11,7 @@
               :action (lambda (docid msg target)
                         (let ((maildir (mu4e-message-field msg :maildir)))
                           (if (string-match-p "@gmail.com\\|@sci.pfu.edu.ru" maildir)
-                              (mu4e--server-move docid)
+                              (mu4e--server-remove docid)
                             (mu4e--server-move docid (mu4e--mark-check-target target) "+S-u-N"))))))
 
 ;;;
