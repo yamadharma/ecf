@@ -280,7 +280,7 @@
 (desire 'org-appear)
 (desire 'org-fragtog)
 
-(desire 'org-pomodoro)
+;; (desire 'org-pomodoro)
 
 ;; (desire 'svg-tag-mode)
 
