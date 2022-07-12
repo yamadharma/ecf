@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Visual line mode
+
+(add-hook 'LaTeX-mode-hook #'visual-line-mode)
+(add-hook 'laTeX-mode-hook #'visual-line-mode)
+
+;;;

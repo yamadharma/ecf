@@ -249,12 +249,12 @@
 
 ;;{{{ Text
 
+;; (desire 'adaptive-wrap)
 (desired 'visual-line-mode)
 
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
 
-(desire 'adaptive-wrap)
 (desire 'pandoc-mode)
 
 (desire' mermaid-mode :precondition-system-executable "mmdc")
