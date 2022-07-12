@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Visual line mode
+
+(add-hook 'org-mode-hook #'visual-line-mode)
+
+;;;

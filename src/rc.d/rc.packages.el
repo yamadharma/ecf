@@ -249,6 +249,8 @@
 
 ;;{{{ Text
 
+(desired 'visual-line-mode)
+
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
 
