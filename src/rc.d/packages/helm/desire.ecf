@@ -2,12 +2,8 @@
 ;; https://emacs-helm.github.io/helm/
 ;; https://github.com/emacs-helm/helm/wiki
 
-;;; Auto-Resize
-;; It is possible to have Helm to resize its buffer window to adapt to
-;; the length of the candidate list. By default the buffer size is
-;; fixed
-;;;
-(setq-default helm-enable-auto-resize t)
+(require 'helm)
+(require 'helm-config)
 
 ;;; Disable Helm header
 ;; default value is nil

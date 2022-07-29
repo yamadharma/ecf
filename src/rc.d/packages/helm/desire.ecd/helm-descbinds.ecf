@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Helm Descbinds provides an interface to Emacs’ describe-bindings, making the currently active key bindings interactively searchable with helm
+;;; https://github.com/emacs-helm/helm-descbinds
+
+(desire 'helm-descbinds)
+(require 'helm-descbinds)
+(helm-descbinds-mode)
+
+;;;

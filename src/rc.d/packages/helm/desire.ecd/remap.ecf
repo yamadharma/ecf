@@ -2,7 +2,19 @@
 ;; https://emacs-helm.github.io/helm/
 ;; https://github.com/emacs-helm/helm/wiki
 
-(global-set-key (kbd "C-c h") 'helm-mini)
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+
 
 (define-key global-map [remap find-file] 		#'helm-find-files)
 (define-key global-map [remap occur] 			#'helm-occur)
@@ -16,9 +28,9 @@
 (define-key global-map [remap locate]                   #'helm-locate)
 (define-key global-map [remap imenu]                    #'helm-semantic-or-imenu)
 (define-key global-map [remap noop-show-kill-ring]      #'helm-show-kill-ring)
-(define-key global-map [remap persp-switch-to-buffer]   #'+helm/workspace-mini)
+;; (define-key global-map [remap persp-switch-to-buffer]   #'+helm/workspace-mini)
 (define-key global-map [remap switch-to-buffer]         #'helm-buffers-list)
-(define-key global-map [remap projectile-find-file]     #'+helm/projectile-find-file)
+;; (define-key global-map [remap projectile-find-file]     #'+helm/projectile-find-file)
 (define-key global-map [remap projectile-recentf]       #'helm-projectile-recentf)
 (define-key global-map [remap projectile-switch-project] #'helm-projectile-switch-project)
 (define-key global-map [remap projectile-switch-to-buffer] #'helm-projectile-switch-to-buffer)

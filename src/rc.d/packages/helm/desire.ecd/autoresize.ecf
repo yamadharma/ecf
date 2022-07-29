@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Helm autoresize
+
+;; (setq helm-autoresize-max-height 0)
+;; (setq helm-autoresize-min-height 20)
+(helm-autoresize-mode 1)
+
+
+;;;

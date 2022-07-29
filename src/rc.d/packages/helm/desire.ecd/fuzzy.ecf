@@ -32,6 +32,8 @@
                'helm-flex)
 	     t)
 
+(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+
 ;;; Flx-based fuzzy sorting for helm
 ;; https://github.com/PythonNut/helm-flx
 

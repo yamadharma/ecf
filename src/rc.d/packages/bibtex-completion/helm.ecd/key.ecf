@@ -1,15 +1,9 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; Search and manage bibliographies in Emacs
-;;;  https://github.com/tmalsburg/helm-bibtex
-
 ;;; Key-bindings
-(require 'helm-config)
-
-(global-set-key (kbd "C-c n") 'helm-command-prefix)
+;;; https://github.com/tmalsburg/helm-bibtex
 
 (define-key helm-command-map "b" 'helm-bibtex)
 (define-key helm-command-map "B" 'helm-bibtex-with-local-bibliography)
 (define-key helm-command-map "n" 'helm-bibtex-with-notes)
-(define-key helm-command-map (kbd "C-c n") 'helm-resume)
 
 ;;;
