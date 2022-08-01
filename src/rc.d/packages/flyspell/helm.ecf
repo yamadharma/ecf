@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Distraction-free words correction with flyspell via selected interface
+;;; https://github.com/d12frosted/flyspell-correct
+
+(desire 'flyspell-correct)
+(require 'flyspell-correct)
+
+(desire 'flyspell-correct-helm)
+(require 'flyspell-correct-helm)
+
+(define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
+
+;;;

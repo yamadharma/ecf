@@ -185,21 +185,7 @@
 ;; ----------------------------------------------------------------------
 
 (desire 'flycheck)
-;;{{{ Spell
 
-;; (desire-old 'spell)
-(desire 'ispell)
-;; (desire 'flyspell)
-;;(desire-old 'speck)
-;;(desire-old 'wcheck)
-
-;; (desire 'flycheck-languagetool)
-(desire 'langtool)
-
-;; (desire 'lsp-ltex :recipe '(:fetcher github :repo "emacs-languagetool/lsp-ltex" :branch "master" :files ("*.el")))
-;; (desire 'eglot-ltex :recipe '(:fetcher github :repo "emacs-languagetool/eglot-ltex" :branch "master" :files ("*.el")))
-
-;;}}}
 ;;{{{ Completion
 
 (desire 'marginalia)
@@ -213,6 +199,21 @@
 
 ;; (desire 'ivy)
 ;; (desire 'selectrum)
+
+;;}}}
+;;{{{ Spell
+
+;; (desire-old 'spell)
+(desire 'ispell)
+(desire 'flyspell)
+;;(desire-old 'speck)
+;;(desire-old 'wcheck)
+
+;; (desire 'flycheck-languagetool)
+;; (desire 'langtool)
+
+;; (desire 'lsp-ltex :recipe '(:fetcher github :repo "emacs-languagetool/lsp-ltex" :branch "master" :files ("*.el")))
+;; (desire 'eglot-ltex :recipe '(:fetcher github :repo "emacs-languagetool/eglot-ltex" :branch "master" :files ("*.el")))
 
 ;;}}}
 ;;{{{ Adress book

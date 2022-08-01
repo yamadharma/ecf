@@ -1,0 +1,42 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; On-the-fly spell checking in Emacs
+;;; http://www-sop.inria.fr/members/Manuel.Serrano/flyspell/flyspell.html
+
+;;(desire 'spell)
+
+;(ispell-change-dictionary "russian")
+;(setq-default ispell-program-name "aspell")
+; (load "incr-ispell")
+
+(require 'flyspell)
+
+;(flyspell-mode 1)
+;(global-flyspell-mode t)
+
+(custom-set-variables
+  '(flyspell-use-meta-tab nil)
+)
+
+(define-key esc-map "?" 'flyspell-auto-correct-word)
+
+;(local-unset-key "\M-\t")
+;(global-unset-key "\M-\t")
+
+;(defvar flyspell-mode-map nil)
+
+(custom-set-faces
+  '(flyspell-incorrect ((t (:foreground "red" :underline t))))
+)
+
+;; (defun ecf/turn-spell-checking-on ()
+;;   "Turn speck-mode or flyspell-mode on."
+;;   ;; (speck-mode 1)
+;;   (flyspell-mode 1)
+;; )
+
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
+
+;;; 
