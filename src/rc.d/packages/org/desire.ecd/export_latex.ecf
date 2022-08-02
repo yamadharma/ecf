@@ -15,8 +15,8 @@
 ;; Can also be set in buffers via #+LATEX_COMPILER.
 (setq org-latex-compiler "lualatex")
 
-(add-to-list 'org-latex-default-packages-alist
-             '("AUTO" "polyglossia" t ("lualatex" "xelatex")))
+;; (add-to-list 'org-latex-default-packages-alist
+;;             '("AUTO" "polyglossia" t ("lualatex" "xelatex")))
 
 ;;; Komma-script support
 (eval-after-load 'ox '(require 'ox-koma-letter))

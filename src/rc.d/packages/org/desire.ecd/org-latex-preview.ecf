@@ -2,9 +2,9 @@
 ;;; Previewing LaTeX fragments
 
 ;; lualatex preview
-(setq org-latex-pdf-process
-      '("lualatex -shell-escape -interaction nonstopmode %f"
-	"lualatex -shell-escape -interaction nonstopmode %f"))
+;; (setq org-latex-pdf-process
+;;       '("lualatex -shell-escape -interaction nonstopmode %f"
+;; 	"lualatex -shell-escape -interaction nonstopmode %f"))
 
 (setq luamagick '(luamagick
 		  :programs ("lualatex" "convert")
@@ -17,8 +17,12 @@
 		  :latex-compiler ("lualatex -interaction nonstopmode -output-directory %o %f")
 		  :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
 
-(add-to-list 'org-preview-latex-process-alist luamagick)
-(setq org-preview-latex-default-process 'luamagick)
+;; (add-to-list 'org-preview-latex-process-alist luamagick)
+;; (setq org-preview-latex-default-process 'luamagick)
+;; (setq org-latex-create-formula-image-program 'luamagick)
+
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+(setq org-latex-create-formula-image-program 'dvipng)
 
 ;; The possible value of the variable `org-preview-latex-process-alist`:
 ;; ((dvipng :programs
@@ -49,7 +53,7 @@
 (setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
 
 ;;; unicode fonts
-(add-to-list 'org-latex-packages-alist '("" "unicode-math") t)
+;; (add-to-list 'org-latex-packages-alist '("" "unicode-math") t)
 ;;; physics package
 (add-to-list 'org-latex-packages-alist '("" "physics") t)
 

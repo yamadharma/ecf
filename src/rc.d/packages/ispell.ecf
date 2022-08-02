@@ -8,6 +8,8 @@
   ;; in next line.
   (setenv "LANG" "ru_RU.UTF-8")
   (setq ispell-program-name "hunspell")
+  (setq ispell-really-aspell nil
+	ispell-really-hunspell t)
   ;; Configure English + Russian.
   (setq ispell-dictionary "en_US,ru_RU")
   ;; ispell-set-spellchecker-params has to be called
