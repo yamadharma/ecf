@@ -8,7 +8,7 @@
       org-msg-startup "hidestars indent inlineimages"
       org-msg-greeting-name-limit 3
       org-msg-default-alternatives '((new . (utf-8 html))
-                                     (reply-to-text . (utf-8))
+                                     (reply-to-text . (utf-8 html))
                                      (reply-to-html . (utf-8 html)))
       org-msg-convert-citation t
       ;; The default attachment matcher gives too many false positives,
