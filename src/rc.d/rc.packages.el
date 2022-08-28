@@ -310,6 +310,9 @@
 (desired 'mobileorg)
 (desire 'org)
 
+;; For messaging
+(desire 'org-msg)
+
 ;;; Org-roam
 
 ;; (desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve" :branch "main"))

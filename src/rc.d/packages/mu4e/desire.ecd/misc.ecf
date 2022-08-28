@@ -12,10 +12,6 @@
 (setq mu4e-update-interval nil
       mu4e-view-show-addresses t
       mu4e-sent-messages-behavior 'sent
-      mu4e-hide-index-messages t
-      ;; try to show images
-      mu4e-view-show-images t
-      mu4e-view-image-max-width 800
       ;; configuration for sending mail
       message-send-mail-function #'smtpmail-send-it
       smtpmail-stream-type 'starttls

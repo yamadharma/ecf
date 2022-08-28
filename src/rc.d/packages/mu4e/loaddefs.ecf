@@ -15,9 +15,12 @@
 
 ;;; Mu4e is the default program it uses when you press C-x m (compose-mail)
 (setq mail-user-agent 'mu4e-user-agent)
+(setq message-mail-user-agent 'mu4e-user-agent)
 
 ;;; To specify mu4e as your preferred method for reading mail
 ;; (set-variable 'read-mail-command 'mu4e)
+
+(provide 'html2text) ; disable obsolete package
 
 ;;;
 

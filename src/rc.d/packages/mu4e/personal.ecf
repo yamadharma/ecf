@@ -41,7 +41,7 @@
 	      (smtpmail-smtp-server . ,smtp)
 	      (smtpmail-stream-type . ,smtp-type)
 	      (smtpmail-smtp-service . ,smtp-port)
-	      (org-msg-signature . ,sig)
+;;	      (org-msg-signature . ,sig)
 	      (mu4e-maildir-shortcuts .
 				      ((,inbox   . ?i)
 				       (,sent    . ?s)
