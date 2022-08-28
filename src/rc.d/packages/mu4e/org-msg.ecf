@@ -18,7 +18,7 @@
 (\\(?:attached\\|enclosed\\))\\|\
 \\(?:attached\\|enclosed\\)[ \t\n]\\(?:for\\|is\\)[ \t\n]")
 
-(setq org-msg-greeting-fmt "\nHi *%s*,\n\n")
+(setq org-msg-greeting-fmt "\nHi%s,\n\n")
 
 (setq mu4e-compose-signature-auto-include nil)
 (setq org-msg-signature "
