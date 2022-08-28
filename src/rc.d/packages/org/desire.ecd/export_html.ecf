@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; ox-html
+
+(require 'ox-html)
+
+(setq org-html-coding-system 'utf-8)
+(setq org-html-head-include-default-style t)
+(setq org-html-head-include-scripts t)
+
+;;;

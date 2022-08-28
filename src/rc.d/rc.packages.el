@@ -274,7 +274,7 @@
 ;; (desire 'ranger)
 ;; (desire 'efar)
 ;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
-(desire 'dirvish)
+;; (desire 'dirvish)
 
 
 ;;}}}
