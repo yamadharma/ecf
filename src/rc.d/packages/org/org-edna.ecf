@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extensible Dependencies ’N’ Actions (EDNA) for Org Mode tasks
+;;; https://www.nongnu.org/org-edna-el/
+
+
+(require 'org-edna)
+
+(org-edna-mode)
+
+;;;

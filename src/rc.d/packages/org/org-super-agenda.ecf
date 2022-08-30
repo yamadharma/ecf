@@ -23,6 +23,9 @@
                :time-grid t)
 	(:name "Quick Picks"
 	       :effort< "0:30")
+	(:name "Projects"
+               :tag "project"
+               :order 14)
         (:auto-property "WAITING_ON" :log t)
         (:name "Waiting"
                :todo "WAITING")

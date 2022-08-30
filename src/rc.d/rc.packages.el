@@ -173,7 +173,7 @@
 (desire-old 'show-paren)
 ;; (desire-old 'folding)
 ;; (desire-old 'outline)
-;; (desire 'origami)
+(desire 'origami)
 
 
 ;;
@@ -289,6 +289,8 @@
 
 ;; (desire 'org-contacts)
 ;; (desire 'google-contacts)
+
+(desire 'org-edna)
 
 (desire 'org-ref)
 

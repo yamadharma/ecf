@@ -1,7 +1,7 @@
 ;;;
 
-(custom-set-variables
-  '(org-pretty-entities t))
+;;(custom-set-variables
+;;  '(org-pretty-entities t))
 
 ;;; Turn on fontification for marked up text
 (setq org-fontify-emphasized-text t)

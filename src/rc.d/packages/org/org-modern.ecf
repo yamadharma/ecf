@@ -13,7 +13,7 @@
 
 ;;; Org styling, hide markup etc.
 (setq org-hide-emphasis-markers t
-      org-pretty-entities t
+;;      org-pretty-entities t
       org-ellipsis "…")
 
 ;;; Agenda styling
