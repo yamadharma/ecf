@@ -36,7 +36,7 @@
 
 ;;; Remove DONE tasks from agenda view
 ;;; https://orgmode.org/manual/Special-Agenda-Views.html
-(setq org-agenda-skip-function-global '(org-agenda-skip-entry-if 'todo 'done))
+;; (setq org-agenda-skip-function-global '(org-agenda-skip-entry-if 'todo 'done))
 
 ;; Clocktable
 
