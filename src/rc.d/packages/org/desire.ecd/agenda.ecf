@@ -23,12 +23,20 @@
  ;;org-agenda-inhibit-startup t
  )
 
-(setq org-agenda-skip-scheduled-if-done t
+(setq org-agenda-tags-column 100) ;; from testing this seems to be a good value
+
+(setq org-agenda-time-grid '((daily today require-timed) "----------------------" nil)
+      org-agenda-skip-scheduled-if-done t
       org-agenda-skip-deadline-if-done t
       org-agenda-include-deadlines t
+      org-agenda-include-diary t
       org-agenda-block-separator nil
-      org-agenda-tags-column 100 ;; from testing this seems to be a good value
-      org-agenda-compact-blocks t)
+      org-agenda-compact-blocks t
+      org-agenda-start-with-log-mode t)
+
+;;; Remove DONE tasks from agenda view
+;;; https://orgmode.org/manual/Special-Agenda-Views.html
+(setq org-agenda-skip-function-global '(org-agenda-skip-entry-if 'todo 'done))
 
 ;; Clocktable
 
@@ -39,8 +47,7 @@
 ;; nil :tcolumns nil :formatter nil))
 
 ;; Enable Clocktable by default
-
-;;(setq org-agenda-clockreport-mode t)
+(setq org-agenda-clockreport-mode t)
 
 ;; Do not dim blocked tasks
 (setq org-agenda-dim-blocked-tasks nil)
