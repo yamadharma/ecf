@@ -175,7 +175,6 @@
 ;; (desire-old 'outline)
 (desire 'origami)
 
-
 ;;
 
 (desire 'imenu)
@@ -251,7 +250,7 @@
 ;;{{{ Text
 
 ;; (desire 'adaptive-wrap)
-(desired 'visual-line-mode)
+(desire 'visual-line-mode)
 
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
@@ -276,6 +275,18 @@
 ;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
 ;; (desire 'dirvish)
 
+
+;;}}}
+;;{{{ LaTeX
+
+(desire 'cdlatex)
+
+(desire-old 'xdvi nil "xdvi-search")
+(desired 'reftex)
+;; (desire-old 'tex)
+(desired 'preview-latex nil "preview-latex")
+;; (desire-old 'auctex "latex" "tex-site")
+(desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
 
 ;;}}}
 ;;{{{ org-mode
@@ -331,18 +342,6 @@
 
 (desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
-
-;;}}}
-;;{{{ LaTeX
-
-(desire 'cdlatex)
-
-(desire-old 'xdvi nil "xdvi-search")
-(desired 'reftex)
-;; (desire-old 'tex)
-(desired 'preview-latex nil "preview-latex")
-;; (desire-old 'auctex "latex" "tex-site")
-(desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
 
 ;;}}}
 ;;{{{ XML, XHTML, HTML
