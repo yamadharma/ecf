@@ -250,7 +250,7 @@
 ;;{{{ Text
 
 ;; (desire 'adaptive-wrap)
-(desire 'visual-line-mode)
+(desired 'visual-line-mode)
 
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
@@ -303,7 +303,9 @@
 
 (desire 'org-edna)
 
+(desire 'citeproc)
 (desire 'org-ref)
+(desire 'oc) ;; org-cite
 
 (desire 'org-tree-slide)
 

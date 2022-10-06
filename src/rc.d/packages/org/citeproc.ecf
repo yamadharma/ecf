@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Renders Org-mode citations in CSL styles using citeproc-el
+;;; https://github.com/andras-simonyi/citeproc-org
+
+
+(desire 'citeproc-org)
+(require 'citeproc-org)
+
+(citeproc-org-setup)
+
+;;;
