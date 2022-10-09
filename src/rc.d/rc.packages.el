@@ -423,6 +423,7 @@
 
 (desire 'yaml-mode)
 (desire 'ini-mode)
+(desire 'hcl-mode)
 
 (desire 'magit)
 (desire 'magit-gitflow)

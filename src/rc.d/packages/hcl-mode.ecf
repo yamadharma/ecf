@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Emacs major mode of HCL (Hashicorp Configuration Language)
+;; https://github.com/purcell/emacs-hcl-mode
+
+(require 'hcl-mode)
+
+;;;
