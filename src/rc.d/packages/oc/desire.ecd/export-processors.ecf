@@ -1,8 +1,11 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
+(require 'oc-basic)
+(require 'oc-biblatex)
+(require 'oc-natbib)
+
 (setq org-cite-export-processors
       '((latex biblatex)					;; For LaTeX
 	(t csl "gost-r-7-0-5-2008-numeric.csl")))		;; Fallback
-
 
 ;;;

@@ -231,6 +231,7 @@
 ;;}}}
 ;;{{{ Bibliography
 
+(desire 'oc) ;; org-cite
 (desire 'bibtex-completion)
 (desire 'biblio)
 (desire 'bibtex)
@@ -303,9 +304,7 @@
 
 (desire 'org-edna)
 
-(desire 'citeproc)
 (desire 'org-ref)
-(desire 'oc) ;; org-cite
 
 (desire 'org-tree-slide)
 

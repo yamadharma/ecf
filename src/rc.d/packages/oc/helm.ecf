@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Use `helm-bibtex' with `org-cite'
+;;;  https://github.com/tmalsburg/helm-bibtex
+
+(org-cite-register-processor 'ecf/bibtex-org-cite-follow
+  :follow (lambda (_ _) (helm-bibtex)))
+
+(setq org-cite-follow-processor 'ecf/bibtex-org-cite-follow)
+
+;;;

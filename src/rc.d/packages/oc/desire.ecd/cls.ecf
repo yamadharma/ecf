@@ -3,7 +3,7 @@
 (require 'oc-csl)
 
 ;;; https://github.com/citation-style-language/styles
-;;; or https://www.zotero.org/styles
+;;; https://www.zotero.org/styles
 (setq org-cite-csl-styles-dir "~/work/bib/csl")
 
 ;;;

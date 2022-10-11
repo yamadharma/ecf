@@ -2,6 +2,7 @@
 ;;; A CSL 1.0.2 Citation Processor for Emacs
 ;;; https://github.com/andras-simonyi/citeproc-el
 
+(desire 'citeproc)
 (require 'citeproc)
 
 ;;;

@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Change the available actions
+;;; https://github.com/tmalsburg/helm-bibtex
+
+;;; Make 'Insert citation' the default action
+(with-eval-after-load "helm-bibtex"
+  (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
+  (helm-add-action-to-source "Insert citation" 'helm-bibtex-insert-citation helm-source-bibtex 0))
+
+;;;

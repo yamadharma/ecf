@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Use `org-cite'
+
+(add-to-list 'bibtex-completion-format-citation-functions
+	     '(org-mode . bibtex-completion-format-citation-org-cite))
+
+;;;
