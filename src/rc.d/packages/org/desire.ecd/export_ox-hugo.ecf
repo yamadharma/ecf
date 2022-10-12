@@ -8,12 +8,15 @@
 
 (require 'org-id)
 
-;; Raw export of mermaid block
+;;; Raw export of mermaid block
 (with-eval-after-load 'ox-hugo
   (add-to-list 'org-hugo-special-block-type-properties '("mermaid" . (:raw t))))
 
+;;; Disable heading of Bibliography section
+(with-eval-after-load 'ox-hugo
+  (plist-put org-hugo-citations-plist :bibliography-section-heading ""))
 
-;; Hugo orgmode exporter
+;;; Hugo orgmode exporter
 ;; If you want the auto-exporting on file saves
 ;; (require 'ox-hugo-auto-export)
 
