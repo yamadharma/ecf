@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Custom cookies in org-mode
+;;; https://github.com/gsingh93/org-custom-cookies
+
+(require 'org-custom-cookies)
+
+;;;

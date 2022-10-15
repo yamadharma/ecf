@@ -295,6 +295,8 @@
 (desire 'org-appear)
 (desire 'org-fragtog)
 
+(desire 'org-custom-cookies)
+
 ;; (desire 'org-pomodoro)
 
 ;; (desire 'svg-tag-mode)
