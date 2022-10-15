@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org-Babel support for evaluating plantuml script
+
+(require 'ob-plantuml)
+
+;;;  "Method to use for PlantUML diagram generation:
+;;; jar | plantuml
+;;; `jar' means to use java together with the JAR
+;;; `plantuml' means to use the PlantUML executable
+(setq org-plantuml-exec-mode 'plantuml)
+
+;;;
