@@ -1,4 +1,5 @@
-;;; A carefully crafted Org exporter back-end for Hugo -*- coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A carefully crafted Org exporter back-end for Hugo
 ;; https://github.com/kaushalmodi/ox-hugo
 
 (desire 'ox-hugo)
@@ -13,8 +14,8 @@
   (add-to-list 'org-hugo-special-block-type-properties '("mermaid" . (:raw t))))
 
 ;;; Disable heading of Bibliography section
-(with-eval-after-load 'ox-hugo
-  (plist-put org-hugo-citations-plist :bibliography-section-heading ""))
+;; (with-eval-after-load 'ox-hugo
+;;   (plist-put org-hugo-citations-plist :bibliography-section-heading "Литература"))
 
 ;;; Hugo orgmode exporter
 ;; If you want the auto-exporting on file saves

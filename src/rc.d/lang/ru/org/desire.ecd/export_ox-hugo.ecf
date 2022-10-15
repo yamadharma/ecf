@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A carefully crafted Org exporter back-end for Hugo -*- coding: utf-8-unix; -*-
+;; https://github.com/kaushalmodi/ox-hugo
+
+;;; Disable heading of Bibliography section
+(with-eval-after-load 'ox-hugo
+   (plist-put org-hugo-citations-plist :bibliography-section-heading "Литература"))
+
+;;;
+
