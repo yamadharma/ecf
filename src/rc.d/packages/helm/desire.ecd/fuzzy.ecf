@@ -37,11 +37,11 @@
 ;;; Flx-based fuzzy sorting for helm
 ;; https://github.com/PythonNut/helm-flx
 
-;; (desire 'helm-flx)
+(desire 'helm-flx)
 
-;; (setq helm-flx-for-helm-find-files t) ;; t by default
-;; (setq helm-flx-for-helm-locate t) ;; nil by default
+(setq helm-flx-for-helm-find-files t) ;; t by default
+(setq helm-flx-for-helm-locate t) ;; nil by default
 
-;; (helm-flx-mode +1)
+(helm-flx-mode +1)
 
 ;;;

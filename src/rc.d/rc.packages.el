@@ -263,6 +263,8 @@
 (desire-old 'text)
 (desire-old 'markdown-mode nil "markdown-mode" t)
 
+(desire 'plantuml-mode)
+
 ;;}}}
 ;;{{{
 

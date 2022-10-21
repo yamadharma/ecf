@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org-Babel confirm before evaluation
+
+(setq org-confirm-babel-evaluate nil)
+
+;;;

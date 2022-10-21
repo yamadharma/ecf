@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A major mode for editing PlantUML sources in Emacs
+;;; https://github.com/skuro/plantuml-mode
+
+(require 'plantuml-mode)
+
+;;; Sample jar configuration
+;; (setq plantuml-jar-path "/path/to/your/copy/of/plantuml.jar")
+;; (setq plantuml-default-exec-mode 'jar)
+
+;;; Sample executable configuration
+(setq plantuml-executable-path "plantuml")
+(setq plantuml-default-exec-mode 'executable)
+
+;;; Enable plantuml-mode for PlantUML files
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+
+;;;
