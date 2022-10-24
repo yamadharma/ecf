@@ -36,19 +36,16 @@
 
 
 ;;; Set export directory
-(setq exported-org-files-dir (concat org-directory "/export/"))
-(if (not (file-directory-p exported-org-files-dir))
-    (make-directory exported-org-files-dir t))
+;; (setq exported-org-files-dir (concat org-directory "/export/"))
+;; (if (not (file-directory-p exported-org-files-dir))
+;;     (make-directory exported-org-files-dir t))
 
-(defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
-  (unless pub-dir
-    (setq pub-dir exported-org-files-dir)
-    (unless (file-directory-p pub-dir)
-      (make-directory pub-dir)))
-  (apply orig-fun extension subtreep pub-dir nil))
-(advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
-
-
-
+;; (defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
+;;   (unless pub-dir
+;;     (setq pub-dir exported-org-files-dir)
+;;     (unless (file-directory-p pub-dir)
+;;       (make-directory pub-dir)))
+;;   (apply orig-fun extension subtreep pub-dir nil))
+;; (advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
 
 ;;;
