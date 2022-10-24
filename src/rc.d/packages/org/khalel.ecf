@@ -16,14 +16,14 @@
 ;;; The confirmation prompt for overwriting the file can be disabled
 (setq khalel-import-org-file-confirm-overwrite nil)
 
-;;; the next 30 days will be more than enough to fill agenda view
-(setq khalel-import-time-delta "90d")
+;;; the next 90 days will be more than enough to fill agenda view
+(setq khalel-import-time-delta "+90d")
 
 ;;; Set up a capture template using a helper routine
 (khalel-add-capture-template)
 
 ;;; Automatic fetch every 30 minutes
-;; (run-with-timer (* 30 60) (* 30 60) 'khalel-run-vdirsyncer)
-(run-with-timer (* 30 60) (* 30 60) 'khalel-import-upcoming-events)
+(run-with-timer (* 30 60) (* 30 60) 'khalel-run-vdirsyncer)
+(run-with-timer (* 30 60) (* 30 60) 'khalel-import-events)
 
 ;;;
