@@ -1,15 +1,21 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; https://github.com/tmalsburg/helm-bibtex
 
-;;; Customize layout of search results
-;; (setq bibtex-completion-display-formats
-;;     '((article       . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} ${journal:40}")
-;;       (inbook        . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-;;       (incollection  . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-;;       (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-;;       (t             . "${=has-pdf=:1}${=has-note=:1} ${=type=:3} ${year:4} ${author:36} ${title:*}")))
-
 ;;; Fields used for searching
 (setq bibtex-completion-additional-search-fields '(keywords))
+(add-to-list 'bibtex-completion-additional-search-fields 'journal)
+(add-to-list 'bibtex-completion-additional-search-fields 'booktitle)
+(add-to-list 'bibtex-completion-additional-search-fields 'subtitle)
+(add-to-list 'bibtex-completion-additional-search-fields 'chapter)
+(add-to-list 'bibtex-completion-additional-search-fields 'volume)
+
+;;; Customize layout of search results
+(setq bibtex-completion-display-formats
+      '((article	. "${=has-pdf=:1}${=has-note=:1} ${=type=:7} ${year:4} ${author:36} ${title:*} ${journal:40}")
+	(inbook		. "${=has-pdf=:1}${=has-note=:1} ${=type=:7} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+	(incollection	. "${=has-pdf=:1}${=has-note=:1} ${=type=:7} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+	(inproceedings	. "${=has-pdf=:1}${=has-note=:1} ${=type=:7} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+	(book 		. "${=has-pdf=:1}${=has-note=:1} ${=type=:7} ${year:4} ${author:36} ${title:*} ${subtitle:40} ${volume:2}")
+	(t		. "${=has-pdf=:1}${=has-note=:1} ${=type=:7} ${year:4} ${author:36} ${title:*}")))
 
 ;;;
