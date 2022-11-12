@@ -1,5 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Integration with the Biblio package
+;;; https://github.com/cpitclaudel/biblio.el
 
 (require 'ebib-biblio)
 (define-key biblio-selection-mode-map (kbd "e") #'ebib-biblio-selection-import)
@@ -34,7 +35,7 @@
   "Minor mode for special key bindings in a capture buffer.
 
   Turning on this mode runs the normal hook `ebib-capture-mode-hook'."
-  nil " Cap" ebib-capture-mode-map
+  :init-value nil :lighter " Cap" :keymap ebib-capture-mode-map
   (setq-local
    header-line-format
    (substitute-command-keys
@@ -53,7 +54,7 @@
   "Save entries and finalize."
   (interactive)
   (ebib--execute-when
-   ((or slave-db filtered-db)
+   ((or dependent-db filtered-db)
     (error "[Ebib] Cannot merge into a filtered or a slave database"))
    (real-db
     (unless (ebib-capture-check-duplicates)

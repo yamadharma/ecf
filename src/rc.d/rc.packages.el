@@ -235,7 +235,6 @@
 (desire 'bibtex-completion)
 (desire 'biblio)
 (desire 'bibtex)
-(desire 'ebib)
 
 ;;}}}
 
@@ -411,6 +410,8 @@
 
 ;; (desire-old 'php-mode nil "php-mode")
 ;; (desire-old 'eiffel-mode nil "eiffel-mode")
+
+(desire 'ebib)
 
 (desire 'lua-mode)
 
