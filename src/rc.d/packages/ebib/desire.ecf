@@ -14,14 +14,20 @@
 ;; (setq ebib-layout 'custom)
 ;; (setq ebib-notes-show-note-method 'top-lines)
 
+;; (setq ebib-index-columns '(("Entry Key" 40 t)
+;; 			   ("Author/Editor" 40 t)
+;; 			   ("Year" 6 t)
+;; 			   ("Title" 50 t)
+;; 			   ("Url" 3 t)
+;; 			   ("Doi" 3 t)
+;; 			   ("Note" 3 t)
+;; 			   ("Timestamp" 10 t)))
 (setq ebib-index-columns '(("Entry Key" 40 t)
 			   ("Author/Editor" 40 t)
 			   ("Year" 6 t)
 			   ("Title" 50 t)
 			   ("Url" 3 t)
-			   ("Doi" 3 t)
-			   ("Note" 3 t)
-			   ("Timestamp" 10 t)))
+			   ("Note" 3 t)))
 (setq ebib-file-associations
       '(("docx" . "soffice") ("odt" . "soffice")("doc" . "soffice")))
 
