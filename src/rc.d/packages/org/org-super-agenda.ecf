@@ -8,7 +8,8 @@
         (:name "Inbox"
                :file-path "inbox\\.org")
         (:name "Today"
-	       :time-grid t  ; Items that appear on the time grid
+	       :discard (:todo ("DONE"))
+	       :time-grid t
 	       :scheduled today)
 	(:name "Due today"
 	       :deadline today)
