@@ -2,6 +2,7 @@
 ;;; Search and manage bibliographies in Emacs
 ;;;  https://github.com/tmalsburg/helm-bibtex
 
+(desire 'helm-bibtex)
 (autoload 'helm-bibtex "helm-bibtex" "" t)
 
 ;;;

@@ -1,6 +1,7 @@
 ;;; Search and manage bibliographies in Emacs -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;  https://github.com/tmalsburg/helm-bibtex
 
+(desire 'ivy-bibtex)
 (autoload 'ivy-bibtex "ivy-bibtex" "" t)
 ;; ivy-bibtex requires ivy's `ivy--regex-ignore-order` regex builder, which
 ;; ignores the order of regexp tokens when searching for matching candidates.
