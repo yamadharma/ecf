@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A carefully crafted Org exporter back-end for Hugo
+;; https://github.com/kaushalmodi/ox-hugo
+
+
+;;; Prevent aborting: ID_LINK with ID outside of subtree
+
+;;; Follow ids in org-roam
+;; (setq org-id-extra-files (directory-files-recursively org-roam-directory ".*\.org$" t)) 
+
+;;; This is not a proper fix. Need undo the following workaround once this issue is fixed.
+(with-eval-after-load 'ox-hugo
+  (setq org-hugo--preprocess-buffer nil))
+
+;;;
+
