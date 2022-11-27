@@ -1,0 +1,55 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Better equation numbering in LaTeX fragments in org-mode
+;;; https://kitchingroup.cheme.cmu.edu/blog/2016/11/07/Better-equation-numbering-in-LaTeX-fragments-in-org-mode/
+
+;; In org-mode we can use LaTeX equations, and toggle an overlay that shows what the rendered equation will look like.
+;; One thing that has always bothered me though, is that each fragment is created in isolation.
+;; That means numbering is almost always wrong, and typically with each numbered equation starting with (1).
+
+(defun ecf/org-renumber-environment (orig-func &rest args)
+  (let ((results '()) 
+        (counter -1)
+        (numberp))
+
+    (setq results (loop for (begin .  env) in 
+                        (org-element-map (org-element-parse-buffer) 'latex-environment
+                          (lambda (env)
+                            (cons
+                             (org-element-property :begin env)
+                             (org-element-property :value env))))
+                        collect
+                        (cond
+                         ((and (string-match "\\\\begin{equation}" env)
+                               (not (string-match "\\\\tag{" env)))
+                          (incf counter)
+                          (cons begin counter))
+                         ((string-match "\\\\begin{align}" env)
+                          (prog2
+                              (incf counter)
+                              (cons begin counter)                          
+                            (with-temp-buffer
+                              (insert env)
+                              (goto-char (point-min))
+                              ;; \\ is used for a new line. Each one leads to a number
+                              (incf counter (count-matches "\\\\$"))
+                              ;; unless there are nonumbers.
+                              (goto-char (point-min))
+                              (decf counter (count-matches "\\nonumber")))))
+                         (t
+                          (cons begin nil)))))
+
+    (when (setq numberp (cdr (assoc (point) results)))
+      (setf (car args)
+            (concat
+             (format "\\setcounter{equation}{%s}\n" numberp)
+             (car args)))))
+  
+  (apply orig-func args))
+
+(advice-add 'org-create-formula-image :around #'ecf/org-renumber-environment)
+
+;;; You can remove the advice like this.
+;; (advice-remove 'org-create-formula-image #'ecf/org-renumber-environment)
+
+
+;;;
