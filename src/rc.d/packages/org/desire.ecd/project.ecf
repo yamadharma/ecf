@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Stuck projects
+(setq org-stuck-projects '("+project" ("TODO" "NEXT") () ""))
+
+;;; Disable project tag inheritance
+(setq org-tags-exclude-from-inheritance '("project"))
+
+;;;
