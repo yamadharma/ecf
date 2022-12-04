@@ -1,5 +1,5 @@
 ;;; Filling deals with the insertion of line breaks
 
-(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+;; (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
 
 ;;;
