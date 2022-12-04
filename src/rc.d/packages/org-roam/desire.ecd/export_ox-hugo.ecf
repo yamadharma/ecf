@@ -6,7 +6,8 @@
 ;;; Prevent aborting: ID_LINK with ID outside of subtree
 
 ;;; Follow ids in org-roam
-;; (setq org-id-extra-files (directory-files-recursively org-roam-directory ".*\.org$" t)) 
+(setq org-id-track-globally t)
+(setq org-id-extra-files (directory-files-recursively org-roam-directory ".*\.org$" t)) 
 
 ;;; This is not a proper fix. Need undo the following workaround once this issue is fixed.
 (with-eval-after-load 'ox-hugo
