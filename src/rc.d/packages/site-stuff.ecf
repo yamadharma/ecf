@@ -1,4 +1,5 @@
-;;; ----------------------------------------------------------------------
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
 ;;; Automatic decompression, hooks for tar-mode
 ;;;
 ;(require 'jka-compr)
@@ -38,3 +39,12 @@
 
 ;; Prevent horizontal window splitting for Emacs 23
 ;(setq split-width-threshold 9999)
+
+
+;;; Warnings
+;;; Disable report warnings and errors from asynchronous native compilation
+(setq native-comp-async-report-warnings-errors nil)
+
+;;; Not to warn you about anything except problems
+;;; :debug | :warning | :error | :emergency
+(setq warning-minimum-level :error)
