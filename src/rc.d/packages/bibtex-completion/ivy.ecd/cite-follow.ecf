@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Follow processor
+;;; https://github.com/tmalsburg/helm-bibtex
+
+;;; Invoking ivy-bibtex when point is on an org-mode citation will automatically select that key
+(org-cite-register-processor 'my-ivy-bibtex-org-cite-follow
+  :follow (lambda (_ _) (ivy-bibtex)))
+
+(setq org-cite-follow-processor 'my-ivy-bibtex-org-cite-follow)
+
+;;;

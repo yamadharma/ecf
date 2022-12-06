@@ -11,6 +11,6 @@
 ;;; Store all notes in one file
 ;; (setq bibtex-completion-notes-path "/path/to/notes.org")
 ;;; Store notes in multiple files, one file per publication
-(setq bibtex-completion-notes-path "~/work/org/notes")
+(setq bibtex-completion-notes-path "~/work/org/notes/literary")
 
 ;;;

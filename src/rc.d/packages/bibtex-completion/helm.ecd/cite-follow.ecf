@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Follow processor
+;;; https://github.com/tmalsburg/helm-bibtex
+
+;;; Invoking helm-bibtex when point is on an org-mode citation will automatically select that key
+(setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
+
+;;;
