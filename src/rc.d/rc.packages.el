@@ -240,7 +240,6 @@
 
 ;;}}}
 
-
 (desire 'projectile)
 
 ;;(desire-old 'yasnippet)

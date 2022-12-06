@@ -2,4 +2,6 @@
 ;;; Org Roam integration with bibliography management software
 ;;; https://github.com/org-roam/org-roam-bibtex
 
+(require 'org-roam-bibtex)
+
 ;;;
