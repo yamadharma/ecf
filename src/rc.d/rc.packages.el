@@ -165,6 +165,8 @@
 ;;}}}
 ;;
 
+;; (desire 'tree-sitter)
+
 (desire 'hydra)
 
 (desire 'bicycle)

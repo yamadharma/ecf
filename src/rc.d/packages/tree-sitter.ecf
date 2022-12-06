@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Tree-sitter bindings for Emacs Lisp
+;;; https://github.com/emacs-tree-sitter/elisp-tree-sitter
+
+(require 'tree-sitter)
+(require 'tree-sitter-langs)
+
+(setq tree-sitter-syntax-highlight-enable t)
+(setq tree-sitter-fold-enable t)
+(setq tree-sitter-fold-indicators-enable t)
+
+(global-tree-sitter-mode)
+
+;;;
