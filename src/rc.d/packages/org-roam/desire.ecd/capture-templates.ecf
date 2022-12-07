@@ -62,7 +62,7 @@
 #+startup: overview hidestars hideblocks indent num inlineimages
 #+options: ^:{} num:t
 :END:
-:SETUP_EXPORT:
+:SETUP_HUGO:
 #+hugo_section: ru/post/%<%Y>
 #+export_file_name: %<%Y-%m-%d>-${slug}
 #+hugo_custom_front_matter: :slug ${slug}
@@ -71,9 +71,7 @@
 :END:\n
 \n
 #+hugo: more\n
-#+begin_export hugo
-{{< toc >}}
-#+end_export\n")
+@@hugo:{{< toc >}}@@\n")
 	 :immediate-finish t
          :jump-to-captured t
 	 :unnarrowed t)
@@ -92,7 +90,7 @@
 #+startup: overview hidestars hideblocks indent num inlineimages
 #+options: ^:{} num:t
 :END:
-:SETUP_EXPORT:
+:SETUP_HUGO:
 #+hugo_section: ru/post/%<%Y>
 #+export_file_name: %<%Y-%m-%d>-${slug}
 #+hugo_custom_front_matter: :slug ${slug}
@@ -101,63 +99,51 @@
 :END:\n
 \n
 #+hugo: more\n
-#+begin_export hugo
-{{< toc >}}
-#+end_export\n")
+@@hugo:{{< toc >}}@@\n")
 	 :immediate-finish t
          :jump-to-captured t
 	 :unnarrowed t)	
-;; 	("s" "per Section flow (two language)" plain "%?"
-;; 	 :if-new
-;; 	 (file+head
-;; 	  "%<%Y%m%d%H%M%S>-${slug}.org"
-;; 	  "#+title: ${title}
-;; #+created: %U
-;; #+last_modified: %U
-;; #+language: ru
-;; #+date: %<%Y-%m-%dT%H:%M:%S%:z>
-;; #+filetags:
+	("s" "per Section flow (two language)" plain "%?"
+	 :if-new
+	 (file+head
+	  "%<%Y%m%d%H%M%S>-${slug}.org"
+	  "#+title: ${title}
+#+created: %U
+#+last_modified: %U
+#+language: ru
+#+date: %<%Y-%m-%dT%H:%M:%S%:z>
+#+filetags:
 
-;; :LOCALSETUP:
-;; #+startup: overview
-;; #+startup: hidestars
-;; #+startup: hideblocks
-;; #+startup: indent
-;; #+startup: num
-;; #+options: ^:{} num:t
-;; :END:
-;; :SETUP_EXPORT:
-;; #+hugo_base_dir: ~/work/blog/git
-;; #+hugo_front_matter_format: yaml
-;; #+hugo_auto_set_lastmod: t
-;; #+hugo_custom_front_matter: :slug ${slug}
-;; :END:
+:LOCALSETUP:
+#+startup: overview hidestars hideblocks indent num
+#+options: ^:{} num:t
+:END:
+:SETUP_HUGO:
+#+hugo_custom_front_matter: :slug ${slug}
+:END:
 
-;; * TODO ${title}
-;; :PROPERTIES:
-;; :export_hugo_section: ru/post/%<%Y>
-;; :export_file_name: %<%Y-%m-%d>-${slug}
-;; :END:
-;; #+hugo: more\n
-;; #+begin_export hugo
-;; {{< toc >}}
-;; #+end_export\n
+* TODO ${title}
+:PROPERTIES:
+:export_hugo_section: ru/post/%<%Y>
+:export_file_name: %<%Y-%m-%d>-${slug}
+:END:
 
-;; * TODO ${title} (English)
-;; :PROPERTIES:
-;; :export_hugo_section: en/post/%<%Y>
-;; :export_file_name: %<%Y-%m-%d>-${slug}
-;; :END:
-;; #+hugo: more\n
-;; #+begin_export hugo
-;; {{< toc >}}
-;; #+end_export\n
+#+hugo: more\n
+@@hugo:{{< toc >}}@@\n
 
-;; ")
-;; 	 :immediate-finish t
-;;          :jump-to-captured t
-;; 	 :
-	 ;; unnarrowed t)
+* TODO ${title} (English)
+:PROPERTIES:
+:export_hugo_section: en/post/%<%Y>
+:export_file_name: %<%Y-%m-%d>-${slug}
+:END:
+
+#+hugo: more\n
+@@hugo:{{< toc >}}@@\n
+")
+	 :immediate-finish t
+         :jump-to-captured t
+	 :
+	 unnarrowed t)
 	))
 
 ;;;
