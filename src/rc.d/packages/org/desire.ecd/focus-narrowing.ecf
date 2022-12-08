@@ -32,7 +32,7 @@
     (widen)))
 
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map "W" (lambda () (interactive) (setq ecf/hide-scheduled-and-waiting-next-tasks t) (ecf/widen))))
+          #'(lambda () (org-defkey org-agenda-mode-map "W" (lambda () (interactive) (setq ecf/hide-scheduled-and-waiting-next-tasks t) (ecf/widen))))
           'append)
 
 (defun ecf/restrict-to-file-or-follow (arg)
@@ -48,7 +48,7 @@ so change the default 'F' binding in the agenda to allow both"
     (beginning-of-buffer)))
 
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map "F" 'ecf/restrict-to-file-or-follow))
+          #'(lambda () (org-defkey org-agenda-mode-map "F" 'ecf/restrict-to-file-or-follow))
           'append)
 
 (defun ecf/narrow-to-org-subtree ()
@@ -68,7 +68,7 @@ so change the default 'F' binding in the agenda to allow both"
     (ecf/narrow-to-org-subtree)))
 
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map "N" 'ecf/narrow-to-subtree))
+          #'(lambda () (org-defkey org-agenda-mode-map "N" 'ecf/narrow-to-subtree))
           'append)
 
 (defun ecf/narrow-up-one-org-level ()
@@ -93,7 +93,7 @@ so change the default 'F' binding in the agenda to allow both"
     (ecf/narrow-up-one-org-level)))
 
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map "U" 'ecf/narrow-up-one-level))
+          #'(lambda () (org-defkey org-agenda-mode-map "U" 'ecf/narrow-up-one-level))
           'append)
 
 (defun ecf/narrow-to-org-project ()
@@ -118,7 +118,7 @@ so change the default 'F' binding in the agenda to allow both"
       (org-agenda-set-restriction-lock))))
 
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map "P" 'ecf/narrow-to-project))
+          #'(lambda () (org-defkey org-agenda-mode-map "P" 'ecf/narrow-to-project))
           'append)
 
 (defvar ecf/project-list nil)
@@ -165,10 +165,11 @@ so change the default 'F' binding in the agenda to allow both"
         (error "All projects viewed.")))))
 
 (add-hook 'org-agenda-mode-hook
-          '(lambda () (org-defkey org-agenda-mode-map "V" 'ecf/view-next-project))
+          #'(lambda () (org-defkey org-agenda-mode-map "V" 'ecf/view-next-project))
           'append)
 
 ;; Force showing the next headline
 
 (setq org-show-entry-below (quote ((default))))
 
+;;;
