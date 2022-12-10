@@ -5,6 +5,6 @@
 (require 'org-transclusion)
 
 (define-key global-map (kbd "<f12>") #'org-transclusion-add)
-(define-key global-map (kbd "C-c n T") #'org-transclusion-mode)
+(define-key global-map (kbd "C-n t") #'org-transclusion-mode)
 
 ;;;
