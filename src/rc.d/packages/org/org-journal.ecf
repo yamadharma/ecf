@@ -44,6 +44,20 @@
 (setq org-journal-file-header 'org-journal-file-header-func)
 
 ;;; Capture
+(defun org-journal-find-location ()
+  ;; Open today's journal, but specify a non-nil prefix argument in order to
+  ;; inhibit inserting the heading; org-capture will insert the heading.
+  (org-journal-new-entry t)
+  (unless (eq org-journal-file-type 'daily)
+    (org-narrow-to-subtree))
+  (goto-char (point-max)))
+
+(add-to-list 'org-capture-templates
+	     '("j" "Journal entry" plain (function org-journal-find-location)
+                "** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
+                :jump-to-captured t :immediate-finish t))
+
+;;; Schedule a task for a future date
 (defvar org-journal--date-location-scheduled-time nil)
 
 (defun org-journal-date-location (&optional scheduled-time)
@@ -54,9 +68,13 @@
       (org-narrow-to-subtree))
     (goto-char (point-max))))
 
-(add-to-list 'org-capture-templates '("J" "Journal entry" plain (function org-journal-date-location)
-                               "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
-                               :jump-to-captured t))
+(add-to-list 'org-capture-templates
+	     '("J" "Journal entry" plain (function org-journal-date-location)
+                "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
+                :jump-to-captured t))
+
+;;; Caching of journal dates
+(setq org-journal-enable-cache t)
 
 ;;; Default key-bindings in org-journal conflict with org-mode key bindings
 ;; Minor modes are supposed to only use key bindings of the form C-c
@@ -71,6 +89,12 @@
 ;; C-c C-f (org-journal-open-next-entry) with org-forward-heading-same-level
 ;; C-c C-b (org-journal-open-previous-entry) with org-backward-heading-same-level
 ;; C-c C-j (org-journal-new-entry) with org-goto
+
+(global-set-key (kbd "C-c C-j") #'org-journal-new-entry)
+
+;;; Change default prefix key
+;;; needs to be set before loading org-journal
+;; (setq org-journal-prefix-key "C-c j ")
 
 (require 'org-journal)
 
