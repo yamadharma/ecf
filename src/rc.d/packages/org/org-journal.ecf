@@ -55,7 +55,7 @@
 (add-to-list 'org-capture-templates
 	     '("j" "Journal entry" plain (function org-journal-find-location)
                 "** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
-                :jump-to-captured t :immediate-finish t))
+                :jump-to-captured t :immediate-finish t) t)
 
 ;;; Schedule a task for a future date
 (defvar org-journal--date-location-scheduled-time nil)
@@ -71,7 +71,7 @@
 (add-to-list 'org-capture-templates
 	     '("J" "Journal entry" plain (function org-journal-date-location)
                 "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
-                :jump-to-captured t))
+                :jump-to-captured t) t)
 
 ;;; Caching of journal dates
 (setq org-journal-enable-cache t)

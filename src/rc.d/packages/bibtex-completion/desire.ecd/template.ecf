@@ -1,0 +1,21 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; https://github.com/tmalsburg/helm-bibtex
+
+(setq bibtex-completion-notes-template-multiple-files
+      (concat
+       "#+TITLE: ${title}\n"
+       "#+ROAM_KEY: cite:${=key=}\n"
+       "* TODO Notes\n"
+       ":PROPERTIES:\n"
+       ":Custom_ID: ${=key=}\n"
+       ":NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
+       ":AUTHOR: ${author-abbrev}\n"
+       ":JOURNAL: ${journaltitle}\n"
+       ":DATE: ${date}\n"
+       ":YEAR: ${year}\n"
+       ":DOI: ${doi}\n"
+       ":URL: ${url}\n"
+       ":END:\n\n"
+       ))
+
+;;;

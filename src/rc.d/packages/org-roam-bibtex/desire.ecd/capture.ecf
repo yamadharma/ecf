@@ -1,0 +1,25 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Notes template
+
+(setq orb-preformat-keywords
+      '("citekey" "title" "url" "author-or-editor" "keywords" "file")
+      orb-process-file-keyword t
+      orb-attached-file-extensions '("pdf"))
+
+(add-to-list 'org-roam-capture-templates
+	     '("r" "bibliography reference" plain "%?"     
+               :target
+               (file+head "literary/${citekey}.org" "#+title: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
+- tags ::
+- keywords :: %^{keywords}
+
+* %^{title}
+:PROPERTIES:
+:Custom_ID: %^{citekey}
+:URL: %^{url}
+:AUTHOR: %^{author-or-editor}
+:NOTER_DOCUMENT: %^{file}
+:NOTER_PAGE:
+:END:")) t)
+
+;;;

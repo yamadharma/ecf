@@ -5,4 +5,6 @@
 (desire 'bibtex-completion)
 (require 'orb-ivy)
 
+(setq orb-note-actions-interface 'ivy)
+
 ;;;
