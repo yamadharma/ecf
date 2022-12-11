@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Integration with the Biblio package
+
+(define-key ebib-index-mode-map (kbd "B") #'ebib-biblio-import-doi)
+(define-key biblio-selection-mode-map (kbd "e") #'ebib-biblio-selection-import)
+
+;;;
