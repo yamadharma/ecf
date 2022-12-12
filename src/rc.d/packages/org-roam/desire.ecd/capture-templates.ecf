@@ -114,8 +114,8 @@
 #+date: %<%Y-%m-%dT%H:%M:%S%:z>
 #+filetags:
 
-:LOCALSETUP:
-#+startup: overview hidestars hideblocks indent num
+:SETUP_LOCAL:
+#+startup: overview hidestars hideblocks indent num inlineimages
 #+options: ^:{} num:t
 :END:
 :SETUP_HUGO:

@@ -9,4 +9,7 @@
 ;; (setq ebib-file-search-dirs '("/path-to-documents-directory"))
 ;; (setq ebib-import-directory "path-to-e.g.-download-directory"))
 
+;;; Storing notes
+(setq ebib-notes-directory "~/work/org/notes/literary") 
+
 ;;;
