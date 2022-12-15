@@ -5,7 +5,10 @@
 (require 'oc-natbib)
 
 (setq org-cite-export-processors
-      '((latex biblatex)					;; For LaTeX
-	(t csl "gost-r-7-0-5-2008-numeric.csl")))		;; Fallback
+      '(
+	;; For LaTeX
+	(latex biblatex)					
+	;; Fallback
+	(t csl "gost-7.32-2017.csl")))
 
 ;;;
