@@ -1,4 +1,5 @@
-;;; Generate mermaid diagrams within Emacs org-mode babel -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Generate mermaid diagrams within Emacs org-mode babel
 ;; https://github.com/arnm/ob-mermaid
 
 (desire 'ob-mermaid)

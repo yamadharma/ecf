@@ -31,6 +31,9 @@
       org-agenda-current-time-string
       "⭠ now ─────────────────────────────────────────────────")
 
+;;; FIXME: temporary set org tables as fixed pitch
+;; (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+
 ;;; Enable org-modern-mode
 (add-hook 'org-mode-hook #'org-modern-mode)
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)

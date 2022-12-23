@@ -1,9 +1,8 @@
-;;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (require 'org-install)
 
-;; (global-set-key (kbd "<f12>") 'org-agenda)
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;;;
