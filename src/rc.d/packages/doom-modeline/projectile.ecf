@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; 
+
+;;; We display project info in the modeline ourselves
+(setq projectile-dynamic-mode-line t)
+
+;;;

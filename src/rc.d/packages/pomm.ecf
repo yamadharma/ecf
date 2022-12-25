@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Implementation of Pomodoro and Third Time techniques for Emacs
+;;; https://github.com/SqrtMinusOne/pomm.el
+
+(require 'pomm)
+
+;;; If you want an actual notification
+(setq alert-default-style 'libnotify)
+
+;;; Display in the modeline
+(pomm-mode-line-mode)
+
+;;; By default sounds are disabled
+;; (setq pomm-audio-enabled t)
+;;; Ticking sound
+;; (setq pomm-audio-tick-enabled t)
+
+;;;

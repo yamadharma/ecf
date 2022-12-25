@@ -2,7 +2,6 @@
 ;; A fancy and fast mode-line inspired by minimalism design
 ;; https://github.com/seagle0128/doom-modeline
 
-(require 'doom-modeline)
-(doom-modeline-mode 1)
+(desire 'doom-modeline)
 
 ;;;

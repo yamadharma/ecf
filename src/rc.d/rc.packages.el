@@ -142,27 +142,6 @@
 (desire-old 'modeline)
 
 ;;}}}
-;;{{{ Themes
-
-;; (desire 'moody)
-
-;;; Spacemacs theme
-(desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
-(desire 'spaceline)
-
-;;; Doom themes
-;; (desire 'doom-themes)
-;; (desire 'doom-modeline)
-
-;; (desire 'zenburn-theme)
-;; (desire 'modus-themes)
-
-;;; N Λ N O Theme
-;; (desire 'nano-theme)
-;; (desire 'nano-modeline)
-;; (desire 'nano-minibuffer :recipe '(:fetcher github :repo "rougier/nano-minibuffer" :branch "master"))
-
-;;}}}
 ;;
 
 ;; (desire 'tree-sitter)
@@ -266,6 +245,10 @@
 (desire 'plantuml-mode)
 
 ;;}}}
+;;; Time management 
+
+(desire 'pomm)
+
 ;;{{{
 
 (desire 'mouse3 :recipe '(:fetcher github :repo "emacsmirror/mouse3" :branch "master" :files ("*.el")))
@@ -439,6 +422,26 @@
 ;; (desire-old 'hexo nil "hexo")
 ;; (desire-old 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
 (desire-old 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
+
+;;}}}
+;;{{{ Themes
+
+;; (desire 'moody)
+
+;;; Spacemacs theme
+(desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
+(desire 'spaceline)
+
+;;; Doom themes
+(desire 'doom-themes)
+
+;; (desire 'zenburn-theme)
+;; (desire 'modus-themes)
+
+;;; N Λ N O Theme
+;; (desire 'nano-theme)
+;; (desire 'nano-modeline)
+;; (desire 'nano-minibuffer :recipe '(:fetcher github :repo "rougier/nano-minibuffer" :branch "master"))
 
 ;;}}}
 ;;{{{ Miscellaneous
