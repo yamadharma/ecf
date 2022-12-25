@@ -2,9 +2,6 @@
 ;; https://emacs-helm.github.io/helm/
 ;; https://github.com/emacs-helm/helm/wiki
 
-(require 'helm)
-(require 'helm-config)
-
 ;;; Disable Helm header
 ;; default value is nil
 ;;;

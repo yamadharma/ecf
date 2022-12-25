@@ -137,9 +137,8 @@
 
 (desire 'unicode-fonts)
 
-(desire-old 'theme)
-
-(desire-old 'modeline)
+;; (desire-old 'theme)
+;; (desire-old 'modeline)
 
 ;;}}}
 ;;
@@ -429,8 +428,8 @@
 ;; (desire 'moody)
 
 ;;; Spacemacs theme
-(desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
-(desire 'spaceline)
+;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
+;; (desire 'spaceline)
 
 ;;; Doom themes
 (desire 'doom-themes)
