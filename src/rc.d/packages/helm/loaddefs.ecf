@@ -3,6 +3,6 @@
 ;; https://github.com/emacs-helm/helm/wiki
 
 (require 'helm)
-(require 'helm-autoloads)
+;; (require 'helm-autoloads)
 
 ;;;
