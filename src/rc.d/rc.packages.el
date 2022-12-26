@@ -429,7 +429,6 @@
 
 ;;; Spacemacs theme
 ;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
-;; (desire 'spaceline)
 
 ;;; Doom themes
 (desire 'doom-themes)
