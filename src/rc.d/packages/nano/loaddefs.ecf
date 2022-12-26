@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; GNU Emacs / N Λ N O Emacs
+;; https://github.com/rougier/nano-emacs
+
+(setq nano-font-family-monospaced "Iosevka")
+(setq nano-font-family-proportional "Iosevka Aile")
+(setq nano-font-size 12)
+
+(require 'nano)
+
+;;;
