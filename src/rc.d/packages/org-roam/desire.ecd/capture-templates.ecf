@@ -106,7 +106,7 @@
 	("s" "per Section flow (two language)" plain "%?"
 	 :if-new
 	 (file+head
-	  "%<%Y%m%d%H%M%S>-${slug}.org"
+	  public/"%<%Y%m%d%H%M%S>-${slug}.org"
 	  "#+title: ${title}
 #+created: %U
 #+last_modified: %U
