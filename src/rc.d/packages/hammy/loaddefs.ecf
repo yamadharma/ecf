@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Programmable, interactive interval timers (e.g. for working/resting)
+;;; https://github.com/alphapapa/hammy.el
+
+(require 'hammy)
+
+;;;

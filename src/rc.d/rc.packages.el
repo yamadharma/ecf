@@ -246,7 +246,9 @@
 ;;}}}
 ;;; Time management 
 
-(desire 'pomm)
+;; (desire 'pomm)
+;; (desire 'org-pomodoro)
+(desire 'hammy)
 
 ;;{{{
 
@@ -280,8 +282,6 @@
 (desire 'org-fragtog)
 
 (desire 'org-custom-cookies)
-
-;; (desire 'org-pomodoro)
 
 ;; (desire 'svg-tag-mode)
 
