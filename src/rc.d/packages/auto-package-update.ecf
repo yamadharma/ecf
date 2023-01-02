@@ -3,16 +3,22 @@
 
 (require 'auto-package-update)
 
-;; The periodicity (in days) of the update
-(setq auto-package-update-interval 14)
+;;; The periodicity (in days) of the update
+(setq auto-package-update-interval 30)
 
-;; Enable deleting old packages versions
+;;; Enable deleting old packages versions
 (setq auto-package-update-delete-old-versions t)
 
-;; Hide the results buffer after auto package update is complete
+;;; Hide the results buffer after auto package update is complete
 (setq auto-package-update-hide-results t)
 
-;; Update installed Emacs packages if at least auto-package-update-interval days have passed since the last update
+;;; Update installed Emacs packages if at least auto-package-update-interval days have passed since the last update
 (auto-package-update-maybe)
+
+;;; Use `auto-package-update-now-async` without blocking Emacs
+(package-refresh-contents :async)
+
+;;; Show a manual prompt before automatic updates
+(setq auto-package-update-prompt-before-update t)
 
 ;;;
