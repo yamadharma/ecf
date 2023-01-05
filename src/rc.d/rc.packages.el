@@ -153,7 +153,7 @@
 (desire-old 'show-paren)
 ;; (desire-old 'folding)
 ;; (desire-old 'outline)
-;; (desire 'origami)
+(desire 'origami)
 
 ;;
 
