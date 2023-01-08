@@ -4,7 +4,7 @@
 (require 'auto-package-update)
 
 ;;; The periodicity (in days) of the update
-(setq auto-package-update-interval 30)
+(setq auto-package-update-interval 365)
 
 ;;; Enable deleting old packages versions
 (setq auto-package-update-delete-old-versions t)
