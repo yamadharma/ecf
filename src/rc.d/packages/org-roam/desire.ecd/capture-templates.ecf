@@ -62,9 +62,9 @@
          :jump-to-captured t
 	 :unnarrowed t)	
 	("s" "per Section flow (two language)" plain "%?"
-	 :if-new
+	 :target
 	 (file+head
-	  public/"%<%Y%m%d%H%M%S>-${slug}.org"
+	  "public/%<%Y%m%d%H%M%S>-${slug}.org"
 	  "#+title: ${title}
 #+created: %U
 #+last_modified: %U
@@ -100,7 +100,6 @@
 ")
  :immediate-finish t
  :jump-to-captured t
- :unnarrowed t)
-))
+ :unnarrowed t)))
 
 ;;;
