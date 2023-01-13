@@ -2,6 +2,10 @@
 ;;; Pixel-perfect visual alignment for Org and Markdown tables
 ;;; https://github.com/casouri/valign
 
+;;; Workaround for Pixel-alignment of Org tables #5 (https://github.com/minad/org-modern/issues/5)
+(set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+(custom-set-variables '(org-modern-table nil)) 
+
 (add-hook 'org-mode-hook #'valign-mode)
 
 (setq valign-fancy-bar t)
