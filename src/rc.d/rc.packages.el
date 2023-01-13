@@ -245,6 +245,8 @@
 
 (desire 'plantuml-mode)
 
+;; (desire 'valign)
+
 ;;}}}
 ;;; Time management 
 

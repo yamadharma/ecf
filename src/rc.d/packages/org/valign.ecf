@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Pixel-perfect visual alignment for Org and Markdown tables
+;;; https://github.com/casouri/valign
+
+(add-hook 'org-mode-hook #'valign-mode)
+
+(setq valign-fancy-bar t)
+
+;;;
