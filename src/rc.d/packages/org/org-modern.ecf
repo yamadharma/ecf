@@ -34,6 +34,17 @@
 ;;; FIXME: temporary set org tables as fixed pitch
 ;; (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
 
+;;; Disable elements
+(if (desiredp 'svg-tag-mode)
+    (setq
+     ;; Appearance
+     org-modern-todo nil
+     org-modern-tag nil
+     ;; org-modern-timestamp t
+     org-modern-statistics nil
+     org-modern-progress nil
+     org-modern-priority nil))
+
 ;;; Enable org-modern-mode
 (add-hook 'org-mode-hook #'org-modern-mode)
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
