@@ -40,7 +40,7 @@
      ;; Appearance
      org-modern-todo nil
      org-modern-tag nil
-     ;; org-modern-timestamp t
+    ;; org-modern-timestamp nil
      org-modern-statistics nil
      org-modern-progress nil
      org-modern-priority nil))
