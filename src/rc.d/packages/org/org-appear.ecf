@@ -2,17 +2,23 @@
 ;;; Toggle visibility of hidden Org mode element parts upon entering and leaving an element
 ;;; https://github.com/awth13/org-appear
 
-;;; Toggle links
+;;; If non-nil and `org-hide-emphasis-markers` is on, toggle emphasis markers
+(setq org-appear-autoemphasis t)
+
+;;; If non-nil and `org-link-descriptive` is on, toggle links
 (setq org-appear-autolinks t)
 
-;;; Toggle subscripts and superscripts
+;;; If non-nil and `org-pretty-entities` is on, toggle subscripts and superscripts
 (setq org-appear-autosubmarkers t)
 
-;;; Toggle Org entitites
+;;; If non-nil and `org-pretty-entities` is on, toggle Org entitites
 (setq org-appear-autoentities t)
 
-;;; Toggle keywords in org-hidden-keywords
+;;; If non-nil and `org-hidden-keywords` is on, toggle keywords in `org-hidden-keywords`
 (setq org-appear-autokeywords t)
+
+;;; If non-nil, toggle entities and sub/superscripts in LaTeX fragments
+(setq org-appear-inside-latex t)
 
 ;;; Seconds of delay before toggling
 (setq org-appear-delay '0.0)
@@ -24,6 +30,6 @@
 (setq org-appear-trigger 'always)
 
 (require 'org-appear)
-(add-hook 'org-mode-hook 'org-appear-mode)
+(add-hook 'org-mode-hook #'org-appear-mode)
 
 ;;;

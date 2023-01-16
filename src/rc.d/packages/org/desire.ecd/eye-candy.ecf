@@ -1,13 +1,15 @@
 ;;;
 
-;;(custom-set-variables
-;;  '(org-pretty-entities t))
+(setq org-pretty-entities t)
 
 ;;; Turn on fontification for marked up text
 (setq org-fontify-emphasized-text t)
 
 ;;; Hide * and / in org text
 (setq org-hide-emphasis-markers t)
+
+;;; Hyperlinks
+(setq org-link-descriptive t)
 
 (setq org-indirect-buffer-display 'current-window
       org-eldoc-breadcrumb-separator " → "

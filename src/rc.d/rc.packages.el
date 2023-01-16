@@ -287,7 +287,7 @@
 
 (desire 'org-custom-cookies)
 
-(desire 'svg-tag-mode)
+;; (desire 'svg-tag-mode)
 (desire 'org-superstar)
 (desire 'org-modern)
 
