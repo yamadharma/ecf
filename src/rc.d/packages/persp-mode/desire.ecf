@@ -2,8 +2,8 @@
 ;;; Named perspectives (set of buffers/window configs) for emacs
 ;;; https://github.com/Bad-ptr/persp-mode.el
 
-(setq persp-keymap-prefix (kbd "C-x p")
-      persp-nil-name "default"
+
+(setq persp-nil-name "default"
       persp-set-last-persp-for-new-frames nil
       persp-kill-foreign-buffer-behaviour 'kill)
 

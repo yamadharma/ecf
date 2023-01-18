@@ -23,7 +23,7 @@
 (defvar helm-source-persp-free-buffers
   (helm-make-source "Free buffers"
       'helm-persp-free-buffers-source
-    :fuzzy-match t))
+    :fuzzy-match nil))
 
 
 (defun helm-persp-buffers-list--init ()

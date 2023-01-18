@@ -357,8 +357,8 @@
 (desire-old 'session nil "session")
 (desire-old 'saveplace nil "saveplace")
 
-;; (desire 'persp-mode)
-(desire 'perspective)
+(desire 'persp-mode)
+;; (desire 'perspective)
 
 ;;}}}
 ;;{{{ Appointments, diary, calendar.

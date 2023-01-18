@@ -7,6 +7,8 @@
   (setq persp-autokill-buffer-on-remove 'kill-weak)
   (add-hook 'window-setup-hook #'(lambda () (persp-mode 1))))
 
+(customize-set-variable 'persp-keymap-prefix (kbd "C-c M-p"))
+
 (require 'persp-mode)
 
 ;;;
