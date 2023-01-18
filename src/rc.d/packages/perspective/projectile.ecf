@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Projectile integration for perspective.el
+;;; https://github.com/bbatsov/persp-projectile
+
+(desire 'persp-projectile)
+(require 'persp-projectile)
+
+(define-key projectile-mode-map (kbd "s-s") 'projectile-persp-switch-project)
+
+;;;

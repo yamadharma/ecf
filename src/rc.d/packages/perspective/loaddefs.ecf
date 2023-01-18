@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Perspectives for Emacs
+;;; https://github.com/nex3/perspective-el
+
+(require 'perspective)
+
+(global-set-key (kbd "C-x C-b") 'persp-list-buffers)
+(customize-set-variable 'persp-mode-prefix-key (kbd "C-c M-p"))
+(persp-mode)
+
+;;;

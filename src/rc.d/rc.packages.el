@@ -334,7 +334,7 @@
 ;;}}}
 ;;{{{ Notes
 
-(desire 'deft)
+;; (desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
@@ -351,11 +351,14 @@
 
 ;;}}}
 
-;;{{{ Save desktop
+;;{{{ Desktop
 
 ; (desire-old 'desktop)
 (desire-old 'session nil "session")
 (desire-old 'saveplace nil "saveplace")
+
+;; (desire 'persp-mode)
+(desire 'perspective)
 
 ;;}}}
 ;;{{{ Appointments, diary, calendar.
