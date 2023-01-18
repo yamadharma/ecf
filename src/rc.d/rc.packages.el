@@ -252,7 +252,7 @@
 
 ;; (desire 'pomm)
 ;; (desire 'org-pomodoro)
-(desire 'hammy)
+;; (desire 'hammy)
 
 ;;{{{
 

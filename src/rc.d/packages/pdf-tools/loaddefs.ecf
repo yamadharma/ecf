@@ -2,7 +2,5 @@
 ;;; Emacs support library for PDF files
 ;;; https://github.com/vedang/pdf-tools/ 
 
-(require 'pdf-tools)
-
 ;;;
 

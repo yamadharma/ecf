@@ -2,4 +2,6 @@
 ;; Emacs document annotator, using Org-mode
 ;; https://github.com/weirdNox/org-noter
 
+(require 'org-noter)
+
 ;;;

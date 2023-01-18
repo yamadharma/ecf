@@ -1,6 +1,8 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Install binaries for pdf-tools
 
+(require 'pdf-tools)
+
 (pdf-tools-install)
 
 ;;;
