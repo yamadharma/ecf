@@ -1,4 +1,5 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Interface to helm-bibtex
 ;;; https://github.com/tmalsburg/helm-bibtex
 
 (require 'bibtex-completion)

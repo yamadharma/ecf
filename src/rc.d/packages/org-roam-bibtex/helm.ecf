@@ -2,7 +2,7 @@
 ;;; Org Roam integration with bibliography management software
 ;;; https://github.com/org-roam/org-roam-bibtex
 
-(desire 'bibtex-completion)
+(require 'bibtex-completion)
 (require 'orb-helm)
 
 (setq orb-note-actions-interface 'helm)
