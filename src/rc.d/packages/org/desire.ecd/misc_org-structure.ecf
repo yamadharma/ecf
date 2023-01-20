@@ -3,7 +3,7 @@
 ;;; Controlling display of leading stars on headlines
 (setq org-hide-leading-stars nil)
 
-;;; org-indent mode
+;;; Enable org-indent mode
 (setq org-startup-indented t)
 
 ;;; Toggle truncate lines

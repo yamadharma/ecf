@@ -17,7 +17,7 @@
 #+filetags:
 
 :SETUP_LOCAL:
-#+startup: overview hidestars hideblocks indent num inlineimages
+#+startup: overview hidestars hideblocks num inlineimages
 #+options: ^:{} num:t
 :END:
 :SETUP_HUGO:
@@ -45,7 +45,7 @@
 #+filetags:
 
 :SETUP_LOCAL:
-#+startup: overview hidestars hideblocks indent num inlineimages
+#+startup: overview hidestars hideblocks num inlineimages
 #+options: ^:{} num:t
 :END:
 :SETUP_HUGO:
@@ -73,7 +73,7 @@
 #+filetags:
 
 :SETUP_LOCAL:
-#+startup: overview hidestars hideblocks indent num inlineimages
+#+startup: overview hidestars hideblocks num inlineimages
 #+options: ^:{} num:t
 :END:
 :SETUP_HUGO:
