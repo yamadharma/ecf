@@ -84,6 +84,7 @@
 :PROPERTIES:
 :export_hugo_section: ru/post/%<%Y>
 :export_file_name: %<%Y-%m-%d>-${slug}
+:export_language: ru
 :END:
 
 #+hugo: more\n
@@ -93,6 +94,7 @@
 :PROPERTIES:
 :export_hugo_section: en/post/%<%Y>
 :export_file_name: %<%Y-%m-%d>-${slug}
+:export_language: en
 :END:
 
 #+hugo: more\n
