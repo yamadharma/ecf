@@ -1,0 +1,50 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; GNU Emacs / N Λ N O Emacs
+;; https://github.com/rougier/nano-emacs
+
+(require 'nano-layout)
+
+;;; Custom colors from the Spaceduck theme (https://pineapplegiant.github.io/spaceduck/)
+;; (defun nano-theme-set-spaceduck ()
+;;   (setq frame-background-mode 'dark)
+;;   (setq nano-color-foreground "#ecf0c1")
+;;   (setq nano-color-background "#0f111b")
+;;   (setq nano-color-highlight  "#1b1c36")
+;;   (setq nano-color-critical   "#e33400")
+;;   (setq nano-color-salient    "#00a4cc")
+;;   (setq nano-color-strong     "#e39400")
+;;   (setq nano-color-popout     "#f2ce00")
+;;   (setq nano-color-subtle     "#7a5ccc")
+;;   (setq nano-color-faded      "#b3a1e6"))
+;; (nano-theme-set-spaceduck)
+
+(require 'nano-base-colors)
+
+;;; Set up font faces
+(require 'nano-faces)
+(nano-faces)
+;;; Overload some of the defaults. Nano-emacs does not like to show bold text
+(set-face-attribute 'nano-face-strong nil
+                    :foreground (face-foreground 'nano-face-default)
+                    :weight 'bold)
+
+;;; Let nano theme everything
+(require 'nano-theme)
+(nano-theme)
+(set-face-attribute 'bold nil :weight 'bold)
+
+(require 'nano-help)
+
+;;; Enable the nano modeline
+(require 'nano-modeline)
+
+;;; Load nano defaults
+(require 'nano-defaults)
+
+(require 'nano-colors)
+;; (require 'nano-writer)
+
+;;; Enable nano session handling
+(require 'nano-session)
+
+;;;

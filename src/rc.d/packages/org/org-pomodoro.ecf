@@ -5,8 +5,8 @@
 (require 'org-pomodoro)
 
 (defun custom-pomodoro-org-agenda-mode-defaults ()
-  (org-defkey org-agenda-mode-map "I" 'org-pomodoro)
-  (org-defkey org-agenda-mode-map "O" 'org-pomodoro)
+;;  (org-defkey org-agenda-mode-map "I" 'org-pomodoro)
+;;  (org-defkey org-agenda-mode-map "O" 'org-pomodoro)
   (org-defkey org-agenda-mode-map (kbd "C-c C-x C-i") 'org-pomodoro)
   (org-defkey org-agenda-mode-map (kbd "C-c C-x C-o") 'org-pomodoro))
 

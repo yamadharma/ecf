@@ -6,6 +6,10 @@
 (setq nano-font-family-proportional "Iosevka Aile")
 (setq nano-font-size 12)
 
+;;; Nano theme
+;;; light | dark
+(setq nano-theme-var "light")
+
 (require 'nano)
 
 ;;;

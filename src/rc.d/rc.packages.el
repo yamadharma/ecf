@@ -251,7 +251,7 @@
 ;;; Time management 
 
 ;; (desire 'pomm)
-;; (desire 'org-pomodoro)
+(desire 'org-pomodoro)
 ;; (desire 'hammy)
 
 ;;{{{
@@ -357,7 +357,7 @@
 (desire-old 'session nil "session")
 (desire-old 'saveplace nil "saveplace")
 
-(desire 'persp-mode)
+;; (desire 'persp-mode)
 ;; (desire 'perspective)
 
 ;;}}}
@@ -441,13 +441,13 @@
 ;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
 
 ;;; Doom themes
-(desire 'doom-themes)
+;; (desire 'doom-themes)
 
 ;; (desire 'zenburn-theme)
 ;; (desire 'modus-themes)
 
 ;;; N Λ N O Theme
-;; (desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))
+(desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))
 ;; (desire 'nano-theme)
 ;; (desire 'nano-modeline)
 ;; (desire 'nano-minibuffer :recipe '(:fetcher github :repo "rougier/nano-minibuffer" :branch "master"))
