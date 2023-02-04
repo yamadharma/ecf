@@ -10,6 +10,37 @@
 ;;; light | dark
 (setq nano-theme-var "light")
 
-(require 'nano)
+;; (require 'nano)
+
+;; (require 'nano-layout)
+
+(require 'nano-base-colors)
+
+;;; Set up font faces
+(require 'nano-faces)
+(nano-faces)
+;;; Overload some of the defaults. Nano-emacs does not like to show bold text
+(set-face-attribute 'nano-face-strong nil
+                    :foreground (face-foreground 'nano-face-default)
+                    :weight 'bold)
+
+;;; Let nano theme everything
+(require 'nano-theme)
+(nano-theme)
+(set-face-attribute 'bold nil :weight 'bold)
+
+(require 'nano-help)
+
+;;; Enable the nano modeline
+(require 'nano-modeline)
+
+;;; Load nano defaults
+;; (require 'nano-defaults)
+
+(require 'nano-colors)
+;; (require 'nano-writer)
+
+;;; Enable nano session handling
+(require 'nano-session)
 
 ;;;

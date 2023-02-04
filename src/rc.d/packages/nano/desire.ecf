@@ -39,7 +39,7 @@
 (require 'nano-modeline)
 
 ;;; Load nano defaults
-(require 'nano-defaults)
+;; (require 'nano-defaults)
 
 (require 'nano-colors)
 ;; (require 'nano-writer)
