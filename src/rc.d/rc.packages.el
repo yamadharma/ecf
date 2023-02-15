@@ -444,13 +444,10 @@
 ;; (desire 'doom-themes)
 
 ;; (desire 'zenburn-theme)
-;; (desire 'modus-themes)
+(desire 'modus-themes)
 
 ;;; N Λ N O Theme
-(desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))
-;; (desire 'nano-theme)
-;; (desire 'nano-modeline)
-;; (desire 'nano-minibuffer :recipe '(:fetcher github :repo "rougier/nano-minibuffer" :branch "master"))
+;; (desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))
 
 ;;}}}
 ;;{{{ Miscellaneous

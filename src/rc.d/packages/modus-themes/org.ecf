@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modus Themes
+;;; https://protesilaos.com/modus-themes/
+;;; https://gitlab.com/protesilaos/modus-themes/
+;;; https://github.com/protesilaos/modus-themes/
+
+;;; Set the overall style of Org code blocks, quotes, and the like
+;;; Possible values: nil (default) | gray-background | tinted-background
+(setq modus-themes-org-blocks 'tinted-background)
+
+;;;

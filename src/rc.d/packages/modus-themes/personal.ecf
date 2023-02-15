@@ -1,0 +1,30 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modus Themes
+;;; https://protesilaos.com/modus-themes/
+;;; https://gitlab.com/protesilaos/modus-themes/
+;;; https://github.com/protesilaos/modus-themes/
+
+;;; Main themes
+;;; modus-operandi is the project's main light theme, while modus-vivendi is its dark counterpart
+;;; Light theme
+;; (load-theme 'modus-operandi :no-confirm)
+;;; Dark theme
+;; (load-theme 'modus-vivendi :no-confirm)
+
+;;; Tinted themes
+;;; modus-operandi-tinted and modus-vivendi-tinted are variants of the two main themes
+;;; Light theme
+;; (load-theme 'modus-operandi-tinted :no-confirm)
+;;; Dark theme
+;; (load-theme 'modus-vivendi-tinted :no-confirm)
+
+;;; Deuteranopia themes
+;;; modus-operandi-deuteranopia and its companion modus-vivendi-deuteranopia are optimized for users with red-green color deficiency
+;;; Light theme
+(load-theme 'modus-operandi-deuteranopia :no-confirm)
+;;; Dark theme
+;; (load-theme 'modus-vivendi-deuteranopia :no-confirm)
+
+(setq modus-themes-to-toggle '(modus-operandi-deuteranopia modus-vivendi-deuteranopia))
+
+;;;
