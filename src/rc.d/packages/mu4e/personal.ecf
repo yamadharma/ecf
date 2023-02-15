@@ -50,7 +50,7 @@
 				       (,draft   . ?d)
 				       (,spam   . ?j)))))))
 
-(setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "kulyabov@jinr.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru" "dskulyabov@yahoo.com"))
+(setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "kulyabov@jinr.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru" "dskulyabov@yahoo.com" "alternativysite@gmail.com"))
 
 ;; (setq
 ;;  ecf/inbox-query (mapconcat
@@ -198,7 +198,13 @@
 	  :mail    "dskulyabov@yahoo.com"
 	  :smtp    "smtp.mail.yahoo.com")
 
-
+	,(ecf/mu4e-context
+	  :c-name  "a-alternativysite@gmail.com"
+	  :maildir "alternativysite@gmail.com"
+	  :mail    "alternativysite@gmail.com"
+	  :smtp    "smtp.gmail.com"
+	  :sent-action delete)
+	
 	;; ,(ecf/mu4e-context
 	;;   :c-name    "2-GMX-alias"
 	;;   :maildir   "GMX"
