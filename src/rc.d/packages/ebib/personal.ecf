@@ -1,7 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 (setq ebib-preload-bib-files '("~/work/bib/bib/main.bib" "~/work/bib/bib/self.bib"))
-(setq ebib-file-search-dirs (directory-files-recursively "~/work/bib/pdf" "\\`[^.]*\\'" 't))
+(setq ebib-file-search-dirs (directory-files-recursively "~/data/bib/pdf" "\\`[^.]*\\'" 't))
 ;; (setq ebib-bib-search-dirs '("~/work/bib/pdf"))
 (setq ebib-keywords "~/work/bib/bib/keywords")
 ;; (setq org-ref-bibliography-notes "~/Papers/notes.org")

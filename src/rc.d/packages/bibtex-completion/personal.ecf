@@ -5,7 +5,7 @@
 (setq bibtex-completion-bibliography '("~/work/bib/bib/main.bib"))
 
 ;;; Where PDFs can be found
-(setq bibtex-completion-library-path (directory-files-recursively "~/work/bib/pdf" "\\`[^.]*\\'" 't))
+(setq bibtex-completion-library-path (directory-files-recursively "~/data/bib/pdf" "\\`[^.]*\\'" 't))
 
 ;;; Notes
 ;;; Store all notes in one file

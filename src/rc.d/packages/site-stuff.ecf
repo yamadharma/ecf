@@ -2,7 +2,7 @@
 
 ;;; Automatic decompression, hooks for tar-mode
 ;;;
-;(require 'jka-compr)
+;;(require 'jka-compr)
 (auto-compression-mode t)
 
 (require 'icomplete) ; Interactive completion in minibuffer.
@@ -18,8 +18,10 @@
 ;;
 (add-hook 'write-file-hooks 'time-stamp)
 ; (require 'mc)
-;; Scroll bar mode
+
+;;; Scroll bar mode
 (set-scroll-bar-mode 'left)
+(scroll-bar-mode -1)
 
 (setq max-specpdl-size 1000)
 
@@ -34,11 +36,11 @@
 ;    (replace-match ""))
 ;)
 
-; Показывает пробелы и табы в конце строк
-;(setq show-trailing-whitespace t)
+;;; Показывает пробелы и табы в конце строк
+(setq show-trailing-whitespace t)
 
-;; Prevent horizontal window splitting for Emacs 23
-;(setq split-width-threshold 9999)
+;;; Prevent horizontal window splitting for Emacs 23
+;; (setq split-width-threshold 9999)
 
 
 ;;; Warnings

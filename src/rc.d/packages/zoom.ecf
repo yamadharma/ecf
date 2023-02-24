@@ -1,0 +1,38 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fixed and automatic balanced window layout for Emacs
+;;; https://github.com/cyrus-and/zoom
+
+(require 'zoom)
+
+;;; Resize the selected window using the golden ratio:
+(custom-set-variables
+ '(zoom-size '(0.618 . 0.618)))
+
+;;; Resize the selected window according to the frame width, for example:
+;;; 90 columns and 75% of the frame height if the frame width is larger than 1024 pixels;
+;;; half the frame size otherwise.
+;; (defun ecf/size-callback ()
+;;   (cond ((> (frame-pixel-width) 1280) '(90 . 0.75))
+;;         (t                            '(0.5 . 0.5))))
+;; (custom-set-variables
+;;  '(zoom-size 'ecf/size-callback))
+
+;;; Override the key binding of balance-windows:
+(global-set-key (kbd "C-x +") 'zoom)
+
+;;; Prevent some windows from being resized, for example:
+;;; dired and markdown major modes;
+;;; zoom.el init.el buffer names;
+;;; calculator-related windows;
+;;; any buffer containing less than 20 lines.
+(custom-set-variables
+ '(zoom-ignored-major-modes '(dired-mode markdown-mode))
+ '(zoom-ignored-buffer-names '("zoom.el" "init.el"))
+ '(zoom-ignored-buffer-name-regexps '("^*calc"))
+ '(zoom-ignore-predicates '((lambda () (> (count-lines (point-min) (point-max)) 20)))))
+
+;;; Load automatically
+(custom-set-variables
+ '(zoom-mode t))
+
+;;;

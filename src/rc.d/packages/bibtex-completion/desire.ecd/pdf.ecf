@@ -15,6 +15,6 @@
 
 ;;; Other file types than PDF
 ;;; If you store files in various formats, then you can specify a list instead of a single file type
-(setq bibtex-completion-pdf-extension '(".pdf" ".djvu"))
+(setq bibtex-completion-pdf-extension '(".pdf" ".djvu" ".epub" ".fb2" ".fb2.zip"))
 
 ;;;
