@@ -1,0 +1,34 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Major mode for reading EPUBs in Emacs
+;;; https://depp.brause.cc/nov.el/
+
+(desire 'justify-kp :recipe '(:fetcher github :repo "Fuco1/justify-kp" :branch "master"))
+(require 'justify-kp)
+(setq nov-text-width t)
+
+(defun ecf/nov-window-configuration-change-hook ()
+  (ecf/nov-post-html-render-hook)
+  (remove-hook 'window-configuration-change-hook
+               'ecf/nov-window-configuration-change-hook
+               t))
+
+(defun ecf/nov-post-html-render-hook ()
+  (if (get-buffer-window)
+      (let ((max-width (pj-line-width))
+            buffer-read-only)
+        (save-excursion
+          (goto-char (point-min))
+          (while (not (eobp))
+            (when (not (looking-at "^[[:space:]]*$"))
+              (goto-char (line-end-position))
+              (when (> (shr-pixel-column) max-width)
+                (goto-char (line-beginning-position))
+                (pj-justify)))
+            (forward-line 1))))
+    (add-hook 'window-configuration-change-hook
+              'ecf/nov-window-configuration-change-hook
+              nil t)))
+
+(add-hook 'nov-post-html-render-hook 'ecf/nov-post-html-render-hook)
+
+;;;

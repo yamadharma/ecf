@@ -228,8 +228,6 @@
 
 (desire 'centaur-tabs)
 
-(desire 'pdf-tools)
-
 ;;{{{ Text
 
 ;; (desire 'adaptive-wrap)
@@ -246,6 +244,10 @@
 (desire-old 'markdown-mode nil "markdown-mode" t)
 
 (desire 'plantuml-mode)
+
+(desire 'pdf-tools)
+(desire 'nov)
+(desire 'fb2-reader)
 
 ;; (desire 'valign)
 
