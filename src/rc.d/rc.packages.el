@@ -142,7 +142,7 @@
 ;; (desire-old 'theme)
 ;; (desire-old 'modeline)
 
-(desire 'zoom)
+;; (desire 'zoom)
 
 ;;}}}
 ;;
