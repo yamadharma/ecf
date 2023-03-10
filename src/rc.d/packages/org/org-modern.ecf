@@ -11,7 +11,9 @@
 (set-face-attribute 'org-modern-symbol nil :family "Iosevka")
 
 ;;; Disable org-indent mode
-(setq org-startup-indented nil)
+(if (desiredp 'org-modern-indent)
+    (setq org-startup-indented t)
+  (setq org-startup-indented nil))
 
 ;;; Org settings
 (setq org-auto-align-tags nil

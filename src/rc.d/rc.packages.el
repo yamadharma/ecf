@@ -293,8 +293,8 @@
 
 ;; (desire 'svg-tag-mode)
 (desire 'org-superstar)
+;; (desire 'org-modern-indent)
 (desire 'org-modern)
-
 
 ;; (desire 'org-contacts)
 ;; (desire 'google-contacts)
@@ -305,9 +305,6 @@
 
 (desire 'org-tree-slide)
 
-
-
-;; (desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
 (desire 'org-super-agenda)
 
 ;; (desire 'org-gcal)
@@ -315,7 +312,6 @@
 
 (desire 'org-noter)
 
-;; (desire 'org-transclusion :recipe '(:fetcher github :repo "nobiot/org-transclusion" :branch "main" :files ("*.el")))
 (desire 'org-transclusion)
 
 (desired 'mobileorg)
@@ -325,6 +321,8 @@
 (desire 'org-msg)
 
 ;;; Org-roam
+
+(desire 'emacsql)
 
 ;; (desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve" :branch "main"))
 (desire 'zetteldesk)

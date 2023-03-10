@@ -7,6 +7,6 @@
 
 (require 'org-modern-indent)
 
-(add-hook 'org-indent-mode-hook #'org-modern-indent-mode)
+(add-hook 'org-mode-hook #'org-modern-indent-mode 90)
 
 ;;;
