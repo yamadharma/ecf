@@ -1,0 +1,72 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package that displays available keybindings in popup
+;;; https://github.com/justbur/emacs-which-key
+
+(require 'which-key)
+
+;;; Key-Based replacement
+(which-key-add-key-based-replacements "C-x C-f" "find files")
+(which-key-add-major-mode-key-based-replacements
+ 'org-mode
+ "C-c C-c" "Org C-c C-c"
+ "C-c C-a" "Org Attach")
+
+;;; Key and Description replacement
+(add-to-list 'which-key-replacement-alist '(("TAB" . nil) . ("↹" . nil)))
+(add-to-list 'which-key-replacement-alist '(("RET" . nil) . ("⏎" . nil)))
+(add-to-list 'which-key-replacement-alist '(("DEL" . nil) . ("⇤" . nil)))
+(add-to-list 'which-key-replacement-alist '(("SPC" . nil) . ("␣" . nil)))
+
+;; Set the special keys. These are automatically truncated to one character and
+;; have which-key-special-key-face applied. Disabled by default. An example
+;; setting is
+;; (setq which-key-special-keys '("SPC" "TAB" "RET" "ESC" "DEL"))
+(setq which-key-special-keys nil)
+
+
+;;; Sorting Options
+;;;; Default
+(setq which-key-sort-order 'which-key-key-order)
+;;;; Same as default, except single characters are sorted alphabetically
+;; (setq which-key-sort-order 'which-key-key-order-alpha)
+;;;; Same as default, except all prefix keys are grouped together at the end
+;; (setq which-key-sort-order 'which-key-prefix-then-key-order)
+;;;; Same as default, except all keys from local maps shown first
+;; (setq which-key-sort-order 'which-key-local-then-key-order)
+;;;; Sort based on the key description ignoring case
+;; (setq which-key-sort-order 'which-key-description-order)
+
+;;; Popup Type Options
+;;; minibuffer | side-window | frame | custom
+(setq which-key-popup-type 'minibuffer)
+
+;;; Set the time delay (in seconds) for the which-key popup to appear
+(setq which-key-idle-delay 1.0)
+
+;;; Set the maximum length (in characters) for key descriptions (commands or prefixes)
+(setq which-key-max-description-length 27)
+
+;;; Use additional padding between columns of keys
+(setq which-key-add-column-padding 0)
+
+;;; The maximum number of columns to display in the which-key buffer
+(setq which-key-max-display-columns nil)
+
+;;; Set the separator used between keys and descriptions
+(setq which-key-separator " → " )
+(setq which-key-unicode-correction 3)
+
+;;; Set the prefix string that will be inserted in front of prefix commands
+(setq which-key-prefix-prefix "+" )
+
+;;; Show the key prefix on the left, top, or bottom (nil means hide the prefix)
+(setq which-key-show-prefix 'left)
+
+;; Set to t to show the count of keys shown vs. total keys in the mode line
+(setq which-key-show-remaining-keys nil)
+
+
+
+(which-key-mode)
+
+;;;

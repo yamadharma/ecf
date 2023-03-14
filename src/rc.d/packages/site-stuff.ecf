@@ -25,8 +25,11 @@
 
 (setq max-specpdl-size 1000)
 
-;; Disable the toolbar completely
+;;; Disable the toolbar completely
 (tool-bar-mode -1)
+
+;;; Set the fringe a little wider to ensure the text isn’t too close to the window border
+;; (fringe-mode 16 . nil)
 
 ;; Strip iccc encoding when paste from clipboard
 ;(defun fix-rus-letter ()

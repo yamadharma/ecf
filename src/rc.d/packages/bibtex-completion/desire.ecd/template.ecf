@@ -3,7 +3,7 @@
 
 (setq bibtex-completion-notes-template-multiple-files
       (concat
-       "#+title: ${author-or-editor} (${year}): ${title}\n"
+       "#+title: ${author-or-editor-abbrev} (${year}): ${title} ${subtitle}\n"
        "#+created: %U\n"
        "#+last_modified: %U\n"
        "#+language: ru\n"
@@ -17,12 +17,12 @@
        ":SETUP_HUGO:\n"
        "#+hugo_custom_front_matter: :slug ${=key=}\n"
        ":END:\n\n"
-       "* TODO ${author-or-editor} (${year}): ${title}\n"
+       "* TODO ${author-or-editor-abbrev} (${year}): ${title} ${subtitle}\n"
        ":PROPERTIES:\n"
        ":export_hugo_section: ru/post/%<%Y>\n"
        ":export_file_name: %<%Y-%m-%d>-${=key=}\n"
        ":END:\n\n"
-       "${author-or-editor} (${year}): ${title} [cite:@${=key=}].\n\n"
+       "${author-or-editor} (${year}): ${title} ${subtitle} [cite:@${=key=}].\n\n"
        "#+hugo: more\n"
        "@@hugo:{{< toc >}}@@\n\n"
        "** Резюме\n"
@@ -32,6 +32,8 @@
        ":PROPERTIES:\n"
        ":Custom_ID: ${=key=}\n"
        ":author: ${author-or-editor}\n"
+       ":title: ${title}\n"
+       ":subtitle: ${subtitle}\n"
        ":journal: ${journaltitle}\n"
        ":date: ${date}\n"
        ":year: ${year}\n"

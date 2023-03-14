@@ -1,0 +1,23 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A package for using GTD with org-mode
+;;; https://github.com/Trevoke/org-gtd.el
+
+(desire 'org-edna)
+(require 'org-edna)
+(setq org-edna-use-inheritance t)
+(org-edna-mode)
+
+(require 'org-gtd)
+
+(setq org-gtd-directory org-directory-todo)
+
+;;; Key bindings
+(global-set-key (kbd "C-c d c") #'org-gtd-capture)
+(global-set-key (kbd "C-c d e") #'org-gtd-engage)
+(global-set-key (kbd "C-c d p") #'org-gtd-process-inbox)
+(global-set-key (kbd "C-c d n") #'org-gtd-show-all-next)
+(global-set-key (kbd "C-c d s") #'org-gtd-show-stuck-projects)
+
+(define-key org-gtd-process-map (kbd "C-c c") #'org-gtd-choose)
+
+;;;

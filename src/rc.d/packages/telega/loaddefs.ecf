@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; GNU Emacs telegram client (unofficial)
+;;; https://github.com/zevlg/telega.el
+;;; https://zevlg.github.io/telega.el/
+
+(setq telega-server-libs-prefix "/usr")
+
+;;;

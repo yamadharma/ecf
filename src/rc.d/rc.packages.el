@@ -116,6 +116,9 @@
 (desire-old 'keys)
 (desire-old 'dialog)
 (desire-old 'mouse)
+
+(desire 'which-key)
+
 ;; ----------------------------------------------------------------------
 
 (desire 'pcache)
@@ -314,6 +317,8 @@
 
 (desire 'org-transclusion)
 
+(desire 'org-gtd)
+
 (desired 'mobileorg)
 (desire 'org)
 
@@ -477,6 +482,8 @@
 
 (desire 'neotree)
 ;; (desire 'treemacs)
+
+(desire 'telega)
 
 ;;}}}
 

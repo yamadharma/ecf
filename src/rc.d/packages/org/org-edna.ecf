@@ -5,6 +5,8 @@
 
 (require 'org-edna)
 
+(setq org-edna-use-inheritance t)
+
 (org-edna-mode)
 
 ;;;
