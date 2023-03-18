@@ -20,4 +20,7 @@
 
 (define-key org-gtd-process-map (kbd "C-c c") #'org-gtd-choose)
 
+;; refile to the bottom of the list
+(setq org-reverse-note-order nil) 
+
 ;;;
