@@ -7,6 +7,9 @@
 (setq org-edna-use-inheritance t)
 (org-edna-mode)
 
+(desire 'org-agenda-property)
+(require 'org-agenda-property)
+
 (require 'org-gtd)
 
 (setq org-gtd-directory org-directory-todo)
