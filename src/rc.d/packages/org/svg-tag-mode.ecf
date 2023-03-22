@@ -78,7 +78,7 @@
 	("TODO" . ((lambda (tag) (svg-tag-make tag :inverse t :face 'org-todo))))
 	("HOLD" . ((lambda (tag) (svg-tag-make tag :face 'org-todo))))
 	("DONE\\|STOP" . ((lambda (tag) (svg-tag-make tag :inverse t :face 'org-done))))
-	("NEXT\\|WAITING" . ((lambda (tag) (svg-tag-make tag :inverse t :face '+org-todo-active))))
+	("NEXT\\|WAIT" . ((lambda (tag) (svg-tag-make tag :inverse t :face '+org-todo-active))))
 	("STARTED" . ((lambda (tag) (svg-tag-make tag :inverse t :face '+org-todo-active))))
 	("REPEAT\\|EVENT\\|PROJ\\|IDEA" .
 	 ((lambda (tag) (svg-tag-make tag :inverse t :face '+org-todo-project))))

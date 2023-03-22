@@ -41,7 +41,7 @@
 ;;        '(("TODO" "☐")
 ;;          ("NEXT" "✒")
 ;;          ("HOLD" "✰")
-;;          ("WAITING" "☕")
+;;          ("WAIT" "☕")
 ;;          ("CANCELLED" "✘")
 ;;          ("DONE" "✔")))
 ;;  (org-superstar-restart))

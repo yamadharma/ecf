@@ -9,7 +9,7 @@
                       ("@computer" . ?C)
                       ("PHONE" . ?p)
                       ("QUOTE" . ?q)
-                      ("WAITING" . ?w)
+                      ("WAIT" . ?w)
                       ("PERSONAL" . ?P)
                       ("Read" . ?R)
                       ("Write" . ?W)

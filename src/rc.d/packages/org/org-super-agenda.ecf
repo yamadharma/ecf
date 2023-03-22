@@ -27,9 +27,9 @@
 	(:name "Projects"
                :tag "project"
                :order 14)
-        (:auto-property "WAITING_ON" :log t)
+        (:auto-property "WAIT_ON" :log t)
         (:name "Waiting"
-               :todo "WAITING")
+               :todo "WAIT")
 	(:name "Due soon"
                :deadline future)
 	(:name "Overdue"
