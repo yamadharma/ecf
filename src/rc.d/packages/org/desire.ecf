@@ -1,5 +1,7 @@
 ;;;
 
+(desire 'org-contrib)
+
 (require 'org)
 
 ;;

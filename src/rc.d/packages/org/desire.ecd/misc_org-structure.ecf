@@ -20,9 +20,6 @@
 ;; This inserts a new headline possibly with a TODO keyword.
 (setq org-insert-heading-respect-content nil)
 
-;;; Notes at the top
-(setq org-reverse-note-order nil)
-
 ;;; Searching and showing results
 (setq org-show-following-heading t)
 (setq org-show-hierarchy-above t)

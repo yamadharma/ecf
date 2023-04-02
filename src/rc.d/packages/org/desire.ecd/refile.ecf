@@ -16,8 +16,8 @@
 ;; Creating new parents
 (setq org-refile-allow-creating-parent-nodes 'confirm)
 
-;;
-(setq org-reverse-note-order t)
+;; Refile to the bottom of the list
+(setq org-reverse-note-order nil)
 
 ;; Exclude DONE state tasks from refile targets
 (defun ecf/verify-refile-target ()
