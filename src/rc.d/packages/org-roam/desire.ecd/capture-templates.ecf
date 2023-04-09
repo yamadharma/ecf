@@ -90,7 +90,7 @@
 #+hugo: more\n
 @@hugo:{{< toc >}}@@\n
 
-* TODO ${title} (English)
+* TODO ${title} [English] :noexport:
 :PROPERTIES:
 :export_hugo_section: en/post/%<%Y>
 :export_file_name: %<%Y-%m-%d>-${slug}
