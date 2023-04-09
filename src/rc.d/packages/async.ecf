@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Simple library for asynchronous processing in Emacs
+;;; https://github.com/jwiegley/emacs-async
+
+(require 'async)
+
+;;; Enable asynchronous compilation of packages
+(require 'async-bytecomp)
+(async-bytecomp-package-mode 1)
+
+;;;
+

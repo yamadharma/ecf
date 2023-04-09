@@ -110,6 +110,7 @@
 (desire 'exec-path-from-shell)
 (desire 'compat)
 
+(desire 'async)
 
 ;; ----------------------------------------------------------------------
 

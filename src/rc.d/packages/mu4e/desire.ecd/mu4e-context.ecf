@@ -1,0 +1,137 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Mu4e mail client personal configuration
+
+;;; Macro for Contexts
+;;; https://github.com/danielfleischer/mu4easy
+(cl-defmacro ecf/mu4e-context (&key c-name maildir mail smtp
+                                   (smtp-mail mail)
+                                   (smtp-port 587)
+                                   (smtp-type 'starttls)
+                                   (sent-action 'sent)
+                                   (name user-full-name)
+                                   (sig user-full-name))
+  "Main macro for creating email accounts (contexts).
+See examples in the README file.
+
+C-NAME context name, used in mu4e UI; first letter is going to be
+    used as a shortcut.
+MAILDIR mail dir under path/Mail/...
+MAIL email address or alias.
+SMTP address.
+SMTP-MAIL email address for this account (not alias).
+SMTP-TYPE default `starttls'.
+SMTP-PORT default 587.
+SENT-ACTION what to do after sending an email (copy to `sent' or delete);
+    see README.
+NAME name can be set per account.
+SIG signature string; supports org formatting thanks to org-msg."
+  (let
+      ((inbox  (concat "/" maildir "/Inbox"))
+       (sent   (concat "/" maildir "/Sent"))
+       (trash  (concat "/" maildir "/Trash"))
+       (refile (concat "/" maildir "/Archive"))
+       (draft  (concat "/" maildir "/Drafts"))
+       (spam   (concat "/" maildir "/Spam")))
+    
+    `(make-mu4e-context
+      :name ,c-name
+      :match-func (lambda (msg)
+                    (when msg
+                      (string-match-p (concat "^/" ,maildir "/")
+                                      (mu4e-message-field msg :maildir))))
+      :vars '((user-mail-address . ,mail)
+              (user-full-name . ,name)
+              (mu4e-sent-folder . ,sent)
+              (mu4e-drafts-folder . ,draft)
+              (mu4e-trash-folder . ,trash)
+              (mu4e-refile-folder . ,refile)
+              (mu4e-compose-signature . (concat ,sig))
+              (mu4e-compose-format-flowed . t)
+              (mu4e-sent-messages-behavior . ,sent-action)
+              (smtpmail-smtp-user . ,smtp-mail)
+              (smtpmail-starttls-credentials . ((,smtp ,smtp-port nil nil)))
+              (smtpmail-auth-credentials . '((,smtp ,smtp-port ,smtp-mail nil)))
+              (smtpmail-default-smtp-server . ,smtp)
+              (smtpmail-smtp-server . ,smtp)
+              (smtpmail-stream-type . ,smtp-type)
+              (smtpmail-smtp-service . ,smtp-port)
+              (smtpmail-debug-info . t)
+              (smtpmail-debug-verbose . t)
+              ;; (org-msg-signature . ,sig)
+              (mu4e-maildir-shortcuts .
+                                      ((,inbox   . ?i)
+                                       (,sent    . ?s)
+                                       (,trash   . ?t)
+                                       (,refile  . ?a)
+                                       (,draft   . ?d)
+                                       (,spam    . ?g)))))))
+
+;; (setq
+;;  ecf/inbox-query (mapconcat
+;;                   (lambda (d) (format "m:/%s/Inbox" d))
+;;                   ecf-mail-accounts " OR ")
+;;  ecf/today-query (concat "date:today..now AND NOT "
+;;                          (mapconcat
+;;                           (lambda (d) (format "m:/%s/Trash" d))
+;;                           ecf-mail-accounts " AND NOT "))
+;;  ecf/week-query (concat "date:7d..now AND NOT "
+;;                         (mapconcat
+;;                          (lambda (d) (format "m:/%s/Trash" d))
+;;                          ecf-mail-accounts " AND NOT "))
+;;  ecf/trash-query (mapconcat
+;;                   (lambda (d) (format "m:/%s/Trash" d))
+;;                   ecf-mail-accounts " OR ")
+;;  ecf/unread-query (concat "flag:unread AND NOT (" ecf/trash-query ")"))
+
+(setq
+ ecf/inbox-query "maildir:/Inbox/"
+ ecf/today-query "date:today..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
+ ecf/week-query "date:7d..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
+ ecf/trash-query "maildir:/Trash/"
+ ecf/spam-query "maildir:/Spam/"
+ ecf/unread-query "flag:new AND maildir:/Inbox/"
+ ecf/attachment-query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/* AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
+
+(setq mu4e-bookmarks
+      `(( :name  "Unread"
+	  :query ,ecf/unread-query
+	  :key   ?u)
+	( :name  "Inbox"
+	  :query ,ecf/inbox-query
+	  :key   ?i)
+	( :name "Today"
+	  :query ,ecf/today-query
+	  :key   ?t)
+	( :name "Last 7 days"
+	  :query ,ecf/week-query
+	  :key   ?w)
+	( :name "Flagged"
+	  :query "flag:flagged"
+	  :key   ?f)
+	( :name "Tags"
+	  :query "tag://"
+	  :key   ?T)
+	( :name "Trash"
+	  :query ,ecf/trash-query
+	  :key ?x
+	  :hide-unread nil)
+	( :name "Spam"
+	  :query ,ecf/spam-query
+	  :key ?j
+	  :hide-unread nil)
+	( :name "Attachments"
+	  :query ,ecf/attachment-query
+	  :key   ?a
+	  :hide-unread nil)))
+
+;;; Format of headers
+(setq mu4e-headers-fields
+      '((:human-date   . 18)
+        (:flags        . 6)
+        (:maildir      . 16)
+        (:from-or-to   . 22)
+        (:mailing-list . 10)
+        (:tags         . 10)
+        (:subject      . 92)))
+
+;;;

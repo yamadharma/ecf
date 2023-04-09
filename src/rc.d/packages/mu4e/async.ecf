@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Simple library for asynchronous processing in Emacs
+;;; https://github.com/jwiegley/emacs-async
+
+;;(require 'smtpmail-async)
+;;(setq
+;; send-mail-function 'async-smtpmail-send-it
+;; message-send-mail-function 'async-smtpmail-send-it)
+
+;;;
+

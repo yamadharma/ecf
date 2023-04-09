@@ -10,8 +10,7 @@
               ;; Here's the main difference to the regular trash mark, no +T
               ;; before -N so the message is not marked as IMAP-deleted:
               :action (lambda (docid msg target)
-                        (mu4e--server-move docid
-                                           (mu4e--mark-check-target target) "+S-u-N"))))
+                        (mu4e--server-move docid (mu4e--mark-check-target target) "+S-u-N"))))
 
 ;;;
 

@@ -6,9 +6,10 @@
 
 ;;; Use `helm-mu` instead of Mu4e’s search
 ;;;
-(define-key mu4e-main-mode-map "s" 'helm-mu)
-(define-key mu4e-headers-mode-map "s" 'helm-mu)
-(define-key mu4e-view-mode-map "s" 'helm-mu)
+(define-key mu4e-main-mode-map (kbd "s") #'helm-mu)
+(define-key mu4e-headers-mode-map (kbd "s") #'helm-mu)
+(define-key mu4e-view-mode-map (kbd "s") #'helm-mu)
+(define-key mu4e-search-minor-mode-map (kbd "s") #'helm-mu)
 
 ;; (global-set-key (kbd "C-c h h c")  'helm-mu-contacts)
 

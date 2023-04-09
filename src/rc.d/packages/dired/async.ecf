@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Simple library for asynchronous processing in Emacs
+;;; https://github.com/jwiegley/emacs-async
+
+(require 'dired-async)
+(dired-async-mode 1)
+
+;;;
+
