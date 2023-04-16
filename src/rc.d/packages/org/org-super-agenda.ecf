@@ -4,7 +4,8 @@
 (require 'org-super-agenda)
 
 (setq org-super-agenda-groups
-      '((:log t)  ;; Automatically named "Log"
+      '(;; Each group has an implicit boolean OR operator between its selectors
+	(:log t)  ;; Automatically named "Log"
         (:name "Inbox"
                :file-path "inbox\\.org")
         (:name "Today"
@@ -27,6 +28,7 @@
 	(:name "Projects"
                :tag "project"
                :order 14)
+	(:auto-property "ORG_GTD" :deadline future)
         (:auto-property "WAIT_ON" :log t)
         (:name "Waiting"
                :todo "WAIT")
