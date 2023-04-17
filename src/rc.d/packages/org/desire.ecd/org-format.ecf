@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Formatter for org-mode files to ensure consistency
+;;; https://github.com/chrisbarrett/nursery
+
+(desire 'org-format :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-format.el")))
+
+(require 'org-format)
+
+(add-hook 'org-mode-hook #'org-format-on-save-mode)
+
+;;;

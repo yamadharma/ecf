@@ -3,9 +3,18 @@
 ;;; https://github.com/Vidianos-Giannitsis/zetteldesk.el
 
 (desire 'zetteldesk-kb)
+(desire 'zetteldesk-ref)
+(desire 'zetteldesk-info)
+(desire 'zetteldesk-remark)
 
 (require 'zetteldesk)
-(require 'zetteldesk-kb)
+
+(setq zetteldesk-kb-hydra-prefix (kbd "C-c z"))
+
 (zetteldesk-mode 1)
+
+(require 'zetteldesk-ref)
+(require 'zetteldesk-info)
+(require 'zetteldesk-remark)
 
 ;;;

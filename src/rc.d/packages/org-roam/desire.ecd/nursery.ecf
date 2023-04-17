@@ -1,0 +1,49 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Small org-roam packages
+;;; https://github.com/chrisbarrett/nursery
+
+(desire 'org-drill)
+
+;;; Provides commands to categorise and review org-roam nodes for Evergreen note-taking
+(desire 'org-roam-review :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-review.el" "lisp/org-tags-filter.el" "lisp/plisty.el")))
+(require 'org-roam-review)
+
+;;; Tag all newly-created notes as seedlings.
+(add-hook 'org-roam-capture-new-node-hook #'org-roam-review-set-seedling)
+
+;;; Keybindings for applying Evergreen note properties
+(define-key org-mode-map (kbd "C-c r r") #'("accept" . (org-roam-review-accept :wk "accept")))
+(define-key org-mode-map (kbd "C-c r u") #'("bury" . (org-roam-review-bury :wk "bury")))
+(define-key org-mode-map (kbd "C-c r x") #'("set excluded" . (org-roam-review-set-excluded :wk "set excluded")))
+(define-key org-mode-map (kbd "C-c r b") #'("set budding" . (org-roam-review-set-budding :wk "set budding")))
+(define-key org-mode-map (kbd "C-c r s") #'("set seedling" . (org-roam-review-set-seedling :wk "set seedling")))
+(define-key org-mode-map (kbd "C-c r e") #'("set evergreen" . (org-roam-review-set-evergreen :wk "set evergreen")))
+;; (define-key org-mode-map (kbd "C-c r r") #'(org-roam-review-accept :wk "accept"))
+;; (define-key org-mode-map (kbd "C-c r u") #'(org-roam-review-bury :wk "bury"))
+;; (define-key org-mode-map (kbd "C-c r x") #'(org-roam-review-set-excluded :wk "set excluded"))
+;; (define-key org-mode-map (kbd "C-c r b") #'(org-roam-review-set-budding :wk "set budding"))
+;; (define-key org-mode-map (kbd "C-c r s") #'(org-roam-review-set-seedling :wk "set seedling"))
+;; (define-key org-mode-map (kbd "C-c r e") #'(org-roam-review-set-evergreen :wk "set evergreen"))
+
+
+;;; Renaming nodes, rewriting links and deleting nodes with redirection
+(desire 'org-transclusion)
+
+(desire 'org-roam-rewrite :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-rewrite.el")))
+(require 'org-roam-rewrite)
+
+;;; Display a tree of backlinks and forward links up to a configurable depth
+(desire 'org-roam-links :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-links.el")))
+(require 'org-roam-links)
+
+;;; Make previews in org-roam buffer lazy for better performance
+(desire 'org-roam-lazy-previews :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-lazy-previews.el")))
+(require 'org-roam-lazy-previews)
+
+;;; Refill org-roam backlink previews
+(desire 'org-roam-refill-previews :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-refill-previews.el")))
+(require 'org-roam-refill-previews)
+
+(add-hook 'org-roam-preview-postprocess-functions #'org-roam-refill-previews)
+
+;;;
