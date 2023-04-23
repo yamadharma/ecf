@@ -15,6 +15,7 @@
 	(:name "Due today"
 	       :deadline today)
 	(:habit t)
+	(:auto-property "ORG_GTD")
         (:name "Next to do"
                :todo "NEXT")
 	(:name "Important"
@@ -28,7 +29,6 @@
 	(:name "Projects"
                :tag "project"
                :order 14)
-	(:auto-property "ORG_GTD" :deadline future)
         (:auto-property "WAIT_ON" :log t)
         (:name "Waiting"
                :todo "WAIT")
