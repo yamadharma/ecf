@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A language server for TeX and friends
+;;; https://github.com/astoff/digestif
+
+(add-hook 'LaTeX-mode-hook #'eglot-ensure)
+(add-hook 'latex-mode-hook #'eglot-ensure)
+	  
+;;;

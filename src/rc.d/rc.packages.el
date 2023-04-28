@@ -280,6 +280,8 @@
 ;;}}}
 ;;{{{ LaTeX
 
+;; (desire 'xenops)
+
 (desire 'cdlatex)
 
 (desire-old 'xdvi nil "xdvi-search")
