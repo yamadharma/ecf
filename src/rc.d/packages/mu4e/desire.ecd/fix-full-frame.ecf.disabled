@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; After upgrading to version 1.10.2 mu4e open in full-frame mode
+;;; https://github.com/djcb/mu/issues/2382
+
+(add-to-list 'display-buffer-alist
+             `(,(regexp-quote mu4e-main-buffer-name)
+               display-buffer-same-window))
+
+;;;
