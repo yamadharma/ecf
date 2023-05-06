@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A Library for easily using Nerd Font icons inside Emacs
+;;; https://github.com/rainstormstudio/nerd-icons.el
+
+
+;;; The Nerd Font you want to use in GUI "Symbols Nerd Font Mono" is the default and is recommended
+;;; but you can use any other Nerd Font if you want
+(setq nerd-icons-font-family "Iosevka Nerd Font Mono")
+
+(require 'nerd-icons)
+
+;;; Use nerd-icons for completion
+;;; https://github.com/rainstormstudio/nerd-icons-completion
+
+(desire 'nerd-icons-completion)
+(require 'nerd-icons-completion)
+(nerd-icons-completion-mode)
+
+;;;

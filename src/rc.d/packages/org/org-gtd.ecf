@@ -2,6 +2,8 @@
 ;;; A package for using GTD with org-mode
 ;;; https://github.com/Trevoke/org-gtd.el
 
+(setq org-gtd-update-ack "2.1.0")
+
 (desire 'org-edna)
 (require 'org-edna)
 (setq org-edna-use-inheritance t)

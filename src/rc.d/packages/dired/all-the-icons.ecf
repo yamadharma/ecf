@@ -3,6 +3,7 @@
 ;;; https://github.com/jtbm37/all-the-icons-dired
 
 (desire 'all-the-icons-dired)
+(require 'all-the-icons-dired)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;;; Config for other packages

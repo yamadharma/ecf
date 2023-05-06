@@ -130,6 +130,7 @@
 (desire 'ligature)
 
 (desire 'all-the-icons)
+;; (desire 'nerd-icons)
 ;; (desire 'mixed-pitch)
 
 (desire-old 'fontset)

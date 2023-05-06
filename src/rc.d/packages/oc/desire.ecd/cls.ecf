@@ -4,7 +4,7 @@
 
 ;;; https://github.com/citation-style-language/styles
 ;;; https://www.zotero.org/styles
-(setq org-cite-csl-styles-dir "~/work/bib/csl/styles")
-(setq org-cite-csl-locales-dir "~/work/bib/csl/locales")
+(setq org-cite-csl-styles-dir (expand-file-name "~/work/bib/csl/styles"))
+(setq org-cite-csl-locales-dir (expand-file-name "~/work/bib/csl/locales"))
 
 ;;;

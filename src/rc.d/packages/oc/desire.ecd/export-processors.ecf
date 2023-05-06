@@ -1,6 +1,9 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
+(require 'ox)
+
 (require 'oc-basic)
+(require 'oc-bibtex)
 (require 'oc-biblatex)
 (require 'oc-natbib)
 
