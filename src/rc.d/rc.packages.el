@@ -229,7 +229,8 @@
 
 ;;}}}
 
-(desire 'projectile)
+(desire 'project)
+;; (desire 'projectile)
 
 ;;(desire-old 'yasnippet)
 

@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extension of project.el to detect project root with root file
+;;; https://github.com/buzztaiki/project-rootfile.el
+
+(desire 'project-rootfile)
+(require 'project-rootfile)
+
+;;; Prefer a VCS root over a root file for project detection
+(add-to-list 'project-find-functions #'project-rootfile-try-detect t)
+
+;;; Prefer a root file
+;; (add-to-list 'project-find-functions #'project-rootfile-try-detect)
+
+;;;
