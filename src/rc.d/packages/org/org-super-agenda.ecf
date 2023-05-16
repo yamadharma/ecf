@@ -15,7 +15,8 @@
 	(:name "Due today"
 	       :deadline today)
 	(:habit t)
-	(:auto-property "ORG_GTD")
+	(:auto-property "ORG_GTD"
+			:discard (:todo ("DONE" "CNCL")))
         (:name "Next to do"
                :todo "NEXT")
 	(:name "Important"

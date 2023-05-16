@@ -4,19 +4,19 @@
 
 ;; The tags are used to filter tasks in the agenda views conveniently.
 (setq org-todo-state-tags-triggers
-      (quote (("CANCELLED" ("CANCELLED" . t))
+      (quote (("CNCL" ("CNCL" . t))
               ("WAIT" ("WAIT" . t))
               ("HOLD" ("WAIT" . t))
               (done ("WAIT"))
-              ("TODO" ("WAIT") ("CANCELLED"))
+              ("TODO" ("WAIT") ("CNCL"))
               ("NEXT" ("WAIT"))
               ("STARTED" ("WAIT"))
-              ("DONE" ("WAIT") ("CANCELLED")))))
+              ("DONE" ("WAIT") ("CNCL")))))
 
 ;; TODO keywords
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "|" "DONE(d!/!)")
-              (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")
+              (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "CNCL(c@/!)" "PHONE" "MEETING")
               (sequence "OPEN(O!)" "|" "CLOSED(C!)"))))
 
 (setq org-todo-keyword-faces 
@@ -26,7 +26,7 @@
               ("DONE" :foreground "forest green" :weight bold)
               ("WAIT" :foreground "orange" :weight bold)
               ("HOLD" :foreground "magenta" :weight bold)
-              ("CANCELLED" :foreground "forest green" :weight bold)
+              ("CNCL" :foreground "forest green" :weight bold)
               ("OPEN" :foreground "blue" :weight bold)
               ("CLOSED" :foreground "forest green" :weight bold)
               ("MEETING" :foreground "forest green" :weight bold)
@@ -46,12 +46,12 @@
 ;; ToDo state triggers
 
 (setq org-todo-state-tags-triggers
-      (quote (("CANCELLED" ("CANCELLED" . t))
+      (quote (("CNCL" ("CNCL" . t))
               ("WAIT" ("WAIT" . t))
               ("HOLD" ("WAIT") ("HOLD" . t))
               (done ("WAIT") ("HOLD"))
-              ("TODO" ("WAIT") ("CANCELLED") ("HOLD"))
-              ("NEXT" ("WAIT") ("CANCELLED") ("HOLD"))
-	      ("STARTED" ("WAIT") ("CANCELLED") ("HOLD"))
-              ("DONE" ("WAIT") ("CANCELLED") ("HOLD")))))
+              ("TODO" ("WAIT") ("CNCL") ("HOLD"))
+              ("NEXT" ("WAIT") ("CNCL") ("HOLD"))
+	      ("STARTED" ("WAIT") ("CNCL") ("HOLD"))
+              ("DONE" ("WAIT") ("CNCL") ("HOLD")))))
 

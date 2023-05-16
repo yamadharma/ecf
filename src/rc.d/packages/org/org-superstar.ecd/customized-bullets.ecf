@@ -42,7 +42,7 @@
 ;;          ("NEXT" "✒")
 ;;          ("HOLD" "✰")
 ;;          ("WAIT" "☕")
-;;          ("CANCELLED" "✘")
+;;          ("CNCL" "✘")
 ;;          ("DONE" "✔")))
 ;;  (org-superstar-restart))
 

@@ -16,14 +16,17 @@
 
 (setq org-gtd-directory org-directory-todo)
 
+;;; Horizon 2. Areas of focus
+(setq org-gtd-organize-hooks '(org-gtd-set-area-of-focus org-set-tags-command))
+
 ;;; Key bindings
 (global-set-key (kbd "C-c d c") #'("Capture" . org-gtd-capture))
 (global-set-key (kbd "C-c d e") #'("Engage" . org-gtd-engage))
 (global-set-key (kbd "C-c d p") #'("Process inbox" . org-gtd-process-inbox))
-(global-set-key (kbd "C-c d n") #'("Show all next". org-gtd-show-all-next))
-(global-set-key (kbd "C-c d s") #'("Stuck projects" . org-gtd-show-stuck-projects))
+;; (global-set-key (kbd "C-c d n") #'("Show all next". org-gtd-show-all-next))
+;; (global-set-key (kbd "C-c d s") #'("Stuck projects" . org-gtd-show-stuck-projects))
 
-(define-key org-gtd-process-map (kbd "C-c c") #'("Choose" . org-gtd-choose))
+(define-key org-gtd-clarify-map (kbd "C-c c") #'("Choose" . org-gtd-organize))
 
 ;;; Ask for confirmation before refiling
 (setq org-gtd-refile-to-any-target nil)

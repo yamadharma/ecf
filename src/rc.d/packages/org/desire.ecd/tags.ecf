@@ -20,7 +20,7 @@
                       ("crypt" . ?E)
                       ("MARK" . ?M)
                       ("NOTE" . ?n)
-                      ("CANCELLED" . ?c)
+                      ("CNCL" . ?c)
                       ("FLAGGED" . ??)))
 
 ;; Allow setting single tags without the menu
