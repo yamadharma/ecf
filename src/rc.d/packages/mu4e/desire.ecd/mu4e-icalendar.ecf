@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; https://www.djcbsoftware.nl/code/mu/mu4e/iCalendar.html
+
+(require 'mu4e-icalendar)
+(mu4e-icalendar-setup)
+
+;;;

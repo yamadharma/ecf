@@ -1,3 +1,4 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;;
 
 (desire 'org-contrib)
@@ -21,6 +22,11 @@
 (setq org-directory orgmode-home-dir)
 
 (setq org-directory-todo (concat org-directory "/todo/"))
+
+;;; Data directory
+(setq org-directory-data (expand-file-name "~/data/org/"))
+(if (not (file-directory-p org-directory-data))
+  (make-directory org-directory-data t))
 
 ;; Agenda files
 ;;(unless org-agenda-files

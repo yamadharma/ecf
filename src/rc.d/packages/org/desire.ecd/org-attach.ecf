@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(desire 'org-attach)
+(require 'org-attach)
+
+;; Centralized attachments directory by default
+(setq-default org-attach-id-dir (expand-file-name "attach/" org-directory-data))
+;;;
