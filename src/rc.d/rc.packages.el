@@ -125,6 +125,8 @@
 (desire 'pcache)
 (desire 'persistent-soft)
 
+(desire 'alert)
+
 ;;{{{ UI
 
 (desire 'ligature)
@@ -262,7 +264,7 @@
 ;;}}}
 ;;; Time management 
 
-;; (desire 'pomm)
+(desire 'pomm)
 (desire 'org-pomodoro)
 ;; (desire 'hammy)
 
