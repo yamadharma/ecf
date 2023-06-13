@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Ef-themes
+;;; https://git.sr.ht/~protesilaos/ef-themes
+;;; https://github.com/protesilaos/ef-themes
+;;; https://gitlab.com/protesilaos/ef-themes
+
+;;; All the themes are included in the variable `ef-themes-collection'.
+
+;;; Deuteranopia themes
+;;; ef-deuteranopia-light
+(load-theme 'ef-deuteranopia-light :no-confirm)
+;;; ef-deuteranopia-dark
+;; (load-theme 'ef-deuteranopia-dark :no-confirm)
+
+;;; If you like two specific themes and want to switch between them
+(setq ef-themes-to-toggle '(ef-deuteranopia-light ef-deuteranopia-dark))
+
+;;;

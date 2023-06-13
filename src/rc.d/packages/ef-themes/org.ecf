@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Ef-themes
+;;; https://git.sr.ht/~protesilaos/ef-themes
+;;; https://github.com/protesilaos/ef-themes
+;;; https://gitlab.com/protesilaos/ef-themes
+
+;;; Tweak org-modern timestamps
+;; (setq org-modern-timestamp nil)
+
+;;;
