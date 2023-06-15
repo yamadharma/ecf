@@ -21,5 +21,21 @@
 ;; If you want the auto-exporting on file saves
 ;; (require 'ox-hugo-auto-export)
 
+
+;;; Ignore tags when export
+;;; https://www.reddit.com/r/orgmode/comments/8166p9/can_orgexport_or_oxhugo_ignore_some_tags/
+(setq ecf/tags-categories-to-be-removed '("MOC"))
+
+(defun org-hugo--tag-processing-fn-remove-tags-maybe (tags-list info)
+  "Remove user-specified tags/categories. See `org-hugo-tag-processing-functions' for more info."
+  ;; Use tag/category string (including @ prefix) exactly as used in Org file.
+  (let ((tags-categories-to-be-removed ecf/tags-categories-to-be-removed)) ;"my_tag" "@my_cat"
+    (cl-remove-if (lambda (tag_or_cat)
+                    (member tag_or_cat tags-categories-to-be-removed))
+                  tags-list)))
+
+(add-to-list 'org-hugo-tag-processing-functions
+             #'org-hugo--tag-processing-fn-remove-tags-maybe)
+
 ;;;
 
