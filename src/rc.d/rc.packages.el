@@ -460,8 +460,8 @@
 ;; (desire 'doom-themes)
 
 ;; (desire 'zenburn-theme)
-;; (desire 'modus-themes)
-(desire 'ef-themes)
+(desire 'modus-themes)
+;; (desire 'ef-themes)
 
 ;;; N Λ N O Theme
 ;; (desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))

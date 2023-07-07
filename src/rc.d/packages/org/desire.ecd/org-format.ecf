@@ -2,7 +2,7 @@
 ;;; Formatter for org-mode files to ensure consistency
 ;;; https://github.com/chrisbarrett/nursery
 
-(desire 'org-format :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-format.el")))
+(desire 'org-format :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-format.el" "lisp/org-capture-detect.el")))
 
 (require 'org-format)
 

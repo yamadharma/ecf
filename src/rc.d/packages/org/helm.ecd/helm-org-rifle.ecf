@@ -1,4 +1,5 @@
-;;; Rifle through your Org-mode buffers and acquire your target -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Rifle through your Org-mode buffers and acquire your target
 ;; https://github.com/alphapapa/org-rifle
 
 (desire 'helm-org-rifle)
