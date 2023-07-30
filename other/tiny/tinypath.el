@@ -4889,7 +4889,7 @@ If FLAG is non-nil, return package names, not cache elements."
   )
 
 (defun tinypath-cache-file-hostname ()
-    (system-name)
+    (downcase system-name)
 )
 
 ;;; ----------------------------------------------------------------------

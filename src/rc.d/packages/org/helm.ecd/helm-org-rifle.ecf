@@ -5,4 +5,18 @@
 (desire 'helm-org-rifle)
 (require 'helm-org-rifle)
 
+(org-defkey org-mode-map (kbd "s-c r r") #'helm-org-rifle)
+(org-defkey org-mode-map (kbd "s-c r a") #'helm-org-rifle-agenda-files)
+(org-defkey org-mode-map (kbd "s-c r .") #'helm-org-rifle-current-buffer)
+(org-defkey org-mode-map (kbd "s-c r d") #'helm-org-rifle-directories)
+(org-defkey org-mode-map (kbd "s-c r f") #'helm-org-rifle-files)
+(org-defkey org-mode-map (kbd "s-c r D") #'helm-org-rifle-org-directory)
+(org-defkey org-mode-map (kbd "s-c o o") #'helm-org-rifle-occur)
+(org-defkey org-mode-map (kbd "s-c o a") #'helm-org-rifle-occur-agenda-files)
+(org-defkey org-mode-map (kbd "s-c o .") #'helm-org-rifle-occur-current-buffer)
+(org-defkey org-mode-map (kbd "s-c o d") #'helm-org-rifle-occur-directories)
+(org-defkey org-mode-map (kbd "s-c o d") #'helm-org-rifle-occur-directories)
+(org-defkey org-mode-map (kbd "s-c o f") #'helm-org-rifle-occur-files)
+(org-defkey org-mode-map (kbd "s-c o D") #'helm-org-rifle-occur-org-directory)
+
 ;;;

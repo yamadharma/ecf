@@ -2,6 +2,10 @@
 
 (setq warning-suppress-log-types '((package reinitialization)))
 
+(setq package-enable-at-startup nil
+      package-user-dir (concat home-data-path "elpa/")
+      package-gnupghome-dir (expand-file-name "gpg" package-user-dir))
+
 (require 'package)
 
 ;;; Supports ahead-of-time native compilation when installing a package

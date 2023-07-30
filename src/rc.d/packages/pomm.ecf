@@ -11,7 +11,7 @@
 (pomm-mode-line-mode)
 
 ;;; By default sounds are disabled
-;; (setq pomm-audio-enabled t)
+(setq pomm-audio-enabled t)
 ;;; Ticking sound
 ;; (setq pomm-audio-tick-enabled t)
 

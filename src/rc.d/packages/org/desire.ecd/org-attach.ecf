@@ -5,4 +5,16 @@
 
 ;; Centralized attachments directory by default
 (setq-default org-attach-id-dir (expand-file-name "attach/" org-directory-data))
+
+;;; Seeing file names in PROPERTIES
+;;; https://list.orgmode.org/87sg70vsvy.fsf@localhost/
+;;; The list of files will only be updated if you attach/delete files calling org-attach.
+;;; If you change the attachment folder manually, you will need to run `M-x org-attach-sync`.
+
+(defun org-attach-save-file-list-to-property (dir)
+  "Save list of attachments to ORG_ATTACH_FILES property."
+  (when-let* ((files (org-attach-file-list dir)))
+    (org-set-property "ORG_ATTACH_FILES" (mapconcat #'identity files ", "))))
+(add-hook 'org-attach-after-change-hook #'org-attach-save-file-list-to-property)
+
 ;;;

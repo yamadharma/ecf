@@ -231,8 +231,8 @@
 
 ;;}}}
 
-(desire 'project)
-;; (desire 'projectile)
+;; (desire 'project)
+(desire 'projectile)
 
 ;;(desire-old 'yasnippet)
 
@@ -484,6 +484,7 @@
 ;; (desire-old 'shell)
 ;; (desire-old 'sql-mode)
 ;; (desire-old 'w3)
+(desire 'web-mode)
 
 (desire 'pass)
 ;; (desire 'keycast)
