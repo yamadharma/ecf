@@ -2,9 +2,21 @@
 ;; https://github.com/bbatsov/projectile
 ;; https://docs.projectile.mx/projectile/index.html
 
+(defvar ecf-projectile-cache-limit 10000
+  "If any project cache surpasses this many files it is purged when quitting
+Emacs.")
+
+(defvar ecf-projectile-cache-blacklist '("~" "/tmp" "/")
+  "Directories that should never be cached.")
+
+(defvar ecf-projectile-cache-purge-non-projects nil
+  "If non-nil, non-projects are purged from the cache on `kill-emacs-hook'.")
+
+(defvar ecf-projectile-fd-binary
+  (cl-find-if #'executable-find (list "fdfind" "fd"))
+  "The filename of the `fd' executable. On some distros it's 'fdfind' (ubuntu,
+debian, and derivatives). On most it's 'fd'.")
+
 (require 'projectile)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-(projectile-mode +1)
 
 ;;;

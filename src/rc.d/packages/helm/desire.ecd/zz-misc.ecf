@@ -1,3 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; https://github.com/thierryvolpiatto/emacs-config/blob/main/init-helm.el
+
 (setq helm-input-idle-delay                     0.01
       helm-reuse-last-window-split-state        t
       helm-always-two-windows                   t
@@ -15,20 +18,13 @@
       helm-move-to-line-cycle-in-source         t
       helm-autoresize-max-height                80   ; it is %.
       helm-autoresize-min-height                20   ; it is %.
-      helm-debug-root-directory                 "/home/thierry/tmp/helm-debug"
+      ;; helm-debug-root-directory                 "/home/thierry/tmp/helm-debug"
       helm-follow-mode-persistent               t
       helm-candidate-number-limit               500
       helm-visible-mark-prefix                  "✓")
 (set-face-foreground 'helm-mark-prefix "Gold1")
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-info-bash)
-(helm-define-key-with-subkeys global-map (kbd "C-c n") ?n 'helm-cycle-resume)
 
-;;; Load all autoloads for helm extensions
-;;
-;;
-(load "/home/thierry/elisp/helm-extensions/helm-extensions-autoloads.el")
-
-
 (defun helm/debug-toggle ()
   (interactive)
   (setq helm-debug (not helm-debug))
@@ -248,7 +244,7 @@
         helm-locate-recursive-dirs-command "fdfind --hidden --type d --glob '*%s*' %s"
         helm-ff-eshell-unwanted-aliases '("sudo" "cdu" "man"
                                           "gpg-pubkey-export-armor" "gpg-secretkey-export-armor")
-        helm-ff-drag-and-drop-default-directory "/home/thierry/Bureau/"
+        ;; helm-ff-drag-and-drop-default-directory "/home/thierry/Bureau/"
         helm-file-name-history-hide-deleted t
         helm-ff-ignore-following-on-directory t
         helm-ff-rsync-progress-bar-style 'bar)
@@ -481,26 +477,26 @@ new directory."
 
 ;;; Helm-dictionary
 ;;
-(with-eval-after-load 'helm-dictionary ; Its autoloads are already loaded.
-  (setq helm-dictionary-database
-        '(("en-fr" . "~/helm-dictionary/dic-en-fr.iso")
-          ("fr-en" . "~/helm-dictionary/dic-fr-en.iso"))
-        helm-dictionary-online-dicts
-        '(("translate.reference.com en->fr" .
-           "http://translate.reference.com/translate?query=%s&src=en&dst=fr")
-          ("translate.reference.com fr->en" .
-           "http://translate.reference.com/translate?query=%s&src=fr&dst=en")
-          ("en.wiktionary.org" . "http://en.wiktionary.org/wiki/%s")
-          ("fr.wiktionary.org" . "http://fr.wiktionary.org/wiki/%s"))
-        helm-dictionary-ignore-diacritics t))
+;; (with-eval-after-load 'helm-dictionary ; Its autoloads are already loaded.
+;;   (setq helm-dictionary-database
+;;         '(("en-fr" . "~/helm-dictionary/dic-en-fr.iso")
+;;           ("fr-en" . "~/helm-dictionary/dic-fr-en.iso"))
+;;         helm-dictionary-online-dicts
+;;         '(("translate.reference.com en->fr" .
+;;            "http://translate.reference.com/translate?query=%s&src=en&dst=fr")
+;;           ("translate.reference.com fr->en" .
+;;            "http://translate.reference.com/translate?query=%s&src=fr&dst=en")
+;;           ("en.wiktionary.org" . "http://en.wiktionary.org/wiki/%s")
+;;           ("fr.wiktionary.org" . "http://fr.wiktionary.org/wiki/%s"))
+;;         helm-dictionary-ignore-diacritics t))
 
 ;;; Helm-wikipedia
 ;;
-(with-eval-after-load 'helm-wikipedia
-  (setq helm-wikipedia-summary-url
-        "https://fr.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=%s&exintro=1&explaintext=1&redirects=1"
-        helm-wikipedia-suggest-url
-        "https://fr.wikipedia.org/w/api.php?action=opensearch&search=%s"))
+;; (with-eval-after-load 'helm-wikipedia
+;;   (setq helm-wikipedia-summary-url
+;;         "https://fr.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=%s&exintro=1&explaintext=1&redirects=1"
+;;         helm-wikipedia-suggest-url
+;;         "https://fr.wikipedia.org/w/api.php?action=opensearch&search=%s"))
 
 ;;; Helm-descbinds
 ;;
@@ -509,31 +505,32 @@ new directory."
 ;;; Helm-lib
 ;;
 (with-eval-after-load 'helm-lib
-  (require 'isl)
+;;  (require 'isl)
   (setq helm-scroll-amount 4)
-  (setq helm-find-function-default-project
-        '("~/work/emacs/lisp/" "~/work/github/"))
+  ;; (setq helm-find-function-default-project
+  ;;       '("~/work/emacs/lisp/" "~/work/github/"))
   (helm-help-define-key "C-x" 'exchange-point-and-mark)
   (helm-help-define-key "C-l" 'recenter-top-bottom)
   (helm-help-define-key "C-s" nil)
   (helm-help-define-key "C-r" nil)
-  (helm-help-define-key "C-s" 'isl-search))
+;;  (helm-help-define-key "C-s" 'isl-search)
+)
 
 ;;; Helm-net
 ;;
-(with-eval-after-load 'helm-net
-  (setq helm-net-prefer-curl           nil
-        helm-surfraw-duckduckgo-url    "https://duckduckgo.com/?q=%s&ke=-1&kf=fw&kl=fr-fr&kr=b&k1=-1&k4=-1"
-        helm-google-suggest-search-url helm-surfraw-duckduckgo-url))
+;; (with-eval-after-load 'helm-net
+;;   (setq helm-net-prefer-curl           nil
+;;         helm-surfraw-duckduckgo-url    "https://duckduckgo.com/?q=%s&ke=-1&kf=fw&kl=fr-fr&kr=b&k1=-1&k4=-1"
+;;         helm-google-suggest-search-url helm-surfraw-duckduckgo-url))
 
 ;;; Helm-external
 ;;
-(with-eval-after-load 'helm-external
-  (setq helm-raise-command                 "wmctrl -xa %s"
-        helm-default-external-file-browser "thunar")
-  (require 'emms-config)
-  (add-hook 'helm-open-file-externally-after-hook #'tv/emms-player-start-hook)
-  (add-hook 'helm-open-file-externally-after-finish-hook #'tv/emms-player-stop-hook))
+;; (with-eval-after-load 'helm-external
+;;   (setq helm-raise-command                 "wmctrl -xa %s"
+;;         helm-default-external-file-browser "thunar")
+;;   (require 'emms-config)
+;;   (add-hook 'helm-open-file-externally-after-hook #'tv/emms-player-start-hook)
+;;   (add-hook 'helm-open-file-externally-after-finish-hook #'tv/emms-player-stop-hook))
 
 ;;; Helm-grep
 ;;
@@ -632,7 +629,7 @@ First call indent, second complete symbol, third complete fname."
 ;;; Helm-fd
 ;;
 (with-eval-after-load 'helm-fd
-  (setq helm-fd-executable "fdfind")
+  (setq helm-fd-executable "fd")
   (defun helm-fd-pa (candidate)
     (with-helm-buffer
       (helm-ff-kill-or-find-buffer-fname
@@ -650,55 +647,55 @@ First call indent, second complete symbol, third complete fname."
 ;;; Helm-command-map
 ;;
 ;;
-(define-key helm-command-map (kbd "g") 'helm-apt)
-(define-key helm-command-map (kbd "z") 'helm-complex-command-history)
-(define-key helm-command-map (kbd "w") 'helm-w3m-bookmarks)
-(define-key helm-command-map (kbd "x") 'helm-firefox-bookmarks)
-(define-key helm-command-map (kbd "#") 'helm-emms)
-(define-key helm-command-map (kbd "I") 'helm-imenu-in-all-buffers)
-(define-key helm-command-map (kbd "@") 'helm-list-elisp-packages-no-fetch)
+;; (define-key helm-command-map (kbd "g") 'helm-apt)
+;; (define-key helm-command-map (kbd "z") 'helm-complex-command-history)
+;; (define-key helm-command-map (kbd "w") 'helm-w3m-bookmarks)
+;; (define-key helm-command-map (kbd "x") 'helm-firefox-bookmarks)
+;; (define-key helm-command-map (kbd "#") 'helm-emms)
+;; (define-key helm-command-map (kbd "I") 'helm-imenu-in-all-buffers)
+;; (define-key helm-command-map (kbd "@") 'helm-list-elisp-packages-no-fetch)
 
 ;;; Global-map
 ;;
 ;;
-(global-set-key (kbd "C-h r")                        'helm-info-emacs)
-(global-set-key (kbd "M-x")                          'undefined)
-(global-set-key (kbd "M-x")                          'helm-M-x)
-(global-set-key (kbd "M-y")                          'helm-show-kill-ring)
-(global-set-key (kbd "C-x C-f")                      'helm-find-files)
-(global-set-key (kbd "C-c <SPC>")                    'helm-mark-ring)
-(global-set-key [remap bookmark-jump]                'helm-filtered-bookmarks)
-(global-set-key (kbd "C-:")                          'helm-eval-expression-with-eldoc)
-(global-set-key (kbd "C-,")                          'helm-calcul-expression)
-(global-set-key (kbd "C-h d")                        'helm-info-at-point)
-(global-set-key (kbd "C-h i")                        'helm-info)
-(global-set-key (kbd "C-x C-d")                      'helm-browse-project)
-(global-set-key (kbd "<f1>")                         'helm-resume)
-(global-set-key (kbd "C-h C-f")                      'helm-apropos)
-(global-set-key (kbd "C-h a")                        'helm-apropos)
-(global-set-key (kbd "C-h C-d")                      'helm-debug-open-last-log)
-(global-set-key (kbd "<f5> s")                       'helm-find)
-(global-set-key (kbd "S-<f4>")                       'helm-execute-kmacro)
-(global-set-key (kbd "C-c i")                        'helm-imenu-in-all-buffers)
-(global-set-key (kbd "C-c C-i")                      'helm-imenu)
-(global-set-key (kbd "<f11>")                        nil)
-(global-set-key (kbd "<f11> o")                      'helm-org-agenda-files-headings)
-(global-set-key (kbd "M-s")                          nil)
-(global-set-key (kbd "M-s")                          'helm-occur-visible-buffers)
-(global-set-key (kbd "<f6> h")                       'helm-emms)
-(define-key global-map [remap jump-to-register]      'helm-register)
-(define-key global-map [remap list-buffers]          'helm-mini)
-(define-key global-map [remap dabbrev-expand]        'helm-dabbrev)
-(define-key global-map [remap find-tag]              'helm-etags-select)
-(define-key global-map [remap xref-find-definitions] 'helm-etags-select)
-(define-key global-map (kbd "M-g a")                 'helm-do-grep-ag)
-(define-key global-map (kbd "M-g l")                 'goto-line)
-(define-key global-map (kbd "M-g g")                 'helm-grep-do-git-grep)
-(define-key global-map (kbd "M-g M-g")               'helm-revert-next-error-last-buffer)
-(define-key global-map (kbd "M-g i")                 'helm-gid)
-(define-key global-map (kbd "C-x r p")               'helm-projects-history)
-(define-key global-map (kbd "C-x r c")               'helm-addressbook-bookmarks)
-(define-key global-map (kbd "C-c t r")               'helm-dictionary)
+;; (global-set-key (kbd "C-h r")                        'helm-info-emacs)
+;; (global-set-key (kbd "M-x")                          'undefined)
+;; (global-set-key (kbd "M-x")                          'helm-M-x)
+;; (global-set-key (kbd "M-y")                          'helm-show-kill-ring)
+;; (global-set-key (kbd "C-x C-f")                      'helm-find-files)
+;; (global-set-key (kbd "C-c <SPC>")                    'helm-mark-ring)
+;; (global-set-key [remap bookmark-jump]                'helm-filtered-bookmarks)
+;; (global-set-key (kbd "C-:")                          'helm-eval-expression-with-eldoc)
+;; (global-set-key (kbd "C-,")                          'helm-calcul-expression)
+;; (global-set-key (kbd "C-h d")                        'helm-info-at-point)
+;; (global-set-key (kbd "C-h i")                        'helm-info)
+;; (global-set-key (kbd "C-x C-d")                      'helm-browse-project)
+;; (global-set-key (kbd "<f1>")                         'helm-resume)
+;; (global-set-key (kbd "C-h C-f")                      'helm-apropos)
+;; (global-set-key (kbd "C-h a")                        'helm-apropos)
+;; (global-set-key (kbd "C-h C-d")                      'helm-debug-open-last-log)
+;; (global-set-key (kbd "<f5> s")                       'helm-find)
+;; (global-set-key (kbd "S-<f4>")                       'helm-execute-kmacro)
+;; (global-set-key (kbd "C-c i")                        'helm-imenu-in-all-buffers)
+;; (global-set-key (kbd "C-c C-i")                      'helm-imenu)
+;; (global-set-key (kbd "<f11>")                        nil)
+;; (global-set-key (kbd "<f11> o")                      'helm-org-agenda-files-headings)
+;; (global-set-key (kbd "M-s")                          nil)
+;; (global-set-key (kbd "M-s")                          'helm-occur-visible-buffers)
+;; (global-set-key (kbd "<f6> h")                       'helm-emms)
+;; (define-key global-map [remap jump-to-register]      'helm-register)
+;; (define-key global-map [remap list-buffers]          'helm-mini)
+;; (define-key global-map [remap dabbrev-expand]        'helm-dabbrev)
+;; (define-key global-map [remap find-tag]              'helm-etags-select)
+;; (define-key global-map [remap xref-find-definitions] 'helm-etags-select)
+;; (define-key global-map (kbd "M-g a")                 'helm-do-grep-ag)
+;; (define-key global-map (kbd "M-g l")                 'goto-line)
+;; (define-key global-map (kbd "M-g g")                 'helm-grep-do-git-grep)
+;; (define-key global-map (kbd "M-g M-g")               'helm-revert-next-error-last-buffer)
+;; (define-key global-map (kbd "M-g i")                 'helm-gid)
+;; (define-key global-map (kbd "C-x r p")               'helm-projects-history)
+;; (define-key global-map (kbd "C-x r c")               'helm-addressbook-bookmarks)
+;; (define-key global-map (kbd "C-c t r")               'helm-dictionary)
 
 ;; Indent or complete with completion-at-point
 ;; (setq tab-always-indent 'complete)
@@ -706,6 +703,9 @@ First call indent, second complete symbol, third complete fname."
 ;; (define-key global-map (kbd "<backtab>") 'completion-at-point)
 
 ;; Avoid hitting forbidden directories when using find.
-(add-to-list 'completion-ignored-extensions ".gvfs/")
-(add-to-list 'completion-ignored-extensions ".dbus/")
-(add-to-list 'completion-ignored-extensions "dconf/")
+;; (add-to-list 'completion-ignored-extensions ".gvfs/")
+;; (add-to-list 'completion-ignored-extensions ".dbus/")
+;; (add-to-list 'completion-ignored-extensions "dconf/")
+
+
+;;;

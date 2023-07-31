@@ -2,12 +2,22 @@
 ;; https://github.com/bbatsov/projectile
 ;; https://docs.projectile.mx/projectile/index.html
 
-(setq projectile-cache-file (concat home-cache-path "/projectile.cache"))
-(setq projectile-known-projects-file (concat home-cache-path "/projectile.projects"))
+;; (require 'projectile)
 
-;; Auto-discovery is slow to do by default. Better to update the list
-;; when you need to (`projectile-discover-projects-in-search-path').
+;;; Recommended keymap prefix on macOS
+;; (define-key projectile-mode-map (kbd "s-p") #'projectile-command-map)
+;;; Recommended keymap prefix on Windows/Linux
+(define-key projectile-mode-map (kbd "C-c p") #'projectile-command-map)
+
+(global-set-key [remap find-tag]  #'projectile-find-tag)
+
+(setq projectile-cache-file (concat home-cache-path "projectile.cache"))
+(setq projectile-known-projects-file (concat home-cache-path "projectile.projects"))
+
+;;; Auto-discovery is slow to do by default. Better to update the list
+;;; when you need to (`projectile-discover-projects-in-search-path').
 (setq projectile-auto-discover nil)
+
 (setq projectile-enable-caching t)
 (setq projectile-globally-ignored-files '(".DS_Store" "TAGS"))
 (setq projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o"))
@@ -16,5 +26,45 @@
 (setq projectile-project-search-path '("~/projects/" "~/work/"))
 (setq projectile-git-submodule-command nil)
 (setq projectile-indexing-method 'hybrid)
+
+(projectile-mode +1)
+(projectile-global-mode)
+
+;;; In the interest of performance, we reduce the number of project root marker
+;;; files/directories projectile searches for when resolving the project root.
+(setq projectile-project-root-files-bottom-up
+      (append '(".projectile"  ; projectile's root marker
+                ".project"     ; project marker
+                ".git")        ; Git VCS root dir
+              (when (executable-find "hg")
+                '(".hg"))      ; Mercurial VCS root dir
+              (when (executable-find "bzr")
+                '(".bzr")))    ; Bazaar VCS root dir
+      ;; This will be filled by other modules. We build this list manually so
+      ;; projectile doesn't perform so many file checks every time it resolves
+      ;; a project's root -- particularly when a file has no project.
+      projectile-project-root-files '()
+      projectile-project-root-files-top-down-recurring '("Makefile"))
+
+(push (abbreviate-file-name home-data-path) projectile-globally-ignored-directories)
+
+;;; Per-project compilation buffers
+(setq compilation-buffer-name-function #'projectile-compilation-buffer-name
+      compilation-save-buffers-predicate #'projectile-current-project-buffer-p)
+
+;;; Treat current directory in dired as a "file in a project" and track it
+(add-hook 'dired-before-readin-hook #'projectile-track-known-projects-find-file-hook)
+
+;;; Some MSYS utilities auto expanded the `/' path separator, so we need to prevent it.
+(when IS-WINDOWS
+  (setenv "MSYS_NO_PATHCONV" "1") ; Fix path in Git Bash
+  (setenv "MSYS2_ARG_CONV_EXCL" "--path-separator")) ; Fix path in MSYS2
+
+;; `projectile-generic-command' doesn't typically support a function, but my
+;; `doom--only-use-generic-command-a' advice allows this. I do it this way so
+;; that projectile can adapt to remote systems (over TRAMP), rather then look
+;; for fd/ripgrep on the remote system simply because it exists on the host.
+;; It's faster too.
+(put 'projectile-git-submodule-command 'initial-value projectile-git-submodule-command)
 
 ;;;
