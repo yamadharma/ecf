@@ -2,9 +2,16 @@
 ;;; Named perspectives (set of buffers/window configs) for emacs
 ;;; https://github.com/Bad-ptr/persp-mode.el
 
-
-(setq persp-nil-name "default"
-      persp-set-last-persp-for-new-frames nil
-      persp-kill-foreign-buffer-behaviour 'kill)
+(setq persp-autokill-buffer-on-remove 'kill-weak
+      persp-reset-windows-on-nil-window-conf nil
+      persp-nil-hidden t
+      persp-auto-save-fname "autosave"
+      persp-save-dir (concat home-data-path "workspaces/")
+      persp-set-last-persp-for-new-frames t
+      persp-switch-to-added-buffer nil
+      persp-kill-foreign-buffer-behaviour 'kill
+      persp-remove-buffers-from-nil-persp-behaviour nil
+      persp-auto-resume-time -1 ; Don't auto-load on startup
+      persp-auto-save-opt (if noninteractive 0 1)) ; auto-save on kill
 
 ;;;
