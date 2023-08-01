@@ -5319,6 +5319,75 @@ Return
       (message "Tinypath: No info file candidates in %s" dir))
     (when list                          ;info files in this directory?
       (setq done (tinypath-info-handler-DIR dir))
+    ;  (tinypath-info-directory-contents-update
+    ;   dir-file
+    ;   (called-interactively-p 'interactive)
+    ;   (called-interactively-p 'interactive)
+    ;   list)
+      (tinypath-verbose-macro 2
+	(message "TinyPath: [INFO] PUSH maybe => %s"
+		 dir))
+      (tinypath-verbose-macro 5
+	(message
+	 "TinyPath: [INFO] PUSH (before) Info-default-directory-list: %s"
+	 (prin1-to-string (tinypath-Info-default-directory-list))))
+      ;;  Always add found directories to the list.
+      ;;  Notice, that directory may contain trailing slash, that's why
+      ;;  two `member' tests
+      ;;
+      ;;   ../info
+      ;;   ../info/
+      ;;
+      (let* ((dir1 (file-name-as-directory dir))         ;; with slash
+	     (dir2 (substring dir 0 (1- (length dir1)))) ;; without
+	     (list (tinypath-Info-default-directory-list)))
+	(unless (or (member dir1 list)
+		    (member dir2 list))
+	  (tinypath-verbose-macro 2
+	    (message
+	     "TinyPath: [INFO] PUSH Info-default-directory-list => %s" dir2))
+	  (setq cleanup t)
+	  ;;  This is efectively "(push dir2 <info-list>)"
+	  (set (tinypath-Info-default-directory-list-sym)
+	       (cons dir2 (tinypath-Info-default-directory-list)))
+	  (tinypath-verbose-macro 5
+	    (message
+	     "TinyPath: [INFO] PUSH (after) Info-default-directory-list: %s"
+	     (prin1-to-string (tinypath-Info-default-directory-list))))))
+      ;;  Kill all previous info files from Emacs, so that next info
+      ;;  C-h i will force Emacs to regenerate found new entries.
+      (when (or cleanup                 ;Added new directory
+		(called-interactively-p 'interactive))
+	(tinypath-info-initialize)))
+    done))
+
+(defun tinypath-info-handler- (dir)
+  "Check if DIR contains info files and a special `dir' file.
+This function will create `dir' file if it does not exist,
+update `Info-default-directory-list' and add any new INFO entries in
+DIR to central `dir' file in that directory.
+
+Please suggest to the lisp package maintainer that he
+should ship with default `dir' in next release so that it
+could be automatically used.
+
+Return
+
+  t   if any changes made."
+  (interactive "fGive directory with info files: ")
+  ;;  If user calls us, make sure new files are also noticed.
+  ;;
+  (if (called-interactively-p 'interactive)
+      (tinypath-info-initialize))
+  (let ((list     (tinypath-info-files-in-directory dir))
+	(dir-file (concat (file-name-as-directory dir) "dir"))
+	cleanup
+	done)
+    (when (and (null list)
+	       (called-interactively-p 'interactive))
+      (message "Tinypath: No info file candidates in %s" dir))
+    (when list                          ;info files in this directory?
+      (setq done (tinypath-info-handler-DIR dir))
       (tinypath-info-directory-contents-update
        dir-file
        (called-interactively-p 'interactive)
