@@ -1,0 +1,24 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs Tab Bar
+;;;  Key bindings
+
+;;; Select the previous available tab
+(global-set-key (kbd "C-{")  'tab-bar-switch-to-prev-tab)
+(global-set-key (kbd "s-{") 'tab-bar-switch-to-prev-tab)
+
+;;; Select the next available tab
+(global-set-key (kbd "C-}") 'tab-bar-switch-to-next-tab)
+(global-set-key (kbd "s-}") 'tab-bar-switch-to-next-tab)
+
+;;; Move current tabe to left
+;; (global-set-key (kbd "C-M-{") 'centaur-tabs-move-current-tab-to-left)
+
+;;; Move current tabe to right
+;; (global-set-key (kbd "C-M-}") 'centaur-tabs-move-current-tab-to-right)
+
+(global-set-key (kbd "s-t") 'tab-bar-new-tab)
+(global-set-key (kbd "s-w") 'tab-bar-close-tab)
+
+;; (setq tab-bar-select-tab-modifiers "super")
+
+;;;

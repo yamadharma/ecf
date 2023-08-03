@@ -237,6 +237,7 @@
 ;;(desire-old 'yasnippet)
 
 (desire 'centaur-tabs)
+;; (desire 'tab-bar)
 
 ;;{{{ Text
 
@@ -369,12 +370,13 @@
 
 ;;{{{ Desktop
 
-; (desire-old 'desktop)
+;; (desire-old 'desktop)
 (desire-old 'session nil "session")
 (desire-old 'saveplace nil "saveplace")
 
 ;; (desire 'persp-mode)
-;; (desire 'perspective)
+(desire 'perspective)
+;; (desire 'bufler)
 
 ;;}}}
 ;;{{{ Appointments, diary, calendar.
