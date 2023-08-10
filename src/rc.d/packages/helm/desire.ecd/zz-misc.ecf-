@@ -10,19 +10,20 @@
                                                   helm-eshell-prompts helm-imenu
                                                   helm-imenu-in-all-buffers)
       helm-actions-inherit-frame-settings       t
-      helm-use-frame-when-more-than-two-windows t
-      helm-use-frame-when-dedicated-window      t
-      helm-frame-background-color               "DarkSlateGray"
+;;      helm-use-frame-when-more-than-two-windows t
+;;      helm-use-frame-when-dedicated-window      t
+;;      helm-frame-background-color               "DarkSlateGray"
       helm-show-action-window-other-window      'left
       helm-allow-mouse                          t
       helm-move-to-line-cycle-in-source         t
-      helm-autoresize-max-height                80   ; it is %.
-      helm-autoresize-min-height                20   ; it is %.
+;;      helm-autoresize-max-height                80   ; it is %.
+;;      helm-autoresize-min-height                20   ; it is %.
       ;; helm-debug-root-directory                 "/home/thierry/tmp/helm-debug"
       helm-follow-mode-persistent               t
       helm-candidate-number-limit               500
-      helm-visible-mark-prefix                  "✓")
-(set-face-foreground 'helm-mark-prefix "Gold1")
+      helm-visible-mark-prefix                  "✓"
+)
+;;(set-face-foreground 'helm-mark-prefix "Gold1")
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-info-bash)
 
 (defun helm/debug-toggle ()
@@ -47,7 +48,7 @@
                    :action '(("Kill new" . kill-new)
                              ("Send command to Tmux" . emamux:send-command)))
         :buffer "*helm bash history*"))
-
+
 ;;; Package declarations.
 ;;
 
@@ -333,8 +334,8 @@ new directory."
                   (message "Background changed successfully to %s" (helm-basename file))
                 (message "Failed to change background"))))))
 
-  (defun helm-ff-csv2ledger (candidate)
-    (csv2ledger "Socgen" candidate "/home/thierry/finance/ledger.dat"))
+;;  (defun helm-ff-csv2ledger (candidate)
+;;    (csv2ledger "Socgen" candidate "/home/thierry/finance/ledger.dat"))
   
   ;; Add actions to `helm-source-find-files' IF:
   (cl-defmethod helm-setup-user-source ((source helm-source-ffiles))
@@ -578,8 +579,8 @@ First call indent, second complete symbol, third complete fname."
 
 ;;; Helm-locate
 ;;
-(with-eval-after-load 'helm-locate
-  (setq helm-locate-fuzzy-match nil))
+;(with-eval-after-load 'helm-locate
+;  (setq helm-locate-fuzzy-match nil))
 
 ;;; Helm-org
 ;;
@@ -643,7 +644,6 @@ First call indent, second complete symbol, third complete fname."
   (setq helm-ls-git-delete-branch-on-remote t
         helm-ls-git-auto-refresh-at-eob t))
 
-
 ;;; Helm-command-map
 ;;
 ;;

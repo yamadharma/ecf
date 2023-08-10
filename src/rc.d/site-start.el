@@ -119,7 +119,8 @@
 
 (when NATIVECOMP
   ;; Don't store eln files in ~/.emacs.d/eln-cache
-  (add-to-list 'native-comp-eln-load-path (concat home-cache-path "eln/")))
+  (add-to-list 'native-comp-eln-load-path (concat home-cache-path "eln/"))
+  (add-to-list 'startup--original-eln-load-path (concat home-cache-path "eln/")))
 
 ;;
 ;;{{{ Tinypath load

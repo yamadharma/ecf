@@ -5,6 +5,7 @@
 (desire 'org-pdftools)
 (desire 'org-noter-pdftools)
 
+(require 'org-pdftools)
 (require 'org-noter-pdftools)
 
 (add-hook 'org-mode-hook #'org-pdftools-setup-link)

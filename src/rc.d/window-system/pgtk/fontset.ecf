@@ -1,0 +1,67 @@
+;;; Set font -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; functions
+;; (defun ecf/font-installed-p (font-name)
+;;   "Check if font with FONT-NAME is available."
+;;   (find-font (font-spec :name font-name)))
+
+;;; Set default font
+;; (cl-loop for font in '("SF Mono" "Hack" "Source Code Pro" "Fira Code"
+;; 		       "Menlo" "Monaco" "DejaVu Sans Mono" "Consolas")
+;; 	 when (font-installed-p font)
+;; 	 return (set-face-attribute 'default nil
+;; 				    :font font
+;; 				    :height (cond (sys/mac-x-p 130)
+;; 						  (sys/win32p 110)
+;; 						  (t 100))))
+
+;;; Specify font for all unicode characters
+;; (cl-loop for font in '("Apple Color Emoji" "Segoe UI Symbol" "Symbola" "Symbol")
+;; 	 when (font-installed-p font)
+;; 	 return(set-fontset-font t 'unicode font nil 'prepend))
+
+;;; Specify font for Chinese characters
+;; (cl-loop for font in '("WenQuanYi Micro Hei" "Microsoft Yahei")
+;; 	 when (font-installed-p font)
+;; 	 return (set-fontset-font t '(#x4e00 . #x9fff) font)))
+
+(cond
+ ((find-font (font-spec :name "Iosevka"))
+  (add-to-list 'default-frame-alist '(font . "Iosevka-12" ))
+  (set-face-attribute 'default t :font "Iosevka-12" ))
+ ((find-font (font-spec :name "Hack"))
+  (add-to-list 'default-frame-alist '(font . "Hack-12" ))
+  (set-face-attribute 'default t :font "Hack-12" ))
+ ((find-font (font-spec :name "IBM Plex Mono"))
+  (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12" ))
+  (set-face-attribute 'default t :font "IBM Plex Mono-12" ))
+ ((find-font (font-spec :name "Source Code Pro"))
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-12" ))
+  (set-face-attribute 'default t :font "Source Code Pro-12" ))
+ ((find-font (font-spec :name "AnonymousPro"))
+  (add-to-list 'default-frame-alist '(font . "AnonymousPro-12" ))
+  (set-face-attribute 'default t :font "AnonymousPro-12" ))
+ ((find-font (font-spec :name "Victor Mono"))
+  (add-to-list 'default-frame-alist '(font . "Victor Mono-12" ))
+  (set-face-attribute 'default t :font "Victor Mono-12" ))
+ ((find-font (font-spec :name "Hermit"))
+  (add-to-list 'default-frame-alist '(font . "Hermit-12" ))
+  (set-face-attribute 'default t :font "Hermit-12" ))
+ ((find-font (font-spec :name "Fira Code"))
+  (add-to-list 'default-frame-alist '(font . "Fira Code-12" ))
+  (set-face-attribute 'default t :font "Fira Code-12" ))
+ ((find-font (font-spec :name "Inconsolata"))
+  (add-to-list 'default-frame-alist '(font . "Inconsolata-12" ))
+  (set-face-attribute 'default t :font "Inconsolata-12" ))
+ ((find-font (font-spec :name "DejaVu Sans Mono"))
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-12" ))
+  (set-face-attribute 'default t :font "DejaVu Sans Mono-12" ))
+ ((find-font (font-spec :name "Lucida Console"))
+  (add-to-list 'default-frame-alist '(font . "Lucida Console-12" ))
+  (set-face-attribute 'default t :font "Lucida Console-12" ))
+ ((find-font (font-spec :name "Courier"))
+  (add-to-list 'default-frame-alist '(font . "Courier-12" ))
+  (set-face-attribute 'default t :font "Courier-12" ))
+ )
+
+;;;

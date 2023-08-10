@@ -324,6 +324,8 @@
 (desire 'org-journal)
 
 (desire 'org-noter)
+;; (desire 'org-noter :recipe '(:fetcher github :repo "org-noter/org-noter" :branch "feature/org-roam-integration" :files ("*.el" "modules/*.el")))
+
 
 (desire 'org-transclusion)
 
@@ -375,7 +377,7 @@
 (desire-old 'saveplace nil "saveplace")
 
 ;; (desire 'persp-mode)
-(desire 'perspective)
+;; (desire 'perspective)
 ;; (desire 'bufler)
 
 ;;}}}

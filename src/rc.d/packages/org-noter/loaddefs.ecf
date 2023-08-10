@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;; Emacs document annotator, using Org-mode
-;; https://github.com/weirdNox/org-noter
+;; https://github.com/org-noter/org-noter
 
 ;;;
