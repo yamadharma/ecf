@@ -149,4 +149,10 @@
 
 (setq org-agenda-auto-exclude-function 'ecf/org-auto-exclude-function)
 
+;;; Skip deadline prewarning when entry is also scheduled
+;; (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+
+;;; Skip scheduling line if same entry shows because of deadline
+(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+
 ;;; 
