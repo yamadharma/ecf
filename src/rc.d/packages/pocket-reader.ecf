@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs client for Pocket reading list (getpocket.com)
+;;; https://github.com/alphapapa/pocket-reader.el
+
+(require 'pocket-reader)
+
+;;;
