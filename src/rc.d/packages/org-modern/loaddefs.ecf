@@ -2,10 +2,4 @@
 ;;; Modern Org Style
 ;;; https://github.com/minad/org-modern
 
-(require 'org-modern)
-
-;;; FIXME
-;; (message "org-startup-indented: %s" org-startup-indented) 
-;; (setq org-startup-indented nil)
-
 ;;;

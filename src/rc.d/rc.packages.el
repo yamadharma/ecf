@@ -244,6 +244,7 @@
 ;; (desire 'adaptive-wrap)
 (desired 'visual-line-mode)
 
+(desired 'prettify-symbols-mode)
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
 
@@ -499,7 +500,7 @@
 ;; (desire 'treemacs)
 
 (desire 'telega)
-(desire 'pocket-reader)
+;; (desire 'pocket-reader)
 
 ;;}}}
 
