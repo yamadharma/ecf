@@ -1,4 +1,4 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;;oc) -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; rc.packages.el
 
 ;;; Commentary:
@@ -224,7 +224,7 @@
 ;;}}}
 ;;{{{ Bibliography
 
-(desire 'oc) ;; org-cite
+;; (desire 'oc) ;; org-cite ;; FIXME remove
 (desire 'bibtex-completion)
 (desire 'biblio)
 (desire 'bibtex)
