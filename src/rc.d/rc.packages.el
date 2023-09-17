@@ -236,8 +236,8 @@
 
 ;;(desire-old 'yasnippet)
 
-(desire 'centaur-tabs)
-;; (desire 'tab-bar)
+;; (desire 'centaur-tabs)
+(desire 'tab-bar)
 
 ;;{{{ Text
 
@@ -379,7 +379,7 @@
 
 ;; (desire 'persp-mode)
 ;; (desire 'perspective)
-;; (desire 'bufler)
+(desire 'bufler)
 
 ;;}}}
 ;;{{{ Appointments, diary, calendar.

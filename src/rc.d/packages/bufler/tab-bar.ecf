@@ -2,6 +2,6 @@
 ;;; Group buffers into workspaces with programmable rules
 ;;; https://github.com/alphapapa/bufler.el
 
-(bufler-tabs-mode 1)
+;; (bufler-tabs-mode 1)
 
 ;;;
