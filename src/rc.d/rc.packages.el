@@ -500,7 +500,7 @@
 ;; (desire 'treemacs)
 
 (desire 'telega)
-;; (desire 'pocket-reader)
+(desire 'pocket-reader)
 
 ;;}}}
 
