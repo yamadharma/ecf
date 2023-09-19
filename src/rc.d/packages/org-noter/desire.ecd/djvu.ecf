@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Djvu support
+
+;;; Edit and view Djvu files via djvused
+;;; https://elpa.gnu.org/packages/djvu.html
+
+(desire 'djvu)
+(require 'djvu)
+
+;;; Extend djvu.el to display annotations and more
+;;; https://github.com/dalanicolai/djvu3
+
+;; (desire 'djvu3)
+;; (require 'djvu3)
+
+;;;

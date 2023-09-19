@@ -193,6 +193,9 @@
 ;; (desire 'selectrum)
 
 ;;}}}
+
+(desire 'smartparens)
+
 ;;{{{ Spell
 
 ;; (desire-old 'spell)
@@ -245,6 +248,7 @@
 (desired 'visual-line-mode)
 
 (desired 'prettify-symbols-mode)
+(desire 'pretty-mode)
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
 

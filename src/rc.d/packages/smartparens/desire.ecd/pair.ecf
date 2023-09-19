@@ -1,0 +1,122 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
+;;; https://github.com/Fuco1/smartparens
+
+;;; pair management
+
+(sp-with-modes '(minibuffer-mode)
+  (sp-local-pair "'" nil :actions nil)
+  (sp-local-pair "(" nil :wrap "C-("))
+
+(sp-with-modes 'org-mode
+  (sp-local-pair "=" "=" :wrap "C-="))
+
+(sp-with-modes 'textile-mode
+  (sp-local-pair "*" "*")
+  (sp-local-pair "_" "_")
+  (sp-local-pair "@" "@"))
+
+(sp-with-modes 'web-mode
+  (sp-local-pair "{{#if" "{{/if")
+  (sp-local-pair "{{#unless" "{{/unless"))
+
+;;; tex-mode latex-mode
+(sp-with-modes '(tex-mode plain-tex-mode latex-mode)
+  (sp-local-tag "i" "\"<" "\">"))
+
+;;; lisp modes
+(sp-with-modes sp--lisp-modes
+  (sp-local-pair "(" nil
+                 :wrap "C-("
+                 :pre-handlers '(my-add-space-before-sexp-insertion)
+                 :post-handlers '(my-add-space-after-sexp-insertion)))
+
+(defun my-add-space-after-sexp-insertion (id action _context)
+  (when (eq action 'insert)
+    (save-excursion
+      (forward-char (sp-get-pair id :cl-l))
+      (when (or (eq (char-syntax (following-char)) ?w)
+                (looking-at (sp--get-opening-regexp)))
+        (insert " ")))))
+
+(defun my-add-space-before-sexp-insertion (id action _context)
+  (when (eq action 'insert)
+    (save-excursion
+      (backward-char (length id))
+      (when (or (eq (char-syntax (preceding-char)) ?w)
+                (and (looking-back (sp--get-closing-regexp))
+                     (not (eq (char-syntax (preceding-char)) ?'))))
+        (insert " ")))))
+
+;;; C++
+(sp-with-modes '(malabar-mode c++-mode java-mode)
+  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET"))))
+(sp-local-pair 'c++-mode "/*" "*/" :post-handlers '((" | " "SPC")
+                                                    ("* ||\n[i]" "RET")))
+
+(sp-with-modes '(js2-mode typescript-mode java-mode)
+  (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
+                                             ("* ||\n[i]" "RET"))))
+
+(sp-with-modes 'typescript-mode
+  (sp-local-pair "<" ">" :actions '(navigate)))
+
+;;; PHP
+(sp-with-modes '(php-mode)
+  (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
+                                             (my-php-handle-docstring "RET")))
+  (sp-local-pair "/*." ".*/" :post-handlers '(("| " "SPC")))
+  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET") my-php-wrap-handler))
+  (sp-local-pair "(" nil :prefix "\\(\\sw\\|\\s_\\)*"))
+
+(defun my-php-wrap-handler (&rest _ignored)
+  (save-excursion
+    (sp-get sp-last-wrapped-region
+      (goto-char :beg-in)
+      (unless (looking-at "[ \t]*$")
+        (newline-and-indent))
+      (goto-char :end-in)
+      (beginning-of-line)
+      (unless (looking-at "[ \t]*}[ \t]*$")
+        (goto-char :end-in)
+        (newline-and-indent))
+      (indent-region :beg-prf :end-suf))))
+
+(defun my-php-handle-docstring (&rest _ignored)
+  (-when-let (line (save-excursion
+                     (forward-line)
+                     (thing-at-point 'line)))
+    (cond
+     ;; variable
+     ((string-match (rx (or "private" "protected" "public" "var") (1+ " ") (group "$" (1+ alnum))) line)
+      (let ((var-name (match-string 1 line))
+            (type ""))
+        ;; try to guess the type from the constructor
+        (-when-let (constructor-args (my-php-get-function-args "__construct" t))
+          (setq type (or (cdr (assoc var-name constructor-args)) "")))
+        (insert "* @var " type)
+        (save-excursion
+          (insert "\n"))))
+     ((string-match-p "function" line)
+      (save-excursion
+        (let ((args (save-excursion
+                      (forward-line)
+                      (my-php-get-function-args nil t))))
+          (--each args
+            (when (my-php-should-insert-type-annotation (cdr it))
+              (insert (format "* @param %s%s\n"
+                              (my-php-translate-type-annotation (cdr it))
+                              (car it))))))
+        (let ((return-type (save-excursion
+                             (forward-line)
+                             (my-php-get-function-return-type))))
+          (when (my-php-should-insert-type-annotation return-type)
+            (insert (format "* @return %s\n" (my-php-translate-type-annotation return-type))))))
+      (re-search-forward (rx "@" (or "param" "return") " ") nil t))
+     ((string-match-p ".*class\\|interface" line)
+      (save-excursion (insert "\n"))
+      (insert "* ")))
+    (let ((o (sp--get-active-overlay)))
+      (indent-region (overlay-start o) (overlay-end o)))))
+
+;;;

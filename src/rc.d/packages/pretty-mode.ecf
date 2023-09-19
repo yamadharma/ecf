@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Redisplay parts of the Emacs buffer as pretty symbols.
+;;; https://github.com/pretty-mode/pretty-mode
+
+(require 'pretty-mode)
+
+;;; If you want to set it globally
+(global-pretty-mode t)
+
+;;; if you want to set it only for a specific mode
+;; (add-hook 'my-pretty-language-hook 'turn-on-pretty-mode)
+
+;;;
