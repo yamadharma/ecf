@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern Org Style
+;;; https://github.com/minad/org-modern
+
+;;; https://github.com/minad/org-modern/issues/5#issuecomment-1704023036
+(setq org-modern-block-fringe 10)
+
+(custom-set-faces
+ '(org-modern-label
+   ((t :height 1.0 :weight semi-bold
+       :underline nil :inherit default))))
+
+;;;
