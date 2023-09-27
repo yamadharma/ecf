@@ -9,16 +9,14 @@
         (:name "Inbox"
                :file-path "inbox\\.org")
         (:name "Today"
-	       :discard (:todo ("DONE"))
+	       :discard (:todo ("DONE" "CNCL"))
 	       :time-grid t
 	       :scheduled today)
 	(:name "Due today"
 	       :deadline today)
 	(:habit t)
-	(:auto-property "ORG_GTD"
-			:discard (:todo ("DONE" "CNCL")))
-        (:name "Next to do"
-               :todo "NEXT")
+        (:name "Waiting"
+               :todo "WAIT")
 	(:name "Important"
                :priority "A")
 	(:name "Important B"
@@ -27,12 +25,14 @@
                :time-grid t)
 	(:name "Quick Picks"
 	       :effort< "0:30")
+	(:auto-property "ORG_GTD"
+			:discard (:todo ("DONE" "CNCL")))
+        (:name "Next to do"
+               :todo "NEXT")
 	(:name "Projects"
                :tag "project"
                :order 14)
         (:auto-property "WAIT_ON" :log t)
-        (:name "Waiting"
-               :todo "WAIT")
 	(:name "Due soon"
                :deadline future)
 	(:name "Overdue"
