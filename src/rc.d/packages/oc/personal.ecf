@@ -1,5 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
-(setq org-cite-global-bibliography '("~/work/bib/bib/main.bib"))
+;; (setq org-cite-global-bibliography '("~/work/bib/bib/main.bib"))
+(setq org-cite-global-bibliography '("~/work/bib/cite/main.bib"))
 
 ;;;

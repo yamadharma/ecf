@@ -1,5 +1,6 @@
 ;;; An opinionated pack of modern color-themes  -*- coding: utf-8-unix; -*-
-;; https://github.com/hlissner/emacs-doom-themes
+;;; https://github.com/hlissner/emacs-doom-themes
+;;; https://github.com/doomemacs/themes
 
 ;; * Theme list
 ;; ** Flagship themes

@@ -12,7 +12,6 @@
 	;; For LaTeX
 	(latex biblatex)
 	;; Fallback
-	(t csl "gost-r-7-0-100-2018-numeric-alphabetical.csl")))
-	;; (t csl "gost-r-7-0-5-2008-numeric.csl")))
+	(t csl "gost-numeric.csl")))
 
 ;;;

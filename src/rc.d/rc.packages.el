@@ -1,4 +1,4 @@
-;;;oc) -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; rc.packages.el
 
 ;;; Commentary:
@@ -114,6 +114,10 @@
 
 ;; ----------------------------------------------------------------------
 
+;;; Buffer management
+;; (desire 'ibuffer)
+(desire 'uniquify)
+
 (desire-old 'keys)
 (desire-old 'dialog)
 (desire-old 'mouse)
@@ -194,6 +198,7 @@
 
 ;;}}}
 
+;; Parentesis
 (desire 'smartparens)
 
 ;;{{{ Spell

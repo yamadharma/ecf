@@ -1,7 +1,12 @@
-;; ecf-mule/utf-8.el  Force Emacs to default to UTF-8 -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; ecf-mule/utf-8.el
+;;; Force Emacs to default to UTF-8
 
+
+;;; Activate UTF-8 mode
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
+(setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
@@ -20,4 +25,4 @@
 (if IS-WINDOWS
     (set-w32-system-coding-system 'utf-8))
 
-;;}}}
+;;;
