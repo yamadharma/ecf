@@ -1,0 +1,5 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(add-to-list 'citeproc-locale--default-variants-alist '("ru" . "RU") t)
+
+;;;

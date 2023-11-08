@@ -1,6 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;; (setq org-cite-global-bibliography '("~/work/bib/bib/main.bib"))
-(setq org-cite-global-bibliography '("~/work/bib/cite/main.bib"))
+;; (setq org-cite-global-bibliography '("~/work/bib/cite/main.bib"))
+(add-to-list 'org-cite-global-bibliography (expand-file-name "~/work/bib/cite/main.json"))
 
 ;;;

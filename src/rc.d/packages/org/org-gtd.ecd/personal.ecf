@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A package for using GTD with org-mode
+;;; https://github.com/Trevoke/org-gtd.el
+
+(add-to-list 'org-gtd-areas-of-focus "Science" t)
+(add-to-list 'org-gtd-areas-of-focus "Teaching" t)
+(add-to-list 'org-gtd-areas-of-focus "Study" t)
+
+;;;
