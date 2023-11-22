@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; https://github.com/doomemacs/doomemacs/issues/5219
+(when (getenv "WAYLAND_DISPLAY")
+  (setq interprogram-paste-function
+        (lambda ()
+          (shell-command-to-string "wl-paste -n | tr -d '\r'"))))
+
+;;;

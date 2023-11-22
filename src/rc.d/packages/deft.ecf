@@ -42,6 +42,9 @@
 ;;       (nospace . "-")
 ;;       (case-fn . downcase)))
 
+;;; Setting the maximum number of files to list in the Deft browser
+(setq deft-file-limit 50)
+
 ;;; For org-roam compatibility
 (defun ecf/deft-parse-title (file contents)
   "Parse the given FILE and CONTENTS and determine the title.
@@ -60,8 +63,8 @@
 	      "[\n\t]" ;; blank
 	      "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata
 	      "\\|^:PROPERTIES:\n\\(.+\n\\)+:END:\n"
-	      "\\|^:LOCALSETUP:\n\\(.+\n\\)+:END:\n"
-	      "\\|^:SETUP_EXPORT:\n\\(.+\n\\)+:END:\n"
+	      "\\|^:SETUP_LOCAL:\n\\(.+\n\\)+:END:\n"
+	      "\\|^:SETUP_HUGO:\n\\(.+\n\\)+:END:\n"
 	      "\\|^#\\+begin_export hugo\n\\(.+\n\\)+#\\+end_export\n"
 	      "\\)"))
 

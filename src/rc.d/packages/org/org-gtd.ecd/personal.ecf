@@ -3,7 +3,9 @@
 ;;; https://github.com/Trevoke/org-gtd.el
 
 (add-to-list 'org-gtd-areas-of-focus "Science" t)
+(add-to-list 'org-gtd-areas-of-focus "Sciadmin" t)
 (add-to-list 'org-gtd-areas-of-focus "Teaching" t)
 (add-to-list 'org-gtd-areas-of-focus "Study" t)
+(add-to-list 'org-gtd-areas-of-focus "Sysadmin" t)
 
 ;;;
