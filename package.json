@@ -8,7 +8,7 @@
     "license": "GPL-3.0-or-later",
     "config": {
         "commitizen": {
-            "path": "cz-conventional-changelog"
+            "path": "cz-customizable"
         }
     }
 }

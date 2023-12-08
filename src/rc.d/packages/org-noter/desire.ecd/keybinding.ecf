@@ -1,0 +1,29 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Emacs document annotator, using Org-mode
+;; https://github.com/org-noter/org-noter
+
+;;; In order of frequency, I use precise notes the most, standard notes next and no-questions notes the least, so I have bound keys to reflect those preferences with
+;;; `i` for precise notes, `TAB` for standard notes; for no-questions (no-prompt) notes, `I` is for precise notes and `M-i` for standard notes.:
+
+(define-key org-noter-doc-mode-map (kbd "i")   'org-noter-insert-precise-note)
+(define-key org-noter-doc-mode-map (kbd "C-i") 'org-noter-insert-note)
+(define-key org-noter-doc-mode-map (kbd "I")   'org-noter-insert-precise-note-toggle-no-questions)
+(define-key org-noter-doc-mode-map (kbd "M-i") 'org-noter-insert-note-toggle-no-questions)
+
+;;; For navigation, I use ..-sync-..-note more than ..-sync-..-page-.., so I bound the note commands to the easier-to-type M-[p.n] bindings and the less-used page-.. commands to the harder-to-type C-M-[p.n] bindings.
+
+(define-key org-noter-doc-mode-map (kbd "M-p") 'org-noter-sync-prev-note)
+(define-key org-noter-doc-mode-map (kbd "M-.") 'org-noter-sync-current-note)
+(define-key org-noter-doc-mode-map (kbd "M-n") 'org-noter-sync-next-note)
+(define-key org-noter-doc-mode-map (kbd "C-M-p") 'org-noter-sync-prev-page-or-chapter)
+(define-key org-noter-doc-mode-map (kbd "C-M-.") 'org-noter-sync-current-page-or-chapter)
+(define-key org-noter-doc-mode-map (kbd "C-M-n") 'org-noter-sync-next-page-or-chapter)
+
+(define-key org-noter-notes-mode-map (kbd "M-p") 'org-noter-sync-prev-note)
+(define-key org-noter-notes-mode-map (kbd "M-.") 'org-noter-sync-current-note)
+(define-key org-noter-notes-mode-map (kbd "M-n") 'org-noter-sync-next-note)
+(define-key org-noter-notes-mode-map (kbd "C-M-p") 'org-noter-sync-prev-page-or-chapter)
+(define-key org-noter-notes-mode-map (kbd "C-M-.") 'org-noter-sync-current-page-or-chapter)
+(define-key org-noter-notes-mode-map (kbd "C-M-n") 'org-noter-sync-next-page-or-chapter)
+
+;;;
