@@ -155,6 +155,9 @@
 
 ;; (desire 'zoom)
 
+;; (desire 'centaur-tabs)
+(desire 'tab-bar)
+
 ;;}}}
 ;;
 
@@ -244,9 +247,6 @@
 
 ;;(desire-old 'yasnippet)
 
-;; (desire 'centaur-tabs)
-(desire 'tab-bar)
-
 ;;{{{ Text
 
 ;; (desire 'adaptive-wrap)
@@ -289,7 +289,7 @@
 ;; (desire 'ranger)
 ;; (desire 'efar)
 ;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
-;; (desire 'dirvish)
+(desire 'dirvish)
 
 
 ;;}}}
@@ -442,8 +442,8 @@
 ;;; Code completion and syntax checking
 ;(desire 'eglot-jl)
 ;;; REPL integration
-;; (desire 'julia-snail)
-(desire 'julia-repl)
+(desire 'julia-snail)
+;; (desire 'julia-repl)
 ;;; Syntax highlighting and latex symbols 
 (desire 'julia-mode)
 
@@ -479,6 +479,8 @@
 
 ;;; N Λ N O Theme
 ;; (desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))
+
+;; (desire 'spacious-padding :recipe '(:fetcher github :repo "protesilaos/spacious-padding" :branch "main" :files ("*.el")))
 
 ;;}}}
 ;;{{{ Miscellaneous

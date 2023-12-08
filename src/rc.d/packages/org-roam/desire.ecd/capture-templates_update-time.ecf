@@ -1,4 +1,5 @@
 ;;; Update the LAST_MODIFIED file property in the preamble when save file
+;;; https://org-roam.discourse.group/t/update-a-field-last-modified-at-save/321/7
 
 (add-hook 'before-save-hook #'ecf/org-set-last-modified)
 

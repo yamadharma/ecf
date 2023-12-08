@@ -2,8 +2,8 @@
 ;; An Emacs development environment for Julia
 ;; https://github.com/gcv/julia-snail
 
-;; (require 'julia-snail)
+(desire 'vterm)
 
-;; (add-hook 'julia-mode-hook #'julia-snail-mode)
+(add-hook 'julia-mode-hook #'julia-snail-mode)
 
 ;;;

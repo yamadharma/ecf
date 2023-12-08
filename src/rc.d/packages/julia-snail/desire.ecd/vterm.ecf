@@ -3,6 +3,5 @@
 ;; https://github.com/akermu/emacs-libvterm
 
 (desire 'vterm)
-(require 'vterm)
 
 ;;;

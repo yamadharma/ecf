@@ -3,7 +3,6 @@
 ;; https://github.com/gcv/julia-snail
 
 (require 'julia-snail)
-
 (add-hook 'julia-mode-hook #'julia-snail-mode)
 
 ;;;

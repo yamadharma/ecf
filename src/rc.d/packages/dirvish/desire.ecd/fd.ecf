@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A polished Dired with batteries included
+;;; https://github.com/alexluigit/dirvish
+
+;;; Bind `dirvish|dirvish-side|dirvish-dwim' as you see fit
+(define-key global-map (kbd "C-c f") #'dirvish-fd)
+
+;;;

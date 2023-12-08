@@ -2,6 +2,6 @@
 ;;; Julia support in Emacs
 ;;; https://github.com/JuliaEditorSupport/julia-emacs
 
-(require 'julia-mode)
+(add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
 
 ;;; 

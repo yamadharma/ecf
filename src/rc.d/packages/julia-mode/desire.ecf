@@ -1,3 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(require 'julia-mode) 
+
+
 ;; Fill docstrings
 ;; This is useful if you want to use M-q on docstrings.
 (defun julia-fill-string ()

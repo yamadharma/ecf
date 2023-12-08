@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Group buffers into workspaces with programmable rules
+;;; https://github.com/alphapapa/bufler.el
+
+(defun ecf/bufler-one-window (&optional force-refresh)
+  (interactive "P")
+  (bufler-list)
+  (delete-other-windows))
+
+(global-set-key (kbd "C-x C-b") #'ecf/bufler-one-window)
+
+;;;

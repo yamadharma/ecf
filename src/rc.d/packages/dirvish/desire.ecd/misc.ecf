@@ -1,0 +1,22 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A polished Dired with batteries included
+;;; https://github.com/alexluigit/dirvish
+
+;;; Preview files in minibuffer
+(dirvish-peek-mode) 
+
+;;; similar to `treemacs-follow-mode'
+(dirvish-side-follow-mode) 
+
+(setq dirvish-mode-line-format
+      '(:left (sort symlink) :right (omit yank index)))
+
+(setq dirvish-attributes
+      '(all-the-icons file-time file-size collapse subtree-state vc-state git-msg))
+
+(setq delete-by-moving-to-trash t)
+
+(setq dired-listing-switches
+      "-l --almost-all --human-readable --group-directories-first --no-group")
+
+;;;
