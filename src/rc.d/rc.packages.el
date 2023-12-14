@@ -157,6 +157,7 @@
 
 ;; (desire 'centaur-tabs)
 (desire 'tab-bar)
+(desire 'tab-line)
 
 ;;}}}
 ;;
@@ -253,7 +254,7 @@
 (desired 'visual-line-mode)
 
 (desired 'prettify-symbols-mode)
-(desire 'pretty-mode)
+;; (desire 'pretty-mode)
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
 

@@ -158,4 +158,10 @@
 ;;; Skip scheduling line if same entry shows because of deadline
 (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
 
+;;; Start with clock report
+(setq org-agenda-start-with-clockreport-mode t)
+
+;;; Agenda clock report format
+(setq org-agenda-clockreport-parameter-plist
+      '(:link t :maxlevel 6 :fileskip0 t :compact nil :narrow 80 :emphasize t :indent t :formula %))
 ;;;

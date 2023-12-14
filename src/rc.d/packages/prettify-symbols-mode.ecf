@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs minor mode for drawing multi-character tokens as Unicode glyphs
+
+(setq prettify-symbols-unprettify-at-point t)
+(global-prettify-symbols-mode +1)
+
+;;;
