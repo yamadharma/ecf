@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs server (allow emacsclient to connect to running session)
+
+(require 'server)
+(setq server-client-instructions nil)
+(unless (server-running-p)
+  (server-start))
+
+;;;

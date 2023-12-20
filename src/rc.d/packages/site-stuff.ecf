@@ -53,3 +53,13 @@
 ;;; Not to warn you about anything except problems
 ;;; :debug | :warning | :error | :emergency
 (setq warning-minimum-level :error)
+
+;;; Don't pop up UI dialogs when prompting
+(setq use-dialog-box nil)
+
+;;; Revert buffers when the underlying file has changed
+(global-auto-revert-mode 1)
+;;; Revert Dired and other buffers
+(setq global-auto-revert-non-file-buffers t)
+
+;;; 

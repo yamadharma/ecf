@@ -31,7 +31,7 @@
 ;; Agenda files
 ;;(unless org-agenda-files
 ;;  (setq org-agenda-files (list org-directory)))
-(setq org-agenda-files (list org-directory))
+(defvar org-agenda-files (list org-directory))
 (add-to-list 'org-agenda-files org-directory-todo)
 
 (org-remove-file "diary.org")

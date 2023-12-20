@@ -92,18 +92,19 @@
 ;; )
 
 ;;}}}
-;;{{{ Gnuserv
+;;{{{ Serve
 
+;;; Gnuserv
 ;;(desire-old 'gnuserv nil "gnuserv")
-
 ;; Rely on dtemacs to do this, otherwise a race condition can cause
 ;; dtemacs to fail.
 ;; (gnuserv-start)
 
-;;}}}
-;;{{{ Emacs daemon
+;;; Emacs daemon
+;; (desire-old 'emacs-daemon)
 
-(desire-old 'emacs-daemon)
+;;; Emacs server
+(desire 'server)
 
 ;;}}}
 
