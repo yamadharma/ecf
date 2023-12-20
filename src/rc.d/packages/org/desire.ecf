@@ -29,13 +29,12 @@
   (make-directory org-directory-data t))
 
 ;; Agenda files
-;;(unless org-agenda-files
-;;  (setq org-agenda-files (list org-directory)))
-(defvar org-agenda-files (list org-directory))
-(add-to-list 'org-agenda-files org-directory-todo)
+(unless org-agenda-files
+(setq org-agenda-files (list org-directory-todo)))
+;;(add-to-list 'org-agenda-files org-directory-todo)
 
-(org-remove-file "diary.org")
-(org-remove-file "flagged.org")
+;;(org-remove-file "diary.org")
+;;(org-remove-file "flagged.org")
 ;; (org-remove-file "inbox.org")
 
 ;;;

@@ -8,7 +8,7 @@
 (setq org-journal-dir org-directory-journal)
 
 ;;; Agenda integration
-(add-to-list 'org-agenda-files org-journal-dir)
+;; (add-to-list 'org-agenda-files org-journal-dir)
 
 (setq org-journal-date-format "%Y-%m-%d, %A")
 
