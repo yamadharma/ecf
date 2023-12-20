@@ -5,4 +5,16 @@
 (setq khalel-khal-command "khal")
 (setq khalel-vdirsyncer-command "vdirsyncer")
 
+(setq khalel-import-format "* TODO {title} {cancelled}\n\
+  :PROPERTIES:\n:CALENDAR: {calendar}\n\
+  :LOCATION: {location}\n\
+  :ID: {uid}\n\
+  :END:\n\
+  SCHEDULED: <{start-date-long} {start-time}>--<{end-date-long} {end-time}>\n\
+  - Description: {description}\n\
+  - URL: {url}\n- Organizer: {organizer}\n\n\
+  [[elisp:(khalel-edit-calendar-event)][Edit this event]]\
+      [[elisp:(progn (khalel-run-vdirsyncer) (khalel-import-events))]\
+  [Sync and update all]]\n")
+
 ;;;
