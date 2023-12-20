@@ -1,0 +1,30 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fine-track `org-agenda-files` to speed-up `org-agenda`
+;;; https://github.com/nicolas-graves/org-agenda-files-track
+
+(defun ecf/org-agenda-files-track-init ()
+  "(Re)initialize dynamic agenda files.
+
+This can take a long time, so it is recommended to run this only
+on installation and when first tasks are added to many files via
+methods the save hook cannot detect, like file synchronization."
+  (interactive)
+  ;; ;; uncomment if storing org-agenda-files in file
+  ;; (make-empty-file org-agenda-files 'force)
+  (org-store-new-agenda-file-list
+   (directory-files-recursively
+    org-directory (rx ".org" eos) nil
+    ;; ignore hidden directories like .git and .attach
+    (lambda (subdir)
+      (not (eq ?. (string-to-char (file-name-nondirectory subdir)))))))
+  ;; use ql here if desired
+  (org-agenda-files-track-cleanup-files 'full)
+  (message "Initialized agenda files"))
+
+
+;;; `org-agenda-files` as a file path
+;;; Set `org-agenda-files` to a single filename to persist across Emacs sessions:
+;; (setq org-agenda-files
+;;       (expand-file-name "org-agenda-files.txt" (home-cache-path)))
+
+;;;

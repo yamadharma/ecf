@@ -2,6 +2,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 
-(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c a") #'("Agenda" . org-agenda))
+
+(global-set-key (kbd "C-c d e") #'("Engage" . org-gtd-engage))
 
 ;;;

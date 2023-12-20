@@ -24,7 +24,7 @@
 (setq org-roam-ui-update-on-save t)
 
 ;;; By default, org-roam-ui will try to open itself in your default browser
-(setq org-roam-ui-open-on-start t)
+(setq org-roam-ui-open-on-start nil)
 
 (load-library "org-roam-ui")
 

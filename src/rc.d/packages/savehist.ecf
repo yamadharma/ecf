@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A very simple alternative to more involved Session Management solutions
+;;; https://www.emacswiki.org/emacs/SaveHist
+
+(require 'savehist)
+(savehist-mode 1)
+
+;;;

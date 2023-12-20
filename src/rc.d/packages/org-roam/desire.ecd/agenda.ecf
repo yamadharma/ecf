@@ -2,7 +2,7 @@
 ;;; Agenda
 
 ;;; Staticaly add to agenda files
-(add-to-list 'org-agenda-files org-roam-directory)
-(add-to-list 'org-agenda-files (concat  org-roam-directory "/public"))
+;; (add-to-list 'org-agenda-files org-roam-directory)
+;; (add-to-list 'org-agenda-files (concat  org-roam-directory "/public"))
 
 ;;;

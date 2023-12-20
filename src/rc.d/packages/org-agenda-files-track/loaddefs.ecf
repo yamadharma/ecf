@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fine-track `org-agenda-files` to speed-up `org-agenda`
+;;; https://github.com/nicolas-graves/org-agenda-files-track
+
+;;; Toggle org-agenda-files-track mode on
+(setq org-agenda-files-track-mode t)
+
+;;;

@@ -114,6 +114,12 @@
 
 ;; ----------------------------------------------------------------------
 
+;;{{{ Session Management
+
+(desire 'savehist)
+
+;;}}}
+
 ;;; Buffer management
 ;; (desire 'ibuffer)
 (desire 'uniquify)
@@ -310,6 +316,8 @@
 ;;}}}
 ;;{{{ org-mode
 
+(desire 'org-ql)
+
 (desire 'org-appear)
 (desire 'org-fragtog)
 
@@ -329,7 +337,15 @@
 
 (desire 'org-tree-slide)
 
+;;; Org agenda
 (desire 'org-super-agenda)
+
+;; (if (desiredp 'org-ql)
+;;     (desire 'org-agenda-files-track-ql :recipe '(:fetcher github :repo "nicolas-graves/org-agenda-files-track" :branch "master" :files ("org-agenda-files-track-ql.el")))
+;;   (desire 'org-agenda-files-track :recipe '(:fetcher github :repo "nicolas-graves/org-agenda-files-track" :branch "master" :files ("org-agenda-files-track.el")))
+;;   )
+
+(desire 'org-agenda-files-track :recipe '(:fetcher github :repo "nicolas-graves/org-agenda-files-track" :branch "master" :files ("org-agenda-files-track.el")))
 
 ;; (desire 'org-gcal)
 (desire 'org-journal)

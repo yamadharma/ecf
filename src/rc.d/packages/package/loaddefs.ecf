@@ -1,4 +1,5 @@
-;;; Set up the package -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set up the package
 
 (setq warning-suppress-log-types '((package reinitialization)))
 
