@@ -115,14 +115,11 @@
     (make-directory "~/tmp" t))
 
 ;;}}}
-;;; Native Compilation support (http://akrl.sdf.org/gccemacs.html)
 
-(when NATIVECOMP
-  ;; Don't store eln files in ~/.emacs.d/eln-cache
-  (add-to-list 'native-comp-eln-load-path (concat home-cache-path "eln/"))
-  (add-to-list 'startup--original-eln-load-path (concat home-cache-path "eln/")))
+;;; Set eln-cache dir
+(when (boundp 'native-comp-eln-load-path)
+  (startup-redirect-eln-cache (expand-file-name "eln/" home-cache-path)))
 
-;;
 ;;{{{ Tinypath load
 
 ;; Search user, host-wide, site-wide configs

@@ -7,6 +7,6 @@
 ;;
 ;;     http://www.gnu.org/software/auctex/
 
-(require 'tex-site)
+;; (require 'tex-site)
 
 ;;;

@@ -1,16 +1,20 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Add icons to the widget headings and their items
+;;; https://github.com/emacs-dashboard/emacs-dashboard
 
-;;; Use `all-the-icons' package
-(setq dashboard-icon-type 'all-the-icons)
+;;; Display icons on both GUI and terminal
+(setq dashboard-display-icons-p t)
+
+;;; Use `nerd-icons` package
+(setq dashboard-icon-type 'nerd-icons)
 
 ;;; Add icons to the widget headings and their items
 ;; (setq dashboard-set-heading-icons t)
 (setq dashboard-set-file-icons t)
 
-
 ;;; Show navigator below the banner
-(setq dashboard-set-navigator t)
+;(setq dashboard-set-navigator t)
+
 
 ;;; Modify heading icons with another icon from all-the-icons octicons
 ;; (dashboard-modify-heading-icons '((recents . "file-text")

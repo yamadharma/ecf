@@ -257,6 +257,8 @@
 
 ;;{{{ Text
 
+(desire 'texfrag)
+
 ;; (desire 'adaptive-wrap)
 (desired 'visual-line-mode)
 
@@ -311,8 +313,8 @@
 (desired 'reftex)
 ;; (desire-old 'tex)
 (desired 'preview-latex nil "preview-latex")
-;; (desire-old 'auctex "latex" "tex-site")
-(desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
+(desire 'auctex :initname "latex")
+;; (desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
 
 ;;}}}
 ;;{{{ org-mode

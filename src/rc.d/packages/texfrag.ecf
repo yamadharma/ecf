@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package for previewing LaTeX fragments such as in doxygen comments
+;;; https://github.com/TobiasZawada/texfrag
+
+(require 'texfrag)
+
+;;;
