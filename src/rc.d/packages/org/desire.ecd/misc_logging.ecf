@@ -1,5 +1,5 @@
 ;; Logging stuff
 
-(setq org-log-done (quote time))
+(setq org-log-done 'time)
 (setq org-log-into-drawer t)
 (setq org-log-state-notes-insert-after-drawers nil)

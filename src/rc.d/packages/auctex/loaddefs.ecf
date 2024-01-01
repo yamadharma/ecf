@@ -1,12 +1,15 @@
-;;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*- 
+;;; AUC TeX: Excellent (La)TeX mode.
+;; http://www.gnu.org/software/auctex/
 
-;; Uses:
-;;
-;; AUC TeX:
-;;     Excellent (La)TeX mode.
-;;
-;;     http://www.gnu.org/software/auctex/
+(add-to-list 'auto-mode-alist '("\\.tex\\.sty\\.cls\\'" . LaTeX-mode))
 
-;; (require 'tex-site)
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (require 'auctex)))
+
+(add-hook 'latex-mode-hook
+          (lambda ()
+            (require 'auctex)))
 
 ;;;

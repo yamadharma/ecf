@@ -2,6 +2,6 @@
 ;;; Interface to helm-bibtex
 ;;; https://github.com/tmalsburg/helm-bibtex
 
-;; (require 'bibtex-completion)
+(require 'bibtex-completion)
 
 ;;;
