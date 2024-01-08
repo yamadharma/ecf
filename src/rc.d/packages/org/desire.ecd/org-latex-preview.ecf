@@ -1,6 +1,8 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Previewing LaTeX fragments
 
+(setq org-preview-latex-image-directory (concat home-cache-path "org-latex/"))
+
 ;; lualatex preview
 ;; (setq org-latex-pdf-process
 ;;       '("lualatex -shell-escape -interaction nonstopmode %f"
@@ -17,12 +19,42 @@
 		  :latex-compiler ("lualatex -interaction nonstopmode -output-directory %o %f")
 		  :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
 
+(setq imagemagick-lua-svg
+      '(imagemagick-lua-svg
+	:programs ("lualatex" "convert")
+	:description "pdf > svg"
+	:message "you need to install lualatex and imagemagick."
+	:use-xcolor t
+	:image-input-type "pdf"
+	:image-output-type "svg"
+	:image-size-adjust (1.0 . 1.0)
+	:latex-compiler ("lualatex -interaction nonstopmode -output-directory %o %f")
+	:image-converter ("convert -density %D -trim -antialias %f -quality 100 %O")))
+
+;; (add-to-list 'org-preview-latex-process-alist imagemagick-lua-svg)
+;; (setq org-preview-latex-default-process 'imagemagick-lua-svg)
+;; (setq org-latex-create-formula-image-program 'imagemagick-lua-svg)
+
 ;; (add-to-list 'org-preview-latex-process-alist luamagick)
 ;; (setq org-preview-latex-default-process 'luamagick)
 ;; (setq org-latex-create-formula-image-program 'luamagick)
 
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
-(setq org-latex-create-formula-image-program 'dvipng)
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 0.4))
+;; (setq org-latex-create-formula-image-program 'dvipng)
+(setq org-latex-create-formula-image-program 'dvisvgm)
+;; (setq org-latex-create-formula-image-program 'imagemagick)
+
+;; (setq org-latex-compiler "lualatex")
+;; (setq org-preview-latex-process-alist
+;;       '((dvisvgm
+;; 	 :programs ("lualatex --output-format=dvi" "dvisvgm")
+;;                  :description "dvi > svg"
+;;                  :message "you need to install the programs: lualatex and dvisvgm."
+;;                  :image-input-type "dvi"
+;;                  :image-output-type "svg"
+;;                  :image-size-adjust (1.7 . 1.5)
+;;                  :latex-compiler ("lualatex -interaction nonstopmode -output-directory %o %f")
+;;                  :image-converter ("dvisvgm %f -n -b min -c %S -o %O"))))
 
 ;; The possible value of the variable `org-preview-latex-process-alist`:
 ;; ((dvipng :programs

@@ -1,6 +1,6 @@
 ;; -*- coding: iso-2022-7bit-unix; -*-
 
-(custom-set-variables
-  '(font-latex-fontify-script t)
-)
+;;(custom-set-variables
+;;  '(font-latex-fontify-script t)
+;;)
 

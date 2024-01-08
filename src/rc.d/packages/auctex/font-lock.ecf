@@ -1,35 +1,35 @@
 (require 'font-latex)
 
-(cond ((fboundp 'face-spec-set)
-       ;; emacs-20?
-       (face-spec-set
-	'font-latex-bold-face
-	      '((((class color) (background dark))
-		 (:foreground "SpringGreen"))))
-       (face-spec-set
-	'font-latex-italic-face
-	      '((((class color) (background dark))
-		 (:foreground "SpringGreen" :italic t))))
-       (face-spec-set
-	'font-latex-sedate-face
-	      '((((class color) (background dark))
-		 (:foreground "Pink")))))
+;; (cond ((fboundp 'face-spec-set)
+;;        ;; emacs-20?
+;;        (face-spec-set
+;; 	'font-latex-bold-face
+;; 	      '((((class color) (background dark))
+;; 		 (:foreground "SpringGreen"))))
+;;        (face-spec-set
+;; 	'font-latex-italic-face
+;; 	      '((((class color) (background dark))
+;; 		 (:foreground "SpringGreen" :italic t))))
+;;        (face-spec-set
+;; 	'font-latex-sedate-face
+;; 	      '((((class color) (background dark))
+;; 		 (:foreground "Pink")))))
 
-      ((and (fboundp 'font-lock-make-faces)
-	    (fboundp 'font-lock-make-face)
-	    (boundp 'font-lock-background-mode))
-       ;; emacs-19?
-       (if (equal font-lock-background-mode 'dark)
-	   (progn
-	     (font-lock-make-faces)
-	     (set-face-foreground 'font-latex-bold-face "SpringGreen")
-	     (cond ((fboundp 'set-face-bold-p)
-		    (set-face-bold-p 'font-latex-bold-face t))
-		   ((fboundp 'make-face-bold)
-		    (make-face-bold 'font-latex-bold-face nil t)))
-	     (set-face-foreground 'font-latex-italic-face "SpringGreen")
-	     (cond ((fboundp 'set-face-italic-p)
-		    (set-face-italic-p 'font-latex-italic-face t))
-		   ((fboundp 'make-face-italic)
-		    (make-face-italic 'font-latex-italic-face nil t)))
-	     (set-face-foreground 'font-latex-sedate-face "Pink")))))
+;;       ((and (fboundp 'font-lock-make-faces)
+;; 	    (fboundp 'font-lock-make-face)
+;; 	    (boundp 'font-lock-background-mode))
+;;        ;; emacs-19?
+;;        (if (equal font-lock-background-mode 'dark)
+;; 	   (progn
+;; 	     (font-lock-make-faces)
+;; 	     (set-face-foreground 'font-latex-bold-face "SpringGreen")
+;; 	     (cond ((fboundp 'set-face-bold-p)
+;; 		    (set-face-bold-p 'font-latex-bold-face t))
+;; 		   ((fboundp 'make-face-bold)
+;; 		    (make-face-bold 'font-latex-bold-face nil t)))
+;; 	     (set-face-foreground 'font-latex-italic-face "SpringGreen")
+;; 	     (cond ((fboundp 'set-face-italic-p)
+;; 		    (set-face-italic-p 'font-latex-italic-face t))
+;; 		   ((fboundp 'make-face-italic)
+;; 		    (make-face-italic 'font-latex-italic-face nil t)))
+;; 	     (set-face-foreground 'font-latex-sedate-face "Pink")))))
