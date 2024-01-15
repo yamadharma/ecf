@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Create buffer-isolated workspaces
+;;; https://github.com/mclear-tools/tabspaces
+
+
+(setq tabspaces-use-filtered-buffers-as-default t)
+(setq tabspaces-default-tab "Default")
+(setq tabspaces-remove-to-default t)
+(setq tabspaces-include-buffers '("*scratch*"))
+;; (setq tabspaces-initialize-project-with-todo t)
+;; (setq tabspaces-todo-file-name "project-todo.org")
+
+;;; Sessions
+(setq tabspaces-session t)
+(setq tabspaces-session-auto-restore t)
+
+;;; Use this only if you want the minor-mode loaded at startup
+(tabspaces-mode) 
+
+;;;

@@ -1,0 +1,37 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Advanced replacement for BufferMenu
+;;; https://www.emacswiki.org/emacs/IbufferMode
+
+(setq ibuffer-saved-filter-groups
+      '(("default"
+	 ("dired"
+	  (mode . dired-mode))
+	 ("org-roam"
+	  (filename . (file-truename "~/work/org/notes")))
+	 ("org"
+	  (or
+	   (mode . org-mode)
+	   (mode . org-agenda-mode)
+	   (mode . org-journal-mode)))
+	 ("magit"
+	  (name . "^magit"))
+	 ("planner"
+	  (or
+	   (name . "^\\*Calendar\\*$")
+	   (name . "^\\*Org Agenda\\*")))
+	 ("emacs"
+	  (or
+	   (name . "^\\*scratch\\*$")
+	   (name . "^\\*Messages\\*$")
+	   (name . "^\\*.*\\*$")))
+	 )))
+
+(add-hook 'ibuffer-mode-hook 
+	  (lambda ()
+	    (ibuffer-switch-to-saved-filter-groups "default")))
+
+(unless (eq ibuffer-sorting-mode 'alphabetic)
+  (add-hook 'ibuffer-hook #'ibuffer-do-sort-by-alphabetic))
+
+
+;;;

@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Advanced replacement for BufferMenu
+;;; https://www.emacswiki.org/emacs/IbufferMode
+
+(require 'ibuffer)
+
+;;;

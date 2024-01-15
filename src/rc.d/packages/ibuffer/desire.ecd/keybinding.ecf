@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Advanced replacement for BufferMenu
+;;; https://www.emacswiki.org/emacs/IbufferMode
+
+(define-key ibuffer-mode-map (kbd "C-g") 'quit-window)
+(define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line)
+(define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line)
+(define-key ibuffer-mode-map (kbd "C-j") 'ibuffer-forward-filter-group)
+(define-key ibuffer-mode-map (kbd "C-k") 'ibuffer-backward-filter-group)
+
+(define-key ibuffer-mode-map (kbd "<up>") 'ibuffer-previous-line)
+(define-key ibuffer-mode-map (kbd "<down>") 'ibuffer-next-line)
+(define-key ibuffer-mode-map (kbd "<right>") 'ibuffer-previous-header)
+(define-key ibuffer-mode-map (kbd "<left>") 'ibuffer-next-header)
+
+;;;

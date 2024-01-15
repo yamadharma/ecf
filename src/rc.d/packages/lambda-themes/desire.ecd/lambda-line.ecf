@@ -1,0 +1,35 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A configurable status line for Emacs
+;;; https://github.com/Lambda-Emacs/lambda-line
+
+(desire 'lambda-line :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-line" :branch "main"))
+(require 'lambda-line)
+
+;;; Show current time via dynamic icon font
+(setq display-time-mode nil)
+;; (setq display-time-mode t)
+;; (setq lambda-line-icon-time t) ;; requires ClockFace font
+;; (setq lambda-line-clockface-update-fontset "ClockFaceRect") ;; set clock icon
+
+(setq lambda-line-position 'bottom) ;; Set position of status-line 
+(setq lambda-line-abbrev t) ;; abbreviate major modes
+(setq lambda-line-hspace "  ")  ;; add some cushion
+(setq lambda-line-prefix t) ;; use a prefix symbol
+(setq lambda-line-prefix-padding nil) ;; no extra space for prefix 
+(setq lambda-line-status-invert nil)  ;; no invert colors
+(setq lambda-line-gui-ro-symbol  " ⨂") ;; symbols
+(setq lambda-line-gui-mod-symbol " ⬤") 
+(setq lambda-line-gui-rw-symbol  " ◯") 
+(setq lambda-line-space-top +.50)  ;; padding on top and bottom of line
+(setq lambda-line-space-bottom -.50)
+(setq lambda-line-symbol-position 0.1) ;; adjust the vertical placement of symbol
+
+;;; Activate lambda-line 
+(lambda-line-mode) 
+
+;; Set divider line in footer
+(when (eq lambda-line-position 'top)
+  (setq-default mode-line-format (list "%_"))
+  (setq mode-line-format (list "%_")))
+
+;;;

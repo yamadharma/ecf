@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Perspectives in tab-bar
+;;; https://sr.ht/~woozong/perspective-tabs/
+
+(desire 'perspective-tabs :recipe '(:fetcher git :url "https://git.sr.ht/~woozong/perspective-tabs" :files ("*.el")))
+(require 'perspective-tabs)
+
+(perspective-tabs-mode +1)
+
+;;;

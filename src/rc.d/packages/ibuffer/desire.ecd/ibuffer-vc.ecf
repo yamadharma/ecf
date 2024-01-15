@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Let Emacs' ibuffer-mode group files by git project etc., and show file state
+;;; https://github.com/purcell/ibuffer-vc
+
+(desire 'ibuffer-vc)
+(require 'ibuffer-vc)
+
+(add-hook 'ibuffer-hook #'ibuffer-vc-set-filter-groups-by-vc-root)
+
+;;;

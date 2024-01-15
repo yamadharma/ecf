@@ -2,9 +2,13 @@
 ;;; Advanced replacement for BufferMenu
 ;;; https://www.emacswiki.org/emacs/IbufferMode
 
-(require 'ibuffer)
+;; Use instead of buffer-list
+(global-set-key (kbd "C-x C-b") 'ibuffer) 
 
-(global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
+;; Stop yes-no prompt on delete
+(setq ibuffer-expert t) 
+
+;; (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
 (setq ibuffer-default-sorting-mode 'major-mode)
 
 ;;;

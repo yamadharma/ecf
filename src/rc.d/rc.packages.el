@@ -121,8 +121,6 @@
 
 ;;}}}
 
-;;; Buffer management
-;; (desire 'ibuffer)
 (desire 'uniquify)
 
 (desire-old 'keys)
@@ -142,8 +140,8 @@
 
 (desire 'ligature)
 
-(desire 'all-the-icons)
-;; (desire 'nerd-icons)
+;; (desire 'all-the-icons)
+(desire 'nerd-icons)
 ;; (desire 'mixed-pitch)
 
 (desire-old 'fontset)
@@ -410,9 +408,11 @@
 (desire-old 'session nil "session")
 (desire-old 'saveplace nil "saveplace")
 
+(desire 'ibuffer)
 ;; (desire 'persp-mode)
 ;; (desire 'perspective)
-(desire 'bufler)
+;; (desire 'bufler)
+;; (desire 'tabspaces)
 
 ;;}}}
 ;;{{{ Appointments, diary, calendar.
@@ -495,11 +495,12 @@
 ;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
 
 ;;; Doom themes
-;; (desire 'doom-themes)
+(desire 'doom-themes)
 
 ;; (desire 'zenburn-theme)
-(desire 'modus-themes)
+;; (desire 'modus-themes)
 ;; (desire 'ef-themes)
+;; (desire 'lambda-themes :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-themes" :branch "main"))
 
 ;;; N Λ N O Theme
 ;; (desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))

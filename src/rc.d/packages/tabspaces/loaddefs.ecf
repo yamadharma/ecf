@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Create buffer-isolated workspaces
+;;; https://github.com/mclear-tools/tabspaces
+
+(require 'tabspaces)
+
+;;;
