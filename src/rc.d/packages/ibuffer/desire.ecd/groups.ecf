@@ -2,8 +2,18 @@
 ;;; Advanced replacement for BufferMenu
 ;;; https://www.emacswiki.org/emacs/IbufferMode
 
+(require 'ibuf-ext)
+
+;;; Don't show filter groups if there are no buffers in that group
+(setq ibuffer-show-empty-filter-groups t)
+
 (setq ibuffer-saved-filter-groups
       '(("default"
+	 ("programming"
+          (or
+	   (derived-mode . prog-mode)
+           (mode         . ess-mode)
+           (mode         . compilation-mode)))
 	 ("dired"
 	  (mode . dired-mode))
 	 ("org-roam"
@@ -13,6 +23,17 @@
 	   (mode . org-mode)
 	   (mode . org-agenda-mode)
 	   (mode . org-journal-mode)))
+	 ("mu4e"
+	  (or
+	   (mode . mu4e-compose-mode)
+           (name . "\*mu4e\*")))
+	 ("TeX"
+          (or
+	   (derived-mode . tex-mode)
+           (mode         . latex-mode)
+           (mode         . context-mode)
+           (mode         . ams-tex-mode)
+           (mode         . bibtex-mode)))
 	 ("magit"
 	  (name . "^magit"))
 	 ("planner"
@@ -26,12 +47,58 @@
 	   (name . "^\\*.*\\*$")))
 	 )))
 
-(add-hook 'ibuffer-mode-hook 
-	  (lambda ()
-	    (ibuffer-switch-to-saved-filter-groups "default")))
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-auto-mode 1)
+            (ibuffer-switch-to-saved-filter-groups "default")))
 
-(unless (eq ibuffer-sorting-mode 'alphabetic)
-  (add-hook 'ibuffer-hook #'ibuffer-do-sort-by-alphabetic))
+;; (unless (eq ibuffer-sorting-mode 'alphabetic)
+;;   (add-hook 'ibuffer-hook #'ibuffer-do-sort-by-alphabetic))
 
+;; (setq ibuffer-saved-filter-groups
+;;       (quote (("default"
+;;                ("terminal"  (or
+;;                              (mode . term-mode)
+;;                              (mode . shell-mode)
+;;                              (mode . eshell-mode)))
+;;                ("erc" (predicate string-match "ERC" mode-name))
+;;                ("emacs" (or
+;;                          (name . "^\\*scratch\\*$")
+;;                          (name . "^\\*Messages\\*$")))
+;;                ("gnus" (or
+;;                         (mode . message-mode)
+;;                         (mode . bbdb-mode)
+;;                         (mode . mail-mode)
+;;                         (mode . gnus-group-mode)
+;;                         (mode . gnus-summary-mode)
+;;                         (mode . gnus-article-mode)
+;;                         (name . "^\\.bbdb$")
+;;                         (name . "^\\.newsrc-dribble")
+;;                         (name . "^bbdb\\.el$")
+;;                         (name . "^newsrc\\.eld$")
+;;                         (name . "^newsrc-dribble$")
+;;                         (name . "^bbdb$")
+;;                         (name . "^\\*BBDB\\*$")))
+;;                ("java" (name . "\\.java/?.*$"))
+;;                ("javascript" (name . "\\.js/?.*$"))
+;;                ("python" (name . "\\.py/?.*$"))
+;;                ("xml" (name . "\\.xml/?.*$"))
+;;                ("lua" (name . "\\.lua/?.*$"))
+;;                ("elisp" (name . "\\.el/?.*$"))
+;;                ("tex" (name . "\\.tex/?.*$"))
+;;                ("bib" (name . "\\.bib/?.*$"))
+;;                ("pdf" (name . "\\.pdf/?.*$"))
+;;                ("image" (name . "\\.png/?.*$\\|\\.jpg/?.*$\\|\\.svg/?.*$"))
+;;                ("org" (mode . org-mode))
+;;                ("agenda" (name . "^\\*Org Agenda\\*$"))
+;;                ("bash" (or
+;;                          (predicate string-match "Shell-script" mode-name)
+;;                          (mode . shell-script-mode)
+;;                          (mode . sh-mode)))
+;;                ("pwsh" (mode . powershell-mode))
+;;                ("dired" (mode . dired-mode))
+;;                ("sidebar" (predicate string-match "Dired-sidebar" mode-name))
+;;                ("debug" (name . "^\\*localhost([0-9]+)[^\\*]+\\*$"))
+;;                ("special" (name . "^\\*[^\\*]+\\*$"))))))
 
 ;;;

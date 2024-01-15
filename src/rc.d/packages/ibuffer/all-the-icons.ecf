@@ -1,0 +1,36 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Display icons for all buffers in ibuffer
+;;; https://github.com/seagle0128/all-the-icons-ibuffer
+
+(desire 'all-the-icons-ibuffer)
+(require 'all-the-icons-ibuffer)
+
+;;; Predicate whether the icons are able to be displayed.
+(setq all-the-icons-ibuffer-display-predicate #'display-graphic-p)
+
+;;; Whether display the icons.
+(setq all-the-icons-ibuffer-icon t)
+
+;;; Whether display the colorful icons.
+;;; It respects `all-the-icons-color-icons'.
+(setq all-the-icons-ibuffer-color-icon t)
+
+;;; The default icon size in ibuffer.
+(setq all-the-icons-ibuffer-icon-size 1.0)
+
+;;; The default vertical adjustment of the icon in ibuffer.
+(setq all-the-icons-ibuffer-icon-v-adjust 0.0)
+
+;;; Use human readable file size in ibuffer.
+(setq  all-the-icons-ibuffer-human-readable-size t)
+
+;;; A list of ways to display buffer lines with `all-the-icons'.
+;;; See `ibuffer-formats' for details.
+;; all-the-icons-ibuffer-formats
+
+;;; Slow Rendering
+;; (setq inhibit-compacting-font-caches t)
+
+(add-hook 'ibuffer-mode-hook #'all-the-icons-ibuffer-mode)
+
+;;;
