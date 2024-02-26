@@ -7,11 +7,11 @@
 ;;; Main themes
 ;;; modus-operandi is the project's main light theme, while modus-vivendi is its dark counterpart
 ;;; Light theme
-(load-theme 'modus-operandi :no-confirm)
+;; (load-theme 'modus-operandi :no-confirm)
 ;;; Dark theme
 ;; (load-theme 'modus-vivendi :no-confirm)
 ;;; Switch themes
-(setq modus-themes-to-toggle '(modus-operandi modus-vivendi))
+;; (setq modus-themes-to-toggle '(modus-operandi modus-vivendi))
 
 ;;; Tinted themes
 ;;; modus-operandi-tinted and modus-vivendi-tinted are variants of the two main themes
@@ -25,11 +25,11 @@
 ;;; Deuteranopia themes
 ;;; modus-operandi-deuteranopia and its companion modus-vivendi-deuteranopia are optimized for users with red-green color deficiency
 ;;; Light theme
-;; (load-theme 'modus-operandi-deuteranopia :no-confirm)
+(load-theme 'modus-operandi-deuteranopia :no-confirm)
 ;;; Dark theme
 ;; (load-theme 'modus-vivendi-deuteranopia :no-confirm)
 ;;; Switch themes
-;; (setq modus-themes-to-toggle '(modus-operandi-deuteranopia modus-vivendi-deuteranopia))
+(setq modus-themes-to-toggle '(modus-operandi-deuteranopia modus-vivendi-deuteranopia))
 
 ;;; Tritanopia themes
 ;;; modus-operandi-tritanopia and its companion modus-vivendi-tritanopia are optimized for users with red-green color deficiency

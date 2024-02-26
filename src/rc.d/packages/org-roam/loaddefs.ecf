@@ -1,3 +1,5 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;;
 ;;;
 
 ;; Org-roam now does not resolve symlinks

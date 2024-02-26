@@ -380,12 +380,15 @@
 ;; (desire 'org-roam-ui :recipe '(:host github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 ;; (desire 'org-roam-ui :recipe '(:fetcher github :repo "org-roam/org-roam-ui" :files ("*.el" "out")))
 (desire 'org-roam-ui)
+
+
+(desire 'magit-section)
 (desire 'org-roam)
 
 ;;}}}
 ;;{{{ Notes
 
-(desire 'deft)
+;; (desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}
@@ -476,8 +479,8 @@
 (desire 'ini-mode)
 (desire 'hcl-mode)
 
-(desire 'magit)
 (desire 'magit-gitflow)
+(desire 'magit)
 
 ;;}}}
 ;;{{{ Blogs
@@ -489,21 +492,21 @@
 ;;}}}
 ;;{{{ Themes
 
-;; (desire 'moody)
+(desire 'moody)
 
 ;;; Spacemacs theme
 ;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
 
 ;;; Doom themes
-(desire 'doom-themes)
+;; (desire 'doom-themes)
 
 ;; (desire 'zenburn-theme)
-;; (desire 'modus-themes)
+(desire 'modus-themes)
 ;; (desire 'ef-themes)
 ;; (desire 'lambda-themes :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-themes" :branch "main"))
 
 ;;; N Λ N O Theme
-;; (desire 'nano :recipe '(:fetcher github :repo "rougier/nano-emacs" :branch "master"))
+;; (desire 'nano-theme)
 
 ;; (desire 'spacious-padding :recipe '(:fetcher github :repo "protesilaos/spacious-padding" :branch "main" :files ("*.el")))
 
@@ -526,6 +529,7 @@
 ;; (desire-old 'sql-mode)
 ;; (desire-old 'w3)
 (desire 'web-mode)
+(desire 'gnuplot)
 
 (desire 'pass)
 ;; (desire 'keycast)

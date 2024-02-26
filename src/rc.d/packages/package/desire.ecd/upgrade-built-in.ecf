@@ -1,0 +1,9 @@
+;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set up the package
+
+;;; Upgrade built-in packages
+(setq package-install-upgrade-built-in t)
+
+;;;
+
+

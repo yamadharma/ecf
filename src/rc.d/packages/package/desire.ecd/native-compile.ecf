@@ -1,0 +1,9 @@
+;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set up the package
+
+;;; Supports ahead-of-time native compilation when installing a package
+(setq package-native-compile t)
+
+;;;
+
+

@@ -1,7 +1,7 @@
-;;; Tabs and ribbons for the mode-line -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;; https://github.com/tarsius/moody
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Tabs and ribbons for the mode-line
+;;; https://github.com/tarsius/moody
 
-(require 'moody)
 
 (setq x-underline-at-descent-line t)
 

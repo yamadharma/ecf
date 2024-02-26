@@ -5,7 +5,7 @@
 ;;; Load preferred theme 
 ;; (load-theme 'lambda-light)
 ;; (load-theme 'lambda-dark)
-;; (load-theme 'lambda-light-faded)
-(load-theme 'lambda-dark-faded)
+(load-theme 'lambda-light-faded)
+;; (load-theme 'lambda-dark-faded)
 
 ;;;

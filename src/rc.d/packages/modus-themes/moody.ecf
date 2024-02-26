@@ -2,12 +2,10 @@
 ;;; Tabs and ribbons for the mode-line
 ;;; https://github.com/tarsius/moody
 
-(desire 'moody)
 (require 'moody)
 
-;;; https://github.com/tarsius/moody
 ;;; Mode line presentation
-;; nil (default), 3d, moody, borderless, borderless-3d, borderless-moody
+;;; nil (default), 3d, moody, borderless, borderless-3d, borderless-moody
 (setq modus-themes-mode-line 'borderless-moody)
 
 ;;;

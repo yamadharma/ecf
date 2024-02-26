@@ -1,0 +1,5 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Tabs and ribbons for the mode-line
+;;; https://github.com/tarsius/moody
+
+;;;

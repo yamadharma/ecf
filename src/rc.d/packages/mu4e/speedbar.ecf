@@ -1,6 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; Template expansion for Org structures
+;;;
 
-(require 'org-tempo)
+(require 'mu4e-speedbar)
 
 ;;;

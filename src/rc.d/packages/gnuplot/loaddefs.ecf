@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A major mode for Emacs for interacting with Gnuplot
+;;; https://github.com/emacs-gnuplot/gnuplot
+
+(setq auto-mode-alist (append '(("\\.\\(gp\\|gnuplot\\)$" . gnuplot-mode)) auto-mode-alist))
+
+;;;

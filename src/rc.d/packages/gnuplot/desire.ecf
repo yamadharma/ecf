@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A major mode for Emacs for interacting with Gnuplot
+;;; https://github.com/emacs-gnuplot/gnuplot
+
+(require 'gnuplot)
+(autoload 'gnuplot-mode "gnuplot" "Gnuplot major mode" t)
+(autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot-mode" t)
+
+;;;
