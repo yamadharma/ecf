@@ -367,7 +367,7 @@
 (desire 'org)
 
 ;; For messaging
-(desire 'org-msg)
+;; (desire 'org-msg)
 
 ;;; Org-roam
 
@@ -452,7 +452,7 @@
 ;;}}}
 ;;{{{ Programming
 
-;; (desire 'speedbar)
+(desire 'speedbar)
 ;; (desire-old 'semantic nil "semantic")
 
 ;; (desire-old 'cedet nil "cedet")

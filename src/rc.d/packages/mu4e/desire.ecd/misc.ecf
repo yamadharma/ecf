@@ -17,7 +17,7 @@
       mu4e-view-show-addresses t
       mu4e-sent-messages-behavior 'sent
       smtpmail-stream-type 'starttls
-      message-kill-buffer-on-exit t ; close after sending
+      message-kill-buffer-on-exit t ;; close after sending
       ;; start with the first (default) context;
       mu4e-context-policy 'pick-first
       ;; compose with the current context, or ask
@@ -54,7 +54,6 @@
       mu4e-update-interval 600
       mu4e-view-prefer-html t
       mu4e-view-show-addresses 't
-      mu4e-view-show-images t
       smtpmail-smtp-service 587
       starttls-use-gnutls t)
 

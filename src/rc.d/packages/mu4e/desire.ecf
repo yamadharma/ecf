@@ -18,7 +18,7 @@
 (if (not (file-directory-p mu4e-attachment-dir))
     (make-directory mu4e-attachment-dir t))
 
-;;; attempt to show images when viewing messages
-(setq mu4e-view-show-images t)
+;;; speed-ups in querying
+(setq mu4e-mu-allow-temp-file t)
 
 ;;;

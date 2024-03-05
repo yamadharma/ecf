@@ -1,7 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Use fancy icons
 
-;; (setq mu4e-use-fancy-chars t)
+(setq mu4e-use-fancy-chars t)
 
 ;(setq mu4e-use-fancy-chars t
 ;      mu4e-headers-draft-mark '("D" . "")

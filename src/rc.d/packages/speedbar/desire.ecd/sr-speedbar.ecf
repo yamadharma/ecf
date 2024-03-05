@@ -11,6 +11,7 @@
 
 ;; (setq sr-speedbar-auto-refresh nil)
 
-;; Put on left side
+;;; Put on left side
 (setq sr-speedbar-right-side nil)
+
 ;;; 

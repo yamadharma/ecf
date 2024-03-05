@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Mark the files in dired you would like to attach and press `C-c RET C-a`
+;;; You’ll be asked whether to attach them to an existing message, or create a new one
+
+;;; Attach files to mu4e messages using dired
+(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+
+;;;
+

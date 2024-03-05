@@ -3,6 +3,8 @@
 ;; https://github.com/Alexander-Miller/mu4e-column-faces
 
 (desire 'mu4e-column-faces)
+(require 'mu4e-column-faces)
+
 (mu4e-column-faces-mode)
 
 ;;;

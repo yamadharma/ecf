@@ -1,3 +1,4 @@
+
 ;; Prompt for deletion of CC: line from replies.  This stops 
 ;; embarrassment...
 (add-hook 'message-header-setup-hook 'message-reply-check-CC:-hook t)
@@ -16,15 +17,17 @@ deletes it if required."
 	(if  (y-or-n-p "Kill *all* CC: headers? ")
 	    (message-remove-header "cc")))))
 
-;; Copy all messages to myself.
-;;(setq mail-self-blind t)
+;;; Copy all messages to myself.
+;;  (setq mail-self-blind t)
 
-(add-hook 'message-header-setup-hook 'message-bcc-self t)
+;; (add-hook 'message-header-setup-hook 'message-bcc-self t)
 
-(defun message-bcc-self ()
-  "Insert a Bcc: to the current user into a message buffer."
-  (interactive)
-  (save-excursion
-    (widen)
-    (message-goto-bcc)
-    (insert user-mail-address)))
+;; (defun message-bcc-self ()
+;;   "Insert a Bcc: to the current user into a message buffer."
+;;   (interactive)
+;;   (save-excursion
+;;     (widen)
+;;     (message-goto-bcc)
+;;     (insert user-mail-address)))
+
+;;;
