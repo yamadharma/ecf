@@ -1,0 +1,21 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; two uncoloured color themes for EMACS
+;;; https://github.com/11111000000/tao-theme-emacs
+
+;;; Allowed to customize height (default nil)
+(setq tao-theme-use-height t)
+;;; Use sepia tones for grayscale (default nil)
+(setq tao-theme-use-sepia t)
+;;; Allowed to use borders (default t)
+;; (setq tao-theme-use-boxes t)
+;;; Depth to use for the sepia scale
+;; (steq tao-theme-sepia-depth 10)
+;;; Saturation to use for the sepia scale
+;; (setq tao-theme-sepia-saturation 1.03)
+
+;;; Light theme
+(load-theme 'tao-yang t)
+;;; Dark theme
+;; (load-theme 'tao-yin t)
+
+;;;
