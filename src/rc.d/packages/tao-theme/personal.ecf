@@ -3,11 +3,11 @@
 ;;; https://github.com/11111000000/tao-theme-emacs
 
 ;;; Allowed to customize height (default nil)
-(setq tao-theme-use-height t)
+;; (setq tao-theme-use-height nil)
 ;;; Use sepia tones for grayscale (default nil)
 (setq tao-theme-use-sepia t)
 ;;; Allowed to use borders (default t)
-;; (setq tao-theme-use-boxes t)
+(setq tao-theme-use-boxes nil)
 ;;; Depth to use for the sepia scale
 ;; (steq tao-theme-sepia-depth 10)
 ;;; Saturation to use for the sepia scale
