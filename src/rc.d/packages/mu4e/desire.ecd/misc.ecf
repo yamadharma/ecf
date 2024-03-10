@@ -13,11 +13,12 @@
 (setq send-mail-function 'smtpmail-send-it
       message-send-mail-function 'smtpmail-send-it)
 
-(setq mu4e-update-interval nil
+(setq mu4e-update-interval 400
       mu4e-view-show-addresses t
       mu4e-sent-messages-behavior 'sent
       smtpmail-stream-type 'starttls
-      message-kill-buffer-on-exit t ;; close after sending
+      ;;; close after sending
+      message-kill-buffer-on-exit t 
       ;; start with the first (default) context;
       mu4e-context-policy 'pick-first
       ;; compose with the current context, or ask
@@ -27,36 +28,28 @@
       ;; (cond ((featurep! :completion ivy) #'ivy-completing-read)
       ;;       ((featurep! :completion helm) #'completing-read)
       ;;       (t #'ido-completing-read))
-      ;; no need to ask
+      ;;; no need to ask
       mu4e-confirm-quit nil
-      ;; remove 'lists' column
-     mu4e-headers-fields
-     '((:account . 12)
-       (:human-date . 12)
-       (:flags . 4)
-       (:from . 25)
-       (:subject))
       ;;; Rename files when moving. Needed for mbsync 
       mu4e-change-filenames-when-moving t
       mu4e-completing-read-function 'completing-read
-      mu4e-compose-context-policy 'ask
       mu4e-compose-signature-auto-include t
       mu4e-confirm-quit nil
-      mu4e-context-policy 'pick-first
       mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version)
       mu4e-headers-auto-update t
       mu4e-headers-date-format "%d/%m/%Y %H:%M"
       mu4e-maildir (expand-file-name "~/Maildir")       ;; IMPORTANT
       mu4e-main-buffer-hide-personal-addresses t
       mu4e-main-buffer-name "*mu4e-main*"
-      mu4e-mu-binary "/usr/bin/mu"
-      mu4e-sent-messages-behavior 'sent
       mu4e-update-interval 600
       mu4e-view-prefer-html t
       mu4e-view-show-addresses 't
       smtpmail-smtp-service 587
       starttls-use-gnutls t)
 
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
+(setq mu4e-mu-binary (or (executable-find "mu") "/usr/bin/mu"))
+(setq mu4e-main-hide-personal-addresses t)
 
 ;;; Run cleanup after indexing
 (setq mu4e-index-cleanup t)

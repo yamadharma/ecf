@@ -1,7 +1,13 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; iCalendar support
 ;;; https://www.djcbsoftware.nl/code/mu/mu4e/iCalendar.html
 
 (require 'mu4e-icalendar)
 (mu4e-icalendar-setup)
+
+;;; Automatically trash the original invitation message
+(setq mu4e-icalendar-trash-after-reply nil)
+;;; Event may be automatically added to the diary file
+;; (setq mu4e-icalendar-diary-file diary-file)
 
 ;;;
