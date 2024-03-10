@@ -11,36 +11,30 @@
 ;; other account, sent messages are saved in the Sent folder.
 ;;;
 
-(setq mu4e-contexts
-      `(
-	,(ecf/mu4e-context
+(setq ecf/mu4e-contexts
+      '(
+	(ecf/mu4e-context
 	  :c-name  "1-yamadharma@gmail.com"
 	  :maildir "yamadharma@gmail.com"
 	  :mail    "yamadharma@gmail.com"
 	  :smtp    "smtp.gmail.com"
 	  :sent-action delete)
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "2-dharma@sci.pfu.edu.ru"
 	  :maildir "dharma@sci.pfu.edu.ru"
 	  :mail    "dharma@sci.pfu.edu.ru"
 	  :smtp    "smtp.gmail.com"
 	  :sent-action delete)
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "3-dskulyabov@gmail.com"
 	  :maildir "dskulyabov@gmail.com"
 	  :mail    "dskulyabov@gmail.com"
 	  :smtp    "smtp.gmail.com"
 	  :sent-action delete)
 
-	;; ,(ecf/mu4e-context
-	;;   :c-name  "1-GMX"
-	;;   :maildir "GMX"
-	;;   :mail    "a@gmx.com"
-	;;   :smtp    "mail.gmx.com")
-
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "4-kulyabov_ds@pfur.ru"
 	  :maildir "kulyabov_ds@pfur.ru"
 	  :mail    "kulyabov_ds@pfur.ru"
@@ -50,13 +44,13 @@
 	  :smtp-type plain
 	  :sent-action delete)
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "5-kulyabov@jinr.ru"
 	  :maildir "kulyabov@jinr.ru"
 	  :mail    "kulyabov@jinr.ru"
 	  :smtp    "mail.jinr.ru")
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "6-yamadharma@yandex.ru"
 	  :maildir "yamadharma@yandex.ru"
 	  :mail    "yamadharma@yandex.ru"
@@ -64,7 +58,7 @@
 	  :smtp-type ssl
 	  :smtp-port 465)
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "7-yama_dharma@mail.ru"
 	  :maildir "yama_dharma@mail.ru"
 	  :mail    "yama_dharma@mail.ru"
@@ -72,20 +66,20 @@
 	  :smtp-type ssl
 	  :smtp-port 465)
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "8-conference@sci.pfu.edu.ru"
 	  :maildir "conference@sci.pfu.edu.ru"
 	  :mail    "conference@sci.pfu.edu.ru"
 	  :smtp    "smtp.gmail.com"
 	  :sent-action delete)
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "9-dskulyabov@yahoo.com"
 	  :maildir "dskulyabov@yahoo.com"
 	  :mail    "dskulyabov@yahoo.com"
 	  :smtp    "smtp.mail.yahoo.com")
 
-	,(ecf/mu4e-context
+	(ecf/mu4e-context
 	  :c-name  "a-alternativysite@gmail.com"
 	  :maildir "alternativysite@gmail.com"
 	  :mail    "alternativysite@gmail.com"
