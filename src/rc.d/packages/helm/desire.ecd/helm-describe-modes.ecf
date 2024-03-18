@@ -2,11 +2,8 @@
 ;;; Major and minor mode info with Helm
 ;;; https://github.com/emacs-helm/helm-describe-modes
 
-(if (desiredp 'which-key)
-    nil
-  (progn
-    (desire 'helm-describe-modes)
-    (require 'helm-describe-modes)
-    (global-set-key [remap describe-mode] #'helm-describe-modes)))
+(desire 'helm-describe-modes)
+(require 'helm-describe-modes)
+(global-set-key [remap describe-mode] #'helm-describe-modes)
 
 ;;;
