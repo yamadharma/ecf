@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs Mini-Buffer Actions Rooted in Keymaps
+;;; https://github.com/oantolin/embark
+
+(require 'embark)
+
+;;;

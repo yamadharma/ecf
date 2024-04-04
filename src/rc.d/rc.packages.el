@@ -193,14 +193,14 @@
 
 ;;{{{ Completion
 
-(desire 'marginalia)
-
 (desire 'company)
 
+(desire 'vertico)
+
 ;;; Helm
-(desire 'helm-rg :precondition-system-executable "rg")
+;; (desire 'helm-rg :precondition-system-executable "rg")
 ;; (desire 'helm-posframe)
-(desire 'helm)
+;; (desire 'helm)
 
 ;; (desire 'ivy)
 ;; (desire 'selectrum)

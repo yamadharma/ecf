@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Glue code to tie together `embark'and `consult'
+;;; https://github.com/oantolin/embark
+
+(desire 'embark-consult)
+(require 'embark-consult)
+
+;;;

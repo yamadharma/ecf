@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Consulting completing-read
+;;; https://github.com/minad/consult
+
+;; ;;; A recursive grep
+;; (global-set-key (kbd "M-s M-g") #'("Recursive grep" . consult-grep))
+
+;; ;;; Search for files names recursively
+;; (global-set-key (kbd "M-s M-f") #'("Search for files names recursively" . consult-find))
+
+;; ;;; Search through the outline (headings) of the file
+;; (global-set-key (kbd "M-s M-o") #'("Search through the outline (headings) of the file" . consult-outline))
+
+;; ;;; Search the current buffer
+;; (global-set-key (kbd "M-s M-l") #'("Search the current buffer" . consult-line))
+
+;; ;;; Switch to another buffer, or bookmarked file, or recently opened file
+;; (global-set-key (kbd "M-s M-b") #'("Switch to another buffer" . consult-buffer))
+
+;;;

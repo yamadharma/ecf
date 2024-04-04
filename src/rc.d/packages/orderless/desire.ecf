@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs completion style that matches multiple regexps in any order
+;;; https://github.com/oantolin/orderless
+
+(setq completion-styles '(orderless basic))
+
+;;;

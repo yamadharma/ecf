@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Consulting completing-read
+;;; https://github.com/minad/consult
+
+(require 'consult)
+
+;;;
