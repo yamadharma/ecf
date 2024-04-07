@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Use nerd-icons for completion
+;;; https://github.com/rainstormstudio/nerd-icons-completion
+
+(desire 'nerd-icons-completion)
+(require 'nerd-icons-completion)
+
+(nerd-icons-completion-mode)
+(add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup)
+
+;;;

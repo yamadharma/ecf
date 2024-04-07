@@ -2,6 +2,12 @@
 ;;; Emacs completion style that matches multiple regexps in any order
 ;;; https://github.com/oantolin/orderless
 
-(setq completion-styles '(orderless basic))
+;;; Configure a custom style dispatcher
+(setq orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
+      orderless-component-separator #'orderless-escapable-split-on-space)
+
+(setq completion-styles '(substring orderless basic))
+(setq completion-category-defaults nil)
+(setq completion-category-overrides '((file (styles basic partial-completion))))
 
 ;;;

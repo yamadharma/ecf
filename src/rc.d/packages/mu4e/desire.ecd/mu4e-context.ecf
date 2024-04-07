@@ -85,9 +85,9 @@ SIG signature string; supports org formatting thanks to org-msg."
 
 (setq
  ecf/inbox-query "maildir:/Inbox/"
- ecf/today-query "date:today..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/ AND NOT tag:\\\\Trash"
- ecf/week-query "date:7d..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/ AND NOT tag:\\\\Trash"
- ecf/trash-query "maildir:/Trash/ OR tag:\\\\Trash"
+ ecf/today-query "date:today..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
+ ecf/week-query "date:7d..now AND NOT maildir:/Trash/ AND NOT maildir:/Spam/"
+ ecf/trash-query "maildir:/Trash/"
  ecf/spam-query "maildir:/Spam/"
  ecf/unread-query "flag:new AND maildir:/Inbox/"
  ecf/attachment-query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/* AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
