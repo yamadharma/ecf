@@ -6,11 +6,14 @@
 ;; won't properly result in the corresponding gmail action, since the marks
 ;; are ineffectual otherwise.
 (add-hook 'mu4e-mark-execute-pre-hook
-	  (defun +mu4e-gmail-fix-flags-h (mark msg)
-	    (pcase mark
-	      (`trash  (mu4e-action-retag-message msg "-\\Inbox,+\\Trash,-\\Draft"))
-	      (`refile (mu4e-action-retag-message msg "-\\Inbox"))
-	      (`flag   (mu4e-action-retag-message msg "+\\Starred"))
-	      (`unflag (mu4e-action-retag-message msg "-\\Starred")))))
+	  (lambda (mark msg)
+	    	(let ((maildir (mu4e-message-field msg :maildir)))
+		  (when (string-match-p "@gmail.com\\|@sci.pfu.edu.ru" maildir)
+		      (pcase mark
+			(`trash  (mu4e-action-retag-message msg "-\\Inbox,+\\Trash,-\\Draft"))
+			(`delete (mu4e-action-retag-message msg "-\\Inbox,+\\Trash,-\\Draft"))
+			(`refile (mu4e-action-retag-message msg "-\\Inbox"))
+			(`flag   (mu4e-action-retag-message msg "+\\Starred"))
+			(`unflag (mu4e-action-retag-message msg "-\\Starred")))))))
 
 ;;;
