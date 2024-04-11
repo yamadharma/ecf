@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fast org-roam commands
+;;; https://github.com/meedstrom/quickroam
+
+(desire 'quickroam :recipe '(:fetcher github :repo "meedstrom/quickroam" :branch "master"))
+(require 'quickroam)
+
+(add-hook 'org-mode-hook #'quickroam-enable)
+
+(general-define-key "C-c n f" #'quickroam-find)
+(general-define-key "C-c n i" #'quickroam-insert)
+
+;;; Add ripgrep options
+
+;;; When searching for a pattern, ignore case differences, but disables itself if the pattern contains any uppercase letters
+(add-to-list 'quickroam-extra-rg-args "--smart-case")
+
+;;;

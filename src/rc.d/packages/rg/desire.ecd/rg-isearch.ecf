@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs search tool based on ripgrep
+;;; https://github.com/dajva/rg.el
+;;; https://rgel.readthedocs.io/
+
+;;; Isearch integration
+(require 'rg-isearch)
+(general-define-key
+ :keymaps 'isearch-mode-map
+ "M-s r" 'rg-isearch-menu)
+
+;;;

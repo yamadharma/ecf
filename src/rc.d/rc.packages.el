@@ -138,6 +138,8 @@
 
 (desire 'alert)
 
+(desire 'rg :precondition-system-executable "rg")
+
 ;;{{{ UI
 
 (desire 'ligature)
@@ -200,7 +202,6 @@
 (desire 'vertico)
 
 ;;; Helm
-;; (desire 'helm-rg :precondition-system-executable "rg")
 ;; (desire 'helm-posframe)
 ;; (desire 'helm)
 

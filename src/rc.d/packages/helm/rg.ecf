@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Search massive codebases extremely fast, using ripgrep and helm. 
+;; https://github.com/cosmicexplorer/helm-rg
+
+(desire 'helm-rg :precondition-system-executable "rg")
+(require 'helm-rg)
+
+;;;
