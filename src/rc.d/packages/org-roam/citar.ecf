@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; citar/org-roam integration
+;;; https://github.com/emacs-citar/citar-org-roam
+
+(desire 'citar-org-roam)
+(require 'citar-org-roam)
+
+(citar-org-roam-mode)
+
+;;;

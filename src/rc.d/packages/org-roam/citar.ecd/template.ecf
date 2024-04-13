@@ -1,0 +1,76 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; citar/org-roam integration
+;;; https://github.com/emacs-citar/citar-org-roam
+
+(setq citar-org-roam-subdir "literature")
+(setq citar-org-roam-note-title-template "${author} - ${title}")
+
+(add-to-list 'org-roam-capture-templates
+'("n" "literature note" plain "%?"
+:target
+(file+head
+"literature/${citar-citekey}.org"
+"#+title: ${author editor:%etal} (${citar-date}) ${citar-title}
+#+created: %U
+#+last_modified: %U
+#+language: ru
+#+date: %<%Y-%m-%dT%H:%M:%S%:z>
+#+filetags:
+#+roam_refs: cite:${citar-citekey}
+:SETUP_LOCAL:
+#+startup: overview hidestars showblocks num inlineimages
+#+options: ^:{} num:t
+:END:
+:SETUP_HUGO:
+#+hugo_custom_front_matter: :slug ${citar-citekey}
+:END:
+
+* TODO ${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle}
+:PROPERTIES:
+:export_hugo_section: ru/post/%<%Y>
+:export_file_name: %<%Y-%m-%d>-${citar-citekey}
+:export_language: ru
+:END:
+
+${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle} [cite:@${citar-citekey}].
+
+#+hugo: more
+@@hugo:{{< toc >}}@@
+
+** Резюме
+#+print_bibliography:
+
+* TODO ${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle} [English] :noexport:
+:PROPERTIES:
+:export_hugo_section: en/post/%<%Y>
+:export_file_name: %<%Y-%m-%d>-${citar-citekey}
+:export_language: en
+:END:
+
+${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle} [cite:@${citar-citekey}].
+
+#+hugo: more
+@@hugo:{{< toc >}}@@
+
+** Summary
+#+print_bibliography:
+
+* TODO Notes
+:PROPERTIES:
+:Custom_ID: ${citar-citekey}
+:author: ${author editor:%etal}
+:title: ${citar-title}
+:subtitle: ${subtitle}
+:journal: ${journal journaltitle}
+:date: ${citar-date}
+:year: ${date year issued:4}
+:doi: ${doi}
+:url: ${url}
+:pages: ${citar-pages}
+:noter_document: %(orb-process-file-field \${citar-citekey}\)
+:noter_page:
+:END:")))
+
+(setq citar-org-roam-capture-template-key "n")
+
+;;;

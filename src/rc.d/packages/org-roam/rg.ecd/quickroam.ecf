@@ -8,7 +8,7 @@
 (add-hook 'org-mode-hook #'quickroam-enable)
 
 (general-define-key "C-c n f" #'quickroam-find)
-(general-define-key "C-c n i" #'quickroam-insert)
+;; (general-define-key "C-c n i" #'quickroam-insert)
 
 ;;; Add ripgrep options
 

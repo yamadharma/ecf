@@ -130,6 +130,7 @@
 (desire-old 'mouse)
 
 (desire 'which-key)
+;; (desire 'keycast)
 
 ;; ----------------------------------------------------------------------
 
@@ -244,8 +245,6 @@
 ;;}}}
 ;;{{{ Bibliography
 
-;; (desire 'oc) ;; org-cite ;; FIXME remove
-(desire 'bibtex-completion)
 (desire 'biblio)
 (desire 'bibtex)
 
@@ -514,7 +513,7 @@
 (desire 'gnuplot)
 
 (desire 'pass)
-;; (desire 'keycast)
+
 
 (desire 'multiple-cursors)
 

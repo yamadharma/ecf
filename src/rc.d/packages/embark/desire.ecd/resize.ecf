@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs Mini-Buffer Actions Rooted in Keymaps
+;;; https://github.com/oantolin/embark
+
+;;; Automatically resizing auto-updating Embark Collect buffers to fit their contents
+(add-hook 'embark-collect-post-revert-hook
+          (defun resize-embark-collect-window (&rest _)
+            (when (memq embark-collect--kind '(:live :completions))
+              (fit-window-to-buffer (get-buffer-window)
+                                    (floor (frame-height) 2) 1))))
+
+;;;

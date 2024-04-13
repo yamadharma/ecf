@@ -5,4 +5,6 @@
 (desire 'embark-consult)
 (require 'embark-consult)
 
+(add-hook 'embark-collect-mode 'consult-preview-at-point-mode)
+
 ;;;

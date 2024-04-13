@@ -9,7 +9,7 @@
 (add-to-list 'org-roam-capture-templates
 	     '("r" "bibliography reference" plain "%?"     
                :target
-               (file+head "literary/${citekey}.org" "#+title: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
+               (file+head "literature/${citekey}.org" "#+title: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
 - tags ::
 - keywords :: %^{keywords}
 

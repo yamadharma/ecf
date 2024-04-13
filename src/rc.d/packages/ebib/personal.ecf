@@ -10,6 +10,6 @@
 ;; (setq ebib-import-directory "path-to-e.g.-download-directory"))
 
 ;;; Storing notes
-(setq ebib-notes-directory "~/work/org/notes/literary") 
+(setq ebib-notes-directory "~/work/org/notes/literature") 
 
 ;;;

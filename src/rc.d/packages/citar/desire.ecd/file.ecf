@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package to quickly find and act on bibliographic references, and edit org, markdown, and latex academic documents.
+;;; https://github.com/emacs-citar/citar
+
+;;; Files, file association and file-field parsing
+(setq citar-file-parser-functions
+      '(citar-file-parser-default
+	citar-file-parser-triplet))
+
+(setq citar-library-file-extensions (list "pdf" "jpg" ".djvu" ".epub" ".fb2" ".fb2.zip"))
+(setq citar-file-additional-files-separator "-")
+
+;;;

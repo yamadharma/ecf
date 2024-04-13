@@ -1,8 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Mu4e mail client personal configuration
 
-;; (setq ecf-mail-accounts '("yamadharma@gmail.com" "dharma@sci.pfu.edu.ru" "dskulyabov@gmail.com" "kulyabov_ds@pfur.ru" "kulyabov@jinr.ru" "yamadharma@yandex.ru" "yama_dharma@mail.ru" "conference@sci.pfu.edu.ru" "dskulyabov@yahoo.com" "alternativysite@gmail.com"))
-
 ;;;
 ;; - Jumping to contexts is based on their first (unique) letter, that’s why I’m using numbers in the `c-name` key.
 ;; - Google saves the sent messages in the All Mail (Archive) folder
@@ -14,117 +12,89 @@
 (setq ecf/mu4e-contexts
       '(
 	(ecf/mu4e-context
-	  :c-name  "1-yamadharma@gmail.com"
-	  :maildir "yamadharma@gmail.com"
-	  :mail    "yamadharma@gmail.com"
-	  :smtp    "smtp.gmail.com"
-	  :sent-action delete)
-
-	(ecf/mu4e-context
-	  :c-name  "2-dharma@sci.pfu.edu.ru"
-	  :maildir "dharma@sci.pfu.edu.ru"
-	  :mail    "dharma@sci.pfu.edu.ru"
-	  :smtp    "smtp.gmail.com"
-	  :sent-action delete)
-
-	(ecf/mu4e-context
-	  :c-name  "3-dskulyabov@gmail.com"
-	  :maildir "dskulyabov@gmail.com"
-	  :mail    "dskulyabov@gmail.com"
-	  :smtp    "smtp.gmail.com"
-	  :sent-action delete)
-
-	(ecf/mu4e-context
-	  :c-name  "4-kulyabov_ds@pfur.ru"
-	  :maildir "kulyabov_ds@pfur.ru"
-	  :mail    "kulyabov_ds@pfur.ru"
-	  ;; :smtp    "smtp.office365.com"
-	  :smtp "localhost"
-	  :smtp-port 1025
-	  :smtp-type plain
-	  :sent-action delete)
-
-	(ecf/mu4e-context
-	  :c-name  "5-kulyabov@jinr.ru"
-	  :maildir "kulyabov@jinr.ru"
-	  :mail    "kulyabov@jinr.ru"
-	  :smtp    "mail.jinr.ru")
-
-	(ecf/mu4e-context
-	  :c-name  "6-yamadharma@yandex.ru"
-	  :maildir "yamadharma@yandex.ru"
-	  :mail    "yamadharma@yandex.ru"
-	  :smtp    "smtp.yandex.ru"
-	  :smtp-type ssl
-	  :smtp-port 465)
-
-	(ecf/mu4e-context
-	  :c-name  "7-yama_dharma@mail.ru"
-	  :maildir "yama_dharma@mail.ru"
-	  :mail    "yama_dharma@mail.ru"
-	  :smtp    "smtp.mail.ru"
-	  :smtp-type ssl
-	  :smtp-port 465)
-
-	(ecf/mu4e-context
-	  :c-name  "8-conference@sci.pfu.edu.ru"
-	  :maildir "conference@sci.pfu.edu.ru"
-	  :mail    "conference@sci.pfu.edu.ru"
-	  :smtp    "smtp.gmail.com"
-	  :sent-action delete)
-
-	(ecf/mu4e-context
-	  :c-name  "9-dskulyabov@yahoo.com"
-	  :maildir "dskulyabov@yahoo.com"
-	  :mail    "dskulyabov@yahoo.com"
-	  :smtp    "smtp.mail.yahoo.com")
-
-	(ecf/mu4e-context
-	  :c-name  "a-alternativysite@gmail.com"
-	  :maildir "alternativysite@gmail.com"
-	  :mail    "alternativysite@gmail.com"
-	  :smtp    "smtp.gmail.com"
-	  :sent-action delete)
+	 :c-name  "1-yamadharma@gmail.com"
+	 :maildir "yamadharma@gmail.com"
+	 :mail    "yamadharma@gmail.com"
+	 :smtp    "smtp.gmail.com"
+	 :sent-action delete)
 	
-	;; ,(ecf/mu4e-context
-	;;   :c-name    "2-GMX-alias"
-	;;   :maildir   "GMX"
-	;;   :mail      "a.alias@gmx.com"
-	;;   :smtp      "mail.gmx.com"
-	;;   :smtp-mail "a@gmx.com")
+	(ecf/mu4e-context
+	 :c-name  "2-dharma@sci.pfu.edu.ru"
+	 :maildir "dharma@sci.pfu.edu.ru"
+	 :mail    "dharma@sci.pfu.edu.ru"
+	 :smtp    "smtp.gmail.com"
+	 :sent-action delete)
+	
+	(ecf/mu4e-context
+	 :c-name  "3-dskulyabov@gmail.com"
+	 :maildir "dskulyabov@gmail.com"
+	 :mail    "dskulyabov@gmail.com"
+	 :smtp    "smtp.gmail.com"
+	 :sent-action delete)
+	
+	(ecf/mu4e-context
+	 :c-name  "4-kulyabov_ds@pfur.ru"
+	 :maildir "kulyabov_ds@pfur.ru"
+	 :mail    "kulyabov_ds@pfur.ru"
+	 ;; :smtp    "smtp.office365.com"
+	 :smtp "localhost"
+	 :smtp-port 1025
+	 :smtp-type plain
+	 :sent-action delete)
 
-	;; ,(ecf/mu4e-context
-	;;   :c-name  "Apple"
-	;;   :maildir "Apple"
-	;;   :mail    "a@icloud.com"
-	;;   :smtp    "smtp.mail.me.com")
+	(ecf/mu4e-context
+	 :c-name  "5-kulyabov@jinr.ru"
+	 :maildir "kulyabov@jinr.ru"
+	 :mail    "kulyabov@jinr.ru"
+	 :smtp    "mail.jinr.ru")
+	
+	(ecf/mu4e-context
+	 :c-name  "6-yamadharma@yandex.ru"
+	 :maildir "yamadharma@yandex.ru"
+	 :mail    "yamadharma@yandex.ru"
+	 :smtp    "smtp.yandex.ru"
+	 :smtp-type ssl
+	 :smtp-port 465)
+	
+	(ecf/mu4e-context
+	 :c-name  "7-yama_dharma@mail.ru"
+	 :maildir "yama_dharma@mail.ru"
+	 :mail    "yama_dharma@mail.ru"
+	 :smtp    "smtp.mail.ru"
+	 :smtp-type ssl
+	 :smtp-port 465)
+	
+	(ecf/mu4e-context
+	 :c-name  "8-conference@sci.pfu.edu.ru"
+	 :maildir "conference@sci.pfu.edu.ru"
+	 :mail    "conference@sci.pfu.edu.ru"
+	 :smtp    "smtp.gmail.com"
+	 :sent-action delete)
 
-	;; ,(ecf/mu4e-context
-	;;   :c-name  "3-Apple-alias"
-	;;   :maildir "Apple"
-	;;   :mail    "a@me.com"
-	;;   :smtp    "smtp.mail.me.com"
-	;;   :smtp-mail "a@icloud.com")
+	(ecf/mu4e-context
+	 :c-name  "9-dskulyabov@yahoo.com"
+	 :maildir "dskulyabov@yahoo.com"
+	 :mail    "dskulyabov@yahoo.com"
+	 :smtp    "smtp.mail.yahoo.com")
 
-	;; ,(ecf/mu4e-context
-	;;   :c-name    "Proton"
-	;;   :maildir   "Proton"
-	;;   :mail      "a@protonmail.com"
-	;;   :smtp      "127.0.0.1"
-	;;   :smtp-type ssl
-	;;   :smtp-port 999)
-
-	;; ,(ecf/mu4e-context
-	;;   :c-name    "4-Proton-alias"
-	;;   :maildir   "Proton"
-	;;   :mail      "a@pm.com"
-	;;   :smtp      "127.0.0.1"
-	;;   :smtp-mail "a@protonmail.com"
-	;;   :smtp-type ssl
-	;;   :smtp-port 999)
+	(ecf/mu4e-context
+	 :c-name  "a-alternativysite@gmail.com"
+	 :maildir "alternativysite@gmail.com"
+	 :mail    "alternativysite@gmail.com"
+	 :smtp    "smtp.gmail.com"
+	 :sent-action delete)
+	
+	(ecf/mu4e-context
+	 :c-name  "b-miphj@pfur.ru"
+	 :maildir "miphj@pfur.ru"
+	 :mail    "miphj@pfur.ru"
+	 :smtp    "smtp.yandex.ru"
+	 :smtp-type ssl
+	 :smtp-port 465)
 	))
 
 ;;;
+
 (setq mu4e-headers-fields ecf/mu4e-headers-fields)
 (setq mu4e-contexts (mapcar #'eval ecf/mu4e-contexts))
 (setq mu4e-bookmarks ecf/mu4e-bookmarks)

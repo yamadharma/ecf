@@ -2,5 +2,6 @@
 ;;; Search and manage bibliographies in Emacs
 ;;;  https://github.com/tmalsburg/helm-bibtex
 
+(desire 'bibtex-completion)
 
 ;;;

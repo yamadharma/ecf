@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package to quickly find and act on bibliographic references, and edit org, markdown, and latex academic documents.
+;;; https://github.com/emacs-citar/citar
+
+;;; Where bibliographies can be found
+(setq citar-bibliography personal-bibliography)
+
+;;; Where PDFs can be found
+(setq citar-library-paths personal-library-path)
+
+;;; Notes
+(setq citar-notes-paths personal-notes-path)
+
+;;;

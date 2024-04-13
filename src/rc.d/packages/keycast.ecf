@@ -4,10 +4,16 @@
 
 (require 'keycast)
 
-;;; Display the command and event in the mode-line
-(keycast-mode)
+;;; Show the command and event in the mode-line
+(keycast-mode-line-mode)
 
-;;; Display the command and event in a dedicated frame
+;;; Show the current binding at the top of the selected window, in its header line
+;; (keycast-header-line-mode)
+
+;;; Show the current binding at the top of the selected frame, in its tab bar
+;; (keycast-tab-bar-mode)
+
+;;; Show the command and event in a dedicated frame
 ;; (keycast-log-mode)
 
 ;;;

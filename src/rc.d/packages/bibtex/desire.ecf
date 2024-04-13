@@ -1,6 +1,5 @@
-;;; BibTeX mode -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-
-(require 'bibtex)
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; BibTeX mode
 
 ;; (setq bibtex-mode-user-optional-fields
 ;;       '(("isbn"     "ISBN number")

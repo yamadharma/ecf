@@ -21,8 +21,8 @@
       message-kill-buffer-on-exit t 
       ;; start with the first (default) context;
       mu4e-context-policy 'pick-first
-      ;; compose with the current context, or ask
-      mu4e-compose-context-policy 'ask-if-none
+      ;; compose with the current context, or ask (ask-if-none | ask)
+      mu4e-compose-context-policy 'ask
       ;; use helm/ivy
       ;; mu4e-completing-read-function
       ;; (cond ((featurep! :completion ivy) #'ivy-completing-read)

@@ -6,8 +6,8 @@
 (setq bibtex-completion-pdf-field "File")
 
 ;;; Symbols used for indicating the availability of notes and PDF files
-(setq bibtex-completion-pdf-symbol "⌘")
-(setq bibtex-completion-notes-symbol "✎")
+(setq bibtex-completion-pdf-symbol " ")
+(setq bibtex-completion-notes-symbol "✎ ")
 
 ;;; Additional PDFs
 ;;; All files whose name start with the BibTeX key will then be associated with an entry.
