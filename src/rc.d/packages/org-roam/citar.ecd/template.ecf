@@ -67,9 +67,13 @@ ${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle} [cite:@${citar
 :doi: ${doi}
 :url: ${url}
 :pages: ${citar-pages}
-:noter_document: %(orb-process-file-field \${citar-citekey}\)
+:noter_document: %(citar-file--get-library-files \${citar-citekey}\)
 :noter_page:
-:END:")))
+:END:")
+:immediate-finish t
+:jump-to-captured t
+:unnarrowed t
+:hook org-id-get-create))
 
 (setq citar-org-roam-capture-template-key "n")
 

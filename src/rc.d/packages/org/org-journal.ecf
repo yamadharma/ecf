@@ -1,11 +1,12 @@
 ;;; A simple org-mode based journaling mode -*- coding: utf-8-unix; -*-
 ;; https://github.com/bastibe/org-journal
 
-(setq org-directory-journal (concat org-directory "/journal/"))
+(setq org-directory-journal (concat org-directory "journal/"))
 (if (not (file-directory-p org-directory-journal))
     (make-directory org-directory-journal t))
 
 (setq org-journal-dir org-directory-journal)
+(setq org-journal--cache-file (concat home-cache-path "org-journal.cache"))
 
 ;;; Agenda integration
 ;; (add-to-list 'org-agenda-files org-journal-dir)
@@ -13,12 +14,12 @@
 (setq org-journal-date-format "%Y-%m-%d, %A")
 
 ;;; Disable timestamps
-;;(setq org-journal-time-format "")
+;; (setq org-journal-time-format "")
 
 ;;; The journal file type either ‘daily (default), ‘weekly, ‘monthly or ‘yearly.
 (setq org-journal-file-type 'monthly)
 
-;;; Setting org-journal-file-format to include a file 
+;;; Setting org-journal-file-format to include a file
 ;;; Extension like %Y-%m-%d.org would break the calendar search functionality
 (setq org-journal-file-format
       (concat
@@ -55,8 +56,8 @@
 
 (add-to-list 'org-capture-templates
 	     '("j" "Journal entry" plain (function org-journal-find-location)
-                "** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
-                :jump-to-captured t :immediate-finish t) t)
+		"** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
+		:jump-to-captured t :immediate-finish t) t)
 
 ;;; Schedule a task for a future date
 (defvar org-journal--date-location-scheduled-time nil)
@@ -71,16 +72,16 @@
 
 (add-to-list 'org-capture-templates
 	     '("J" "Journal entry" plain (function org-journal-date-location)
-                "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
-                :jump-to-captured t) t)
+		"** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
+		:jump-to-captured t) t)
 
 ;;; Caching of journal dates
 (setq org-journal-enable-cache t)
 
 (add-to-list 'auto-mode-alist
-             (cons (concat (file-truename org-journal-dir)
-                           "\\([0-9]\\{4\\}\\|[0-9]\\{4\\}-[0-9]\\{2\\}\\|[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\)\\'")
-                   'org-journal-mode))
+	     (cons (concat (file-truename org-journal-dir)
+			   "\\([0-9]\\{4\\}\\|[0-9]\\{4\\}-[0-9]\\{2\\}\\|[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\)\\'")
+		   'org-journal-mode))
 
 ;;; Default key-bindings in org-journal conflict with org-mode key bindings
 ;; Minor modes are supposed to only use key bindings of the form C-c
@@ -101,6 +102,19 @@
 ;;; Change default prefix key
 ;;; needs to be set before loading org-journal
 ;; (setq org-journal-prefix-key "C-c j ")
+
+
+;; Setup carryover to include all configured TODO states. We cannot carry over
+;; [ ] keywords because `org-journal-carryover-items's syntax cannot correctly
+;; interpret it as anything other than a date.
+(setq org-journal-carryover-items "TODO=\"TODO\"|TODO=\"NEXT\"|TODO=\"WAIT\"|TODO=\"HOLD\"")
+;; (setq org-journal-carryover-items "TODO=\"TODO\"|TODO=\"NEXT\"|TODO=\"WAIT\"|TODO=\"HOLD\"|habit")
+;;(setq org-journal-carryover-items "TODO=\"TODO\"|TODO=\"NEXT\"|TODO=\"WAIT\"|TODO=\"HOLD\"|habit+TODO=\"DONE\"|habit+TODO=\"TODO\"")
+
+(setq org-journal-skip-carryover-drawers (list "LOGBOOK"))
+
+;; (defun ecf/old-carryover (old_entries) () )
+;; (setq org-journal-handle-old-carryover-fn 'ecf/old-carryover)
 
 (require 'org-journal)
 

@@ -390,7 +390,7 @@
 ;;}}}
 ;;{{{ Notes
 
-;; (desire 'deft)
+(desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
 
 ;;}}}

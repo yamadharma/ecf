@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Some hacks
+
+;;; https://github.com/kaushalmodi/ox-hugo/discussions/551
+;;; https://github.com/bastibe/org-journal/issues/406
+;; (setq org-element-use-cache nil)
+
