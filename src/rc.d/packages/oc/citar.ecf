@@ -11,6 +11,11 @@
 
 (general-define-key
  :keymaps 'org-mode-map
- "C-c b" #'org-cite-insert)
+ :prefix "C-c b"
+ "b" #'("Insert citation" . citar-insert-citation)
+ "r" #'("Insert reference" . citar-insert-reference)
+ "o" #'("Open note" . citar-open-notes))
+
+ ;; "C-c b" #'org-cite-insert
 
 ;;;

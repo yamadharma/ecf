@@ -12,6 +12,8 @@
 ;;; Store all notes in one file
 ;; (setq personal-notes-path "/path/to/notes.org")
 ;;; Store notes in multiple files, one file per publication
-(setq personal-notes-path (expand-file-name "~/work/org/notes/literature"))
+;; (setq personal-notes-path (expand-file-name "~/work/org/notes/literature"))
+(setq personal-notes-path '())
+(add-to-list 'personal-notes-path (expand-file-name "~/work/org/notes/literature"))
 
 ;;;

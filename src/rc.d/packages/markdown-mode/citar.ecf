@@ -2,15 +2,14 @@
 ;;; Interface to citar
 ;;; https://github.com/emacs-citar/citar
 
-(require 'citar-latex)
-
-(add-hook 'LaTeX-mode-hook 'citar-capf-setup)
+(require 'citar-markdown)
 
 (general-define-key
- :keymaps 'LaTeX-mode-map
+ :keymaps 'markdown-mode-map
  :prefix "C-c h"
  "b" #'("Insert citation" . citar-insert-citation)
  "r" #'("Insert reference" . citar-insert-reference)
  "o" #'("Open note" . citar-open-notes))
+
 
 ;;;
