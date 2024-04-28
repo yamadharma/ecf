@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; COmpletion in Region FUnction
+;;; https://github.com/minad/corfu
+
+(require 'corfu)
+
+;;;

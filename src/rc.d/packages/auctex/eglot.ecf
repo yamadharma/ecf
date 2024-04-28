@@ -2,5 +2,15 @@
 ;;; A client for Language Server Protocol servers 
 ;;; https://github.com/joaotavora/eglot
 
+(require 'eglot)
+
+;;; Change order
+(let ((item (assoc '(tex-mode context-mode texinfo-mode bibtex-mode) eglot-server-programs)))
+  ;; (setf (car item) '(tex-mode context-mode texinfo-mode bibtex-mode))
+  (setf (cdr item) '("texlab")))
+
+(add-hook 'tex-mode-hook #'eglot-ensure)
+(add-hook 'latex-mode-hook #'eglot-ensure)
+(add-hook 'LaTeX-mode-hook #'eglot-ensure)
 
 ;;;

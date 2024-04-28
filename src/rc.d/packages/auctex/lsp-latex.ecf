@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs lsp-mode client for LaTeX, on texlab
+;;; https://github.com/ROCKTAKEY/lsp-latex
+
+(require 'lsp-latex)
+
+;;;

@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; COmpletion in Region FUnction
+;;; https://github.com/minad/corfu
+
+;;; Auto completion
+;;; Enable auto completion and configure quitting
+(setq corfu-auto t)
+(setq corfu-quit-no-match 'separator) ;; or t
+
+;;;

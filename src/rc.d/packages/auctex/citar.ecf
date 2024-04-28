@@ -8,7 +8,7 @@
 
 (general-define-key
  :keymaps 'LaTeX-mode-map
- :prefix "C-c h"
+ :prefix "C-c B"
  "b" #'("Insert citation" . citar-insert-citation)
  "r" #'("Insert reference" . citar-insert-reference)
  "o" #'("Open note" . citar-open-notes))

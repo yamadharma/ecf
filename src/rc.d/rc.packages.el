@@ -1,4 +1,4 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
 ;;; rc.packages.el
 
 ;;; Commentary:
@@ -6,7 +6,7 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2021 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2024 Dmitry S. Kulyabov
 ;;      Keywords:      rc.packages
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
@@ -170,6 +170,11 @@
 (desire 'tab-line)
 
 ;;}}}
+;;; LSP mode {{{
+
+(desire 'eglot)
+
+;;; }}}
 ;;
 
 ;; (desire 'tree-sitter)
@@ -188,26 +193,29 @@
 
 (desire 'imenu)
 
+
+
 ;; (desire-old 'toolbar)
 
-(desire 'eglot)
 
 ;; ----------------------------------------------------------------------
 
 (desire 'flycheck)
 
-;;{{{ Completion
-
-(desire 'company)
+;;{{{ Minibuffer completion
 
 (desire 'vertico)
-
-;;; Helm
+;; (desire 'ido)
 ;; (desire 'helm-posframe)
 ;; (desire 'helm)
-
 ;; (desire 'ivy)
 ;; (desire 'selectrum)
+
+;;}}}
+;;{{{ Minibuffer completion
+
+;; (desire 'company)
+(desire 'corfu)
 
 ;;}}}
 
@@ -306,6 +314,7 @@
 ;;{{{ LaTeX
 
 ;; (desire 'xenops)
+;; (desire 'lsp-latex :precondition-system-executable "texlab")
 
 (desire 'cdlatex)
 
