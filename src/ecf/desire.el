@@ -76,7 +76,7 @@ The function `desired' will add an item to this list.")
 
 ;; (defun desired (package &optional fname precond)
 (cl-defun desired (package
-		  &key initname precondition-lisp-library precondition-system-executable)
+		  &key precondition-lisp-library precondition-system-executable)
   "Add PACKAGE (a symbol) as something which is `desirable'.
   The optional argument FNAME is a string containing
   the name of the file that, when loaded, will
@@ -88,14 +88,6 @@ The function `desired' will add an item to this list.")
       (error "Wrong type argument to `desired': symbolp, %s"
 	     (prin1-to-string package))
       )
-
-  ;; Set initial file/directory name
-  (setq fname initname)
-
-  ;; Set lisp library precondition
-  (if precondition-lisp-library
-      (setq precond precondition-lisp-library)
-    (setq precond (prin1-to-string package)))
   
   ;; Message: found executable precondition
   (if precondition-system-executable
@@ -111,9 +103,9 @@ The function `desired' will add an item to this list.")
   ;; Check precondition
   (if (and
        (not (desiredp package))
-       (if precond
-	   (if (stringp precond)
-	       (locate-library precond)
+       (if precondition-lisp-library
+	   (if (stringp precondition-lisp-library)
+	       (locate-library precondition-lisp-library)
 	     nil)
 	 t)
        (if precondition-system-executable

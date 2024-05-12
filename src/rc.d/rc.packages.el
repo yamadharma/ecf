@@ -22,7 +22,7 @@
 ;;; Code:
 
 ;; (desire-old 'tiny)
-(desire-old 'personal)
+(desired 'personal)
 ;;
 ;; Mule
 ;;
