@@ -17,6 +17,8 @@
 
 ;;; Content is not centered by default. To center, set
 (setq dashboard-center-content t)
+;;; Vertically center content
+(setq dashboard-vertically-center-content t)
 
 ;;; To disable shortcut "jump" indicators for each section, set
 (setq dashboard-show-shortcuts nil)
@@ -28,12 +30,17 @@
 ;;                         (agenda . 5)
 ;;                         (registers . 5)))
 (setq dashboard-items '((recents  . 5)
-                        (bookmarks . 5)))
+                        (bookmarks . 5)
+                         (registers . 5)))
+
 
 ;;; Modify the widget heading name
 ;; (setq dashboard-item-names '(("Recent Files:" . "Recently opened files:")
 ;;                              ("Agenda for today:" . "Today's agenda:")
 ;;                              ("Agenda for the coming week:" . "Agenda:")))
+
+;;; To enable cycle navigation between each section
+(setq dashboard-navigation-cycle t)
 
 ;;; 
 

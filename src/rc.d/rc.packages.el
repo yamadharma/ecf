@@ -172,7 +172,9 @@
 ;;}}}
 ;;; LSP mode {{{
 
+(desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
 (desire 'eglot)
+;; (desire 'lsp-mode)
 
 ;;; }}}
 ;;
@@ -321,7 +323,7 @@
 (desire-old 'xdvi nil "xdvi-search")
 (desired 'reftex)
 ;; (desire-old 'tex)
-(desired 'preview-latex nil "preview-latex")
+(desired 'preview-latex)
 (desire 'auctex)
 ;; (desire 'auctex :initname "latex")
 ;; (desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
@@ -535,7 +537,6 @@
 ;;}}}
 
 ;; (desire 'grammarly)
-;; (desire 'lsp-mode)
 
 ;; (desire 'flycheck-grammarly)
 

@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Boost eglot using lsp-booster
+;;; https://github.com/jdtsmith/eglot-booster
+
+(desire 'eglot-booster)
+(require 'eglot-booster)
+(eglot-booster-mode)
+
+;;;

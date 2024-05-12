@@ -74,29 +74,53 @@ The function `desired' will add an item to this list.")
 (defvar desire-precondition nil
   "*Precondition for package loading.")
 
-(defun desired (package &optional fname precond)
+;; (defun desired (package &optional fname precond)
+(cl-defun desired (package
+		  &key initname precondition-lisp-library precondition-system-executable)
   "Add PACKAGE (a symbol) as something which is `desirable'.
   The optional argument FNAME is a string containing
   the name of the file that, when loaded, will
   trigger dynamic loading of extra configuration files. If FNAME is
   omitted then the string corresponding to PACKAGE is used instead.
   PRECOND is name of file as precondition for package loadind."
+
   (or (symbolp package)
       (error "Wrong type argument to `desired': symbolp, %s"
 	     (prin1-to-string package))
-  )
+      )
+
+  ;; Set initial file/directory name
+  (setq fname initname)
+
+  ;; Set lisp library precondition
+  (if precondition-lisp-library
+      (setq precond precondition-lisp-library)
+    (setq precond (prin1-to-string package)))
+  
+  ;; Message: found executable precondition
+  (if precondition-system-executable
+      (if (executable-find precondition-system-executable)
+	  (message "Executable file found %s to load package %s" 
+		   (prin1-to-string precondition-system-executable)
+		   (prin1-to-string package))
+	(message "Cannot find executable %s to load package %s"
+		 (prin1-to-string precondition-system-executable)
+		 (prin1-to-string package)))
+    nil)
+  
   ;; Check precondition
   (if (and
-	(not (desiredp package))
-	(if precond
-	  (
-	    if (stringp precond)
-	      (locate-library precond)
-	      nil
-	  )
-	  t
-	)
-      )
+       (not (desiredp package))
+       (if precond
+	   (if (stringp precond)
+	       (locate-library precond)
+	     nil)
+	 t)
+       (if precondition-system-executable
+	   (if (stringp precondition-system-executable)
+	       (executable-find precondition-system-executable)
+	     nil)
+	 t))
     (add-to-list 'desirable (symbol-name package))
     nil
   )
@@ -353,7 +377,7 @@ then nothing happens and nil is returned."
 
 (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
 
-;; Message: found executable precondition
+;;; Message: found executable precondition
 (if precondition-system-executable
     (if (executable-find precondition-system-executable)
 	(message "Executable file found %s to load package %s" 
@@ -364,7 +388,7 @@ then nothing happens and nil is returned."
 	     (prin1-to-string package)))
   nil)
 
-;; Check precondition
+;;; Check precondition
 (if (and
      (not (desiredp package))
      (if precond
