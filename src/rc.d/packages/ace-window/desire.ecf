@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Quickly switch windows in Emacs
+;;; https://github.com/abo-abo/ace-window
+
+;;; Binding ace-window
+(general-define-key
+ "M-o" 'ace-window)
+
+;;; List of initial characters used in window labels
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
+;;;

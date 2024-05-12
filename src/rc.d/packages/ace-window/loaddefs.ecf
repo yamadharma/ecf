@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Quickly switch windows in Emacs
+;;; https://github.com/abo-abo/ace-window
+
+(require 'ace-window)
+
+;;;

@@ -195,6 +195,7 @@
 
 (desire 'imenu)
 
+(desire 'ace-window)
 
 
 ;; (desire-old 'toolbar)
