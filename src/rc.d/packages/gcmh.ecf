@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; The Garbage Collector Magic Hack
+;;; https://github.com/emacsmirror/gcmh
+
+(require 'ghcm)
+(gcmh-mode 1)
+
+;;;

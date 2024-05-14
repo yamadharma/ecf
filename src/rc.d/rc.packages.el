@@ -114,6 +114,7 @@
 (desire 'compat)
 
 (desire 'async)
+(desire 'gcmh)
 
 ;; ----------------------------------------------------------------------
 
@@ -332,7 +333,7 @@
 ;;}}}
 ;;{{{ org-mode
 
-(desire 'org-ql)
+;; (desire 'org-ql)
 
 (desire 'org-appear)
 (desire 'org-fragtog)
