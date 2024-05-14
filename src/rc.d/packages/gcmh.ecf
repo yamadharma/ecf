@@ -2,7 +2,7 @@
 ;;; The Garbage Collector Magic Hack
 ;;; https://github.com/emacsmirror/gcmh
 
-(require 'ghcm)
+(require 'gcmh)
 (gcmh-mode 1)
 
 ;;;
