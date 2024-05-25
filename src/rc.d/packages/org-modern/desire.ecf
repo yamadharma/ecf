@@ -11,7 +11,7 @@
 (set-face-attribute 'org-modern-symbol nil :family "Iosevka")
 
 ;;; Disable org-indent mode
-(setq org-startup-indented nil)
+;; (setq org-startup-indented nil)
 
 ;;; Org settings
 (setq org-auto-align-tags nil
@@ -22,8 +22,7 @@
 
 ;;; Org styling, hide markup etc.
 (setq org-hide-emphasis-markers t
-      org-pretty-entities t
-      org-ellipsis "…")
+      org-pretty-entities t)
 
 ;;; Agenda styling
 (setq org-agenda-tags-column 0
@@ -34,6 +33,11 @@
 	"┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
       org-agenda-current-time-string
       "◀── now ─────────────────────────────────────────────────")
+
+;;; Ellipsis styling
+(setq org-ellipsis "…")
+(set-face-attribute 'org-ellipsis nil :inherit 'default :box nil)
+
 
 ;;; Enable org-modern-mode
 (add-hook 'org-mode-hook #'org-modern-mode)

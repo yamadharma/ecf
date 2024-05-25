@@ -7,6 +7,13 @@
 
 (require 'org-modern-indent)
 
+;;; Adds extra indentation
+;; (setq org-modern-hide-stars nil)
+
+;;; Or other chars. So top bracket is drawn promptly
+(setq org-modern-block-name '("" . "")) 
+
 (add-hook 'org-mode-hook #'org-modern-indent-mode 90)
+;; (add-hook 'org-journal-mode-hook #'org-modern-indent-mode 90)
 
 ;;;

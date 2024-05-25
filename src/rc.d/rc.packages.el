@@ -22,7 +22,7 @@
 ;;; Code:
 
 ;; (desire-old 'tiny)
-(desired 'personal)
+(desire-old 'personal)
 ;;
 ;; Mule
 ;;
@@ -129,6 +129,8 @@
 (desire-old 'keys)
 (desire-old 'dialog)
 (desire-old 'mouse)
+
+;; (desire 'xclip)
 
 (desire 'which-key)
 ;; (desire 'keycast)
@@ -274,7 +276,7 @@
 ;; (desire 'adaptive-wrap)
 (desired 'visual-line-mode)
 
-(desired 'prettify-symbols-mode)
+;; (desired 'prettify-symbols-mode)
 ;; (desire 'pretty-mode)
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
@@ -342,7 +344,7 @@
 
 ;; (desire 'svg-tag-mode)
 (desire 'org-superstar)
-;; (desire 'org-modern-indent)
+;; (desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
 (desire 'org-modern)
 
 ;; (desire 'org-contacts)
@@ -367,6 +369,8 @@
 ;; (desire 'org-agenda-files-track :recipe '(:fetcher github :repo "nicolas-graves/org-agenda-files-track" :branch "master" :files ("org-agenda-files-track.el")))
 ;;)
 
+(desire 'org-tanglesync)
+
 ;; (desire 'org-gcal)
 (desire 'org-journal)
 
@@ -375,7 +379,6 @@
 
 
 (desire 'org-transclusion)
-
 (desire 'org-gtd)
 
 (desired 'mobileorg)

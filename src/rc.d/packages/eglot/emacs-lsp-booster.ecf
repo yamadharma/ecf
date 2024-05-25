@@ -2,7 +2,7 @@
 ;;; Boost eglot using lsp-booster
 ;;; https://github.com/jdtsmith/eglot-booster
 
-(desire 'eglot-booster)
+(desire 'eglot-booster :recipe '(:fetcher github :repo "jdtsmith/eglot-booster" :branch "main" :files ("*.el")))
 (require 'eglot-booster)
 (eglot-booster-mode)
 

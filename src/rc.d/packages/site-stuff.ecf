@@ -66,4 +66,7 @@
 ;;; Revert Dired and other buffers
 (setq global-auto-revert-non-file-buffers t)
 
+;;; Add line numbers
+(global-display-line-numbers-mode)
+
 ;;; 

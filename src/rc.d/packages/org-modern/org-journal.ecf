@@ -1,0 +1,6 @@
+;;; A simple org-mode based journaling mode -*- coding: utf-8-unix; -*-
+;; https://github.com/bastibe/org-journal
+
+(add-hook 'org-journal-mode-hook #'org-modern-mode)
+
+;;;

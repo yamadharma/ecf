@@ -6,7 +6,7 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2021 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2024 Dmitry S. Kulyabov
 ;;      Keywords:      rc.desire
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
@@ -25,14 +25,13 @@
 (require 'ecf-lang)
 
 (let 
-  (
-    (desire-window-system-load-path)		;; Window System
-    (desire-system-load-path)			;; OS
-    (desire-xe-version-load-path)		;; Emacs or Xemacs
-    (desire-lang-load-path)			;; Languages
-    (desire-load-subpath-list)			;; Main subdirs    
-    (desire-config-dir-list)			;; Main config dirs    
-  )
+    ((desire-window-system-load-path)		;; Window System
+     (desire-system-load-path)			;; OS
+     (desire-xe-version-load-path)		;; Emacs or Xemacs
+     (desire-lang-load-path)			;; Languages
+     (desire-load-subpath-list)			;; Main subdirs    
+     (desire-config-dir-list)			;; Main config dirs    
+     )
 
   ;; Window System
   (setq desire-window-system-load-path

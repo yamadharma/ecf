@@ -33,11 +33,11 @@
 ;;; Compressed lisp file support
 ;; (setq tinypath--compression-support 'default)
 (custom-set-variables
-  '(tinypath--compression-support
+ '(tinypath--compression-support
     'all)
-;  '(tinypath--cache-file-postfix
-;    ".el.gz"
-;  )
+  ;; '(tinypath--cache-file-postfix
+  ;;   ".el.gz"
+  ;; )
 )
 
 ;;  Peiodic load path syncronization watchdog
