@@ -1,11 +1,12 @@
-;;; site-start.el -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
+;;; site-start.el 
 
 ;;; Commentary:
 
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2021 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2024 Dmitry S. Kulyabov
 ;;      Keywords:      site-start
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
@@ -87,9 +88,10 @@
   (expand-file-name "rc.d" site-lisp-path)
   "*Site-wide ecf config files directory.")
 
-(defvar tiny-path-lisp-path
-  (expand-file-name "common/packages/ecf/tiny" site-lisp-path)
-  "*Name of directory where tinypath.el reside.")
+(defvar desire-lisp-path
+  ;; (expand-file-name "common/packages/ecf/tiny" site-lisp-path)
+  (expand-file-name "share/emacs/site-lisp/desire" rootpath)
+  "*Name of directory where desire reside.")
 
 (defvar home-etc-path
   xdg_config_home
@@ -120,7 +122,7 @@
 (when (boundp 'native-comp-eln-load-path)
   (startup-redirect-eln-cache (expand-file-name "eln/" home-cache-path)))
 
-;;{{{ Tinypath load
+;;{{{ Desirepath load
 
 ;; Search user, host-wide, site-wide configs
 
@@ -135,7 +137,7 @@
     ecf-config-load-path
     load-path))
 
-(load "rc.tinypath")
+(load "rc.desirepath")
 
 ;;}}}
 ;;{{{ Desire load

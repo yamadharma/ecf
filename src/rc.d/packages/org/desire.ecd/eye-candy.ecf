@@ -17,7 +17,6 @@
       org-entities-user
       '(("flat"  "\\flat" nil "" "" "266D" "♭")
         ("sharp" "\\sharp" nil "" "" "266F" "♯"))
-      org-fontify-done-headline t
       org-fontify-quote-and-verse-blocks t
       org-fontify-whole-heading-line t
       org-hide-leading-stars t

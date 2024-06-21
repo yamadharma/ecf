@@ -1,0 +1,45 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Simple notes for Emacs with an efficient file-naming scheme 
+;;; https://protesilaos.com/emacs/denote
+;;; https://github.com/protesilaos/denote
+
+(general-define-key
+ "C-c N n" 'denote
+ "C-c N N" 'denote-type
+ "C-c N d" 'denote-date
+ "C-c N z" 'denote-signature ; "zettelkasten" mnemonic
+ "C-c N s" 'denote-subdirectory
+ "C-c N o" 'denote-sort-dired ; "order" mnemonic
+ "C-c N j" 'denote-journal-extras-new-entry
+ "C-c N J" 'denote-journal-extras-new-or-existing-entry
+)
+
+;; Note that `denote-rename-file' can work from any context, not
+;; just Dired buffers.
+;; Also see `denote-rename-file-using-front-matter' further below.
+(general-define-key
+ "C-c n r" 'denote-rename-file
+ )
+
+;; If you intend to use Denote with a variety of file types, it is
+;; easier to bind the link-related commands to the `global-map', as
+;; shown here.  Otherwise follow the same pattern for
+;; `org-mode-map', `markdown-mode-map', and/or `text-mode-map'.
+(general-define-key
+ :keymaps 'text-mode-map
+ "C-c N i" 'denote-link ; "insert" mnemonic
+ "C-c N I" 'denote-add-links
+ "C-c N b" 'denote-backlinks
+ "C-c N f f" 'denote-find-link
+ "C-c N f b" 'denote-find-backlink
+ ;; Also see `denote-rename-file' further above.
+ "C-c N R" 'denote-rename-file-using-front-matter
+)
+;; I do not bind the Org dynamic blocks, but they are useful:
+;;
+;; - `denote-org-extras-dblock-insert-links'
+;; - `denote-org-extras-dblock-insert-backlinks'
+;; - `denote-org-extras-dblock-insert-files'
+;; - `denote-org-extras-dblock-insert-missing-links'
+
+;;;

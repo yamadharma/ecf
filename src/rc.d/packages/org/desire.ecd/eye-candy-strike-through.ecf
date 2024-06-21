@@ -1,8 +1,18 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Strike through checkbox and todos in org
 
+;;; https://sachachua.com/blog/2012/12/emacs-strike-through-headlines-for-done-tasks-in-org/
+
 ;;; Strike through todos
-(set-face-attribute 'org-headline-done nil :strike-through t)
+(defun ecf/strike-through-org-done-face ()
+  (setq org-fontify-done-headline t)
+  (set-face-attribute 'org-done nil :strike-through t)
+  (set-face-attribute 'org-headline-done nil :strike-through t))
+
+(add-hook 'org-add-hook 'ecf/strike-through-org-done-face)
+
+(eval-after-load "org-journal"
+  (add-hook 'org-journal-mode-hook 'ecf/strike-through-org-done-face))
 
 ;;; Strike through checkbox
 ;;; https://jft.home.blog/2019/07/17/use-unicode-symbol-to-display-org-mode-checkboxes/
@@ -21,6 +31,5 @@
  `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
     1 'org-checkbox-done-text prepend))
  'append)
-
 
 ;;;

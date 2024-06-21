@@ -7,12 +7,28 @@
 ;;; All the themes are included in the variable `ef-themes-collection'.
 
 ;;; Deuteranopia themes
+;;; For red-green color deficiency
 ;;; ef-deuteranopia-light
-(load-theme 'ef-deuteranopia-light :no-confirm)
+;; (load-theme 'ef-deuteranopia-light :no-confirm)
 ;;; ef-deuteranopia-dark
 ;; (load-theme 'ef-deuteranopia-dark :no-confirm)
-
 ;;; If you like two specific themes and want to switch between them
-(setq ef-themes-to-toggle '(ef-deuteranopia-light ef-deuteranopia-dark))
+;; (setq ef-themes-to-toggle '(ef-deuteranopia-light ef-deuteranopia-dark))
+
+;;; Tritanopia theme
+;;; For blue-yellow color deficiency
+;;; ef-tritanopia-light
+;; (load-theme 'ef-tritanopia-light :no-confirm)
+;;; ef-deuteranopia-dark
+;; (load-theme 'ef-tritanopia-dark :no-confirm)
+;;; If you like two specific themes and want to switch between them
+;; (setq ef-themes-to-toggle '(ef-tritanopia-light ef-tritanopia-dark))
+
+
+;;; ef-arbutus
+(load-theme 'ef-arbutus :no-confirm)
+;;; ef-rosa
+;; (load-theme 'ef-rosa :no-confirm)
+(setq ef-themes-to-toggle '(ef-arbutus ef-rosa))
 
 ;;;

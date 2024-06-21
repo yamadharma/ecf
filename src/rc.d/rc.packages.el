@@ -36,18 +36,21 @@
     (desired 'xemacs))
 
 ;;}}}
-;;{{{ Package repositories
+;;; Package {{{
 
 ;;; Packaging
 (desire 'package)
+
 ;;; Build and install your Emacs Lisp packages on-the-fly and directly from source
 (desire 'quelpa)
+
 ;;; A declarative package management system with a command line interface
 ;; (desire 'straight)
+
 ;;; Auto update packages
 (desire 'auto-package-update)
 
-;;}}}
+;;;}}}
 
 ;; (desire 'esup)
 
@@ -114,7 +117,7 @@
 (desire 'compat)
 
 (desire 'async)
-(desire 'gcmh)
+;; (desire 'gcmh)
 
 ;; ----------------------------------------------------------------------
 
@@ -146,7 +149,7 @@
 
 ;;{{{ UI
 
-(desire 'ligature)
+;; (desire 'ligature)
 
 ;; (desire 'all-the-icons)
 (desire 'nerd-icons)
@@ -176,6 +179,7 @@
 ;;; LSP mode {{{
 
 (desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
+
 (desire 'eglot)
 ;; (desire 'lsp-mode)
 
@@ -192,6 +196,8 @@
 (desire-old 'show-paren)
 ;; (desire-old 'folding)
 ;; (desire-old 'outline)
+
+
 (desire 'origami)
 
 ;;
@@ -228,7 +234,7 @@
 ;; Parentesis
 (desire 'smartparens)
 
-;;{{{ Spell
+;;; Spell {{{
 
 ;; (desire-old 'spell)
 (desire 'ispell)
@@ -242,34 +248,33 @@
 ;; (desire 'lsp-ltex :recipe '(:fetcher github :repo "emacs-languagetool/lsp-ltex" :branch "master" :files ("*.el")))
 ;; (desire 'eglot-ltex :recipe '(:fetcher github :repo "emacs-languagetool/eglot-ltex" :branch "master" :files ("*.el")))
 
-;;}}}
-;;{{{ Adress book
+;;;}}}
+;;; Adress book {{{
 
 (desired 'vcard)
 (desire 'khardel :precondition-system-executable "khard")
 (desire 'khalel :precondition-system-executable "khal")
 ;; (desire 'org-vcard)
 ;; (desire 'vdirel)
-
-;; BBDB - Must be loaded before most other things, since other things
-;;        may perform special configuration if BBDB is present.
-
 ;; (desire 'bbdb)
 
-;;}}}
-;;{{{ Bibliography
+;;;}}}
+;;; Bibliography {{{
 
 (desire 'biblio)
 (desire 'bibtex)
 
-;;}}}
+;;;}}}
+;;; Projects {{{
 
 ;; (desire 'project)
 (desire 'projectile)
 
+;;;}}}
+
 ;;(desire-old 'yasnippet)
 
-;;{{{ Text
+;;; Text {{{
 
 (desire 'texfrag)
 
@@ -296,14 +301,15 @@
 
 ;; (desire 'valign)
 
-;;}}}
-;;; Time management 
+;;;}}}
+;;; Time management {{{
 
 (desire 'pomm)
 (desire 'org-pomodoro)
 ;; (desire 'hammy)
 
-;;{{{
+;;;}}}
+;;; Dired {{{
 
 (desire 'mouse3 :recipe '(:fetcher github :repo "emacsmirror/mouse3" :branch "master" :files ("*.el")))
 
@@ -314,10 +320,10 @@
 ;; (desire 'efar)
 ;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
 (desire 'dirvish)
+;; (desire 'diredc)
 
-
-;;}}}
-;;{{{ LaTeX
+;;; }}}
+;;; LaTeX {{{
 
 ;; (desire 'xenops)
 ;; (desire 'lsp-latex :precondition-system-executable "texlab")
@@ -332,36 +338,30 @@
 ;; (desire 'auctex :initname "latex")
 ;; (desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
 
-;;}}}
-;;{{{ org-mode
+;;;}}}
+;;; Org-mode {{{
 
 ;; (desire 'org-ql)
 
 (desire 'org-appear)
 (desire 'org-fragtog)
-
 (desire 'org-custom-cookies)
-
 ;; (desire 'svg-tag-mode)
 (desire 'org-superstar)
 ;; (desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
 (desire 'org-modern)
-
 ;; (desire 'org-contacts)
 ;; (desire 'google-contacts)
-
 (desire 'org-edna)
-
 (desire 'org-ref)
-
 (desire 'org-tree-slide)
 
-;;; Org agenda
+;;; Agenda
 (desire 'org-super-agenda)
 
 ;;(if (desiredp 'org-ql)
 ;; (desire 'org-agenda-files-track-ql)
-  (desire 'org-agenda-files-track)
+(desire 'org-agenda-files-track)
 ;;)
 
 ;;(if (desiredp 'org-ql)
@@ -369,6 +369,7 @@
 ;; (desire 'org-agenda-files-track :recipe '(:fetcher github :repo "nicolas-graves/org-agenda-files-track" :branch "master" :files ("org-agenda-files-track.el")))
 ;;)
 
+;;; Literate
 (desire 'org-tanglesync)
 
 ;; (desire 'org-gcal)
@@ -377,17 +378,17 @@
 (desire 'org-noter)
 ;; (desire 'org-noter :recipe '(:fetcher github :repo "org-noter/org-noter" :branch "feature/org-roam-integration" :files ("*.el" "modules/*.el")))
 
-
 (desire 'org-transclusion)
 (desire 'org-gtd)
 
 (desired 'mobileorg)
 (desire 'org)
 
-;; For messaging
+;;; For messaging
 ;; (desire 'org-msg)
 
-;;; Org-roam
+;;;}}}
+;;; Org-roam {{{
 
 (desire 'emacsql)
 
@@ -403,27 +404,27 @@
 (desire 'magit-section)
 (desire 'org-roam)
 
-;;}}}
-;;{{{ Notes
+;;;}}}
+;;; Notes {{{
 
 (desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
 
+(desire 'denote)
+
 ;;}}}
-;;{{{ XML, XHTML, HTML
+;; XML, XHTML, HTML {{{
 
 ;;(desire-old 'nxml nil "rng-auto")
 ; (desire-old 'psgml)
 
-;;}}}
-
-;;{{{ Palm pilot support
+;;;}}}
+;;;{{{ Palm pilot support
 
 ;(desire-old 'palm)
 
-;;}}}
-
-;;{{{ Desktop
+;;;}}}
+;;; Desktop {{{
 
 ;; (desire-old 'desktop)
 (desire-old 'session nil "session")
@@ -436,7 +437,7 @@
 ;; (desire 'tabspaces)
 
 ;;}}}
-;;{{{ Appointments, diary, calendar.
+;;; Appointments, diary, calendar {{{
 
 ;; Use "M-x calendar RET" to display the calendar and start
 ;; appointment warnings.
@@ -446,29 +447,27 @@
 ;; (desire-old 'todo-mode)
 ;; (desire-old 'diary "diary-lib")
 
-;;}}}
-;;{{{ These provide options for the various message handling packages
+;;;}}}
+;;; These provide options for the various message handling packages {{{
 
 (desire 'browse-url)
 ;; (desire-old 'mailcrypt)
 ;; (desire 'supercite)
 
-;;}}}
-;;{{{ Message handing packages
+;;;}}}
+;;; Message {{{
 
 (desire 'smtpmail)
-
 ;; (desire 'gnus)
 (desire 'message)
 ;; (desire-old 'vm)
 ;; (desire 'wl :ensurename 'wanderlust)
 ;; (desire-old 'sendmail)
-
 ;; (desire 'mu4e-dashboard :recipe '(:fetcher github :repo "rougier/mu4e-dashboard"))
 (desire 'mu4e :precondition-system-executable "mu")
 
-;;}}}
-;;{{{ Programming
+;;;}}}
+;;; Programming {{{
 
 (desire 'speedbar)
 ;; (desire-old 'semantic nil "semantic")
@@ -500,15 +499,15 @@
 (desire 'magit-gitflow)
 (desire 'magit)
 
-;;}}}
-;;{{{ Blogs
+;;;}}}
+;;; Blogs {{{
 
 ;; (desire-old 'hexo nil "hexo")
 ;; (desire-old 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
 (desire-old 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
 
-;;}}}
-;;{{{ Miscellaneous
+;;;}}}
+;;; Miscellaneous {{{
 
 (desire-old 'graphviz-dot-mode nil "graphviz-dot-mode")
 ;; (desire-old 'abbrev)
@@ -539,7 +538,7 @@
 (desire 'telega)
 (desire 'pocket-reader)
 
-;;}}}
+;;;}}}
 
 ;; (desire 'grammarly)
 
@@ -547,7 +546,12 @@
 
 (desire 'dashboard)
 
-;;{{{ Themes
+;; PERSONAL
+
+;; (require 'chord-mode)  ; edit guitar music.
+;; (require 'discography) ; variant of BibTeX mode for discographies.
+
+;;; Themes {{{
 
 ;;; Nested menu for minor modes
 (desire 'minions)
@@ -562,8 +566,8 @@
 ;; (desire 'doom-themes)
 
 ;; (desire 'zenburn-theme)
-(desire 'modus-themes)
-;; (desire 'ef-themes)
+;; (desire 'modus-themes)
+(desire 'ef-themes)
 ;; (desire 'lambda-themes :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-themes" :branch "main"))
 ;; (desire 'tao-theme)
 
@@ -573,12 +577,6 @@
 ;;; Increase the padding/spacing of frames and windows
 ;; (desire 'spacious-padding)
 
-;;}}}
-
-;; PERSONAL
-
-;; (require 'chord-mode)  ; edit guitar music.
-;; (require 'discography) ; variant of BibTeX mode for discographies.
-
+;;;}}}
 
 ;;; rc.packages.el ends here

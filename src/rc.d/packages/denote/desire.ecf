@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Simple notes for Emacs with an efficient file-naming scheme 
+;;; https://protesilaos.com/emacs/denote
+;;; https://github.com/protesilaos/denote
+
+(require 'denote)
+
+;;;

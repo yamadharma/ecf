@@ -1,12 +1,11 @@
-;;; rc.tinypath.el --- tinypath configuration -*- coding: iso-2022-7bit-unix; -*-
-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
 ;;; Commentary:
 
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2023 Dmitry S. Kulyabov
-;;      Keywords:      tinypath
+;;      Copyright (C)  2002-2024 Dmitry S. Kulyabov
+;;      Keywords:      desirepath
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;
@@ -24,30 +23,30 @@
 
 ;; Cache file location
 (custom-set-variables
- '(tinypath--cache-file-prefix
+ '(desirepath--cache-file-prefix
    (concat home-cache-path "ecf-load-path-cache")))
 
 ;;; Disable HOST part in cache file name
-;; (setq tinypath--cache-file-hostname-function nil)
+;; (setq desirepath--cache-file-hostname-function nil)
 
 ;;; Compressed lisp file support
-;; (setq tinypath--compression-support 'default)
+;; (setq desirepath--compression-support 'default)
 (custom-set-variables
- '(tinypath--compression-support
+ '(desirepath--compression-support
     'all)
-  ;; '(tinypath--cache-file-postfix
+  ;; '(desirepath--cache-file-postfix
   ;;   ".el.gz"
   ;; )
 )
 
 ;;  Peiodic load path syncronization watchdog
-;; (setq tinypath--load-hook
-;;  '(tinypath-install tinypath-install-timer)
+;; (setq desirepath--load-hook
+;;  '(desirepath-install desirepath-install-timer)
 ;; )
 
 
 
-;; Configure load path `tinypath--load-path-root'
+;; Configure load path `desirepath--load-path-root'
 (let
     (
      (main-xe-load-path)				;; Emacs or Xemacs main dir
@@ -93,7 +92,7 @@
 	  t)))
      load-path))
 
-  (setq  tinypath--core-emacs-load-path-list main-xe-load-path)
+  (setq  desirepath--core-emacs-load-path-list main-xe-load-path)
 
   ;; FIXME This is very dirty
   (setq main-site-lisp-xe-root-path
@@ -140,7 +139,7 @@
   )
 
 
-  (setq tinypath--load-path-root
+  (setq desirepath--load-path-root
 	(append
 	 ecf-config-load-path			;; Configuration ecf path
 	 ;; main-xe-load-path				;; Emacs or Xemacs main dir
@@ -152,7 +151,7 @@
   ) ;; end let
 
 ;; Ignored dirs for ecf-mule
-(setq tinypath--load-path-ignore-regexp-extra
+(setq desirepath--load-path-ignore-regexp-extra
       "\\|[/\\]ecf-mule")
 
 ;; Ignored dirs for other version of emacs
@@ -160,10 +159,10 @@
 ;; (function
 ;;  (lambda (a)
 ;;    (if (string-match a emacs-version) ()
-;;      (setq tinypath--load-path-ignore-regexp-extra
+;;      (setq desirepath--load-path-ignore-regexp-extra
 ;; 	    (concat
 ;; 	     "\\|/usr/share/emacs/" a "/site-lisp"
-;; 	     tinypath--load-path-ignore-regexp-extra
+;; 	     desirepath--load-path-ignore-regexp-extra
 ;; 	     )
 ;;       )
 ;;    )
@@ -176,19 +175,19 @@
 ;;"\\|[/\\]emacs[/\\]" a "[/\\]leim"
 
 ;; Ignored dirs
-;; (setq tinypath--load-path-ignore-regexp-extra
+;; (setq desirepath--load-path-ignore-regexp-extra
 ;;  (concat
 ;;    "\\|[/\\]lisp[/\\]language"
 ;;    "\\|[/\\]auctex"
-;;    tinypath--load-path-ignore-regexp-extra
+;;    desirepath--load-path-ignore-regexp-extra
 ;;  )
 ;; )
 
-(setq tinypath--load-path-ignore-regexp-extra
+(setq desirepath--load-path-ignore-regexp-extra
       (concat
        "\\|[/\\]lisp[/\\]language"
        "\\|[/\\]lisp[/\\]cedet"
-       tinypath--load-path-ignore-regexp-extra))
+       desirepath--load-path-ignore-regexp-extra))
 
 ;; "\\|21\\.4[/\\]"
 ;; "\\|/usr/share/emacs/23\\.0\\.0/site-lisp"
@@ -196,9 +195,9 @@
 ;;    "\\|[/\\]flim"
 ;;    "\\|[/\\]wl"
 
-;; `tinypath' load
+;; `desirepath' load
 (require 'cl-lib)
-(cl-pushnew tiny-path-lisp-path load-path :test 'string=)
-(load "tinypath")
+(cl-pushnew desire-lisp-path load-path :test 'string=)
+(load "desirepath")
 
-;;; rc.tinypath.el ends here
+;;; rc.desirepath.el ends here

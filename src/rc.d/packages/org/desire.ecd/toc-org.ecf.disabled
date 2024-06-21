@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; toc-org is an Emacs utility to have an up-to-date table of contents in the org files without exporting
+;;; https://github.com/snosov1/toc-org
+
+(desire 'toc-org)
+(require 'toc-org)
+
+(add-hook 'org-mode-hook 'toc-org-mode)
+
+;;;

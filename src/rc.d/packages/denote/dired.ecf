@@ -1,0 +1,21 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Highlight Denote file names in Dired buffers
+
+;;; If you rename files Denote-style in lots of places
+(add-hook 'dired-mode-hook 'denote-dired-mode)
+
+;;; If you only want the `denote-dired-mode' in select directories,
+;;; then modify the variable `denote-dired-directories'
+
+;; (add-hook 'dired-mode-hook  'denote-dired-mode-in-directories)
+
+;;; Key bindings specifically for Dired.
+(general-define-key
+ :keymaps 'dired-mode-map
+ "C-c C-d C-i" 'denote-link-dired-marked-notes
+ "C-c C-d C-r" 'denote-dired-rename-marked-files
+ "C-c C-d C-k" 'denote-dired-rename-marked-files-with-keywords
+ "C-c C-d C-f" 'denote-dired-rename-marked-files-using-front-matter
+ )
+
+;;;

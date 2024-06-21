@@ -1,0 +1,28 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Simple notes for Emacs with an efficient file-naming scheme 
+;;; https://protesilaos.com/emacs/denote
+;;; https://github.com/protesilaos/denote
+
+(setq denote-org-capture-specifiers "%l\n%i\n%?")
+;  (add-to-list 'org-capture-templates
+;               '("n" "New note (with denote.el)" plain
+;                 (file denote-last-path)
+;                 #'denote-org-capture
+;                 :no-save t
+;                 :immediate-finish nil
+;                 :kill-buffer t
+;                 :jump-to-captured t))
+  
+  ;; This prompts for TITLE, KEYWORDS, and SUBDIRECTORY
+  (add-to-list 'org-capture-templates
+               '("N" "New note with prompts (with denote.el)" plain
+                 (file denote-last-path)
+                 (function
+                  (lambda ()
+                    (denote-org-capture-with-prompts :title :keywords :signature)))
+                 :no-save t
+                 :immediate-finish nil
+                 :kill-buffer t
+                 :jump-to-captured t))
+
+;;;

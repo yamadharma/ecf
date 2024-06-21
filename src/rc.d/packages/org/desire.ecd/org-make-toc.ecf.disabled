@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Automatic tables of contents for Org-mode files 
+;;; https://github.com/alphapapa/org-make-toc
+
+(desire 'org-make-toc)
+(require 'org-make-toc)
+
+(add-hook 'org-mode-hook #'org-make-toc-mode)
+
+(setq org-make-toc-filename-prefix t)
+
+;;;

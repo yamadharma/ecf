@@ -3,5 +3,6 @@
 ;;; https://github.com/suntsov/efar
 
 (desire 'efar)
+(setq efar-height-correction 1)
 
 ;;;
