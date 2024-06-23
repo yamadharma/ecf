@@ -509,6 +509,7 @@
 ;;;}}}
 ;;; Miscellaneous {{{
 
+(desire 'ebuku)
 (desire-old 'graphviz-dot-mode nil "graphviz-dot-mode")
 ;; (desire-old 'abbrev)
 ;; (desire-old 'bibtex)
@@ -566,8 +567,6 @@
 ;; (desire 'doom-themes)
 
 ;; (desire 'zenburn-theme)
-;; (desire 'modus-themes)
-(desire 'ef-themes)
 ;; (desire 'lambda-themes :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-themes" :branch "main"))
 ;; (desire 'tao-theme)
 
@@ -576,6 +575,10 @@
 
 ;;; Increase the padding/spacing of frames and windows
 ;; (desire 'spacious-padding)
+
+;; (desire 'modus-themes)
+
+(desire 'ef-themes)
 
 ;;;}}}
 
