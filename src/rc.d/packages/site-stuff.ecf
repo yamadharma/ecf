@@ -69,4 +69,10 @@
 ;;; Add line numbers
 (global-display-line-numbers-mode)
 
+;;; Make searches case insensitive
+(setq case-fold-search t)   
+
+;;; Tab completion in minibuffer: case insensitive
+(setq completion-ignore-case  t)
+
 ;;; 

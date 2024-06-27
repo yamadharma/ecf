@@ -1,0 +1,37 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A bunch of convenience functions for operating org-roam with the help of consult
+;;; https://github.com/jgru/consult-org-roam
+
+(desire 'consult-org-roam)
+(require 'consult-org-roam)
+
+;;; Activate the minor mode
+(consult-org-roam-mode 1)
+
+;;; Use `ripgrep' for searching with `consult-org-roam-search'
+(setq consult-org-roam-grep-func #'consult-ripgrep)
+
+;;; Configure a custom narrow key for `consult-buffer'
+(setq consult-org-roam-buffer-narrow-key ?r)
+
+;;; Display org-roam buffers right after non-org-roam buffers
+;;; in consult-buffer (and not down at the bottom)
+(setq consult-org-roam-buffer-after-buffers t)
+
+
+;; Eventually suppress previewing for certain functions
+(consult-customize
+ consult-org-roam-forward-links
+ :preview-key "M-.")
+
+;;; Define some convenient keybindings as an addition
+(general-define-key
+ :prefix "C-c n"
+ "e" 'consult-org-roam-file-find
+ "f" 'consult-org-roam-file-find
+ "b" 'consult-org-roam-backlinks
+ "B" 'consult-org-roam-backlinks-recursive
+ "l" 'consult-org-roam-forward-links
+ "r" 'consult-org-roam-search)
+
+;;;
