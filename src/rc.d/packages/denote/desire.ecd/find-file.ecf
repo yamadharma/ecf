@@ -3,6 +3,6 @@
 ;;; https://protesilaos.com/emacs/denote
 ;;; https://github.com/protesilaos/denote
 
-(add-hook 'find-file-hook 'denote-link-buttonize-buffer)
+(add-hook 'text-mode-hook #'denote-fontify-links-mode-maybe)
 
 ;;;

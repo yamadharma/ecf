@@ -147,7 +147,7 @@
 
 (desire 'rg :precondition-system-executable "rg")
 
-;;{{{ UI
+;;; UI {{{
 
 ;; (desire 'ligature)
 
@@ -175,15 +175,35 @@
 (desire 'tab-bar)
 (desire 'tab-line)
 
-;;}}}
+;;;}}}
+
 ;;; LSP mode {{{
 
 (desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
 
 (desire 'eglot)
+
 ;; (desire 'lsp-mode)
 
 ;;; }}}
+
+;;; Completion {{{
+
+;; (desire 'company)
+(desire 'corfu)
+
+;;;}}}
+;;; Minibuffer completion {{{
+
+;; (desire 'ido)
+;; (desire 'helm-posframe)
+;; (desire 'helm)
+;; (desire 'ivy)
+;; (desire 'selectrum)
+(desire 'vertico)
+
+;;;}}}
+
 ;;
 
 ;; (desire 'tree-sitter)
@@ -208,28 +228,6 @@
 
 
 ;; (desire-old 'toolbar)
-
-
-;; ----------------------------------------------------------------------
-
-(desire 'flycheck)
-
-;;{{{ Minibuffer completion
-
-(desire 'vertico)
-;; (desire 'ido)
-;; (desire 'helm-posframe)
-;; (desire 'helm)
-;; (desire 'ivy)
-;; (desire 'selectrum)
-
-;;}}}
-;;{{{ Minibuffer completion
-
-;; (desire 'company)
-(desire 'corfu)
-
-;;}}}
 
 ;; Parentesis
 (desire 'smartparens)
@@ -488,7 +486,7 @@
 ;;; REPL integration
 (desire 'julia-snail)
 ;; (desire 'julia-repl)
-;;; Syntax highlighting and latex symbols 
+;;; Syntax highlighting and latex symbols
 (desire 'julia-mode)
 
 
@@ -533,8 +531,8 @@
 
 (desire 'multiple-cursors)
 
-(desire 'neotree)
-;; (desire 'treemacs)
+;; (desire 'neotree)
+(desire 'treemacs)
 
 (desire 'telega)
 (desire 'pocket-reader)

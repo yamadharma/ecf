@@ -1,4 +1,6 @@
-;;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
+;;; Treemacs - a tree layout file explorer for Emacs
+;;; https://github.com/Alexander-Miller/treemacs
 
 (require 'treemacs)
 
