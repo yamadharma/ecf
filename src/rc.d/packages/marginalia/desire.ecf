@@ -2,6 +2,10 @@
 ;;; Marginalia in the minibuffer
 ;;; https://github.com/minad/marginalia
 
+(custom-set-variables
+ '(marginalia-max-relative-age 0)
+ '(marginalia-align 'right)
+ )
 
 ;; Prefer richer, more heavy, annotations over the lighter default variant.
 ;; E.g. M-x will show the documentation string additional to the keybinding.

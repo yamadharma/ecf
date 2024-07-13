@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Marginalia in the minibuffer
+;;; https://github.com/minad/marginalia
+
+(general-define-key
+ :keymaps 'minibuffer-local-map
+ "M-A" 'marginalia-cycle
+)
+
+;;;

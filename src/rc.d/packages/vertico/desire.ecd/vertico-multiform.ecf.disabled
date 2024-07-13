@@ -1,0 +1,39 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; VERTical Interactive COmpletion
+;;; Configure Vertico modes per command or completion category
+;;; https://github.com/minad/vertico
+
+;; Enable vertico-multiform
+(vertico-multiform-mode)
+
+(setq vertico-grid-separator "       ")
+(setq vertico-grid-lookahead 50)
+(setq vertico-buffer-display-action '(display-buffer-reuse-window)) ; Default
+
+;; Configure the display per completion category.
+;; Use the grid display for files and a buffer
+;; for the consult-grep commands.
+(setq vertico-multiform-categories
+ '((file reverse)
+   (consult-grep buffer)
+   (consult-location)
+   (imenu buffer)
+   (library reverse indexed)
+   (org-roam-node reverse indexed)
+   (t reverse)
+   ))
+
+;; Configure the display per command.
+;; Use a buffer with indices for imenu
+;; and a flat (Ido-like) menu for M-x.
+(setq vertico-multiform-commands
+ '(("flyspell-correct-*" grid reverse)
+   (org-refile grid reverse indexed)
+   (consult-yank-pop indexed)
+   (consult-flycheck)
+   (consult-lsp-diagnostics)
+   (consult-imenu buffer indexed)
+   (execute-extended-command unobtrusive)
+   ))
+
+;;;

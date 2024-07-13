@@ -3,6 +3,7 @@
 ;;; https://github.com/emacs-citar/citar
 
 (desire 'citar-embark)
+(require 'citar-embark)
 (citar-embark-mode)
 
 (setq citar-at-point-function 'embark-act)

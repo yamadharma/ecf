@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; VERTical Interactive COmpletion
+;;; https://github.com/minad/vertico
+
+(general-define-key
+ :keymaps 'vertico-map
+ "<tab>" #'("Insert selected candidate into text area" . vertico-insert)  ; Insert selected candidate into text area
+ "<escape>" #'("Close minibuffer". minibuffer-keyboard-quit) ; Close minibuffer
+ ;;  Cycle through candidate groups
+ "C-M-n" #'vertico-next-group
+ "C-M-p" #'vertico-previous-group
+)
+
+;;;

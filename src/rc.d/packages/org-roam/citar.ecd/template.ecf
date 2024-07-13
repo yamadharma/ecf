@@ -10,7 +10,7 @@
 :target
 (file+head
 "literature/${citar-citekey}.org"
-"#+title: ${author editor:%etal} (${citar-date}) ${citar-title}
+"#+title: ${citar-author} (${citar-date}) ${citar-title}
 #+created: %U
 #+last_modified: %U
 #+language: ru
