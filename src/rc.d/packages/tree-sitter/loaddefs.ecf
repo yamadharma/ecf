@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Tree-sitter bindings for Emacs Lisp
+;;; https://github.com/emacs-tree-sitter/elisp-tree-sitter
+
+
+;;;

@@ -5,12 +5,26 @@
 (setq citar-org-roam-subdir "literature")
 (setq citar-org-roam-note-title-template "${author} - ${title}")
 
+(setq citar-org-roam-template-fields
+      '((:citar-citekey "key")
+	(:citar-title "title")
+	(:citar-author "author" "editor")
+	(:citar-date "date" "year" "issued")
+	(:citar-pages "pages" "pagetotal")
+	(:citar-type "=type=")
+	(:citar-doi "doi")
+	(:citar-url "url")
+	(:citar-journal "journal" "journaltitle")
+	(:citar-subtitle "subtitle")
+	(:citar-year "year")
+	))
+
 (add-to-list 'org-roam-capture-templates
 '("n" "literature note" plain "%?"
 :target
 (file+head
 "literature/${citar-citekey}.org"
-"#+title: ${citar-author} (${citar-date}) ${citar-title}
+"#+title: %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title}
 #+created: %U
 #+last_modified: %U
 #+language: ru
@@ -25,49 +39,53 @@
 #+hugo_custom_front_matter: :slug ${citar-citekey}
 :END:
 
-* TODO ${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle}
+* %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${subtitle}
 :PROPERTIES:
 :export_hugo_section: ru/post/%<%Y>
 :export_file_name: %<%Y-%m-%d>-${citar-citekey}
 :export_language: ru
 :END:
 
-${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle} [cite:@${citar-citekey}].
+${citar-author} (${citar-date}) ${citar-title} ${citar-subtitle} [cite:@${citar-citekey}].
 
 #+hugo: more
 @@hugo:{{< toc >}}@@
 
 ** Резюме
+
+** Библиография
 #+print_bibliography:
 
-* TODO ${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle} [English] :noexport:
+* %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${citart-subtitle} [English] :noexport:
 :PROPERTIES:
 :export_hugo_section: en/post/%<%Y>
 :export_file_name: %<%Y-%m-%d>-${citar-citekey}
 :export_language: en
 :END:
 
-${author editor:%etal} (${citar-date}) ${citar-title} ${subtitle} [cite:@${citar-citekey}].
+${citar-author} (${citar-date}) ${citar-title} ${citar-subtitle} [cite:@${citar-citekey}].
 
 #+hugo: more
 @@hugo:{{< toc >}}@@
 
 ** Summary
+
+** References
 #+print_bibliography:
 
-* TODO Notes
+* Notes
 :PROPERTIES:
 :Custom_ID: ${citar-citekey}
-:author: ${author editor:%etal}
+:author: ${citar-author}
 :title: ${citar-title}
-:subtitle: ${subtitle}
-:journal: ${journal journaltitle}
+:subtitle: ${citar-subtitle}
+:journal: ${citar-journal}
 :date: ${citar-date}
-:year: ${date year issued:4}
-:doi: ${doi}
-:url: ${url}
+:year: ${citar-year}
+:doi: ${citar-doi}
+:url: ${citar-url}
 :pages: ${citar-pages}
-:noter_document: %(citar-file--get-library-files \${citar-citekey}\)
+:noter_document: %(orb-get-attached-file \"${citar-citekey}\")
 :noter_page:
 :END:")
 :immediate-finish t

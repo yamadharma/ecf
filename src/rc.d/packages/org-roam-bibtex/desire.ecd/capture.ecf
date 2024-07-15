@@ -7,7 +7,7 @@
       orb-attached-file-extensions '("pdf"))
 
 (add-to-list 'org-roam-capture-templates
-	     '("r" "bibliography reference" plain "%?"     
+	     '("r" "bibliography reference" plain "%?"
                :target
                (file+head "literature/${citekey}.org" "#+title: ${citekey}: ${title}\n#+ROAM_KEY: ${ref}
 - tags ::

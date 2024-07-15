@@ -7,7 +7,7 @@
       '(citar-file-parser-default
 	citar-file-parser-triplet))
 
-(setq citar-library-file-extensions (list "pdf" "jpg" ".djvu" ".epub" ".fb2" ".fb2.zip"))
+(setq citar-library-file-extensions (list "pdf" "jpg" "djvu" "epub" "fb2" ".fb2.zip"))
 (setq citar-file-additional-files-separator "-")
 
 ;;;

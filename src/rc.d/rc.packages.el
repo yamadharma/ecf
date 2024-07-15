@@ -206,7 +206,7 @@
 
 ;;
 
-;; (desire 'tree-sitter)
+(desire 'tree-sitter)
 
 (desire 'hydra)
 
@@ -531,8 +531,8 @@
 
 (desire 'multiple-cursors)
 
-;; (desire 'neotree)
-(desire 'treemacs)
+(desire 'neotree)
+;; (desire 'treemacs)
 
 (desire 'telega)
 (desire 'pocket-reader)

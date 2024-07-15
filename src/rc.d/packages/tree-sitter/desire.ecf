@@ -3,12 +3,25 @@
 ;;; https://github.com/emacs-tree-sitter/elisp-tree-sitter
 
 (require 'tree-sitter)
+
+(desire 'tree-sitter-langs)
 (require 'tree-sitter-langs)
+
+(desire 'tree-sitter-hl)
+(require 'tree-sitter-hl)
+
+(desire 'tree-sitter-debug)
+(require 'tree-sitter-debug)
+
+(desire 'tree-sitter-query)
+(require 'tree-sitter-query)
 
 (setq tree-sitter-syntax-highlight-enable t)
 (setq tree-sitter-fold-enable t)
 (setq tree-sitter-fold-indicators-enable t)
 
 (global-tree-sitter-mode)
+
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 ;;;

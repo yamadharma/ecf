@@ -3,7 +3,7 @@
 
 ;;; Bibtex-completion assumes that the name of a PDF consists of the BibTeX key followed plus a user-defined suffix (.pdf by default).
 ;;; If the BibTeX entries have a field that specifies the full path to the PDFs
-(setq bibtex-completion-pdf-field "File")
+(setq bibtex-completion-pdf-field "file")
 
 ;;; Symbols used for indicating the availability of notes and PDF files
 (setq bibtex-completion-pdf-symbol " ")
@@ -15,6 +15,6 @@
 
 ;;; Other file types than PDF
 ;;; If you store files in various formats, then you can specify a list instead of a single file type
-(setq bibtex-completion-pdf-extension '(".pdf" ".djvu" ".epub" ".fb2" ".fb2.zip"))
+(setq bibtex-completion-pdf-extension '("pdf" "djvu" "epub" "fb2" "fb2.zip"))
 
 ;;;

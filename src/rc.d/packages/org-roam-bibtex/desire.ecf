@@ -2,6 +2,9 @@
 ;;; Org Roam integration with bibliography management software
 ;;; https://github.com/org-roam/org-roam-bibtex
 
-(define-key org-mode-map (kbd "C-c n b")  #'orb-note-actions)
+(desire 'bibtex-completion)
+(require 'bibtex-completion)
+
+(define-key org-mode-map (kbd "C-c n B")  #'orb-note-actions)
 
 ;;;

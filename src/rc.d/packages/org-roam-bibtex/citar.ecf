@@ -7,4 +7,7 @@
 
 (citar-org-roam-mode)
 
+;;; Open notes in `org-roam'
+(setq citar-open-note-function 'orb-citar-edit-note)
+
 ;;;

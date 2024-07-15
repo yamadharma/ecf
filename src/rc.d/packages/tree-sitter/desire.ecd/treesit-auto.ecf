@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Automatic installation, usage, and fallback for tree-sitter major modes
+;;; https://github.com/renzmann/treesit-auto
+
+(desire 'treesit-auto)
+(require 'treesit-auto)
+
+(setq treesit-auto-install 'prompt)
+(treesit-auto-add-to-auto-mode-alist 'all)
+
+(global-treesit-auto-mode)
+
+;;;
