@@ -307,20 +307,6 @@
 ;; (desire 'hammy)
 
 ;;;}}}
-;;; Dired {{{
-
-(desire 'mouse3 :recipe '(:fetcher github :repo "emacsmirror/mouse3" :branch "master" :files ("*.el")))
-
-(desire 'dired)
-(desire 'dired+ :recipe '(:fetcher github :repo "emacsmirror/dired-plus" :branch "master" :files ("*.el")))
-
-;; (desire 'ranger)
-;; (desire 'efar)
-;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
-(desire 'dirvish)
-;; (desire 'diredc)
-
-;;; }}}
 ;;; LaTeX {{{
 
 ;; (desire 'xenops)
@@ -531,9 +517,6 @@
 
 (desire 'multiple-cursors)
 
-(desire 'neotree)
-;; (desire 'treemacs)
-
 (desire 'telega)
 (desire 'pocket-reader)
 
@@ -549,6 +532,25 @@
 
 ;; (require 'chord-mode)  ; edit guitar music.
 ;; (require 'discography) ; variant of BibTeX mode for discographies.
+
+;;; Dired {{{
+
+(desire 'mouse3 :recipe '(:fetcher github :repo "emacsmirror/mouse3" :branch "master" :files ("*.el")))
+
+(desire 'dired)
+(desire 'dired+ :recipe '(:fetcher github :repo "emacsmirror/dired-plus" :branch "master" :files ("*.el")))
+
+;; (desire 'ranger)
+;; (desire 'efar)
+;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
+(desire 'dirvish)
+;; (desire 'diredc)
+
+;;;}}}
+
+;; (desire 'neotree)
+
+(desire 'treemacs)
 
 ;;; Themes {{{
 

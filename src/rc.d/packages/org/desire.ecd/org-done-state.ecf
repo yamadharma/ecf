@@ -10,7 +10,7 @@
 
 (defun ecf/org-summary-todo-cookie (n-done n-not-done)
   "Switch header state to DONE when all subentries are DONE, to TODO when none are DONE, and to NEXT otherwise"
-  (let (org-log-done org-log-states)   ; turn off logging
+  (let () ;; (org-log-done org-log-states)   ; turn off logging
     (org-todo-if-needed (cond ((= n-done 0)
                                "TODO")
                               ((= n-not-done 0)
