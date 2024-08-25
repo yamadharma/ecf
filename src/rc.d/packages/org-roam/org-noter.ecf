@@ -83,6 +83,7 @@
 
 ;; (desire 'org-noter-org-roam :recipe '(:fetcher github :repo "org-noter/org-noter" :branch "feature/org-roam-integration" :files ("modules/org-noter-org-roam.el")))
 
+(require 'org-noter)
 (require 'org-noter-org-roam)
 
 (setq org-noter-notes-search-path '("~/data/bib/pdf/"))
@@ -91,6 +92,7 @@
 (setq org-noter-create-session-from-document-hook '(org-noter--create-session-from-document-file-supporting-org-roam))
 (setq org-noter-always-create-frame nil)
 (setq org-noter-property-note-location "noter_page")
+;; (setq org-noter-disable-narrowing t)
 
 ;; (global-set-key (kbd " n") 'org-noter)
 
