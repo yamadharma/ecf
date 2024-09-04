@@ -31,4 +31,9 @@
 ;; (load-theme 'ef-rosa :no-confirm)
 (setq ef-themes-to-toggle '(ef-arbutus ef-rosa))
 
+;;; ef-melissa
+;; (load-theme 'ef-melissa-light :no-confirm)
+;; (load-theme 'ef-melissa-dark :no-confirm)
+;; (setq ef-themes-to-toggle '(ef-melissa-light ef-melissa-dark))
+
 ;;;

@@ -532,7 +532,17 @@
 
 ;; (require 'chord-mode)  ; edit guitar music.
 ;; (require 'discography) ; variant of BibTeX mode for discographies.
+;;; CSV files {{{
 
+(desire 'csv-mode)
+
+;;;}}}
+;;; Edit text areas in browsers {{{
+
+(desire 'edit-server)
+;; (desire 'atomic-chrome)
+
+;;;}}}
 ;;; Dired {{{
 
 (desire 'mouse3 :recipe '(:fetcher github :repo "emacsmirror/mouse3" :branch "master" :files ("*.el")))

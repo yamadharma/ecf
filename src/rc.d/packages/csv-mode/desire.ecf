@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Major mode for editing comma/char separated values
+;;; https://elpa.gnu.org/packages/csv-mode.html
+
+(require 'csv-mode)
+
+;;; Keeps fields visually aligned, on-the-fly
+(add-hook 'csv-mode-hook 'csv-align-mode)
+
+(add-hook 'csv-mode-hook '(lambda () (interactive) (toggle-truncate-lines nil)))
+
+;;;

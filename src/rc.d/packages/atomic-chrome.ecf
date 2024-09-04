@@ -1,0 +1,25 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Edit text area on Chrome with Emacs using Atomic Chrome
+;;; https://github.com/alpha22jp/atomic-chrome
+
+(require 'atomic-chrome)
+(atomic-chrome-start-server)
+
+;;; Atomic Chrome for Emacs automatically reflects modifications to the browser by default
+(setq atomic-chrome-enable-auto-update t)
+
+;;; The default major mode of editing buffer is `text-mode`. You can change the major mode manually
+(setq atomic-chrome-default-major-mode 'markdown-mode)
+
+;;; Choose the major mode for a specific website
+(setq atomic-chrome-url-major-mode-alist
+      '(("github\\.com" . gfm-mode)
+        ("redmine" . textile-mode)))
+
+;;; Select editing buffer style
+;;; full: Open in the selected window.
+;;; split: Open in the new window by splitting the selected window (default).
+;;; frame: Create a new frame and window in it.
+;; (setq atomic-chrome-buffer-open-style split)
+
+;;;

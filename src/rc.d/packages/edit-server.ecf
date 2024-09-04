@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A Chromium/Firefox "clone" of It's All Text for spawning an editor to edit text areas in browsers. Based on David Hilley's original Chromium extension.
+;;; https://github.com/stsquad/emacs_chrome
+
+(require 'edit-server)
+
+(setq edit-server-new-frame nil)
+(edit-server-start)
+
+(setq edit-server-url-major-mode-alist
+      '(("github\\.com" . markdown-mode)))
+
+;;;
