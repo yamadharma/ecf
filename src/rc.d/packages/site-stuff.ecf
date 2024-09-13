@@ -49,6 +49,16 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;;; Отключить создание резервных копий
+(custom-set-variables '(make-backup-files nil "Отключить создание резервных копий"))
+
+;;; Cursor
+(custom-set-variables '(cursor-type 'bar "Внешний вид курсора — вертикальная черта"))
+;; Отключить мерцание курсора
+(blink-cursor-mode 0)
+
+;;; Highlight Current Line
+(global-hl-line-mode 1)
 
 ;;; Warnings
 ;;; Disable report warnings and errors from asynchronous native compilation

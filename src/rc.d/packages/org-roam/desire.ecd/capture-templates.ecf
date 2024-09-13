@@ -56,7 +56,7 @@
 #+hugo_tags:
 :END:\n
 \n
-#+hugo: more\n
+#+hugo: more
 @@hugo:{{< toc >}}@@\n")
 	 :immediate-finish t
          :jump-to-captured t
@@ -85,23 +85,25 @@
 :export_hugo_section: ru/post/%<%Y>
 :export_file_name: %<%Y-%m-%d>-${slug}
 :export_language: ru
+:header-args: :dir (format "%s" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%d%H%M%S> :async yes :cache yes
 :END:
 
-#+hugo: more\n
-@@hugo:{{< toc >}}@@\n
+#+hugo: more
+@@hugo:{{< toc >}}@@
 
 * TODO ${title} [English] :noexport:
 :PROPERTIES:
 :export_hugo_section: en/post/%<%Y>
 :export_file_name: %<%Y-%m-%d>-${slug}
 :export_language: en
+:header-args: :dir (format "%s" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%d%H%M%S> :async yes :cache yes
 :END:
 
-#+hugo: more\n
-@@hugo:{{< toc >}}@@\n
+#+hugo: more
+@@hugo:{{< toc >}}@@
 ")
- :immediate-finish t
- :jump-to-captured t
- :unnarrowed t)))
+	 :immediate-finish t
+	 :jump-to-captured t
+	 :unnarrowed t)))
 
 ;;;

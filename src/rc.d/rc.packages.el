@@ -561,6 +561,12 @@
 ;; (desire 'neotree)
 
 (desire 'treemacs)
+;;; Text navigation {{{
+
+;;; Line annotation for changed and saved lines
+(desire 'line-reminder)
+
+;;;}}}
 
 ;;; Themes {{{
 

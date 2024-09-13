@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Line annotation for changed and saved lines 
+;;; https://github.com/emacs-vs/line-reminder
+
+;;; Enable for all buffers
+(global-line-reminder-mode t)
+
+;;; Display Annotation
+;;; linum | indicators
+(setq line-reminder-show-option 'linum)
+
+;;; Display thumbnail
+(setq line-reminder-thumbnail t)
+
+;;;
