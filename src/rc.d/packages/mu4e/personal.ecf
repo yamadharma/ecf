@@ -19,9 +19,9 @@
 	 :sent-action delete)
 	
 	(ecf/mu4e-context
-	 :c-name  "2-dharma@sci.pfu.edu.ru"
+	 :c-name  "2-dharma@rudn.su"
 	 :maildir "dharma@sci.pfu.edu.ru"
-	 :mail    "dharma@sci.pfu.edu.ru"
+	 :mail    "dharma@rudn.su"
 	 :smtp    "smtp.gmail.com"
 	 :sent-action delete)
 	

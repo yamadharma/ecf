@@ -62,10 +62,10 @@
     ()
   (progn
     (desire-old 'window-system)
-;    (desire-old  'faces)
-;    (desire-old  'multi-frame)
+                                      ;    (desire-old  'faces)
+                                      ;    (desire-old  'multi-frame)
+    )
   )
-)
 
 
 ;; (if (null window-system)
@@ -177,16 +177,6 @@
 
 ;;;}}}
 
-;;; LSP mode {{{
-
-(desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
-
-(desire 'eglot)
-
-;; (desire 'lsp-mode)
-
-;;; }}}
-
 ;;; Completion {{{
 
 ;; (desire 'company)
@@ -203,6 +193,16 @@
 (desire 'vertico)
 
 ;;;}}}
+
+;;; LSP mode {{{
+
+(desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
+
+(desire 'eglot)
+
+;; (desire 'lsp-mode)
+
+;;; }}}
 
 ;;
 
@@ -309,7 +309,7 @@
 ;;;}}}
 ;;; LaTeX {{{
 
-;; (desire 'xenops)
+(desire 'xenops)
 ;; (desire 'lsp-latex :precondition-system-executable "texlab")
 
 (desire 'cdlatex)

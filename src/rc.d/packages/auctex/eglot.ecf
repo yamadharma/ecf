@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; A client for Language Server Protocol servers 
+;;; A client for Language Server Protocol servers
 ;;; https://github.com/joaotavora/eglot
 
 (require 'eglot)

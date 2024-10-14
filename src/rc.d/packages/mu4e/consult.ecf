@@ -44,7 +44,6 @@
 (consult-mu-compose-embark-bind-attach-file-key)
 
 ;;; Choose if you want to use dired for attaching files (choice of 'always, 'in-dired, or nil)
-(setq consult-mu-compose-use-dired-attachment 'in-dired)
+(setq consult-mu-compose-use-dired-attachment 'always)
 
 ;;;
-
