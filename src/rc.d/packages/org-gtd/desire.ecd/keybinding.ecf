@@ -4,15 +4,13 @@
 ;;; Key bindings
 
 (general-define-key
- "C-c d c" #'("Capture" . org-gtd-capture)
- "C-c d e" #'("Engage" . org-gtd-engage)
- "C-c d p" #'("Process inbox" . org-gtd-process-inbox)
- "C-c d n" #'("Show all next". org-gtd-show-all-next)
- "C-c d s" #'("Stuck projects" . org-gtd-show-stuck-projects)
- "C-c d s" #'("Finalize clarify" . org-gtd-clarify-finalize))
-
-(general-define-key
- :keymaps 'org-gtd-clarify-map
- "C-c c" #'("Choose" . org-gtd-organize))
+ :prefix "C-c d"
+ "c" #'("Capture" . org-gtd-capture)
+ "e" #'("Engage" . org-gtd-engage)
+ "p" #'("Process inbox" . org-gtd-process-inbox)
+ "n" #'("Show all next". org-gtd-show-all-next)
+ "s" #'("Stuck projects" . org-gtd-review-stuck-projects)
+ "o" #'("Organize" . org-gtd-organize))
+ ;; "s" #'("Finalize clarify" . org-gtd-clarify-finalize)
 
 ;;;

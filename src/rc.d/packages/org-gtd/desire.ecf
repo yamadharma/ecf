@@ -16,9 +16,6 @@
 
 (setq org-gtd-directory org-directory-todo)
 
-;;; Horizon 2. Areas of focus
-(setq org-gtd-organize-hooks '(org-gtd-set-area-of-focus org-set-tags-command))
-
 ;;; Ask for confirmation before refiling
 (setq org-gtd-refile-to-any-target nil)
 

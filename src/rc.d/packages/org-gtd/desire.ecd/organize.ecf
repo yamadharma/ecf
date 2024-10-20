@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A package for using GTD with org-mode
+;;; https://github.com/Trevoke/org-gtd.el
+
+;;; Areas of focus
+(add-hook 'org-gtd-organize-hooks '(org-gtd-set-area-of-focus org-set-tags-command))
+
+(general-define-key
+ :keymaps 'org-gtd-clarify-map
+ "C-c c" #'("Organize" . org-gtd-organize))
+
+;;;
