@@ -21,28 +21,27 @@
 
 ;;; Code:
 
-;;; Variables
+;;; Global Variables {{{
 
 (defconst NATIVECOMP (if (fboundp 'native-comp-available-p) (native-comp-available-p)))
 (defconst EMACS27+   (> emacs-major-version 26))
 (defconst EMACS28+   (> emacs-major-version 27))
 (defconst EMACS29+   (> emacs-major-version 28))
+(defconst EMACS30+   (> emacs-major-version 29))
 (defconst IS-MAC     (eq system-type 'darwin))
 (defconst IS-LINUX   (eq system-type 'gnu/linux))
 (defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 (defconst IS-BSD     (or IS-MAC (eq system-type 'berkeley-unix)))
 
-;;{{{ Win32 environment hook
+;; Win32 environment hook {{{
 
-(if (eq system-type 'windows-nt)
-  (progn
-    (setenv "USER" (downcase (getenv "USERNAME")))
-    (setenv "HOME" (getenv "USERPROFILE"))))
+(if IS-WINDOWS
+    (progn
+      (setenv "USER" (downcase (getenv "USERNAME")))
+      (setenv "HOME" (getenv "USERPROFILE"))))
 
 ;;}}}
-;;{{{ Global Variables
-
-;;{{{ XDG Base Directory Specification
+;; XDG Base Directory Specification {{{
 ;; http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 (defvar xdg_data_home
@@ -51,14 +50,15 @@
 (defvar xdg_config_home
   (or (getenv "XDG_CONFIG_HOME") (expand-file-name "~/.config/")))
 
-;(defvar xdg_data_dirs
-;  (getenv "XDG_DATA_DIRS")
-;)
+(defvar xdg_data_dirs
+  (getenv "XDG_DATA_DIRS")
+)
 
 (defvar xdg_cache_home
   (or (getenv "XDG_CACHE_HOME") (expand-file-name "~/.cache/")))
 
 ;;}}}
+;; Desire Global Variables {{{
 
 (defvar rootpath
   (expand-file-name "/usr/")
@@ -77,8 +77,8 @@
   "*Name of directory where various temporal emacs related files reside.")
 
 (defvar ecf-etc-path
-    "/etc/ecf/"
-    "*Host-wide ecf config files directory.")
+  "/etc/ecf/"
+  "*Host-wide ecf config files directory.")
 
 (defvar site-lisp-path
   (concat rootpath "share/site-lisp/")
@@ -102,7 +102,7 @@
   "*Name of directory where various emacs related files reside.")
 
 ;;}}}
-;;{{{ Prepare needed dirs
+;; Prepare needed dirs {{{
 
 (if (not (file-directory-p home-cache-path))
     (make-directory home-cache-path t))
@@ -117,36 +117,37 @@
     (make-directory "~/tmp" t))
 
 ;;}}}
+;;; Set eln-cache dir {{{
 
-;;; Set eln-cache dir
 (when (boundp 'native-comp-eln-load-path)
   (startup-redirect-eln-cache (expand-file-name "eln/" home-cache-path)))
 
-;;{{{ Desirepath load
+;;}}}
+;; Desirepath load {{{
 
 ;; Search user, host-wide, site-wide configs
 
 (setq ecf-config-load-path
-  (list
-    ecf-home-etc-path
-    ecf-etc-path
-    ecf-site-lisp-path))
+      (list
+       ecf-home-etc-path
+       ecf-etc-path
+       ecf-site-lisp-path))
 
 (setq load-path
-  (append
-    ecf-config-load-path
-    load-path))
+      (append
+       ecf-config-load-path
+       load-path))
 
 (load "rc.desirepath")
 
 ;;}}}
-;;{{{ Desire load
+;; Desire load {{{
 
 ;; Directory order hack
 (setq load-path
-  (append
-    ecf-config-load-path
-    load-path))
+      (append
+       ecf-config-load-path
+       load-path))
 
 (load "rc.desire")
 
