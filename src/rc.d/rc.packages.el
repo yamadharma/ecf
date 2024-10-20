@@ -193,6 +193,11 @@
 (desire 'vertico)
 
 ;;;}}}
+;;; Window navigation {{{
+
+(desire 'windmove)
+
+;;;}}}
 
 ;;; LSP mode {{{
 
@@ -324,7 +329,6 @@
 
 ;;;}}}
 ;;; Org-mode {{{
-
 ;; (desire 'org-ql)
 
 (desire 'org-appear)
@@ -363,15 +367,21 @@
 ;; (desire 'org-noter :recipe '(:fetcher github :repo "org-noter/org-noter" :branch "feature/org-roam-integration" :files ("*.el" "modules/*.el")))
 
 (desire 'org-transclusion)
+
+;;; GTD
 (desire 'org-gtd)
 
 (desired 'mobileorg)
+
 (desire 'org)
 
 ;;; For messaging
 ;; (desire 'org-msg)
 
 ;;;}}}
+
+;;; Notes {{{
+
 ;;; Org-roam {{{
 
 (desire 'emacsql)
@@ -389,7 +399,6 @@
 (desire 'org-roam)
 
 ;;;}}}
-;;; Notes {{{
 
 (desire 'deft)
 ;; (desire-old 'zetteldeft nil "zetteldeft" t)
@@ -397,15 +406,16 @@
 (desire 'denote)
 
 ;;}}}
+
 ;; XML, XHTML, HTML {{{
 
 ;;(desire-old 'nxml nil "rng-auto")
-; (desire-old 'psgml)
+                                      ; (desire-old 'psgml)
 
 ;;;}}}
 ;;;{{{ Palm pilot support
 
-;(desire-old 'palm)
+                                      ;(desire-old 'palm)
 
 ;;;}}}
 ;;; Desktop {{{
@@ -468,7 +478,7 @@
 
 ;;; Julia
 ;;; Code completion and syntax checking
-;(desire 'eglot-jl)
+                                      ;(desire 'eglot-jl)
 ;;; REPL integration
 (desire 'julia-snail)
 ;; (desire 'julia-repl)

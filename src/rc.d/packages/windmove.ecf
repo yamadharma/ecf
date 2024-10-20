@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Directional window-selection routinesdirectional window-selection routines
+;;; https://www.emacswiki.org/emacs/WindMove
+
+;;; Shifted arrow keys
+;; (windmove-default-keybindings)
+
+;;; Ctrl + arrow keys
+(windmove-default-keybindings 'ctrl)
+
+;;; Wrap around at edges
+(setq windmove-wrap-around t)
+
+;;;
