@@ -9,8 +9,6 @@
  "e" #'("Engage" . org-gtd-engage)
  "p" #'("Process inbox" . org-gtd-process-inbox)
  "n" #'("Show all next". org-gtd-show-all-next)
- "s" #'("Stuck projects" . org-gtd-review-stuck-projects)
- "o" #'("Organize" . org-gtd-organize))
- ;; "s" #'("Finalize clarify" . org-gtd-clarify-finalize)
+ "s" #'("Stuck projects" . org-gtd-review-stuck-projects))
 
 ;;;
