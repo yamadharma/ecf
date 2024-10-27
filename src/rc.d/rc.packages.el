@@ -547,6 +547,9 @@
 (desire 'csv-mode)
 
 ;;;}}}
+
+;;; Ebuild files
+(desire 'ebuild-mode :recipe '(:fetcher github :repo "emacsmirror/ebuild-mode" :branch "master"))
 ;;; Edit text areas in browsers {{{
 
 (desire 'edit-server)
