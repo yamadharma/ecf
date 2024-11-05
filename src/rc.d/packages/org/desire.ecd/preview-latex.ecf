@@ -46,7 +46,10 @@
 (add-to-list 'org-latex-packages-alist '("" "unicode-math") t)
 ;;; Physics2 package
 ;; (add-to-list 'org-latex-packages-alist '("" "physics2") t)
-;;; Amsmath
+;;; Math
 (add-to-list 'org-latex-packages-alist '("" "amsmath") t)
+(add-to-list 'org-latex-packages-alist '("" "mathtools") t)
+;;; Local definitions
+;; (add-to-list 'org-latex-packages-alist '("" "local-define") t)
 
 ;;;
