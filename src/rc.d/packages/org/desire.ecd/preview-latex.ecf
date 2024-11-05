@@ -47,6 +47,6 @@
 ;;; Physics2 package
 ;; (add-to-list 'org-latex-packages-alist '("" "physics2") t)
 ;;; Amsmath
-(add-to-list 'org-latex-packages-alist ("" "amsmath" t nil) t)
+(add-to-list 'org-latex-packages-alist '("" "amsmath") t)
 
 ;;;
