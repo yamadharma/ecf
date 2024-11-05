@@ -329,6 +329,8 @@
 
 ;;;}}}
 ;;; Org-mode {{{
+;;; Org Babel functions for Asymptote evaluation
+(desire 'ob-asymptote)
 ;; (desire 'org-ql)
 
 (desire 'org-appear)

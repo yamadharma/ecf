@@ -17,8 +17,8 @@
 #+filetags:
 
 :SETUP_LOCAL:
-#+startup: overview hidestars hideblocks num inlineimages
-#+options: ^:{} num:t
+#+startup: overview hidestars showblocks num inlineimages latexpreview
+#+options: ^:{} num:t tex:t
 :END:
 :SETUP_HUGO:
 #+hugo_section: ru/post/%<%Y>
@@ -45,8 +45,8 @@
 #+filetags:
 
 :SETUP_LOCAL:
-#+startup: overview hidestars hideblocks num inlineimages
-#+options: ^:{} num:t
+#+startup: overview hidestars showblocks num inlineimages latexpreview
+#+options: ^:{} num:t tex:t
 :END:
 :SETUP_HUGO:
 #+hugo_section: ru/post/%<%Y>
