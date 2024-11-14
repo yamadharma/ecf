@@ -1,0 +1,33 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Compile Emacs Lisp libraries automatically.
+;;; https://github.com/jamescherti/compile-angel.el
+
+;;; Enable/Disable byte compilation and native compilation
+(setq compile-angel-enable-byte-compile t)
+(setq compile-angel-enable-native-compile t)
+
+;;; Enable verbose (Set it to t while debugging)
+(setq compile-angel-verbose nil)
+
+';; Display the *Compile-Log* buffer (Set it to t while writing elisp)
+(setq compile-angel-display-buffer nil)
+
+;;; Perform byte/native compilation of .el files only once during initial loading
+;;; (Setting this to nil will try to compile each time an .el file is loaded)
+(setq compile-angel-on-load-mode-compile-once t)
+
+;;; Ignore certain files, for example, for users of the `dir-config` package:
+(setq compile-angel-excluded-files-regexps '("/\\.dir-config\\.el$"))
+
+;;; Function that determines if an .el file should be compiled. It takes one
+;;; argument (an EL file) and returns t if the file should be compiled,
+;;; (By default, `compile-angel-predicate-function` is set to nil, which
+;;; means that the predicate function is not called.)
+(setq compile-angel-predicate-function
+      #'(lambda(el-file)
+	  ;; Show a message
+	  (message "PREDICATE: %s" el-file)
+	  ;; Return t (Compile all)
+	  t))
+
+;;;

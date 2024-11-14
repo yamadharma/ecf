@@ -22,16 +22,16 @@
 (add-to-list 'auto-mode-alist '("\\.eclass\\'" . ebuild-eclass-mode))
 (add-to-list 'auto-mode-alist '("/devmanual.*\\.xml\\'" . devbook-mode))
 (add-to-list 'auto-mode-alist
-	     '("/[0-9]\\{4\\}-[01][0-9]-[0-3][0-9]-.+\\.[a-z]\\{2\\}\\.txt\\'"
-	       . gentoo-newsitem-mode))
+         '("/[0-9]\\{4\\}-[01][0-9]-[0-3][0-9]-.+\\.[a-z]\\{2\\}\\.txt\\'"
+           . gentoo-newsitem-mode))
 (add-to-list 'auto-mode-alist '("/glep.*\\.rst\\'" . glep-mode))
 (add-to-list 'auto-mode-alist
-	     '("/\\(package\\.\\(mask\\|unmask\\|use\\|env\
+         '("/\\(package\\.\\(mask\\|unmask\\|use\\|env\
 \\|license\\|properties\\|accept_\\(keywords\\|restrict\\)\\)\
 \\|\\(package\\.\\)?use.\\(stable\\.\\)?\\(force\\|mask\\)\\)\\'"
-	       . conf-space-mode))
+           . conf-space-mode))
 (add-to-list 'auto-mode-alist
-	     '("/make\\.\\(conf\\|defaults\\)\\'" . conf-unix-mode))
+         '("/make\\.\\(conf\\|defaults\\)\\'" . conf-unix-mode))
 (add-to-list 'interpreter-mode-alist '("openrc-run" . sh-mode))
 (add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
 (add-hook 'find-file-hook #'ebuild-repo-mode-maybe-enable)

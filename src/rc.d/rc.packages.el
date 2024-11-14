@@ -52,6 +52,9 @@
 
 ;;;}}}
 
+;;; compile-angel.el
+(desire 'compile-angel :recipe '(:fetcher github :repo "jamescherti/compile-angel.el" :branch "main"))
+
 ;; (desire 'esup)
 
 (desire-old 'site-stuff)
@@ -62,8 +65,8 @@
     ()
   (progn
     (desire-old 'window-system)
-                                      ;    (desire-old  'faces)
-                                      ;    (desire-old  'multi-frame)
+					;    (desire-old  'faces)
+					;    (desire-old  'multi-frame)
     )
   )
 
@@ -329,8 +332,6 @@
 
 ;;;}}}
 ;;; Org-mode {{{
-;;; Org Babel functions for Asymptote evaluation
-(desire 'ob-asymptote)
 ;; (desire 'org-ql)
 
 (desire 'org-appear)
@@ -552,6 +553,9 @@
 
 ;;; Ebuild files
 (desire 'ebuild-mode :recipe '(:fetcher github :repo "emacsmirror/ebuild-mode" :branch "master"))
+
+;;; Asymptote
+(desire 'asy-mode :recipe '(:fetcher github :repo "vectorgraphics/asymptote" :branch "master" :files ("base/asy-mode.el")))
 ;;; Edit text areas in browsers {{{
 
 (desire 'edit-server)
