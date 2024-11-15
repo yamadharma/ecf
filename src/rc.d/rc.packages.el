@@ -556,6 +556,9 @@
 
 ;;; Asymptote
 (desire 'asy-mode :recipe '(:fetcher github :repo "vectorgraphics/asymptote" :branch "master" :files ("base/asy-mode.el")))
+
+;;; kbd-mode
+(desire 'kbd-mode :recipe '(:fetcher github :repo "kmonad/kbd-mode" :branch "master"))
 ;;; Edit text areas in browsers {{{
 
 (desire 'edit-server)
