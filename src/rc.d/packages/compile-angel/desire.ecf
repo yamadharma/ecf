@@ -25,9 +25,9 @@
 ;;; means that the predicate function is not called.)
 (setq compile-angel-predicate-function
       #'(lambda(el-file)
-	  ;; Show a message
-	  (message "PREDICATE: %s" el-file)
-	  ;; Return t (Compile all)
-	  t))
+       ;; Show a message
+       (message "PREDICATE: %s" el-file)
+       ;; Return t (Compile all)
+       t))
 
 ;;;

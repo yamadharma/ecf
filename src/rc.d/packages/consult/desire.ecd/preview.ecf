@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Consulting completing-read
+;;; https://github.com/minad/consult
+
+;; Enable automatic preview at point in the *Completions* buffer.
+(add-hook 'completion-list-mode-hook 'consult-preview-at-point-mode)
+
+;;; Optionally configure the register formatting. This improves the register
+(setq register-preview-delay 0.5
+      register-preview-function #'consult-register-format)
+
+;;; Use Consult to select xref locations with preview
+(setq xref-show-xrefs-function #'consult-xref
+      xref-show-definitions-function #'consult-xref)
+
+;;;

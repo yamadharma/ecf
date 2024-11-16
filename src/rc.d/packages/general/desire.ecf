@@ -3,5 +3,7 @@
 ;;; https://github.com/noctuid/general.el
 
 
+;;; Automatic Key Unbinding
+(general-auto-unbind-keys)
 
 ;;;

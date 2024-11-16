@@ -53,7 +53,7 @@
 ;;;}}}
 
 ;;; compile-angel.el
-(desire 'compile-angel :recipe '(:fetcher github :repo "jamescherti/compile-angel.el" :branch "main"))
+;; (desire 'compile-angel :recipe '(:fetcher github :repo "jamescherti/compile-angel.el" :branch "main"))
 
 ;; (desire 'esup)
 
@@ -65,8 +65,8 @@
     ()
   (progn
     (desire-old 'window-system)
-					;    (desire-old  'faces)
-					;    (desire-old  'multi-frame)
+                                      ;    (desire-old  'faces)
+                                      ;    (desire-old  'multi-frame)
     )
   )
 
@@ -211,6 +211,9 @@
 ;; (desire 'lsp-mode)
 
 ;;; }}}
+
+;;; Casual Suite
+(desire 'casual)
 
 ;;
 
@@ -464,39 +467,7 @@
 (desire 'mu4e :precondition-system-executable "mu")
 
 ;;;}}}
-;;; Programming {{{
 
-(desire 'speedbar)
-;; (desire-old 'semantic nil "semantic")
-
-;; (desire-old 'cedet nil "cedet")
-;; (desire-old 'ecb nil "ecb")
-
-;; (desire-old 'php-mode nil "php-mode")
-;; (desire-old 'eiffel-mode nil "eiffel-mode")
-
-(desire 'ebib)
-
-(desire 'lua-mode)
-
-;;; Julia
-;;; Code completion and syntax checking
-                                      ;(desire 'eglot-jl)
-;;; REPL integration
-(desire 'julia-snail)
-;; (desire 'julia-repl)
-;;; Syntax highlighting and latex symbols
-(desire 'julia-mode)
-
-
-(desire 'yaml-mode)
-(desire 'ini-mode)
-(desire 'hcl-mode)
-
-(desire 'magit-gitflow)
-(desire 'magit)
-
-;;;}}}
 ;;; Blogs {{{
 
 ;; (desire-old 'hexo nil "hexo")
@@ -545,11 +516,10 @@
 
 ;; (require 'chord-mode)  ; edit guitar music.
 ;; (require 'discography) ; variant of BibTeX mode for discographies.
-;;; CSV files {{{
+;;; Different program modes {{{
 
+;;; csv-mode
 (desire 'csv-mode)
-
-;;;}}}
 
 ;;; Ebuild files
 (desire 'ebuild-mode :recipe '(:fetcher github :repo "emacsmirror/ebuild-mode" :branch "master"))
@@ -558,7 +528,41 @@
 (desire 'asy-mode :recipe '(:fetcher github :repo "vectorgraphics/asymptote" :branch "master" :files ("base/asy-mode.el")))
 
 ;;; kbd-mode
-(desire 'kbd-mode :recipe '(:fetcher github :repo "kmonad/kbd-mode" :branch "master"))
+;; (desire 'kbd-mode :recipe '(:fetcher github :repo "kmonad/kbd-mode" :branch "master"))
+
+;;; Julia {{{
+
+;;; Code completion and syntax checking
+                                      ;(desire 'eglot-jl)
+;;; REPL integration
+(desire 'julia-snail)
+;; (desire 'julia-repl)
+;;; Syntax highlighting and latex symbols
+(desire 'julia-mode)
+
+;;;}}}
+
+(desire 'speedbar)
+;; (desire-old 'semantic nil "semantic")
+
+;; (desire-old 'cedet nil "cedet")
+;; (desire-old 'ecb nil "ecb")
+
+;; (desire-old 'php-mode nil "php-mode")
+;; (desire-old 'eiffel-mode nil "eiffel-mode")
+
+(desire 'ebib)
+
+(desire 'lua-mode)
+
+(desire 'yaml-mode)
+(desire 'ini-mode)
+(desire 'hcl-mode)
+
+(desire 'magit-gitflow)
+(desire 'magit)
+
+;;;}}}
 ;;; Edit text areas in browsers {{{
 
 (desire 'edit-server)

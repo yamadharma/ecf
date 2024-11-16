@@ -1,6 +1,14 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; Org-Babel confirm before evaluation
+;;; Org-Babel
 
+;;; Org-babel confirm before evaluation
 (setq org-confirm-babel-evaluate nil)
+
+;;; A simple emacs package to allow org file tangling upon save
+;;; https://github.com/yilkalargaw/org-auto-tangle/
+(desire 'org-auto-tangle)
+(require 'org-auto-tangle)
+(add-hook 'org-mode-hook 'org-auto-tangle-mode)
+(setq org-auto-tangle-default t)
 
 ;;;

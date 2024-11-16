@@ -1,0 +1,7 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A collection of opinionated keyboard-driven user interfaces for various built-in Emacs modes
+;;; https://github.com/kickingvegas/casual
+
+(require 'casual)
+
+;;;
