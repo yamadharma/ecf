@@ -8,6 +8,8 @@
 (if (not (file-directory-p org-roam-directory))
     (make-directory org-roam-directory t))
 
+(setq org-roam-database-connector 'sqlite-builtin)
+
 ;;; Enable the global minor mode org-roam-mode
 ;; (add-hook 'after-init-hook 'org-roam-mode)
 

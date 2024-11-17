@@ -9,6 +9,8 @@
 (desire 'org-auto-tangle)
 (require 'org-auto-tangle)
 (add-hook 'org-mode-hook 'org-auto-tangle-mode)
-(setq org-auto-tangle-default t)
+
+;;; Auto-tangle as the default behavior for all org buffers
+;; (setq org-auto-tangle-default t)
 
 ;;;
