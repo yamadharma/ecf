@@ -179,6 +179,10 @@
 
 ;;;}}}
 
+;; (desire 'display-line-numbers)
+
+(desire 'nlinum)
+
 ;;; Completion {{{
 
 ;; (desire 'company)

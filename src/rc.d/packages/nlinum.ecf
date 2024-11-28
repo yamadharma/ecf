@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Show line numbers in the margin
+;;; https://elpa.gnu.org/packages/nlinum.html
+
+(require 'nlinum)
+(global-nlinum-mode 1)
+
+;;;

@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; An opinionated Transient user interface for the Emacs package Symbol Overlay. 
+;;; An opinionated Transient user interface for the Emacs package Symbol Overlay.
 ;;; https://github.com/kickingvegas/casual-symbol-overlay
 
 (desire 'casual-symbol-overlay)

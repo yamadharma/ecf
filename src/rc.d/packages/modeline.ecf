@@ -1,4 +1,4 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*- 
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Configure modeline
 
 ;;; Show column number
