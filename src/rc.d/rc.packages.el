@@ -21,13 +21,13 @@
 
 ;;; Code:
 
-;; (desire-old 'tiny)
-(desire-old 'personal)
+;; (desire-conf 'tiny)
+(desire-conf 'personal)
 ;;
 ;; Mule
 ;;
-(desire-old 'mule)
-;;(desire-old 'mule-fontset)
+(desire-conf 'mule)
+;;(desire-conf 'mule-fontset)
 ;; ----------------------------------------------------------------------
 ;;
 ;;{{{ Xemacs
@@ -53,31 +53,31 @@
 ;;;}}}
 
 ;;; compile-angel.el
-;; (desire 'compile-angel :recipe '(:fetcher github :repo "jamescherti/compile-angel.el" :branch "main"))
+(desire 'compile-angel)
 
 ;; (desire 'esup)
 
-(desire-old 'site-stuff)
+(desire-conf 'site-stuff)
 
 ;;{{{ Window System
 
 (if (null window-system)
     ()
   (progn
-    (desire-old 'window-system)
-                                      ;    (desire-old  'faces)
-                                      ;    (desire-old  'multi-frame)
+    (desire-conf 'window-system)
+                                      ;    (desire-conf  'faces)
+                                      ;    (desire-conf  'multi-frame)
     )
   )
 
 
 ;; (if (null window-system)
 ;;  ()
-;;  (desire-old 'window-system)
+;;  (desire-conf 'window-system)
 ;; )
 
-;; (desire-old 'window-system)
-;; (desire-old 'test)
+;; (desire-conf 'window-system)
+;; (desire-conf 'test)
 
 ;; (if (eq window-system 'w32)
 ;;  (progn
@@ -92,8 +92,8 @@
 ;;    )
 ;;    (progn
 ;;      (desired 'window-system)
-;;      (desire-old  'faces)
-;;      (desire-old  'multi-frame)
+;;      (desire-conf  'faces)
+;;      (desire-conf  'multi-frame)
 ;;    )
 ;; )
 
@@ -101,13 +101,13 @@
 ;;{{{ Serve
 
 ;;; Gnuserv
-;;(desire-old 'gnuserv nil "gnuserv")
+;;(desire-conf 'gnuserv nil "gnuserv")
 ;; Rely on dtemacs to do this, otherwise a race condition can cause
 ;; dtemacs to fail.
 ;; (gnuserv-start)
 
 ;;; Emacs daemon
-;; (desire-old 'emacs-daemon)
+;; (desire-conf 'emacs-daemon)
 
 ;;; Emacs server
 (desire 'server)
@@ -132,9 +132,9 @@
 
 (desire 'uniquify)
 
-(desire-old 'keys)
-(desire-old 'dialog)
-(desire-old 'mouse)
+(desire-conf 'keys)
+(desire-conf 'dialog)
+(desire-conf 'mouse)
 
 ;; (desire 'xclip)
 
@@ -158,19 +158,18 @@
 (desire 'nerd-icons)
 ;; (desire 'mixed-pitch)
 
-(desire-old 'fontset)
-(desire-old 'font-lock)
-(desire-old 'font-lock-jit)
-;; (desire-old 'font-lock-lazy)
-;; (desire-old 'font-lock-fast)
-;; (desire-old 'faces)
-;; (desire-old 'color-theme nil "color-theme")
-;; (desire-old 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
+(desire-conf 'fontset)
+(desire-conf 'font-lock)
+(desire-conf 'font-lock-jit)
+;; (desire-conf 'font-lock-lazy)
+;; (desire-conf 'font-lock-fast)
+;; (desire-conf 'faces)
+;; (desire-conf 'color-theme nil "color-theme")
+;; (desire-conf 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 
 (desire 'unicode-fonts)
 
-;; (desire-old 'theme)
-;; (desire-old 'modeline)
+;; (desire-conf 'theme)
 
 ;; (desire 'zoom)
 
@@ -224,9 +223,9 @@
 (desire 'bicycle)
 (desire 'hideshow)
 
-(desire-old 'show-paren)
-;; (desire-old 'folding)
-;; (desire-old 'outline)
+(desire-conf 'show-paren)
+;; (desire-conf 'folding)
+;; (desire-conf 'outline)
 
 
 (desire 'origami)
@@ -238,18 +237,18 @@
 (desire 'ace-window)
 
 
-;; (desire-old 'toolbar)
+;; (desire-conf 'toolbar)
 
 ;; Parentesis
 (desire 'smartparens)
 
 ;;; Spell {{{
 
-;; (desire-old 'spell)
+;; (desire-conf 'spell)
 (desire 'ispell)
 (desire 'flyspell)
-;;(desire-old 'speck)
-;;(desire-old 'wcheck)
+;;(desire-conf 'speck)
+;;(desire-conf 'wcheck)
 
 ;; (desire 'flycheck-languagetool)
 ;; (desire 'langtool)
@@ -281,7 +280,7 @@
 
 ;;;}}}
 
-;;(desire-old 'yasnippet)
+;;(desire-conf 'yasnippet)
 
 ;;; Text {{{
 
@@ -299,8 +298,8 @@
 
 (desire' mermaid-mode :precondition-system-executable "mmdc")
 
-(desire-old 'text)
-(desire-old 'markdown-mode nil "markdown-mode" t)
+(desire-conf 'text)
+(desire-conf 'markdown-mode nil "markdown-mode" t)
 
 (desire 'plantuml-mode)
 
@@ -325,9 +324,9 @@
 
 (desire 'cdlatex)
 
-(desire-old 'xdvi nil "xdvi-search")
+(desire-conf 'xdvi nil "xdvi-search")
 (desired 'reftex)
-;; (desire-old 'tex)
+;; (desire-conf 'tex)
 (desired 'preview-latex)
 (desire 'auctex)
 ;; (desire 'auctex :initname "latex")
@@ -407,7 +406,7 @@
 ;;;}}}
 
 (desire 'deft)
-;; (desire-old 'zetteldeft nil "zetteldeft" t)
+;; (desire-conf 'zetteldeft nil "zetteldeft" t)
 
 (desire 'denote)
 
@@ -415,20 +414,20 @@
 
 ;; XML, XHTML, HTML {{{
 
-;;(desire-old 'nxml nil "rng-auto")
-                                      ; (desire-old 'psgml)
+;;(desire-conf 'nxml nil "rng-auto")
+                                      ; (desire-conf 'psgml)
 
 ;;;}}}
 ;;;{{{ Palm pilot support
 
-                                      ;(desire-old 'palm)
+                                      ;(desire-conf 'palm)
 
 ;;;}}}
 ;;; Desktop {{{
 
-;; (desire-old 'desktop)
-(desire-old 'session nil "session")
-(desire-old 'saveplace nil "saveplace")
+;; (desire-conf 'desktop)
+(desire-conf 'session nil "session")
+(desire-conf 'saveplace nil "saveplace")
 
 (desire 'ibuffer)
 ;; (desire 'persp-mode)
@@ -442,16 +441,16 @@
 ;; Use "M-x calendar RET" to display the calendar and start
 ;; appointment warnings.
 
-;; (desire-old 'appt)
+;; (desire-conf 'appt)
 (desire 'calendar)
-;; (desire-old 'todo-mode)
-;; (desire-old 'diary "diary-lib")
+;; (desire-conf 'todo-mode)
+;; (desire-conf 'diary "diary-lib")
 
 ;;;}}}
 ;;; These provide options for the various message handling packages {{{
 
 (desire 'browse-url)
-;; (desire-old 'mailcrypt)
+;; (desire-conf 'mailcrypt)
 ;; (desire 'supercite)
 
 ;;;}}}
@@ -460,9 +459,9 @@
 (desire 'smtpmail)
 ;; (desire 'gnus)
 (desire 'message)
-;; (desire-old 'vm)
+;; (desire-conf 'vm)
 ;; (desire 'wl :ensurename 'wanderlust)
-;; (desire-old 'sendmail)
+;; (desire-conf 'sendmail)
 ;; (desire 'mu4e-dashboard :recipe '(:fetcher github :repo "rougier/mu4e-dashboard"))
 (desire 'mu4e :precondition-system-executable "mu")
 
@@ -470,29 +469,29 @@
 
 ;;; Blogs {{{
 
-;; (desire-old 'hexo nil "hexo")
-;; (desire-old 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
-(desire-old 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
+;; (desire-conf 'hexo nil "hexo")
+;; (desire-conf 'blog-admin nil "blog-admin") ;; Blog admin for emacs with hexo/org-page supported
+(desire-conf 'easy-hugo  nil "easy-hugo" t) ;; Emacs major mode for managing hugo
 
 ;;;}}}
 ;;; Miscellaneous {{{
 
 (desire 'ebuku)
-(desire-old 'graphviz-dot-mode nil "graphviz-dot-mode")
-;; (desire-old 'abbrev)
-;; (desire-old 'bibtex)
-;; (desire-old 'calc)
-;; (desire-old 'eiffel-mode)
-;; (desire-old 'filladapt)
-;; (desire-old 'hugs-mode)
-;; (desire-old 'html-helper-mode)
-;; (desire-old 'lispdir)
-;; (desire-old 'php-mode)
-;; (desire-old 'ps-print)
-;; (desire-old 'sh-script)
-;; (desire-old 'shell)
-;; (desire-old 'sql-mode)
-;; (desire-old 'w3)
+(desire-conf 'graphviz-dot-mode nil "graphviz-dot-mode")
+;; (desire-conf 'abbrev)
+;; (desire-conf 'bibtex)
+;; (desire-conf 'calc)
+;; (desire-conf 'eiffel-mode)
+;; (desire-conf 'filladapt)
+;; (desire-conf 'hugs-mode)
+;; (desire-conf 'html-helper-mode)
+;; (desire-conf 'lispdir)
+;; (desire-conf 'php-mode)
+;; (desire-conf 'ps-print)
+;; (desire-conf 'sh-script)
+;; (desire-conf 'shell)
+;; (desire-conf 'sql-mode)
+;; (desire-conf 'w3)
 (desire 'web-mode)
 (desire 'gnuplot)
 
@@ -543,13 +542,13 @@
 ;;;}}}
 
 (desire 'speedbar)
-;; (desire-old 'semantic nil "semantic")
+;; (desire-conf 'semantic nil "semantic")
 
-;; (desire-old 'cedet nil "cedet")
-;; (desire-old 'ecb nil "ecb")
+;; (desire-conf 'cedet nil "cedet")
+;; (desire-conf 'ecb nil "ecb")
 
-;; (desire-old 'php-mode nil "php-mode")
-;; (desire-old 'eiffel-mode nil "eiffel-mode")
+;; (desire-conf 'php-mode nil "php-mode")
+;; (desire-conf 'eiffel-mode nil "eiffel-mode")
 
 (desire 'ebib)
 
@@ -591,6 +590,12 @@
 
 ;;; Line annotation for changed and saved lines
 (desire 'line-reminder)
+
+;;;}}}
+
+;;; Modeline {{{
+
+(desire-conf 'modeline)
 
 ;;;}}}
 

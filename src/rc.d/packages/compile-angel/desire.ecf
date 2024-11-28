@@ -2,6 +2,14 @@
 ;;; Compile Emacs Lisp libraries automatically.
 ;;; https://github.com/jamescherti/compile-angel.el
 
+;;; Ensure Emacs loads the most recent byte-compiled files.
+(setq load-prefer-newer t)
+
+;;; Ensure JIT compilation is enabled for improved performance by
+;;; native-compiling loaded .elc files asynchronously
+(setq native-comp-jit-compilation t)
+(setq native-comp-deferred-compilation t) ; Deprecated in Emacs > 29.1
+
 ;;; Enable/Disable byte compilation and native compilation
 (setq compile-angel-enable-byte-compile t)
 (setq compile-angel-enable-native-compile t)
@@ -29,5 +37,26 @@
        (message "PREDICATE: %s" el-file)
        ;; Return t (Compile all)
        t))
+
+;; Ensure that quitting only occurs once Emacs finishes native compiling,
+;; preventing incomplete or leftover compilation files in `/tmp`.
+(setq native-comp-async-query-on-exit t)
+(setq confirm-kill-processes t)
+
+;;; Show buffer when there is a warning.
+;;; (NOT RECOMMENDED, except during development).
+;; (setq warning-minimum-level :warning)
+;; (setq byte-compile-verbose t)
+;; (setq byte-compile-warnings t)
+;; (setq native-comp-async-report-warnings-errors t)
+;; (setq native-comp-warning-on-missing-source t)
+
+;;; Non-nil means to natively compile packages as part of their installation.
+(setq package-native-compile t)
+
+(add-hook 'emacs-lisp-mode-hook #'compile-angel-on-save-local-mode)
+
+(compile-angel-on-save-mode)
+(compile-angel-on-load-mode)
 
 ;;;
