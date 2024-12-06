@@ -152,10 +152,12 @@
 
 ;;; UI {{{
 
-;; (desire 'ligature)
+;;; Icons
 
 ;; (desire 'all-the-icons)
+
 (desire 'nerd-icons)
+
 ;; (desire 'mixed-pitch)
 
 (desire-conf 'fontset)
@@ -169,19 +171,25 @@
 
 (desire 'unicode-fonts)
 
+;; (desire 'ligature)
+
 ;; (desire-conf 'theme)
 
 ;; (desire 'zoom)
 
+;;; Tabs
+
 ;; (desire 'centaur-tabs)
+
 (desire 'tab-bar)
+
 (desire 'tab-line)
 
+(desire 'display-line-numbers)
+
+;; (desire 'nlinum)
+
 ;;;}}}
-
-;; (desire 'display-line-numbers)
-
-(desire 'nlinum)
 
 ;;; Completion {{{
 
@@ -277,10 +285,12 @@
 (desire 'bibtex)
 
 ;;;}}}
+
 ;;; Projects {{{
 
-;; (desire 'project)
-(desire 'projectile)
+(desire 'project)
+
+;; (desire 'projectile)
 
 ;;;}}}
 
@@ -314,6 +324,7 @@
 ;; (desire 'valign)
 
 ;;;}}}
+
 ;;; Time management {{{
 
 (desire 'pomm)
@@ -321,6 +332,7 @@
 ;; (desire 'hammy)
 
 ;;;}}}
+
 ;;; LaTeX {{{
 
 (desire 'xenops)
@@ -412,19 +424,19 @@
 (desire 'deft)
 ;; (desire-conf 'zetteldeft nil "zetteldeft" t)
 
-(desire 'denote)
+;; (desire 'denote)
 
 ;;}}}
 
 ;; XML, XHTML, HTML {{{
 
 ;;(desire-conf 'nxml nil "rng-auto")
-                                      ; (desire-conf 'psgml)
+					; (desire-conf 'psgml)
 
 ;;;}}}
 ;;;{{{ Palm pilot support
 
-                                      ;(desire-conf 'palm)
+					;(desire-conf 'palm)
 
 ;;;}}}
 ;;; Desktop {{{
@@ -458,6 +470,7 @@
 ;; (desire 'supercite)
 
 ;;;}}}
+
 ;;; Message {{{
 
 (desire 'smtpmail)
@@ -505,7 +518,10 @@
 (desire 'multiple-cursors)
 
 (desire 'telega)
+
 (desire 'pocket-reader)
+
+(desire 'wallabag)
 
 ;;;}}}
 

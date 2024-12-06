@@ -6,9 +6,9 @@
 (require 'project-rootfile)
 
 ;;; Prefer a VCS root over a root file for project detection
-(add-to-list 'project-find-functions #'project-rootfile-try-detect t)
+;; (add-to-list 'project-find-functions #'project-rootfile-try-detect t)
 
 ;;; Prefer a root file
-;; (add-to-list 'project-find-functions #'project-rootfile-try-detect)
+(add-to-list 'project-find-functions #'project-rootfile-try-detect)
 
 ;;;

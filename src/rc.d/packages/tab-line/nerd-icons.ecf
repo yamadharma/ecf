@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package that uses the nerd-icons package to apply appropriate icons to tab-line tabs
+;;; https://github.com/lucius-martius/tab-line-nerd-icons
+
+(desire 'tab-line-nerd-icons)
+(require 'tab-line-nerd-icons)
+
+;;; Enable
+(tab-line-nerd-icons-global-mode)
+
+;;;

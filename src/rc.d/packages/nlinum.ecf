@@ -3,6 +3,12 @@
 ;;; https://elpa.gnu.org/packages/nlinum.html
 
 (require 'nlinum)
-(global-nlinum-mode 1)
+
+;;; Global settings
+;; (global-nlinum-mode 1)
+
+;;; Per mode configuration
+(add-hook 'prog-mode-hook #'nlinum-mode)
+(add-hook 'text-mode-hook #'nlinum-mode)
 
 ;;;

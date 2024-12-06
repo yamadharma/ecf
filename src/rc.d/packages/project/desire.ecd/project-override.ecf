@@ -16,7 +16,7 @@ https://blog.jmthornton.net/p/emacs-project-override"
   (let ((root (or (locate-dominating-file dir ".project.el")
                   (locate-dominating-file dir ".projectile")))
         (backend (ignore-errors (vc-responsible-backend dir))))
-    (when root (if (version<=emacs-version "28")
+    (when root (if (< emacs-major-version 28)
                     (cons 'vc root)
                   (list 'vc backend root)))))
 

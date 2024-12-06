@@ -1,6 +1,11 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Interface for display-line-numbers
 
-(global-display-line-numbers-mode 1)
+;;; Global
+;; (global-display-line-numbers-mode 1)
+
+;;; Per mode
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'text-mode-hook #'display-line-numbers-mode)
 
 ;;;
