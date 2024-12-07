@@ -431,19 +431,22 @@
 ;; XML, XHTML, HTML {{{
 
 ;;(desire-conf 'nxml nil "rng-auto")
-					; (desire-conf 'psgml)
+                                      ; (desire-conf 'psgml)
 
 ;;;}}}
 ;;;{{{ Palm pilot support
 
-					;(desire-conf 'palm)
+                                      ;(desire-conf 'palm)
 
 ;;;}}}
+
 ;;; Desktop {{{
 
 ;; (desire-conf 'desktop)
 (desire-conf 'session nil "session")
 (desire-conf 'saveplace nil "saveplace")
+
+(desire 'otpp)
 
 (desire 'ibuffer)
 ;; (desire 'persp-mode)
@@ -452,6 +455,7 @@
 ;; (desire 'tabspaces)
 
 ;;}}}
+
 ;;; Appointments, diary, calendar {{{
 
 ;; Use "M-x calendar RET" to display the calendar and start
@@ -463,6 +467,7 @@
 ;; (desire-conf 'diary "diary-lib")
 
 ;;;}}}
+
 ;;; These provide options for the various message handling packages {{{
 
 (desire 'browse-url)
@@ -521,7 +526,7 @@
 
 (desire 'pocket-reader)
 
-(desire 'wallabag)
+(desire 'wallabag :recipe '(:fetcher github :repo "chenyanming/wallabag.el" :branch "master" :files ("*.el" "*.alist" "*.css")))
 
 ;;;}}}
 

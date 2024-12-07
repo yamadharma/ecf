@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs wallabag client - A Read It Later/Web Archiving Solution in Emacs
+;;; https://github.com/chenyanming/wallabag.el
+
+;;; Wallabag server host name
+;; (setq wallabag-host "https://xx.xx.xx")
+
+;;; Username
+;; (setq wallabag-username "xx")
+
+;;; Password
+;; (setq wallabag-password "xx")
+
+;;; Created with API clients management
+;; (setq wallabag-clientid "xx")
+
+;;; Created with API clients management
+;; (setq wallabag-secret "xx")
+
+;;;
