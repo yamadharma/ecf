@@ -428,6 +428,10 @@
 
 ;;}}}
 
+;; (desire 'org-gantt-mode :recipe '(:fetcher gitlab :repo "joukeHijlkema/org-gantt-mode" :branch "master"))
+
+(desire 'elgantt :recipe '(:fetcher github :repo "legalnonsense/elgantt" :branch "master"))
+
 ;; XML, XHTML, HTML {{{
 
 ;;(desire-conf 'nxml nil "rng-auto")

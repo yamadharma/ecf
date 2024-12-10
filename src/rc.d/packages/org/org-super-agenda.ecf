@@ -1,49 +1,50 @@
-;;;; Supercharge your Org daily/weekly agenda by grouping items -*- coding: utf-8-unix; -*-
-;; https://github.com/alphapapa/org-super-agenda
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Supercharge your Org daily/weekly agenda by grouping items
+;;; https://github.com/alphapapa/org-super-agenda1
 
 (require 'org-super-agenda)
 
 (setq org-super-agenda-groups
       '(;; Each group has an implicit boolean OR operator between its selectors
 	(:log t)  ;; Automatically named "Log"
-        (:name "Inbox"
-               :file-path "inbox\\.org")
-        (:name "Today"
+	(:name "Inbox"
+	       :file-path "inbox\\.org")
+	(:name "Today"
 	       :discard (:todo ("DONE" "CNCL"))
 	       :time-grid t
 	       :scheduled today)
 	(:name "Due today"
 	       :deadline today)
 	(:habit t)
-        (:name "Waiting"
-               :todo "WAIT")
+	(:name "Waiting"
+	       :todo "WAIT")
 	(:name "Important"
-               :priority "A")
+	       :priority "A")
 	(:name "Important B"
-               :priority "B")
-        (:name "Schedule"
-               :time-grid t)
+	       :priority "B")
+	(:name "Schedule"
+	       :time-grid t)
 	(:name "Quick Picks"
 	       :effort< "0:30")
 	(:auto-property "ORG_GTD"
 			:discard (:todo ("DONE" "CNCL")))
-        (:name "Next to do"
-               :todo "NEXT")
+	(:name "Next to do"
+	       :todo "NEXT")
 	(:name "Projects"
-               :tag "project"
-               :order 14)
-        (:auto-property "WAIT_ON" :log t)
+	       :tag "project"
+	       :order 14)
+	(:auto-property "WAIT_ON" :log t)
 	(:name "Due soon"
-               :deadline future)
+	       :deadline future)
 	(:name "Overdue"
 	       :deadline past)
-        (:name "Unimportant"
-                :todo ("SOMEDAY" "MAYBE" "CHECK" "TO-READ" "TO-WATCH")
-                :order 100)
-        (:name "Scheduled earlier"
-                :scheduled past)
-        ;; normal priority
-        (:name "Misc"
+	(:name "Unimportant"
+		:todo ("SOMEDAY" "MAYBE" "CHECK" "TO-READ" "TO-WATCH")
+		:order 100)
+	(:name "Scheduled earlier"
+		:scheduled past)
+	;; normal priority
+	(:name "Misc"
 	       :not (:priority "A")
 	       :not (:priority "B"))))
 
