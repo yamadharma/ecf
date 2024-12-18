@@ -8,7 +8,7 @@
       '(("d" "per file flow (Default)" plain "%?"
 	 :target
 	 (file+head
-	  "public/%<%Y%m%d%H%M%S>-${slug}.org"
+	  "public/%<%Y%m%dT%H%M%S>--${slug}.org"
 	  "#+title: ${title}
 #+created: %U
 #+last_modified: %U
@@ -22,7 +22,7 @@
 :END:
 :SETUP_HUGO:
 #+hugo_section: ru/post/%<%Y>
-#+export_file_name: %<%Y-%m-%d>-${slug}
+#+export_file_name: %<%Y-%m-%d>--${slug}
 #+hugo_custom_front_matter: :slug ${slug}
 #+hugo_categories: 
 #+hugo_tags:
@@ -36,7 +36,7 @@
 	("p" "Private" plain "%?"
 	 :target
 	 (file+head
-	  "private/%<%Y%m%d%H%M%S>-${slug}.org"
+	  "private/%<%Y%m%dT%H%M%S>--${slug}.org"
 	  "#+title: ${title}
 #+created: %U
 #+last_modified: %U
@@ -50,7 +50,7 @@
 :END:
 :SETUP_HUGO:
 #+hugo_section: ru/post/%<%Y>
-#+export_file_name: %<%Y-%m-%d>-${slug}
+#+export_file_name: %<%Y-%m-%d>--${slug}
 #+hugo_custom_front_matter: :slug ${slug}
 #+hugo_categories: 
 #+hugo_tags:
@@ -64,7 +64,7 @@
 	("s" "per Section flow (two language)" plain "%?"
 	 :target
 	 (file+head
-	  "public/%<%Y%m%d%H%M%S>-${slug}.org"
+	  "public/%<%Y%m%dT%H%M%S>--${slug}.org"
 	  "#+title: ${title}
 #+created: %U
 #+last_modified: %U
@@ -83,9 +83,9 @@
 * TODO ${title}
 :PROPERTIES:
 :export_hugo_section: ru/post/%<%Y>
-:export_file_name: %<%Y-%m-%d>-${slug}
+:export_file_name: %<%Y-%m-%d>--${slug}
 :export_language: ru
-:header-args: :dir (format \"%s\" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%d%H%M%S> :async yes :cache yes
+:header-args: :dir (format \"%s\" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%dT%H%M%S> :async yes :cache yes
 :END:
 
 #+hugo: more
@@ -94,9 +94,9 @@
 * TODO ${title} [English] :noexport:
 :PROPERTIES:
 :export_hugo_section: en/post/%<%Y>
-:export_file_name: %<%Y-%m-%d>-${slug}
+:export_file_name: %<%Y-%m-%d>--${slug}
 :export_language: en
-:header-args: :dir (format \"%s\" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%d%H%M%S> :async yes :cache yes
+:header-args: :dir (format \"%s\" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%dT%H%M%S> :async yes :cache yes
 :END:
 
 #+hugo: more

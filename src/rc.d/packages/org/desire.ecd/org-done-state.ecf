@@ -16,7 +16,8 @@
                               ((= n-not-done 0)
                                "DONE")
                               (t
-                               "NEXT")))))
+                               ;; "NEXT")))))
+                               "TODO")))))
 (add-hook 'org-after-todo-statistics-hook #'ecf/org-summary-todo-cookie)
 
 (defun ecf/org-summary-checkbox-cookie ()
@@ -40,7 +41,8 @@
                       ((equal (match-string 1) "0%")
                        (org-todo-if-needed "TODO"))
                       (t
-                       (org-todo-if-needed "NEXT")))
+                       ;; (org-todo-if-needed "NEXT")))
+                       (org-todo-if-needed "TODO")))	      
               ;; [x/y] cookie support
               (if (> (match-end 2) (match-beginning 2)) ; = if not empty
                   (cond ((equal (match-string 2) (match-string 3))
@@ -49,8 +51,10 @@
                              (equal (match-string 2) "0"))
                          (org-todo-if-needed "TODO"))
                         (t
-                         (org-todo-if-needed "NEXT")))
-                (org-todo-if-needed "NEXT"))))))))
+                ;;          (org-todo-if-needed "NEXT")))
+                ;; (org-todo-if-needed "NEXT"))))))))
+                         (org-todo-if-needed "TODO")))
+                (org-todo-if-needed "TODO"))))))))
 (add-hook 'org-checkbox-statistics-hook #'ecf/org-summary-checkbox-cookie)
 
 ;;;
