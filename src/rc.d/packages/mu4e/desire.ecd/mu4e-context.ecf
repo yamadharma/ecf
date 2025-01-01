@@ -32,7 +32,7 @@ SIG signature string; supports org formatting thanks to org-msg."
        (refile (concat "/" maildir "/Archive"))
        (draft  (concat "/" maildir "/Drafts"))
        (spam   (concat "/" maildir "/Spam")))
-    
+
     `(make-mu4e-context
       :name ,c-name
       :match-func (lambda (msg)

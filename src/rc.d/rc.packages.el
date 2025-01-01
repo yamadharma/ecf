@@ -570,6 +570,9 @@
 
 ;;;}}}
 
+;;; https://github.com/wwwjfy/emacs-fish
+(desire 'fish-mode)
+
 (desire 'speedbar)
 ;; (desire-conf 'semantic nil "semantic")
 
