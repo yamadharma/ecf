@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Enchanted Spell Checker 
+;;; https://github.com/minad/jinx
+
+(require 'jinx)
+
+;;; Alternative 1: Enable Jinx globally
+;; (add-hook 'emacs-startup-hook #'global-jinx-mode)
+
+;;; Alternative 2: Enable Jinx per mode
+(dolist (hook '(text-mode-hook prog-mode-hook conf-mode-hook))
+  (add-hook hook #'jinx-mode))
+
+;;;

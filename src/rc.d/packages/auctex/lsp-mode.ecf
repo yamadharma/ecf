@@ -2,6 +2,7 @@
 ;;; Emacs lsp-mode client for LaTeX, on texlab
 ;;; https://github.com/ROCKTAKEY/lsp-latex
 
-(require 'lsp-latex)
+(require 'lsp-mode)
+(desire 'lsp-latex :precondition-system-executable "texlab")
 
 ;;;

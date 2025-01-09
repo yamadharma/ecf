@@ -217,9 +217,9 @@
 
 (desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
 
-(desire 'eglot)
+;; (desire 'eglot)
 
-;; (desire 'lsp-mode)
+(desire 'lsp-mode)
 
 ;;; }}}
 
@@ -258,17 +258,19 @@
 
 ;; (desire-conf 'spell)
 (desire 'ispell)
-(desire 'flyspell)
+;; (desire 'flyspell)
 ;;(desire-conf 'speck)
 ;;(desire-conf 'wcheck)
 
-;; (desire 'flycheck-languagetool)
-;; (desire 'langtool)
+(desire 'jinx)
 
+;; (desire 'langtool)
+;; (desire 'flycheck-languagetool)
 ;; (desire 'lsp-ltex :recipe '(:fetcher github :repo "emacs-languagetool/lsp-ltex" :branch "master" :files ("*.el")))
 ;; (desire 'eglot-ltex :recipe '(:fetcher github :repo "emacs-languagetool/eglot-ltex" :branch "master" :files ("*.el")))
 
 ;;;}}}
+
 ;;; Adress book {{{
 
 (desired 'vcard)
@@ -336,7 +338,6 @@
 ;;; LaTeX {{{
 
 (desire 'xenops)
-;; (desire 'lsp-latex :precondition-system-executable "texlab")
 
 (desire 'cdlatex)
 
@@ -611,9 +612,10 @@
 ;; (desire 'efar)
 ;; (desire 'sunrise-commander :recipe '(:fetcher github :repo "sunrise-commander/sunrise-commander"))
 (desire 'dirvish)
-;; (desire 'diredc)
-
 ;;;}}}
+
+;;; Midnight Commander features (plus) for emacs dired-mode
+;; (desire 'diredc)
 
 ;; (desire 'neotree)
 

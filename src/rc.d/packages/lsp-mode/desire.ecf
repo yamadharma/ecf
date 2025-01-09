@@ -2,5 +2,10 @@
 ;; https://emacs-lsp.github.io/
 ;; https://github.com/emacs-lsp/lsp-mode
 
+(require 'lsp-mode)
+
+;;; https://emacs-lsp.github.io/lsp-ui/
+(desire 'lsp-ui)
+
 ;;;
 

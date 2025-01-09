@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; lsp-mode ❤️ treemacs
+;;; https://github.com/emacs-lsp/lsp-treemacs
+
+(require 'lsp-mode)
+
+(desire 'lsp-treemacs)
+(require 'lsp-treemacs)
+
+;;; Enable bidirectional synchronization of lsp workspace folders and treemacs projects
+(lsp-treemacs-sync-mode 1)
+
+;;;

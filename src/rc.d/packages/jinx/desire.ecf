@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Enchanted Spell Checker 
+;;; https://github.com/minad/jinx
+
+
+;;; M-$ triggers correction for the misspelled word before point.
+;;; C-u M-$ triggers correction for the entire buffer.
+;;; C-u C-u M-$ forces correction of the word at point, even if it is not misspelled.
+(keymap-global-set "M-$" #'jinx-correct)
+(keymap-global-set "C-M-$" #'jinx-languages)
+
+;;;
