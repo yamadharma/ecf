@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package that displays available keybindings in popup
+;;; https://github.com/justbur/emacs-which-key
+
+(require 'which-key)
+
+;;;

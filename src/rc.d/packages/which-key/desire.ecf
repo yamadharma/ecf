@@ -2,8 +2,6 @@
 ;;; Emacs package that displays available keybindings in popup
 ;;; https://github.com/justbur/emacs-which-key
 
-(require 'which-key)
-
 ;;; Key-Based replacement
 (which-key-add-key-based-replacements "C-x C-f" "find files")
 (which-key-add-major-mode-key-based-replacements

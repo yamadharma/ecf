@@ -124,6 +124,16 @@
 
 ;; ----------------------------------------------------------------------
 
+;;; LSP mode {{{
+
+(desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
+
+;; (desire 'eglot)
+
+(desire 'lsp-mode)
+
+;;; }}}
+
 ;;{{{ Session Management
 
 (desire 'savehist)
@@ -139,6 +149,7 @@
 ;; (desire 'xclip)
 
 (desire 'which-key)
+
 ;; (desire 'keycast)
 
 ;; ----------------------------------------------------------------------
@@ -212,16 +223,6 @@
 (desire 'windmove)
 
 ;;;}}}
-
-;;; LSP mode {{{
-
-(desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
-
-;; (desire 'eglot)
-
-(desire 'lsp-mode)
-
-;;; }}}
 
 ;;; Casual Suite
 (desire 'casual)

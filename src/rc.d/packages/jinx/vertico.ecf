@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; Enchanted Spell Checker 
+;;; Enchanted Spell Checker
 ;;; https://github.com/minad/jinx
 
 (require 'vertico-multiform)

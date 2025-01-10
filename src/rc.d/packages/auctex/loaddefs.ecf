@@ -2,7 +2,10 @@
 ;;; AUC TeX: Excellent (La)TeX mode.
 ;; http://www.gnu.org/software/auctex/
 
-(add-to-list 'auto-mode-alist '("\\.tex\\.sty\\.cls\\'" . LaTeX-mode))
+;; (add-to-list 'auto-mode-alist '("\\.tex\\.sty\\.cls\\'" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("\\.sty\\'" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("\\.cls\\''" . LaTeX-mode))
 
 (add-hook 'LaTeX-mode-hook
           (lambda ()
