@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Translator on Emacs. Supports multiple engines such as Google, Bing, deepL, ChatGPT, StarDict, Youdao and so on
+;;; https://github.com/lorniu/go-translate
+
+;;; Initialize the default translator, let it translate between en and fr via Google Translate, and the result will be displayed in the Echo Area.
+(setq gt-langs '(en ru))
+(setq gt-default-translator (gt-translator :engines (gt-google-engine)))
+
+;;;

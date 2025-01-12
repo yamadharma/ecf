@@ -36,13 +36,14 @@
     (desired 'xemacs))
 
 ;;}}}
+
 ;;; Package {{{
 
 ;;; Packaging
 (desire 'package)
 
 ;;; Build and install your Emacs Lisp packages on-the-fly and directly from source
-(desire 'quelpa)
+;; (desire 'quelpa)
 
 ;;; A declarative package management system with a command line interface
 ;; (desire 'straight)
@@ -627,6 +628,9 @@
 (desire 'line-reminder)
 
 ;;;}}}
+
+;;; Translator on Emacs
+(desire 'go-translate)
 
 ;;; Modeline {{{
 
