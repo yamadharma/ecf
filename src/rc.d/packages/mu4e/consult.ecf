@@ -2,7 +2,8 @@
 ;;; Consult Mu4e asynchronously in GNU Emacs
 ;;; https://github.com/armindarvish/consult-mu
 
-(desire 'consult-mu :recipe '(:fetcher github :repo "armindarvish/consult-mu" :branch "main" :files ("*.el" "extras/*.el")))
+;; (desire 'consult-mu :pkgman 'quelpa :recipe '(:fetcher github :repo "armindarvish/consult-mu" :branch "main" :files ("*.el" "extras/*.el")))
+(desire 'consult-mu :pkgman 'straight :recipe '(:type git :host github :repo "armindarvish/consult-mu" :branch "main" :files (:defaults "extras/*.el")))
 (require 'consult-mu)
 
 ;;; Maximum number of results shown in minibuffer

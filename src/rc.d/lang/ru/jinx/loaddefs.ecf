@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Enchanted Spell Checker
+;;; https://github.com/minad/jinx
+
+;;; Dictionary language codes, as a string separated by whitespace
+(setq jinx-languages "ru_RU en_US")
+
+;;;

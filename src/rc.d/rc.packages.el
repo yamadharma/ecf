@@ -46,7 +46,7 @@
 ;; (desire 'quelpa)
 
 ;;; A declarative package management system with a command line interface
-;; (desire 'straight)
+(desire 'straight)
 
 ;;; Auto update packages
 (desire 'auto-package-update)
