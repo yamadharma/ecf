@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Simple comment-based outline folding for Emacs
+;;; https://github.com/jdtsmith/outli
+
+(general-define-key
+ :keymaps 'outli-mode-map
+ ;; convenience key to get back to containing heading
+ "C-c C-p"  '(lambda () (interactive) (outline-back-to-heading)))
+
+(add-hook 'prog-mode-hook #'outli-mode)
+(add-hook 'text-mode-hook #'outli-mode)
+
+;;;

@@ -228,6 +228,10 @@
 ;;; Casual Suite
 (desire 'casual)
 
+;; (desire 'origami)
+
+(desire 'outli :recipe '(:fetcher github :repo "jdtsmith/outli" :branch "main"))
+
 ;;
 
 (desire 'tree-sitter)
@@ -283,9 +287,11 @@
 ;; (desire 'bbdb)
 
 ;;;}}}
+
 ;;; Bibliography {{{
 
 (desire 'biblio)
+
 (desire 'bibtex)
 
 ;;;}}}
@@ -311,6 +317,10 @@
 ;; (desire 'pretty-mode)
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
+
+(desire 'lte)
+
+(desire 'move-text)
 
 (desire 'pandoc-mode)
 
@@ -667,5 +677,10 @@
 (desire 'ef-themes)
 
 ;;;}}}
+
+(desire 'eldoc-box)
+(desire 'posframe)
+(desire 'vertico-posframe)
+;; (desire 'nova :recipe '(:fetcher github :repo "thisisran/nova" :branch "main"))
 
 ;;; rc.packages.el ends here

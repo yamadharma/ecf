@@ -1,12 +1,12 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; 
+;;;
 
 ;;; Where bibliographies can be found
 (setq personal-bibliography '("~/work/bib/bib/main.bib"))
 
 ;;; Where PDFs can be found
 ;; (setq bibtex-completion-library-path (directory-files-recursively "~/data/bib/pdf" "\\`[^.]*\\'" 't))
-(setq personal-library-path '("~/data/bib/pdf"))
+(setq personal-library-path '("~/work/bib/data/pdf"))
 
 ;;; Notes
 ;;; Store all notes in one file

@@ -1,5 +1,6 @@
-;;; A folding minor mode for Emacs -*- coding: utf-8-unix; -*-
-;; https://github.com/gregsexton/origami.el
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A folding minor mode for Emacs
+;;; https://github.com/gregsexton/origami.el
 
 (require 'origami)
 

@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Large Table Edition in Org and Markdown buffers for Emacs
+;;; https://github.com/fredericgiquel/lte.el
+
+(require 'lte)
+(add-hook 'org-mode-hook #'lte-truncate-table-mode)
+
+;;;

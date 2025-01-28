@@ -86,7 +86,7 @@
 (require 'org-noter)
 (require 'org-noter-org-roam)
 
-(setq org-noter-notes-search-path '("~/data/bib/pdf/"))
+(setq org-noter-notes-search-path '("~/work/bib/data/pdf"))
 (setq org-noter-insert-selected-text-inside-note t)
 (setq org-noter-highlight-selected-text t)
 (setq org-noter-create-session-from-document-hook '(org-noter--create-session-from-document-file-supporting-org-roam))

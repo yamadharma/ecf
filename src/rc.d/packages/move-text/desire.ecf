@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Move current line or region up or down
+;;; https://github.com/emacsfodder/move-text
+
+;;; Use the default bindings
+(move-text-default-bindings)
+
+;;;
