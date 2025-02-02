@@ -296,14 +296,6 @@
 
 ;;;}}}
 
-;;; Projects {{{
-
-(desire 'project)
-
-;; (desire 'projectile)
-
-;;;}}}
-
 ;;(desire-conf 'yasnippet)
 
 ;;; Text {{{
@@ -472,6 +464,14 @@
 ;; (desire 'tabspaces)
 
 ;;}}}
+
+;;; Project management
+
+(desire 'projection)
+
+(desire 'project)
+
+;; (desire 'projectile)
 
 ;;; Appointments, diary, calendar {{{
 
@@ -678,9 +678,9 @@
 
 ;;;}}}
 
-(desire 'eldoc-box)
 (desire 'posframe)
-(desire 'vertico-posframe)
+
+(desire 'eldoc-box)
 ;; (desire 'nova :recipe '(:fetcher github :repo "thisisran/nova" :branch "main"))
 
 ;;; rc.packages.el ends here

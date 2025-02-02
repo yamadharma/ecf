@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Projectile like project management library built on Emacs project.el
+;;;; https://github.com/mohkale/projection
+
+;;; Code:
+
+(desire 'projection-multi)
+(require 'projection-multi)
+
+;;;; Allow interactively selecting available compilation targets from the current project type
+(general-define-key
+ :keymaps 'project-prefix-map
+ "RET" 'projection-multi-compile)
+
+;;;

@@ -1,5 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Automatically create a tab per project, providing a light tab-bar based workspace management for Emacs
-;;; https://github.com/abougouffa/one-tab-per-project
+;;;; https://github.com/abougouffa/one-tab-per-project
+
+;;; Code:
 
 ;;;
