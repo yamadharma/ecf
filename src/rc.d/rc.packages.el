@@ -232,21 +232,19 @@
 
 (desire 'outli :recipe '(:fetcher github :repo "jdtsmith/outli" :branch "main"))
 
+(desire 'hideshow)
+
+(desire 'bicycle)
+
 ;;
 
 (desire 'tree-sitter)
 
 (desire 'hydra)
 
-(desire 'bicycle)
-(desire 'hideshow)
-
 (desire-conf 'show-paren)
 ;; (desire-conf 'folding)
 ;; (desire-conf 'outline)
-
-
-(desire 'origami)
 
 ;;
 
