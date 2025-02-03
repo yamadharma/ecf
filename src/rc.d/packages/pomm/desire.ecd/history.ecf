@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Log history in CSV format
+;;;; https://github.com/SqrtMinusOne/pomm.el
+
+
+;;; Code:
+
+;;;; Save timer history in a CSV format
+(setq pomm-csv-history-file (expand-file-name "pomm.csv" user-emacs-directory))
+
+;;;; Customize timestamp (for traditional YYYY-MM-DD HH:mm:ss)
+(setq pomm-csv-history-file-timestamp-format "%F %T")
+
+;;;

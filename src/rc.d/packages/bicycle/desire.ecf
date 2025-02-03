@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; Cycle outline and code visibility 
+;;; Cycle outline and code visibility
 ;;;; https://github.com/tarsius/bicycle
 
 ;;; Code:

@@ -49,13 +49,13 @@ The DWIM behaviour of this command is as follows:
 (require 'icomplete) ; Interactive completion in minibuffer.
 
 ;; Strip hostname from domain when posting news
-					;(setq gnus-use-generic-from t)
+                                      ;(setq gnus-use-generic-from t)
 
-					;(auto-compression-mode t)
+                                      ;(auto-compression-mode t)
 ;; Time in 24 hour format, plus day and date.
 ;;
 (add-hook 'write-file-hooks 'time-stamp)
-					; (require 'mc)
+                                      ; (require 'mc)
 
 
 (setq max-specpdl-size 1000)
@@ -65,12 +65,12 @@ The DWIM behaviour of this command is as follows:
 ;; (fringe-mode 16 . nil)
 
 ;; Strip iccc encoding when paste from clipboard
-					;(defun fix-rus-letter ()
-					;  (interactive)
-					;  (goto-char (point-min))
-					;  (while (search-forward-regexp ".%/1..koi8-r." nil t)
-					;    (replace-match ""))
-					;)
+                                      ;(defun fix-rus-letter ()
+                                      ;  (interactive)
+                                      ;  (goto-char (point-min))
+                                      ;  (while (search-forward-regexp ".%/1..koi8-r." nil t)
+                                      ;    (replace-match ""))
+                                      ;)
 
 ;;; Показывает пробелы и табы в конце строк
 (setq show-trailing-whitespace t)
@@ -110,7 +110,7 @@ The DWIM behaviour of this command is as follows:
 (setq global-auto-revert-non-file-buffers t)
 
 ;;; Make searches case insensitive
-(setq case-fold-search t)   
+(setq case-fold-search t)
 
 ;;; Tab completion in minibuffer: case insensitive
 (setq completion-ignore-case  t)

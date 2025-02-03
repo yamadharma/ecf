@@ -65,8 +65,8 @@
     ()
   (progn
     (desire-conf 'window-system)
-					;    (desire-conf  'faces)
-					;    (desire-conf  'multi-frame)
+                                      ;    (desire-conf  'faces)
+                                      ;    (desire-conf  'multi-frame)
     )
   )
 
@@ -334,13 +334,12 @@
 
 ;;;}}}
 
-;;; Time management {{{
+;;;; Time management
 
 (desire 'pomm)
+
 (desire 'org-pomodoro)
 ;; (desire 'hammy)
-
-;;;}}}
 
 ;;; LaTeX {{{
 
