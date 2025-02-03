@@ -6,16 +6,15 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2024 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2025 Dmitry S. Kulyabov
 ;;      Keywords:      rc.packages
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;
 ;;      This code is free software in terms of GNU Gen. pub. Lic. v3 or later
 ;;
-;;  Description
-;;
-;;
+
+;;;  Description:
 
 ;;; Change Log:
 
@@ -37,7 +36,7 @@
 
 ;;}}}
 
-;;; Package {{{
+;;; Package management
 
 ;;; Packaging
 (desire 'package)
@@ -66,8 +65,8 @@
     ()
   (progn
     (desire-conf 'window-system)
-                                      ;    (desire-conf  'faces)
-                                      ;    (desire-conf  'multi-frame)
+					;    (desire-conf  'faces)
+					;    (desire-conf  'multi-frame)
     )
   )
 
@@ -162,9 +161,9 @@
 
 (desire 'rg :precondition-system-executable "rg")
 
-;;; UI {{{
+;;;; User interface
 
-;;; Icons
+;;;;; Icons
 
 ;; (desire 'all-the-icons)
 
@@ -225,7 +224,7 @@
 
 ;;;}}}
 
-;;; Casual Suite
+;;;;; Casual Suite
 (desire 'casual)
 
 ;; (desire 'origami)
@@ -296,7 +295,13 @@
 
 ;;(desire-conf 'yasnippet)
 
-;;; Text {{{
+;;;; Work with text
+
+;;;;; Tables
+
+(desire 'lte)
+
+;;;;; Text view
 
 (desire 'texfrag)
 
@@ -308,9 +313,9 @@
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
 
-(desire 'lte)
-
 (desire 'move-text)
+
+(desire 'delsel)
 
 (desire 'pandoc-mode)
 

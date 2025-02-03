@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Icons for corfu via nerd-icons
+;;;; https://github.com/LuigiPiucco/nerd-icons-corfu
+
+;;; Code:
+
+(desire 'nerd-icons-corfu)
+(require 'nerd-icons-corfu)
+
+(add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
+
+;;;; Tuning
+(setq nerd-icons-corfu-mapping
+      '((array :style "cod" :icon "symbol_array" :face font-lock-type-face)
+        (boolean :style "cod" :icon "symbol_boolean" :face font-lock-builtin-face)
+	;; Remember to add an entry for `t', the library uses that as default.
+        (t :style "cod" :icon "code" :face font-lock-warning-face)))   
+
+;;;
