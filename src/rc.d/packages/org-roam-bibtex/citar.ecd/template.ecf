@@ -42,7 +42,7 @@
 * %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${subtitle}
 :PROPERTIES:
 :export_hugo_section: ru/post/%<%Y>
-:export_file_name: %<%Y-%m-%d>-${citar-citekey}
+:export_file_name: %<%Y-%m-%d>--${citar-citekey}
 :export_language: ru
 :END:
 
@@ -59,7 +59,7 @@ ${citar-author} (${citar-date}) ${citar-title} ${citar-subtitle} [cite:@${citar-
 * %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${citart-subtitle} [English] :noexport:
 :PROPERTIES:
 :export_hugo_section: en/post/%<%Y>
-:export_file_name: %<%Y-%m-%d>-${citar-citekey}
+:export_file_name: %<%Y-%m-%d>--${citar-citekey}
 :export_language: en
 :END:
 

@@ -9,7 +9,8 @@
 
 ;;; Provides commands to categorise and review org-roam nodes for Evergreen note-taking
 ;; (desire 'org-roam-review :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-review.el" "lisp/org-tags-filter.el" "lisp/plisty.el")))
-(desire 'org-roam-review :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main"))
+;; (desire 'org-roam-review :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main"))
+(desire 'org-roam-review :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-review.el" "lisp/org-tags-filter.el" "lisp/plisty.el")))
 (require 'org-roam-review)
 
 ;;; Tag all newly-created notes as seedlings.
