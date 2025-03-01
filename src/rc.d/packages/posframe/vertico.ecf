@@ -1,6 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Vertico-posframe is an vertico extension, which lets vertico use posframe to show its candidate menu
-;;;; https://github.com/tumashu/vertico-posframe
+;; https://github.com/tumashu/vertico-posframe
 
 (desire 'vertico-posframe)
 

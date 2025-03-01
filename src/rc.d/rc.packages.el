@@ -680,7 +680,7 @@
 
 ;;;}}}
 
-(desire 'posframe)
+;; (desire 'posframe)
 
 (desire 'eldoc-box)
 ;; (desire 'nova :recipe '(:fetcher github :repo "thisisran/nova" :branch "main"))
