@@ -4,4 +4,9 @@
 
 ;;; Code:
 
+(require 'calibredb)
+
+;;;; Size indicator
+(setq calibredb-size-show t)
+
 ;;;

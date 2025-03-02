@@ -4,6 +4,4 @@
 
 ;;; Code:
 
-(require 'calibredb)
-
 ;;;

@@ -334,6 +334,8 @@
 
 ;;;}}}
 
+(desire 'calibredb)
+
 ;;;; Time management
 
 (desire 'pomm)

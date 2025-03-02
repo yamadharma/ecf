@@ -4,10 +4,10 @@
 
 ;;; Code:
 
-(setq calibredb-root-dir "/data/book/lib0")
+(setq calibredb-root-dir "/data/book/calibre")
 ;;;; for folder driver metadata: it should be .metadata.calibre
 (setq calibredb-db-dir (expand-file-name "metadata.db" calibredb-root-dir))
-(setq calibredb-library-alist '(("/data/book/lib0" (name . "Calibre")) ;; with name
+(setq calibredb-library-alist '(("/data/book/calibre" (name . "Calibre")) ;; with name
                                 ;; ("/Users/damonchan/Documents/Books Library") ;; no name
                                 ;; ("/Users/damonchan/Documents/HELLO")
                                 ;; ("/Users/damonchan/Documents/Books")
