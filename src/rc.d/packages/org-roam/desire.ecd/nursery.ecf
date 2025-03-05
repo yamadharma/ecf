@@ -5,19 +5,19 @@
 ;;; Renaming nodes, rewriting links and deleting nodes with redirection
 (desire 'org-transclusion)
 
-(desire 'org-roam-rewrite :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-rewrite.el")))
+(desire 'org-roam-rewrite :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-rewrite.el")))
 (require 'org-roam-rewrite)
 
 ;;; Display a tree of backlinks and forward links up to a configurable depth
-(desire 'org-roam-links :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-links.el")))
+(desire 'org-roam-links :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-links.el")))
 (require 'org-roam-links)
 
 ;;; Make previews in org-roam buffer lazy for better performance
-(desire 'org-roam-lazy-previews :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-lazy-previews.el")))
+(desire 'org-roam-lazy-previews :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-lazy-previews.el")))
 (require 'org-roam-lazy-previews)
 
 ;;; Refill org-roam backlink previews
-(desire 'org-roam-refill-previews :recipe '(:fetcher github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-refill-previews.el")))
+(desire 'org-roam-refill-previews :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-refill-previews.el")))
 (require 'org-roam-refill-previews)
 
 (add-hook 'org-roam-preview-postprocess-functions #'org-roam-refill-previews)

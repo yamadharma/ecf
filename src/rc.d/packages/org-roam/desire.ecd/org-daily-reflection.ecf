@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Reflect on your org-roam daily entries
+;; https://github.com/emacsomancer/org-daily-reflection
+
+;;; Code:
+
+(desire 'org-daily-reflection)
+(require 'org-daily-reflection)
+
+;;;
