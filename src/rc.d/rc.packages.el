@@ -224,6 +224,9 @@
 
 ;;;}}}
 
+;;;;; Transient
+(desire 'transient)
+
 ;;;;; Casual Suite
 (desire 'casual)
 
@@ -505,10 +508,9 @@
 ;; (desire-conf 'vm)
 ;; (desire 'wl :ensurename 'wanderlust)
 ;; (desire-conf 'sendmail)
+
 ;; (desire 'mu4e-dashboard :recipe '(:fetcher github :repo "rougier/mu4e-dashboard"))
 (desire 'mu4e :precondition-system-executable "mu")
-
-;;;}}}
 
 ;;; Blogs {{{
 

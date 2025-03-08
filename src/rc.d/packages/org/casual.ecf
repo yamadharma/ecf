@@ -1,11 +1,16 @@
 ;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; A collection of opinionated keyboard-driven user interfaces for various built-in Emacs modes
-;;; https://github.com/kickingvegas/casual
+;; https://github.com/kickingvegas/casual
+
+;;; Code:
 
 (require 'casual-agenda)
 
+;;;; Load menu
 (keymap-set org-agenda-mode-map "C-o" #'casual-agenda-tmenu)
-(keymap-set org-agenda-mode-map "M-j" #'org-agenda-clock-goto) ; optional
-(keymap-set org-agenda-mode-map "J" #'bookmark-jump) ; optional
+
+;;;; Configure Org Agenda to be consistent with bindings used by Casual Agenda
+(keymap-set org-agenda-mode-map "M-j" #'org-agenda-clock-goto)
+(keymap-set org-agenda-mode-map "J" #'bookmark-jump)
 
 ;;;

@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Mu4e mail client, a transient menu
+;; https://www.djcbsoftware.nl/code/mu/
+
+;;; Code:
+
+(require 'mu4e-transient)
+(global-set-key (kbd "C-c m") #'mu4e-transient-menu)
+
+;;;

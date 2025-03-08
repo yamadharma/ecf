@@ -1,6 +1,8 @@
-;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; A collection of opinionated keyboard-driven user interfaces for various built-in Emacs modes
-;;; https://github.com/kickingvegas/casual
+;; https://github.com/kickingvegas/casual
+
+;;; Code:
 
 (require 'casual-calc)
 (require 'casual-dired)
@@ -22,5 +24,8 @@
 (keymap-set reb-lisp-mode-map "C-o" #'casual-re-builder-tmenu)
 (keymap-set bookmark-bmenu-mode-map "C-o" #'casual-bookmarks-tmenu)
 (keymap-global-set "C-o" #'casual-editkit-main-tmenu)
+
+;;;; Use Unicode symbols whenever appropriate for labels
+(setq casual-lib-use-unicode t)
 
 ;;;
