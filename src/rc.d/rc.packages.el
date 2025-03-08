@@ -218,6 +218,10 @@
 (desire 'vertico)
 
 ;;;}}}
+
+;;;; Navigation
+
+(desire 'avy)
 ;;; Window navigation {{{
 
 (desire 'windmove)
