@@ -146,7 +146,7 @@
 (desire-conf 'dialog)
 (desire-conf 'mouse)
 
-;; (desire 'xclip)
+(desire 'xclip)
 
 (desire 'which-key)
 
