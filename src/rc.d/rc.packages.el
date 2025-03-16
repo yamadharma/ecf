@@ -132,8 +132,6 @@
 
 (desire 'lsp-mode)
 
-;;; }}}
-
 ;;{{{ Session Management
 
 (desire 'savehist)
@@ -350,7 +348,7 @@
 (desire 'org-pomodoro)
 ;; (desire 'hammy)
 
-;;; LaTeX {{{
+;;; LaTeX
 
 (desire 'xenops)
 
@@ -360,11 +358,8 @@
 (desired 'reftex)
 ;; (desire-conf 'tex)
 (desired 'preview-latex)
-(desire 'auctex)
-;; (desire 'auctex :initname "latex")
-;; (desire 'auctex :initname "latex" :precondition-lisp-library "tex-site")
 
-;;;}}}
+(desire 'auctex)
 ;;; Org-mode {{{
 ;; (desire 'org-ql)
 

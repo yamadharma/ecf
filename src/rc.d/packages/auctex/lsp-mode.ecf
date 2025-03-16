@@ -1,6 +1,8 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Emacs lsp-mode client for LaTeX, on texlab
-;;; https://github.com/ROCKTAKEY/lsp-latex
+;; https://github.com/ROCKTAKEY/lsp-latex
+
+;;; Code:
 
 (require 'lsp-mode)
 (desire 'lsp-latex :precondition-system-executable "texlab")

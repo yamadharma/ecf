@@ -1,6 +1,14 @@
-;;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Automatic Parsing of TeX Files
+;; http://www.gnu.org/software/auctex/
 
-;; Automatically remove all tabs from a file before saving it.
+;;; Code:
+
+;;;; Automatic Parsing of TeX Files
+(setq TeX-parse-self t)                 ; Enable parse on load
+(setq TeX-auto-save t)                  ; Enable parse on save
+
+;;;; Automatically remove all tabs from a file before saving it
 (setq TeX-auto-untabify t)
 
 ;;;

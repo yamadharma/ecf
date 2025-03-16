@@ -2,15 +2,18 @@
 ;;; Emacs lsp-mode client for LaTeX, on texlab
 ;;; https://github.com/ROCKTAKEY/lsp-latex
 
+;;; Code:
+
 (add-hook 'tex-mode-hook #'lsp)
 (add-hook 'latex-mode-hook #'lsp)
 (add-hook 'LaTeX-mode-hook #'lsp)
+(add-hook 'LaTeX-mode-hook #'lsp)
 
-;;; For YaTeX
+;;;; For YaTeX
 (with-eval-after-load "yatex"
   (add-hook 'yatex-mode-hook #'lsp))
 
-;;; For bibtex
+;;;; For bibtex
 (with-eval-after-load "bibtex"
   (add-hook 'bibtex-mode-hook #'lsp))
 

@@ -3,8 +3,6 @@
 (require 'tex-site)
 
 ;;; Make AUCTeX aware of style files and multi-file documents
-(setq TeX-parse-self t)                 ; Enable parse on load
-(setq TeX-auto-save t)                  ; Enable parse on save
 (setq-default TeX-master nil)		; Query for master file
 
 ;(add-hook
