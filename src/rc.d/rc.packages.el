@@ -200,13 +200,12 @@
 
 ;;;}}}
 
-;;; Completion {{{
+;;;; Completion
 
 ;; (desire 'company)
 (desire 'corfu)
 
-;;;}}}
-;;; Minibuffer completion {{{
+;;;; Minibuffer completion
 
 ;; (desire 'ido)
 ;; (desire 'helm-posframe)
@@ -215,7 +214,11 @@
 ;; (desire 'selectrum)
 (desire 'vertico)
 
-;;;}}}
+;;;;; Transient
+(desire 'transient)
+
+;;;;; Casual Suite
+(desire 'casual)
 
 ;;;; Navigation
 
@@ -225,12 +228,6 @@
 (desire 'windmove)
 
 ;;;}}}
-
-;;;;; Transient
-(desire 'transient)
-
-;;;;; Casual Suite
-(desire 'casual)
 
 ;; (desire 'origami)
 
@@ -337,7 +334,8 @@
 
 ;; (desire 'valign)
 
-;;;}}}
+;;;; Quarto mode
+(desire 'quarto-mode)
 
 (desire 'calibredb)
 

@@ -8,10 +8,12 @@
 (require 'casual-dired)
 (require 'casual-isearch)
 (require 'casual-ibuffer)
+(require 'casual-image)
 (require 'casual-info)
 (require 'casual-re-builder)
 (require 'casual-bookmarks)
 (require 'casual-editkit)
+(require 'casual-make)
 
 (keymap-set calc-mode-map "C-o" #'casual-calc-tmenu)
 (keymap-set dired-mode-map "C-o" #'casual-dired-tmenu)
@@ -19,11 +21,13 @@
 (keymap-set ibuffer-mode-map "C-o" #'casual-ibuffer-tmenu)
 (keymap-set ibuffer-mode-map "F" #'casual-ibuffer-filter-tmenu)
 (keymap-set ibuffer-mode-map "s" #'casual-ibuffer-sortby-tmenu)
+(keymap-set image-mode-map "C-o" #'casual-image-tmenu)
 (keymap-set Info-mode-map "C-o" #'casual-info-tmenu)
 (keymap-set reb-mode-map "C-o" #'casual-re-builder-tmenu)
 (keymap-set reb-lisp-mode-map "C-o" #'casual-re-builder-tmenu)
 (keymap-set bookmark-bmenu-mode-map "C-o" #'casual-bookmarks-tmenu)
 (keymap-global-set "C-o" #'casual-editkit-main-tmenu)
+(keymap-set makefile-mode-map "M-m" #'casual-make-tmenu)
 
 ;;;; Use Unicode symbols whenever appropriate for labels
 (setq casual-lib-use-unicode t)

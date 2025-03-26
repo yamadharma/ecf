@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*- 
+;;; An emacs mode for quarto
+;; https://github.com/quarto-dev/quarto-emacs
+
+;;; Code:
+
+(desire' polymode)
+(desire 'poly-markdown)
+
+(require 'quarto-mode)
+
+;;;
