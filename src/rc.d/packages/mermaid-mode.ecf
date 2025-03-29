@@ -6,7 +6,7 @@
 
 ;;; Location of `mmdc` executable
 ;;; The default assumes you have the binary in your PATH
-;; (setq  mermaid-mmdc-location (expand-file-name "~/.yarn/bin/mmdc"))
+(setq  mermaid-mmdc-location (expand-file-name "~/.local/share/pnpm/mmdc"))
 
 ;;; By default `mmdc` will compile to `png` format
 ;; (setq mermaid-output-format ".png")
