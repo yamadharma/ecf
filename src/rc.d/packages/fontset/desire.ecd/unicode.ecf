@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Font for all unicode characters
+
+;;; Code:
+
+(set-fontset-font "fontset-default" 'unicode
+		  (font-spec :family "Symbola")
+		  nil 'prepend)
+
+;;;

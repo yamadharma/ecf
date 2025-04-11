@@ -2,7 +2,7 @@
 ;;; Configure Unicode fonts for Emacs
 ;; https://github.com/rolandwalker/unicode-fonts
 
-(require 'unicode-fonts)
+;;; Code:
 
 ;;; ligature support
 (setq unicode-fonts-enable-ligatures t)

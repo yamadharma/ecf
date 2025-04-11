@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set emoji
+
+;;; Code:
+
+;;;; Use "Noto Color Emoji" for the emoji script (this is the default).
+(set-fontset-font "fontset-default" 'emoji
+                  '("Noto Color Emoji" . "iso10646-1")
+                  nil 'prepend)
+
+;;;; Display the "heart" character using a color font.
+(set-fontset-font "fontset-default"
+                  #x2764 "Noto Color Emoji")
+
+;;;

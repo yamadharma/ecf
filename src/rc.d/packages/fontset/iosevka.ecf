@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set Iosevka font
+;; https://be5invis.github.io/Iosevka/
+
+;;; Code:
+
+;;;; Set default font
+
+(add-to-list 'default-frame-alist '(font . "Iosevka Term-12" ))
+(add-to-list 'initial-frame-alist '(font . "Iosevka Term-12" ))
+(set-face-attribute 'default nil :font "Iosevka Term-12" )       
+
+;;;; Set font
+(dolist (charset '(latin cyrillic greek))
+  (set-fontset-font "fontset-default" charset
+                    (font-spec :family "Iosevka Term" :size 12)
+                    nil 'prepend))
+
+;;;

@@ -167,25 +167,6 @@
 
 (desire 'nerd-icons)
 
-;; (desire 'mixed-pitch)
-
-(desire-conf 'fontset)
-(desire-conf 'font-lock)
-(desire-conf 'font-lock-jit)
-;; (desire-conf 'font-lock-lazy)
-;; (desire-conf 'font-lock-fast)
-;; (desire-conf 'faces)
-;; (desire-conf 'color-theme nil "color-theme")
-;; (desire-conf 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
-
-(desire 'unicode-fonts)
-
-;; (desire 'ligature)
-
-;; (desire-conf 'theme)
-
-;; (desire 'zoom)
-
 ;;; Tabs
 
 ;; (desire 'centaur-tabs)
@@ -645,6 +626,27 @@
 ;;; Translator on Emacs
 (desire 'go-translate)
 
+;;;; UI
+
+;;;;; Fonts
+
+(desired 'iosevka)
+
+(desire 'fontset)
+
+;; (desire 'mixed-pitch)
+;; (desire-conf 'font-lock)
+;; (desire-conf 'font-lock-jit)
+;; (desire-conf 'font-lock-lazy)
+;; (desire-conf 'font-lock-fast)
+;; (desire-conf 'faces)
+;; (desire-conf 'color-theme nil "color-theme")
+;; (desire-conf 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
+
+;; (desire 'ligature)
+
+(desire 'unicode-fonts)
+
 ;;; Modeline {{{
 
 (desire-conf 'modeline)
@@ -685,5 +687,7 @@
 
 (desire 'eldoc-box)
 ;; (desire 'nova :recipe '(:fetcher github :repo "thisisran/nova" :branch "main"))
+
+;; (desire 'zoom)
 
 ;;; rc.packages.el ends here
