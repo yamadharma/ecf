@@ -2,10 +2,10 @@
 ;;; citar/org-roam integration
 ;;; https://github.com/emacs-citar/citar-org-roam
 
-(setopt citar-org-roam-subdir "literature")
-(setopt citar-org-roam-note-title-template "${author} - ${title}")
+(setq citar-org-roam-subdir "literature")
+(setq citar-org-roam-note-title-template "${author} - ${title}")
 
-(setopt citar-org-roam-template-fields
+(setq citar-org-roam-template-fields
       '((:citar-citekey "key")
 	(:citar-title "title")
 	(:citar-author "author" "editor")
