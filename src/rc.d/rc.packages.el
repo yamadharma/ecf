@@ -218,6 +218,10 @@
 
 (desire 'bicycle)
 
+;;;; Spaces
+
+(desire 'stripspace)
+
 ;;
 
 (desire 'tree-sitter)
@@ -339,7 +343,7 @@
 (desired 'preview-latex)
 
 (desire 'auctex)
-;;; Org-mode {{{
+;;;; Org-mode
 ;; (desire 'org-ql)
 
 (desire 'org-appear)
@@ -647,13 +651,11 @@
 
 (desire 'unicode-fonts)
 
-;;; Modeline {{{
+;;;;; Modeline
 
 (desire-conf 'modeline)
 
-;;;}}}
-
-;;; Themes {{{
+;;;;; Themes
 
 ;;; Nested menu for minor modes
 (desire 'minions)

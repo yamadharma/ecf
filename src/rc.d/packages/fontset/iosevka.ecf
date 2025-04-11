@@ -8,7 +8,7 @@
 
 (add-to-list 'default-frame-alist '(font . "Iosevka Term-12" ))
 (add-to-list 'initial-frame-alist '(font . "Iosevka Term-12" ))
-(set-face-attribute 'default nil :font "Iosevka Term-12" )       
+(set-face-attribute 'default nil :font "Iosevka Term-12" )
 
 ;;;; Set font
 (dolist (charset '(latin cyrillic greek))

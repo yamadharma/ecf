@@ -1,0 +1,24 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Automatically removes trailing whitespace before saving a buffer
+;; https://github.com/jamescherti/stripspace.el
+
+;;; Code:
+
+;;;; Enable for prog-mode-hook, text-mode-hook, conf-mode-hook
+(add-hook 'prog-mode-hook 'stripspace-local-mode)
+(add-hook 'text-mode-hook 'stripspace-local-mode)
+(add-hook 'conf-mode-hook 'stripspace-local-mode)
+
+;;;; The `stripspace-only-if-initially-clean' option:
+;;;; - nil to always delete trailing whitespace.
+;;;; - Non-nil to only delete whitespace when the buffer is clean initially.
+;;;; (The initial cleanliness check is performed when `stripspace-local-mode' is enabled.)
+(custom-set-variables '(stripspace-only-if-initially-clean nil))
+
+;;;; Enabling `stripspace-restore-column' preserves the cursor's column position
+;;;; even after stripping spaces. This is useful in scenarios where you add
+;;;; extra spaces and then save the file. Although the spaces are removed in the
+;;;; saved file, the cursor remains in the same position, ensuring a consistent editing experience without affecting cursor placement.
+(custom-set-variables '(stripspace-restore-column t))
+
+;;;

@@ -1,7 +1,9 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
 ;;; Automatic Item TODO/NEXT/DONE State Transitions for Checkbox Changes
-;;; https://christiantietze.de/posts/2021/02/emacs-org-todo-doing-done-checkbox-cycling/
-;;; https://emacs.stackexchange.com/questions/19843/how-to-automatically-adjust-an-org-task-state-with-its-children-checkboxes
+;; https://christiantietze.de/posts/2021/02/emacs-org-todo-doing-done-checkbox-cycling/
+;; https://emacs.stackexchange.com/questions/19843/how-to-automatically-adjust-an-org-task-state-with-its-children-checkboxes
+
+;;; Code:
 
 (defun org-todo-if-needed (state)
   "Change header state to STATE unless the current item is in STATE already."
@@ -26,9 +28,9 @@
     (unless (not (org-get-todo-state))
       (save-excursion
         (org-back-to-heading t)
-        (setopt beg (point))
+        (setq beg (point))
         (end-of-line)
-        (setopt end (point))
+        (setq end (point))
         (goto-char beg)
         ;; Regex group 1: %-based cookie
         ;; Regex group 2 and 3: x/y cookie
