@@ -9,14 +9,14 @@
 (consult-org-roam-mode 1)
 
 ;;; Use `ripgrep' for searching with `consult-org-roam-search'
-(setq consult-org-roam-grep-func #'consult-ripgrep)
+(setopt consult-org-roam-grep-func #'consult-ripgrep)
 
 ;;; Configure a custom narrow key for `consult-buffer'
-(setq consult-org-roam-buffer-narrow-key ?r)
+(setopt consult-org-roam-buffer-narrow-key ?r)
 
 ;;; Display org-roam buffers right after non-org-roam buffers
 ;;; in consult-buffer (and not down at the bottom)
-(setq consult-org-roam-buffer-after-buffers t)
+(setopt consult-org-roam-buffer-after-buffers t)
 
 
 ;; Eventually suppress previewing for certain functions

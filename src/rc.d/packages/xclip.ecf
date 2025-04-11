@@ -10,9 +10,9 @@
 ;;   ;; Without this, copy and pasting from other wayland apps into
 ;;   ;; emacs-pgtk doesn't work.
 ;;   ;; https://www.emacswiki.org/emacs/CopyAndPaste#h5o-4
-;;   (setq wl-copy-process nil)
+;;   (setopt wl-copy-process nil)
 ;;   (defun wl-copy (text)
-;;     (setq wl-copy-process (make-process :name "wl-copy"
+;;     (setopt wl-copy-process (make-process :name "wl-copy"
 ;;                                         :buffer nil
 ;;                                    :command '("wl-copy" "-f" "-n")
 ;;                                    :connection-type 'pipe
@@ -24,11 +24,11 @@
 ;;     (if (and wl-copy-process (process-live-p wl-copy-process))
 ;;         nil ; should return nil if we're the current paste owner
 ;;       (shell-command-to-string "wl-paste -n | tr -d \r")))
-;;   (setq interprogram-cut-function 'wl-copy)
-;;   (setq interprogram-paste-function 'wl-paste))
+;;   (setopt interprogram-cut-function 'wl-copy)
+;;   (setopt interprogram-paste-function 'wl-paste))
 
 (add-hook 'window-setup-hook #'xclip-mode)
 
-(setq x-select-request-type nil)
+(setopt x-select-request-type nil)
 
 ;;;

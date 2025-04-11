@@ -3,8 +3,8 @@
 
 (require 'ox-html)
 
-(setq org-html-coding-system 'utf-8)
-(setq org-html-head-include-default-style t)
-(setq org-html-head-include-scripts t)
+(setopt org-html-coding-system 'utf-8)
+(setopt org-html-head-include-default-style t)
+(setopt org-html-head-include-scripts t)
 
 ;;;

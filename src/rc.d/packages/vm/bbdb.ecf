@@ -1,7 +1,7 @@
 (bbdb-insinuate-vm)
 
 ;; BBDB name in summary.  This overrides any setting in desire.ecf.
-(setq vm-summary-format
+(setopt vm-summary-format
       "%n %UA%*%a %-15.15UB %2d-%3.3m-%2.-2y [%4l] %s\n")
 
 ;;(defadvice vm-auto-select-folder (around bbdb-auto-select activate compile)
@@ -10,7 +10,7 @@
 ;;  (let* ((record (bbdb/vm-update-record nil))
 ;;         (folder (and record (bbdb-record-getprop record 'mail-folder))))
 ;;    (if folder
-;;        (setq ad-return-value folder)
+;;        (setopt ad-return-value folder)
 ;;      ;; ad-do-it is the original body of vm-auto-select-folder.
 ;;      ad-do-it)))
 
@@ -93,16 +93,16 @@
          (folder-list (and mail-folders (car (read-from-string mail-folders))))
 	 new-folder-list)
     ad-do-it
-    (setq folder-name (ad-get-arg 0))
-    (setq file-name-history 
+    (setopt folder-name (ad-get-arg 0))
+    (setopt file-name-history 
           (append (list folder-name) bbdb/vm-mail-folders-file-name-history))
     (and record
          (progn
 	   (and (string-match (concat "^" vm-folder-directory) folder-name)
-		(setq folder-name
+		(setopt folder-name
 		      (substring folder-name (length vm-folder-directory))))
-           (setq new-folder-list (delete folder-name folder-list))
-           (setq new-folder-list (take 5 (append (list folder-name) new-folder-list)))
+           (setopt new-folder-list (delete folder-name folder-list))
+           (setopt new-folder-list (take 5 (append (list folder-name) new-folder-list)))
 	   (or (equal folder-list new-folder-list)
 	       (bbdb-record-putprop record 'mail-folders 
 				    (prin1-to-string new-folder-list)))
@@ -117,12 +117,12 @@
          (mail-folders (and record (bbdb-record-getprop record 'mail-folders)))
          (folder-list (and mail-folders (car (read-from-string mail-folders))))
          (folder-name (and folder-list (car folder-list))))
-    (setq bbdb/vm-mail-folders-file-name-history file-name-history)
+    (setopt bbdb/vm-mail-folders-file-name-history file-name-history)
     (and (cdr folder-list)
-         (setq file-name-history 
+         (setopt file-name-history 
                (append (cdr folder-list) file-name-history)))
     (if folder-name 
-        (setq ad-return-value folder-name)
+        (setopt ad-return-value folder-name)
       ad-do-it)
     )
   )

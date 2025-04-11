@@ -1,6 +1,6 @@
 ;;; Bibtex key format -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
-(setq bibtex-autokey-year-length 4
+(setopt bibtex-autokey-year-length 4
       bibtex-autokey-name-year-separator "-"
       bibtex-autokey-year-title-separator "-"
       bibtex-autokey-titleword-separator "-"

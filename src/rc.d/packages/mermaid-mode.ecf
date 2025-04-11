@@ -6,10 +6,10 @@
 
 ;;; Location of `mmdc` executable
 ;;; The default assumes you have the binary in your PATH
-(setq  mermaid-mmdc-location (expand-file-name "~/.local/share/pnpm/mmdc"))
+(setopt  mermaid-mmdc-location (expand-file-name "~/.local/share/pnpm/mmdc"))
 
 ;;; By default `mmdc` will compile to `png` format
-;; (setq mermaid-output-format ".png")
+;; (setopt mermaid-output-format ".png")
 
 ;;; Supported key bindings
 ;;; C-c C-c - compile current file to an image
@@ -18,7 +18,7 @@
 ;;; C-c C-r - compile current region to an image
 ;;; C-c C-o - open in the live editor
 ;;; C-c C-d - open the official doc
-;; (setq mermaid-mode-map
+;; (setopt mermaid-mode-map
 ;;       (let ((map mermaid-mode-map))
 ;; 	(define-key map (kbd "C-c C-c") nil)
 ;; 	(define-key map (kbd "C-c C-f") nil)

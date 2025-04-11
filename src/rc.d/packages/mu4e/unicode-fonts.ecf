@@ -5,7 +5,7 @@
 (desire 'mu4e-marker-icons)
 (require 'mu4e-marker-icons)
 
-(setq mu4e-marker-icons-use-unicode t)
+(setopt mu4e-marker-icons-use-unicode t)
 (mu4e-marker-icons-mode 1)
 
 ;;;

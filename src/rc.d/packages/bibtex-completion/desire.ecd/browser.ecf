@@ -3,6 +3,6 @@
 
 ;;; Browser used for opening URLs and DOIs
 ;;; By default bibtex-completion uses whatever is Emacs’ default
-;; (setq bibtex-completion-browser-function 'browser-url-chromium)
+;; (setopt bibtex-completion-browser-function 'browser-url-chromium)
 
 ;;;

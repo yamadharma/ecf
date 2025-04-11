@@ -5,6 +5,6 @@
 (org-cite-register-processor 'ecf/bibtex-org-cite-follow
   :follow (lambda (_ _) (helm-bibtex)))
 
-(setq org-cite-follow-processor 'ecf/bibtex-org-cite-follow)
+(setopt org-cite-follow-processor 'ecf/bibtex-org-cite-follow)
 
 ;;;

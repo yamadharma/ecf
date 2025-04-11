@@ -16,9 +16,9 @@
 (desire 'tree-sitter-query)
 (require 'tree-sitter-query)
 
-(setq tree-sitter-syntax-highlight-enable t)
-(setq tree-sitter-fold-enable t)
-(setq tree-sitter-fold-indicators-enable t)
+(setopt tree-sitter-syntax-highlight-enable t)
+(setopt tree-sitter-fold-enable t)
+(setopt tree-sitter-fold-indicators-enable t)
 
 (global-tree-sitter-mode)
 

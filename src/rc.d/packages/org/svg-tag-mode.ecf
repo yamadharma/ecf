@@ -4,7 +4,7 @@
 
 (desire 'svg-lib)
 (require 'svg-lib)
-(setq svg-lib-icons-dir (expand-file-name "svg-lib" home-cache-path))
+(setopt svg-lib-icons-dir (expand-file-name "svg-lib" home-cache-path))
 (if (not (file-directory-p svg-lib-icons-dir))
     (make-directory svg-lib-icons-dir t))
 
@@ -42,7 +42,7 @@
 
 (set-face-attribute 'svg-tag-default-face nil :family "Iosevka")
 
-(setq svg-tag-tags
+(setopt svg-tag-tags
       `(;;; Org tags
 	;; ("\\(:[A-Za-z0-9_]+[ \-]:\\)" . ((lambda (tag) tag :beg 1 :end -1)))
 	;; ("\\(:[A-Za-z0-9_]+:\\)" . ((lambda (tag) (svg-tag-make tag :beg 1 :end -1))))
@@ -140,7 +140,7 @@
 			(match-beginning 0) (match-end 0))
 		       'display  (nth 3 (eval (nth 2 keyword)))) ))
       (pop keywords)
-      (setq keyword (car keywords)))))
+      (setopt keyword (car keywords)))))
 (add-hook 'org-agenda-finalize-hook #'org-agenda-show-svg)
 
 ;;; Add hook

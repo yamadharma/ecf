@@ -3,7 +3,7 @@
 ;;; https://github.com/emacs-citar/citar
 
 ;;; Plain text indicators
-(setq citar-indicators
+(setopt citar-indicators
       (list citar-indicator-files)) 
 
 ;;;

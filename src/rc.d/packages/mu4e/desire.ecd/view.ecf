@@ -1,7 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;
 
-(setq mu4e-view-show-addresses t
+(setopt mu4e-view-show-addresses t
       mu4e-hide-index-messages t
       ;; try to show images
       mu4e-view-show-images t

@@ -11,14 +11,14 @@
 (org-tree-slide-presentation-profile)
 ;; (org-tree-slide-narrowing-control-profile)
 
-(setq org-tree-slide-cursor-init nil)
+(setopt org-tree-slide-cursor-init nil)
 
-(setq org-tree-slide-activate-message " "
+(setopt org-tree-slide-activate-message " "
       org-tree-slide-deactivate-message " "
       org-tree-slide-modeline-display nil
       org-tree-slide-heading-emphasis t)
-(setq org-tree-slide-skip-outline-level 4)
-(setq org-tree-slide-skip-done nil)
+(setopt org-tree-slide-skip-outline-level 4)
+(setopt org-tree-slide-skip-done nil)
 
 
 (add-hook 'org-tree-slide-after-narrow-hook #'org-display-inline-images)

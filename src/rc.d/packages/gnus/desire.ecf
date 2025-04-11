@@ -1,5 +1,5 @@
-;;(setq gnus-select-method '(nntp "news4.fido7.ru")) 
-;(setq gnus-select-method 
+;;(setopt gnus-select-method '(nntp "news4.fido7.ru")) 
+;(setopt gnus-select-method 
 ;  '(nntp "necromancer.sci.pfu.edu.ru")
 ;) 
 (setq
@@ -43,7 +43,7 @@
 ;; GNUS also goes there!
 ;;(desire 'vm)
 ;; Ignore that... hardcode it... using VM anyway...
-(setq gnus-mail-save-name
+(setopt gnus-mail-save-name
       '(lambda (newsgroup headers &optional last-file)
 	 "~/Mail/GNUS"))
 
@@ -59,7 +59,7 @@
 
 ;;}}}
 
-(setq gnus-posting-styles
+(setopt gnus-posting-styles
   nil
 )  
 

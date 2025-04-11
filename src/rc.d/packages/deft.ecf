@@ -8,20 +8,20 @@
 
 (require 'deft)
 
-;;(setq deft-extensions '("md" "txt" "text" "markdown" "org"))
+;;(setopt deft-extensions '("md" "txt" "text" "markdown" "org"))
 (add-to-list 'deft-extensions "tex")
-(setq deft-default-extension "org")
-(setq deft-text-mode 'org-mode)
-(setq deft-directory org-roam-directory)
+(setopt deft-default-extension "org")
+(setopt deft-text-mode 'org-mode)
+(setopt deft-directory org-roam-directory)
 
-(setq deft-auto-save-interval 0)
+(setopt deft-auto-save-interval 0)
 ;;; disable auto-save
-;; (setq deft-auto-save-interval -1.0)
+;; (setopt deft-auto-save-interval -1.0)
 
 
 
 ;; Enable searching for files in subdirectories
-(setq deft-recursive t)
+(setopt deft-recursive t)
 
 ;;; Global keyboard binding for Deft
 (global-set-key (kbd "C-c n D") 'deft)
@@ -29,23 +29,23 @@
 (global-set-key (kbd "C-x C-g") 'deft-find-file)
 
 ;; For compatibility with other applications which use the filename as the title of a note
-;; (setq deft-use-filename-as-title t)
+;; (setopt deft-use-filename-as-title t)
 
 ;;; When non-nil, automatically generated titles in new org-mode files will be prefixed with #+TITLE:
-(setq deft-org-mode-title-prefix t)
+(setopt deft-org-mode-title-prefix t)
 
 ;;; New filenames will be generated from the filter string and processed according to the rules
 ;;; By default, slashes are removed and replaced by hyphens
-(setq deft-use-filter-string-for-filename t)
+(setopt deft-use-filter-string-for-filename t)
 
 ;;; Converts the filter string into a readable file-name using kebab-case:
-;; (setq deft-file-naming-rules
+;; (setopt deft-file-naming-rules
 ;;     '((noslash . "-")
 ;;       (nospace . "-")
 ;;       (case-fn . downcase)))
 
 ;;; Setting the maximum number of files to list in the Deft browser
-(setq deft-file-limit 50)
+(setopt deft-file-limit 50)
 
 ;;; For org-roam compatibility
 (defun ecf/deft-parse-title (file contents)
@@ -60,7 +60,7 @@
 
 (advice-add 'deft-parse-title :override #'ecf/deft-parse-title)
 
-(setq deft-strip-summary-regexp
+(setopt deft-strip-summary-regexp
       (concat "\\("
 	      "[\n\t]" ;; blank
 	      "\\|^#\\+[[:alpha:]_]+:.*$" ;; org-mode metadata

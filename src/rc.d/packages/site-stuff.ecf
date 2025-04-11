@@ -49,7 +49,7 @@ The DWIM behaviour of this command is as follows:
 (require 'icomplete) ; Interactive completion in minibuffer.
 
 ;; Strip hostname from domain when posting news
-                                      ;(setq gnus-use-generic-from t)
+                                      ;(setopt gnus-use-generic-from t)
 
                                       ;(auto-compression-mode t)
 ;; Time in 24 hour format, plus day and date.
@@ -58,7 +58,7 @@ The DWIM behaviour of this command is as follows:
                                       ; (require 'mc)
 
 
-(setq max-specpdl-size 1000)
+(setopt max-specpdl-size 1000)
 
 
 ;;; Set the fringe a little wider to ensure the text isn’t too close to the window border
@@ -73,12 +73,12 @@ The DWIM behaviour of this command is as follows:
                                       ;)
 
 ;;; Показывает пробелы и табы в конце строк
-(setq show-trailing-whitespace t)
+(setopt show-trailing-whitespace t)
 
 ;;; Prevent horizontal window splitting for Emacs 23
-;; (setq split-width-threshold 9999)
+;; (setopt split-width-threshold 9999)
 
-(setq inhibit-startup-message t)
+(setopt inhibit-startup-message t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -95,24 +95,24 @@ The DWIM behaviour of this command is as follows:
 
 ;;; Warnings
 ;;; Disable report warnings and errors from asynchronous native compilation
-(setq native-comp-async-report-warnings-errors nil)
+(setopt native-comp-async-report-warnings-errors nil)
 
 ;;; Not to warn you about anything except problems
 ;;; :debug | :warning | :error | :emergency
-(setq warning-minimum-level :error)
+(setopt warning-minimum-level :error)
 
 ;;; Don't pop up UI dialogs when prompting
-(setq use-dialog-box nil)
+(setopt use-dialog-box nil)
 
 ;;; Revert buffers when the underlying file has changed
 (global-auto-revert-mode 1)
 ;;; Revert Dired and other buffers
-(setq global-auto-revert-non-file-buffers t)
+(setopt global-auto-revert-non-file-buffers t)
 
 ;;; Make searches case insensitive
-(setq case-fold-search t)
+(setopt case-fold-search t)
 
 ;;; Tab completion in minibuffer: case insensitive
-(setq completion-ignore-case  t)
+(setopt completion-ignore-case  t)
 
 ;;;

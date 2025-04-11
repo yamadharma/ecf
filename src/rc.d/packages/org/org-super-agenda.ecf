@@ -4,7 +4,7 @@
 
 (require 'org-super-agenda)
 
-(setq org-super-agenda-groups
+(setopt org-super-agenda-groups
       '(;; Each group has an implicit boolean OR operator between its selectors
 	(:log t)  ;; Automatically named "Log"
 	(:name "Inbox"

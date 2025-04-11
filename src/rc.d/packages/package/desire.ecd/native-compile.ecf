@@ -2,7 +2,7 @@
 ;;; Set up the package
 
 ;;; Supports ahead-of-time native compilation when installing a package
-(setq package-native-compile t)
+(setopt package-native-compile t)
 
 ;;;
 

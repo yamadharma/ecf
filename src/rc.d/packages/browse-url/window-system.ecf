@@ -1,19 +1,19 @@
 
-;; (setq browse-url-browser-function 'browse-url-netscape)
+;; (setopt browse-url-browser-function 'browse-url-netscape)
 
 
 ;;; Firefox
-(setq browse-url-browser-function 'browse-url-generic
+(setopt browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
 
 ;;; Chromium
-;; (setq browse-url-browser-function 'browse-url-generic
+;; (setopt browse-url-browser-function 'browse-url-generic
 ;;      browse-url-generic-program "chromium-browser")
 
 ;;; Google Chrome
-;; (setq browse-url-browser-function 'browse-url-generic
+;; (setopt browse-url-browser-function 'browse-url-generic
 ;;       browse-url-generic-program "google-chrome-stable")
 
 ;;; Epiphany
-;; (setq browse-url-browser-function 'browse-url-epiphany)
-;; (setq browse-url-epiphany-new-window-is-tab t) ;; for tab instead of new window
+;; (setopt browse-url-browser-function 'browse-url-epiphany)
+;; (setopt browse-url-epiphany-new-window-is-tab t) ;; for tab instead of new window

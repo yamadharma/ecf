@@ -8,6 +8,6 @@
 (add-hook 'wallabag-after-render-hook 'wallabag-search-update-and-clear-filter)
 
 ;;; Image Caching. Setting url-automatic-caching non-nil causes documents to be cached automatically
-(setq url-automatic-caching t)
+(setopt url-automatic-caching t)
 
 ;;;

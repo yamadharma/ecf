@@ -2,7 +2,7 @@
 ;;; Add icons to the widget headings and their items
 
 ;;; All the icons
-(setq centaur-tabs-set-icons t)
-(setq centaur-tabs-icon-type 'all-the-icons)
+(setopt centaur-tabs-set-icons t)
+(setopt centaur-tabs-icon-type 'all-the-icons)
 
 ;;;

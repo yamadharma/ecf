@@ -6,9 +6,9 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer) 
 
 ;; Stop yes-no prompt on delete
-(setq ibuffer-expert t) 
+(setopt ibuffer-expert t) 
 
 ;; (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
-(setq ibuffer-default-sorting-mode 'major-mode)
+(setopt ibuffer-default-sorting-mode 'major-mode)
 
 ;;;

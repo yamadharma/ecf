@@ -3,5 +3,5 @@
 
 ;;; https://github.com/kaushalmodi/ox-hugo/discussions/551
 ;;; https://github.com/bastibe/org-journal/issues/406
-;; (setq org-element-use-cache nil)
+;; (setopt org-element-use-cache nil)
 

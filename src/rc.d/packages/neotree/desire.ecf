@@ -2,7 +2,7 @@
 ;;; A emacs tree plugin like NerdTree for Vim
 ;;; https://github.com/jaypei/emacs-neotree
 
-(setq neo-create-file-auto-open nil
+(setopt neo-create-file-auto-open nil
       neo-auto-indent-point nil
       neo-autorefresh nil
       neo-mode-line-type 'none
@@ -29,8 +29,8 @@
         "^#.*#$"))
 
 ;;; Every time when the neotree window is opened, let it find current file and jump to node.
-(setq neo-smart-open t)
+(setopt neo-smart-open t)
 
-(setq neo-theme 'arrow)
+(setopt neo-theme 'arrow)
 
 ;;;

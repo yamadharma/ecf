@@ -2,7 +2,7 @@
 ;; https://github.com/hlissner/emacs-doom-themes
 
 ;; Use the colorful treemacs theme
-(setq doom-themes-treemacs-theme "doom-colors")
+(setopt doom-themes-treemacs-theme "doom-colors")
 (doom-themes-treemacs-config)
 
 ;;;

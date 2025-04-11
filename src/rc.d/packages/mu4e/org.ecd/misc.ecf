@@ -6,7 +6,7 @@
 (add-hook 'message-mode-hook 'orgtbl-mode 'append)
 (add-hook 'message-mode-hook 'turn-on-flyspell 'append)
 ;; (add-hook 'message-mode-hook
-;;           '(lambda () (setq fill-column 270))
+;;           '(lambda () (setopt fill-column 270))
 ;;           'append)
 
 ;;;

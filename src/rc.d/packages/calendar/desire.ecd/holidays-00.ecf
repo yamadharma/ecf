@@ -4,7 +4,7 @@
 (require 'holidays)
 
 ;; Mark holidays in calendar.
-(setq mark-holidays-in-calendar t)
+(setopt mark-holidays-in-calendar t)
 
 ;;;
 

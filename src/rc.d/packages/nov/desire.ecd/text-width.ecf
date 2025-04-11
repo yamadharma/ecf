@@ -3,6 +3,6 @@
 ;;; https://depp.brause.cc/nov.el/
 
 ;;; Fixed text width
-;; (setq nov-text-width 80)
+;; (setopt nov-text-width 80)
 
 ;;;

@@ -5,6 +5,6 @@
 ;;; https://gitlab.com/protesilaos/ef-themes
 
 ;;; Tweak org-modern timestamps
-;; (setq org-modern-timestamp nil)
+;; (setopt org-modern-timestamp nil)
 
 ;;;

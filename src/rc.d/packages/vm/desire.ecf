@@ -7,7 +7,7 @@
 ;;}}}
 ;; Default spool files.  Assume all mail is delivered locally.  For
 ;; POP mail, fetchmail is used...
-;(setq display-time-mail-file 'no   ;; Let VM do this...
+;(setopt display-time-mail-file 'no   ;; Let VM do this...
 ;      vm-spool-files         (list (getenv "MAIL")
 ;				   (expand-file-name "SMAIL"
 ;						     vm-folder-directory)
@@ -15,14 +15,14 @@
 
 ;;----------------------------------------------------------------------
 
-;(setq vm-primary-inbox       (expand-file-name "INBOX" vm-folder-directory)
+;(setopt vm-primary-inbox       (expand-file-name "INBOX" vm-folder-directory)
 ;      vm-crash-box           (expand-file-name "CRASHBOX" vm-folder-directory)
 ;      vm-preview-lines       nil
 ;      vm-auto-center-summary nil)
 
 ;(let ((vm-dir (expand-file-name (file-name-directory (locate-library "vm")))))
 ;  (mapcar 
-;   '(lambda (p) (eval `(setq ,(car p) ,(expand-file-name (cadr p) vm-dir))))
+;   '(lambda (p) (eval `(setopt ,(car p) ,(expand-file-name (cadr p) vm-dir))))
 ;   '((vm-toolbar-pixmap-directory    "pixmaps")
 ;     (vm-mime-base64-decoder-program "base64-decode")
 ;     (vm-mime-base64-encoder-program "base64-encode")
@@ -34,10 +34,10 @@
 ;  (if (string-match user-mail-names (vm-su-to m))
 ;      "+" " "))
 
-;(setq vm-summary-format
+;(setopt vm-summary-format
 ;      "%n %UA%*%a %-15.15F %2d-%3.3m-%2.-2y [%4l] %s\n")
 
-;(setq vm-summary-uninteresting-senders
+;(setopt vm-summary-uninteresting-senders
 ;      user-mail-names)
 
 ;; Get new mail clears "Mail" from mode line.
@@ -53,7 +53,7 @@
 
 ;; Textual mime types.
 
-(setq vm-mime-internal-content-type-exceptions       nil
+(setopt vm-mime-internal-content-type-exceptions       nil
       vm-auto-displayed-mime-content-type-exceptions nil
       vm-mime-type-converter-alist                   nil)
 
@@ -84,7 +84,7 @@
 
 ;; Use backquote to quote the whole thing because we want to mess with
 ;; user-mail-names in there.
-;(setq vm-virtual-folder-alist
+;(setopt vm-virtual-folder-alist
 ;      `(("*martins*"
 ;	 (("INBOX")
 ;	  (recipient ,user-mail-names)
@@ -151,14 +151,14 @@
 ;;}}}
 ;;{{{ SAVING MAIL
 
-(setq vm-delete-after-saving	      t
+(setopt vm-delete-after-saving	      t
       vm-delete-after-archiving	      t
       vm-move-after-deleting	      t
       vm-auto-folder-case-fold-search t
       vm-confirm-new-folders          t
       vm-default-folder-type          'From_)
 
-;(setq vm-auto-folder-alist
+;(setopt vm-auto-folder-alist
 ;     '(
 ;	("To:"
 ;	 ("@.*\\.linuxcare\\.com" . "linuxcare/misc")
@@ -180,7 +180,7 @@
 ;;}}}
 ;;{{{ REPLYING
 
-;(setq vm-reply-ignored-addresses       (list user-mail-names)
+;(setopt vm-reply-ignored-addresses       (list user-mail-names)
 ;      vm-reply-subject-prefix          "Re: "
 ;     vm-forwarding-subject-format     "[%f: %s]"
 ;      vm-mail-header-insert-message-id nil)
@@ -189,7 +189,7 @@
 
 ;; (require 'vm-multdom)
 ;; (vm-multdom-install)
-;; (setq vm-multdom-user-addresses
+;; (setopt vm-multdom-user-addresses
 ;;       '(("[Mm]artin\\(s\\|\\.Schwenke\\)?@meltin\\.net"
 ;; 	 "martin@meltin.net"
 ;; 	 "Martin Schwenke")
@@ -202,15 +202,15 @@
 ;; 	(".*@meltin\\.net")))
 
 ;(load-library "vm-pcrisis")
-;(setq vmpc-auto-profiles-file
+;(setopt vmpc-auto-profiles-file
 ;      (expand-file-name "vmpc-auto-profiles" emacs-etc-dir))
 
-;(setq vmpc-conditions
+;(setopt vmpc-conditions
 ;      '(
 ;	("ALWAYS"
 ;	 't)))
 
-;(setq vmpc-actions
+;(setopt vmpc-actions
 ;      '(
 ;	("martin at meltin"
 ;	 (let ((martin-at-meltin "\"Martin Schwenke\" <martin@meltin.net>"))
@@ -223,7 +223,7 @@
 ;	))
 
 
-;(setq vmpc-replies-alist
+;(setopt vmpc-replies-alist
 ;      '(
 ;	("ALWAYS" "martin at meltin")
 ;	))

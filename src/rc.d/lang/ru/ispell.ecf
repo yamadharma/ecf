@@ -2,14 +2,14 @@
 
 (if (string-match "ispell" ispell-program-name)
     (progn
-        (setq ispell-dictionary "russian")
-	(setq ispell-alternate-dictionary "english")
+        (setopt ispell-dictionary "russian")
+	(setopt ispell-alternate-dictionary "english")
     )
 )
 
 (if (string-match "aspell" ispell-program-name)
     (progn
-	;(setq ispell-dictionary "ru-yo")
+	;(setopt ispell-dictionary "ru-yo")
 	(add-to-list 'ispell-aspell-dictionary-alist
 	    '("enru" "[[:alpha:]]" "[^[:alpha:]]" "" t
 		("-d" "enru")
@@ -52,8 +52,8 @@
 		nil utf-8)
 	)
 
-	(setq ispell-dictionary "enru-yo")
-	(setq ispell-alternate-dictionary "ru")
+	(setopt ispell-dictionary "enru-yo")
+	(setopt ispell-alternate-dictionary "ru")
     )
 )
 

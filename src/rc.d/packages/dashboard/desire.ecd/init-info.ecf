@@ -3,9 +3,9 @@
 ;;; https://github.com/emacs-dashboard/emacs-dashboard
 
 ;;; Show info about the packages loaded and the init time
-(setq dashboard-set-init-info t)
+(setopt dashboard-set-init-info t)
 
 ;;; The message can be customized like this
-;; (setq dashboard-init-info "This is an init message!")
+;; (setopt dashboard-init-info "This is an init message!")
 
 ;;;

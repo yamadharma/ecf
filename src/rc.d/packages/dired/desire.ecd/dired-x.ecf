@@ -12,17 +12,17 @@
   "Like \\[dired-jump] (`dired-jump') but in other window."
   'interactive)
 
-(setq dired-bind-jump t)
+(setopt dired-bind-jump t)
 
 (global-set-key "\C-x\C-j" 'dired-jump)
 (global-set-key "\C-x4\C-j" 'dired-jump-other-window)
   
-(setq dired-x-hands-off-my-keys t)
-(setq dired-bind-man nil)
-(setq dired-bind-info nil)
+(setopt dired-x-hands-off-my-keys t)
+(setopt dired-bind-man nil)
+(setopt dired-bind-info nil)
 (eval-after-load "dired"
-  '(setq dired-mode-map-orig dired-mode-map))
+  '(setopt dired-mode-map-orig dired-mode-map))
 (eval-after-load "dired-x"
-  '(setq dired-mode-map dired-mode-map-orig))
+  '(setopt dired-mode-map dired-mode-map-orig))
 
 ;;;

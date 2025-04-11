@@ -1,4 +1,4 @@
-(setq same-window-buffer-names
+(setopt same-window-buffer-names
       (delete "*shell*" same-window-buffer-names))
 
 (add-to-list 'special-display-regexps

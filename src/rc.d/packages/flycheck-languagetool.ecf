@@ -3,7 +3,7 @@
 ;;; https://github.com/emacs-languagetool/flycheck-languagetool
 
 ;;; FIXME: remove hardcoded directory
-(setq flycheck-languagetool-server-jar "/usr/share/languagetool/lib/languagetool-server.jar")
+(setopt flycheck-languagetool-server-jar "/usr/share/languagetool/lib/languagetool-server.jar")
 
 (require 'flycheck-languagetool)
 

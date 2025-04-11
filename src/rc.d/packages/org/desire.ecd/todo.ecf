@@ -3,7 +3,7 @@
 ;;
 
 ;; The tags are used to filter tasks in the agenda views conveniently.
-(setq org-todo-state-tags-triggers
+(setopt org-todo-state-tags-triggers
       (quote (("CNCL" ("CNCL" . t))
               ("WAIT" ("WAIT" . t))
               ("HOLD" ("WAIT" . t))
@@ -14,12 +14,12 @@
               ("DONE" ("WAIT") ("CNCL")))))
 
 ;; TODO keywords
-(setq org-todo-keywords
+(setopt org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "|" "DONE(d!/!)")
               (sequence "WAIT(w@/!)" "HOLD(h@/!)" "|" "CNCL(c@/!)" "PHONE" "MEETING")
               (sequence "OPEN(O!)" "|" "CLOSED(C!)"))))
 
-(setq org-todo-keyword-faces 
+(setopt org-todo-keyword-faces 
       (quote (("TODO" :foreground "red" :weight bold)
               ("NEXT" :foreground "blue" :weight bold)
               ("STARTED" :foreground "blue" :weight bold)
@@ -37,15 +37,15 @@
 ;; Fast todo selection allows changing from any task todo state to any other 
 ;; state directly by selecting the appropriate key from the fast todo selection key menu.
 ;; Changing a task state is done with C-c C-t KEY
-(setq org-use-fast-todo-selection t)
+(setopt org-use-fast-todo-selection t)
 
 ;; Allows changing todo states with S-left and S-right skipping all of the normal 
 ;; processing when entering or leaving a todo state.
-(setq org-treat-S-cursor-todo-selection-as-state-change nil)
+(setopt org-treat-S-cursor-todo-selection-as-state-change nil)
 
 ;; ToDo state triggers
 
-(setq org-todo-state-tags-triggers
+(setopt org-todo-state-tags-triggers
       (quote (("CNCL" ("CNCL" . t))
               ("WAIT" ("WAIT" . t))
               ("HOLD" ("WAIT") ("HOLD" . t))

@@ -1,33 +1,33 @@
 ;;; Org Task structure and presentation -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;;; Controlling display of leading stars on headlines
-(setq org-hide-leading-stars nil)
+(setopt org-hide-leading-stars nil)
 
 ;;; Enable org-indent mode
-(setq org-startup-indented t)
+(setopt org-startup-indented t)
 
 ;;; Toggle truncate lines
-(setq org-startup-truncated nil)
+(setopt org-startup-truncated nil)
 
 ;; Handling blank lines
-(setq org-cycle-separator-lines 0)
-(setq org-blank-before-new-entry (quote ((heading)
+(setopt org-cycle-separator-lines 0)
+(setopt org-blank-before-new-entry (quote ((heading)
                                          (plain-list-item))))
 
 ;;; Adding new tasks quickly without disturbing the current task content
 ;; To create new headings in a project file it is really convenient
 ;; to use C-RET, C-S-RET, M-RET, and M-S-RET. 
 ;; This inserts a new headline possibly with a TODO keyword.
-(setq org-insert-heading-respect-content nil)
+(setopt org-insert-heading-respect-content nil)
 
 ;;; Searching and showing results
-(setq org-show-following-heading t)
-(setq org-show-hierarchy-above t)
-(setq org-show-siblings (quote ((default))))
+(setopt org-show-following-heading t)
+(setopt org-show-hierarchy-above t)
+(setopt org-show-siblings (quote ((default))))
 
 ;;; Editing and Special key handling
-(setq org-special-ctrl-a/e t)
-(setq org-special-ctrl-k t)
-(setq org-yank-adjusted-subtrees t)
+(setopt org-special-ctrl-a/e t)
+(setopt org-special-ctrl-k t)
+(setopt org-yank-adjusted-subtrees t)
 
 

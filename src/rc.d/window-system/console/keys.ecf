@@ -3,7 +3,7 @@
 ;; bind backspace to be sensible, and help to M-h.
 (global-set-key "\C-h" 'backward-delete-char-untabify)
 (define-key global-map "\M-h" 'help-command)
-(setq help-char ?\M-h )
+(setopt help-char ?\M-h )
 
 ;;;
 

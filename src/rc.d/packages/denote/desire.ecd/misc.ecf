@@ -4,20 +4,20 @@
 ;;; https://github.com/protesilaos/denote
 
 ;; Remember to check the doc strings of those variables.
-(setq denote-directory (expand-file-name "~/work/org/notes/"))
-(setq denote-file-type 'text) ; Org is the default, set others here like I do
+(setopt denote-directory (expand-file-name "~/work/org/notes/"))
+(setopt denote-file-type 'text) ; Org is the default, set others here like I do
 ;; If you want to have a "controlled vocabulary" of keywords,
 ;; meaning that you only use a predefined set of them, then you want
 ;; `denote-infer-keywords' to be nil and `denote-known-keywords' to
 ;; have the keywords you need.
-(setq denote-known-keywords '("emacs" "philosophy" "politics" "economics"))
-(setq denote-infer-keywords t)
-(setq denote-sort-keywords t)
-(setq denote-excluded-directories-regexp nil)
-(setq denote-date-format nil) ; read its doc string
-(setq denote-rename-no-confirm t)
-(setq denote-backlinks-show-context nil)
-(setq denote-rename-buffer-format "[D] %t")
+(setopt denote-known-keywords '("emacs" "philosophy" "politics" "economics"))
+(setopt denote-infer-keywords t)
+(setopt denote-sort-keywords t)
+(setopt denote-excluded-directories-regexp nil)
+(setopt denote-date-format nil) ; read its doc string
+(setopt denote-rename-no-confirm t)
+(setopt denote-backlinks-show-context nil)
+(setopt denote-rename-buffer-format "[D] %t")
 
 ;; Automatically rename Denote buffers when opening them so that
 ;; instead of their long file name they have a literal "[D]"
@@ -25,8 +25,8 @@
 ;; `denote-rename-buffer-format' for how to modify this.
 ;; (denote-rename-buffer-mode 1)
 
-(setq denote-journal-extras-directory nil) ; use the `denote-directory'
-(setq denote-journal-extras-title-format nil) ; always prompt for title
-(setq denote-journal-extras-keyword "journal")
+(setopt denote-journal-extras-directory nil) ; use the `denote-directory'
+(setopt denote-journal-extras-title-format nil) ; always prompt for title
+(setopt denote-journal-extras-keyword "journal")
 
 ;;;

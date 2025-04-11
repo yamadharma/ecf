@@ -1,7 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; https://github.com/tmalsburg/helm-bibtex
 
-(setq bibtex-completion-notes-template-multiple-files
+(setopt bibtex-completion-notes-template-multiple-files
       (concat
        "#+title: ${author-or-editor-abbrev} (${year}): ${title} ${subtitle}\n"
        "#+created: %U\n"

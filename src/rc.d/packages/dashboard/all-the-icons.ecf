@@ -2,15 +2,15 @@
 ;;; Add icons to the widget headings and their items
 
 ;;; Use `all-the-icons' package
-(setq dashboard-icon-type 'all-the-icons)
+(setopt dashboard-icon-type 'all-the-icons)
 
 ;;; Add icons to the widget headings and their items
-;; (setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
+;; (setopt dashboard-set-heading-icons t)
+(setopt dashboard-set-file-icons t)
 
 
 ;;; Show navigator below the banner
-(setq dashboard-set-navigator t)
+(setopt dashboard-set-navigator t)
 
 ;;; Modify heading icons with another icon from all-the-icons octicons
 ;; (dashboard-modify-heading-icons '((recents . "file-text")
@@ -18,7 +18,7 @@
 
 ;;; Customize the buttons of the navigator
 ;;; Format: "(icon title help action face prefix suffix)"
-;; (setq dashboard-navigator-buttons
+;; (setopt dashboard-navigator-buttons
 ;;       `(;;; line1
 ;;         ((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
 ;;           "Homepage"

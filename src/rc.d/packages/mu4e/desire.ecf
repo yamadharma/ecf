@@ -8,8 +8,8 @@
 
 ;;; Attachment directory
 ;; default: `~/Downloads`
-;;; (setq mu4e-attachment-dir "~/Downloads")
-(setq mu4e-attachment-dir
+;;; (setopt mu4e-attachment-dir "~/Downloads")
+(setopt mu4e-attachment-dir
       (expand-file-name "attachments"
 			(substring
 			 (shell-command-to-string "xdg-user-dir DOWNLOAD")
@@ -19,6 +19,6 @@
     (make-directory mu4e-attachment-dir t))
 
 ;;; speed-ups in querying
-(setq mu4e-mu-allow-temp-file t)
+(setopt mu4e-mu-allow-temp-file t)
 
 ;;;

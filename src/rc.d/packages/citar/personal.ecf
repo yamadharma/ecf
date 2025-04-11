@@ -3,12 +3,12 @@
 ;;; https://github.com/emacs-citar/citar
 
 ;;; Where bibliographies can be found
-(setq citar-bibliography personal-bibliography)
+(setopt citar-bibliography personal-bibliography)
 
 ;;; Where PDFs can be found
-(setq citar-library-paths personal-library-path)
+(setopt citar-library-paths personal-library-path)
 
 ;;; Notes
-(setq citar-notes-paths personal-notes-path)
+(setopt citar-notes-paths personal-notes-path)
 
 ;;;

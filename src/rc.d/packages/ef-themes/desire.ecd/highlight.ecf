@@ -5,6 +5,6 @@
 ;;; https://gitlab.com/protesilaos/ef-themes
 
 ;;; Style of region highlight
-(setq ef-themes-region '(intense no-extend neutral))
+(setopt ef-themes-region '(intense no-extend neutral))
 
 ;;;

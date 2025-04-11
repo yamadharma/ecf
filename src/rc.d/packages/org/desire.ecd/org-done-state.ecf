@@ -26,9 +26,9 @@
     (unless (not (org-get-todo-state))
       (save-excursion
         (org-back-to-heading t)
-        (setq beg (point))
+        (setopt beg (point))
         (end-of-line)
-        (setq end (point))
+        (setopt end (point))
         (goto-char beg)
         ;; Regex group 1: %-based cookie
         ;; Regex group 2 and 3: x/y cookie

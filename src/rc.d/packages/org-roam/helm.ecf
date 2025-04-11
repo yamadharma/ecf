@@ -1,6 +1,6 @@
 ;;;
 
-(setq org-roam-completion-everywhere t)
-(setq org-roam-completion-system 'helm)
+(setopt org-roam-completion-everywhere t)
+(setopt org-roam-completion-system 'helm)
 
 ;;;

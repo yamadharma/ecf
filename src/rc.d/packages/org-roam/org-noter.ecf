@@ -47,7 +47,7 @@
 ;;             (let ((current-file-name (expand-file-name (match-string 3)))
 ;;                   (looking-for-filename (expand-file-name doc-path)))
 ;;               (when (file-equal-p current-file-name looking-for-filename)
-;;                 (setq found-heading-position (point)))))
+;;                 (setopt found-heading-position (point)))))
 ;;         (search-failed   ;; when re=search-forward hits the end it throws an error which we should catch
 ;;          (message "This buffer doesn't seem to have a matching NOTER_DOCUMENT heading.") nil)))
 ;;     found-heading-position))
@@ -86,13 +86,13 @@
 (require 'org-noter)
 (require 'org-noter-org-roam)
 
-(setq org-noter-notes-search-path '("~/work/bib/data/pdf"))
-(setq org-noter-insert-selected-text-inside-note t)
-(setq org-noter-highlight-selected-text t)
-(setq org-noter-create-session-from-document-hook '(org-noter--create-session-from-document-file-supporting-org-roam))
-(setq org-noter-always-create-frame nil)
-(setq org-noter-property-note-location "noter_page")
-;; (setq org-noter-disable-narrowing t)
+(setopt org-noter-notes-search-path '("~/work/bib/data/pdf"))
+(setopt org-noter-insert-selected-text-inside-note t)
+(setopt org-noter-highlight-selected-text t)
+(setopt org-noter-create-session-from-document-hook '(org-noter--create-session-from-document-file-supporting-org-roam))
+(setopt org-noter-always-create-frame nil)
+(setopt org-noter-property-note-location "noter_page")
+;; (setopt org-noter-disable-narrowing t)
 
 ;; (global-set-key (kbd " n") 'org-noter)
 

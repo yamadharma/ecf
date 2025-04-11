@@ -26,16 +26,16 @@
 ;; first component.
 
 (if (null system-name)
-  (setq mail-host-address "localhost"))
+  (setopt mail-host-address "localhost"))
 
 (if (equal system-name "localhost")
-  (setq mail-host-address "localhost"))
+  (setopt mail-host-address "localhost"))
 ;;{{{
 
-(setq mail-host-address "localhost")
+(setopt mail-host-address "localhost")
 
 ;(if (not mail-host-address)
-;  (setq mail-host-address
+;  (setopt mail-host-address
 ;    (substring (system-name) (+ 1 (string-match "\\." (system-name))))
 ;  )
 ;)
@@ -58,9 +58,9 @@
   (concat "mail." mail-host-address)
   "*Mail server name.")
 
-;;(setq user-name            "jf")   ;; my user name
-;;(setq user-full-name       "Jens Frederich") ;; my complete name
-;;(setq user-mail-address    "jfrederich@mac.com") ;; my email address
-;;(setq mail-host-address    "mac.com") ;; my default mailserver
+;;(setopt user-name            "jf")   ;; my user name
+;;(setopt user-full-name       "Jens Frederich") ;; my complete name
+;;(setopt user-mail-address    "jfrederich@mac.com") ;; my email address
+;;(setopt mail-host-address    "mac.com") ;; my default mailserver
 
 ;;; personal.ecf ends here

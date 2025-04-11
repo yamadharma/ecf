@@ -7,6 +7,6 @@
  "M-o" 'ace-window)
 
 ;;; List of initial characters used in window labels
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(setopt aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 ;;;

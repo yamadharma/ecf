@@ -4,6 +4,6 @@
 
 ;;; Code:
 
-(setq calibredb-format-nerd-icons t)
+(setopt calibredb-format-nerd-icons t)
 
 ;;;

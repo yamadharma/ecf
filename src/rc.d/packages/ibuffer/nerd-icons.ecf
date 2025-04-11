@@ -5,16 +5,16 @@
 (desire 'nerd-icons-ibuffer)
 
 ;;; Whether display the icons.
-(setq nerd-icons-ibuffer-icon t)
+(setopt nerd-icons-ibuffer-icon t)
 
 ;;; Whether display the colorful icons.
-(setq nerd-icons-ibuffer-color-icon t)
+(setopt nerd-icons-ibuffer-color-icon t)
 
 ;;; The default icon size in ibuffer.
-(setq nerd-icons-ibuffer-icon-size 1.0)
+(setopt nerd-icons-ibuffer-icon-size 1.0)
 
 ;;; Use human readable file size in ibuffer.
-(setq  nerd-icons-ibuffer-human-readable-size t)
+(setopt  nerd-icons-ibuffer-human-readable-size t)
 
 ;;; A list of ways to display buffer lines with `nerd-icons'.
 ;;; See `ibuffer-formats' for details.
@@ -23,7 +23,7 @@
 ;;; Slow Rendering
 ;;; If you experience a slow down in performance when rendering multiple icons simultaneously,
 ;;; you can try setting the following variable
-;; (setq inhibit-compacting-font-caches t)
+;; (setopt inhibit-compacting-font-caches t)
 
 (add-hook 'ibuffer-mode-hook #'nerd-icons-ibuffer-mode)
 

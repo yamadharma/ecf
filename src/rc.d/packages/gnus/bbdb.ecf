@@ -11,7 +11,7 @@
 
 ;; Enable BBDB-assisted scoring
 
-;;(setq gnus-score-find-score-files-function
+;;(setopt gnus-score-find-score-files-function
 ;;  '(gnus-score-find-bnews bbdb/gnus-score)
 ;;)
 

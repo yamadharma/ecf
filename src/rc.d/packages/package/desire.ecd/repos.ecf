@@ -32,7 +32,7 @@
   (package-refresh-contents))
 
 ;;; Dirty hack
-(setq package-check-signature nil) 
+(setopt package-check-signature nil) 
 
 (desire 'gnu-elpa-keyring-update)
 

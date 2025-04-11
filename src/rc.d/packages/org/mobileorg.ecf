@@ -9,15 +9,15 @@
     (make-directory mobileorg-home-dir t)
   )
 
-(setq org-mobile-directory mobileorg-home-dir)
+(setopt org-mobile-directory mobileorg-home-dir)
 
 ;;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull (concat org-directory-todo "/flagged.org"))
+(setopt org-mobile-inbox-for-pull (concat org-directory-todo "/flagged.org"))
 
 ;;; Enable encryption
-;; (setq org-mobile-use-encryption t)
+;; (setopt org-mobile-use-encryption t)
 ;;; Set a password
-;; (setq org-mobile-encryption-password "mypassword")
+;; (setopt org-mobile-encryption-password "mypassword")
 
 
 ;;; org-mobile-files

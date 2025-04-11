@@ -2,11 +2,11 @@
 ;;; A package for using GTD with org-mode
 ;;; https://github.com/Trevoke/org-gtd.el
 
-(setq org-gtd-update-ack "3.0.0")
+(setopt org-gtd-update-ack "3.0.0")
 
 (desire 'org-edna)
 (require 'org-edna)
-(setq org-edna-use-inheritance t)
+(setopt org-edna-use-inheritance t)
 (org-edna-mode)
 
 (desire 'org-agenda-property)
@@ -14,9 +14,9 @@
 
 (require 'org-gtd)
 
-(setq org-gtd-directory org-directory-todo)
+(setopt org-gtd-directory org-directory-todo)
 
 ;;; Ask for confirmation before refiling
-(setq org-gtd-refile-to-any-target nil)
+(setopt org-gtd-refile-to-any-target nil)
 
 ;;;

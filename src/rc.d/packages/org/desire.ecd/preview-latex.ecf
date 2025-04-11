@@ -3,15 +3,15 @@
 ;;; https://orgmode.org/manual/Previewing-LaTeX-fragments.html
 
 ;;; LaTeX image directory
-(setq org-preview-latex-image-directory (concat home-cache-path "org-latex/"))
+(setopt org-preview-latex-image-directory (concat home-cache-path "org-latex/"))
 
 ;;; Output format
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
-(setq org-format-latex-options (plist-put org-format-latex-options :density 600))
-(setq org-format-latex-options (plist-put org-format-latex-options :background "Transparent"))
+(setopt org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
+(setopt org-format-latex-options (plist-put org-format-latex-options :density 600))
+(setopt org-format-latex-options (plist-put org-format-latex-options :background "Transparent"))
 
-(setq org-latex-create-formula-image-program 'dvisvgm)
-(setq org-preview-latex-process-alist
+(setopt org-latex-create-formula-image-program 'dvisvgm)
+(setopt org-preview-latex-process-alist
       '((dvipng :programs
               ("lualatex" "dvipng")
               :description "dvi > png" :message "you need to install the programs: latex and dvipng." :image-input-type "dvi" :image-output-type "png" :image-size-adjust
@@ -38,9 +38,9 @@
                    ("convert -density %D -trim -antialias %f -quality 100 %O"))))
 
 ;;; Configure latex
-(setq org-latex-inputenc-alist '(("utf8" . "utf8x")))
+(setopt org-latex-inputenc-alist '(("utf8" . "utf8x")))
 ;;; Default position for LaTeX figures
-(setq org-latex-default-figure-position "!htbp")
+(setopt org-latex-default-figure-position "!htbp")
 
 ;;; Unicode fonts
 (add-to-list 'org-latex-packages-alist '("" "unicode-math") t)

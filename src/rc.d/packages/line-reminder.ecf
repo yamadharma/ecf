@@ -7,9 +7,9 @@
 
 ;;; Display Annotation
 ;;; linum | indicators
-(setq line-reminder-show-option 'linum)
+(setopt line-reminder-show-option 'linum)
 
 ;;; Display thumbnail
-(setq line-reminder-thumbnail t)
+(setopt line-reminder-thumbnail t)
 
 ;;;

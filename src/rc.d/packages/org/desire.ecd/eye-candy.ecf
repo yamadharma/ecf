@@ -1,17 +1,17 @@
 ;;;
 
-(setq org-pretty-entities t)
+(setopt org-pretty-entities t)
 
 ;;; Turn on fontification for marked up text
-(setq org-fontify-emphasized-text t)
+(setopt org-fontify-emphasized-text t)
 
 ;;; Hide * and / in org text
-(setq org-hide-emphasis-markers t)
+(setopt org-hide-emphasis-markers t)
 
 ;;; Hyperlinks
-(setq org-link-descriptive t)
+(setopt org-link-descriptive t)
 
-(setq org-indirect-buffer-display 'current-window
+(setopt org-indirect-buffer-display 'current-window
       org-eldoc-breadcrumb-separator " → "
       org-enforce-todo-dependencies t
       org-entities-user
@@ -32,6 +32,6 @@
 
 
 ;;; Toggle TeX-like syntax for sub- and superscripts
-(setq org-use-sub-superscripts '{})
+(setopt org-use-sub-superscripts '{})
 
 ;;;

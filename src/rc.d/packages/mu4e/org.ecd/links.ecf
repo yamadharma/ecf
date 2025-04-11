@@ -4,7 +4,7 @@
 (require 'mu4e-org)
 
 ;;; To include links to e-mail messages or search queries in your org-mode files
-(setq mu4e-support-org t)
+(setopt mu4e-support-org t)
 
 ;;; Capture to todo list
 (define-key mu4e-headers-mode-map (kbd "C-c c") 'mu4e-org-store-and-capture)
@@ -28,6 +28,6 @@ Argument MSG msg at point."
         (to-from (mu4e~headers-from-or-to msg)))
     (format "%s: %s (%s)" to-from subject date)))
 
-(setq mu4e-org-link-desc-func 'ecf/mu4e-org-link-desc-func)
+(setopt mu4e-org-link-desc-func 'ecf/mu4e-org-link-desc-func)
 
 ;;;

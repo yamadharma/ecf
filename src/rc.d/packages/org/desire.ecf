@@ -19,18 +19,18 @@
 )
 
 ;; Set to the location of your Org files on your local system
-(setq org-directory orgmode-home-dir)
+(setopt org-directory orgmode-home-dir)
 
-(setq org-directory-todo (concat org-directory "/todo/"))
+(setopt org-directory-todo (concat org-directory "/todo/"))
 
 ;;; Data directory
-(setq org-directory-data (expand-file-name "~/data/org/"))
+(setopt org-directory-data (expand-file-name "~/data/org/"))
 (if (not (file-directory-p org-directory-data))
   (make-directory org-directory-data t))
 
 ;; Agenda files
 (unless org-agenda-files
-(setq org-agenda-files (list org-directory-todo)))
+(setopt org-agenda-files (list org-directory-todo)))
 ;;(add-to-list 'org-agenda-files org-directory-todo)
 
 ;;(org-remove-file "diary.org")

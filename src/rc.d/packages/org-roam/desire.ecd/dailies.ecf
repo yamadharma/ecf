@@ -6,15 +6,15 @@
 (require 'org-roam-dailies)
 
 ;;;; Excluding Nodes and Edges
-(setq org-roam-graph-exclude-matcher '("private" "dailies"))
+(setopt org-roam-graph-exclude-matcher '("private" "dailies"))
 
 ;;;; Path to daily-notes
-(setq org-roam-dailies-directory "daily/")
+(setopt org-roam-dailies-directory "daily/")
 (unless (file-directory-p (concat org-roam-directory "/" org-roam-dailies-directory))
   (make-directory (concat org-roam-directory "/" org-roam-dailies-directory) t))
 
 ;;;; Capture templates for daily-notes in Org-roam
-(setq org-roam-dailies-capture-templates
+(setopt org-roam-dailies-capture-templates
       '(("d" "default" entry
          "* %?"
          :target (file+head "%<%Y-%m-%d>.org"

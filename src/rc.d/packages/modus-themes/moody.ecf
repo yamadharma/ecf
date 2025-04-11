@@ -6,6 +6,6 @@
 
 ;;; Mode line presentation
 ;;; nil (default), 3d, moody, borderless, borderless-3d, borderless-moody
-(setq modus-themes-mode-line 'borderless-moody)
+(setopt modus-themes-mode-line 'borderless-moody)
 
 ;;;

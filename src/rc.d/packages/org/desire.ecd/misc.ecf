@@ -3,7 +3,7 @@
 (require 'org-protocol)
 
 ;; Require a final newline when saving files
-(setq require-final-newline t)
+(setopt require-final-newline t)
 
 ;; Insert inactive timestamps and exclude from export
 
@@ -22,11 +22,11 @@
 (global-set-key (kbd "<f9> t") 'ecf/insert-inactive-timestamp)
 
 ; To prevent the timestamps from being exported in documents
-(setq org-export-with-timestamps nil)
+(setopt org-export-with-timestamps nil)
 
 ;; Return follows links
 
-(setq org-return-follows-link t)
+(setopt org-return-follows-link t)
 
 ;; Highlight clock when running overtime
 
@@ -56,7 +56,7 @@
 
 ;; Highlights persist after changes
 
-(setq org-remove-highlights-with-change nil)
+(setopt org-remove-highlights-with-change nil)
 
 ;; Getting up to date org-mode info documentation
 
@@ -64,16 +64,16 @@
 
 ;; Prefer future dates or not?
 
-(setq org-read-date-prefer-future nil)
+(setopt org-read-date-prefer-future nil)
 
 ;; Automatically change list bullets
 
-(setq org-list-demote-modify-bullet (quote (("+" . "-")
+(setopt org-list-demote-modify-bullet (quote (("+" . "-")
                                             ("*" . "-")
                                             ("1." . "-")
                                             ("1)" . "-"))))
 
 ;; Create unique IDs for tasks when linking
-(setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+(setopt org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
-(setq org-support-shift-select t)
+(setopt org-support-shift-select t)

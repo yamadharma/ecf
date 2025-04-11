@@ -1,6 +1,6 @@
 ;;;
 
 ;; Font lock for inline and display LaTeX math expressions
-(setq markdown-enable-math t)
+(setopt markdown-enable-math t)
 
 ;;;

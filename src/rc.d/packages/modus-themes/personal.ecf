@@ -11,7 +11,7 @@
 ;;; Dark theme
 ;; (load-theme 'modus-vivendi :no-confirm)
 ;;; Switch themes
-;; (setq modus-themes-to-toggle '(modus-operandi modus-vivendi))
+;; (setopt modus-themes-to-toggle '(modus-operandi modus-vivendi))
 
 ;;; Tinted themes
 ;;; modus-operandi-tinted and modus-vivendi-tinted are variants of the two main themes
@@ -20,7 +20,7 @@
 ;;; Dark theme
 ;; (load-theme 'modus-vivendi-tinted :no-confirm)
 ;;; Switch themes
-;; (setq modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
+;; (setopt modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
 
 ;;; Deuteranopia themes
 ;;; modus-operandi-deuteranopia and its companion modus-vivendi-deuteranopia are optimized for users with red-green color deficiency
@@ -29,7 +29,7 @@
 ;;; Dark theme
 ;; (load-theme 'modus-vivendi-deuteranopia :no-confirm)
 ;;; Switch themes
-(setq modus-themes-to-toggle '(modus-operandi-deuteranopia modus-vivendi-deuteranopia))
+(setopt modus-themes-to-toggle '(modus-operandi-deuteranopia modus-vivendi-deuteranopia))
 
 ;;; Tritanopia themes
 ;;; modus-operandi-tritanopia and its companion modus-vivendi-tritanopia are optimized for users with red-green color deficiency
@@ -38,6 +38,6 @@
 ;;; Dark theme
 ;; (load-theme 'modus-vivendi-tritanopia :no-confirm)
 ;;; Switch themes
-;; (setq modus-themes-to-toggle '(modus-operandi-tritanopia modus-vivendi-tritanopia))
+;; (setopt modus-themes-to-toggle '(modus-operandi-tritanopia modus-vivendi-tritanopia))
 
 ;;;

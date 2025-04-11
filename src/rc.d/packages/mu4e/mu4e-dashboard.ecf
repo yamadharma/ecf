@@ -5,8 +5,8 @@
 (require 'mu4e-dashboard)
 
 ;;; Based on https://gist.github.com/rougier/009e7d13a816d053d8f319b56836e1c9
-(setq mu4e-sidebar-frame nil)
-(setq mu4e-sidebar-dashboard-file "~/.config/emacs/lisp/dashboard.org")
+(setopt mu4e-sidebar-frame nil)
+(setopt mu4e-sidebar-dashboard-file "~/.config/emacs/lisp/dashboard.org")
 
 (defun mu4e-sidebar-create (dashboard-file)
   (let ((width (frame-pixel-width))
@@ -38,7 +38,7 @@
                              (visibility . nil)
                              (cursor-type . nil)
                              (minibuffer . nil)))))
-    (setq mu4e-sidebar-frame frame)
+    (setopt mu4e-sidebar-frame frame)
     (select-frame frame)
     (modify-frame-parameters frame `((top . 0)
                                      (height . (text-pixels . ,height))

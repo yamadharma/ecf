@@ -5,7 +5,7 @@
 (desire 'ob-mermaid)
 (require 'ob-mermaid)
 
-(setq ob-mermaid-cli-path (expand-file-name "~/.local/share/pnpm/mmdc"))
+(setopt ob-mermaid-cli-path (expand-file-name "~/.local/share/pnpm/mmdc"))
 
 ;; (cl-pushnew '(mermaid . t) load-language-list)
 

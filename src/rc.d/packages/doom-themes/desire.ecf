@@ -3,10 +3,10 @@
 ;;; https://github.com/doomemacs/themes
 
 ;;; If nil, bold is universally disabled
-(setq doom-themes-enable-bold t)
+(setopt doom-themes-enable-bold t)
 
 ;;; If nil, italics is universally disabled
-(setq doom-themes-enable-italic t)
+(setopt doom-themes-enable-italic t)
 
 ;;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)

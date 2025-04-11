@@ -6,18 +6,18 @@
 
 ;;; The khal calendar to import into by default
 ;;; Set to nil to use the default calendar configured for khal instead
-(setq khalel-default-calendar nil)
+(setopt khalel-default-calendar nil)
 
 ;;; The key to use when registering an `org-capture' template
-(setq khalel-capture-key "e")
-(setq khalel-import-org-file (concat org-directory-todo "calendar.org"))
+(setopt khalel-capture-key "e")
+(setopt khalel-import-org-file (concat org-directory-todo "calendar.org"))
 
 ;;; calendar.org is being overwritten on each import to avoid collecting duplicates inside the file
 ;;; The confirmation prompt for overwriting the file can be disabled
-(setq khalel-import-org-file-confirm-overwrite nil)
+(setopt khalel-import-org-file-confirm-overwrite nil)
 
 ;;; the next 90 days will be more than enough to fill agenda view
-(setq khalel-import-time-delta "+90d")
+(setopt khalel-import-time-delta "+90d")
 
 ;;; Set up a capture template using a helper routine
 (khalel-add-capture-template)

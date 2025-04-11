@@ -1,6 +1,6 @@
 ;;; Calendar's local holidays  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
-;; (setq calendar-holidays
+;; (setopt calendar-holidays
 ;;       (append christian-holidays solar-holidays))
 
 ;;;

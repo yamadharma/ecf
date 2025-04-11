@@ -32,7 +32,7 @@
 ;;     (widen)))
 
 ;; (add-hook 'org-agenda-mode-hook
-;;           #'(lambda () (org-defkey org-agenda-mode-map "W" (lambda () (interactive) (setq ecf/hide-scheduled-and-waiting-next-tasks t) (ecf/widen))))
+;;           #'(lambda () (org-defkey org-agenda-mode-map "W" (lambda () (interactive) (setopt ecf/hide-scheduled-and-waiting-next-tasks t) (ecf/widen))))
 ;;           'append)
 
 ;; (defun ecf/restrict-to-file-or-follow (arg)
@@ -148,20 +148,20 @@
 ;;         (forward-visible-line 1)))
 
 ;;     ; Pop off the first marker on the list and display
-;;     (setq current-project (pop ecf/project-list))
+;;     (setopt current-project (pop ecf/project-list))
 ;;     (when current-project
 ;;       (org-with-point-at current-project
-;;         (setq ecf/hide-scheduled-and-waiting-next-tasks nil)
+;;         (setopt ecf/hide-scheduled-and-waiting-next-tasks nil)
 ;;         (ecf/narrow-to-project))
 ;;       ; Remove the marker
-;;       (setq current-project nil)
+;;       (setopt current-project nil)
 ;;       (org-agenda-redo)
 ;;       (beginning-of-buffer)
-;;       (setq num-projects-left (length ecf/project-list))
+;;       (setopt num-projects-left (length ecf/project-list))
 ;;       (if (> num-projects-left 0)
 ;;           (message "%s projects left to view" num-projects-left)
 ;;         (beginning-of-buffer)
-;;         (setq ecf/hide-scheduled-and-waiting-next-tasks t)
+;;         (setopt ecf/hide-scheduled-and-waiting-next-tasks t)
 ;;         (error "All projects viewed.")))))
 
 ;; (add-hook 'org-agenda-mode-hook
@@ -170,6 +170,6 @@
 
 ;; Force showing the next headline
 
-;; (setq org-show-entry-below (quote ((default))))
+;; (setopt org-show-entry-below (quote ((default))))
 
 ;;;

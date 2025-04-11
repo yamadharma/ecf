@@ -5,7 +5,7 @@
 (desire 'helm-icons)
 (require 'helm-icons)
 
-(setq helm-icons-provider 'nerd-icons)
+(setopt helm-icons-provider 'nerd-icons)
 
 (helm-icons-enable)
 

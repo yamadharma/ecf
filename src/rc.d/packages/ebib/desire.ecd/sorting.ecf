@@ -1,6 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;;; Disable save cross-referencing entries first
-(setq ebib-save-xrefs-first nil)
+(setopt ebib-save-xrefs-first nil)
 
 ;;;

@@ -19,6 +19,6 @@
 ;; C-c C-o: (centaur-tabs-open-in-external-application)
 ;; C-c C-d: (centaur-tabs-open-directory-in-external-application)
 ;;;
-;;(setq centaur-tabs-enable-key-bindings t)
+;;(setopt centaur-tabs-enable-key-bindings t)
 
 ;;;

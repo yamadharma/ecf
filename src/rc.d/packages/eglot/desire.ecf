@@ -5,16 +5,16 @@
 (require 'eglot)
 
 ;;; Control blocking of LSP connection attempts
-(setq eglot-sync-connect nil)
+(setopt eglot-sync-connect nil)
 
-(setq eglot-connect-timeout 10)
-(setq eglot-autoshutdown t)
-(setq eglot-send-changes-idle-time 0.5)
+(setopt eglot-connect-timeout 10)
+(setopt eglot-autoshutdown t)
+(setopt eglot-send-changes-idle-time 0.5)
 
 ;;; Disable `eglot-auto-display-help-buffer` because :select t in its popup rule causes eglot to steal focus too often.
-(setq eglot-auto-display-help-buffer nil)
+(setopt eglot-auto-display-help-buffer nil)
 
 ;;; Disable any debug logging and may speed things up
-(setq eglot-events-buffer-size 0)
+(setopt eglot-events-buffer-size 0)
 
 ;;;

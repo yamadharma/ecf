@@ -5,7 +5,7 @@
 (require 'cdlatex)
 
 ;;; Use \( ... \) instead of $ ... $
-(setq cdlatex-use-dollar-to-ensure-math nil)
+(setopt cdlatex-use-dollar-to-ensure-math nil)
 
 ;;; Disabling keys that have overlapping functionality with other packages
 ;;; smartparens takes care of inserting closing delimiters, and if you

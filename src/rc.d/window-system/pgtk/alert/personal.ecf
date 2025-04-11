@@ -19,6 +19,6 @@
 ;;;   x11           - Changes the urgency property of the window in the X Window System
 ;;;   termux        - Use termux-notification from the Termux API
 
-(setq alert-default-style 'notifications)
+(setopt alert-default-style 'notifications)
 
 ;;;

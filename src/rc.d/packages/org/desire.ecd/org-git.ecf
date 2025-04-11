@@ -3,7 +3,7 @@
 (global-auto-revert-mode 1)
 
 ;;; Find all directories with .git directory under org-directory
-(setq org-directory-git
+(setopt org-directory-git
       (mapcar 'file-name-directory (directory-files-recursively org-directory "^\.git$" t t t)))
 
 (defun ecf/org-git-push ()
@@ -37,7 +37,7 @@
 (defun org-git-push-with-delay (secs)
   (when org-git-push-timer
     (cancel-timer org-git-push-timer))
-  (setq org-git-push-timer
+  (setopt org-git-push-timer
         (run-with-idle-timer
          (* 1 secs) nil 'ecf/org-git-push)))
 

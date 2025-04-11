@@ -2,7 +2,7 @@
 ;;; Org-Babel
 
 ;;; Org-babel confirm before evaluation
-(setq org-confirm-babel-evaluate nil)
+(setopt org-confirm-babel-evaluate nil)
 
 ;;; A simple emacs package to allow org file tangling upon save
 ;;; https://github.com/yilkalargaw/org-auto-tangle/
@@ -11,6 +11,6 @@
 (add-hook 'org-mode-hook 'org-auto-tangle-mode)
 
 ;;; Auto-tangle as the default behavior for all org buffers
-;; (setq org-auto-tangle-default t)
+;; (setopt org-auto-tangle-default t)
 
 ;;;

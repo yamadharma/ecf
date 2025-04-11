@@ -22,7 +22,7 @@
     (holiday-fixed 11 4 "День народного единства")) ;; Unity Day
   "Official state holidays in Russian Federation.")
 
-(setq calendar-holidays (append russian-holidays calendar-holidays))
+(setopt calendar-holidays (append russian-holidays calendar-holidays))
 
 ;;; Date of Nth day after Orthodox Easter
 ;; From https://github.com/grafov/russian-holidays

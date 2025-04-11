@@ -7,7 +7,7 @@
 (require 'oc-biblatex)
 (require 'oc-natbib)
 
-(setq org-cite-export-processors
+(setopt org-cite-export-processors
       '(
 	;; For LaTeX
 	(latex biblatex)

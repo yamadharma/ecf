@@ -2,7 +2,7 @@
 ;;; Emacs server (allow emacsclient to connect to running session)
 
 (require 'server)
-(setq server-client-instructions nil)
+(setopt server-client-instructions nil)
 (unless (server-running-p)
   (server-start))
 

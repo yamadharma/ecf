@@ -9,6 +9,6 @@
 (windmove-default-keybindings 'ctrl)
 
 ;;; Wrap around at edges
-(setq windmove-wrap-around t)
+(setopt windmove-wrap-around t)
 
 ;;;

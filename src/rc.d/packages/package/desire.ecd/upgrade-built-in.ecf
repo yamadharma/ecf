@@ -2,7 +2,7 @@
 ;;; Set up the package
 
 ;;; Upgrade built-in packages
-(setq package-install-upgrade-built-in t)
+(setopt package-install-upgrade-built-in t)
 
 ;;;
 

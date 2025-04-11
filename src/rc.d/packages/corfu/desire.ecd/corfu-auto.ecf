@@ -4,7 +4,7 @@
 
 ;;; Auto completion
 ;;; Enable auto completion and configure quitting
-(setq corfu-auto t)
-(setq corfu-quit-no-match 'separator) ;; or t
+(setopt corfu-auto t)
+(setopt corfu-quit-no-match 'separator) ;; or t
 
 ;;;

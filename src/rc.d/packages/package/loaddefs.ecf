@@ -1,9 +1,9 @@
 ;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Set up the package
 
-(setq warning-suppress-log-types '((package reinitialization)))
+(setopt warning-suppress-log-types '((package reinitialization)))
 
-(setq package-enable-at-startup nil
+(setopt package-enable-at-startup nil
       package-user-dir (concat home-data-path "elpa/")
       package-gnupghome-dir (expand-file-name "gpg" package-user-dir))
 

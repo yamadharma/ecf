@@ -3,17 +3,17 @@
 ;;; https://github.com/emacs-dashboard/emacs-dashboard
 
 ;;; Display icons on both GUI and terminal
-(setq dashboard-display-icons-p t)
+(setopt dashboard-display-icons-p t)
 
 ;;; Use `nerd-icons` package
-(setq dashboard-icon-type 'nerd-icons)
+(setopt dashboard-icon-type 'nerd-icons)
 
 ;;; Add icons to the widget headings and their items
-;; (setq dashboard-set-heading-icons t)
-(setq dashboard-set-file-icons t)
+;; (setopt dashboard-set-heading-icons t)
+(setopt dashboard-set-file-icons t)
 
 ;;; Show navigator below the banner
-;(setq dashboard-set-navigator t)
+;(setopt dashboard-set-navigator t)
 
 
 ;;; Modify heading icons with another icon from all-the-icons octicons
@@ -22,7 +22,7 @@
 
 ;;; Customize the buttons of the navigator
 ;;; Format: "(icon title help action face prefix suffix)"
-;; (setq dashboard-navigator-buttons
+;; (setopt dashboard-navigator-buttons
 ;;       `(;;; line1
 ;;         ((,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
 ;;           "Homepage"

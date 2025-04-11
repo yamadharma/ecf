@@ -8,6 +8,6 @@
 
 ;;;; "texlab" executable must be located at a directory contained in `exec-path'.
 ;;;; If you want to put "texlab" somewhere else, you can specify the path to "texlab" as follows:
-;; (setq lsp-latex-texlab-executable "/path/to/texlab")
+;; (setopt lsp-latex-texlab-executable "/path/to/texlab")
 
 ;;;

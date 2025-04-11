@@ -3,11 +3,11 @@
 ;;; https://github.com/oantolin/orderless
 
 ;;; Configure a custom style dispatcher
-;; (setq orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
+;; (setopt orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
 ;;       orderless-component-separator #'orderless-escapable-split-on-space)
 
-(setq completion-styles '(substring orderless basic))
-(setq completion-category-defaults nil)
-(setq completion-category-overrides '((file (styles basic partial-completion))))
+(setopt completion-styles '(substring orderless basic))
+(setopt completion-category-defaults nil)
+(setopt completion-category-overrides '((file (styles basic partial-completion))))
 
 ;;;

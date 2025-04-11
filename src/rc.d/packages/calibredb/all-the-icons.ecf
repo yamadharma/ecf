@@ -4,6 +4,6 @@
 
 ;;; Code:
 
-(setq calibredb-format-all-the-icons t)
+(setopt calibredb-format-all-the-icons t)
 
 ;;;

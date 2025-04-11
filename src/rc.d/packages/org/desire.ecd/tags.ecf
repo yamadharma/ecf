@@ -1,7 +1,7 @@
 ;;; Tags -*- coding: utf-8-unix; -*-
 
 ;;; Tags with fast selection keys
-(setq org-tag-alist '((:startgroup)
+(setopt org-tag-alist '((:startgroup)
                       ("@errand" . ?e)
                       ("@office" . ?o)
                       ("@home" . ?h)
@@ -24,9 +24,9 @@
                       ("FLAGGED" . ??)))
 
 ;; Allow setting single tags without the menu
-(setq org-fast-tag-selection-single-key (quote expert))
+(setopt org-fast-tag-selection-single-key (quote expert))
 
 ;; For tag searches ignore tasks with scheduled and deadline dates
-(setq org-agenda-tags-todo-honor-ignore-options t)
+(setopt org-agenda-tags-todo-honor-ignore-options t)
 
 ;;;

@@ -6,23 +6,23 @@
 (require 'lambda-line)
 
 ;;; Show current time via dynamic icon font
-(setq display-time-mode nil)
-;; (setq display-time-mode t)
-;; (setq lambda-line-icon-time t) ;; requires ClockFace font
-;; (setq lambda-line-clockface-update-fontset "ClockFaceRect") ;; set clock icon
+(setopt display-time-mode nil)
+;; (setopt display-time-mode t)
+;; (setopt lambda-line-icon-time t) ;; requires ClockFace font
+;; (setopt lambda-line-clockface-update-fontset "ClockFaceRect") ;; set clock icon
 
-(setq lambda-line-position 'bottom) ;; Set position of status-line 
-(setq lambda-line-abbrev t) ;; abbreviate major modes
-(setq lambda-line-hspace "  ")  ;; add some cushion
-(setq lambda-line-prefix t) ;; use a prefix symbol
-(setq lambda-line-prefix-padding nil) ;; no extra space for prefix 
-(setq lambda-line-status-invert nil)  ;; no invert colors
-(setq lambda-line-gui-ro-symbol  " ⨂") ;; symbols
-(setq lambda-line-gui-mod-symbol " ⬤") 
-(setq lambda-line-gui-rw-symbol  " ◯") 
-(setq lambda-line-space-top +.50)  ;; padding on top and bottom of line
-(setq lambda-line-space-bottom -.50)
-(setq lambda-line-symbol-position 0.1) ;; adjust the vertical placement of symbol
+(setopt lambda-line-position 'bottom) ;; Set position of status-line 
+(setopt lambda-line-abbrev t) ;; abbreviate major modes
+(setopt lambda-line-hspace "  ")  ;; add some cushion
+(setopt lambda-line-prefix t) ;; use a prefix symbol
+(setopt lambda-line-prefix-padding nil) ;; no extra space for prefix 
+(setopt lambda-line-status-invert nil)  ;; no invert colors
+(setopt lambda-line-gui-ro-symbol  " ⨂") ;; symbols
+(setopt lambda-line-gui-mod-symbol " ⬤") 
+(setopt lambda-line-gui-rw-symbol  " ◯") 
+(setopt lambda-line-space-top +.50)  ;; padding on top and bottom of line
+(setopt lambda-line-space-bottom -.50)
+(setopt lambda-line-symbol-position 0.1) ;; adjust the vertical placement of symbol
 
 ;;; Activate lambda-line 
 (lambda-line-mode) 
@@ -30,6 +30,6 @@
 ;; Set divider line in footer
 (when (eq lambda-line-position 'top)
   (setq-default mode-line-format (list "%_"))
-  (setq mode-line-format (list "%_")))
+  (setopt mode-line-format (list "%_")))
 
 ;;;

@@ -3,7 +3,7 @@
 ;;; https://protesilaos.com/emacs/denote
 ;;; https://github.com/protesilaos/denote
 
-(setq denote-org-capture-specifiers "%l\n%i\n%?")
+(setopt denote-org-capture-specifiers "%l\n%i\n%?")
 ;  (add-to-list 'org-capture-templates
 ;               '("n" "New note (with denote.el)" plain
 ;                 (file denote-last-path)

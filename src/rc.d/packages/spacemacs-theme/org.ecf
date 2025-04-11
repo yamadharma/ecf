@@ -4,8 +4,8 @@
 
 
 ;;; Toggles the use of varying org agenda heights.
-;; (setq spacemacs-theme-org-agenda-height nil)
+;; (setopt spacemacs-theme-org-agenda-height nil)
 ;;; Toggles the use of varying org headings heights.
-;; (setq spacemacs-theme-org-height t)
+;; (setopt spacemacs-theme-org-height t)
 
 ;;;

@@ -3,7 +3,7 @@
 ;;; https://blog.jmthornton.net/p/emacs-project-override
 
 ;;; Additional markers for project
-(setq project-vc-extra-root-markers '(".project.el" ".projectile" ))
+(setopt project-vc-extra-root-markers '(".project.el" ".projectile" ))
 
 ;;; Old solution for emacs-28
 (defun project-root-override (dir)

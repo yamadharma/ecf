@@ -18,7 +18,7 @@ deletes it if required."
 	    (message-remove-header "cc")))))
 
 ;;; Copy all messages to myself.
-;;  (setq mail-self-blind t)
+;;  (setopt mail-self-blind t)
 
 ;; (add-hook 'message-header-setup-hook 'message-bcc-self t)
 

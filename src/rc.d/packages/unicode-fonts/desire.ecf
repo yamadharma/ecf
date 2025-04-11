@@ -5,19 +5,19 @@
 ;;; Code:
 
 ;;; ligature support
-(setq unicode-fonts-enable-ligatures t)
+(setopt unicode-fonts-enable-ligatures t)
 
 ;;; By default ligatures will be enabled in all programing modes.
-(setq unicode-fonts-ligature-modes '(prog-mode))
+(setopt unicode-fonts-ligature-modes '(prog-mode))
 
 ;;; You can enable ligatures for specific modes.
-;; (setq unicode-fonts-ligature-modes '(php-mode js-mode))
+;; (setopt unicode-fonts-ligature-modes '(php-mode js-mode))
 
 ;;; To enable only for text modes you can use text-mode
-;; (setq unicode-fonts-ligature-modes '(text-mode))
+;; (setopt unicode-fonts-ligature-modes '(text-mode))
 
 ;;; Configure the ligature set
-(setq unicode-fonts-ligature-set '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+(setopt unicode-fonts-ligature-set '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
 				   ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
 				   "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
 				   "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
@@ -31,7 +31,7 @@
 				   "?." "??" ";;" "/*" "/**" "/=" "/>" "__" "~~" "(*" "*)"
 				   "://"))
 
-(setq ecf-unicode-font (font-spec :family "Iosevka" :size 12))
+(setopt ecf-unicode-font (font-spec :family "Iosevka" :size 12))
 
 (when ecf-unicode-font
   (let ((ecf-unicode-font-family (plist-get (font-face-attributes ecf-unicode-font) :family)))

@@ -4,16 +4,16 @@
 (require 'ox-latex)
 
 ;;; Fontify Latex listings for source blocks
-;;(setq org-latex-listings t)
+;;(setopt org-latex-listings t)
 
 ;;; Use minted for Latex listings for source blocks
-(setq org-latex-listings 'minted)
+(setopt org-latex-listings 'minted)
 ;;; Minted languages
 (add-to-list 'org-latex-minted-langs '(python "python"))
 
 ;;; LuaLaTeX compiler
 ;; Can also be set in buffers via #+LATEX_COMPILER.
-(setq org-latex-compiler "lualatex")
+(setopt org-latex-compiler "lualatex")
 
 ;; (add-to-list 'org-latex-default-packages-alist
 ;;             '("AUTO" "polyglossia" t ("lualatex" "xelatex")))

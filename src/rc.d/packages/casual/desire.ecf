@@ -30,6 +30,6 @@
 (keymap-set makefile-mode-map "M-m" #'casual-make-tmenu)
 
 ;;;; Use Unicode symbols whenever appropriate for labels
-(setq casual-lib-use-unicode t)
+(setopt casual-lib-use-unicode t)
 
 ;;;

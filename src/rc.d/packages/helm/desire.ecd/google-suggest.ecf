@@ -2,6 +2,6 @@
 ;;; Google suggest
 
 (when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
+  (setopt helm-google-suggest-use-curl-p t))
 
 ;;;

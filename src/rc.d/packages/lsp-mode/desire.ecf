@@ -8,6 +8,6 @@
 (desire 'lsp-ui)
 
 ;;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-(setq lsp-keymap-prefix "C-l")
+(setopt lsp-keymap-prefix "C-l")
 
 ;;;

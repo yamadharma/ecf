@@ -2,8 +2,8 @@
 ;;; A set of four light and dark themes for Emacs
 ;;; https://github.com/Lambda-Emacs/lambda-themes
 
-(setq lambda-themes-set-italic-comments t)
-(setq lambda-themes-set-italic-keywords t)
-(setq lambda-themes-set-variable-pitch t) 
+(setopt lambda-themes-set-italic-comments t)
+(setopt lambda-themes-set-italic-keywords t)
+(setopt lambda-themes-set-variable-pitch t) 
 
 ;;;

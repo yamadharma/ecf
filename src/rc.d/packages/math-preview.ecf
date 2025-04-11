@@ -2,7 +2,7 @@
 ;;; Emacs preview math inline 
 ;;; https://gitlab.com/matsievskiysv/math-preview
 
-(setq math-preview-scale 1)
+(setopt math-preview-scale 1)
 
 (require 'math-preview)
 

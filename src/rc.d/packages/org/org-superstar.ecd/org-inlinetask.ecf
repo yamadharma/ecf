@@ -12,7 +12,7 @@
 ;; as a base and add a few tweaks.
 
 (require 'org-inlinetask)
-(setq org-inlinetask-show-first-star t)
+(setopt org-inlinetask-show-first-star t)
 
 ;; Less gray please.
 (set-face-attribute 'org-inlinetask nil
@@ -23,6 +23,6 @@
                       :foreground "#9000e1"))
 
 ;; Set up a different marker for graphic display.
-(setq org-superstar-first-inlinetask-bullet ?🞸)
+(setopt org-superstar-first-inlinetask-bullet ?🞸)
 
 ;;;

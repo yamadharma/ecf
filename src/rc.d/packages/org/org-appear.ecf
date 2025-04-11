@@ -3,31 +3,31 @@
 ;;; https://github.com/awth13/org-appear
 
 ;;; If non-nil and `org-hide-emphasis-markers` is on, toggle emphasis markers
-(setq org-appear-autoemphasis t)
+(setopt org-appear-autoemphasis t)
 
 ;;; If non-nil and `org-link-descriptive` is on, toggle links
-(setq org-appear-autolinks t)
+(setopt org-appear-autolinks t)
 
 ;;; If non-nil and `org-pretty-entities` is on, toggle subscripts and superscripts
-(setq org-appear-autosubmarkers t)
+(setopt org-appear-autosubmarkers t)
 
 ;;; If non-nil and `org-pretty-entities` is on, toggle Org entitites
-(setq org-appear-autoentities t)
+(setopt org-appear-autoentities t)
 
 ;;; If non-nil and `org-hidden-keywords` is on, toggle keywords in `org-hidden-keywords`
-(setq org-appear-autokeywords t)
+(setopt org-appear-autokeywords t)
 
 ;;; If non-nil, toggle entities and sub/superscripts in LaTeX fragments
-(setq org-appear-inside-latex t)
+(setopt org-appear-inside-latex t)
 
 ;;; Seconds of delay before toggling
-(setq org-appear-delay '0.0)
+(setopt org-appear-delay '0.0)
 
 ;;; When to toggle elements
 ;;; `always`, `on-change`, `manual`
 ;;; `on-change` : elements will be toggled only when the buffer is modified or on mouse click. This option disables delayed toggling.
 ;;; `manual` : toggling must be enabled by calling `org-appear-manual-start`. `org-appear-manual-stop` is used to disable toggling with this option.      
-(setq org-appear-trigger 'always)
+(setopt org-appear-trigger 'always)
 
 (require 'org-appear)
 (add-hook 'org-mode-hook #'org-appear-mode)

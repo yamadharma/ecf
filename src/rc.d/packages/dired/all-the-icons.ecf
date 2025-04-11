@@ -9,6 +9,6 @@
 ;;; Config for other packages
 
 ;;; Theme
-(setq dired-sidebar-theme 'icons)
+(setopt dired-sidebar-theme 'icons)
 
 ;;;

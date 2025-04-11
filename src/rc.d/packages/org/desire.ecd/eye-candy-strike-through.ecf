@@ -5,7 +5,7 @@
 
 ;;; Strike through todos
 (defun ecf/strike-through-org-done-face ()
-  (setq org-fontify-done-headline t)
+  (setopt org-fontify-done-headline t)
   (set-face-attribute 'org-done nil :strike-through t)
   (set-face-attribute 'org-headline-done nil :strike-through t))
 

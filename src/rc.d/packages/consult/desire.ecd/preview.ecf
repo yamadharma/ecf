@@ -6,11 +6,11 @@
 (add-hook 'completion-list-mode-hook 'consult-preview-at-point-mode)
 
 ;;; Optionally configure the register formatting. This improves the register
-(setq register-preview-delay 0.5
+(setopt register-preview-delay 0.5
       register-preview-function #'consult-register-format)
 
 ;;; Use Consult to select xref locations with preview
-(setq xref-show-xrefs-function #'consult-xref
+(setopt xref-show-xrefs-function #'consult-xref
       xref-show-definitions-function #'consult-xref)
 
 ;;;

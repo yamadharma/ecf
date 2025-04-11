@@ -2,6 +2,6 @@
 ;; 
 
 ;;; We display project info in the modeline ourselves
-(setq projectile-dynamic-mode-line t)
+(setopt projectile-dynamic-mode-line t)
 
 ;;;

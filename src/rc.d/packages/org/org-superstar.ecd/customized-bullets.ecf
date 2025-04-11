@@ -17,11 +17,11 @@
 ;;   (set-face-attribute 'org-superstar-leading nil :height 1.3))
 
 ;; Set different bullets, with one getting a terminal fallback.
-;; (setq org-superstar-headline-bullets-list
+;; (setopt org-superstar-headline-bullets-list
 ;;       '("◉" ("🞛" ?◈) "○" "▷"))
 
 ;;; 
-;; (setq org-superstar-todo-bullet-alist
+;; (setopt org-superstar-todo-bullet-alist
 ;;       '(("TODO" . 9744)
 ;;         ("[ ]"  . 9744)
 ;;         ("DONE" . 9745)
@@ -29,15 +29,15 @@
 
 ;;(with-eval-after-load 'org-superstar
 ;;  ;; Every non-TODO headline now have no bullet
-;;  (setq org-superstar-headline-bullets-list '("\u200b"))
-;;  (setq org-superstar-leading-bullet "\u200b")
-;;  (setq org-superstar-item-bullet-alist
+;;  (setopt org-superstar-headline-bullets-list '("\u200b"))
+;;  (setopt org-superstar-leading-bullet "\u200b")
+;;  (setopt org-superstar-item-bullet-alist
 ;;        '((?* . ?•)
 ;;          (?+ . ?➤)
 ;;          (?- . ?•)))
 ;;  ;; Enable custom bullets for TODO items
-;;  (setq org-superstar-special-todo-items t)
-;;  (setq org-superstar-todo-bullet-alist
+;;  (setopt org-superstar-special-todo-items t)
+;;  (setopt org-superstar-todo-bullet-alist
 ;;        '(("TODO" "☐")
 ;;          ("NEXT" "✒")
 ;;          ("HOLD" "✰")

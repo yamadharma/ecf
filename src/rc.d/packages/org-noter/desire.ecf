@@ -5,9 +5,9 @@
 (require 'org-noter)
 
 (unless org-noter-notes-search-path
-  (setq org-noter-notes-search-path (list org-directory)))
+  (setopt org-noter-notes-search-path (list org-directory)))
 
-(setq org-noter-auto-save-last-location t)
-(setq org-noter-separate-notes-from-heading t)
+(setopt org-noter-auto-save-last-location t)
+(setopt org-noter-separate-notes-from-heading t)
 
 ;;;

@@ -5,6 +5,6 @@
 (require 'bibtex-completion)
 (require 'orb-helm)
 
-(setq orb-note-actions-interface 'helm)
+(setopt orb-note-actions-interface 'helm)
 
 ;;;

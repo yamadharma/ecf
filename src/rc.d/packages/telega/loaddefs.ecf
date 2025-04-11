@@ -3,6 +3,6 @@
 ;;; https://github.com/zevlg/telega.el
 ;;; https://zevlg.github.io/telega.el/
 
-(setq telega-server-libs-prefix "/usr")
+(setopt telega-server-libs-prefix "/usr")
 
 ;;;

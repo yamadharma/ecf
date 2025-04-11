@@ -5,9 +5,9 @@
 (desire 'org-imgtog :recipe '(:fetcher github :repo "gaoDean/org-imgtog" :branch "main"))
 
 ;;; Wait 0.5 seconds before toggling
-(setq org-imgtog-preview-delay 0.5)
+(setopt org-imgtog-preview-delay 0.5)
 ;; Only delay for remote images
-(setq org-imgtog-preview-delay-only-remote t)
+(setopt org-imgtog-preview-delay-only-remote t)
 
 (add-hook 'org-mode-hook 'org-imgtog-mode)
 

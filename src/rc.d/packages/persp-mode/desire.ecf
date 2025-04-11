@@ -2,7 +2,7 @@
 ;;; Named perspectives (set of buffers/window configs) for emacs
 ;;; https://github.com/Bad-ptr/persp-mode.el
 
-(setq persp-autokill-buffer-on-remove 'kill-weak
+(setopt persp-autokill-buffer-on-remove 'kill-weak
       persp-reset-windows-on-nil-window-conf nil
       persp-nil-hidden t
       persp-auto-save-fname "autosave"

@@ -3,6 +3,6 @@
 ;;; https://github.com/tmalsburg/helm-bibtex
 
 ;;; Invoking helm-bibtex when point is on an org-mode citation will automatically select that key
-(setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
+(setopt org-cite-follow-processor 'helm-bibtex-org-cite-follow)
 
 ;;;

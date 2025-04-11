@@ -10,7 +10,7 @@
 (global-set-key (kbd "<f12>") #'delve)
 
 ;;; Set meaningful tag names for the dashboard query
-;; (setq delve-dashboard-tags '("Tag1" "Tag2"))
+;; (setopt delve-dashboard-tags '("Tag1" "Tag2"))
 
 ;;; Turn on delve-minor-mode when org roam file is opened
 (delve-global-minor-mode)

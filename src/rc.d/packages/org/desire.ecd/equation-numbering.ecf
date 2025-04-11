@@ -11,7 +11,7 @@
         (counter -1)
         (numberp))
 
-    (setq results (cl-loop for (begin .  env) in 
+    (setopt results (cl-loop for (begin .  env) in 
                         (org-element-map (org-element-parse-buffer) 'latex-environment
                           (lambda (env)
                             (cons
@@ -38,7 +38,7 @@
                          (t
                           (cons begin nil)))))
 
-    (when (setq numberp (cdr (assoc (point) results)))
+    (when (setopt numberp (cdr (assoc (point) results)))
       (setf (car args)
             (concat
              (format "\\setcounter{equation}{%s}\n" numberp)

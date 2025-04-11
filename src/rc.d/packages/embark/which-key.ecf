@@ -26,7 +26,7 @@ targets."
        nil nil t (lambda (binding)
                    (not (string-suffix-p "-argument" (cdr binding))))))))
 
-(setq embark-indicators
+(setopt embark-indicators
       '(embark-which-key-indicator
 	embark-highlight-indicator
 	embark-isearch-highlight-indicator))

@@ -1,6 +1,6 @@
 ;;; imenu support
 
 (add-hook 'markdown-mode-hook 'imenu-add-menubar-index)
-(setq imenu-auto-rescan t)
+(setopt imenu-auto-rescan t)
 
 ;;;

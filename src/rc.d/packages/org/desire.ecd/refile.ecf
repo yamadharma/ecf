@@ -1,29 +1,29 @@
 ;; Refile Setup
 
 ;; Targets include this file and any file contributing to the agenda - up to 9 levels deep
-(setq org-refile-targets (quote ((nil :maxlevel . 9)
+(setopt org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
 
 ;; Refile on top of file max
-(setq org-refile-use-outline-path 'file)
+(setopt org-refile-use-outline-path 'file)
 
 ;; Use full outline paths for refile targets - we file directly with IDO
-;;(setq org-refile-use-outline-path t)
+;;(setopt org-refile-use-outline-path t)
 
 ;; List everything instead of stepping through each level gradually
-(setq org-outline-path-complete-in-steps nil)
+(setopt org-outline-path-complete-in-steps nil)
 
 ;; Creating new parents
-(setq org-refile-allow-creating-parent-nodes 'confirm)
+(setopt org-refile-allow-creating-parent-nodes 'confirm)
 
 ;; Refile to the bottom of the list
-(setq org-reverse-note-order nil)
+(setopt org-reverse-note-order nil)
 
 ;; Exclude DONE state tasks from refile targets
 (defun ecf/verify-refile-target ()
   "Exclude todo keywords with a done state from refile targets"
   (not (member (nth 2 (org-heading-components)) org-done-keywords)))
 
-(setq org-refile-target-verify-function 'ecf/verify-refile-target)
+(setopt org-refile-target-verify-function 'ecf/verify-refile-target)
 
 ;;;

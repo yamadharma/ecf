@@ -12,19 +12,19 @@
 
 
 ;;; use hidden dirs for auctex files
-;; (setq TeX-auto-local ".auctex-auto")
-;; (setq TeX-style-local ".auctex-style")
+;; (setopt TeX-auto-local ".auctex-auto")
+;; (setopt TeX-style-local ".auctex-style")
 
-(setq TeX-source-correlate-mode t)
-(setq TeX-source-correlate-method 'synctex)
+(setopt TeX-source-correlate-mode t)
+(setopt TeX-source-correlate-method 'synctex)
 
 
 ;;; don't start the emacs server when correlating sources
-(setq TeX-source-correlate-start-server nil)
+(setopt TeX-source-correlate-start-server nil)
 ;;; automatically insert braces after sub/superscript in math mode
-(setq TeX-electric-sub-and-superscript t)
+(setopt TeX-electric-sub-and-superscript t)
 ;;; just save, dont ask me before each compilation
-(setq TeX-save-query nil)
+(setopt TeX-save-query nil)
 
 (add-hook 'LaTeX-mode-hook 'turn-on-bib-cite)
 

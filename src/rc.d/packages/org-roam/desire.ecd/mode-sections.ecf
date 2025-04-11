@@ -1,7 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Configuring what is displayed in the buffer
 
-(setq org-roam-mode-sections
+(setopt org-roam-mode-sections
       (list #'org-roam-backlinks-section
             #'org-roam-reflinks-section
             ;; #'org-roam-unlinked-references-section

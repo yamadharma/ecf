@@ -7,7 +7,7 @@
 
 (require 'rfc2047)
 
-(setq rfc2047-header-encoding-alist 
+(setopt rfc2047-header-encoding-alist 
   '(
     ("Newsgroups" . nil)
     ("Message-ID" . nil)

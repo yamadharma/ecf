@@ -1,4 +1,4 @@
-(setq mail-font-lock-keywords
+(setopt mail-font-lock-keywords
       (let* ((cite-prefix "A-Za-z")
 	     (cite-suffix (concat cite-prefix "0-9_.@-")))
 	(list

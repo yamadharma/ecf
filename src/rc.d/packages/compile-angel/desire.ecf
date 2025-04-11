@@ -3,35 +3,35 @@
 ;;; https://github.com/jamescherti/compile-angel.el
 
 ;;; Ensure Emacs loads the most recent byte-compiled files.
-(setq load-prefer-newer t)
+(setopt load-prefer-newer t)
 
 ;;; Ensure JIT compilation is enabled for improved performance by
 ;;; native-compiling loaded .elc files asynchronously
-(setq native-comp-jit-compilation t)
-(setq native-comp-deferred-compilation t) ; Deprecated in Emacs > 29.1
+(setopt native-comp-jit-compilation t)
+(setopt native-comp-deferred-compilation t) ; Deprecated in Emacs > 29.1
 
 ;;; Enable/Disable byte compilation and native compilation
-(setq compile-angel-enable-byte-compile t)
-(setq compile-angel-enable-native-compile t)
+(setopt compile-angel-enable-byte-compile t)
+(setopt compile-angel-enable-native-compile t)
 
 ;;; Enable verbose (Set it to t while debugging)
-(setq compile-angel-verbose nil)
+(setopt compile-angel-verbose nil)
 
 ';; Display the *Compile-Log* buffer (Set it to t while writing elisp)
-(setq compile-angel-display-buffer nil)
+(setopt compile-angel-display-buffer nil)
 
 ;;; Perform byte/native compilation of .el files only once during initial loading
 ;;; (Setting this to nil will try to compile each time an .el file is loaded)
-(setq compile-angel-on-load-mode-compile-once t)
+(setopt compile-angel-on-load-mode-compile-once t)
 
 ;;; Ignore certain files, for example, for users of the `dir-config` package:
-(setq compile-angel-excluded-files-regexps '("/\\.dir-config\\.el$"))
+(setopt compile-angel-excluded-files-regexps '("/\\.dir-config\\.el$"))
 
 ;;; Function that determines if an .el file should be compiled. It takes one
 ;;; argument (an EL file) and returns t if the file should be compiled,
 ;;; (By default, `compile-angel-predicate-function` is set to nil, which
 ;;; means that the predicate function is not called.)
-(setq compile-angel-predicate-function
+(setopt compile-angel-predicate-function
       #'(lambda(el-file)
        ;; Show a message
        (message "PREDICATE: %s" el-file)
@@ -40,19 +40,19 @@
 
 ;; Ensure that quitting only occurs once Emacs finishes native compiling,
 ;; preventing incomplete or leftover compilation files in `/tmp`.
-(setq native-comp-async-query-on-exit t)
-(setq confirm-kill-processes t)
+(setopt native-comp-async-query-on-exit t)
+(setopt confirm-kill-processes t)
 
 ;;; Show buffer when there is a warning.
 ;;; (NOT RECOMMENDED, except during development).
-;; (setq warning-minimum-level :warning)
-;; (setq byte-compile-verbose t)
-;; (setq byte-compile-warnings t)
-;; (setq native-comp-async-report-warnings-errors t)
-;; (setq native-comp-warning-on-missing-source t)
+;; (setopt warning-minimum-level :warning)
+;; (setopt byte-compile-verbose t)
+;; (setopt byte-compile-warnings t)
+;; (setopt native-comp-async-report-warnings-errors t)
+;; (setopt native-comp-warning-on-missing-source t)
 
 ;;; Non-nil means to natively compile packages as part of their installation.
-(setq package-native-compile t)
+(setopt package-native-compile t)
 
 (add-hook 'emacs-lisp-mode-hook #'compile-angel-on-save-local-mode)
 

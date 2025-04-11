@@ -92,7 +92,7 @@ SIG signature string; supports org formatting thanks to org-msg."
  ecf/unread-query "flag:new AND maildir:/Inbox/"
  ecf/attachment-query "mime:application/pdf or mime:image/jpg or mime:image/png or mime:image/* or mime:application/* AND NOT maildir:/Trash/ AND NOT maildir:/Spam/")
 
-(setq ecf/mu4e-bookmarks
+(setopt ecf/mu4e-bookmarks
       `(( :name  "Unread"
 	  :query ,ecf/unread-query
 	  :key   ?u)
@@ -199,9 +199,9 @@ See `ecf/mu4e-context' for function signature."
 
 ;;;
 
-(setq mu4e-headers-fields ecf/mu4e-headers-fields)
-(setq mail-user-agent 'mu4e-user-agent)
-(setq mu4e-contexts (mapcar #'eval ecf/mu4e-contexts))
-(setq mu4e-bookmarks ecf/mu4e-bookmarks)
+(setopt mu4e-headers-fields ecf/mu4e-headers-fields)
+(setopt mail-user-agent 'mu4e-user-agent)
+(setopt mu4e-contexts (mapcar #'eval ecf/mu4e-contexts))
+(setopt mu4e-bookmarks ecf/mu4e-bookmarks)
 
 ;;;

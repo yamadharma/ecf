@@ -15,8 +15,8 @@
 (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
 (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
 
-(setq dired-sidebar-subtree-line-prefix "__")
-(setq dired-sidebar-use-term-integration t)
-(setq dired-sidebar-use-custom-font t)
+(setopt dired-sidebar-subtree-line-prefix "__")
+(setopt dired-sidebar-use-term-integration t)
+(setopt dired-sidebar-use-custom-font t)
 
 ;;;

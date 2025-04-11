@@ -5,13 +5,13 @@
 (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
 
 ;;; Prompt with key selection menu before sending a message
-;; (setq mm-sign-option 'guided)
+;; (setopt mm-sign-option 'guided)
 
 ;;; Use message sender to find an OpenPGP key to sign with
-(setq mml-secure-openpgp-sign-with-sender t)
+(setopt mml-secure-openpgp-sign-with-sender t)
 
 ;;;
-(setq mu4e-auto-retrieve-keys t)
+(setopt mu4e-auto-retrieve-keys t)
 
 ;;;
 

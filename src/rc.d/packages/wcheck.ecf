@@ -45,7 +45,7 @@
 
 (defun ecf:delete-list (delete-list list)
   (dolist (el delete-list)
-    (setq list (remove el list)))
+    (setopt list (remove el list)))
   list)
 
 ;; Из результатов удаляю слова добавленные в "ignore"
@@ -75,7 +75,7 @@
 (global-set-key (kbd "C-c n") 'wcheck-jump-forward)
 (global-set-key (kbd "C-c p") 'wcheck-jump-backward)
 
-;; (setq wcheck-language-data
+;; (setopt wcheck-language-data
 ;;   '(
 ;;     ("British English"
 ;;    (program . "/usr/bin/ispell")

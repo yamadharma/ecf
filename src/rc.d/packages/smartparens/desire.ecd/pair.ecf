@@ -93,7 +93,7 @@
             (type ""))
         ;; try to guess the type from the constructor
         (-when-let (constructor-args (my-php-get-function-args "__construct" t))
-          (setq type (or (cdr (assoc var-name constructor-args)) "")))
+          (setopt type (or (cdr (assoc var-name constructor-args)) "")))
         (insert "* @var " type)
         (save-excursion
           (insert "\n"))))

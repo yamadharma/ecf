@@ -4,11 +4,11 @@
 (autoload 'bbdb-insinuate-mu4e "bbdb-mu4e")
 (bbdb-initialize 'message 'mu4e)
 
-(setq bbdb-mail-user-agent 'mu4e-user-agent)
-;; (setq mu4e-view-mode-hook 'bbdb-mua-auto-update)
-(setq mu4e-compose-complete-addresses nil)
-(setq bbdb-mua-pop-up t)
-(setq bbdb-mua-pop-up-window-size 5)
-(setq mu4e-view-show-addresses t)
+(setopt bbdb-mail-user-agent 'mu4e-user-agent)
+;; (setopt mu4e-view-mode-hook 'bbdb-mua-auto-update)
+(setopt mu4e-compose-complete-addresses nil)
+(setopt bbdb-mua-pop-up t)
+(setopt bbdb-mua-pop-up-window-size 5)
+(setopt mu4e-view-show-addresses t)
 
 ;;;

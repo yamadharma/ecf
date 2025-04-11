@@ -5,6 +5,6 @@
 (desire 'ranger)
 (require 'ranger)
 
-(setq ranger-override-dired t)
+(setopt ranger-override-dired t)
 
 ;;;

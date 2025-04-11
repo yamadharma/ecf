@@ -3,7 +3,7 @@
 ;; https://github.com/quelpa/quelpa
 
 ;;; To run quelpa-upgrade-all at most every 14 days
-;; (setq quelpa-upgrade-interval 14)
+;; (setopt quelpa-upgrade-interval 14)
 ;; (add-hook #'after-init-hook #'quelpa-upgrade-all-maybe)
 
 ;;;

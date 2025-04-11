@@ -1,6 +1,6 @@
 ;;;
 
-;(setq semantic-load-turn-everything-on t)
+;(setopt semantic-load-turn-everything-on t)
 ;(require 'semantic-load)
 
 (global-ede-mode 1)

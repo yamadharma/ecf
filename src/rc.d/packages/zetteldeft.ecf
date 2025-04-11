@@ -3,6 +3,6 @@
 
 (require 'zetteldeft)
 
-(setq zetteldeft-set-classic-keybindings t)
+(setopt zetteldeft-set-classic-keybindings t)
 
 ;;;

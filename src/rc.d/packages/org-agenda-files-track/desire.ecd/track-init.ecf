@@ -24,7 +24,7 @@ methods the save hook cannot detect, like file synchronization."
 
 ;;; `org-agenda-files` as a file path
 ;;; Set `org-agenda-files` to a single filename to persist across Emacs sessions:
-;; (setq org-agenda-files
+;; (setopt org-agenda-files
 ;;       (expand-file-name "org-agenda-files.txt" (home-cache-path)))
 
 ;;;

@@ -12,7 +12,7 @@
 ;;    (t (format "%8d" (buffer-size)))))
 
 ;;; Modify the default ibuffer-formats
-;; (setq ibuffer-formats
+;; (setopt ibuffer-formats
 ;;       '((mark modified read-only " "
 ;; 	      (name 18 18 :left :elide)
 ;; 	      " "
@@ -58,7 +58,7 @@
 	 (lambda (column-strings)
 	   (let ((total 0))
 	     (dolist (string column-strings)
-	       (setq total
+	       (setopt total
 		     ;; like, ewww ...
 		     (+ (float (ecf/human-readable-file-sizes-to-bytes string))
 			total)))
@@ -67,7 +67,7 @@
   (ecf/bytes-to-human-readable-file-sizes (buffer-size)))
 
 ;;; Modify the default ibuffer-formats
-(setq ibuffer-formats
+(setopt ibuffer-formats
       '((mark modified read-only locked " "
 	      (name 20 20 :left :elide)
 	      " "

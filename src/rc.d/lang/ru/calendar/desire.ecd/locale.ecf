@@ -1,7 +1,7 @@
 ;;; Calendar localisation  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;
 
-(setq calendar-week-start-day 1
+(setopt calendar-week-start-day 1
       calendar-day-name-array ["Воскресенье" "Понедельник" "Вторник" "Среда" "Четверг" "Пятница" "Суббота"]
       calendar-day-header-array ["Вс" "Пн" "Вт" "Ср" "Чт" "Пт" "Сб"]
       calendar-day-abbrev-array ["Вск" "Пнд" "Втр" "Сре" "Чтв" "Птн" "Суб"]

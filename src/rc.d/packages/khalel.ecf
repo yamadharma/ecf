@@ -2,10 +2,10 @@
 ;; Interacting through Emacs with locally-stored calendars via the console application khal and syncing with remote CalDAV calendars using vdirsyncer
 ;; https://gitlab.com/hperrey/khalel
 
-(setq khalel-khal-command "khal")
-(setq khalel-vdirsyncer-command "vdirsyncer")
+(setopt khalel-khal-command "khal")
+(setopt khalel-vdirsyncer-command "vdirsyncer")
 
-(setq khalel-import-format "* TODO {title} {cancelled}\n\
+(setopt khalel-import-format "* TODO {title} {cancelled}\n\
   :PROPERTIES:\n:CALENDAR: {calendar}\n\
   :LOCATION: {location}\n\
   :ID: {uid}\n\

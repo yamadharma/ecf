@@ -3,6 +3,6 @@
 ;; https://github.com/quelpa/quelpa
 
 ;;; If non-nil, quelpa operation will not block Emacs input
-;; (setq quelpa-async-p t)
+;; (setopt quelpa-async-p t)
 
 ;;;

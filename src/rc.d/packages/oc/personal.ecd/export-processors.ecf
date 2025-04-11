@@ -1,6 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
-;; (setq org-cite-export-processors
+;; (setopt org-cite-export-processors
 ;;       '((md . (csl "chicago-fullnote-bibliography.csl"))   ; Footnote reliant
 ;; 	(latex . biblatex)                                 ; For humanities
 ;; 	(odt . (csl "chicago-fullnote-bibliography.csl"))  ; Footnote reliant

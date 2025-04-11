@@ -1,6 +1,6 @@
 ;;{{{ Spool Files
 
-(setq vm-spool-files
+(setopt vm-spool-files
   '(
 ;    (concat "imap:mx.gazeconom.ru:143:inbox:login:" user-login-name ":*")
      "imap:mx.gazeconom.ru:143:inbox:login:dharma:*"
@@ -10,7 +10,7 @@
 ;;}}}
 ;;{{{ IMAP
 
-(setq vm-imap-auto-expunge-alist
+(setopt vm-imap-auto-expunge-alist
   '(
     ;; leave message on the server
     (

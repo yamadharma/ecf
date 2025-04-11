@@ -4,10 +4,10 @@
 
 (require 'edit-server)
 
-(setq edit-server-new-frame nil)
+(setopt edit-server-new-frame nil)
 (edit-server-start)
 
-(setq edit-server-url-major-mode-alist
+(setopt edit-server-url-major-mode-alist
       '(("github\\.com" . markdown-mode)))
 
 ;;;

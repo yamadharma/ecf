@@ -3,10 +3,10 @@
 
 (require 'org-contacts)
 
-(setq org-contacts-files (list (concat org-directory "personal/contacts.org")))
+(setopt org-contacts-files (list (concat org-directory "personal/contacts.org")))
 
-;;(setq org-contacts-address-property "CITY")
-;;(setq org-contacts-birthday-property "BORN")
-;;(setq org-contacts-icon-property "PHOTOGRAPH")
+;;(setopt org-contacts-address-property "CITY")
+;;(setopt org-contacts-birthday-property "BORN")
+;;(setopt org-contacts-icon-property "PHOTOGRAPH")
 
 ;;;

@@ -1,6 +1,6 @@
-(setq show-paren-delay 0)           ; how long to wait?
+(setopt show-paren-delay 0)           ; how long to wait?
 (show-paren-mode t)                 ; turn paren-mode on
-(setq show-paren-style 'mixed) ; alternatives are 'expression', 'parenthesis' and 'mixed'
+(setopt show-paren-style 'mixed) ; alternatives are 'expression', 'parenthesis' and 'mixed'
 
 (set-face-background 'show-paren-match (face-background 'default))
 (set-face-foreground 'show-paren-match "#def")

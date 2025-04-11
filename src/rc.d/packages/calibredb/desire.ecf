@@ -7,6 +7,6 @@
 (require 'calibredb)
 
 ;;;; Size indicator
-(setq calibredb-size-show t)
+(setopt calibredb-size-show t)
 
 ;;;

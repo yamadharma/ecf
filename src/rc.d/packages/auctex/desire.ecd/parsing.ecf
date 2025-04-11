@@ -5,10 +5,10 @@
 ;;; Code:
 
 ;;;; Automatic Parsing of TeX Files
-(setq TeX-parse-self t)                 ; Enable parse on load
-(setq TeX-auto-save t)                  ; Enable parse on save
+(setopt TeX-parse-self t)                 ; Enable parse on load
+(setopt TeX-auto-save t)                  ; Enable parse on save
 
 ;;;; Automatically remove all tabs from a file before saving it
-(setq TeX-auto-untabify t)
+(setopt TeX-auto-untabify t)
 
 ;;;

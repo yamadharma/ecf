@@ -4,7 +4,7 @@
 
 (desire 'justify-kp :recipe '(:fetcher github :repo "Fuco1/justify-kp" :branch "master"))
 (require 'justify-kp)
-(setq nov-text-width t)
+(setopt nov-text-width t)
 
 (defun ecf/nov-window-configuration-change-hook ()
   (ecf/nov-post-html-render-hook)

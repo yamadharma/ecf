@@ -5,12 +5,12 @@
 (global-tab-line-mode t)
 
 ;;; Do not show add-new button
-;; (setq tab-line-new-button-show nil)
+;; (setopt tab-line-new-button-show nil)
 
 ;;; Do not show close button
-;; (setq tab-line-close-button-show nil)
+;; (setopt tab-line-close-button-show nil)
 
 ;;; Change the separator between tabs
-;; (setq tab-line-separator "")
+;; (setopt tab-line-separator "")
 
 ;;;

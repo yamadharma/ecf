@@ -2,6 +2,6 @@
 ;;; VERTical Interactive COmpletion
 ;;; https://github.com/minad/vertico
 
-(setq org-roam-completion-everywhere t)
+(setopt org-roam-completion-everywhere t)
 
 ;;;

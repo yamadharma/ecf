@@ -3,15 +3,15 @@
 ;; https://github.com/jdtsmith/org-modern-indent
 
 ;;; org-indent mode
-(setq org-startup-indented t)
+(setopt org-startup-indented t)
 
 (require 'org-modern-indent)
 
 ;;; Adds extra indentation
-;; (setq org-modern-hide-stars nil)
+;; (setopt org-modern-hide-stars nil)
 
 ;;; Or other chars. So top bracket is drawn promptly
-(setq org-modern-block-name '("" . "")) 
+(setopt org-modern-block-name '("" . "")) 
 
 (add-hook 'org-mode-hook #'org-modern-indent-mode 90)
 ;; (add-hook 'org-journal-mode-hook #'org-modern-indent-mode 90)

@@ -1,19 +1,19 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;;; Async mode
-(setq mu4e-enable-async-operations t)
+(setopt mu4e-enable-async-operations t)
 
 ;;; Mode-line notifications
-(setq mu4e-enable-mode-line t)
+(setopt mu4e-enable-mode-line t)
 
 ;;; Make sure plain text mails flow correctly for recipients (visual-line-mode + auto-fill upon sending)
-(setq mu4e-compose-format-flowed t)
+(setopt mu4e-compose-format-flowed t)
 
 ;;; Configuration for sending mail
-(setq send-mail-function 'smtpmail-send-it
+(setopt send-mail-function 'smtpmail-send-it
       message-send-mail-function 'smtpmail-send-it)
 
-(setq mu4e-update-interval 400
+(setopt mu4e-update-interval 400
       mu4e-view-show-addresses t
       mu4e-sent-messages-behavior 'sent
       smtpmail-stream-type 'starttls
@@ -47,23 +47,23 @@
       smtpmail-smtp-service 587
       starttls-use-gnutls t)
 
-(setq message-citation-line-function 'message-insert-formatted-citation-line)
-(setq mu4e-mu-binary (or (executable-find "mu") "/usr/bin/mu"))
-(setq mu4e-main-hide-personal-addresses t)
+(setopt message-citation-line-function 'message-insert-formatted-citation-line)
+(setopt mu4e-mu-binary (or (executable-find "mu") "/usr/bin/mu"))
+(setopt mu4e-main-hide-personal-addresses t)
 
 ;;; Run cleanup after indexing
-(setq mu4e-index-cleanup t)
+(setopt mu4e-index-cleanup t)
 ;;; No lazy check and partial indexing
-(setq mu4e-index-lazy-check nil)
+(setopt mu4e-index-lazy-check nil)
 
 ;;; Including related messages
 ;; Include messages that are related to these messages
 ;;; You can toggle between including/not-including with `W`
-(setq mu4e-headers-include-related nil)
+(setopt mu4e-headers-include-related nil)
 
 ;;; Skipping duplicates
 ;;; You can toggle between the skipping/not skipping with `V`
-(setq mu4e-headers-skip-duplicates t)
+(setopt mu4e-headers-skip-duplicates t)
 
 ;;;
 

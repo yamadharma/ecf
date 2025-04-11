@@ -12,9 +12,9 @@
 (add-hook 'sh-mode-hook #'hs-minor-mode)
 
 ;;; Hide the comments too when you do a 'hs-hide-all'
-(setq hs-hide-comments nil)
+(setopt hs-hide-comments nil)
 ;;; Set whether isearch opens folded comments, code, or both
 ;;; code, comments, t (both), or nil (neither)
-(setq hs-isearch-open 'code)
+(setopt hs-isearch-open 'code)
 
 ;;;

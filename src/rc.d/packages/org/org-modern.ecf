@@ -6,6 +6,6 @@
 
 ;;; FIXME
 ;; (message "org-startup-indented: %s" org-startup-indented) 
-;; (setq org-startup-indented nil)
+;; (setopt org-startup-indented nil)
 
 ;;;

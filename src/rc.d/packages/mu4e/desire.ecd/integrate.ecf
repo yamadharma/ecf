@@ -2,6 +2,6 @@
 ;;; Integrating mu4e with Emacs facilities
 
 ;;; Get information about the current header in the echo-area
-(setq mu4e-eldoc-support t)
+(setopt mu4e-eldoc-support t)
 
 ;;;

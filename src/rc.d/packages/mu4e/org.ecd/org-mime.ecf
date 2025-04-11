@@ -6,13 +6,13 @@
 (require 'org-mime)
 
 ;;; for gnus – this is set by default
-(setq org-mime-library 'mml)
+(setopt org-mime-library 'mml)
 ;;; OR for Wanderlust (WL)
-;; (setq org-mime-library 'semi)
+;; (setopt org-mime-library 'semi)
 ;;; OR for VM – not yet supported
-;; (setq org-mime-library 'vm)
+;; (setopt org-mime-library 'vm)
 
-(setq org-mime-export-options '(:with-latex dvipng
+(setopt org-mime-export-options '(:with-latex dvipng
 				:section-numbers nil
 				:with-author nil
 				:with-toc nil))
@@ -29,10 +29,10 @@
 (add-hook 'message-send-hook 'org-mime-htmlize)
 
 ;;; Latex export
-(setq org-mime-org-html-with-latex-default t)
+(setopt org-mime-org-html-with-latex-default t)
 
 ;;; Keep gpg signatures outside of multipart
-;; (setq org-mime-find-html-start
+;; (setopt org-mime-find-html-start
 ;;       (lambda (start)
 ;;         (save-excursion
 ;;           (goto-char start)
@@ -41,9 +41,9 @@
 
 ;;; ASCII export options for text/plain
 ;;; ascii | latin1 | utf-8
-(setq org-mime-export-ascii 'utf-8)
+(setopt org-mime-export-ascii 'utf-8)
 
-;; (setq org-mime-export-options '(:with-latex mathjax))
+;; (setopt org-mime-export-options '(:with-latex mathjax))
 
 ;;;
 

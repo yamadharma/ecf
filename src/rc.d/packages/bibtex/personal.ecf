@@ -2,18 +2,18 @@
 ;;;
 
 ;;; Where bibliographies can be found
-(setq personal-bibliography '("~/work/bib/bib/main.bib"))
+(setopt personal-bibliography '("~/work/bib/bib/main.bib"))
 
 ;;; Where PDFs can be found
-;; (setq bibtex-completion-library-path (directory-files-recursively "~/data/bib/pdf" "\\`[^.]*\\'" 't))
-(setq personal-library-path '("~/work/bib/data/pdf"))
+;; (setopt bibtex-completion-library-path (directory-files-recursively "~/data/bib/pdf" "\\`[^.]*\\'" 't))
+(setopt personal-library-path '("~/work/bib/data/pdf"))
 
 ;;; Notes
 ;;; Store all notes in one file
-;; (setq personal-notes-path "/path/to/notes.org")
+;; (setopt personal-notes-path "/path/to/notes.org")
 ;;; Store notes in multiple files, one file per publication
-;; (setq personal-notes-path (expand-file-name "~/work/org/notes/literature"))
-(setq personal-notes-path '())
+;; (setopt personal-notes-path (expand-file-name "~/work/org/notes/literature"))
+(setopt personal-notes-path '())
 (add-to-list 'personal-notes-path (expand-file-name "~/work/org/notes/literature"))
 
 ;;;

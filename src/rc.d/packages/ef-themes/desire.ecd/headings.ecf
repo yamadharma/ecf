@@ -4,7 +4,7 @@
 ;;; https://github.com/protesilaos/ef-themes
 ;;; https://gitlab.com/protesilaos/ef-themes
 
-;; (setq ef-themes-headings ; read the manual's entry or the doc string
+;; (setopt ef-themes-headings ; read the manual's entry or the doc string
 ;;       '((0 . (variable-pitch light 1.9))
 ;;         (1 . (variable-pitch light 1.8))
 ;;         (2 . (variable-pitch regular 1.7))
@@ -15,7 +15,7 @@
 ;;         (7 . (variable-pitch 1.2))
 ;;         (t . (variable-pitch 1.1))))
 
-(setq ef-themes-headings
+(setopt ef-themes-headings
       '((1 light variable-pitch 1.5)
         (2 regular 1.3)
         (3 1.1)

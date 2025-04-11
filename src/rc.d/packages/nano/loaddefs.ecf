@@ -2,13 +2,13 @@
 ;; GNU Emacs / N Λ N O Emacs
 ;; https://github.com/rougier/nano-emacs
 
-(setq nano-font-family-monospaced "Iosevka")
-(setq nano-font-family-proportional "Iosevka Aile")
-(setq nano-font-size 12)
+(setopt nano-font-family-monospaced "Iosevka")
+(setopt nano-font-family-proportional "Iosevka Aile")
+(setopt nano-font-size 12)
 
 ;;; Nano theme
 ;;; light | dark
-(setq nano-theme-var "light")
+(setopt nano-theme-var "light")
 
 ;; (require 'nano)
 

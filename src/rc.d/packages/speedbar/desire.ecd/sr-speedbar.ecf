@@ -9,9 +9,9 @@
   (autoload 'sr-speedbar-toggle "sr-speedbar" nil t)
   (global-set-key (kbd "s-s") 'sr-speedbar-toggle))
 
-;; (setq sr-speedbar-auto-refresh nil)
+;; (setopt sr-speedbar-auto-refresh nil)
 
 ;;; Put on left side
-(setq sr-speedbar-right-side nil)
+(setopt sr-speedbar-right-side nil)
 
 ;;; 

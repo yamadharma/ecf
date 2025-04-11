@@ -5,7 +5,7 @@
 ;;; Showing Embark actions keys in keycast-mode
 (defun store-action-key+cmd (cmd)
   (force-mode-line-update t)
-  (setq this-command cmd
+  (setopt this-command cmd
         keycast--this-command-keys (this-single-command-keys)
         keycast--this-command-desc cmd))
 

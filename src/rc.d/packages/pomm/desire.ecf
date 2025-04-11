@@ -5,15 +5,15 @@
 ;;; Code:
 
 ;;;; If you want an actual notification
-(setq alert-default-style 'libnotify)
+(setopt alert-default-style 'libnotify)
 
 ;;;; Display in the modeline
 (pomm-mode-line-mode)
 
 ;;;; By default sounds are disabled
-(setq pomm-audio-enabled t)
+(setopt pomm-audio-enabled t)
 
 ;;;; Ticking sound
-;; (setq pomm-audio-tick-enabled t)
+;; (setopt pomm-audio-tick-enabled t)
 
 ;;;

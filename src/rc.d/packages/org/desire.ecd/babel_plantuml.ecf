@@ -7,6 +7,6 @@
 ;;; jar | plantuml
 ;;; `jar' means to use java together with the JAR
 ;;; `plantuml' means to use the PlantUML executable
-(setq org-plantuml-exec-mode 'plantuml)
+(setopt org-plantuml-exec-mode 'plantuml)
 
 ;;;

@@ -2,19 +2,19 @@
 ;;; Configure modeline
 
 ;;; Show column number
-(setq column-number-mode t)
+(setopt column-number-mode t)
 
 ;;; Time in 24 hour format, plus day and date.
-(setq display-time-day-and-date t)
-(setq display-time-24hr-format t)
+(setopt display-time-day-and-date t)
+(setopt display-time-24hr-format t)
 
 ;;; Display time in seconds in the mode line
 ;;; %H is the hour on a 24-hour clock, %I is on a 12-hour clock,
 ;;; %k is like %H only blank-padded, %l is like %I blank-padded.
 ;;; %p is the locale's equivalent of either AM or PM.
 ;;; %M is the minute, %S is the second.
-(setq display-time-format "%H:%M:%S")
-(setq display-time-interval 1)
+(setopt display-time-format "%H:%M:%S")
+(setopt display-time-interval 1)
 
 ;;; Enable the display of time and CPU load average in the modeline
 (display-time-mode 1)

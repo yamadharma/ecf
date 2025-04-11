@@ -1,9 +1,9 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Emacs Tab Bar
 
-(setq tab-bar-close-button-show t)
+(setopt tab-bar-close-button-show t)
 
-(setq tab-bar-tab-hints t)
+(setopt tab-bar-tab-hints t)
 
 (defvar ecf/circle-numbers-alist
   '((0 . "⓪")
@@ -33,6 +33,6 @@
                  "")
              " ")
      'face (funcall tab-bar-tab-face-function tab))))
-(setq tab-bar-tab-name-format-function #'ecf/tab-bar-tab-name-format-default)
+(setopt tab-bar-tab-name-format-function #'ecf/tab-bar-tab-name-format-default)
 
 ;;;

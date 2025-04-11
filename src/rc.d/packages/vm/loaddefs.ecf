@@ -11,14 +11,14 @@
 
 ;; This is bad, because things like BBDB might want to override the
 ;; default settings, but VM goes and loads the silly thing again.
-;;(setq vm-init-file (expand-file-name "~/share/emacs/desire/vm/desire.ecf"))
+;;(setopt vm-init-file (expand-file-name "~/share/emacs/desire/vm/desire.ecf"))
 
 ;; This is here because it is used by GNUS, which interacts with
 ;; rmail.  GNUS should desire rmail but that doesn't mean anything
 ;; except rmail/loaddefs.ecf gets loaded.
 
-(setq vm-folder-directory "~/Mail/")
-(setq gnus-author-copy
+(setopt vm-folder-directory "~/Mail/")
+(setopt gnus-author-copy
       (expand-file-name "GNUS" vm-folder-directory))
 
 ; (require 'mail-netscape)

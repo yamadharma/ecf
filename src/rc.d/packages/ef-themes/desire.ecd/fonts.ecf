@@ -4,7 +4,7 @@
 ;;; https://github.com/protesilaos/ef-themes
 ;;; https://gitlab.com/protesilaos/ef-themes
 
-(setq ef-themes-mixed-fonts t)
-(setq ef-themes-variable-pitch-ui t)
+(setopt ef-themes-mixed-fonts t)
+(setopt ef-themes-variable-pitch-ui t)
 
 ;;;

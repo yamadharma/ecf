@@ -2,7 +2,7 @@
 ;;; Perspectives for Emacs
 ;;; https://github.com/nex3/perspective-el
 
-(setq persp-auto-resume-time -1 ;; No autoload buffers
+(setopt persp-auto-resume-time -1 ;; No autoload buffers
         persp-set-last-persp-for-new-frames nil
         persp-reset-windows-on-nil-window-conf t
         persp-autokill-buffer-on-remove t

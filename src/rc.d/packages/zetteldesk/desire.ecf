@@ -9,7 +9,7 @@
 
 (require 'zetteldesk)
 
-(setq zetteldesk-kb-hydra-prefix (kbd "C-c z"))
+(setopt zetteldesk-kb-hydra-prefix (kbd "C-c z"))
 
 (zetteldesk-mode 1)
 

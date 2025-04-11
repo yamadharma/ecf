@@ -1,9 +1,9 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Use fancy icons
 
-(setq mu4e-use-fancy-chars t)
+(setopt mu4e-use-fancy-chars t)
 
-;(setq mu4e-use-fancy-chars t
+;(setopt mu4e-use-fancy-chars t
 ;      mu4e-headers-draft-mark '("D" . "")
 ;      mu4e-headers-flagged-mark '("F" . "")
 ;      mu4e-headers-new-mark '("N" . "")
@@ -16,17 +16,17 @@
 ;      mu4e-headers-signed-mark '("s" . "")
 ;      mu4e-headers-unread-mark '("u" . ""))
 
-(setq mu4e-headers-unread-mark    '("u" . "📩 "))
-(setq mu4e-headers-draft-mark     '("D" . "🚧 "))
-(setq mu4e-headers-flagged-mark   '("F" . "🚩 "))
-(setq mu4e-headers-new-mark       '("N" . "✨ "))
-(setq mu4e-headers-passed-mark    '("P" . "↪ "))
-(setq mu4e-headers-replied-mark   '("R" . "↩ "))
-(setq mu4e-headers-seen-mark      '("S" . " "))
-(setq mu4e-headers-trashed-mark   '("T" . "🗑️"))
-(setq mu4e-headers-attach-mark    '("a" . "📎 "))
-(setq mu4e-headers-encrypted-mark '("x" . "🔑 "))
-(setq mu4e-headers-signed-mark    '("s" . "🖊 "))
+(setopt mu4e-headers-unread-mark    '("u" . "📩 "))
+(setopt mu4e-headers-draft-mark     '("D" . "🚧 "))
+(setopt mu4e-headers-flagged-mark   '("F" . "🚩 "))
+(setopt mu4e-headers-new-mark       '("N" . "✨ "))
+(setopt mu4e-headers-passed-mark    '("P" . "↪ "))
+(setopt mu4e-headers-replied-mark   '("R" . "↩ "))
+(setopt mu4e-headers-seen-mark      '("S" . " "))
+(setopt mu4e-headers-trashed-mark   '("T" . "🗑️"))
+(setopt mu4e-headers-attach-mark    '("a" . "📎 "))
+(setopt mu4e-headers-encrypted-mark '("x" . "🔑 "))
+(setopt mu4e-headers-signed-mark    '("s" . "🖊 "))
 
 ;;;
 

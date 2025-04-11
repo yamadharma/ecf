@@ -1,5 +1,5 @@
-;;(setq gnus-select-method '(nntp "news4.fido7.ru")) 
-;;(setq gnus-select-method 
+;;(setopt gnus-select-method '(nntp "news4.fido7.ru")) 
+;;(setopt gnus-select-method 
 ;;  '(nntp "news")
 ;;) 
 

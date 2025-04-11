@@ -7,7 +7,7 @@
 (require 'vertico-posframe)
 ;; (vertico-posframe-mode 1)
 
-(setq vertico-multiform-commands
+(setopt vertico-multiform-commands
       '((consult-line
          posframe
          (vertico-posframe-poshandler . posframe-poshandler-frame-top-center)

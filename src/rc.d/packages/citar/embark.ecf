@@ -6,6 +6,6 @@
 (require 'citar-embark)
 (citar-embark-mode)
 
-(setq citar-at-point-function 'embark-act)
+(setopt citar-at-point-function 'embark-act)
 
 ;;;

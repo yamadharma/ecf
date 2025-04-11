@@ -1,5 +1,5 @@
-(setq ldap-default-host "intranet")
-(setq ldap-default-base "dc=linuxcare, dc=com")
+(setopt ldap-default-host "intranet")
+(setopt ldap-default-base "dc=linuxcare, dc=com")
 
 (require 'eudc-autoloads)
 (require 'eudc)

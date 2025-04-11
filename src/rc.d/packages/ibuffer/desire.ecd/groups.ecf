@@ -5,9 +5,9 @@
 (require 'ibuf-ext)
 
 ;;; Don't show filter groups if there are no buffers in that group
-(setq ibuffer-show-empty-filter-groups t)
+(setopt ibuffer-show-empty-filter-groups t)
 
-(setq ibuffer-saved-filter-groups
+(setopt ibuffer-saved-filter-groups
       '(("default"
 	 ("programming"
           (or
@@ -55,7 +55,7 @@
 ;; (unless (eq ibuffer-sorting-mode 'alphabetic)
 ;;   (add-hook 'ibuffer-hook #'ibuffer-do-sort-by-alphabetic))
 
-;; (setq ibuffer-saved-filter-groups
+;; (setopt ibuffer-saved-filter-groups
 ;;       (quote (("default"
 ;;                ("terminal"  (or
 ;;                              (mode . term-mode)

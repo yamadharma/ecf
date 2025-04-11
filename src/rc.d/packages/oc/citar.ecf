@@ -5,9 +5,9 @@
 (require 'citar)
 (add-hook 'org-mode-hook 'citar-capf-setup)
 
-(setq org-cite-insert-processor 'citar)
-(setq org-cite-follow-processor 'citar)
-(setq org-cite-activate-processor 'citar)
+(setopt org-cite-insert-processor 'citar)
+(setopt org-cite-follow-processor 'citar)
+(setopt org-cite-activate-processor 'citar)
 
 (general-define-key
  :keymaps 'org-mode-map

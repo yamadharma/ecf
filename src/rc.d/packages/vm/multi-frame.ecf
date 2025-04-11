@@ -1,7 +1,7 @@
 ;; Some of these aren't necessarily multi-frame specific, but this may
 ;; be the best place to put them...
 
-(setq vm-mime-external-content-types-alist
+(setopt vm-mime-external-content-types-alist
       '(("image/gif"                "xv")
 	("image/jpeg"               "xv")
 	("image/png"                "xv")
@@ -16,4 +16,4 @@
 	("video/mpeg"               "xmps-gnome")
 	))
 
-(setq vm-url-browser 'vm-mouse-send-url-to-netscape)
+(setopt vm-url-browser 'vm-mouse-send-url-to-netscape)

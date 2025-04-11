@@ -1,20 +1,20 @@
-;; (setq bbdb-file (expand-file-name "bbdb" emacs-etc-dir))
+;; (setopt bbdb-file (expand-file-name "bbdb" emacs-etc-dir))
 
-(setq bbdb-electric-p nil)
+(setopt bbdb-electric-p nil)
 
-(setq bbdb/mail-auto-create-p nil)
-(setq bbdb-completion-type 'primary-or-name)
-(setq bbdb-completion-display-record nil)
-(setq bbdb-user-mail-names user-mail-names)
-(setq bbdb/gnus-header-prefer-real-names t)
+(setopt bbdb/mail-auto-create-p nil)
+(setopt bbdb-completion-type 'primary-or-name)
+(setopt bbdb-completion-display-record nil)
+(setopt bbdb-user-mail-names user-mail-names)
+(setopt bbdb/gnus-header-prefer-real-names t)
 
 ;; INFO
-;;(setq bbdb-info-file
+;;(setopt bbdb-info-file
 ;;      (expand-file-name "~/share/lib/emacs/lisp/bbdb/bbdb.info"))
 
 ;; TELEPHONE NUMBERS
-(setq bbdb-default-area-code 2)
-(setq bbdb-north-american-phone-numbers-p nil)
+(setopt bbdb-default-area-code 2)
+(setopt bbdb-north-american-phone-numbers-p nil)
 
 ;; EXTRA FUNCTIONS/KEY BINDINGS
 ;;(require 'bbdb-query)
@@ -27,7 +27,7 @@
 ;;(define-key bbdb-mode-map "a" 'bbdb-create)
 
 ;; CANONICALISING EMAIL ADDRESSES
-(setq bbdb-canonicalize-net-hook 'mms-bbdb-canonicalize-net-hook)
+(setopt bbdb-canonicalize-net-hook 'mms-bbdb-canonicalize-net-hook)
 
 (defvar bbdb-canonical-domain-alist
   '(("rsphy[0-9]+\\.anu\\.edu\\.au" . "rsphysse.anu.edu.au")
@@ -44,41 +44,41 @@ the cdr is a string to substitute for it.")
     (while (and (not answer) dl)
       (if (string-match (concat "\\`\\([^@]+@\\)" (car (car dl)) "\\'")
 			addr)
-	  (setq answer (concat
+	  (setopt answer (concat
 			(substring addr (match-beginning 1) (match-end 1))
 			(cdr (car dl))))
-	(setq dl (cdr dl))))
+	(setopt dl (cdr dl))))
     (or answer addr)))
 
 ;; PRINTING
 ;;(autoload 'bbdb-print "bbdb-print" "BBDB print package" t)
 ;;(autoload 'bbdb-phone "bbdb-print" "BBDB print package" t)
 
-(setq bbdb-print-file-name "~/tmp/bbdb.tex")
-(setq bbdb-print-elide
+(setopt bbdb-print-file-name "~/tmp/bbdb.tex")
+(setopt bbdb-print-elide
       '(aka attribution creation-date mail-alias mail-folder mail-folders
 	    nic nic-updated tex-name timestamp anniversary gnokii))
-(setq bbdb-print-require '(and (or name company) (or address phone)))
-(setq bbdb-print-alist '((columns . 2) 
+(setopt bbdb-print-require '(and (or name company) (or address phone)))
+(setopt bbdb-print-alist '((columns . 2) 
 			 (separator . 2) 
 			 (phone-on-first-line . "^[ \t]*$")
 			 (ps-fonts . t)
 			 (font-size . 8)
 			 (quad-hsize . "3.15in")
 			 (quad-vsize . "4.5in")))
-(setq bbdb-print-full-alist
+(setopt bbdb-print-full-alist
       '((columns . 2) 
 	(separator . 2)
 	(include-files "bbdb-print" "bbdb-cols")))
-(setq bbdb-print-prolog 
+(setopt bbdb-print-prolog 
       (concat "% -*-TeX-*-\n%\n"
 	      "% Address Book in TeX Format from bbdb-print, version 3.0\n\n"
 	      "\\voffset=-0.5in\n\\vsize=10.5in\n\n"))
 
 ;; Dialing
 
-;;(setq bbdb-dial-local-prefix "1")
-(setq bbdb-sound-player "/usr/bin/audioplay")
+;;(setopt bbdb-dial-local-prefix "1")
+(setopt bbdb-sound-player "/usr/bin/audioplay")
 
 ;; Work-around the ZIP-code parsing.
 ;;(defun bbdb-parse-zip-string (string)
@@ -111,5 +111,5 @@ the cdr is a string to substitute for it.")
   "Export phone entries from BBDB to a Gnokii contacts file."
   t)
 
-;;(setq bbdb-gnokii-extras-file
+;;(setopt bbdb-gnokii-extras-file
 ;;      (expand-file-name "bbdb-gnokii-extras.txt" emacs-etc-dir))

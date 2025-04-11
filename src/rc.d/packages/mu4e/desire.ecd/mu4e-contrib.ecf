@@ -8,7 +8,7 @@
 (define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-mark-all-unread-read)
 
 ;;; enable inline images
-(setq mu4e-view-show-images t)
+(setopt mu4e-view-show-images t)
 ;;; use imagemagick, if available
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))

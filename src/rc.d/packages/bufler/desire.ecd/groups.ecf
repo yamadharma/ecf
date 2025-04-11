@@ -2,7 +2,7 @@
 ;;; Group buffers into workspaces with programmable rules
 ;;; https://github.com/alphapapa/bufler.el
 
-(setq bufler-groups
+(setopt bufler-groups
       (bufler-defgroups
 	(group
 	 ;; Subgroup collecting all named workspaces.

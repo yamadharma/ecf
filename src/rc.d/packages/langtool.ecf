@@ -3,7 +3,7 @@
 ;;; https://github.com/mhayashi1120/Emacs-langtool
 
 ;;; Command line
-(setq langtool-bin "/usr/bin/languagetool")
+(setopt langtool-bin "/usr/bin/languagetool")
 (require 'langtool)
 
 ;;;

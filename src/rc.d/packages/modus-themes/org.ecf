@@ -6,6 +6,6 @@
 
 ;;; Set the overall style of Org code blocks, quotes, and the like
 ;;; Possible values: nil (default) | gray-background | tinted-background
-(setq modus-themes-org-blocks 'tinted-background)
+(setopt modus-themes-org-blocks 'tinted-background)
 
 ;;;

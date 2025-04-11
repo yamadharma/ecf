@@ -34,7 +34,7 @@
 (set-fill-column 80)
 
 ;(require 'whitespace)
-;(setq whitespace-style '(face empty tabs lines-tail trailing))
+;(setopt whitespace-style '(face empty tabs lines-tail trailing))
 ;(global-whitespace-mode t)
 ;(hungry-delete-mode)
 

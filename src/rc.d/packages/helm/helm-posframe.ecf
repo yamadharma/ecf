@@ -4,7 +4,7 @@
 (require 'helm-posframe)
 
 ;;; Posframe parameters
-(setq helm-posframe-parameters
+(setopt helm-posframe-parameters
       '((min-width . 90)
         (min-height . 15)
         (border-width . 4)
@@ -17,7 +17,7 @@
 ;; posframe-poshandler-frame-center
 ;; posframe-poshandler-window-center
 ;;;
-(setq helm-posframe-poshandler #'posframe-poshandler-frame-center)
+(setopt helm-posframe-poshandler #'posframe-poshandler-frame-center)
 
 (helm-posframe-enable)
 

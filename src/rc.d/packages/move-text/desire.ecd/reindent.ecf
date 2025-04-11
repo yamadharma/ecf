@@ -9,7 +9,7 @@
     (if (region-active-p)
         (indent-region (region-beginning) (region-end))
       (indent-region (line-beginning-position) (line-end-position)))
-    (setq deactivate-mark deactivate)))
+    (setopt deactivate-mark deactivate)))
 
 (advice-add 'move-text-up :after 'indent-region-advice)
 (advice-add 'move-text-down :after 'indent-region-advice)

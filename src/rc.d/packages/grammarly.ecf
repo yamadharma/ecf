@@ -6,8 +6,8 @@
 ;;; Using a Paid Grammarly Account
 
 ;;; Your Grammarly Username
-;; (setq grammarly-username "username@email.com")
+;; (setopt grammarly-username "username@email.com")
 ;;; Your Grammarly Password
-;; (setq grammarly-password "password")  
+;; (setopt grammarly-password "password")  
 
 ;;;

@@ -25,7 +25,7 @@
 		 (save-excursion
 		   (set-buffer fancy-diary-buffer)
 		   (make-local-variable 'font-lock-defaults)
-		   (setq font-lock-defaults
+		   (setopt font-lock-defaults
 			 '(fancy-diary-font-lock-keywords t))
 		   (font-lock-fontify-buffer))))
 	  t)

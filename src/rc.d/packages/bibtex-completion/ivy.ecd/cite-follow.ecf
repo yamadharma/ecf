@@ -6,6 +6,6 @@
 (org-cite-register-processor 'my-ivy-bibtex-org-cite-follow
   :follow (lambda (_ _) (ivy-bibtex)))
 
-(setq org-cite-follow-processor 'my-ivy-bibtex-org-cite-follow)
+(setopt org-cite-follow-processor 'my-ivy-bibtex-org-cite-follow)
 
 ;;;

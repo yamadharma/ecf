@@ -5,28 +5,28 @@
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 ;;; This function configures superstar-mode to be as similar to org-bullets as possible
-(setq org-superstar-configure-like-org-bullets t)
+(setopt org-superstar-configure-like-org-bullets t)
 
 ;;; This is usually the default, but keep in mind it must be nil
-(setq org-hide-leading-stars nil)
+(setopt org-hide-leading-stars nil)
 
 ;;; This line is necessary.
-(setq org-superstar-leading-bullet ?\s)
+(setopt org-superstar-leading-bullet ?\s)
 
 ;;; If you use Org Indent you also need to add this, otherwise the
 ;;; above has no effect while Indent is enabled
-(setq org-indent-mode-turns-on-hiding-stars nil)
+(setopt org-indent-mode-turns-on-hiding-stars nil)
 
 ;; Hide away leading stars on terminal
-(setq org-superstar-leading-fallback ?\s)
+(setopt org-superstar-leading-fallback ?\s)
 
 ;;;
-(setq org-ellipsis "⤵")
+(setopt org-ellipsis "⤵")
 
 ;;;
-(setq org-highlight-latex-and-related '(native script entities))
+(setopt org-highlight-latex-and-related '(native script entities))
 
 ;; Stop cycling bullets to emphasize hierarchy of headlines
-(setq org-superstar-cycle-headline-bullets nil)
+(setopt org-superstar-cycle-headline-bullets nil)
 
 ;;;

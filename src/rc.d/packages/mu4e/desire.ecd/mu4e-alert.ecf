@@ -19,6 +19,6 @@
 (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
 
 ;;; Only display the number of unread emails
-;; (setq mu4e-alert-email-notification-types '(count))
+;; (setopt mu4e-alert-email-notification-types '(count))
 
 ;;;

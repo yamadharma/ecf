@@ -11,28 +11,28 @@
 
 (global-set-key [remap find-tag]  #'projectile-find-tag)
 
-(setq projectile-cache-file (concat home-cache-path "projectile.cache"))
-(setq projectile-known-projects-file (concat home-cache-path "projectile.projects"))
+(setopt projectile-cache-file (concat home-cache-path "projectile.cache"))
+(setopt projectile-known-projects-file (concat home-cache-path "projectile.projects"))
 
 ;;; Auto-discovery is slow to do by default. Better to update the list
 ;;; when you need to (`projectile-discover-projects-in-search-path').
-(setq projectile-auto-discover nil)
+(setopt projectile-auto-discover nil)
 
-(setq projectile-enable-caching t)
-(setq projectile-globally-ignored-files '(".DS_Store" "TAGS"))
-(setq projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o"))
-(setq projectile-kill-buffers-filter 'kill-only-files)
-(setq projectile-ignored-projects '("~/" "/tmp"))
-(setq projectile-project-search-path '("~/projects/" "~/work/"))
-(setq projectile-git-submodule-command nil)
-(setq projectile-indexing-method 'hybrid)
+(setopt projectile-enable-caching t)
+(setopt projectile-globally-ignored-files '(".DS_Store" "TAGS"))
+(setopt projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o"))
+(setopt projectile-kill-buffers-filter 'kill-only-files)
+(setopt projectile-ignored-projects '("~/" "/tmp"))
+(setopt projectile-project-search-path '("~/projects/" "~/work/"))
+(setopt projectile-git-submodule-command nil)
+(setopt projectile-indexing-method 'hybrid)
 
 (projectile-mode +1)
 (projectile-global-mode)
 
 ;;; In the interest of performance, we reduce the number of project root marker
 ;;; files/directories projectile searches for when resolving the project root.
-(setq projectile-project-root-files-bottom-up
+(setopt projectile-project-root-files-bottom-up
       (append '(".projectile"  ; projectile's root marker
                 ".project"     ; project marker
                 ".git")        ; Git VCS root dir
@@ -49,7 +49,7 @@
 (push (abbreviate-file-name home-data-path) projectile-globally-ignored-directories)
 
 ;;; Per-project compilation buffers
-(setq compilation-buffer-name-function #'projectile-compilation-buffer-name
+(setopt compilation-buffer-name-function #'projectile-compilation-buffer-name
       compilation-save-buffers-predicate #'projectile-current-project-buffer-p)
 
 ;;; Treat current directory in dired as a "file in a project" and track it
