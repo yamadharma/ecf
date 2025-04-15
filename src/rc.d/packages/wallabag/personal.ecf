@@ -3,18 +3,18 @@
 ;;; https://github.com/chenyanming/wallabag.el
 
 ;;; Wallabag server host name
-;; (setopt wallabag-host "https://xx.xx.xx")
+;; (setq wallabag-host "https://xx.xx.xx")
 
 ;;; Username
-;; (setopt wallabag-username "xx")
+;; (setq wallabag-username "xx")
 
 ;;; Password
-;; (setopt wallabag-password "xx")
+;; (setq wallabag-password "xx")
 
 ;;; Created with API clients management
-;; (setopt wallabag-clientid "xx")
+;; (setq wallabag-clientid "xx")
 
 ;;; Created with API clients management
-;; (setopt wallabag-secret "xx")
+;; (setq wallabag-secret "xx")
 
 ;;;

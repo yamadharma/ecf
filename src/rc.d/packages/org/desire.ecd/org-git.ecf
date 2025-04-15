@@ -1,11 +1,14 @@
-;;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Code:
 
 (global-auto-revert-mode 1)
 
-;;; Find all directories with .git directory under org-directory
+;;;; Find all directories with .git directory under org-directory
 (setq org-directory-git
       (mapcar 'file-name-directory (directory-files-recursively org-directory "^\.git$" t t t)))
 
+;;;; Functions for git
 (defun ecf/org-git-push ()
   (let ((git-dir org-directory-git)
         (commit-message (concat (system-name) ": emacs automatic commit")))
@@ -21,16 +24,16 @@
       (start-process "org-git-pull" "*Messages*" "bash" "-c" "git pull")
       (cd dir))))
 
-;; Run pull automatically on startup 
+;;;; Run pull automatically on startup
 (ecf/org-git-pull)
 
-;; Automatic Pull - Do a pull every 5 minutes
+;;;; Automatic Pull - Do a pull every 5 minutes
 (run-with-timer (* 5 60) (* 5 60) 'ecf/org-git-pull)
 
-;; Automatic Push - Monitors files that are located in org-directory
-;; and runs push after a delay. Every time a file org file is edited
-;; the delay timer is reset to prevent unnecessary commits during
-;; longer editing sessions.
+;;;; Automatic Push - Monitors files that are located in org-directory
+;;;; and runs push after a delay. Every time a file org file is edited
+;;;; the delay timer is reset to prevent unnecessary commits during
+;;;; longer editing sessions.
 (defvar org-git-push-timer nil
   "Timer that `org-git-push-timer' used to reschedule itself, or nil.")
 
@@ -48,9 +51,9 @@
            (org-git-push-with-delay (* 5 60)))
    )))
 
-;; Run push automatically on startup 
+;;;; Run push automatically on startup
 (ecf/org-git-push)
-;; Automatic unattended push - Do a push every 30 minutes
+;;;; Automatic unattended push - Do a push every 30 minutes
 (org-git-push-with-delay (* 30 60))
 
 ;;;

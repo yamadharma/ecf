@@ -3,6 +3,6 @@
 ;;; The file for remembering in which file an ID was defined
 ;; (setopt org-id-locations-file (expand-file-name ".orgids" org-directory)
 
-(setopt org-id-method 'uuidgen)
+(setopt org-id-method 'uuid)
 
 ;;;
