@@ -65,8 +65,8 @@
     ()
   (progn
     (desire-conf 'window-system)
-                                      ;    (desire-conf  'faces)
-                                      ;    (desire-conf  'multi-frame)
+					;    (desire-conf  'faces)
+					;    (desire-conf  'multi-frame)
     )
   )
 
@@ -120,9 +120,8 @@
 (desire 'compat)
 
 (desire 'async)
-;; (desire 'gcmh)
 
-;; ----------------------------------------------------------------------
+(desire 'gcmh)
 
 ;;; LSP mode {{{
 
@@ -313,8 +312,12 @@
 
 (desire 'plantuml-mode)
 
+(desire 'doc-toc)
+
 (desire 'pdf-tools)
+
 (desire 'nov)
+
 (desire 'fb2-reader)
 
 ;; (desire 'valign)
@@ -351,7 +354,7 @@
 (desire 'org-custom-cookies)
 ;; (desire 'svg-tag-mode)
 (desire 'org-superstar)
-;; (desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
+(desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
 (desire 'org-modern)
 ;; (desire 'org-contacts)
 ;; (desire 'google-contacts)
@@ -682,8 +685,6 @@
 ;; (desire 'modus-themes)
 
 (desire 'ef-themes)
-
-;;;}}}
 
 ;; (desire 'posframe)
 

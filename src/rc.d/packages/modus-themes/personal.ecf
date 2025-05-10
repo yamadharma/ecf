@@ -16,11 +16,11 @@
 ;;; Tinted themes
 ;;; modus-operandi-tinted and modus-vivendi-tinted are variants of the two main themes
 ;;; Light theme
-;; (load-theme 'modus-operandi-tinted :no-confirm)
+(load-theme 'modus-operandi-tinted :no-confirm)
 ;;; Dark theme
 ;; (load-theme 'modus-vivendi-tinted :no-confirm)
 ;;; Switch themes
-;; (setopt modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
+(setopt modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
 
 ;;; Deuteranopia themes
 ;;; modus-operandi-deuteranopia and its companion modus-vivendi-deuteranopia are optimized for users with red-green color deficiency
