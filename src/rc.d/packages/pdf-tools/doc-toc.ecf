@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Create, cleanup, add and manage Table Of Contents (TOC) of pdf and djvu documents with Emacs
+;; https://github.com/dalanicolai/doc-tools-toc
+
+;;; Code:
+
+(require 'doc-toc)
+
+;;;
