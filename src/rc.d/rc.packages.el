@@ -391,6 +391,8 @@
 
 (desired 'mobileorg)
 
+(desire 'org-download)
+
 (desire 'org)
 
 ;;; For messaging

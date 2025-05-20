@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Drag and drop images to Emacs org-mode
+;; https://github.com/abo-abo/org-download
+
+;;; Code:
+
+(setopt org-download-screenshot-method
+        (cond (IS-MAC "screencapture -i %s")
+              (IS-LINUX
+	       (cond ((executable-find "grim") "grim -g \"$(slurp)\" %s")
+		     ((executable-find "flameshot") "flameshot gui --raw > %s")
+		     ((executable-find "maim") "maim -s %s")
+                     ((executable-find "scrot") "scrot -s %s")
+                     ((executable-find "gnome-screenshot") "gnome-screenshot -a -f %s")))))
+
+;;;
