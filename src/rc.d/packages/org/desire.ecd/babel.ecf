@@ -10,6 +10,9 @@
 (require 'org-auto-tangle)
 (add-hook 'org-mode-hook 'org-auto-tangle-mode)
 
+;;; Keep the indentation on org-babel-tangle
+(setopt org-src-preserve-indentation t)
+
 ;;; Auto-tangle as the default behavior for all org buffers
 ;; (setopt org-auto-tangle-default t)
 

@@ -25,6 +25,7 @@
 ;;; Ignore tags when export
 ;;; https://www.reddit.com/r/orgmode/comments/8166p9/can_orgexport_or_oxhugo_ignore_some_tags/
 (setopt ecf/tags-categories-to-be-removed '("MOC"))
+(setopt ecf/tags-categories-to-be-removed '("ATTACH"))
 
 (defun org-hugo--tag-processing-fn-remove-tags-maybe (tags-list info)
   "Remove user-specified tags/categories. See `org-hugo-tag-processing-functions' for more info."

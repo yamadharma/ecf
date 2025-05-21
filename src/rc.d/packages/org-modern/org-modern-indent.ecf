@@ -8,12 +8,12 @@
 (require 'org-modern-indent)
 
 ;;; Adds extra indentation
-;; (setopt org-modern-hide-stars nil)
+(setopt org-modern-hide-stars nil)
 
 ;;; Or other chars. So top bracket is drawn promptly
 (setopt org-modern-block-name '("" . "")) 
 
 (add-hook 'org-mode-hook #'org-modern-indent-mode 90)
-;; (add-hook 'org-journal-mode-hook #'org-modern-indent-mode 90)
+(add-hook 'org-journal-mode-hook #'org-modern-indent-mode 90)
 
 ;;;

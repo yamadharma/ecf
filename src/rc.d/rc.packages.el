@@ -299,18 +299,15 @@
 ;; (desire 'prettify-math)
 ;; (desire 'math-preview)
 
+(desire-conf 'text)
+
 (desire 'move-text)
 
 (desire 'delsel)
 
 (desire 'pandoc-mode)
 
-(desire' mermaid-mode :precondition-system-executable "mmdc")
-
-(desire-conf 'text)
-(desire-conf 'markdown-mode nil "markdown-mode" t)
-
-(desire 'plantuml-mode)
+(desire 'markdown-mode)
 
 (desire 'doc-toc)
 
@@ -430,6 +427,10 @@
 ;; (desire 'org-gantt-mode :recipe '(:fetcher gitlab :repo "joukeHijlkema/org-gantt-mode" :branch "master"))
 
 (desire 'elgantt :recipe '(:fetcher github :repo "legalnonsense/elgantt" :branch "master"))
+
+(desire' mermaid-mode :precondition-system-executable "mmdc")
+
+(desire 'plantuml-mode)
 
 ;; XML, XHTML, HTML {{{
 
