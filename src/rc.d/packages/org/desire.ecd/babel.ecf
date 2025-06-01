@@ -4,7 +4,7 @@
 ;;; Code:
 
 ;;;; Keep the indentation on org-babel-tangle
-(setopt org-src-preserve-indentation t)
+;; (setopt org-src-preserve-indentation t)
 
 ;;;; Org-babel confirm before evaluation
 (setopt org-confirm-babel-evaluate nil)

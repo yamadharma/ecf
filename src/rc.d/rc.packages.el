@@ -198,7 +198,7 @@
 (desire 'transient)
 
 ;;;;; Casual Suite
-(desire 'casual)
+;; (desire 'casual)
 
 ;;;; Navigation
 
@@ -687,7 +687,9 @@
 
 ;; (desire 'modus-themes)
 
-(desire 'ef-themes)
+;; (desire 'ef-themes)
+
+(desire 'doric-themes)
 
 ;; (desire 'posframe)
 

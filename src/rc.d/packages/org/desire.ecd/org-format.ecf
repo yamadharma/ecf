@@ -2,9 +2,9 @@
 ;;; Formatter for org-mode files to ensure consistency
 ;;; https://github.com/chrisbarrett/nursery
 
-(desire 'org-format :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-format.el" "lisp/org-capture-detect.el")))
-(require 'org-format)
+;; (desire 'org-format :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-format.el" "lisp/org-capture-detect.el")))
+;; (require 'org-format)
 
-(add-hook 'org-mode-hook #'org-format-on-save-mode)
+;; (add-hook 'org-mode-hook #'org-format-on-save-mode)
 
 ;;;

@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Doric themes for GNU Emacs
+;; https://github.com/protesilaos/doric-themes
+
+;;; Code:
+
+(require 'doric-themes)
+
+;;;

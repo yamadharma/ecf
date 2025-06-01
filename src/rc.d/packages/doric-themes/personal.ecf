@@ -1,0 +1,35 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Doric themes for GNU Emacs
+;; https://github.com/protesilaos/doric-themes
+
+;;; Code:
+
+;;;; light + dark
+;; (setopt doric-themes-to-toggle '(doric-light doric-dark))
+;; (doric-themes-select 'doric-light)
+
+;;;; marble + obsidian
+;; (setopt doric-themes-to-toggle '(doric-marble doric-obsidian))
+;; (doric-themes-select 'doric-marble)
+
+;;;; earth + fire
+(setopt doric-themes-to-toggle '(doric-earth doric-fire))
+(doric-themes-select 'doric-earth)
+
+;;;; wind + water
+;; (setopt doric-themes-to-toggle '(doric-wind doric-water))
+;; (doric-themes-select 'doric-wind)
+
+;;;; cherry + plum
+;; (setopt doric-themes-to-toggle '(doric-cherry doric-plum))
+;; (doric-themes-select 'doric-cherry)
+
+;;;; Rotate themes
+(setopt doric-themes-to-rotate doric-themes-collection)
+
+;;;; To load a random theme instead, use something like one of these:
+;; (doric-themes-load-random)
+;; (doric-themes-load-random 'light)
+;; (doric-themes-load-random 'dark)
+
+;;;
