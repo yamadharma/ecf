@@ -1,15 +1,17 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Emacs package that displays available keybindings in popup
-;;; https://github.com/justbur/emacs-which-key
+;; https://github.com/justbur/emacs-which-key
 
-;;; Key-Based replacement
+;;; Code:
+
+;;;; Key-Based replacement
 (which-key-add-key-based-replacements "C-x C-f" "find files")
 (which-key-add-major-mode-key-based-replacements
  'org-mode
  "C-c C-c" "Org C-c C-c"
  "C-c C-a" "Org Attach")
 
-;;; Key and Description replacement
+;;;; Key and Description replacement
 (add-to-list 'which-key-replacement-alist '(("TAB" . nil) . ("↹" . nil)))
 (add-to-list 'which-key-replacement-alist '(("RET" . nil) . ("⏎" . nil)))
 (add-to-list 'which-key-replacement-alist '(("DEL" . nil) . ("⇤" . nil)))
@@ -22,49 +24,59 @@
 (setopt which-key-special-keys nil)
 
 
-;;; Sorting Options
-;;;; Default
+;;;; Sorting Options
+;;;;; Default
 (setopt which-key-sort-order 'which-key-key-order)
-;;;; Same as default, except single characters are sorted alphabetically
+;;;;; Same as default, except single characters are sorted alphabetically
 ;; (setopt which-key-sort-order 'which-key-key-order-alpha)
-;;;; Same as default, except all prefix keys are grouped together at the end
+;;;;; Same as default, except all prefix keys are grouped together at the end
 ;; (setopt which-key-sort-order 'which-key-prefix-then-key-order)
-;;;; Same as default, except all keys from local maps shown first
+;;;;; Same as default, except all keys from local maps shown first
 ;; (setopt which-key-sort-order 'which-key-local-then-key-order)
-;;;; Sort based on the key description ignoring case
+;;;;; Sort based on the key description ignoring case
 ;; (setopt which-key-sort-order 'which-key-description-order)
 
-;;; Popup Type Options
-;;; minibuffer | side-window | frame | custom
+;;;; Popup Type Options
+;;;; minibuffer | side-window | frame | custom
 (setopt which-key-popup-type 'minibuffer)
 
-;;; Set the time delay (in seconds) for the which-key popup to appear
+;;;;; Set the time delay (in seconds) for the which-key popup to appear
 (setopt which-key-idle-delay 1.0)
+(setopt which-key-idle-secondary-delay 0.05)
 
-;;; Set the maximum length (in characters) for key descriptions (commands or prefixes)
+;;;; Set the maximum length (in characters) for key descriptions (commands or prefixes)
 (setopt which-key-max-description-length 27)
 
-;;; Use additional padding between columns of keys
+;;;; Use additional padding between columns of keys
 (setopt which-key-add-column-padding 0)
 
-;;; The maximum number of columns to display in the which-key buffer
+;;;; The maximum number of columns to display in the which-key buffer
 (setopt which-key-max-display-columns nil)
 
-;;; Set the separator used between keys and descriptions
+
+;;;; Use unicode
+(setopt which-key-dont-use-unicode nil)
+
+;;;; Set the separator used between keys and descriptions
 (setopt which-key-separator " → " )
 (setopt which-key-unicode-correction 3)
 
-;;; Set the prefix string that will be inserted in front of prefix commands
+;;;; Set the prefix string that will be inserted in front of prefix commands
 (setopt which-key-prefix-prefix "+" )
 
-;;; Show the key prefix on the left, top, or bottom (nil means hide the prefix)
+;;;; Show the key prefix on the left, top, or bottom (nil means hide the prefix)
 (setopt which-key-show-prefix 'left)
 
-;; Set to t to show the count of keys shown vs. total keys in the mode line
+;;;; Set to t to show the count of keys shown vs. total keys in the mode line
 (setopt which-key-show-remaining-keys nil)
 
+;;;; Show actual combinations
+(setopt which-key-computer-remaps t)
 
+;;;; Like [C-h m]
+(setopt which-key-show-major-mode t)
 
+;;;; Enable globally
 (which-key-mode)
 
 ;;;
