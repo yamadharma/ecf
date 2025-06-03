@@ -535,11 +535,11 @@
 
 (desire 'telega)
 
-(desire 'elfeed)
-
 (desire 'pocket-reader)
 
 (desire 'wallabag :recipe '(:fetcher github :repo "chenyanming/wallabag.el" :branch "master" :files ("*.el" "*.alist" "*.css")))
+
+(desire 'elfeed)
 
 ;;;}}}
 
