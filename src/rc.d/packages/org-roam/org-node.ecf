@@ -11,6 +11,6 @@
 (org-node-roam-accelerator-mode)
 (setopt org-node-creation-fn #'org-node-new-via-roam-capture)
 (setopt org-node-file-slug-fn #'org-node-slugify-like-roam-default)
-(setopt org-node-file-timestamp-format "%Y%m%dT%H%M%S--"))
+(setopt org-node-file-timestamp-format "%Y%m%dT%H%M%S--")
 
 ;;;
