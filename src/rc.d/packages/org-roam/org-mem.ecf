@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Turn thousands of Org files into a database in seconds
+;; https://github.com/meedstrom/org-mem
+
+;;; Code:
+
+(setq org-roam-db-update-on-save nil)
+(setq org-mem-roamy-do-overwrite-real-db t)
+(org-mem-roamy-db-mode)
+
+;;;

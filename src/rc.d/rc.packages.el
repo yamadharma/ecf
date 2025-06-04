@@ -383,6 +383,8 @@
 
 (desire 'org-transclusion)
 
+(desire 'org-mem)
+
 ;;; GTD
 (desire 'org-gtd)
 
