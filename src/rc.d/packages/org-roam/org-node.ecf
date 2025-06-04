@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A notetaking system like Roam using Emacs Org-mode
+;; https://github.com/meedstrom/org-node
+
+;;; Code:
+
+(setopt org-mem-do-sync-with-org-id t)
+(setopt org-mem-watch-dirs (list org-roam-directory))
+(org-mem-updater-mode)
+(org-node-cache-mode)
+(org-node-roam-accelerator-mode)
+(setopt org-node-creation-fn #'org-node-new-via-roam-capture)
+(setopt org-node-file-slug-fn #'org-node-slugify-like-roam-default)
+(setopt org-node-file-timestamp-format "%Y%m%dT%H%M%S--"))
+
+;;;

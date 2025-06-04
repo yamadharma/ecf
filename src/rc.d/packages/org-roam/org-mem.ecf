@@ -4,8 +4,8 @@
 
 ;;; Code:
 
-(setq org-roam-db-update-on-save nil)
-(setq org-mem-roamy-do-overwrite-real-db t)
+(setopt org-roam-db-update-on-save nil)
+(setopt org-mem-roamy-do-overwrite-real-db t)
 (org-mem-roamy-db-mode)
 
 ;;;

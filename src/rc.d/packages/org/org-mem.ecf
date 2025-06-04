@@ -4,8 +4,8 @@
 
 ;;; Code:
 
-(setq org-mem-watch-dirs '(org-directory))
-(setq org-mem-do-sync-with-org-id t)
+(setopt org-mem-watch-dirs (list org-directory))
+(setopt org-mem-do-sync-with-org-id t)
 (org-mem-updater-mode)
 
 ;;;

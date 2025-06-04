@@ -385,6 +385,8 @@
 
 (desire 'org-mem)
 
+(desire 'org-node)
+
 ;;; GTD
 (desire 'org-gtd)
 
