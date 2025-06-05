@@ -50,7 +50,10 @@
     (setq shrface-bullets-bullet-list '("▼" "▽" "▿" "▾"))
   (setq shrface-bullets-bullet-list '("▼" "▽" "▿" "▾")))
 (add-hook 'outline-view-change-hook 'shrface-outline-visibility-changed)
+
+(desire 'shr-tag-pre-highlight)
 (require 'shr-tag-pre-highlight)
+
 (setq shr-tag-pre-highlight-lang-modes
       '(("ocaml" . tuareg) ("elisp" . emacs-lisp) ("ditaa" . artist)
         ("asymptote" . asy) ("dot" . fundamental) ("sqlite" . sql)
