@@ -1,0 +1,68 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extend eww/nov with org-mode features, archive web pages to org files with shr
+;; https://github.com/chenyanming/shrface
+
+;;; Code:
+
+(defvar shrface-general-rendering-functions
+  (append '((title . eww-tag-title)
+            (form . eww-tag-form)
+            (input . eww-tag-input)
+            (button . eww-form-submit)
+            (textarea . eww-tag-textarea)
+            (select . eww-tag-select)
+            (link . eww-tag-link)
+            (meta . eww-tag-meta)
+            (code . shrface-tag-code)
+            (pre . shrface-shr-tag-pre-highlight))
+          shrface-supported-faces-alist))
+
+(defvar shrface-nov-rendering-functions
+  (append '((img . nov-render-img)
+            (svg . nov-render-svg)
+            (title . nov-render-title)
+            (pre . shrface-shr-tag-pre-highlight)
+            (code . shrface-tag-code)
+            (form . eww-tag-form)
+            (input . eww-tag-input)
+            (button . eww-form-submit)
+            (textarea . eww-tag-textarea)
+            (select . eww-tag-select)
+            (link . eww-tag-link)
+            (meta . eww-tag-meta))
+          shrface-supported-faces-alist))
+
+(defvar shrface-anki-rendering-functions
+  (append '((img . anki-render-img)
+            (pre . shrface-shr-tag-pre-highlight)
+            (code . shrface-tag-code)
+            (form . eww-tag-form)
+            (input . eww-tag-input)
+            (button . eww-form-submit)
+            (textarea . eww-tag-textarea)
+            (select . eww-tag-select)
+            (link . eww-tag-link)
+            (meta . eww-tag-meta))
+          shrface-supported-faces-alist))
+
+(setq shr-cookie-policy nil)
+(if (string-equal system-type "android")
+    (setq shrface-bullets-bullet-list '("▼" "▽" "▿" "▾"))
+  (setq shrface-bullets-bullet-list '("▼" "▽" "▿" "▾")))
+(add-hook 'outline-view-change-hook 'shrface-outline-visibility-changed)
+(require 'shr-tag-pre-highlight)
+(setq shr-tag-pre-highlight-lang-modes
+      '(("ocaml" . tuareg) ("elisp" . emacs-lisp) ("ditaa" . artist)
+        ("asymptote" . asy) ("dot" . fundamental) ("sqlite" . sql)
+        ("calc" . fundamental) ("C" . c) ("cpp" . c++) ("C++" . c++)
+        ("screen" . shell-script) ("shell" . sh) ("bash" . sh)
+        ("rust" . rustic)
+        ("rust" . rustic)
+        ("awk" . bash)
+        ("json" . "js")
+        ;; Used by language-detection.el
+        ("emacslisp" . emacs-lisp)
+        ;; Used by Google Code Prettify
+        ("el" . emacs-lisp))))
+
+;;;

@@ -1,0 +1,15 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extend eww/nov with org-mode features, archive web pages to org files with shr
+;; https://github.com/chenyanming/shrface
+
+;;; Code:
+
+(require 'shrface)
+
+(advice-add 'eww-display-html :around #'shrface-render-advice)
+(add-hook 'eww-after-render-hook #'org-indent-mode)
+(add-hook 'eww-after-render-hook #'eldoc-mode)
+(add-hook 'eww-after-render-hook #'eldoc-box-hover-mode)
+(add-hook 'eww-after-render-hook #'shrface-eww-setup)
+
+;;;

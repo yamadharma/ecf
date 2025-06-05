@@ -1,0 +1,16 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extend eww/nov with org-mode features, archive web pages to org files with shr
+;; https://github.com/chenyanming/shrface
+
+;;; Code:
+
+(require 'shrface)
+
+(add-hook 'anki-mode-hook #'org-indent-mode)
+(advice-add 'anki-render-html :around #'shrface-anki-advice)
+(advice-add 'anki-render-region :around #'shrface-anki-advice)
+(add-hook 'anki-mode-hook #'eldoc-mode)
+(add-hook 'anki-mode-hook #'eldoc-box-hover-mode)
+(add-hook 'anki-mode-hook #'shrface-anki-setup)
+
+;;;

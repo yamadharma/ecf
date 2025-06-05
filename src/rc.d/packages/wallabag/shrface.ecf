@@ -1,0 +1,20 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extend eww/nov with org-mode features, archive web pages to org files with shr
+;; https://github.com/chenyanming/shrface
+
+;;; Code:
+
+(require 'shrface)
+
+(add-hook 'wallabag-entry-mode-hook #'org-indent-mode)
+(add-hook 'wallabag-entry-mode-hook #'eldoc-mode)
+(add-hook 'wallabag-entry-mode-hook #'eldoc-box-hover-mode)
+(add-hook 'wallabag-entry-mode-hook #'shrface-wallabag-setup)
+(advice-add 'wallabag-entry-quit :after #'(lambda (&rest args)
+                                            (interactive)
+                                            (if (get-buffer "*Ilist*")
+                                                (kill-buffer "*Ilist*"))))
+
+(setq wallabag-render-html-function #'shrface-wallabag-render-html)
+
+;;;
