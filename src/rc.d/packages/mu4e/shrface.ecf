@@ -8,4 +8,12 @@
 
 (advice-add 'mu4e-shr2text :around #'shrface-render-advice)
 
+(define-key mu4e-view-mode-map (kbd "<tab>") 'shrface-outline-cycle)
+(define-key mu4e-view-mode-map (kbd "S-<tab>") 'shrface-outline-cycle-buffer)
+(define-key mu4e-view-mode-map (kbd "C-t") 'shrface-toggle-bullets)
+(define-key mu4e-view-mode-map (kbd "C-j") 'shrface-next-headline)
+(define-key mu4e-view-mode-map (kbd "C-k") 'shrface-previous-headline)
+(define-key mu4e-view-mode-map (kbd "M-l") 'shrface-links-consult) ; or 'shrface-links-helm or 'shrface-links-counsel
+(define-key mu4e-view-mode-map (kbd "M-h") 'shrface-headline-consult) ; or 'shrface-headline-helm or 'shrface-headline-counsel
+
 ;;;

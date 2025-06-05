@@ -14,4 +14,12 @@
 (setopt nov-render-html-function #'shrface-nov-render-html)
 (advice-add 'shr--remove-blank-lines-at-the-end :override #'shrface-remove-blank-lines-at-the-end)
 
+(define-key nov-mode-map (kbd "<tab>") 'shrface-outline-cycle)
+(define-key nov-mode-map (kbd "S-<tab>") 'shrface-outline-cycle-buffer)
+(define-key nov-mode-map (kbd "C-t") 'shrface-toggle-bullets)
+(define-key nov-mode-map (kbd "C-j") 'shrface-next-headline)
+(define-key nov-mode-map (kbd "C-k") 'shrface-previous-headline)
+(define-key nov-mode-map (kbd "M-l") 'shrface-links-consult) ; or 'shrface-links-helm or 'shrface-links-counsel
+(define-key nov-mode-map (kbd "M-h") 'shrface-headline-consult) ; or 'shrface-headline-helm or 'shrface-headline-counsel
+
 ;;;

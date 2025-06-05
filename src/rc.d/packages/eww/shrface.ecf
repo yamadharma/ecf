@@ -12,4 +12,12 @@
 (add-hook 'eww-after-render-hook #'eldoc-box-hover-mode)
 (add-hook 'eww-after-render-hook #'shrface-eww-setup)
 
+(define-key eww-mode-map (kbd "<tab>") 'shrface-outline-cycle)
+(define-key eww-mode-map (kbd "S-<tab>") 'shrface-outline-cycle-buffer)
+(define-key eww-mode-map (kbd "C-t") 'shrface-toggle-bullets)
+(define-key eww-mode-map (kbd "C-j") 'shrface-next-headline)
+(define-key eww-mode-map (kbd "C-k") 'shrface-previous-headline)
+(define-key eww-mode-map (kbd "M-l") 'shrface-links-consult) ; or 'shrface-links-helm or 'shrface-links-counsel
+(define-key eww-mode-map (kbd "M-h") 'shrface-headline-consult) ; or 'shrface-headline-helm or 'shrface-headline-counsel
+
 ;;;
