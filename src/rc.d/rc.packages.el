@@ -178,8 +178,6 @@
 
 ;; (desire 'nlinum)
 
-;;;}}}
-
 (desire 'shrface)
 
 ;;;; Completion

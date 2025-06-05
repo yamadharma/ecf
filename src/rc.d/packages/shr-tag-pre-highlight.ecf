@@ -1,0 +1,11 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Syntax highlighting code block in HTML for shr/eww
+;; https://github.com/xuchunyang/shr-tag-pre-highlight.el
+
+;;; Code:
+
+(require 'shr-tag-pre-highlight)
+
+(add-to-list 'shr-external-rendering-functions '(pre . shr-tag-pre-highlight))
+
+;;;

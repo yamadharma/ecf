@@ -66,6 +66,6 @@
         ;; Used by language-detection.el
         ("emacslisp" . emacs-lisp)
         ;; Used by Google Code Prettify
-        ("el" . emacs-lisp))))
+        ("el" . emacs-lisp)))
 
 ;;;
