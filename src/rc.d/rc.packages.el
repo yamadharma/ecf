@@ -1,4 +1,4 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; rc.packages.el
 
 ;;; Commentary:
@@ -382,8 +382,6 @@
 ;; (desire 'org-noter :recipe '(:fetcher github :repo "org-noter/org-noter" :branch "feature/org-roam-integration" :files ("*.el" "modules/*.el")))
 
 (desire 'org-transclusion)
-
-(desire 'org-mem)
 
 (desire 'org-node)
 

@@ -4,6 +4,8 @@
 
 ;;; Code:
 
+(desire 'org-mem)
+
 (require 'org-node)
 
 (setopt org-mem-do-sync-with-org-id t)

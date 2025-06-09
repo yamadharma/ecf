@@ -1,9 +1,0 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; Turn thousands of Org files into a database in seconds
-;; https://github.com/meedstrom/org-mem
-
-;;; Code:
-
-(require 'org-mem)
-
-;;;
