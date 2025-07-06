@@ -198,7 +198,7 @@
 (desire 'transient)
 
 ;;;;; Casual Suite
-;; (desire 'casual)
+(desire 'casual)
 
 ;;;; Navigation
 

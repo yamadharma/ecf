@@ -13,11 +13,13 @@
 (org-mem-updater-mode)
 (org-node-cache-mode)
 (org-node-roam-accelerator-mode)
+
+;;;; Node seqs
+(require 'org-node-seq)
+(org-node-seq-mode)
+
 (setopt org-node-creation-fn #'org-node-new-via-roam-capture)
 (setopt org-node-file-slug-fn #'org-node-slugify-like-roam-default)
 (setopt org-node-file-timestamp-format "%Y%m%dT%H%M%S--")
-
-(keymap-set global-map "M-s M-f" #'org-node-find)
-(keymap-set org-mode-map "M-s M-i" #'org-node-insert-link)
 
 ;;;

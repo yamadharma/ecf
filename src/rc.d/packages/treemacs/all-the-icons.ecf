@@ -1,4 +1,7 @@
-;;; all-the-icons integration for treemacs  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; all-the-icons integration for treemacs
+
+;;; Code:
 
 (desire 'treemacs-all-the-icons)
 (require 'treemacs-all-the-icons)

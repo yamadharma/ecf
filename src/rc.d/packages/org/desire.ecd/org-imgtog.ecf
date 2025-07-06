@@ -1,12 +1,14 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Automatic inline image toggling as the cursor enters and exits them
-;;; https://github.com/gaoDean/org-imgtog
+;; https://github.com/gaoDean/org-imgtog
+
+;;; Code:
 
 (desire 'org-imgtog :recipe '(:fetcher github :repo "gaoDean/org-imgtog" :branch "main"))
 
-;;; Wait 0.5 seconds before toggling
+;;;; Wait 0.5 seconds before toggling
 (setopt org-imgtog-preview-delay 0.5)
-;; Only delay for remote images
+;;;; Only delay for remote images
 (setopt org-imgtog-preview-delay-only-remote t)
 
 (add-hook 'org-mode-hook 'org-imgtog-mode)

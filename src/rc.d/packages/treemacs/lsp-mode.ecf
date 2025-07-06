@@ -2,6 +2,8 @@
 ;;; lsp-mode ❤️ treemacs
 ;;; https://github.com/emacs-lsp/lsp-treemacs
 
+;;; Code:
+
 (require 'lsp-mode)
 
 (desire 'lsp-treemacs)

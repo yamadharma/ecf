@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A notetaking system like Roam using Emacs Org-mode
+;; https://github.com/meedstrom/org-node
+
+;;; Code:
+
+(keymap-global-set "C-c N" org-node-global-prefix-map)
+(with-eval-after-load 'org
+  (keymap-set org-mode-map "C-c N" org-node-org-prefix-map))
+
+;;;

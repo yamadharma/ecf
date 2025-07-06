@@ -1,6 +1,8 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; nerd-icons theme for treemacs
+;;; Nerd-icons theme for treemacs
 ;;; https://github.com/rainstormstudio/treemacs-nerd-icons
+
+;;; Code:
 
 (desire 'treemacs-nerd-icons)
 (require 'treemacs-nerd-icons)

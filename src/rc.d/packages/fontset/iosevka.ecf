@@ -6,14 +6,24 @@
 
 ;;;; Set default font
 
-(add-to-list 'default-frame-alist '(font . "Iosevka Term-12" ))
-(add-to-list 'initial-frame-alist '(font . "Iosevka Term-12" ))
-(set-face-attribute 'default nil :font "Iosevka Term-12" )
+;; (add-to-list 'default-frame-alist '(font . "Iosevka Term-12" ))
+;; (add-to-list 'initial-frame-alist '(font . "Iosevka Term-12" ))
+;; (set-face-attribute 'default nil :font "Iosevka Term-12" )
+
+(add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-12" ))
+(add-to-list 'initial-frame-alist '(font . "Iosevka Nerd Font-12" ))
+(set-face-attribute 'default nil :font "Iosevka Nerd Font-12" )
+
 
 ;;;; Set font
+;; (dolist (charset '(latin cyrillic greek))
+;;   (set-fontset-font "fontset-default" charset
+;;                     (font-spec :family "Iosevka Term" :size 12)
+;;                     nil 'prepend))
+
 (dolist (charset '(latin cyrillic greek))
   (set-fontset-font "fontset-default" charset
-                    (font-spec :family "Iosevka Term" :size 12)
+                    (font-spec :family "Iosevka Nerd Font" :size 12)
                     nil 'prepend))
 
 ;;;

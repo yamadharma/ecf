@@ -4,6 +4,9 @@
 
 ;;; Code:
 
-(require 'treemacs)
+(desire 'treemacs-tab-bar)
+(require 'treemacs-tab-bar)
+
+(setopt treemacs-set-scope-type 'Tabs)
 
 ;;;

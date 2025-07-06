@@ -4,12 +4,30 @@
 ;;; Code:
 
 ;;;; Use "Noto Color Emoji" for the emoji script (this is the default).
-(set-fontset-font "fontset-default" 'emoji
-                  '("Noto Color Emoji" . "iso10646-1")
-                  nil 'prepend)
+;; (set-fontset-font "fontset-default" 'emoji
+;;                   '("Noto Color Emoji" . "iso10646-1")
+;;                   nil 'prepend)
 
 ;;;; Display the "heart" character using a color font.
-(set-fontset-font "fontset-default"
-                  #x2764 "Noto Color Emoji")
+;; (set-fontset-font "fontset-default"
+;;                   #x2764 "Noto Color Emoji")
+
+(set-fontset-font
+ t
+ 'emoji
+ (cond
+  ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
+  ((member "Noto Color Emoji" (font-family-list)) "Noto Color Emoji")
+  ((member "Noto Emoji" (font-family-list)) "Noto Emoji")
+  ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
+  ((member "Symbola" (font-family-list)) "Symbola")))
+
+(set-fontset-font
+ t
+ 'symbol
+ (cond
+  ((member "Segoe UI Symbol" (font-family-list)) "Segoe UI Symbol")
+  ((member "Apple Symbols" (font-family-list)) "Apple Symbols")
+  ((member "Symbola" (font-family-list)) "Symbola")))
 
 ;;;

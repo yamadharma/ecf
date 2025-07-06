@@ -1,14 +1,16 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Display remote inline images in org-mode with automatic caching
-;;; https://github.com/gaoDean/org-remoteimg
+;; https://github.com/gaoDean/org-remoteimg
+
+;;; Code
 
 (desire 'org-remoteimg :recipe '(:fetcher github :repo "gaoDean/org-remoteimg" :branch "main"))
 
-;;; Enable caching
+;;;; Enable caching
 (setopt org-display-remote-inline-images 'cache)
-;;; or this if you don't want caching
+;;;; or this if you don't want caching
 ;; (setopt org-display-remote-inline-images 'download)
-;;; or this if you want to disable this plugin
+;;;; or this if you want to disable this plugin
 ;; (setopt org-display-remote-inline-images 'skip)
 
 ;;;
