@@ -1,6 +1,8 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Borrow matlab.el's fontification of math operators
-;;; https://web.archive.org/web/20170326183805/https://ogbe.net/emacsconfig.html
+;; https://web.archive.org/web/20170326183805/https://ogbe.net/emacsconfig.html
+
+;;; Code:
 
 (dolist (mode '(julia-mode ess-julia-mode))
   (font-lock-add-keywords
@@ -34,4 +36,4 @@
                  "\\)"))
       1 font-lock-type-face))))
 
-;;; 
+;;;

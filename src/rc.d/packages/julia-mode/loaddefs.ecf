@@ -1,7 +1,9 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Julia support in Emacs
-;;; https://github.com/JuliaEditorSupport/julia-emacs
+;; https://github.com/JuliaEditorSupport/julia-emacs
+
+;;; Code:
 
 (add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
 
-;;; 
+;;;

@@ -571,17 +571,12 @@
 ;;; kbd-mode
 ;; (desire 'kbd-mode :recipe '(:fetcher github :repo "kmonad/kbd-mode" :branch "master"))
 
-;;; Julia {{{
+;;;;; Julia
 
-;;; Code completion and syntax checking
-                                      ;(desire 'eglot-jl)
-;;; REPL integration
 (desire 'julia-snail)
 ;; (desire 'julia-repl)
-;;; Syntax highlighting and latex symbols
-(desire 'julia-mode)
 
-;;;}}}
+(desire 'julia-mode)
 
 ;;; https://github.com/wwwjfy/emacs-fish
 (desire 'fish-mode)
