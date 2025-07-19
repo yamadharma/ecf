@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A Vim-Inspired Tab-Bar That Automatically Adapts to Any Emacs Theme
+;; https://github.com/jamescherti/vim-tab-bar.el
+
+;;; Code
+
+(desire 'vim-tab-bar)
+(vim-tab-bar-mode)
+
+;;;; Show the tab groups
+(setq vim-tab-bar-show-groups t)
+
+;;;

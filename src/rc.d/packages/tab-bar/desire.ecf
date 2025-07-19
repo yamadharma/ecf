@@ -1,14 +1,19 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Emacs Tab Bar
 
+;;; Code:
+
 (tab-bar-mode 1)
 (setopt tab-bar-show 1)
-(setopt tab-bar-close-button-show nil)
-(setopt tab-bar-new-tab-choice "*dashboard*")
+
+(setopt tab-bar-new-tab-to 'right)
+
+;; (setopt tab-bar-new-tab-choice "*dashboard*")
+;; (setopt tab-bar-new-tab-choice #'ibuffer)
+
 (setopt tab-bar-tab-hints t)
 ;; (setq tab-bar-select-tab-modifiers "super") ;; FIXME
 
-(setopt tab-bar-format '(tab-bar-format-tabs tab-bar-separator))
-
+(setopt tab-bar-format '(tab-bar-format-history tab-bar-format-tabs tab-bar-separator))
 
 ;;;

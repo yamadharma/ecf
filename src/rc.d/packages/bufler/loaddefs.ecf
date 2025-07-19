@@ -1,6 +1,10 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Group buffers into workspaces with programmable rules
-;;; https://github.com/alphapapa/bufler.el
+;; https://github.com/alphapapa/bufler.el
+
+;;; Code:
+
+(desire' burly)
 
 (require 'bufler)
 

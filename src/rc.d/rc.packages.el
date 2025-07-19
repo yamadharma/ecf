@@ -459,10 +459,9 @@
 (desire 'ibuffer)
 ;; (desire 'persp-mode)
 ;; (desire 'perspective)
-;; (desire 'bufler)
 ;; (desire 'tabspaces)
 
-;;}}}
+(desire 'bufler)
 
 ;;; Project management
 

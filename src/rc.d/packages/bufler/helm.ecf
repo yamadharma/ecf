@@ -1,8 +1,10 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Group buffers into workspaces with programmable rules
-;;; https://github.com/alphapapa/bufler.el
+;; https://github.com/alphapapa/bufler.el
 
-;; (desire 'helm-bufler)
-;; (require 'helm-bufler)
+;;; Code
+
+(desire 'helm-bufler)
+(require 'helm-bufler)
 
 ;;;

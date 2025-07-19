@@ -1,6 +1,8 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Emacs Tab Bar
 
+;;; Code:
+
 (setopt tab-bar-close-button-show t)
 
 (setopt tab-bar-tab-hints t)
