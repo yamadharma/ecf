@@ -685,11 +685,11 @@
 ;;; Increase the padding/spacing of frames and windows
 ;; (desire 'spacious-padding)
 
-;; (desire 'modus-themes)
+(desire 'modus-themes)
 
 ;; (desire 'ef-themes)
 
-(desire 'doric-themes)
+;; (desire 'doric-themes)
 
 ;; (desire 'posframe)
 

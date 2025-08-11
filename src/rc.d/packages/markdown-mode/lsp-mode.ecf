@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs lsp-mode client for markdown
+;; https://emacs-lsp.github.io/lsp-mode/page/lsp-marksman/
+
+;;; Code:
+
+(require 'lsp-mode)
+(add-hook 'markdown-mode #'lsp)
+
+;;;; Marksman
+(require 'lsp-marksman)
+
+;;;

@@ -2,6 +2,8 @@
 ;;; Syncing org src blocks with tangled external files
 ;;; https://gitlab.com/mtekman/org-tanglesync.el
 
+(require 'org-tanglesync)
+
 ;; (add-hook 'org-mode-hook #'org-tanglesync-mode)
 
 ;; Enable watch-mode globally

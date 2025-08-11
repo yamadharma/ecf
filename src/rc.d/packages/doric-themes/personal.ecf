@@ -13,8 +13,8 @@
 ;; (doric-themes-select 'doric-marble)
 
 ;;;; earth + fire
-(setopt doric-themes-to-toggle '(doric-earth doric-fire))
-(doric-themes-select 'doric-earth)
+;; (setopt doric-themes-to-toggle '(doric-earth doric-fire))
+;; (doric-themes-select 'doric-earth)
 
 ;;;; wind + water
 ;; (setopt doric-themes-to-toggle '(doric-wind doric-water))
@@ -23,6 +23,11 @@
 ;;;; cherry + plum
 ;; (setopt doric-themes-to-toggle '(doric-cherry doric-plum))
 ;; (doric-themes-select 'doric-cherry)
+
+;;;; oak + pine
+(setopt doric-themes-to-toggle '(doric-oak doric-pine))
+(doric-themes-select 'doric-oak)
+
 
 ;;;; Rotate themes
 (setopt doric-themes-to-rotate doric-themes-collection)
