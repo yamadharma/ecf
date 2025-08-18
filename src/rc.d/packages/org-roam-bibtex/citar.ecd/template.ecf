@@ -32,7 +32,7 @@
 #+filetags:
 #+roam_refs: cite:${citar-citekey}
 :SETUP_LOCAL:
-#+startup: overview hidestars showblocks num inlineimages latexpreview
+#+startup: overview showblocks num inlineimages latexpreview
 #+options: ^:{} num:t tex:t tex:t
 :END:
 :SETUP_HUGO:

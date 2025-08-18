@@ -11,7 +11,7 @@
        "#+filetags:\n"
        "#+roam_refs: cite:${=key=}\n"
        ":SETUP_LOCAL:\n"
-       "#+startup: overview hidestars showblocks num inlineimages\n"
+       "#+startup: overview showblocks num inlineimages\n"
        "#+options: ^:{} num:t\n"
        ":END:\n"
        ":SETUP_HUGO:\n"
