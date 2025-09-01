@@ -2,6 +2,8 @@
 ;;; Create SVG gantt charts from an org-mode subtree
 ;;; https://gitlab.com/joukeHijlkema/org-gantt-mode
 
+(desire 'ts)
+
 (autoload 'org-gantt-mode "org-gantt-mode" "Create SVG gantt charts" t)
 
 ;;;
