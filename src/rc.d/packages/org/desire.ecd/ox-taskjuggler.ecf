@@ -1,6 +1,11 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;;  Exporting Gantt charts with Taskjuggler
+;; https://github.com/h-oll/ox-taskjuggler
 
+;;; Code:
+
+;; (desire 'ox-taskjuggler :recipe '(:fetcher github :repo "h-oll/ox-taskjuggler" :branch "master"))
+(desire 'ox-taskjuggler :pkgman 'straight :recipe '(:type git :host github :repo "h-oll/ox-taskjuggler" :branch "master" :files ("lisp/*")))
 (require 'ox-taskjuggler)
 
 ;;;

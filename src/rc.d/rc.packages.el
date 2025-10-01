@@ -634,7 +634,7 @@
 ;;;}}}
 
 ;;; Translator on Emacs
-(desire 'go-translate)
+(desire 'gt)
 
 ;;;; UI
 
