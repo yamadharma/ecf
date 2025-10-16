@@ -1,16 +1,18 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Emacs Tab Line
 
+;;; Code:
+
 ;;; Show the tabline in the top of the frame
 (global-tab-line-mode t)
 
 ;;; Do not show add-new button
-;; (setopt tab-line-new-button-show nil)
+(setopt tab-line-new-button-show nil)
 
 ;;; Do not show close button
-;; (setopt tab-line-close-button-show nil)
+(setopt tab-line-close-button-show nil)
 
 ;;; Change the separator between tabs
-;; (setopt tab-line-separator "")
+(setopt tab-line-separator "")
 
 ;;;

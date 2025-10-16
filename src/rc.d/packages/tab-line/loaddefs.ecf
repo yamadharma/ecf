@@ -1,5 +1,7 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; Emacs Tab Bar
+;;; Emacs Tab Line
+
+;;; Code:
 
 (require 'tab-line)
 

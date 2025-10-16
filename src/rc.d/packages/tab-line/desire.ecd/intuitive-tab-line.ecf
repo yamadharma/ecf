@@ -1,0 +1,21 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Intuitive Tabs in Emacs
+;; https://github.com/thread314/intuitive-tab-line-mode
+
+;;; Code:
+
+(desire 'intuitive-tab-line :recipe '(:fetcher github :repo "thread314/intuitive-tab-line-mode" :branch "master"))
+(require 'intuitive-tab-line)
+
+(setopt tab-line-tabs-function 'intuitive-tab-line-buffers-list)
+(setopt tab-line-switch-cycling t)
+
+(general-define-key
+ "C-S-<prior>" 'intuitive-tab-line-shift-tab-left
+ "C-S-<next>" 'intuitive-tab-line-shift-tab-right)
+
+(recentf-mode 1)
+(general-define-key
+ "C-S-t" 'recentf-open-most-recent-file)
+
+;;;;
