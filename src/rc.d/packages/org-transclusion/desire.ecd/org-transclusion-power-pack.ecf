@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Enhancements for org-transclusion
+;; https://github.com/incandescentman/org-transclusion-power-pack
+
+;;; Code:
+
+(desire 'org-transclusion-power-pack :recipe '(:fetcher github :repo "incandescentman/org-transclusion-power-pack" :branch "main"))
+(require 'org-transclusion-power-pack)
+
+;;;

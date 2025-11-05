@@ -7,12 +7,17 @@
 (desire 'intuitive-tab-line :recipe '(:fetcher github :repo "thread314/intuitive-tab-line-mode" :branch "master"))
 (require 'intuitive-tab-line)
 
-(setopt tab-line-tabs-function 'intuitive-tab-line-buffers-list)
+;;;; Show all user-created buffers as tabs
+;; (setopt tab-line-tabs-function 'intuitive-tab-line-buffers-list)
+
 (setopt tab-line-switch-cycling t)
 
 (general-define-key
- "C-S-<prior>" 'intuitive-tab-line-shift-tab-left
- "C-S-<next>" 'intuitive-tab-line-shift-tab-right)
+ ;; "C-S-<prior>" 'intuitive-tab-line-shift-tab-left
+ ;; "C-S-<next>" 'intuitive-tab-line-shift-tab-right
+ "C-s-[" 'intuitive-tab-line-shift-tab-left
+ "C-s-]" 'intuitive-tab-line-shift-tab-right
+ )
 
 (recentf-mode 1)
 (general-define-key

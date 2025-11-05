@@ -1,10 +1,10 @@
 ;;; Org Task structure and presentation -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
 ;;; Controlling display of leading stars on headlines
-(setopt org-hide-leading-stars nil)
+;; (setopt org-hide-leading-stars nil)
 
 ;;; Enable org-indent mode
-(setopt org-startup-indented t)
+;; (setopt org-startup-indented t)
 
 ;;; Toggle truncate lines
 (setopt org-startup-truncated nil)

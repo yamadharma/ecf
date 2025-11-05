@@ -19,7 +19,6 @@
         ("sharp" "\\sharp" nil "" "" "266F" "♯"))
       org-fontify-quote-and-verse-blocks t
       org-fontify-whole-heading-line t
-      org-hide-leading-stars t
       org-image-actual-width nil
       org-imenu-depth 8
       ;;; Sub-lists should have different bullets

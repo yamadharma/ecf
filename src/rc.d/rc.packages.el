@@ -180,6 +180,8 @@
 
 (desire 'shrface)
 
+(desire 'universal-sidecar)
+
 ;;;; Completion
 
 ;; (desire 'company)
@@ -216,6 +218,8 @@
 (desire 'hideshow)
 
 (desire 'bicycle)
+
+(desire 'apheleia)
 
 ;;;; Spaces
 
@@ -346,13 +350,14 @@
 
 (desire 'auctex)
 ;;;; Org-mode
+
+;; (desire 'org-superstar)
 ;; (desire 'org-ql)
 
 (desire 'org-appear)
 (desire 'org-fragtog)
 (desire 'org-custom-cookies)
 ;; (desire 'svg-tag-mode)
-(desire 'org-superstar)
 (desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
 (desire 'org-modern)
 ;; (desire 'org-contacts)
@@ -360,6 +365,8 @@
 (desire 'org-edna)
 (desire 'org-ref)
 (desire 'org-tree-slide)
+
+(desire 'org-transclusion)
 
 ;;; Agenda
 (desire 'org-super-agenda)
@@ -383,7 +390,7 @@
 (desire 'org-noter)
 ;; (desire 'org-noter :recipe '(:fetcher github :repo "org-noter/org-noter" :branch "feature/org-roam-integration" :files ("*.el" "modules/*.el")))
 
-(desire 'org-transclusion)
+;; (desire 'org-transclusion)
 
 (desire 'org-node)
 

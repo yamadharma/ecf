@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Run code formatter on buffer contents without moving point
+;; https://github.com/radian-software/apheleia
+
+;;; Code:
+
+(apheleia-global-mode +1)
+
+;;;

@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A universal "sidecar" buffer for emacs, inspired by the `org-roam-mode` buffer
+;; https://git.sr.ht/~swflint/emacs-universal-sidecar
+
+;;; Code:
+
+(require 'universal-sidecar)
+
+;;;

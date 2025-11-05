@@ -2,4 +2,6 @@
 ;;; Emacs package to enable transclusion with Org Mode
 ;; https://github.com/nobiot/org-transclusion
 
- (require 'org-transclusion)
+;;; Code:
+
+;;;
