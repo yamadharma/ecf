@@ -20,7 +20,7 @@
          :target (file+head "%<%Y-%m-%d>.org"
                             "#+title: %<%Y-%m-%d>
 :SETUP_LOCAL:
-#+startup: overview showblocks num inlineimages latexpreview
+#+startup: overview num inlineimages latexpreview
 #+options: ^:{} num:t tex:t
 :END:
 
