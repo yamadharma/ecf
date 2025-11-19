@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An extremely fast LaTeX formatter written in Rust
+;; https://github.com/WGUNDERWOOD/tex-fmt
+
+;;; Code:
+
+;;;; Define tex-fmt as an Apheleia formatter
+(add-to-list 'apheleia-formatters '(tex-fmt "tex-fmt" "--stdin"))
+
+;;;; Associate tex-fmt with LaTeX modes
+(if (executable-find "tex-fmt")
+    (progn
+      (setf (alist-get 'latex-mode apheleia-mode-alist) 'tex-fmt)
+      (setf (alist-get 'LaTeX-mode apheleia-mode-alist) 'tex-fmt)
+	 (setf (alist-get 'TeX-latex-mode apheleia-mode-alist) 'tex-fmt)
+	 (setf (alist-get 'TeX-mode apheleia-mode-alist) 'tex-fmt))
+  nil)
+
+;;;

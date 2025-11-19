@@ -8,4 +8,200 @@
 (desire 'ox-taskjuggler :pkgman 'straight :recipe '(:type git :host github :repo "h-oll/ox-taskjuggler" :branch "master" :files ("lisp/*")))
 (require 'ox-taskjuggler)
 
+;;;; Report width
+
+(setopt org-taskjuggler-default-reports
+  '("textreport report \"Plan\" {
+  formats html
+  header '== %title =='
+
+  center -8<-
+    [#Plan Plan] | [#Resource_Allocation Resource Allocation]
+    ----
+    === Plan ===
+    <[report id=\"plan\"]>
+    ----
+    === Resource Allocation ===
+    <[report id=\"resourceGraph\"]>
+  ->8-
+}
+
+# A traditional Gantt chart with a project overview.
+taskreport plan \"\" {
+  headline \"Project Plan\"
+  columns bsi, name, start, end, effort, chart { width 1000 }
+  loadunit shortauto
+  hideresource 1
+}
+
+# A graph showing resource allocation. It identifies whether each
+# resource is under- or over-allocated for.
+resourcereport resourceGraph \"\" {
+  headline \"Resource Allocation Graph\"
+  columns no, name, effort, weekly { width 1000 }
+  loadunit shortauto
+  hidetask ~(isleaf() & isleaf_())
+  sorttasks plan.start.up
+}"))
+
+;;;; Some tweaks
+(setopt org-taskjuggler-default-project-duration 999)
+(setopt org-taskjuggler-valid-task-attributes
+	'(account start note duration endbuffer endcredit end
+		  flags journalentry length limits maxend maxstart minend
+		  minstart period reference responsible scheduling
+		  startbuffer startcredit statusnote chargeset charge booking))
+
+
+
+;;;; precedes
+(defun org-taskjuggler-resolve-precedes (task info)
+  "Return a list of all tasks TASK precedes on.
+TASK is a headline.  INFO is a plist used as a communication
+channel."
+  (let ((precs-ids
+         ;; Get all dependencies specified in BLOCKER and PRECEDES task
+         ;; properties.  Clean options from them.
+         (let ((precs (concat (org-element-property :BLOCKER task)
+                             (org-element-property :PRECEDES task))))
+           (and precs
+                (split-string (replace-regexp-in-string "{.*?}" "" precs)
+			      "[ ,]* +"))))
+        precedes)
+    (when precs-ids
+      ;; Find tasks with :task_id: property matching id in PRECS-IDS.
+      ;; Add them to PRECEDES.
+      (let* ((project (org-taskjuggler-get-project info))
+             (tasks (if org-taskjuggler-keep-project-as-task project
+                      (org-element-contents project))))
+        (setq precedes
+              (org-element-map tasks 'headline
+                (lambda (task)
+                  (let ((task-id (or (org-element-property :TASK_ID task)
+				     (org-element-property :ID task))))
+                    (and task-id (member task-id precs-ids) task)))
+                info)))
+      ;; Check BLOCKER and PRECEDES properties.  If "previous-sibling"
+      ;; belongs to PRECS-ID, add it to PRECEDES.
+      ;; (when (and (member-ignore-case "previous-sibling" precs-ids)
+      ;;            (not (org-export-first-sibling-p task info)))
+      ;;   (let ((prev (org-export-get-previous-element task info)))
+      ;;     (and (not (memq prev precedes)) (push prev precedes))))
+      )
+    ;; Check ORDERED status of parent.
+    ;; (let ((parent (org-export-get-parent task)))
+    ;;   (when (and parent
+    ;;              (org-element-property :ORDERED parent)
+    ;;              (not (org-export-first-sibling-p task info)))
+    ;;     (push (org-export-get-previous-element task info) precedes)))
+    ;; Return dependencies.
+    precedes))
+
+(defun org-taskjuggler-format-precedes (precedes task info)
+  "Format PRECEDES to match TaskJuggler syntax.
+PRECEDES is list of precedes for TASK, as returned by
+`org-taskjuggler-resolve-depedencies'.  TASK is a headline.
+INFO is a plist used as a communication channel.  Return value
+doesn't include leading \"precedes\"."
+  (let* ((dep-str (concat (org-element-property :BLOCKER task)
+			  " "
+			  (org-element-property :PRECEDES task)))
+	 (get-path
+	  (lambda (dep)
+	    ;; Return path to DEP relatively to TASK.
+	    (let ((parent (org-export-get-parent task))
+		  (exclamations 1)
+		  (option
+		   (let ((id (org-element-property :TASK_ID dep)))
+		     (and id
+			  (string-match (concat id " +\\({.*?}\\)") dep-str)
+			  (match-string-no-properties 1 dep-str))))
+		  path)
+	      ;; Compute number of exclamation marks by looking for the
+	      ;; common ancestor between TASK and DEP.
+	      (while (not (org-element-map parent 'headline
+			  (lambda (hl) (eq hl dep))))
+		(cl-incf exclamations)
+		(setq parent (org-export-get-parent parent)))
+	      ;; Build path from DEP to PARENT.
+	      (while (not (eq parent dep))
+		(push (org-taskjuggler-get-id dep info) path)
+		(setq dep (org-export-get-parent dep)))
+	      ;; Return full path.  Add dependency options, if any.
+	      (concat (make-string exclamations ?!)
+		      (mapconcat 'identity path ".")
+		      (and option (concat " " option)))))))
+    ;; Return precedes string, without the leading "precedes".
+    (mapconcat (lambda (dep) (funcall get-path dep)) precedes ", ")))
+
+(defun org-taskjuggler--build-task (task info)
+  "Return a task declaration.
+
+TASK is a headline.  INFO is a plist used as a communication
+channel.
+
+All valid attributes from TASK are inserted.  If TASK defines
+a property \"task_id\" it will be used as the id for this task.
+Otherwise it will use the ID property.  If neither is defined
+a unique id will be associated to it."
+  (let* ((allocate (org-element-property :ALLOCATE task))
+         (complete
+          (if (eq (org-element-property :todo-type task) 'done) "100"
+            (org-element-property :COMPLETE task)))
+         (depends (org-taskjuggler-resolve-dependencies task info))
+	 (precedes (org-taskjuggler-resolve-precedes task info))
+         (effort (let ((property
+			(intern (concat ":" (upcase org-effort-property)))))
+		   (org-element-property property task)))
+         (milestone
+          (or (org-element-property :MILESTONE task)
+              (not (or (org-element-map (org-element-contents task) 'headline
+			 'identity info t)  ; Has task any child?
+		       effort
+		       (org-element-property :LENGTH task)
+		       (org-element-property :DURATION task)
+		       (and (org-taskjuggler-get-start task)
+			    (org-taskjuggler-get-end task))
+		       (org-element-property :PERIOD task)))))
+         (priority
+          (let ((pri (org-element-property :priority task)))
+            (and pri
+                 (max 1 (/ (* 1000 (- org-priority-lowest pri))
+                           (- org-priority-lowest org-priority-highest)))))))
+    (concat
+     ;; Opening task.
+     (format "task %s \"%s\" {\n"
+             (org-taskjuggler-get-id task info)
+             (org-taskjuggler-get-name task))
+     ;; Add default attributes.
+     (and depends
+          (format "  depends %s\n"
+                  (org-taskjuggler-format-dependencies depends task info)))
+     (and precedes
+          (format "  precedes %s\n"
+                  (org-taskjuggler-format-precedes precedes task info)))
+     (and allocate
+          (format "  purge %s\n  allocate %s\n"
+                  ;; Compatibility for previous TaskJuggler versions.
+                  (if (>= org-taskjuggler-target-version 3.0) "allocate"
+                    "allocations")
+                  allocate))
+     (and complete (format "  complete %s\n" complete))
+     (and effort (format "  effort %s\n" effort))
+     (and priority (format "  priority %s\n" priority))
+     (and milestone "  milestone\n")
+     ;; Add other valid attributes.
+     (org-taskjuggler--indent-string
+      (org-taskjuggler--build-attributes
+       task org-taskjuggler-valid-task-attributes))
+     ;; Add inner tasks.
+     (org-taskjuggler--indent-string
+      (mapconcat 'identity
+                 (org-element-map (org-element-contents task) 'headline
+                   (lambda (hl) (org-taskjuggler--build-task hl info))
+                   info nil 'headline)
+                 ""))
+     ;; Closing task.
+     "}\n")))
+
 ;;;

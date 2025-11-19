@@ -180,7 +180,7 @@
 
 (desire 'shrface)
 
-(desire 'universal-sidecar)
+;; (desire 'universal-sidecar)
 
 ;;;; Completion
 
