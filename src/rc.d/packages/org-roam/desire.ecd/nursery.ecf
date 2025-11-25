@@ -1,22 +1,59 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Small org-roam packages
-;;; https://github.com/chrisbarrett/nursery
+;; https://github.com/chrisbarrett/nursery
 
-;;; Renaming nodes, rewriting links and deleting nodes with redirection
+;;; Code:
+
+;;;; Extends org-roam with spaced-repetition review of nodes
+;; https://github.com/chrisbarrett/nursery/blob/main/lisp/org-roam-review.el
+
+(desire 'org-drill)
+
+;;;;; Provides commands to categorise and review org-roam nodes for Evergreen note-taking
+(desire 'org-roam-review :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-review.el" "lisp/org-tags-filter.el" "lisp/plisty.el")))
+
+(require 'org-roam-review)
+
+;;;;; Tag all newly-created notes as seedlings
+;;;;; https://github.com/chrisbarrett/nursery/issues/7
+(defun ecf/org-roam-review-set-seedling ()
+  (with-current-buffer (org-capture-get :buffer)
+    (org-roam-review-set-seedling)))
+(add-hook 'org-capture-after-finalize-hook #'ecf/org-roam-review-set-seedling)
+
+;;;;; Keybindings for applying Evergreen note properties
+(general-define-key
+ :prefix "C-c r"
+ "r" #'("accept" . org-roam-review-accept)
+ "f" #'("forgot" . org-roam-review-forgot)
+ "u" #'("bury" . org-roam-review-bury)
+ "m" #'("set memorise" . org-roam-review-set-memorise)
+ "x" #'("set excluded" . org-roam-review-set-excluded)
+ "b" #'("set budding" . org-roam-review-set-budding)
+ "s" #'("set seedling" . org-roam-review-set-seedling)
+ "e" #'("set evergreen" . org-roam-review-set-evergreen))
+
+;;;;; Ignore tags when export
+(with-eval-after-load 'ox-hugo
+  (add-to-list 'ecf/tags-categories-to-be-removed "seedling")
+  (add-to-list 'ecf/tags-categories-to-be-removed "evergreen")
+  (add-to-list 'ecf/tags-categories-to-be-removed "budding"))
+
+;;;;; Renaming nodes, rewriting links and deleting nodes with redirection
 (desire 'org-transclusion)
 
-(desire 'org-roam-rewrite :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-rewrite.el")))
+(desire 'org-roam-rewrite :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-rewrite.el" "lisp/plisty.el")))
 (require 'org-roam-rewrite)
 
-;;; Display a tree of backlinks and forward links up to a configurable depth
-(desire 'org-roam-links :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-links.el")))
+;;;; Display a tree of backlinks and forward links up to a configurable depth
+(desire 'org-roam-links :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-links.el" "lisp/plisty.el")))
 (require 'org-roam-links)
 
-;;; Make previews in org-roam buffer lazy for better performance
+;;;; Make previews in org-roam buffer lazy for better performance
 (desire 'org-roam-lazy-previews :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-lazy-previews.el")))
 (require 'org-roam-lazy-previews)
 
-;;; Refill org-roam backlink previews
+;;;; Refill org-roam backlink previews
 (desire 'org-roam-refill-previews :pkgman 'straight :recipe '(:type git :host github :repo "chrisbarrett/nursery" :branch "main" :files ("lisp/org-roam-refill-previews.el")))
 (require 'org-roam-refill-previews)
 
