@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern Markdown formatter with smart typography and paragraph wrapping
+;; https://github.com/jlevy/flowmark
+
+;;; Code:
+
+;;;; Define flowmark as an Apheleia formatter
+(add-to-list 'apheleia-formatters '(flowmark "flowmark" "--semantic" "--cleanups" "--smartquotes" "--ellipses" "--output" "-" "-"))
+
+;;;; Associate flowmark with markdown
+;; (if (executable-find "flowmark")
+;;     (setf (alist-get 'markdown-mode apheleia-mode-alist) 'flowmark)
+;;   nil)
+
+;;;
