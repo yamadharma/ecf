@@ -8,6 +8,8 @@
 (setopt treesit-auto-install 'prompt)
 (treesit-auto-add-to-auto-mode-alist 'all)
 
+(customize-set-variable 'treesit-font-lock-level 3)
+
 (global-treesit-auto-mode)
 
 ;;;

@@ -221,13 +221,13 @@
 
 (desire 'apheleia)
 
+(desire 'tree-sitter)
+
 ;;;; Spaces
 
 (desire 'stripspace)
 
 ;;
-
-(desire 'tree-sitter)
 
 (desire 'hydra)
 
