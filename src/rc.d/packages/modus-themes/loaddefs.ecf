@@ -1,8 +1,10 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Modus Themes
-;;; https://protesilaos.com/modus-themes/
-;;; https://gitlab.com/protesilaos/modus-themes/
-;;; https://github.com/protesilaos/modus-themes/
+;; https://protesilaos.com/modus-themes/
+;; https://gitlab.com/protesilaos/modus-themes/
+;; https://github.com/protesilaos/modus-themes/
+
+;;; Code:
 
 (require 'modus-themes)
 
