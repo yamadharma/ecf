@@ -8,7 +8,7 @@
 ;; All GTD keywords must be in the same sequence
 ;; Standard options like "TODO(t)" or "DONE(d!)" are fine - org-gtd ignores them
 (setopt org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "WAIT(w)" "|" "DONE(D)" "CNCL(c)")))
+      '((sequence "TODO(t)" "NEXT(n)" "WAIT(w)" "|" "DONE(d)" "CNCL(c)")))
 
 ;;;; Map GTD semantic states to your keywords
 (setopt org-gtd-keyword-mapping
