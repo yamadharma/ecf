@@ -1,9 +1,9 @@
-;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Set up the package
 
-;;; Upgrade built-in packages
+;;; Code:
+
+;;;; Upgrade built-in packages
 (setopt package-install-upgrade-built-in t)
 
 ;;;
-
-

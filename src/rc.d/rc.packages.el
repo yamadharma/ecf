@@ -38,7 +38,7 @@
 
 ;;; Package management
 
-;;; Packaging
+;;;; Packaging
 (desire 'package)
 
 ;;; Build and install your Emacs Lisp packages on-the-fly and directly from source
@@ -358,7 +358,7 @@
 (desire 'org-fragtog)
 (desire 'org-custom-cookies)
 ;; (desire 'svg-tag-mode)
-(desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
+;; (desire 'org-modern-indent :recipe '(:fetcher github :repo "jdtsmith/org-modern-indent" :branch "main" :files ("*.el")))
 (desire 'org-modern)
 ;; (desire 'org-contacts)
 ;; (desire 'google-contacts)
@@ -394,7 +394,7 @@
 
 (desire 'org-node)
 
-;;; GTD
+;;;; GTD
 (desire 'org-gtd)
 
 (desired 'mobileorg)

@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(desire 'org-transclusion-power-pack :recipe '(:fetcher github :repo "incandescentman/org-transclusion-power-pack" :branch "main"))
-(require 'org-transclusion-power-pack)
+;; (desire 'org-transclusion-power-pack :recipe '(:fetcher github :repo "incandescentman/org-transclusion-power-pack" :branch "main"))
+;; (require 'org-transclusion-power-pack)
 
 ;;;

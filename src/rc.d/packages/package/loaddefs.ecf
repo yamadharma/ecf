@@ -1,5 +1,7 @@
-;;;  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Set up the package
+
+;;; Code:
 
 (setopt warning-suppress-log-types '((package reinitialization)))
 
@@ -10,5 +12,3 @@
 (require 'package)
 
 ;;;
-
-

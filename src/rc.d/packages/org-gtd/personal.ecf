@@ -1,0 +1,27 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A package for using GTD with org-mode
+;; https://github.com/Trevoke/org-gtd.el
+
+;;; Code:
+
+;;;; Configure org-mode TODO keywords
+;; All GTD keywords must be in the same sequence
+;; Standard options like "TODO(t)" or "DONE(d!)" are fine - org-gtd ignores them
+(setopt org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "WAIT(w)" "|" "DONE(D)" "CNCL(c)")))
+
+;;;; Map GTD semantic states to your keywords
+(setopt org-gtd-keyword-mapping
+      '((todo . "TODO")      ; tasks not ready to act on
+        (next . "NEXT")      ; tasks ready to act on immediately
+        (wait . "WAIT")      ; tasks blocked or delegated
+        (canceled . "CNCL"))) ; tasks that won't be completed
+
+;;;; List of strings representing your areas of focus (horizon 2 in GTD)
+(add-to-list 'org-gtd-areas-of-focus "Science" t)
+(add-to-list 'org-gtd-areas-of-focus "Sciadmin" t)
+(add-to-list 'org-gtd-areas-of-focus "Teaching" t)
+(add-to-list 'org-gtd-areas-of-focus "Study" t)
+(add-to-list 'org-gtd-areas-of-focus "Sysadmin" t)
+
+;;;

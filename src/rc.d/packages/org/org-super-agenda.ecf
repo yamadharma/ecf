@@ -1,6 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Supercharge your Org daily/weekly agenda by grouping items
-;;; https://github.com/alphapapa/org-super-agenda1
+;;; https://github.com/alphapapa/org-super-agenda
 
 (require 'org-super-agenda)
 

@@ -1,22 +1,38 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; A package for using GTD with org-mode
-;;; https://github.com/Trevoke/org-gtd.el
+;; https://github.com/Trevoke/org-gtd.el
 
-(setopt org-gtd-update-ack "3.0.0")
+;;; Code:
 
+;;;; Enable org-edna for project dependencies
 (desire 'org-edna)
 (require 'org-edna)
 (setopt org-edna-use-inheritance t)
-(org-edna-mode)
+(org-edna-mode 1)
 
-(desire 'org-agenda-property)
-(require 'org-agenda-property)
+;;;; Show properties in the agenda
+;; (desire 'org-agenda-property)
+;; (require 'org-agenda-property)
 
+(setopt org-gtd-agenda-property-list '("LOCATION" "DELEGATED_TO"))
+(setopt org-gtd-agenda-property-position 'where-it-fits)
+(setopt org-gtd-agenda-property-column 60)
+(setopt org-gtd-agenda-property-separator "|")
+
+
+;;;; Load org-gtd
 (require 'org-gtd)
 
+;;;; Set GTD directory (defaults to ~/gtd/)
 (setopt org-gtd-directory org-directory-todo)
+;;;; Add org-gtd files to your agenda
+(add-to-list 'org-agenda-files org-gtd-directory)
 
-;;; Ask for confirmation before refiling
+;;;; Make org-gtd prompt for refile target instead of auto-refiling
 (setopt org-gtd-refile-to-any-target nil)
+
+;;;; Then specify which GTD types should prompt
+(setq org-gtd-refile-prompt-for-types
+      '(single-action project-heading calendar someday delegated))
 
 ;;;

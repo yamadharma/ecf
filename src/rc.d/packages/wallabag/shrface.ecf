@@ -6,7 +6,7 @@
 
 (require 'shrface)
 
-(add-hook 'wallabag-entry-mode-hook #'org-indent-mode)
+;; (add-hook 'wallabag-entry-mode-hook #'org-indent-mode)
 (add-hook 'wallabag-entry-mode-hook #'eldoc-mode)
 (add-hook 'wallabag-entry-mode-hook #'eldoc-box-hover-mode)
 (add-hook 'wallabag-entry-mode-hook #'shrface-wallabag-setup)

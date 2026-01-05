@@ -1,6 +1,6 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Implementation of Pomodoro and Third Time techniques for Emacs
-;;;; https://github.com/SqrtMinusOne/pomm.el
+;; https://github.com/SqrtMinusOne/pomm.el
 
 ;;; Code:
 

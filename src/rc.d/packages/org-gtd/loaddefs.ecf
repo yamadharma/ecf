@@ -1,5 +1,10 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; A package for using GTD with org-mode
-;;; https://github.com/Trevoke/org-gtd.el
+;; https://github.com/Trevoke/org-gtd.el
+
+;;; Code:
+
+;;;; Suppress upgrade warnings (set BEFORE org-gtd loads)
+(setq org-gtd-update-ack "4.0.0")
 
 ;;;

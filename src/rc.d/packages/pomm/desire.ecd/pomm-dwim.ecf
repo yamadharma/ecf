@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; pomm-dwim: Like pomm-start but pauses if running
+;; https://github.com/SqrtMinusOne/pomm.el/issues/18
+
+;;; Code:
+
+(defun pomm-dwim (arg)
+  "Like `pomm-start' but will also pause the timer if it is already running.
+Alternatively if prefixed with \\[universal-argument], the timer state will be reset."
+  (interactive "p")
+  (if (eq arg 4)
+      (pomm--do-reset)
+    (if (eq 'running (alist-get 'status pomm--state))
+	(pomm-pause)
+      (pomm-start))))
+
+;;;

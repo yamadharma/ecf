@@ -1,14 +1,32 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; A package for using GTD with org-mode
-;;; https://github.com/Trevoke/org-gtd.el
 ;;; Key bindings
+;; https://github.com/Trevoke/org-gtd.el
 
+;;; Code:
+
+;;;; Global keybindings (work anywhere in Emacs)
 (general-define-key
  :prefix "C-c d"
  "c" #'("Capture" . org-gtd-capture)
  "e" #'("Engage" . org-gtd-engage)
  "p" #'("Process inbox" . org-gtd-process-inbox)
  "n" #'("Show all next". org-gtd-show-all-next)
- "s" #'("Stuck projects" . org-gtd-review-stuck-projects))
+ "s" #'("Stuck projects" . org-gtd-reflect-stuck-projects))
+
+
+;;;; Keybinding for organizing items (only works in clarify buffers)
+(with-eval-after-load 'org-gtd
+  (general-define-key
+   :keymaps 'org-gtd-clarify-map
+   :prefix "C-c"
+   "c" #'("Organize this item" . org-gtd-organize)))
+
+;;;; Quick actions on tasks in agenda views (optional but recommended)
+(with-eval-after-load 'org-agenda
+  (general-define-key
+   :keymaps 'org-agenda-mode-map
+   :prefix "C-c"
+   "." #'("GTD quick actions" . org-gtd-agenda-transient)))
 
 ;;;
