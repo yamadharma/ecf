@@ -35,4 +35,10 @@
 (setq org-gtd-refile-prompt-for-types
       '(single-action project-heading calendar someday delegated))
 
+;;;; Built-in Hooks
+;;;; Prompts for tags to add to the item
+;;;; Prompts for area of focus (from org-gtd-areas-of-focus) and sets CATEGORY property
+(setq org-gtd-organize-hooks '(org-set-tags-command
+                               org-gtd-set-area-of-focus))
+
 ;;;
