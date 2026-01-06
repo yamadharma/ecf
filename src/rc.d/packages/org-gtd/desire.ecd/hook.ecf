@@ -1,0 +1,47 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A package for using GTD with org-mode
+;;; Custom hooks for org-gtd
+;; https://github.com/Trevoke/org-gtd.el
+
+;;; Code:
+
+(defun ecf/add-effort ()
+  "Prompt for effort on single actions and projects."
+  (when (org-gtd-organize-type-member-p '(single-action project-heading))
+    (call-interactively #'org-set-effort)))
+
+(defun ecf/add-priority ()
+  "Prompt for priority on single actions."
+  (when (org-gtd-organize-type-member-p '(single-action))
+    (call-interactively #'org-priority)))
+
+(defun ecf/auto-tag-contexts ()
+  "Automatically suggest context tags based on heading keywords."
+  (when (org-gtd-organize-type-member-p '(single-action))
+    (let* ((heading (downcase (org-get-heading t t t t)))
+           (suggested-tags '()))
+      (when (string-match-p "\\(phone\\|call\\)" heading)
+        (push "@phone" suggested-tags))
+      (when (string-match-p "\\(computer\\|code\\|write\\)" heading)
+        (push "@computer" suggested-tags))
+      (when (string-match-p "\\(store\\|buy\\|shop\\)" heading)
+        (push "@errands" suggested-tags))
+      (when suggested-tags
+        (message "Suggested contexts: %s" (string-join suggested-tags ", "))))))
+
+(defun ecf/track-creation-date ()
+  "Add CREATED property with current timestamp."
+  (unless (org-gtd-organize-type-member-p '(trash quick-action))
+    (org-set-property "CREATED"
+                      (format-time-string "[%Y-%m-%d %a %H:%M]"))))
+
+;; Install hooks
+(setopt org-gtd-organize-hooks
+	'(org-gtd-set-area-of-focus    ;; set area first
+          org-set-tags-command         ;; then tags
+          ecf/auto-tag-contexts        ;; suggest context tags
+          ecf/add-effort               ;; estimate effort
+          ecf/add-priority             ;; set priority if needed
+          ecf/track-creation-date))    ;; track when created
+
+;;;

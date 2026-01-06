@@ -369,7 +369,7 @@
 (desire 'org-transclusion)
 
 ;;; Agenda
-(desire 'org-super-agenda)
+;; (desire 'org-super-agenda)
 
 ;;(if (desiredp 'org-ql)
 ;; (desire 'org-agenda-files-track-ql)
