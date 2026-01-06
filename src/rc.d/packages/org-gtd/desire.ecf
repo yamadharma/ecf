@@ -19,7 +19,6 @@
 (setopt org-gtd-agenda-property-column 60)
 (setopt org-gtd-agenda-property-separator "|")
 
-
 ;;;; Load org-gtd
 (require 'org-gtd)
 
@@ -30,9 +29,5 @@
 
 ;;;; Make org-gtd prompt for refile target instead of auto-refiling
 (setopt org-gtd-refile-to-any-target nil)
-
-;;;; Then specify which GTD types should prompt
-(setq org-gtd-refile-prompt-for-types
-      '(single-action project-heading calendar someday delegated))
 
 ;;;
