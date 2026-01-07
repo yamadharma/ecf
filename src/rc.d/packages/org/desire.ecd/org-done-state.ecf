@@ -20,7 +20,7 @@
                               (t
                                ;; "NEXT")))))
                                "TODO")))))
-(add-hook 'org-after-todo-statistics-hook #'ecf/org-summary-todo-cookie)
+;; (add-hook 'org-after-todo-statistics-hook #'ecf/org-summary-todo-cookie)
 
 (defun ecf/org-summary-checkbox-cookie ()
   "Switch header state to DONE when all checkboxes are ticked, to TODO when none are ticked, and to NEXT otherwise"
