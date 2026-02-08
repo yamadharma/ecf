@@ -127,9 +127,9 @@
 
 (desired 'emacs-lsp-booster :precondition-system-executable "emacs-lsp-booster")
 
-;; (desire 'eglot)
+(desire 'eglot)
 
-(desire 'lsp-mode)
+;; (desire 'lsp-mode)
 
 ;;{{{ Session Management
 
@@ -393,6 +393,8 @@
 ;; (desire 'org-transclusion)
 
 (desire 'org-node)
+
+(desire 'org-habit-ng :recipe '(:fetcher codeberg :repo "Trevoke/org-habit-ng" :branch "congruence"))
 
 ;;;; GTD
 (desire 'org-gtd)

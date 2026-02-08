@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org-habit-ng lets you schedule habits that org-mode's standard repeaters can't express
+;; https://codeberg.org/Trevoke/org-habit-ng
+
+;;; Code:
+
+(require 'transient)
+(require 'org-habit-ng)
+
+;;;

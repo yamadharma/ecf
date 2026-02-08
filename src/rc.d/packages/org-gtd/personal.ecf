@@ -23,5 +23,6 @@
 (add-to-list 'org-gtd-areas-of-focus "Teaching" t)
 (add-to-list 'org-gtd-areas-of-focus "Study" t)
 (add-to-list 'org-gtd-areas-of-focus "Sysadmin" t)
+(add-to-list 'org-gtd-areas-of-focus "Read" t)
 
 ;;;
