@@ -202,39 +202,12 @@
 ;;;;; Casual Suite
 (desire 'casual)
 
-;;;; Navigation
-
-(desire 'avy)
-;;; Window navigation {{{
-
-(desire 'windmove)
-
-;;;}}}
-
-;; (desire 'origami)
-
-(desire 'outli :recipe '(:fetcher github :repo "jdtsmith/outli" :branch "main"))
-
-(desire 'hideshow)
-
-(desire 'bicycle)
-
-(desire 'apheleia)
-
-(desire 'tree-sitter)
-
-;;;; Spaces
-
-(desire 'stripspace)
-
 ;;
 
 (desire 'hydra)
 
 (desire-conf 'show-paren)
 ;; (desire-conf 'folding)
-;; (desire-conf 'outline)
-
 ;;
 
 (desire 'imenu)
@@ -246,6 +219,37 @@
 
 ;; Parentesis
 (desire 'smartparens)
+
+;;;; Navigation
+
+(desire 'avy)
+;;; Window navigation {{{
+
+(desire 'windmove)
+
+;;;}}}
+
+(desire 'apheleia)
+
+(desire 'tree-sitter)
+
+;;;; Spaces
+
+(desire 'stripspace)
+
+(desire 'outline)
+
+;; (desire 'origami)
+
+(desire 'outli :recipe '(:fetcher github :repo "jdtsmith/outli" :branch "main"))
+
+(desire 'hideshow)
+
+(desire 'bicycle)
+
+(desire 'indent-bars)
+
+(desire 'outline-indent)
 
 ;;; Spell {{{
 

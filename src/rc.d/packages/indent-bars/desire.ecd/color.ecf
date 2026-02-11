@@ -1,0 +1,23 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fast, configurable indentation guide-bars for Emacs
+;; https://github.com/jdtsmith/indent-bars
+
+;;; Code:
+
+;;;; Автоматический подбор цвета под тему
+(setq indent-bars-color '(highlight :face-bg t :blend 0.2))
+
+;;;; Или установить цвета вручную
+;; (defun my-set-indent-bars-colors ()
+;;   "Установить цвета indent-bars в зависимости от темы."
+;;   (cond
+;;    ((eq (frame-parameter nil 'background-mode) 'dark)
+;;     (setq indent-bars-color "gray40"))
+;;    (t
+;;     (setq indent-bars-color "gray60"))))
+
+;; (add-hook 'after-init-hook 'my-set-indent-bars-colors)
+;; (add-hook 'enable-theme-functions
+;;           (lambda (_theme) (my-set-indent-bars-colors)))
+
+;;;

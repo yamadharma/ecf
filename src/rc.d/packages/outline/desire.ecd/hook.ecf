@@ -1,0 +1,23 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Outline mode commands for Emacs
+
+;;; Code:
+
+;;;; Автоматическое включение для режимов программирования
+(defun ecf/turn-on-outline-minor-mode ()
+  "Включить outline-minor-mode для режимов программирования."
+  (when (derived-mode-p 'prog-mode)
+    (outline-minor-mode 1)))
+
+(add-hook 'prog-mode-hook 'ecf/turn-on-outline-minor-mode)
+
+;;;; Или для конкретных режимов
+;; (add-hook 'emacs-lisp-mode-hook 'outline-minor-mode)
+;; (add-hook 'python-mode-hook 'outline-minor-mode)
+;; (add-hook 'js-mode-hook 'outline-minor-mode)
+;; (add-hook 'java-mode-hook 'outline-minor-mode)
+;; (add-hook 'c-mode-hook 'outline-minor-mode)
+;; (add-hook 'c++-mode-hook 'outline-minor-mode)
+;; (add-hook 'web-mode-hook 'outline-minor-mode)
+
+;;;

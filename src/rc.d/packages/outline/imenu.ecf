@@ -1,0 +1,24 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Outline mode commands for Emacs
+
+;;; Code:
+
+;;;; Использовать outline для навигации через imenu
+(defun ecf/outline-imenu-setup ()
+  "Настроить imenu для использования outline."
+  (when outline-minor-mode
+    (setq-local imenu-create-index-function
+                'imenu-default-create-index-function)
+    (setq-local imenu-generic-expression
+                (list
+                 (list nil outline-regexp 0)))))
+
+(add-hook 'outline-minor-mode-hook 'ecf/outline-imenu-setup)
+
+;;;; Автоматическое обновление imenu при изменениях
+(defadvice outline-minor-mode (after update-imenu activate)
+  "Обновить imenu при включении/выключении outline-minor-mode."
+  (when (featurep 'imenu)
+    (imenu-update-menubar)))
+
+;;;

@@ -1,0 +1,33 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Outline mode commands for Emacs
+
+;;; Code:
+
+;;;; Функция для определения уровня заголовка
+(defun ecf/outline-level ()
+  "Определить уровень заголовка для текущего режима."
+  (save-excursion
+    (cond
+     ;;;; Для Emacs Lisp: уровень определяется количеством точек ввода
+     ((derived-mode-p 'emacs-lisp-mode)
+      (let ((count 0))
+        (while (re-search-forward "[(]" nil t)
+          (setq count (1+ count)))
+        count))
+
+     ;;;; Для языков с отступами (Python)
+     ((derived-mode-p 'python-mode)
+      (/ (current-indentation) python-indent-offset))
+
+     ;;;; Общий случай: уровень по отступам
+     (t
+      (1+ (/ (current-indentation) tab-width))))))
+
+;; Установка outline-level
+(defun ecf/set-outline-level ()
+  "Установить outline-level функцию."
+  (setq-local outline-level 'ecf/outline-level))
+
+(add-hook 'outline-minor-mode-hook 'ecf/set-outline-level)
+
+;;;

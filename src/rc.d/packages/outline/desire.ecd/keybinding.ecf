@@ -1,0 +1,44 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Outline mode commands for Emacs
+
+;;; Code:
+
+;;;; Глобальные привязки клавиш
+(global-set-key (kbd "C-c @ C-o") 'outline-minor-mode)
+(global-set-key (kbd "C-c @ C-t") 'outline-toggle-children)
+
+;;;; Локальные привязки при включении outline-minor-mode
+(defun ecf/outline-minor-mode-keys ()
+  "Установить ключи для outline-minor-mode."
+  (when outline-minor-mode
+    ;;;; Навигация
+    (local-set-key (kbd "C-c @ C-n") 'outline-next-visible-heading)
+    (local-set-key (kbd "C-c @ C-p") 'outline-previous-visible-heading)
+    (local-set-key (kbd "C-c @ C-f") 'outline-forward-same-level)
+    (local-set-key (kbd "C-c @ C-b") 'outline-backward-same-level)
+    (local-set-key (kbd "C-c @ C-u") 'outline-up-heading)
+
+    ;;;; Скрытие/показ
+    (local-set-key (kbd "C-c @ C-t") 'outline-hide-body)
+    (local-set-key (kbd "C-c @ C-a") 'outline-show-all)
+    (local-set-key (kbd "C-c @ C-q") 'outline-hide-sublevels)
+    (local-set-key (kbd "C-c @ C-e") 'outline-hide-entry)
+    (local-set-key (kbd "C-c @ C-i") 'outline-show-entry)
+    (local-set-key (kbd "C-c @ C-k") 'outline-show-branches)
+    (local-set-key (kbd "C-c @ C-l") 'outline-hide-leaves)
+    (local-set-key (kbd "C-c @ C-s") 'outline-show-subtree)
+    (local-set-key (kbd "C-c @ C-d") 'outline-hide-subtree)
+
+    ;;;; Использование стандартных Org-mode клавиш (если Org не используется)
+    (local-set-key (kbd "TAB") 'outline-cycle)
+    (local-set-key (kbd "<S-TAB>") 'outline-cycle-buffer)
+    (local-set-key (kbd "C-c C-n") 'outline-next-visible-heading)
+    (local-set-key (kbd "C-c C-p") 'outline-previous-visible-heading)
+    (local-set-key (kbd "C-c C-f") 'outline-forward-same-level)
+    (local-set-key (kbd "C-c C-b") 'outline-backward-same-level)
+    (local-set-key (kbd "C-c C-u") 'outline-up-heading)
+    (local-set-key (kbd "C-c C-t") 'outline-toggle-children)))
+
+(add-hook 'outline-minor-mode-hook 'ecf/outline-minor-mode-keys)
+
+;;;

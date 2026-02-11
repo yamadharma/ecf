@@ -1,0 +1,21 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Folding text based on indentation
+;; https://github.com/jamescherti/outline-indent.el
+
+;;; Code:
+
+;;;; Символы для разных уровней отступа
+(setopt outline-indent-chars
+      '(?│ ?┃ ?┆ ?┇ ?┊ ?┋ ?╎ ?╏ ?┌ ?┐ ?└ ?┘ ?├ ?┤ ?┬ ?┴ ?┼))
+
+;;;; Или простые символы
+;; (setopt outline-indent-chars '(?| ?| ?| ?| ?|))  ;; Все одинаковые
+
+;;;; Специальные символы для терминала
+(setq outline-indent-chars '(?\u2502 ?\u2503 ?\u2506 ?\u2507))
+
+;;;; Цвета для разных уровней отступов
+(setq outline-indent-colors
+      '("gray50" "gray55" "gray60" "gray65" "gray70" "gray75"))
+
+;;;

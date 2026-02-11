@@ -1,0 +1,21 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fast, configurable indentation guide-bars for Emacs
+;; https://github.com/jdtsmith/indent-bars
+
+;;; Code:
+
+;;;; Не рисовать внутри строк и комментариев
+(setq indent-bars-no-draw-line-func
+      (lambda (beg end)
+        (or (nth 4 (syntax-ppss))      ;; Внутри строк
+            (nth 3 (syntax-ppss)))))   ;; Внутри комментариев
+
+;;;; Отключить для больших файлов
+(defun ecf/indent-bars-maybe ()
+  "Включить indent-bars только для файлов разумного размера."
+  (when (< (buffer-size) 100000)  ;; 100KB
+    (indent-bars-mode 1)))
+
+(add-hook 'prog-mode-hook 'ecf/indent-bars-maybe)
+
+;;;

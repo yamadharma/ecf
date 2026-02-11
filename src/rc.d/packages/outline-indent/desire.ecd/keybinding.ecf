@@ -1,0 +1,24 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Folding text based on indentation
+;; https://github.com/jamescherti/outline-indent.el
+
+;;; Code:
+
+;;;; Глобальные клавиши для управления outline-indent
+(global-set-key (kbd "C-c o i") 'outline-indent-mode)
+(global-set-key (kbd "C-c o +") 'outline-indent-increase)
+(global-set-key (kbd "C-c o -") 'outline-indent-decrease)
+(global-set-key (kbd "C-c o r") 'outline-indent-refresh)
+(global-set-key (kbd "C-c o c") 'outline-indent-cycle)
+
+;;;; Локальные команды для работы с outline
+(defun ecf/outline-indent-commands ()
+  "Установить локальные команды для outline-indent."
+  (when outline-indent-mode
+    (local-set-key (kbd "TAB") 'outline-indent-cycle)
+    (local-set-key (kbd "<backtab>") 'outline-indent-shift-left)
+    (local-set-key (kbd "C-c TAB") 'outline-indent-refresh)))
+
+(add-hook 'outline-indent-mode-hook 'ecf/outline-indent-commands)
+
+;;;

@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fast, configurable indentation guide-bars for Emacs
+;; https://github.com/jdtsmith/indent-bars
+
+;;; Code:
+
+;;;; Для лучшей поддержки tree-sitter
+(when (boundp 'tree-sitter-indent)
+  (setq indent-bars-tree-sitter-support t))
+
+;;;

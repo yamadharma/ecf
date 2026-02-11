@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Folding text based on indentation
+;; https://github.com/jamescherti/outline-indent.el
+
+;;; Code:
+
+(require 'outline-indent)
+
+;;;
