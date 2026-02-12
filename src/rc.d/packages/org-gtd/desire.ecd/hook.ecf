@@ -41,7 +41,7 @@
           org-set-tags-command         ;; then tags
           ecf/auto-tag-contexts        ;; suggest context tags
           ecf/add-effort               ;; estimate effort
-          ecf/add-priority             ;; set priority if needed
+          ;; ecf/add-priority             ;; set priority if needed
           ecf/track-creation-date))    ;; track when created
 
 ;;;
