@@ -47,6 +47,6 @@
 (setopt outline-blank-line t)
 
 ;;;; Prevent Emacs from Searching Folded Sections
-(setopt search-invisible nil)
+;; (setopt search-invisible nil)
 
 ;;;

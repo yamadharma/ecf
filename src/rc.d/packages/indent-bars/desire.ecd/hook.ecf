@@ -5,25 +5,25 @@
 ;;; Code:
 
 ;;;; Включить для всех языков программирования
-(add-hook 'prog-mode-hook 'indent-bars-mode)
+;; (add-hook 'prog-mode-hook 'indent-bars-mode)
 
 ;;;; Черный список режимов
-(defun my-disable-indent-bars ()
-  (indent-bars-mode -1))
+;; (defun my-disable-indent-bars ()
+;;   (indent-bars-mode -1))
 
-(add-hook 'org-mode-hook 'my-disable-indent-bars)
-(add-hook 'markdown-mode-hook 'my-disable-indent-bars)
-(add-hook 'text-mode-hook 'my-disable-indent-bars)
-(add-hook 'fundamental-mode-hook 'my-disable-indent-bars)
+;; (add-hook 'org-mode-hook 'my-disable-indent-bars)
+;; (add-hook 'markdown-mode-hook 'my-disable-indent-bars)
+;; (add-hook 'text-mode-hook 'my-disable-indent-bars)
+;; (add-hook 'fundamental-mode-hook 'my-disable-indent-bars)
 
 ;;;; Для конкретных режимов
-;; (add-hook 'python-mode-hook 'indent-bars-mode)
-;; (add-hook 'js-mode-hook 'indent-bars-mode)
-;; (add-hook 'web-mode-hook 'indent-bars-mode)
-;; (add-hook 'java-mode-hook 'indent-bars-mode)
-;; (add-hook 'c-mode-hook 'indent-bars-mode)
-;; (add-hook 'c++-mode-hook 'indent-bars-mode)
-;; (add-hook 'ruby-mode-hook 'indent-bars-mode)
-;; (add-hook 'go-mode-hook 'indent-bars-mode)
+(add-hook 'python-mode-hook 'indent-bars-mode)
+(add-hook 'js-mode-hook 'indent-bars-mode)
+(add-hook 'web-mode-hook 'indent-bars-mode)
+(add-hook 'java-mode-hook 'indent-bars-mode)
+(add-hook 'c-mode-hook 'indent-bars-mode)
+(add-hook 'c++-mode-hook 'indent-bars-mode)
+(add-hook 'ruby-mode-hook 'indent-bars-mode)
+(add-hook 'go-mode-hook 'indent-bars-mode)
 
 ;;;

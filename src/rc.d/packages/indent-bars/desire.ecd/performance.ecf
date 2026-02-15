@@ -5,17 +5,17 @@
 ;;; Code:
 
 ;;;; Не рисовать внутри строк и комментариев
-(setq indent-bars-no-draw-line-func
-      (lambda (beg end)
-        (or (nth 4 (syntax-ppss))      ;; Внутри строк
-            (nth 3 (syntax-ppss)))))   ;; Внутри комментариев
+;; (setq indent-bars-no-draw-line-func
+;;       (lambda (beg end)
+;;         (or (nth 4 (syntax-ppss))      ;; Внутри строк
+;;             (nth 3 (syntax-ppss)))))   ;; Внутри комментариев
 
-;;;; Отключить для больших файлов
-(defun ecf/indent-bars-maybe ()
-  "Включить indent-bars только для файлов разумного размера."
-  (when (< (buffer-size) 100000)  ;; 100KB
-    (indent-bars-mode 1)))
+;; ;;;; Отключить для больших файлов
+;; (defun ecf/indent-bars-maybe ()
+;;   "Включить indent-bars только для файлов разумного размера."
+;;   (when (< (buffer-size) 100000)  ;; 100KB
+;;     (indent-bars-mode 1)))
 
-(add-hook 'prog-mode-hook 'ecf/indent-bars-maybe)
+;; (add-hook 'prog-mode-hook 'ecf/indent-bars-maybe)
 
 ;;;

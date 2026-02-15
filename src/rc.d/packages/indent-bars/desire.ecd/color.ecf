@@ -5,7 +5,7 @@
 ;;; Code:
 
 ;;;; Автоматический подбор цвета под тему
-(setq indent-bars-color '(highlight :face-bg t :blend 0.2))
+;; (setq indent-bars-color '(highlight :face-bg t :blend 0.2))
 
 ;;;; Или установить цвета вручную
 ;; (defun my-set-indent-bars-colors ()
