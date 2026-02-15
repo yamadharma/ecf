@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Folding text based on indentation
+;; https://github.com/jamescherti/outline-indent.el
+
+;;; Code:
+
+(require 'indent-bars)
+
+;;;; Setting this to nil is not reliable enough
+;; https://github.com/jdtsmith/indent-bars?tab=readme-ov-file#stipples
+(setopt indent-bars-prefer-character t)
+
+;;;; When `indent-bars-prefer-character' is set to t, displaying indent bars on
+;;;; blank lines causes cursor movement issues when moving downward, resulting
+;;;; in abrupt shifts of the window start or cursor position.
+(setopt indent-bars-display-on-blank-lines nil)
+
+;;;

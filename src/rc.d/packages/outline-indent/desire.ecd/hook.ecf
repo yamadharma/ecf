@@ -5,13 +5,13 @@
 ;;; Code:
 
 ;;;; Включить для всех режимов программирования
-(defun ecf/turn-on-outline-indent ()
-  "Включить outline-indent для режимов программирования."
-  (when (and (derived-mode-p 'prog-mode)
-             (< (buffer-size) 100000))  ;; 100KB
-    (outline-indent-mode 1)))
+;; (defun ecf/turn-on-outline-indent ()
+;;   "Включить outline-indent для режимов программирования."
+;;   (when (and (derived-mode-p 'prog-mode)
+;;              (< (buffer-size) 100000))  ;; 100KB
+;;     (outline-indent-mode 1)))
 
-(add-hook 'prog-mode-hook 'ecf/turn-on-outline-indent)
+;; (add-hook 'prog-mode-hook 'ecf/turn-on-outline-indent)
 
 ;;;; Или для конкретных режимов
 ;; (add-hook 'emacs-lisp-mode-hook 'outline-indent-mode)
@@ -21,14 +21,27 @@
 ;; (add-hook 'c-mode-hook 'outline-indent-mode)
 
 ;;;; Черный список режимов
-(defun ecf/disable-outline-indent ()
-  "Отключить outline-indent для определенных режимов."
-  (when (or (derived-mode-p 'org-mode)
-            (derived-mode-p 'markdown-mode)
-            (derived-mode-p 'text-mode)
-            (derived-mode-p 'fundamental-mode))
-    (outline-indent-mode -1)))
+;; (defun ecf/disable-outline-indent ()
+;;   "Отключить outline-indent для определенных режимов."
+;;   (when (or (derived-mode-p 'org-mode)
+;;             (derived-mode-p 'markdown-mode)
+;;             (derived-mode-p 'text-mode)
+;;             (derived-mode-p 'fundamental-mode))
+;;     (outline-indent-mode -1)))
 
-(add-hook 'outline-indent-mode-hook 'ecf/disable-outline-indent)
+;; (add-hook 'outline-indent-mode-hook 'ecf/disable-outline-indent)
+
+;;;; Python
+(add-hook 'python-mode-hook #'outline-indent-minor-mode)
+(add-hook 'python-ts-mode-hook #'outline-indent-minor-mode)
+
+;;;; YAML
+(add-hook 'yaml-mode-hook #'outline-indent-minor-mode)
+(add-hook 'yaml-ts-mode-hook #'outline-indent-minor-mode)
+
+;;;; Automatically Folding All Folds on Mode Activation
+(add-hook 'outline-indent-minor-mode-hook
+          #'(lambda()
+              (outline-indent-close-folds)))
 
 ;;;
