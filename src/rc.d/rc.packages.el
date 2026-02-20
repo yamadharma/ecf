@@ -472,7 +472,7 @@
 
 (desire 'tabspaces)
 
-(desire 'bufler)
+;; (desire 'bufler)
 
 ;;; Project management
 

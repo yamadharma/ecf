@@ -25,9 +25,9 @@
 ;;; Use this only if you want the minor-mode loaded at startup
 (tabspaces-mode)
 
- ;; additional options
-  (tabspaces-fully-resolve-paths t)  ; Resolve relative project paths to absolute
-  (tabspaces-exclude-buffers '("*Messages*" "*Compile-Log*"))  ; Additional buffers to exclude
-  (tab-bar-new-tab-choice "*scratch*"))
+;;;; additional options
+(setopt tabspaces-fully-resolve-paths t)  ; Resolve relative project paths to absolute
+(setopt tabspaces-exclude-buffers '("*Messages*" "*Compile-Log*"))  ; Additional buffers to exclude
+(setopt tab-bar-new-tab-choice "*scratch*")
 
 ;;;
