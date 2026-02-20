@@ -1,20 +1,33 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Create buffer-isolated workspaces
-;;; https://github.com/mclear-tools/tabspaces
+;; https://github.com/mclear-tools/tabspaces
+
+;;; Code
 
 
 (setopt tabspaces-use-filtered-buffers-as-default t)
 (setopt tabspaces-default-tab "Default")
 (setopt tabspaces-remove-to-default t)
 (setopt tabspaces-include-buffers '("*scratch*"))
-;; (setopt tabspaces-initialize-project-with-todo t)
-;; (setopt tabspaces-todo-file-name "project-todo.org")
+(setopt tabspaces-initialize-project-with-todo t)
+(setopt tabspaces-todo-file-name "project-todo.org")
 
-;;; Sessions
+;;;; Enable automatic session saving on Emacs exit
 (setopt tabspaces-session t)
+;;;; Auto-restore sessions on startup and when opening projects
 (setopt tabspaces-session-auto-restore t)
 
+;;;; Save all project tabs to their individual session files
+;; (tabspaces-save-all-project-sessions)
+;;;; Save only non-project tabs to the global session file
+;; (tabspaces-save-non-project-tabs)
+
 ;;; Use this only if you want the minor-mode loaded at startup
-(tabspaces-mode) 
+(tabspaces-mode)
+
+ ;; additional options
+  (tabspaces-fully-resolve-paths t)  ; Resolve relative project paths to absolute
+  (tabspaces-exclude-buffers '("*Messages*" "*Compile-Log*"))  ; Additional buffers to exclude
+  (tab-bar-new-tab-choice "*scratch*"))
 
 ;;;

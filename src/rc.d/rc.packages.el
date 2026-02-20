@@ -237,7 +237,7 @@
 
 (desire 'stripspace)
 
-(desire 'outline)
+;; (desire 'outline)
 
 ;; (desire 'origami)
 
@@ -373,7 +373,7 @@
 (desire 'org-transclusion)
 
 ;;; Agenda
-;; (desire 'org-super-agenda)
+(desire 'org-super-agenda)
 
 ;;(if (desiredp 'org-ql)
 ;; (desire 'org-agenda-files-track-ql)
@@ -469,6 +469,8 @@
 (desire 'ibuffer)
 ;; (desire 'persp-mode)
 ;; (desire 'perspective)
+
+(desire 'tabspaces)
 
 (desire 'bufler)
 

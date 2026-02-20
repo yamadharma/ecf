@@ -28,7 +28,7 @@
 (add-to-list 'org-agenda-files org-gtd-directory)
 
 ;;;; Make org-gtd prompt for refile target instead of auto-refiling
-;; (setopt org-gtd-refile-to-any-target nil)
+(setopt org-gtd-refile-to-any-target nil)
 ;;;; These types prompt for refile target
 (setopt org-gtd-refile-prompt-for-types
 	'(single-action

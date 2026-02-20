@@ -1,0 +1,29 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Create buffer-isolated workspaces
+;; https://github.com/mclear-tools/tabspaces
+
+;;; Code:
+
+;;;; Filter Buffers for Consult-Buffer
+
+(with-eval-after-load 'consult
+  ;; hide full buffer list (still available with "b" prefix)
+  (plist-put consult-source-buffer :hidden t)
+  (plist-put consult-source-buffer :default nil)
+  ;; set consult-workspace buffer list
+  (defvar consult--source-workspace
+    (list :name     "Workspace Buffers"
+          :narrow   ?w
+          :history  'buffer-name-history
+          :category 'buffer
+          :state    #'consult--buffer-state
+          :default  t
+          :items    (lambda () (consult--buffer-query
+                           :predicate #'tabspaces--local-buffer-p
+                           :sort 'visibility
+                           :as #'buffer-name)))
+
+    "Set workspace buffer list for consult-buffer.")
+  (add-to-list 'consult-buffer-sources 'consult--source-workspace))
+
+;;;
