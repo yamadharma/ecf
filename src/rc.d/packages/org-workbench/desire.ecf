@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A digital card workbench system for org-mode
+;; https://github.com/yibie/org-workbench
+
+;;; Code:
+
+(require 'org-workbench)
+(org-workbench-setup)
+
+;;;

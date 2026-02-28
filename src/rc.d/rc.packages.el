@@ -414,13 +414,13 @@
 
 ;;;}}}
 
-;;; Notes
-
 ;;;;; Org-roam
 
 (desire 'emacsql)
 
 ;; (desire 'delve :recipe '(:fetcher github :repo "publicimageltd/delve" :branch "main"))
+
+(desire 'org-workbench :recipe '(:fetcher github :repo "yibie/org-workbench" :branch "main"))
 
 (desire 'zetteldesk)
 
@@ -430,6 +430,8 @@
 
 (desire 'magit-section)
 (desire 'org-roam)
+
+;;; Notes
 
 ;; (desire 'deft)
 ;; (desire-conf 'zetteldeft nil "zetteldeft" t)
