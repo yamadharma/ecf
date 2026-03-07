@@ -16,7 +16,7 @@
   (org-expiry-insert-created)
   (org-back-to-heading)
   (org-end-of-line)
-  (insert " ")
+  ;; (insert " ")
 )
 
 ;;;; Whenever a TODO entry is created, I want a timestamp
@@ -46,7 +46,7 @@
   (save-excursion
     (org-back-to-heading)
     (org-set-tags)))
-;; Bind this to a reasonable key
+;;;; Bind this to a reasonable key
 (define-key org-capture-mode-map "\C-c\C-t" 'ecf/add-tags-in-capture)
 
 ;;;
