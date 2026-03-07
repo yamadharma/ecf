@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Window-based habit tracking
+;; https://github.com/colonelpanic8/org-window-habit
+
+;;; Code:
+
+(require 'org-window-habit)
+
+;;;

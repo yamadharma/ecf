@@ -400,6 +400,8 @@
 
 ;; (desire 'org-habit-ng :recipe '(:fetcher codeberg :repo "Trevoke/org-habit-ng" :branch "congruence"))
 
+;; (desire 'org-window-habit)
+
 ;;;; GTD
 (desire 'org-gtd)
 
