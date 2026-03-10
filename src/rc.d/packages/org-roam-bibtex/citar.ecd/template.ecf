@@ -7,24 +7,24 @@
 
 (setq citar-org-roam-template-fields
       '((:citar-citekey "key")
-	(:citar-title "title")
-	(:citar-author "author" "editor")
-	(:citar-date "date" "year" "issued")
-	(:citar-pages "pages" "pagetotal")
-	(:citar-type "=type=")
-	(:citar-doi "doi")
-	(:citar-url "url")
-	(:citar-journal "journal" "journaltitle")
-	(:citar-subtitle "subtitle")
-	(:citar-year "year")
-	))
+	    (:citar-title "title")
+	    (:citar-author "author" "editor")
+	    (:citar-date "date" "year" "issued")
+	    (:citar-pages "pages" "pagetotal")
+	    (:citar-type "=type=")
+	    (:citar-doi "doi")
+	    (:citar-url "url")
+	    (:citar-journal "journal" "journaltitle")
+	    (:citar-subtitle "subtitle")
+	    (:citar-year "year")
+	    ))
 
 (add-to-list 'org-roam-capture-templates
-'("n" "literature note" plain "%?"
-:target
-(file+head
-"literature/${citar-citekey}.org"
-"#+title: %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title}
+             '("n" "literature note" plain "%?"
+               :target
+               (file+head
+                "literature/${citar-citekey}.org"
+                "#+title: %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title}
 #+created: %U
 #+last_modified: %U
 #+language: ru
@@ -41,8 +41,9 @@
 
 * %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${subtitle}
 :PROPERTIES:
-:export_hugo_section: ru/blog/%<%Y>
-:export_file_name: %<%Y-%m-%d>--${citar-citekey}
+:export_hugo_section: blog/%<%Y>
+:export_hugo_bundle: %<%Y-%m-%d>--${citar-citekey}
+:export_file_name: index.ru.md
 :export_language: ru
 :END:
 
@@ -58,8 +59,9 @@ ${citar-author} (${citar-date}) ${citar-title} ${citar-subtitle} [cite:@${citar-
 
 * %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${citart-subtitle} [English] :noexport:
 :PROPERTIES:
-:export_hugo_section: en/blog/%<%Y>
-:export_file_name: %<%Y-%m-%d>--${citar-citekey}
+:export_hugo_section: blog/%<%Y>
+:export_hugo_bundle: %<%Y-%m-%d>--${citar-citekey}
+:export_file_name: index.en.md
 :export_language: en
 :END:
 
@@ -88,10 +90,10 @@ ${citar-author} (${citar-date}) ${citar-title} ${citar-subtitle} [cite:@${citar-
 :noter_document: %(orb-get-attached-file \"${citar-citekey}\")
 :noter_page:
 :END:")
-:immediate-finish t
-:jump-to-captured t
-:unnarrowed t
-:hook org-id-get-create))
+               :immediate-finish t
+               :jump-to-captured t
+               :unnarrowed t
+               :hook org-id-get-create))
 
 (setopt citar-org-roam-capture-template-key "n")
 
