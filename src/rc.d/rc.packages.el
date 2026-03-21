@@ -237,6 +237,8 @@
 
 (desire 'stripspace)
 
+;; (desire 'julia-formatter)
+
 ;; (desire 'outline)
 
 ;; (desire 'origami)

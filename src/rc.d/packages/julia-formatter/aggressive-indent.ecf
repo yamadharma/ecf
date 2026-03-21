@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Use JuliaFormatter.jl to format julia code in Emacs
+;; https://codeberg.org/FelipeLema/julia-formatter.el
+
+;;; Code:
+
+(add-hook 'julia-formatter-mode-hook #'aggressive-indent)
+
+;;;

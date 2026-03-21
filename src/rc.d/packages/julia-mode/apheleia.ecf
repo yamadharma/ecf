@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An opinionated code formatter for Julia
+;; https://github.com/domluna/JuliaFormatter.jl
+
+;;; Code:
+
+(if (executable-find "jlfmt")
+    (with-eval-after-load 'apheleia
+      (setf (alist-get 'jlfmt apheleia-formatters) '("jlfmt" "-o" filepath))
+      (setf (alist-get 'julia-mode apheleia-mode-alist) 'jlfmt))
+  nil)
+
+;;;
