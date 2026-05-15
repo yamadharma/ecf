@@ -3,6 +3,6 @@
 
 ;;; Code:
 
-(require 'browse-url)
+(setq browse-url-browser-function 'browse-url-default-browser)
 
 ;;;

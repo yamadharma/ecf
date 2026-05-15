@@ -1,10 +1,10 @@
-
+;;; Удалить файл
 ;; (setopt browse-url-browser-function 'browse-url-netscape)
 
 
 ;;; Firefox
-(setopt browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox")
+;;(setopt browse-url-browser-function 'browse-url-generic
+;;      browse-url-generic-program "firefox")
 
 ;;; Chromium
 ;; (setopt browse-url-browser-function 'browse-url-generic

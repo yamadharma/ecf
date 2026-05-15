@@ -251,7 +251,7 @@
 
 (desire 'indent-bars)
 
-(desire 'outline-indent)
+;; (desire 'outline-indent)
 
 ;;; Spell {{{
 
@@ -500,9 +500,11 @@
 
 ;;;}}}
 
+(desire 'browse-url)
+
 ;;; These provide options for the various message handling packages {{{
 
-(desire 'browse-url)
+;; (desire 'browse-url)
 ;; (desire-conf 'mailcrypt)
 ;; (desire 'supercite)
 
