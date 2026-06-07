@@ -1,0 +1,23 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Configuring Progress Logging
+
+;;; Code:
+
+;;;; Record a timestamp when a task is completed
+(setopt org-log-done 'time)
+
+;;;; Automatically leave a note when changing states
+(setopt org-log-state-notes-insert-after-states t)
+
+;;;; Define what shows up in Log Mode (options can include 'clock, 'state, 'done)
+(setq org-agenda-log-mode-items '(clock state))
+
+;;;; Where state changes, clock times, and note-taking logs are stored
+;;;; `t` : inside a folded :LOGBOOK: drawer
+(setopt org-log-into-drawer t)
+
+;;;; `t` : notes are inserted after the headline, any properties/drawers, and schedule/deadline lines
+;;;; `nil` : notes are potentially placing above existing drawers
+(setopt org-log-state-notes-insert-after-drawers nil)
+
+;;;

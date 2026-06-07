@@ -28,8 +28,9 @@
   "Insert a CREATED property using org-expiry.el for TODO entries"
   (ecf/insert-created-timestamp)
 )
+
 ;;;; Make it active
-(ad-activate 'org-insert-todo-heading)
+;; (ad-activate 'org-insert-todo-heading)
 
 (require 'org-capture)
 

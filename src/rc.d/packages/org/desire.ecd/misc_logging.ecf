@@ -1,5 +1,0 @@
-;; Logging stuff
-
-(setopt org-log-done 'time)
-(setopt org-log-into-drawer t)
-(setopt org-log-state-notes-insert-after-drawers nil)
