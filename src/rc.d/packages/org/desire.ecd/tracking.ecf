@@ -5,9 +5,6 @@
 ;; Sometimes I change tasks I'm clocking quickly - this removes clocked tasks with 0:00 duration
 (setopt org-clock-out-remove-zero-time-clocks t)
 
-;; Agenda log mode items to display (clock time only by default)
-(setopt org-agenda-log-mode-items (quote (clock)))
-
 ;;; Task Estimates and column view
 
 ; Set default column view headings: Task Effort Clock_Summary
