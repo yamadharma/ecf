@@ -4,37 +4,29 @@
 ;;; Code:
 
 ;;;; Repos
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http://" "https://")))
 ;;;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
 
-  (add-to-list 'package-archives (cons "melpa" (concat proto "melpa.org/packages/")) t)
-  (add-to-list 'package-archives (cons "melpa-stable" (concat proto "stable.melpa.org/packages/")) t)
-  ;; (add-to-list 'package-archives (cons "org" (concat proto "orgmode.org/elpa/")) t)
-  (add-to-list 'package-archives (cons "gnu-devel" (concat proto "elpa.gnu.org/devel/")) t)
-  (add-to-list 'package-archives (cons "gnu" (concat proto "elpa.gnu.org/packages/")) t)
-  (add-to-list 'package-archives (cons "nongnu" (concat proto "elpa.nongnu.org/nongnu/")) t)
+(setopt package-archives
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+	("nongnu" . "https://elpa.nongnu.org/nongnu/")
+	("gnu-devel" . "https://elpa.gnu.org/devel/")
+        ("melpa" . "https://melpa.org/packages/")
+	("melpa-stable" . "https://stable.melpa.org/packages/")))
 
 ;;;; Mirror for some Emacs package archives
-;; https://github.com/d12frosted/elpa-mirror
-  (add-to-list 'package-archives (cons "melpa-github-mirror" "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa") t)
-  (add-to-list 'package-archives (cons "melpa-stable-github-mirror" "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/stable-melpa") t)
-  (add-to-list 'package-archives (cons "gnu-github-mirror" "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/gnu") t)
-  (add-to-list 'package-archives (cons "nongnu-github-mirror" "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/nongnu") t)
+;;;; https://github.com/d12frosted/elpa-mirror
+;; (setopt package-archives
+;;       '(("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")
+;; 	("melpa-stable" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/stable-melpa")
+;;         ("gnu" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/gnu/")
+;; 	("nongnu" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/nongnu")))
 
-  (add-to-list 'package-archives (cons "melpa-gitlab-mirror" "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/melpa") t)
-  (add-to-list 'package-archives (cons "melpa-stable-gitlab-mirror" "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/stable-melpa") t)
-  (add-to-list 'package-archives (cons "gnu-gitlab-mirror" "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/gnu") t)
-  (add-to-list 'package-archives (cons "nongnu-gitlab-mirror" "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/nongnu") t)
-
-
-;;;; Marmalade doesn't work
-;; (add-to-list 'package-archives (cons "marmalade" "http://marmalade-repo.org/packages/") t)
-
-  (when (< emacs-major-version 24)
-    ;;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "elpa.gnu.org/packages/")) t)))
+;;;; https://gitlab.com/d12frosted/elpa-mirror/
+;; (setopt package-archives
+;;       '(("melpa" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/melpa")
+;; 	("melpa-stable" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/stable-melpa")
+;;         ("gnu" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/gnu")
+;; 	("nongnu" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/nongnu")))
 
 (unless package--initialized
   (package-initialize))
