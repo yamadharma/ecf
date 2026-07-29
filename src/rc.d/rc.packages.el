@@ -398,9 +398,9 @@
 
 ;; (desire 'org-transclusion)
 
-(desire 'org-node)
+;; (desire 'org-node)
 
-;; (desire 'org-habit-ng :recipe '(:fetcher codeberg :repo "Trevoke/org-habit-ng" :branch "congruence"))
+(desire 'org-habit-ng :recipe '(:fetcher codeberg :repo "Trevoke/org-habit-ng" :branch "congruence"))
 
 ;; (desire 'org-window-habit)
 
@@ -417,6 +417,10 @@
 ;; (desire 'org-msg)
 
 ;;;}}}
+
+(desire 'vulpea-journal)
+
+(desire 'vulpea)
 
 ;;;;; Org-roam
 

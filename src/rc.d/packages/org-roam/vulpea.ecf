@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Database layer for org-mode notes with async indexing, rich queries, backlink discovery, and external change detection
+;; https://github.com/d12frosted/vulpea
+
+;;; Code:
+
+(require 'vulpea)
+
+;;;

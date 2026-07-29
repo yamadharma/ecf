@@ -25,7 +25,7 @@
 ;;;; Set GTD directory (defaults to ~/gtd/)
 (setopt org-gtd-directory org-directory-todo)
 ;;;; Add org-gtd files to your agenda
-(add-to-list 'org-agenda-files org-gtd-directory)
+;; (add-to-list 'org-agenda-files org-gtd-directory)
 
 ;;;; Make org-gtd prompt for refile target instead of auto-refiling
 (setopt org-gtd-refile-to-any-target nil)
@@ -34,14 +34,14 @@
 	'(single-action
 	  project-heading
 	  project-task
-	  ;; calendar
+	  calendar
           someday
 	  delegated
 	  tickler
-	  ;; habit
+	  habit
 	  knowledge
 	  quick-action
-	  ;; trash
+	  trash
 	  ))
 
 ;;;

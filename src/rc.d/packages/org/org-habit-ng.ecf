@@ -6,5 +6,11 @@
 
 (require 'transient)
 (require 'org-habit-ng)
+(add-to-list 'org-modules 'org-habit)
+
+(with-eval-after-load 'org-habit-ng
+  (define-key org-mode-map (kbd "C-c h r") #'org-habit-ng-set-recurrence)
+  (define-key org-mode-map (kbd "C-c h s") #'org-habit-ng-skip)
+  (define-key org-mode-map (kbd "C-c h c") #'org-habit-ng-show-score))
 
 ;;;

@@ -1,0 +1,23 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern daily journaling interface for Emacs with reactive sidebar widgets, built on vulpea
+;; https://github.com/d12frosted/vulpea-journal
+
+;;; Code:
+
+;;;; Daily (one file per day, default)
+;; (setopt vulpea-journal-default-template
+;; 	(vulpea-journal-template-daily))
+
+;;;; Monthly (one file per month)
+;; (setopt vulpea-journal-default-template
+;; 	(vulpea-journal-template-monthly))
+
+;;;; Custom tempate
+(setopt vulpea-journal-default-template
+	'(:file-name "daily/%Y-%m-%d.org"
+	 :title "%Y-%m-%d"
+	 :tags ("journal" "daily")
+	 :head "#+created: %<[%Y-%m-%d]>"
+	 :body ":SETUP_LOCAL:\n#+startup: overview num inlineimages latexpreview\n#+options: ^:{} num:t tex:t\n:END:\n\n"))
+
+;;;

@@ -28,32 +28,28 @@
 
 ;;;; Define key bindings
 
+(general-define-key
+ :keymaps 'org-roam-dailies-map
+;;;;; Go to a note for today (C-c n d n)
+ "d" #'("Go to today" . org-roam-dailies-goto-today)
 ;;;;; Capture a note for today (C-c n d n)
-(define-key org-roam-dailies-map (kbd "n") #'org-roam-dailies-capture-today)
-
+ "n" #'("Capture for today" . org-roam-dailies-capture-today)
 ;;;;; Capture a note for yesterday (C-c n d Y)
-(define-key org-roam-dailies-map (kbd "Y") #'org-roam-dailies-capture-yesterday)
-
+ "Y" #'("Capture for yesterday" . org-roam-dailies-capture-yesterday)
 ;;;;; Capture a note for tomorrow (C-c n d T)
-(define-key org-roam-dailies-map (kbd "T") #'org-roam-dailies-capture-tomorrow)
-
+ "T" #'("Capture for tomorrow" . org-roam-dailies-capture-tomorrow)
 ;;;;; Go to the file for yesterday (C-c n d y)
-(define-key org-roam-dailies-map (kbd "y") #'org-roam-dailies-goto-yesterday)
-
+ "y" #'("Go to yesterday" . org-roam-dailies-goto-yesterday)
 ;;;;; Go to the file for tomorrow (C-c n d t)
-(define-key org-roam-dailies-map (kbd "t") #'org-roam-dailies-goto-tomorrow)
-
+ "t" #'("Go to tomorrow" . org-roam-dailies-goto-tomorrow)
 ;;;;; Capture a note for a specific date (C-c n d v)
-(define-key org-roam-dailies-map (kbd "v") #'org-roam-dailies-capture-date)
-
+ "v" #'("Capture for a date" . org-roam-dailies-capture-date)
 ;;;;; Go to the file for a specific date (C-c n d c)
-(define-key org-roam-dailies-map (kbd "c") #'org-roam-dailies-goto-date)
-
-;;;;; Go back one existing date file (C-c n d b)
-(define-key org-roam-dailies-map (kbd "b") #'org-roam-dailies-goto-next-note)
-
-;;;;; Go forward one existing date file (C-c n d f)
-(define-key org-roam-dailies-map (kbd "f") #'org-roam-dailies-goto-previous-note)
+ "c" #'("Go to a date" . org-roam-dailies-goto-date)
+;;;;; Go back one existing date (C-c n d b)
+ "b" #'("Go back one date" . org-roam-dailies-goto-next-note)
+;;;;; Go forward one existing date (C-c n d f)
+ "f" #'("Go forward one date" . org-roam-dailies-goto-previous-note))
 
 (fset 'org-roam-dailies-map org-roam-dailies-map)
 (global-set-key (kbd "C-c n d") #'org-roam-dailies-map)

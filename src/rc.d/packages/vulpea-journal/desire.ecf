@@ -1,0 +1,27 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern daily journaling interface for Emacs with reactive sidebar widgets, built on vulpea
+;; https://github.com/d12frosted/vulpea-journal
+
+;;; Code:
+
+(vulpea-journal-setup)
+
+;;;; Start week on Sunday (0) or Monday (1, default)
+(setopt vulpea-journal-ui-calendar-week-start 1)
+
+;;;; Include journal notes in the "created today" list
+(setq vulpea-journal-ui-created-today-exclude-journal nil)  ; default: t
+
+;;;; How many years to look back
+(setq vulpea-journal-ui-previous-years-count 5)  ; default: 5
+
+;;;; Characters to show in preview
+(setq vulpea-journal-ui-previous-years-preview-chars 256)
+
+;;;; Hide org drawers in preview
+(setq vulpea-journal-ui-previous-years-hide-drawers t)  ; default: t
+
+;;;; Start with previews expanded
+(setq vulpea-journal-ui-previous-years-expanded t)  ; default: t
+
+;;;

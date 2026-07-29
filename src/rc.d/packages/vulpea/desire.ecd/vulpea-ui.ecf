@@ -1,0 +1,29 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A widget-based sidebar for Emacs that displays contextual information for vulpea notes
+;; https://github.com/d12frosted/vulpea-ui
+
+;;; Code:
+
+(desire 'vulpea-ui)
+
+(require 'vulpea-ui)
+
+;;;; Open sidebar
+(vulpea-ui-sidebar-open)
+
+;;;; Or toggle with a keybinding
+(global-set-key (kbd "C-c v s") #'vulpea-ui-sidebar-toggle)
+
+;;;; Automatic sidebar
+;; (add-hook 'org-mode-hook #'vulpea-ui-sidebar-open)
+
+;;;; Position: 'right (default), 'left, 'top, 'bottom
+(setopt vulpea-ui-sidebar-position 'right)
+
+;;;; Size of the sidebar
+(setopt vulpea-ui-sidebar-size 0.33)
+
+;;;; Maximum heading depth (nil = unlimited)
+(setopt vulpea-ui-outline-max-depth 3)
+
+;;;
