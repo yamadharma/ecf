@@ -14,7 +14,7 @@
 
 ;;;; Custom tempate
 (setopt vulpea-journal-default-template
-	'(:file-name "daily/%Y-%m-%d.org"
+	'(:file-name "daily/%Y/%Y-%m-%d.org"
 	 :title "%Y-%m-%d"
 	 :tags ("journal" "daily")
 	 :head "#+created: %<[%Y-%m-%d]>"

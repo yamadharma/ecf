@@ -10,10 +10,10 @@
 (setopt vulpea-journal-ui-calendar-week-start 1)
 
 ;;;; Include journal notes in the "created today" list
-(setq vulpea-journal-ui-created-today-exclude-journal nil)  ; default: t
+(setq vulpea-journal-ui-created-today-exclude-journal t)  ; default: t
 
 ;;;; How many years to look back
-(setq vulpea-journal-ui-previous-years-count 5)  ; default: 5
+(setq vulpea-journal-ui-previous-years-count 10)  ; default: 5
 
 ;;;; Characters to show in preview
 (setq vulpea-journal-ui-previous-years-preview-chars 256)

@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern daily journaling interface for Emacs with reactive sidebar widgets, built on vulpea
+;; https://github.com/d12frosted/vulpea-journal
+
+;;; Code:
+
+(general-define-key
+ :prefix "C-c v d"
+ ;;;;; Go to a note for today (C-c v d n)
+ "d" #'("Go to today" . vulpea-journal-today)
+ ;;;;; Capture a note for a specific date (C-c v d v)
+ "v" #'("Capture for a date" . vulpea-journal-date)
+ ;;;;; Go back one existing date (C-c v d b)
+ "b" #'("Go back one date" . vulpea-journal-previous)
+ ;;;;; Go forward one existing date (C-c v d f)
+ "f" #'("Go forward one date" . vulpea-journal-next))
+
+;;;

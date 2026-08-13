@@ -17,7 +17,7 @@
 (setopt org-roam-dailies-capture-templates
       '(("d" "default" entry
          "* %?"
-         :target (file+head "%<%Y-%m-%d>.org"
+         :target (file+head "%<%Y>/%<%Y-%m-%d>.org"
                             "#+title: %<%Y-%m-%d>
 :SETUP_LOCAL:
 #+startup: overview num inlineimages latexpreview
@@ -30,7 +30,7 @@
 
 (general-define-key
  :keymaps 'org-roam-dailies-map
-;;;;; Go to a note for today (C-c n d n)
+;;;;; Go to a note for today (C-c n d d)
  "d" #'("Go to today" . org-roam-dailies-goto-today)
 ;;;;; Capture a note for today (C-c n d n)
  "n" #'("Capture for today" . org-roam-dailies-capture-today)
@@ -47,9 +47,9 @@
 ;;;;; Go to the file for a specific date (C-c n d c)
  "c" #'("Go to a date" . org-roam-dailies-goto-date)
 ;;;;; Go back one existing date (C-c n d b)
- "b" #'("Go back one date" . org-roam-dailies-goto-next-note)
+ "b" #'("Go back one date" . org-roam-dailies-goto-previous-note)
 ;;;;; Go forward one existing date (C-c n d f)
- "f" #'("Go forward one date" . org-roam-dailies-goto-previous-note))
+ "f" #'("Go forward one date" . org-roam-dailies-goto-next-note))
 
 (fset 'org-roam-dailies-map org-roam-dailies-map)
 (global-set-key (kbd "C-c n d") #'org-roam-dailies-map)
