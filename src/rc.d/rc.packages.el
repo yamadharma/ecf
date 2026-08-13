@@ -400,7 +400,7 @@
 
 ;; (desire 'org-node)
 
-(desire 'org-habit-ng :recipe '(:fetcher codeberg :repo "Trevoke/org-habit-ng" :branch "congruence"))
+(desire 'org-habit-ng)
 
 ;; (desire 'org-window-habit)
 
