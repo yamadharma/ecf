@@ -18,9 +18,9 @@
                     :font "Iosevka Aile"
 		    :height 120)
 
-(dolist (charset '(latin cyrillic greek))
-  (set-fontset-font "fontset-default" charset
-                    (font-spec :family "Iosevka Term Nerd Font" :height 120)
-                    nil 'prepend))
+;; (dolist (charset '(latin cyrillic greek))
+;;   (set-fontset-font "fontset-default" charset
+;;                     (font-spec :family "Iosevka Term Nerd Font" :height 120)
+;;                     nil 'prepend))
 
 ;;;
