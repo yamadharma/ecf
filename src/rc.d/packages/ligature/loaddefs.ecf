@@ -1,0 +1,26 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Display typographical ligatures in Emacs
+;; https://github.com/mickeynp/ligature.el
+
+;;; Code:
+
+(require 'ligature)
+
+;;;; For every mode
+(ligature-set-ligatures
+ 't
+ '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
+   "{-" "::" ":::" ":=" "!!" "!=" "!==" "-}"
+   "-->"
+   <!-- ... -->
+   ))
+
+;;; Enable traditional ligature support in eww-mode, if the `variable-pitch' face supports it
+(ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+
+(ligature-set-ligatures '(prog-mode org-mode) '("->" "=>" "!=" "==" ">=" "<="))
+
+;;; Enables ligature checks globally in all buffers. You can also do it per mode with `ligature-mode'.
+(global-ligature-mode t)
+
+;;;

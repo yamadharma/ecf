@@ -3,15 +3,28 @@
 
 ;;; Code:
 
-;; (set-fontset-font "fontset-default" 'symbol
-;; 		  (font-spec :family "Symbola")
-;; 		  nil 'prepend)
+;;;; Китайский, японский, корейский (CJK)
+;;;; Linux: "Noto Sans CJK SC" или "WenQuanYi Micro Hei"
+;;;; macOS: "PingFang SC" или "Hiragino Sans"
+;;;; Windows: "Microsoft YaHei" или "Segoe UI Emoji"
 
-;; (set-fontset-font "fontset-default" 'unicode
-;; 		  (font-spec :family "Symbola")
-;; 		  nil 'prepend)
+(set-fontset-font
+ t
+ '(#x4E00 . #x9FFF)   ; основной блок CJK
+ (cond
+  ((member "Noto Sans CJK SC" (font-family-list)) "Noto Sans CJK SC")
+  ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
+  nil 'append))
 
-;; set font for cuneiform
+(set-fontset-font
+ t
+ '(#x3040 . #x30FF)   ; хирагана и катакана
+ (cond
+  ((member "Noto Sans CJK SC" (font-family-list)) "Noto Sans CJK SC")
+  ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
+  nil 'append))
+
+;;;; set font for cuneiform
 (set-fontset-font
  t
  'cuneiform

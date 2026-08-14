@@ -667,7 +667,10 @@
 
 (desire 'fontset)
 
-;; (desire 'mixed-pitch)
+(desire 'ligature)
+
+(desire 'mixed-pitch)
+
 ;; (desire-conf 'font-lock)
 ;; (desire-conf 'font-lock-jit)
 ;; (desire-conf 'font-lock-lazy)
@@ -675,8 +678,6 @@
 ;; (desire-conf 'faces)
 ;; (desire-conf 'color-theme nil "color-theme")
 ;; (desire-conf 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
-
-;; (desire 'ligature)
 
 (desire 'unicode-fonts)
 
