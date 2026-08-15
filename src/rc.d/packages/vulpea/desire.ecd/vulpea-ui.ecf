@@ -12,7 +12,7 @@
 (vulpea-ui-sidebar-open)
 
 ;;;; Or toggle with a keybinding
-(global-set-key (kbd "C-c v s") #'vulpea-ui-sidebar-toggle)
+(global-set-key (kbd "C-c v s") #'("Toggle sidebar" . vulpea-ui-sidebar-toggle))
 
 ;;;; Automatic sidebar
 ;; (add-hook 'org-mode-hook #'vulpea-ui-sidebar-open)

@@ -6,7 +6,7 @@
 ;;
 ;;  File id
 ;;
-;;      Copyright (C)  2002-2025 Dmitry S. Kulyabov
+;;      Copyright (C)  2002-2026 Dmitry S. Kulyabov
 ;;      Keywords:      rc.packages
 ;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
 ;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
@@ -159,6 +159,26 @@
 (desire 'rg :precondition-system-executable "rg")
 
 ;;;; User interface
+
+;;;;; Fonts
+
+(desired 'iosevka)
+
+(desire 'fontset)
+
+(desire 'ligature)
+
+(desire 'mixed-pitch)
+
+;; (desire-conf 'font-lock)
+;; (desire-conf 'font-lock-jit)
+;; (desire-conf 'font-lock-lazy)
+;; (desire-conf 'font-lock-fast)
+;; (desire-conf 'faces)
+;; (desire-conf 'color-theme nil "color-theme")
+;; (desire-conf 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
+
+(desire 'unicode-fonts)
 
 ;;;;; Icons
 
@@ -660,26 +680,6 @@
 (desire 'gt)
 
 ;;;; UI
-
-;;;;; Fonts
-
-(desired 'iosevka)
-
-(desire 'fontset)
-
-(desire 'ligature)
-
-(desire 'mixed-pitch)
-
-;; (desire-conf 'font-lock)
-;; (desire-conf 'font-lock-jit)
-;; (desire-conf 'font-lock-lazy)
-;; (desire-conf 'font-lock-fast)
-;; (desire-conf 'faces)
-;; (desire-conf 'color-theme nil "color-theme")
-;; (desire-conf 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
-
-(desire 'unicode-fonts)
 
 ;;;;; Modeline
 

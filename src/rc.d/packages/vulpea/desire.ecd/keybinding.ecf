@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Keybindings
+
+(general-define-key
+ :prefix "C-c v"
+ "f" '("Find node" . vulpea-find)
+ "i" '("Insert link" . vulpea-insert)
+ "c" '("Capture" . vulpea-capture)
+ "l" '("Toggle buffer" . vulpea-buffer-toggle)
+ "g" '("Graph" . vulpea-graph))
+
+;;;

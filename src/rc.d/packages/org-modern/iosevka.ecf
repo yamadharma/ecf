@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set Iosevka font
+;; https://be5invis.github.io/Iosevka/
+
+;;; Code:
+
+;;;; Choose fonts
+
+(set-face-attribute 'org-modern-symbol nil
+		    :family "Iosevka Term Nerd Font")
+
+;;;
