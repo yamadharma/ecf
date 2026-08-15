@@ -4,13 +4,19 @@
 
 (require 'eglot)
 
-;;; Change order
-(let ((item (assoc '(tex-mode context-mode texinfo-mode bibtex-mode) eglot-server-programs)))
-  ;; (setf (car item) '(tex-mode context-mode texinfo-mode bibtex-mode))
-  (setf (cdr item) '("texlab")))
+;;; Switch to texlab
+(when (executable-find "texlab")
+  (setf (alist-get '(latex-mode plain-tex-mode context-mode texinfo-mode bibtex-mode tex-mode)
+                   eglot-server-programs
+                   nil nil #'equal)
+        '("texlab")))
 
 (add-hook 'tex-mode-hook #'eglot-ensure)
 (add-hook 'latex-mode-hook #'eglot-ensure)
 (add-hook 'LaTeX-mode-hook #'eglot-ensure)
+(add-hook 'bibtex-mode-hook #'eglot-ensure)
+(add-hook 'plain-tex-mode-hook #'eglot-ensure)
+(add-hook 'context-mode-hook #'eglot-ensure)
+(add-hook 'texinfo-mode-hook #'eglot-ensure)
 
 ;;;
