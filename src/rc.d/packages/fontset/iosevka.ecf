@@ -4,23 +4,23 @@
 
 ;;; Code:
 
-;;;; Set default font
+(add-to-list 'default-frame-alist '(font . "IosevkaTerm Nerd Font-12" ))
+(add-to-list 'initial-frame-alist '(font . "IosevkaTerm Nerd Font-12" ))
 
 (set-face-attribute 'default nil
-                    :font "Iosevka Term Nerd Font"
-		    :height 120)
+                    :font "IosevkaTerm Nerd Font"
+    		    :height 120)
 
 (set-face-attribute 'fixed-pitch nil
-                    :font "Iosevka Term Nerd Font"
-		    :height 120)
+                    :font "IosevkaTerm Nerd Font"
+    		    :height 120)
 
 (set-face-attribute 'variable-pitch nil
                     :font "Iosevka Aile"
-		    :height 120)
+    		    :height 120)
 
-;; (dolist (charset '(latin cyrillic greek))
-;;   (set-fontset-font "fontset-default" charset
-;;                     (font-spec :family "Iosevka Term Nerd Font" :height 120)
-;;                     nil 'prepend))
+(dolist (charset '(latin cyrillic greek))
+  (set-fontset-font 't charset
+                    (font-spec :family "IosevkaTerm Nerd Font" :size 12.0)))
 
 ;;;

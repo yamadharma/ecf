@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Ehancements to Emacs' built in project library and tab-bar mode
+;; https://github.com/vmargb/project-x
+
+;;; Code:
+
+(require 'project-x)
+
+;;;

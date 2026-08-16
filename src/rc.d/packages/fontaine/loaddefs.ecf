@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set Emacs font configurations using presets
+;; https://github.com/protesilaos/fontaine
+
+;;; Code:
+
+(require 'fontaine)
+
+(add-hook 'enable-theme-functions #'fontaine-apply-current-preset)
+
+;;;

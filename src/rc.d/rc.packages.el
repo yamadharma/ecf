@@ -164,11 +164,7 @@
 
 (desired 'iosevka)
 
-(desire 'fontset)
-
 (desire 'ligature)
-
-(desire 'mixed-pitch)
 
 ;; (desire-conf 'font-lock)
 ;; (desire-conf 'font-lock-jit)
@@ -494,7 +490,7 @@
 (desire-conf 'session nil "session")
 (desire-conf 'saveplace nil "saveplace")
 
-(desire 'otpp)
+;; (desire 'otpp)
 
 (desire 'ibuffer)
 ;; (desire 'persp-mode)
@@ -509,6 +505,8 @@
 (desire 'projection)
 
 (desire 'project)
+
+(desire 'project-x)
 
 ;; (desire 'projectile)
 
@@ -714,6 +712,14 @@
 ;; (desire 'ef-themes)
 
 ;; (desire 'doric-themes)
+
+;;;;; Fonts
+
+(desire 'fontset)
+
+;; (desire 'mixed-pitch)
+
+(desire 'fontaine)
 
 ;; (desire 'posframe)
 

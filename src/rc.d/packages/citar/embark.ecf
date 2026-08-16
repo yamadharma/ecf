@@ -4,7 +4,7 @@
 
 (desire 'citar-embark)
 (require 'citar-embark)
-(citar-embark-mode)
+(citar-embark-mode 1)
 
 (setopt citar-at-point-function 'embark-act)
 

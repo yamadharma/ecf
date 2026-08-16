@@ -1,0 +1,30 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Ehancements to Emacs' built in project library and tab-bar mode
+;; https://github.com/vmargb/project-x
+
+;;; Code
+
+
+(setopt project-x-auto-save-delay 5)      ; автосохранение через 5 секунд бездействия
+(setopt project-x-save-interval 60)       ; принудительное сохранение каждую минуту
+(setopt project-x-local-identifier '(".project" ".projectile")) ; файл-маркер проекта
+
+;;;; Добавляем project-x как провайдер проектов (после встроенных)
+(add-hook 'project-find-functions #'project-x-try-local 90)
+
+;;;; Сохраняем состояние окон при выходе из Emacs
+(add-hook 'kill-emacs-hook #'project-x--window-state-write)
+
+;;;; Переопределяем команду переключения проекта
+(advice-add 'project-switch-project :around #'project-x--dynamic-switch-commands)
+
+;;;; Команды сохранения и загрузки состояния
+(global-set-key (kbd "C-x p w") #'project-x-window-state-save)
+(global-set-key (kbd "C-x p j") #'project-x-window-state-load)
+
+(project-x-mode 1)
+
+;;;; Поддержка вкладок (заменяет one-tab-per-project)
+(project-x-tabs-mode 1)
+
+;;;

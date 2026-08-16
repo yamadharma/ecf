@@ -1,0 +1,33 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set Iosevka font
+;; https://be5invis.github.io/Iosevka/
+
+;;; Code:
+
+(setopt fontaine-presets
+	'((regular-editing
+           :default-family "IosevkaTerm Nerd Font"
+           :default-weight normal
+           :default-height 120
+           :fixed-pitch-family "IosevkaTerm Nerd Font"
+           :fixed-pitch-height 1.0
+           :variable-pitch-family "Iosevka Aile"
+           :variable-pitch-height 1.0
+           :bold-weight bold
+           :italic-slant italic
+           :line-spacing 1)
+
+          (presentation
+           :inherit regular-editing
+           :default-height 180)
+
+          (compact
+           :inherit regular-editing
+           :default-height 90
+           :line-spacing 0)))
+
+;;;; Apply
+(fontaine-set-preset 'regular-editing)
+(fontaine-mode 1)
+
+;;;
