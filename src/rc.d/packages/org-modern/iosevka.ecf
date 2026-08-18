@@ -7,6 +7,6 @@
 ;;;; Choose fonts
 
 (set-face-attribute 'org-modern-symbol nil
-		    :family "IosevkaTerm Nerd Font")
+		    :family "Iosevka Nerd Font")
 
 ;;;

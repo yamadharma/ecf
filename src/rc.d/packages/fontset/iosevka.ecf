@@ -4,15 +4,15 @@
 
 ;;; Code:
 
-(add-to-list 'default-frame-alist '(font . "IosevkaTerm Nerd Font-12" ))
-(add-to-list 'initial-frame-alist '(font . "IosevkaTerm Nerd Font-12" ))
+(add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-12" ))
+(add-to-list 'initial-frame-alist '(font . "Iosevka Nerd Font-12" ))
 
 (set-face-attribute 'default nil
-                    :font "IosevkaTerm Nerd Font"
+                    :font "Iosevka Nerd Font"
     		    :height 120)
 
 (set-face-attribute 'fixed-pitch nil
-                    :font "IosevkaTerm Nerd Font"
+                    :font "Iosevka Nerd Font"
     		    :height 120)
 
 (set-face-attribute 'variable-pitch nil
@@ -21,6 +21,6 @@
 
 (dolist (charset '(latin cyrillic greek))
   (set-fontset-font 't charset
-                    (font-spec :family "IosevkaTerm Nerd Font" :size 12.0)))
+                    (font-spec :family "Iosevka Nerd Font" :size 12.0)))
 
 ;;;

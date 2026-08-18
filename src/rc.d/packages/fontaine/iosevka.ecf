@@ -6,10 +6,10 @@
 
 (setopt fontaine-presets
 	'((regular-editing
-           :default-family "IosevkaTerm Nerd Font"
+           :default-family "Iosevka Nerd Font"
            :default-weight normal
            :default-height 120
-           :fixed-pitch-family "IosevkaTerm Nerd Font"
+           :fixed-pitch-family "Iosevka Nerd Font"
            :fixed-pitch-height 1.0
            :variable-pitch-family "Iosevka Aile"
            :variable-pitch-height 1.0
