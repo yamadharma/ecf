@@ -1,14 +1,16 @@
-;;; An opinionated pack of modern color-themes  -*- coding: utf-8-unix; -*-
-;;; https://github.com/hlissner/emacs-doom-themes
-;;; https://github.com/doomemacs/themes
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Doom Themes
+;; https://github.com/doomemacs/themes
 
-;;; If nil, bold is universally disabled
+;;; Code:
+
+;;;; If nil, bold is universally disabled
 (setopt doom-themes-enable-bold t)
 
-;;; If nil, italics is universally disabled
+;;;; If nil, italics is universally disabled
 (setopt doom-themes-enable-italic t)
 
-;;; Enable flashing mode-line on errors
+;;;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
 
 ;;;

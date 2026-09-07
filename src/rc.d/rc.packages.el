@@ -175,9 +175,6 @@
 ;;; Spacemacs theme
 ;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
 
-;;; Doom themes
-;; (desire 'doom-themes)
-
 ;; (desire 'zenburn-theme)
 ;; (desire 'lambda-themes :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-themes" :branch "main"))
 ;; (desire 'tao-theme)
@@ -188,7 +185,9 @@
 ;;; Increase the padding/spacing of frames and windows
 ;; (desire 'spacious-padding)
 
-(desire 'modus-themes)
+(desire 'doom-themes)
+
+;; (desire 'modus-themes)
 
 ;; (desire 'ef-themes)
 

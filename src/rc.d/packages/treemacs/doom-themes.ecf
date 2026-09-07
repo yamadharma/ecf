@@ -1,8 +1,10 @@
-;;; An opinionated pack of modern color-themes  -*- coding: utf-8-unix; -*-
-;; https://github.com/hlissner/emacs-doom-themes
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Doom Themes
+;; https://github.com/doomemacs/themes
 
-;; Use the colorful treemacs theme
-(setopt doom-themes-treemacs-theme "doom-colors")
+;;; Code:
+
+(setopt doom-themes-treemacs-theme "doom-atom")
 (doom-themes-treemacs-config)
 
 ;;;

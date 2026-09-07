@@ -1,10 +1,12 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Ef-themes
-;;; https://git.sr.ht/~protesilaos/ef-themes
-;;; https://github.com/protesilaos/ef-themes
-;;; https://gitlab.com/protesilaos/ef-themes
+;; https://git.sr.ht/~protesilaos/ef-themes
+;; https://github.com/protesilaos/ef-themes
+;; https://gitlab.com/protesilaos/ef-themes
 
-(setopt ef-themes-mixed-fonts t)
-(setopt ef-themes-variable-pitch-ui t)
+(setopt modus-themes-mixed-fonts t)
+(setopt modus-themes-italic-constructs t)
+(setopt modus-themes-bold-constructs t)
+(setopt modus-themes-variable-pitch-ui t)
 
 ;;;

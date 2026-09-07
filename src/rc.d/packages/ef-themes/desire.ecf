@@ -1,8 +1,15 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; Ef-themes
-;;; https://git.sr.ht/~protesilaos/ef-themes
-;;; https://github.com/protesilaos/ef-themes
-;;; https://gitlab.com/protesilaos/ef-themes
+;; https://git.sr.ht/~protesilaos/ef-themes
+;; https://github.com/protesilaos/ef-themes
+;; https://gitlab.com/protesilaos/ef-themes
 
+;;; Code:
+
+;;;; Only Ef
+(ef-themes-take-over-modus-themes-mode 1)
+
+;;;; Ef + Modus
+;; (modus-themes-include-derivatives-mode 1)
 
 ;;;
