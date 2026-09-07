@@ -160,6 +160,40 @@
 
 ;;;; User interface
 
+;;;;; Modeline
+
+(desire-conf 'modeline)
+
+;;;;; Themes
+
+;;; Nested menu for minor modes
+(desire 'minions)
+
+;;; Tabs and ribbons for the mode-line
+(desire 'moody)
+
+;;; Spacemacs theme
+;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
+
+;;; Doom themes
+;; (desire 'doom-themes)
+
+;; (desire 'zenburn-theme)
+;; (desire 'lambda-themes :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-themes" :branch "main"))
+;; (desire 'tao-theme)
+
+;;; N Λ N O Theme
+;; (desire 'nano-theme)
+
+;;; Increase the padding/spacing of frames and windows
+;; (desire 'spacious-padding)
+
+(desire 'modus-themes)
+
+;; (desire 'ef-themes)
+
+;; (desire 'doric-themes)
+
 ;;;;; Fonts
 
 (desired 'iosevka)
@@ -175,6 +209,12 @@
 ;; (desire-conf 'fira-code-mode nil "fira-code-mode" t) ;; Simple minor mode for Fira Code ligatures
 
 (desire 'unicode-fonts)
+
+(desire 'fontset)
+
+;; (desire 'mixed-pitch)
+
+(desire 'fontaine)
 
 ;;;;; Icons
 
@@ -197,6 +237,13 @@
 (desire 'shrface)
 
 ;; (desire 'universal-sidecar)
+
+;; (desire 'posframe)
+
+(desire 'eldoc-box)
+;; (desire 'nova :recipe '(:fetcher github :repo "thisisran/nova" :branch "main"))
+
+;; (desire 'zoom)
 
 ;;;; Completion
 
@@ -676,56 +723,5 @@
 
 ;;; Translator on Emacs
 (desire 'gt)
-
-;;;; UI
-
-;;;;; Modeline
-
-(desire-conf 'modeline)
-
-;;;;; Themes
-
-;;; Nested menu for minor modes
-(desire 'minions)
-
-;;; Tabs and ribbons for the mode-line
-(desire 'moody)
-
-;;; Spacemacs theme
-;; (desire 'spacemacs-theme :precondition-lisp-library "spacemacs-theme-pkg")
-
-;;; Doom themes
-;; (desire 'doom-themes)
-
-;; (desire 'zenburn-theme)
-;; (desire 'lambda-themes :recipe '(:fetcher github :repo "Lambda-Emacs/lambda-themes" :branch "main"))
-;; (desire 'tao-theme)
-
-;;; N Λ N O Theme
-;; (desire 'nano-theme)
-
-;;; Increase the padding/spacing of frames and windows
-;; (desire 'spacious-padding)
-
-(desire 'modus-themes)
-
-;; (desire 'ef-themes)
-
-;; (desire 'doric-themes)
-
-;;;;; Fonts
-
-(desire 'fontset)
-
-;; (desire 'mixed-pitch)
-
-(desire 'fontaine)
-
-;; (desire 'posframe)
-
-(desire 'eldoc-box)
-;; (desire 'nova :recipe '(:fetcher github :repo "thisisran/nova" :branch "main"))
-
-;; (desire 'zoom)
 
 ;;; rc.packages.el ends here

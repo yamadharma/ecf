@@ -21,14 +21,16 @@
 (setopt modus-themes-common-palette-overrides nil)
 (setopt modus-themes-to-rotate modus-themes-items)
 
-(setopt modus-themes-italic-constructs t)
-(setopt modus-themes-bold-constructs t)
-
 ;;;; Control the style of command prompts
 (setopt modus-themes-prompts '(bold))
 
 ;;;; Set the overall style of completion framework interfaces
 (setopt modus-themes-completions '((t . (bold))))
+
+(setopt modus-themes-headings
+        '((agenda-structure . (variable-pitch light 2.2))
+          (agenda-date . (variable-pitch regular 1.3))
+          (t . (regular 1.15))))
 
 ;;;; Optionally add a key binding for the toggle between the themes:
 ;; (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
