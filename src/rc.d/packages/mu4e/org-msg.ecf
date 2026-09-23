@@ -4,7 +4,7 @@
 
 (require 'org-msg)
 
-(setopt org-msg-options "html-postamble:nil H:5 num:t ^:{} toc:t author:nil email:nil \\n:t tex:dvipng"
+(setopt org-msg-options "html-postamble:nil H:5 num:t ^:{} toc:t author:nil email:nil \\n:t tex:dvisvgm"
       org-msg-startup "indent inlineimages"
       org-msg-greeting-name-limit 3
       org-msg-default-alternatives '((new . (utf-8 html))
