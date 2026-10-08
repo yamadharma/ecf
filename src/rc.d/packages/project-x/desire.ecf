@@ -5,7 +5,7 @@
 ;;; Code
 
 
-(setopt project-x-auto-save-delay 5)      ; автосохранение через 5 секунд бездействия
+;; (setopt project-x-auto-save-delay 5)      ; автосохранение через 5 секунд бездействия
 (setopt project-x-save-interval 60)       ; принудительное сохранение каждую минуту
 (setopt project-x-local-identifier '(".project" ".projectile")) ; файл-маркер проекта
 

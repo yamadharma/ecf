@@ -7,8 +7,8 @@
 (setopt time-stamp-active t)
 
 (setopt org-roam-capture-templates
-	    '(("s" "per Section flow (two language)" plain
-	       "#+created: %U
+	'(("s" "per Section flow (two language)" plain
+	   "#+created: %U
 #+last_modified: %U
 #+language: ru
 #+date: %<%Y-%m-%dT%H:%M:%S%:z>
@@ -53,13 +53,13 @@ ${title} [English]
 #+hugo: more
 @@hugo:{{< toc >}}@@
 "
-	       :target
-	       (file+head
-	        "public/%<%Y%m%dT%H%M%S>--${slug}.org"
-	        "#+title: ${title}")
-	       :immediate-finish t
-	       :jump-to-captured t
-	       :unnarrowed t)
-	      ))
+	   :target
+	   (file+head
+	    "public/%<%Y>/%<%Y%m%dT%H%M%S>--${slug}.org"
+	    "#+title: ${title}")
+	   :immediate-finish t
+	   :jump-to-captured t
+	   :unnarrowed t)
+	  ))
 
 ;;;

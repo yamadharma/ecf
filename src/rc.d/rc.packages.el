@@ -211,7 +211,7 @@
 
 (desire 'fontset)
 
-;; (desire 'mixed-pitch)
+(desire 'mixed-pitch)
 
 (desire 'fontaine)
 
