@@ -1,30 +1,29 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 ;;; A universal "sidecar" buffer for emacs, inspired by the `org-roam-mode` buffer
 ;; https://git.sr.ht/~swflint/emacs-universal-sidecar
+;; https://github.com/emacsmirror/universal-sidecar
 
 ;;; Code:
 
-;;;; Enable universal-sidecar globally or in specific modes
-;; (universal-sidecar-global-mode t)
-
-;;;; Enable universal-sidecar in specific modes
-(add-hook 'prog-mode-hook #'universal-sidecar-mode)
-
-;;;; Configure the sections to display in the sidecar
-(setopt universal-sidecar-sections
-      '(
-        buffer-git-status ; Shows Git status for the current buffer
-        buffer-info-section ; Displays basic buffer information
-        ;; Add other sections as needed, e.g.,
-        ;; org-cite-overlay-sidecar ; For Org-cite citations if using org-cite-overlay
-        ))
-
 ;;;; Insinuate universal-sidecar to automatically refresh
-;;;; This advises relevant functions to update the sidecar
  (universal-sidecar-insinuate)
 
 ;;;; Optionally, configure refresh behavior
 ;; (setopt universal-sidecar-enable-timer t) ; Enable idle timer for refreshing
 ;; (setopt universal-sidecar-refresh-time 5) ; Set refresh time in seconds
+
+;;;; Configure the sections to display in the sidecar
+(setopt universal-sidecar-sections
+      '(buffer-file-name
+        buffer-major-mode
+        buffer-minor-modes
+        buffer-position
+        buffer-project
+        buffer-git-status))
+
+;;;; Имя буфера sidecar (обязательно должно содержать %F)
+(setopt universal-sidecar-buffer-name-format "*Sidecar: %F*")
+
+(global-set-key (kbd "C-c t") #'universal-sidecar-toggle)
 
 ;;;

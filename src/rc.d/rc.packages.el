@@ -235,7 +235,7 @@
 
 (desire 'shrface)
 
-;; (desire 'universal-sidecar)
+(desire 'universal-sidecar)
 
 ;; (desire 'posframe)
 
@@ -494,9 +494,9 @@
 
 (desire 'zetteldesk)
 
-(desire 'org-roam-ui :recipe '(:fetcher github :repo "lkarp-744/org-roam-ui"))
+;; (desire 'org-roam-ui :recipe '(:fetcher github :repo "lkarp-744/org-roam-ui"))
 ;; (desire 'org-roam-ui :recipe '(:fetcher github :repo "lkarp-744/org-roam-ui" :files ("*.el" "public")))
-;; (desire 'org-roam-ui)
+(desire 'org-roam-ui)
 
 (desire 'magit-section)
 (desire 'org-roam)

@@ -7,6 +7,8 @@
 (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font-12" ))
 (add-to-list 'initial-frame-alist '(font . "Iosevka Nerd Font-12" ))
 
+;;;; Моноширинный шрифт
+
 (set-face-attribute 'default nil
                     :font "Iosevka Nerd Font"
     		    :height 120)
@@ -15,12 +17,26 @@
                     :font "Iosevka Nerd Font"
     		    :height 120)
 
+(dolist (charset '(latin cyrillic greek))
+  (set-fontset-font 't charset
+                    (font-spec :family "Iosevka Nerd Font")))
+
+(dolist (charset '(latin cyrillic greek))
+  (set-fontset-font "fontset-default" charset "Iosevka Nerd Font"))
+
+;;;; Пропорциональный шрифт
+
 (set-face-attribute 'variable-pitch nil
                     :font "Iosevka Aile"
     		    :height 120)
 
+;;;;; Подстраховка для нелатинских диапазонов в variable-pitch
+
 (dolist (charset '(latin cyrillic greek))
-  (set-fontset-font 't charset
-                    (font-spec :family "Iosevka Nerd Font")))
+  (set-fontset-font "fontset-default" charset "Iosevka Aile" nil 'append))
+
+;; Параметр append добавляет шрифт в конец списка кандидатов для этих диапазонов, не ломая моноширинные привязки.
+;; Тогда в буферах с variable-pitch Emacs будет использовать Aile, а в остальных --- Nerd Font.
+
 
 ;;;
