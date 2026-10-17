@@ -195,7 +195,7 @@
 
 ;;;;; Fonts
 
-(desired 'iosevka)
+(desire-conf 'iosevka)
 
 (desire 'ligature)
 

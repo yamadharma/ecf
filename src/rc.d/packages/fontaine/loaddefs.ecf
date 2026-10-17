@@ -8,4 +8,11 @@
 
 (add-hook 'enable-theme-functions #'fontaine-apply-current-preset)
 
+;;;; Загрузить сохранённый пресет
+(fontaine-set-preset (or (fontaine-restore-latest-preset) 'regular-editing))
+
+;;;; Запомнить последний использованный пресет между сессиями
+(setq fontaine-latest-state-file
+      (locate-user-emacs-file "fontaine-latest-state.eld"))
+
 ;;;

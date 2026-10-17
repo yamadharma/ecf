@@ -7,23 +7,23 @@
 
 (setq citar-org-roam-template-fields
       '((:citar-citekey "key")
-	    (:citar-title "title")
-	    (:citar-author "author" "editor")
-	    (:citar-date "date" "year" "issued")
-	    (:citar-pages "pages" "pagetotal")
-	    (:citar-type "=type=")
-	    (:citar-doi "doi")
-	    (:citar-url "url")
-	    (:citar-journal "journal" "journaltitle")
-	    (:citar-subtitle "subtitle")
-	    (:citar-year "year")
-	    ))
+	(:citar-title "title")
+	(:citar-author "author" "editor")
+	(:citar-date "date" "year" "issued")
+	(:citar-pages "pages" "pagetotal")
+	(:citar-type "=type=")
+	(:citar-doi "doi")
+	(:citar-url "url")
+	(:citar-journal "journal" "journaltitle")
+	(:citar-subtitle "subtitle")
+	(:citar-year "year")
+	))
 
 (add-to-list 'org-roam-capture-templates
              '("n" "literature note" plain "%?"
                :target
                (file+head
-                "literature/${citar-citekey}.org"
+                "literature/%<%Y>/${citar-citekey}.org"
                 "#+title: %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title}
 #+created: %U
 #+last_modified: %U

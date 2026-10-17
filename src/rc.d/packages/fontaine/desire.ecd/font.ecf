@@ -1,0 +1,39 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set font
+
+;;; Code:
+
+(setopt fontaine-presets
+        `((t
+           ;; Базовый пресет — единственное место, где нужны шрифты.
+           :default-family        ,ecf/mono-font-family
+           :default-weight        normal
+           :default-height        ,ecf/font-height
+           :fixed-pitch-family    ,ecf/mono-font-family
+           :fixed-pitch-height    1.0
+           :variable-pitch-family ,ecf/prop-font-family
+           :variable-pitch-height 1.0
+           :bold-weight           bold
+           :italic-slant          italic
+           :line-spacing          1)
+
+          (regular-editing
+           :inherit t)
+
+          ;; 120 * 3/2 = 180  (целое, не float)
+	  (presentation
+	   :inherit regular-editing
+	   :default-height ,(/ (* ecf/font-height 3) 2))
+
+          ;; 120 * 3/4 = 90
+	  (compact
+	   :inherit regular-editing
+	   :default-height ,(/ (* ecf/font-height 3) 4)
+	   :line-spacing 0)))
+
+;;;; Apply
+
+(fontaine-set-preset 'regular-editing)
+(fontaine-mode 1)
+
+;;;

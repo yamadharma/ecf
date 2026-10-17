@@ -1,0 +1,41 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set Font
+
+;;; Code:
+
+;;;; Моноширинный шрифт
+
+(add-to-list 'default-frame-alist `(font . ,ecf/mono-frame-font))
+(add-to-list 'initial-frame-alist `(font . ,ecf/mono-frame-font))
+
+(set-face-attribute 'default nil
+                    :font   ecf/mono-font-family
+                    :height ecf/font-height)
+
+(set-face-attribute 'fixed-pitch nil
+                    :font   ecf/mono-font-family
+                    :height ecf/font-height)
+
+(dolist (charset ecf/font-charsets)
+  (set-fontset-font 't charset
+                    (font-spec :family ecf/mono-font-family)))
+
+(dolist (charset ecf/font-charsets)
+  (set-fontset-font "fontset-default" charset ecf/mono-font-family))
+
+;;;; Пропорциональный шрифт
+
+(when (find-font (font-spec :name ecf/prop-font-family))
+  (set-face-attribute 'variable-pitch nil
+                      :font   ecf/prop-font-family
+                      :height ecf/font-height)
+
+;;;;; Для нелатинских диапазонов в variable-pitch
+;; Параметр append добавляет шрифт в конец списка кандидатов для этих диапазонов, не ломая моноширинные привязки.
+;; Тогда в буферах с variable-pitch Emacs будет использовать Aile, а в остальных --- Nerd Font.
+
+ (dolist (charset ecf/font-charsets)
+    (set-fontset-font "fontset-default" charset
+                      ecf/prop-font-family nil 'append)))
+
+;;;
