@@ -4,24 +4,22 @@
 
 ;;; Code:
 
-(defconst ecf/mono-font-family "Iosevka Nerd Font"
-  "Моноширинный шрифт (default / fixed-pitch / fontset).")
+;;;; "Моноширинный шрифт (default / fixed-pitch / fontset)."
+(setopt ecf/mono-font-family "Iosevka Nerd Font")
 
-(defconst ecf/prop-font-family "Iosevka Aile"
-  "Пропорциональный шрифт для variable-pitch.")
+;;;; "Пропорциональный шрифт для variable-pitch."
+;; (setopt ecf/prop-font-family "Iosevka Aile")
+(setopt ecf/prop-font-family "Iosevka Etoile")
 
-;; (defconst ecf/prop-font-family "Iosevka Etoile"
-;;   "Пропорциональный шрифт для variable-pitch.")
+;;;; "Высота шрифта в 1/10 pt (120 = 12pt)."
+(setopt ecf/font-height 120)
 
-(defconst ecf/font-height 120
-  "Высота шрифта в 1/10 pt (120 = 12pt).")
+;;; "Наборы символов, для которых явно задаётся шрифт."
+(setopt ecf/font-charsets '(latin cyrillic greek))
 
-(defconst ecf/font-charsets '(latin cyrillic greek)
-  "Наборы символов, для которых явно задаётся шрифт.")
-
-;; Строка вида "Family-12" для default-frame-alist / initial-frame-alist
-(defconst ecf/mono-frame-font
-  (format "%s-%d" ecf/mono-font-family (/ ecf/font-height 10))
-  "Спецификация моноширинного шрифта для frame-alist.")
+;;;"Спецификация моноширинного шрифта для frame-alist."
+;;;; Строка вида "Family-12" для default-frame-alist / initial-frame-alist
+(setopt ecf/mono-frame-font
+  (format "%s-%d" ecf/mono-font-family (/ ecf/font-height 10)))
 
 ;;;
