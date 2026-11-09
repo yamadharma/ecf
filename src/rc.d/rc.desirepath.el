@@ -26,18 +26,15 @@
  '(desirepath--cache-file-prefix
    (concat home-cache-path "ecf-load-path-cache")))
 
-;;; Disable HOST part in cache file name
-;; (setq desirepath--cache-file-hostname-function nil)
-
 ;;; Compressed lisp file support
 ;; (setq desirepath--compression-support 'default)
 (custom-set-variables
  '(desirepath--compression-support
-    'all)
-  ;; '(desirepath--cache-file-postfix
-  ;;   ".el.gz"
-  ;; )
-)
+   'all)
+ ;; '(desirepath--cache-file-postfix
+ ;;   ".el.gz"
+ ;; )
+ )
 
 ;;  Peiodic load path syncronization watchdog
 ;; (setq desirepath--load-hook
@@ -108,9 +105,9 @@
 
   ;; Emacs or Xemacs site-lisp root dir
   (setq site-lisp-xe-root-path
-    (if (boundp 'xemacs-logo)
-      (expand-file-name "xemacs" site-lisp-path)
-      (expand-file-name "emacs" site-lisp-path)))
+	(if (boundp 'xemacs-logo)
+	    (expand-file-name "xemacs" site-lisp-path)
+	  (expand-file-name "emacs" site-lisp-path)))
 
   ;; Site-lisp common root dir
   (setq site-lisp-common-root-path
@@ -120,7 +117,7 @@
   (setq site-lisp-common-packages-path
 	(list
 	 (expand-file-name "packages" site-lisp-common-root-path)))
-  
+
   ;; Emacs or Xemacs site-lisp dir
   (setq site-lisp-xe-packages-path
 	(list
@@ -128,15 +125,15 @@
 
   ;; Site-lisp system depended dir
   (setq site-lisp-system-path
-    (cond
-      ((eq system-type 'windows-nt)
-	(list
-	  (expand-file-name "win32" site-lisp-xe-root-path)
-	  (expand-file-name "win32" site-lisp-common-root-path)
+	(cond
+	 ((eq system-type 'windows-nt)
+	  (list
+	   (expand-file-name "win32" site-lisp-xe-root-path)
+	   (expand-file-name "win32" site-lisp-common-root-path)
+	   )
+	  )
+	 ) ;; end cond
 	)
-      )
-    ) ;; end cond
-  )
 
 
   (setq desirepath--load-path-root

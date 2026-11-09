@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
-;;; site-start.el 
+;;; site-start.el
 
 ;;; Commentary:
 
@@ -52,7 +52,7 @@
 
 (defvar xdg_data_dirs
   (getenv "XDG_DATA_DIRS")
-)
+  )
 
 (defvar xdg_cache_home
   (or (getenv "XDG_CACHE_HOME") (expand-file-name "~/.cache/")))
@@ -123,9 +123,18 @@
   (startup-redirect-eln-cache (expand-file-name "eln/" home-cache-path)))
 
 ;;}}}
-;; Desirepath load {{{
+;;; Desirepath load
 
-;; Search user, host-wide, site-wide configs
+;;;; Enable .el.gz/.el.bz2 support for load/require
+(setq desirepath--compression-support 'default)
+
+;;;; Enable .el.gz/.el.bz2 support for autoload
+(setq desirepath--compression-support 'all)
+
+;;;; Supported extensions (.gz .bz2 default)
+(setq desirepath--compressed-file-extensions '(".gz" ".bz2" ".zst"))
+
+;;;; Search user, host-wide, site-wide configs
 
 (setq ecf-config-load-path
       (list
@@ -140,8 +149,7 @@
 
 (load "rc.desirepath")
 
-;;}}}
-;; Desire load {{{
+;;; Desire load
 
 ;; Directory order hack
 (setq load-path
@@ -150,7 +158,5 @@
        load-path))
 
 (load "rc.desire")
-
-;;}}}
 
 ;;;  end of site-start.el

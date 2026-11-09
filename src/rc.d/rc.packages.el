@@ -21,7 +21,8 @@
 ;;; Code:
 
 ;; (desire-conf 'tiny)
-(desire-conf 'personal)
+;; (desire-conf 'personal)
+(desire 'personal :no-precondition-check t :ensure nil)
 ;;
 ;; Mule
 ;;
@@ -41,11 +42,11 @@
 ;;;; Packaging
 (desire 'package)
 
-;;; Build and install your Emacs Lisp packages on-the-fly and directly from source
-;; (desire 'quelpa)
-
 ;;; A declarative package management system with a command line interface
 (desire 'straight)
+
+;;; Build and install your Emacs Lisp packages on-the-fly and directly from source
+;; (desire 'quelpa)
 
 ;;; Auto update packages
 (desire 'auto-package-update)
@@ -494,9 +495,11 @@
 
 (desire 'zetteldesk)
 
+(desire 'folgezett)
+
 ;; (desire 'org-roam-ui :recipe '(:fetcher github :repo "lkarp-744/org-roam-ui"))
 ;; (desire 'org-roam-ui :recipe '(:fetcher github :repo "lkarp-744/org-roam-ui" :files ("*.el" "public")))
-(desire 'org-roam-ui)
+;; (desire 'org-roam-ui)
 
 (desire 'magit-section)
 (desire 'org-roam)

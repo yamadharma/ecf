@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Luhmann-style folgezettel IDs for Org-Roam
+;; https://github.com/landerwells/folgezett.el
+
+;;; Code:
+
+(require 'folgezett)
+
+;;;
