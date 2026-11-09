@@ -132,7 +132,7 @@
 (setq desirepath--compression-support 'all)
 
 ;;;; Supported extensions (.gz .bz2 default)
-(setq desirepath--compressed-file-extensions '(".gz" ".bz2" ".zst"))
+;; (setq desirepath--compressed-file-extensions '(".gz" ".bz2" ".zst"))
 
 ;;;; Search user, host-wide, site-wide configs
 
