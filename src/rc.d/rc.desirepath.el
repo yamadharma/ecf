@@ -215,4 +215,5 @@
 (cl-pushnew desire-lisp-path load-path :test 'string=)
 (load "desirepath")
 
+(provide 'rc-desirepath)
 ;;; rc.desirepath.el ends here

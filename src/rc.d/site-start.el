@@ -177,4 +177,6 @@
 
 (load "rc.desire")
 
-;;;  end of site-start.el
+(provide 'site-start)
+;;; site-start.el ends here
+

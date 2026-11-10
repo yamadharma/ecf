@@ -150,4 +150,5 @@
 
   ) ;; end let
 
+(provide 'rc-desire)
 ;;; rc.desire.el ends here
