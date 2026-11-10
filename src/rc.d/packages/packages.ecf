@@ -1,34 +1,19 @@
-;;; rc.packages.el --- master package list for `desire'  -*- lexical-binding: t; coding: utf-8-unix; -*-
-
-;; Copyright (C) 2002-2026 Dmitry S. Kulyabov
-
-;; This file is NOT part of GNU Emacs.  Distributed under the same
-;; conditions as GNU Emacs, which are as follows:
-
-;; This program is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
-
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+;;; packages.ecf --- master package list for desire  -*- lexical-binding: t; coding: utf-8-unix; mode: emacs-lisp -*-
 
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
+;; Copyright (C) 2002-2026 Dmitry S. Kulyabov
+
 ;;; Commentary:
 ;;
-;; Master list of desired packages.  Every `(desire 'NAME)' call here
-;; registers NAME as desirable; its `.ecf'/`.ecd' configuration is then
-;; discovered under `desire-load-path' and loaded lazily.
+;; Master list of desired packages.  Loaded via (desire 'packages)
+;; from `default.el'.  Each (desire 'X) registers X as desirable;
+;; its configuration is discovered under `desire-load-path' and loaded
+;; lazily.
 ;;
-;; `desire-conf' calls are deprecated aliases for `desire'.
-;;
-;; This is site-admin configuration; not a `package.el' package.
+;; This file is a configuration script, not an Emacs Lisp library:
+;; no `provide', no `require` semantics.  It is loaded with
+;; `load-file' from `desire-load-file'.
 
 ;;; Code:
 

@@ -36,6 +36,8 @@
 
 ;;; Code:
 
-(load "rc.packages")
+;; Trigger the master package list.  `packages' is our own name, not
+;; an ELPA package: skip precondition check and installation.
+(desire 'packages :no-precondition-check t :ensure nil)
 
 ;;; default.el ends here
