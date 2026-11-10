@@ -1,4 +1,5 @@
-;;; packages.ecf --- master package list for desire  -*- lexical-binding: t; coding: utf-8-unix; mode: emacs-lisp -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; packages.ecf --- master package list for desire
 
 ;; SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -521,12 +522,12 @@
 ;; XML, XHTML, HTML {{{
 
 ;;(desire-conf 'nxml nil "rng-auto")
-					; (desire-conf 'psgml)
+                                      ; (desire-conf 'psgml)
 
 ;;;}}}
 ;;;{{{ Palm pilot support
 
-					;(desire-conf 'palm)
+                                      ;(desire-conf 'palm)
 
 ;;;}}}
 
@@ -623,9 +624,7 @@
 
 (desire 'multiple-cursors)
 
-(desire 'telega)
-
-(desire 'pocket-reader)
+;; (desire 'telega)
 
 (desire 'wallabag :recipe '(:fetcher github :repo "chenyanming/wallabag.el" :branch "master" :files ("*.el" "*.alist" "*.css")))
 
@@ -723,4 +722,4 @@
 ;;; Translator on Emacs
 (desire 'gt)
 
-;;; rc.packages.el ends here
+;;; packages.ecf ends here
