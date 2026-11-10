@@ -1,21 +1,39 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
+;;; rc.desirepath.el --- site configuration for `desirepath.el'  -*- lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
+
+;; Copyright (C) 2002-2026 Dmitry S. Kulyabov
+
+;; This file is NOT part of GNU Emacs.  Distributed under the same
+;; conditions as GNU Emacs, which are as follows:
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;; SPDX-License-Identifier: GPL-3.0-or-later
+
 ;;; Commentary:
-
 ;;
-;;  File id
+;; Site configuration for `desirepath.el'.
 ;;
-;;      Copyright (C)  2002-2024 Dmitry S. Kulyabov
-;;      Keywords:      desirepath
-;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
-;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
+;; Sets up:
+;;   - `desirepath--cache-file-prefix'  (in $XDG_CACHE_HOME/elisp)
+;;   - `desirepath--cache-file-hostname-function' (default nil = no hostname)
+;;   - `desirepath--compression-support'
+;;   - `desirepath--load-path-root'     (main Emacs install tree)
+;;   - `desirepath--load-path-ignore-regexp-extra' (ignore ecf-mule)
 ;;
-;;      This code is free software in terms of GNU Gen. pub. Lic. v2 or later
+;; Then loads `desirepath' and pushes `desire-lisp-path' on `load-path'.
 ;;
-;;  Description
-;;
-;;
-
-;;; Change Log:
+;; This is site-admin bootstrap; not a `package.el' package.
 
 ;;; Code:
 

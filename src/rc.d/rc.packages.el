@@ -1,22 +1,34 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
-;;; rc.packages.el
+;;; rc.packages.el --- master package list for `desire'  -*- lexical-binding: t; coding: utf-8-unix; -*-
+
+;; Copyright (C) 2002-2026 Dmitry S. Kulyabov
+
+;; This file is NOT part of GNU Emacs.  Distributed under the same
+;; conditions as GNU Emacs, which are as follows:
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;;; Commentary:
-
 ;;
-;;  File id
+;; Master list of desired packages.  Every `(desire 'NAME)' call here
+;; registers NAME as desirable; its `.ecf'/`.ecd' configuration is then
+;; discovered under `desire-load-path' and loaded lazily.
 ;;
-;;      Copyright (C)  2002-2026 Dmitry S. Kulyabov
-;;      Keywords:      rc.packages
-;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
-;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
+;; `desire-conf' calls are deprecated aliases for `desire'.
 ;;
-;;      This code is free software in terms of GNU Gen. pub. Lic. v3 or later
-;;
-
-;;;  Description:
-
-;;; Change Log:
+;; This is site-admin configuration; not a `package.el' package.
 
 ;;; Code:
 
@@ -524,12 +536,12 @@
 ;; XML, XHTML, HTML {{{
 
 ;;(desire-conf 'nxml nil "rng-auto")
-                                      ; (desire-conf 'psgml)
+					; (desire-conf 'psgml)
 
 ;;;}}}
 ;;;{{{ Palm pilot support
 
-                                      ;(desire-conf 'palm)
+					;(desire-conf 'palm)
 
 ;;;}}}
 

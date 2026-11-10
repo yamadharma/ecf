@@ -1,23 +1,41 @@
-;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
-;;; site-start.el
+;;; site-start.el --- site-wide Emacs bootstrap for `desire'  -*- lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
+
+;; Copyright (C) 2002-2026 Dmitry S. Kulyabov
+
+;; This file is NOT part of GNU Emacs.  Distributed under the same
+;; conditions as GNU Emacs, which are as follows:
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;;; Commentary:
-
 ;;
-;;  File id
+;; Site-wide bootstrap, loaded by Emacs before `~/.emacs' (`init.el').
 ;;
-;;      Copyright (C)  2002-2024 Dmitry S. Kulyabov
-;;      Keywords:      site-start
-;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
-;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
+;; Responsibilities:
+;;   - XDG base directories and `rootpath'
+;;   - OS/Emacs flavour predicates: `IS-WINDOWS', `IS-MAC', `IS-BSD'
+;;   - `ecf-*-path' variables used by `rc.desire.el'
+;;   - `desirepath' bootstrap (see `rc.desirepath.el')
+;;   - `desire' bootstrap (see `rc.desire.el')
 ;;
-;;      This code is free software in terms of GNU Gen. pub. Lic. v3 or later
-;;
-;;  Description
-;;
-;;
-
-;;; Change Log:
+;; Bootstrap only: after this file loads, all subsequent `desire' logic
+;; is `.ecf'-driven.  See "Может быть, выделить исходные файлы в
+;; отдельный каталог" in the project discussion for the boundary
+;; between bootstrap (this file + `rc.desirepath.el' + `rc.desire.el')
+;; and configuration (`rc.packages.el' or `packages.ecf', plus `*.ecf').
 
 ;;; Code:
 
