@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Delete the selected text upon text insertion
+
+;;; Code:
+
+(require 'delsel)
+(add-hook 'after-init-hook 'delete-selection-mode)
+
+;;;

@@ -1,0 +1,71 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+
+;;; Code:
+
+;;;; Publishing and Exporting
+
+(setopt org-alphabetical-lists t)
+
+					; Allow binding variables on export without confirmation
+(setopt org-export-allow-bind t)
+(setopt org-export-allow-bind-keywords t)
+
+;;;; Set the default export scope to subtree
+(setf org-export-initial-scope 'subtree)
+
+;;;; Toggle TeX-like syntax for sub- and superscripts
+(setopt org-export-with-sub-superscripts '{})
+
+;; Explicitly load required exporters
+
+;; HTML
+(desire 'htmlize)
+(require 'ox-html)
+					; Export HTML without XML header
+(setopt org-html-xml-declaration (quote (("html" . "")
+					 ("was-html" . "<?xml version=\"1.0\" encoding=\"%s\"?>")
+					 ("php" . "<?php echo \"<?xml version=\\\"1.0\\\" encoding=\\\"%s\\\" ?>\"; ?>"))))
+
+;;
+(require 'ox)
+(require 'ox-ascii)
+(require 'ox-md)
+					;(require 'ox-man)
+(require 'ox-odt)
+(require 'ox-publish)
+
+;;;; Allow exporting with 'allegedly' broken links
+(setopt org-export-with-broken-links t)
+
+;;(setopt org-export-with-entities nil)
+
+
+;;;; Set export directory
+;; (setopt exported-org-files-dir (concat org-directory "/export/"))
+;; (if (not (file-directory-p exported-org-files-dir))
+;;     (make-directory exported-org-files-dir t))
+
+;; (defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
+;;   (unless pub-dir
+;;     (setopt pub-dir exported-org-files-dir)
+;;     (unless (file-directory-p pub-dir)
+;;       (make-directory pub-dir)))
+;;   (apply orig-fun extension subtreep pub-dir nil))
+;; (advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
+
+;;;; Export macros
+(setq org-export-global-macros
+      '(
+	("youtube" . "(eval (cond ((org-export-derived-backend-p org-export-current-backend 'hugo) (concat \"@@hugo:{{< youtube \" $1 \" >}}@@\")) ((org-export-derived-backend-p org-export-current-backend (or 'md 'markdown 'gfm)) (concat \"@@html:[![Youtube](http://img.youtube.com/vi/\" $1 \"/0.jpg){width=560px}](http://www.youtube.com/watch?v=\" $1 \")@@\"))))")
+        ("rutube" . "(eval (cond ((org-export-derived-backend-p org-export-current-backend 'hugo) (concat \"@@hugo:{{< rutube \" $1 \" >}}@@\")) ((org-export-derived-backend-p org-export-current-backend (or 'md 'markdown 'gfm)) (concat \"@@html:[![RuTube](\" $2 \"){width=560px}](https://rutube.ru/video/\" $1 \"/)@@\"))))")
+        ("plvideo" . "(eval (cond ((org-export-derived-backend-p org-export-current-backend 'hugo) (concat \"@@hugo:{{< plvideo \" $1 \" >}}@@\")) ((org-export-derived-backend-p org-export-current-backend (or 'md 'markdown 'gfm)) (concat \"@@html:[![Платформа](\" $2 \"){width=560px}](https://plvideo.ru/watch?v=\" $1 \")@@\"))))")
+        ("vkvideo" . "(eval (cond ((org-export-derived-backend-p org-export-current-backend 'hugo) (concat \"@@hugo:{{< vkvideo oid=\" $1 \" id=\" $2 \" hd=2 >}}@@\")) ((org-export-derived-backend-p org-export-current-backend (or 'md 'markdown 'gfm)) (concat \"@@html:[![VKvideo](\" $3 \"){width=560px}](https://vkvideo.ru/video\" $1 \"_\" $2 \")@@\"))))")
+        ("begin_tabs" . "@@hugo:{{< tabs $1 >}}@@")
+        ("end_tabs" . "@@hugo:{{< /tabs >}}@@")
+        ("youtube-tab" . "@@hugo:{{< tab \"Youtube\" >}}@@{{{youtube($1)}}}@@hugo:{{< /tab >}}@@")
+        ("rutube-tab" . "@@hugo:{{< tab \"RuTube\" >}}@@{{{rutube($1,$2)}}}@@hugo:{{< /tab >}}@@")
+        ("plvideo-tab" . "@@hugo:{{< tab \"Платформа\" >}}@@{{{plvideo($1,$2)}}}@@hugo:{{< /tab >}}@@")
+        ("vkvideo-tab" . "@@hugo:{{< tab \"VKvideo\" >}}@@{{{vkvideo($1,$2,$3)}}}@@hugo:{{< /tab >}}@@")))
+
+;;;

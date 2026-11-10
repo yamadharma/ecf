@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; This package implements a nested menu that gives access to all known minor modes
+;;; https://github.com/tarsius/minions
+
+(require 'minions)
+(minions-mode 1)
+
+;;;

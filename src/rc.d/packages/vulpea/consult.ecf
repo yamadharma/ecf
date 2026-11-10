@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Use Consult in tandem with Vulpea
+;; https://github.com/fabcontigiani/consult-vulpea
+
+;;; Code:
+
+(desire 'consult-vulpea)
+
+(require 'consult-vulpea)
+
+(consult-vulpea-mode 1)
+
+;;;

@@ -1,0 +1,24 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Luhmann-style folgezettel IDs for Org-Roam
+;; https://github.com/landerwells/folgezett.el
+
+;;; Code:
+
+(require 'general)
+
+(general-define-key
+ :prefix "C-c n z"
+ ;; --- Создание и управление ID ---
+ "a" #'("Assign ID" . folgezett-assign-id)
+ "d" #'("Remove ID" . folgezett-remove-id)
+
+ ;; --- Реструктуризация ---
+ "r" #'("Reparent" . folgezett-reparent)
+ "R" #'("Reparent subtree" . folgezett-reparent-subtree)
+
+ ;; --- Навигация ---
+ "p" #'("Goto parent" . folgezett-goto-parent)
+ "c" #'("List children" . folgezett-list-children)
+ "t" #'("Show tree" . folgezett-show-tree))
+
+;;;

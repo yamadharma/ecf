@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Midnight Commander features (plus) for emacs dired-mode
+;;; https://github.com/Boruch-Baum/emacs-diredc
+
+;; (require 'diredc)
+
+;;;
+

@@ -15,7 +15,7 @@
  chinese-big5-1:-*-MingLiU-normal-r-*-*-12-*-*-*-c-*-big5-*,
  chinese-big5-2:-*-MingLiU-normal-r-*-*-12-*-*-*-c-*-big5-*" t)
 
-(setq default-frame-alist
+(setopt default-frame-alist
   (append
         '((font . "fontset-most"))
         default-frame-alist)

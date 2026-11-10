@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Minibuffer for NΛNO Emacs
+;; https://github.com/rougier/nano-minibuffer
+
+(desire 'mini-frame)
+(require 'nano-minibuffer)
+
+(nano-minibuffer-mode)
+
+;;;

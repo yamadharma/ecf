@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Folding text based on indentation
+;; https://github.com/jamescherti/outline-indent.el
+
+;;; Code:
+
+;;;; Оптимизация перерисовки
+(setopt outline-indent-delay 0.1)  ;; Задержка перед обновлением
+
+;;;; Не показывать на пустых строках
+(setopt outline-indent-blank-lines nil)
+
+;;;; Минимальная ширина отступа
+(setopt outline-indent-min-width 2)
+
+;;;

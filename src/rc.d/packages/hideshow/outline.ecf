@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Hideshow minor mode
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Hideshow.html
+;; https://www.emacswiki.org/emacs/HideShow
+
+;;; Code:
+
+(defun ecf/outline-hideshow-integration ()
+  "Интеграция outline-minor-mode и hideshow."
+  (when outline-minor-mode
+    ;; Использовать outline для навигации, hideshow для сворачивания блоков
+    (hs-minor-mode 1)
+    (local-set-key (kbd "C-c @ C-h") 'hs-hide-block)
+    (local-set-key (kbd "C-c @ C-s") 'hs-show-block)
+    (local-set-key (kbd "C-c @ C-c") 'hs-toggle-hiding)))
+
+(add-hook 'outline-minor-mode-hook 'ecf/outline-hideshow-integration)
+
+;;;

@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; A minor mode for Emacs that replace keywords with nice SVG labels
+;; https://github.com/rougier/svg-tag-mode
+
+;;; Disable elements
+(setq
+ ;; Appearance
+ org-modern-todo nil
+ org-modern-tag nil
+ ;; org-modern-timestamp nil
+ org-modern-statistics nil
+ org-modern-progress nil
+ org-modern-priority nil)
+
+;;;

@@ -1,4 +1,4 @@
-(setq message-font-lock-keywords
+(setopt message-font-lock-keywords
       (let* ((cite-prefix "A-Za-z")
 	     (cite-suffix (concat cite-prefix "0-9_.@-")))
 	(list

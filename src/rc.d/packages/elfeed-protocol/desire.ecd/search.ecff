@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extra protocols to make like Fever, NewsBlur, Nextcloud/ownCloud News and Tiny Tiny RSS work with elfeed
+;; https://github.com/fasheng/elfeed-protocol
+
+;;; Code:
+
+(add-hook 'elfeed-search-mode-hook 'elfeed-update)
+
+;;;

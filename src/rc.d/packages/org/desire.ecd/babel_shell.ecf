@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org Babel support for evaluating Eshell source code
+
+(require 'ob-shell)
+
+;;;

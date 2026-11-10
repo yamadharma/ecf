@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; https://github.com/tmalsburg/helm-bibtex
+
+;;; Where bibliographies can be found
+(setopt bibtex-completion-bibliography '("~/work/bib/bib/main.bib"))
+
+;;; Where PDFs can be found
+;; (setopt bibtex-completion-library-path (directory-files-recursively "~/data/bib/pdf" "\\`[^.]*\\'" 't))
+(setopt bibtex-completion-library-path '("~/work/bib/data/pdf"))
+
+;;; Notes
+;;; Store all notes in one file
+;; (setopt bibtex-completion-notes-path "/path/to/notes.org")
+;;; Store notes in multiple files, one file per publication
+(setopt bibtex-completion-notes-path "~/work/org/notes/literature")
+
+;;;

@@ -1,12 +1,26 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;;
 ;;;
 
 ;; Org-roam now does not resolve symlinks
-(setq org-roam-directory (file-truename "~/me/org/notes"))
+(setopt org-roam-directory (file-truename "~/work/org/notes"))
 
 (if (not (file-directory-p org-roam-directory))
     (make-directory org-roam-directory t))
 
+(setopt org-roam-database-connector 'sqlite-builtin)
+
 ;;; Enable the global minor mode org-roam-mode
 ;; (add-hook 'after-init-hook 'org-roam-mode)
+
+;;; Disable warning
+;;; https://github.com/org-roam/org-roam/wiki/Hitchhiker’s-Rough-Guide-to-Org-roam-V2
+(setopt org-roam-v2-ack t)
+
+(defun org-roam-load ()
+  "Start org-roam mode."
+  (interactive)
+;;  (org-roam-setup)
+  (org-roam-db-autosync-mode +1))
 
 ;;;

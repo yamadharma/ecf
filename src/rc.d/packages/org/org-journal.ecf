@@ -1,37 +1,38 @@
 ;;; A simple org-mode based journaling mode -*- coding: utf-8-unix; -*-
 ;; https://github.com/bastibe/org-journal
 
-(setq org-directory-journal (concat org-directory "/journal/"))
+(setopt org-directory-journal (concat org-directory "journal/"))
 (if (not (file-directory-p org-directory-journal))
     (make-directory org-directory-journal t))
 
-(setq org-journal-dir org-directory-journal)
+(setopt org-journal-dir org-directory-journal)
+(setopt org-journal--cache-file (concat home-cache-path "org-journal.cache"))
 
 ;;; Agenda integration
-(add-to-list 'org-agenda-files org-journal-dir)
+;; (add-to-list 'org-agenda-files org-journal-dir)
 
-;;; When =org-journal-file-pattern= has the default value, this would be the regex
-(setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
-
-(setq org-journal-date-format "%Y-%m-%d, %A")
+(setopt org-journal-date-format "%Y-%m-%d, %A")
 
 ;;; Disable timestamps
-;;(setq org-journal-time-format "")
-
-;;; Automatically adds the current and all future journal entries to the agenda
-(setq org-journal-enable-agenda-integration t)
+;; (setopt org-journal-time-format "")
 
 ;;; The journal file type either ‘daily (default), ‘weekly, ‘monthly or ‘yearly.
-(setq org-journal-file-type 'monthly)
+(setopt org-journal-file-type 'monthly)
 
-;;; Setting org-journal-file-format to include a file extension like %Y-%m-%d.org would break the calendar search functionality
-(setq org-journal-file-format
-      (concat
-       (pcase org-journal-file-type
-	 (`daily "%Y-%m-%d")
-	 (`weekly "%Y-%m-%d")
-	 (`monthly "%Y-%m")
-	 (`yearly "%Y"))))
+;;; Setting org-journal-file-format to include a file
+;;; Extension like %Y-%m-%d.org would break the calendar search functionality
+(setopt org-journal-file-format
+	(concat
+	 (pcase org-journal-file-type
+	   (`daily "%Y/%Y-%m-%d")
+	   (`weekly "%Y/%Y-%m-%d")
+	   (`monthly "%Y/%Y-%m")
+	   (`yearly "%Y"))))
+
+;;; When `org-journal-file-pattern` has the default value, this would be the regex
+(setopt org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)\\\|[0-9]\\\{4\\\}-[0-9]\\\{2\\\}?\\\)\\'")
+;;; Automatically adds the current and all future journal entries to the agenda
+(setopt org-journal-enable-agenda-integration t)
 
 ;;; Customization options related to the journal file contents
 (defun org-journal-file-header-func (time)
@@ -42,22 +43,45 @@
      (`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
      (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
      (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
-(setq org-journal-file-header 'org-journal-file-header-func)
+(setopt org-journal-file-header 'org-journal-file-header-func)
 
 ;;; Capture
+(defun org-journal-find-location ()
+  ;; Open today's journal, but specify a non-nil prefix argument in order to
+  ;; inhibit inserting the heading; org-capture will insert the heading.
+  (org-journal-new-entry t)
+  (unless (eq org-journal-file-type 'daily)
+    (org-narrow-to-subtree))
+  (goto-char (point-max)))
+
+(add-to-list 'org-capture-templates
+	     '("j" "Journal entry" plain (function org-journal-find-location)
+	       "** %(format-time-string org-journal-time-format)%^{Title}\n%i%?"
+	       :jump-to-captured t :immediate-finish t) t)
+
+;;; Schedule a task for a future date
 (defvar org-journal--date-location-scheduled-time nil)
 
 (defun org-journal-date-location (&optional scheduled-time)
   (let ((scheduled-time (or scheduled-time (org-read-date nil nil nil "Date:"))))
-    (setq org-journal--date-location-scheduled-time scheduled-time)
+    (setopt org-journal--date-location-scheduled-time scheduled-time)
     (org-journal-new-entry t (org-time-string-to-time scheduled-time))
     (unless (eq org-journal-file-type 'daily)
       (org-narrow-to-subtree))
     (goto-char (point-max))))
 
-(add-to-list 'org-capture-templates '("J" "Journal entry" plain (function org-journal-date-location)
-                               "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
-                               :jump-to-captured t))
+(add-to-list 'org-capture-templates
+	     '("J" "Journal entry" plain (function org-journal-date-location)
+	       "** TODO %?\n <%(princ org-journal--date-location-scheduled-time)>\n"
+	       :jump-to-captured t) t)
+
+;;; Caching of journal dates
+(setopt org-journal-enable-cache t)
+
+(add-to-list 'auto-mode-alist
+	     (cons (concat (file-truename org-journal-dir)
+			   "\\([0-9]\\{4\\}\\|[0-9]\\{4\\}-[0-9]\\{2\\}\\|[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\)\\'")
+		   'org-journal-mode))
 
 ;;; Default key-bindings in org-journal conflict with org-mode key bindings
 ;; Minor modes are supposed to only use key bindings of the form C-c
@@ -72,6 +96,25 @@
 ;; C-c C-f (org-journal-open-next-entry) with org-forward-heading-same-level
 ;; C-c C-b (org-journal-open-previous-entry) with org-backward-heading-same-level
 ;; C-c C-j (org-journal-new-entry) with org-goto
+
+(global-set-key (kbd "C-c C-j") #'org-journal-new-entry)
+
+;;; Change default prefix key
+;;; needs to be set before loading org-journal
+;; (setopt org-journal-prefix-key "C-c j ")
+
+
+;; Setup carryover to include all configured TODO states. We cannot carry over
+;; [ ] keywords because `org-journal-carryover-items's syntax cannot correctly
+;; interpret it as anything other than a date.
+(setopt org-journal-carryover-items "TODO=\"TODO\"|TODO=\"NEXT\"|TODO=\"WAIT\"|TODO=\"HOLD\"")
+;; (setopt org-journal-carryover-items "TODO=\"TODO\"|TODO=\"NEXT\"|TODO=\"WAIT\"|TODO=\"HOLD\"|habit")
+;;(setopt org-journal-carryover-items "TODO=\"TODO\"|TODO=\"NEXT\"|TODO=\"WAIT\"|TODO=\"HOLD\"|habit+TODO=\"DONE\"|habit+TODO=\"TODO\"")
+
+(setopt org-journal-skip-carryover-drawers (list "LOGBOOK"))
+
+;; (defun ecf/old-carryover (old_entries) () )
+;; (setopt org-journal-handle-old-carryover-fn 'ecf/old-carryover)
 
 (require 'org-journal)
 

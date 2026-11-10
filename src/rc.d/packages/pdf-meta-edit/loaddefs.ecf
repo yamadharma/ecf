@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs code for editing a PDF's metadata, labels, and bookmarks
+;; https://github.com/krisbalintona/pdf-meta-edit
+
+;;; Code:
+
+;;;

@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package to quickly find and act on bibliographic references, and edit org, markdown, and latex academic documents.
+;;; https://github.com/emacs-citar/citar
+
+(desire 'citar-embark)
+(require 'citar-embark)
+(citar-embark-mode 1)
+
+(setopt citar-at-point-function 'embark-act)
+
+;;;

@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A polished Dired with batteries included
+;;; https://github.com/alexluigit/dirvish
+
+(require 'dirvish)
+
+(dirvish-override-dired-mode)
+
+;;;

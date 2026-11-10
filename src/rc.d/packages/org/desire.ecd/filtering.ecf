@@ -32,10 +32,10 @@
            (or (< hour 8) (> hour 21))))
         (t
          (if (ecf/working-p)
-             (setq tag "PERSONAL")
-           (setq tag "WORK"))
+             (setopt tag "PERSONAL")
+           (setopt tag "WORK"))
          (unless (member (concat "-" tag) org-agenda-filter)
            tag)))
        (concat "-" tag)))
 
-(setq org-agenda-auto-exclude-function 'ecf/org-auto-exclude-function)
+(setopt org-agenda-auto-exclude-function 'ecf/org-auto-exclude-function)

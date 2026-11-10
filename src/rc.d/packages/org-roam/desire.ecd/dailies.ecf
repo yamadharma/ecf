@@ -1,18 +1,59 @@
-;;; Daily-notes -*- coding: utf-8-unix; -*-
-;;
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Daily-notes
 
-;; Excluding Nodes and Edges
-(setq org-roam-graph-exclude-matcher '("private" "dailies"))
+;;; Code:
 
-;; Path to daily-notes
-(setq org-roam-dailies-directory "daily/")
+(require 'org-roam-dailies)
 
-;; Capture templates for daily-notes in Org-roam
-(setq org-roam-dailies-capture-templates
+;;;; Excluding Nodes and Edges
+(setopt org-roam-graph-exclude-matcher '("private" "dailies"))
+
+;;;; Path to daily-notes
+(setopt org-roam-dailies-directory "daily/")
+(unless (file-directory-p (concat org-roam-directory "/" org-roam-dailies-directory))
+  (make-directory (concat org-roam-directory "/" org-roam-dailies-directory) t))
+
+;;;; Capture templates for daily-notes in Org-roam
+(setopt org-roam-dailies-capture-templates
       '(("d" "default" entry
-         #'org-roam-capture--get-point
          "* %?"
-         :file-name "daily/%<%Y-%m-%d>"
-         :head "#+title: %<%Y-%m-%d>\n\n")))
+         :target (file+head "%<%Y>/%<%Y-%m-%d>.org"
+                            "#+title: %<%Y-%m-%d>
+:SETUP_LOCAL:
+#+startup: overview num inlineimages latexpreview
+#+options: ^:{} num:t tex:t
+:END:
+
+"))))
+
+;;;; Define key bindings
+
+(general-define-key
+ :keymaps 'org-roam-dailies-map
+;;;;; Go to a note for today (C-c n d d)
+ "d" #'("Go to today" . org-roam-dailies-goto-today)
+;;;;; Capture a note for today (C-c n d n)
+ "n" #'("Capture for today" . org-roam-dailies-capture-today)
+;;;;; Capture a note for yesterday (C-c n d Y)
+ "Y" #'("Capture for yesterday" . org-roam-dailies-capture-yesterday)
+;;;;; Capture a note for tomorrow (C-c n d T)
+ "T" #'("Capture for tomorrow" . org-roam-dailies-capture-tomorrow)
+;;;;; Go to the file for yesterday (C-c n d y)
+ "y" #'("Go to yesterday" . org-roam-dailies-goto-yesterday)
+;;;;; Go to the file for tomorrow (C-c n d t)
+ "t" #'("Go to tomorrow" . org-roam-dailies-goto-tomorrow)
+;;;;; Capture a note for a specific date (C-c n d v)
+ "v" #'("Capture for a date" . org-roam-dailies-capture-date)
+;;;;; Go to the file for a specific date (C-c n d c)
+ "c" #'("Go to a date" . org-roam-dailies-goto-date)
+;;;;; Go back one existing date (C-c n d b)
+ "b" #'("Go back one date" . org-roam-dailies-goto-previous-note)
+;;;;; Go forward one existing date (C-c n d f)
+ "f" #'("Go forward one date" . org-roam-dailies-goto-next-note))
+
+(fset 'org-roam-dailies-map org-roam-dailies-map)
+(global-set-key (kbd "C-c n d") #'org-roam-dailies-map)
+
+;; (global-set-key (kbd "C-c n d") #'org-roam-dailies-capture-today)
 
 ;;;

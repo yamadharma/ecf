@@ -2,14 +2,14 @@
 
 ;; folding
 
-(add-hook 
-  'LaTeX-mode-hook
-    (function (lambda () (folding-mode 1)))
-)
+;; (add-hook 
+;;   'LaTeX-mode-hook
+;;     (function (lambda () (folding-mode 1)))
+;; )
 
 ;; TeX-folding
 
-(add-hook 
-  'TeX-mode-hook 
-    (function (lambda () (TeX-fold-mode 1)))
-)
+;; (add-hook 
+;;   'TeX-mode-hook 
+;;     (function (lambda () (TeX-fold-mode 1)))
+;; )

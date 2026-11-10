@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(require 'oc-csl)
+
+;;; https://github.com/citation-style-language/styles
+;;; https://www.zotero.org/styles
+(setopt org-cite-csl-styles-dir (expand-file-name "~/work/bib/csl/styles"))
+(setopt org-cite-csl-locales-dir (expand-file-name "~/work/bib/csl/locales"))
+
+;;;

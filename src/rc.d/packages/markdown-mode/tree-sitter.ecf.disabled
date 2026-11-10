@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A major mode for Emacs providing basic syntax highlight for markdown files using treesitter
+;;; https://github.com/LionyxML/markdown-ts-mode
+
+(desire 'markdown-ts-mode)
+(require 'markdown-ts-mode)
+
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.mdown\\'" . markdown-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.mdt\\'" . markdown-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-ts-mode))
+
+;;;

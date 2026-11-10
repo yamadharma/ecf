@@ -1,0 +1,11 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extend eww/nov with org-mode features, archive web pages to org files with shr
+;; https://github.com/chenyanming/shrface
+
+;;; Code:
+
+(require 'shrface)
+
+(advice-add 'calibredb-show-entry :around #'shrface-render-advice)
+
+;;;

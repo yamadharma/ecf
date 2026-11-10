@@ -1,6 +1,6 @@
 ;;;
 
-;(setq org-outline-path-complete-in-steps nil)
-;(setq org-completion-use-ido nil)
+;(setopt org-outline-path-complete-in-steps nil)
+;(setopt org-completion-use-ido nil)
 
 ;;;

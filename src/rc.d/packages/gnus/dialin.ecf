@@ -11,6 +11,6 @@ read before the .newsrc is saved."
   (if (>= gnus-read-groups gnus-newsrc-save-frequency)
       (progn
 	(gnus-save-newsrc-file)
-	(setq gnus-read-groups 1))
-    (setq gnus-read-groups (+ gnus-read-groups 1))))
+	(setopt gnus-read-groups 1))
+    (setopt gnus-read-groups (+ gnus-read-groups 1))))
 (add-hook 'gnus-select-group-hook 'gnus-save-every-so-often)

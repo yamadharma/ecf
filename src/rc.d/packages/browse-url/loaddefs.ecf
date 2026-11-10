@@ -1,1 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Pass a URL to a web browser
+
+;;; Code:
+
 (require 'browse-url)
+
+;;;

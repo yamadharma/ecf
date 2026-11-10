@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs search tool based on ripgrep
+;;; https://github.com/dajva/rg.el
+;;; https://rgel.readthedocs.io/
+
+(require 'rg)
+
+;;;

@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A digital card workbench system for org-mode
+;; https://github.com/yibie/org-workbench
+
+;;; Code:
+
+;;;; Recommended Key Bindings
+(general-define-key
+ :keymaps 'org-mode-map
+ :prefix "C-c w"
+ "a" #'("Add entire subtree" . org-workbench-add-subtree)
+ "h" #'("Add only the current heading" . org-workbench-add-heading)
+ "f" #'("Add entire file as card" . org-workbench-add-file)
+ "m" #'("Managing workbenches" . org-workbench-manage)
+ "s" #'("Show workbenches" . org-workbench-show))
+
+;;;

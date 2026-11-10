@@ -1,0 +1,7 @@
+;;; A major mode for password-store  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/NicolasPetton/pass
+
+(require 'pass)
+
+;;;
+

@@ -4,7 +4,7 @@ appt-disp-window."
   
   (display-buffer (get-buffer-create appt-buffer-name))
   (set-buffer appt-buffer-name)
-  (setq mode-line-format 
+  (setopt mode-line-format 
 	(concat "-------------------- Appointment in "
 		min-to-app " minute" (if (= 1 min-to-app) "" "s") ". "
 		new-time " %-"))
@@ -28,5 +28,5 @@ appt-disp-window."
 				      (width . 80)
 				      (height . 2))))
 
-(setq appt-disp-window-function (function mms-appt-disp-frame))
-(setq appt-delete-window-function (function mms-appt-delete-frame))
+(setopt appt-disp-window-function (function mms-appt-disp-frame))
+(setopt appt-delete-window-function (function mms-appt-delete-frame))

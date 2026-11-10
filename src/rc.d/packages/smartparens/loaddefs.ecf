@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
+;;; https://github.com/Fuco1/smartparens
+
+(require 'smartparens-config)
+
+(add-hook 'eval-expression-minibuffer-setup-hook 'turn-on-smartparens-strict-mode)
+
+;;;

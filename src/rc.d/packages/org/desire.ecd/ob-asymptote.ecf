@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org-Babel support for evaluating asymptote
+;;; https://github.com/hurrja/ob-asymptote
+
+(desire 'ob-asymptote)
+(require 'ob-asymptote)
+
+;;;

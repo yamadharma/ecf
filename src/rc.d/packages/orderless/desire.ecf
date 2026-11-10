@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs completion style that matches multiple regexps in any order
+;;; https://github.com/oantolin/orderless
+
+;;; Configure a custom style dispatcher
+;; (setopt orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
+;;       orderless-component-separator #'orderless-escapable-split-on-space)
+
+(setopt completion-styles '(substring orderless basic))
+(setopt completion-category-defaults nil)
+(setopt completion-category-overrides '((file (styles basic partial-completion))))
+
+;;;

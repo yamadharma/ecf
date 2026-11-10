@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;;
+
+;;; Where bibliographies can be found
+(setq personal-bibliography '("~/work/bib/bib/main.bib"))
+
+;;; Where PDFs can be found
+;; (setopt bibtex-completion-library-path (directory-files-recursively "~/data/bib/pdf" "\\`[^.]*\\'" 't))
+(setq personal-library-path '("~/work/bib/data/pdf"))
+
+;;; Notes
+;;; Store all notes in one file
+;; (setopt personal-notes-path "/path/to/notes.org")
+;;; Store notes in multiple files, one file per publication
+;; (setopt personal-notes-path (expand-file-name "~/work/org/notes/literature"))
+(setq personal-notes-path '())
+(add-to-list 'personal-notes-path (expand-file-name "~/work/org/notes/literature"))
+
+;;;

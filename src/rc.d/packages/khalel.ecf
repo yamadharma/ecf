@@ -1,0 +1,21 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Interacting through Emacs with locally-stored calendars via the console application khal and syncing with remote CalDAV calendars using vdirsyncer
+;; https://gitlab.com/hperrey/khalel
+
+(setopt khalel-khal-command "khal")
+(setopt khalel-vdirsyncer-command "vdirsyncer")
+
+(setopt khalel-import-format "* TODO {title} {cancelled} :{calendar}:\n\
+:PROPERTIES:\n:CALENDAR: {calendar}\n\
+:LOCATION: {location}\n\
+:ID: {uid}\n\
+:END:\n\
+- When: <{start-date-long} {start-time}>--<{end-date-long} {end-time}>\n\
+- Where: {location}\n\
+- Description: {description}\n\
+- URL: {url}\n- Organizer: {organizer}\n\n\
+[[elisp:(khalel-edit-calendar-event)][Edit this event]]\
+    [[elisp:(progn (khalel-run-vdirsyncer) (khalel-import-events))]\
+[Sync and update all]]\n")
+
+;;;

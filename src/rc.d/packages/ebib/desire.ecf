@@ -1,0 +1,34 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; 
+
+(setopt ebib-bibtex-dialect 'biblatex)
+(setopt ebib-use-timestamp t) ;; todo customize on export info:ebib#Timestamps
+;; (setopt ebib-file-search-dirs '("~/bib/pdfs"))
+;; (setopt ebib-notes-directory "~/bib/notes/")
+;; (setopt ebib-notes-file "~/bib/reading_notes.org")
+(setopt ebib-keywords-field-keep-sorted t)
+(setopt ebib-keywords-save-on-exit 'always)
+(setopt ebib-notes-show-note-method 'all)
+(setopt ebib-layout 'full)
+;;; Display ebib in right part of frame
+;; (setopt ebib-layout 'custom)
+;; (setopt ebib-notes-show-note-method 'top-lines)
+
+(setopt ebib-index-columns '(("Entry Key" 40 t)
+			   ("Author/Editor" 40 t)
+			   ("Year" 6 t)
+			   ("Title" 50 t)
+			   ("Url" 3 t)
+			   ("Doi" 3 t)
+			   ("Note" 3 t)
+			   ("Timestamp" 10 t)))
+;; (setopt ebib-index-columns '(("Entry Key" 40 t)
+;; 			   ("Author/Editor" 40 t)
+;; 			   ("Year" 6 t)
+;; 			   ("Title" 50 t)
+;; 			   ("Url" 3 t)
+;; 			   ("Note" 3 t)))
+(setopt ebib-file-associations
+      '(("docx" . "soffice") ("odt" . "soffice")("doc" . "soffice")))
+
+;;;

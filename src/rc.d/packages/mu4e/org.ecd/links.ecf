@@ -1,0 +1,34 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org-links to mu4e messages/queries
+
+(require 'mu4e-org)
+
+;;; To include links to e-mail messages or search queries in your org-mode files
+(setopt mu4e-support-org t)
+
+;;; Capture to todo list
+(define-key mu4e-headers-mode-map (kbd "C-c c") 'mu4e-org-store-and-capture)
+(define-key mu4e-view-mode-map    (kbd "C-c c") 'mu4e-org-store-and-capture)
+
+;;; Capture template
+(add-to-list
+ 'org-capture-templates '("M" "TODO from mail" entry (file org-default-notes-file)
+			  "* TODO %:fromname: %:subject %?\n%a\n\n%i"))
+;;			  "* TODO %:fromname: %:subject %?\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+2d\"))\n%a\n\n%i"))
+
+
+;;; Link description
+(defun ecf/mu4e-org-link-desc-func (msg)
+  "Creating a link description to be used with `org-store-link'.
+Argument MSG msg at point."
+  (let ((subject (or (plist-get msg :subject)
+                     "No subject"))
+        (date (or (format-time-string mu4e-headers-date-format
+                                      (mu4e-msg-field msg :date))
+                  "No date"))
+        (to-from (mu4e~headers-from-or-to msg)))
+    (format "%s: %s (%s)" to-from subject date)))
+
+(setopt mu4e-org-link-desc-func 'ecf/mu4e-org-link-desc-func)
+
+;;;

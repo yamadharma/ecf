@@ -1,0 +1,9 @@
+;;; Helm-pass is a helm interface for pass, the standard unix password manager -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/emacs-helm/helm-pass
+
+(desire 'helm-pass)
+(require 'helm-pass)
+
+
+;;;
+

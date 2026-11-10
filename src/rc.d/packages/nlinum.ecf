@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Show line numbers in the margin
+;;; https://elpa.gnu.org/packages/nlinum.html
+
+(require 'nlinum)
+
+;;; Global settings
+;; (global-nlinum-mode 1)
+
+;;; Per mode configuration
+(add-hook 'prog-mode-hook #'nlinum-mode)
+(add-hook 'text-mode-hook #'nlinum-mode)
+
+;;;

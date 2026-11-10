@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Julia support for the lsp-mode package using the LanguageServer.jl package
+;; https://github.com/gdkrmr/lsp-julia
+
+;;; Code:
+
+(require 'lsp-mode)
+
+(desire 'lsp-julia)
+(require 'lsp-julia)
+
+;;;; Linux/macOS
+;; (setopt lsp-julia-package-dir "/usr/local/bin/julia")
+
+;;;; Configure lsp + julia
+(add-hook 'julia-mode-hook #'lsp-mode)
+(add-hook 'julia-mode-hook #'lsp)
+
+;;;

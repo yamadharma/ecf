@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Treemacs - a tree layout file explorer for Emacs
+;; https://github.com/Alexander-Miller/treemacs
+
+;;; Code:
+
+(desire 'treemacs-magit)
+(require 'treemacs-magit)
+
+;;;

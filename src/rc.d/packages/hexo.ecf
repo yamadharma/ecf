@@ -1,2 +1,2 @@
 (require 'hexo)
-(setq hexo-posix-compatible-shell-file-path "/bin/bash")
+(setopt hexo-posix-compatible-shell-file-path "/bin/bash")

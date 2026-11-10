@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Add email address by khardel
+
+;;;  Use `C-c ]` for citations
+;;; Compose mode
+(define-key mu4e-compose-mode-map "\C-c]" 'khardel-insert-email)
+;;; Org-msg mode
+(with-eval-after-load "org-msg"
+  (define-key org-msg-edit-mode-map "\C-c]" 'khardel-insert-email))
+
+;;;
+

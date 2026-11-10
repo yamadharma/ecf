@@ -1,0 +1,7 @@
+;;; ivy interface for pass -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/ecraven/ivy-pass
+
+(desire 'ivy-pass)
+(require 'ivy-pass)
+
+;;;

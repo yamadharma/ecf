@@ -23,7 +23,7 @@
 (setq selection-coding-system 'cyrillic-koi8)
 
 (setq file-name-coding-system 'cyrillic-koi8)
-(setq default-process-coding-system 'cyrillic-koi8)
+;; (setq default-process-coding-system 'cyrillic-koi8)
 
 (put-charset-property 'cyrillic-iso8859-5 'preferred-coding-system 'koi8-r)
 

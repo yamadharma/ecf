@@ -1,7 +1,7 @@
 ;; Copy all mail to myself.
-;;(setq mail-self-blind t)
+;;(setopt mail-self-blind t)
 
-(setq sendmail-program       (expand-file-name "mail.sendmail"
+(setopt sendmail-program       (expand-file-name "mail.sendmail"
 					       "~/share/bin")
       mail-archive-file-name (expand-file-name "SMAIL"
 					       vm-folder-directory))
@@ -26,7 +26,7 @@
 ;;		      ;; but handle it anyway...
 ;;		      (forward-line 1)
 ;;		      (beginning-of-line)
-;;		      (setq end (point))
+;;		      (setopt end (point))
 ;;		      (forward-line -1)
 ;;		      (beginning-of-line))
 ;;		    (delete-region (point) end))))))))

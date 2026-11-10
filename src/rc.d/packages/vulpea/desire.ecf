@@ -1,0 +1,43 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Database layer for org-mode notes with async indexing, rich queries, backlink discovery, and external change detection
+;; https://github.com/d12frosted/vulpea
+
+;;; Code:
+
+;;;; Build database (first time only)
+(vulpea-db-sync-full-scan)
+
+;;;; Enable auto-sync
+(vulpea-db-autosync-mode +1)
+
+;;;; Parse and write in a background process
+(setopt vulpea-db-async-extraction 'full)
+
+;;;; Skip org-mode-hook during indexing
+(setopt vulpea-db-parse-method 'single-temp-buffer)
+
+;;;; Index only [[bracketed]] links
+(setopt vulpea-db-index-plain-links nil)
+
+;;;; Excluding Notes
+(setopt vulpea-db-exclude-property "ROAM_EXCLUDE")
+
+;;;; Parse Method
+;; (setopt vulpea-db-parse-method 'single-temp-buffer)  ; Fastest
+;; (setopt vulpea-db-parse-method 'temp-buffer)         ; Default, honors org-mode-hook
+;; (setopt vulpea-db-parse-method 'find-file)           ; Slowest, most compatible
+
+;;;; Detection Method
+;;;;; Auto-detect best method (recommended)
+(setopt vulpea-db-sync-external-method 'auto)
+;;;;; Use fswatch (requires fswatch binary)
+;; (setopt vulpea-db-sync-external-method 'fswatch)
+;;;;; Use polling (no dependencies, works everywhere)
+;; (setopt vulpea-db-sync-external-method 'poll)
+;;;;; Disable external detection (only detect Emacs changes)
+;; (setopt vulpea-db-sync-external-method nil)
+
+;;;; Use "ROAM_ALIASES" for org-roam compatibility
+(setopt vulpea-buffer-alias-property "ROAM_ALIASES")
+
+;;;

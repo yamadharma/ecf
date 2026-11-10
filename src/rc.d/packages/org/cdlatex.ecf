@@ -1,0 +1,8 @@
+;;; Fast input methods to enter LaTeX environments and math -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/cdominik/cdlatex
+;;; Doc
+;; https://orgmode.org/manual/CDLaTeX-mode.html
+
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+
+;;;

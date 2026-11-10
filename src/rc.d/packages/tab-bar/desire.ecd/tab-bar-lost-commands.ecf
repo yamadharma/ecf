@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; The "lost commands" of the tab bar
+;; https://github.com/fritzgrabo/tab-bar-lost-commands
+
+;;; Code:
+
+(general-define-key
+ "M-s-{" 'tab-bar-lost-commands-switch-to-first-tab
+ "M-s-}" 'tab-bar-lost-commands-switch-to-last-tab
+ "C-s-{" 'tab-bar-lost-commands-move-tab-backward
+ "C-s-}" 'tab-bar-lost-commands-move-tab-forward
+ "C-M-s-{" 'tab-bar-lost-commands-move-tab-first
+ "C-M-s-}" 'tab-bar-lost-commands-move-tab-last)
+
+(general-define-key
+ :keymaps 'tab-prefix-map
+ "<return>" 'tab-bar-lost-commands-switch-to-or-create-tab)
+
+;;;

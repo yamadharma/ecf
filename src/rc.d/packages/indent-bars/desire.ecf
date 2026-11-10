@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Fast, configurable indentation guide-bars for Emacs
+;; https://github.com/jdtsmith/indent-bars
+
+;;; Code:
+
+(setq indent-bars-width 1)              ;; Толщина линий
+(setq indent-bars-color "gray50")       ;; Цвет линий
+(setq indent-bars-pad-frac 0.1)         ;; Отступ от текста
+(setq indent-bars-pattern "..")         ;; Паттерн для терминала
+(setq indent-bars-display-on-blank-lines nil)  ;; Не показывать на пустых строках
+(setq indent-bars-zigzag nil)           ;; Без зигзагов
+(setq indent-bars-first-indent t)       ;; Показывать первую линию
+(setq indent-bars-auto-update-delay 0.2) ;; Задержка обновления
+
+;;;

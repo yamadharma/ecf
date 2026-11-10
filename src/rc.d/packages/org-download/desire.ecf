@@ -1,0 +1,38 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Drag and drop images to Emacs org-mode
+;; https://github.com/abo-abo/org-download
+
+;;; Code:
+
+(require 'org-download)
+
+(setopt org-download-timestamp "%Y%m%dT%H%M%S--")
+(setopt org-download-heading-lvl nil)
+(setopt org-download-link-format "[[download:%s]]\n")
+(setopt org-download-annotate-function (lambda (_link) ""))
+(setopt org-download-image-html-width 500)
+
+(setopt org-download-abbreviate-filename-function
+        (lambda (path)
+          (if (file-in-directory-p path org-download-image-dir)
+              (file-relative-name path org-download-image-dir)
+            path)))
+
+(setopt org-download-method 'attach)
+(setopt org-download-link-format-function
+        (lambda (filename)
+          (if (eq org-download-method 'attach)
+              (format "[[attachment:%s]]\n"
+                      (org-link-escape
+                       (file-relative-name filename (org-attach-dir))))
+            ;; Handle non-image files a little differently. Images should be
+            ;; inserted as normal with previews. Other files, like pdfs or zips,
+            ;; should be linked to, with an icon indicating the type of file.
+            (format (concat (unless (image-type-from-file-name filename)
+                              (concat (+org-attach-icon-for filename)
+                                      " "))
+                            org-download-link-format)
+                    (org-link-escape
+                     (funcall org-download-abbreviate-filename-function filename))))))
+
+;;;

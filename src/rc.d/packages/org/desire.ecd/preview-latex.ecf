@@ -1,0 +1,57 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Previewing LaTeX fragments
+;;; https://orgmode.org/manual/Previewing-LaTeX-fragments.html
+
+;;; LaTeX image directory
+(setopt org-preview-latex-image-directory (concat home-cache-path "org-latex/"))
+
+;;; Output format
+(setopt org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
+(setopt org-format-latex-options (plist-put org-format-latex-options :density 600))
+(setopt org-format-latex-options (plist-put org-format-latex-options :background "Transparent"))
+
+(setopt org-latex-create-formula-image-program 'dvisvgm)
+
+(setopt org-preview-latex-process-alist
+	'((dvipng :programs ("latex" "dvipng") :description "dvi > png"
+		  :message
+		  "you need to install the programs: latex and dvipng."
+		  :image-input-type "dvi" :image-output-type "png"
+		  :image-size-adjust (1.0 . 1.0) :latex-compiler
+		  ("latex -interaction nonstopmode -output-directory %o %f")
+		  :image-converter ("dvipng -D %D -T tight -o %O %f")
+		  :transparent-image-converter
+		  ("dvipng -D %D -T tight -bg Transparent -o %O %f"))
+	  (dvisvgm :programs ("xelatex" "dvisvgm") :description "xdv > svg"
+		   :message
+		   "you need to install the programs: latex and dvisvgm."
+		   :image-input-type "xdv" :image-output-type "svg"
+		   :image-size-adjust (1.7 . 1.5) :latex-compiler
+		   ("xelatex --no-pdf -interaction nonstopmode -output-directory %o %f")
+		   :image-converter
+		   ("dvisvgm %f --no-fonts --exact-bbox --scale=%S --output=%O"))
+	  (imagemagick :programs ("xelatex" "convert") :description "pdf > png"
+		       :message
+		       "you need to install the programs: latex and imagemagick."
+		       :image-input-type "pdf" :image-output-type "png"
+		       :image-size-adjust (1.0 . 1.0) :latex-compiler
+		       ("xelatex -interaction nonstopmode -output-directory %o %f")
+		       :image-converter
+		       ("convert -density %D -trim -antialias %f -quality 100 %O"))))
+
+;;; Configure latex
+(setopt org-latex-inputenc-alist '(("utf8" . "utf8x")))
+;;; Default position for LaTeX figures
+(setopt org-latex-default-figure-position "!htbp")
+
+;;; Unicode fonts
+(add-to-list 'org-latex-packages-alist '("" "unicode-math") t)
+;;; Physics2 package
+;; (add-to-list 'org-latex-packages-alist '("" "physics2") t)
+;;; Math
+(add-to-list 'org-latex-packages-alist '("" "amsmath") t)
+(add-to-list 'org-latex-packages-alist '("" "mathtools") t)
+;;; Local definitions
+;; (add-to-list 'org-latex-packages-alist '("" "local-define") t)
+
+;;;

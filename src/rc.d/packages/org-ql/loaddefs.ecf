@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A searching tool for Org-mode, including custom query languages, commands, saved searches and agenda-like views, etc.
+;;; https://github.com/alphapapa/org-ql
+
+
+;;;

@@ -1,0 +1,5 @@
+;;;
+
+(setopt org-export-default-language "ru")
+
+;;;

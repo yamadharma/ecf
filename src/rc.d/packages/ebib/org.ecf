@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Integration with the org-mode
+
+(require 'org-ebib)
+
+;;; Link to ebib entry in org mode
+(org-add-link-type "ebib" 'ebib)
+
+;;;

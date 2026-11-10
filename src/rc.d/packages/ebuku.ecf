@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs interface to the buku Web bookmark manager
+;;; https://github.com/flexibeast/ebuku
+
+(require 'ebuku)
+
+;;;

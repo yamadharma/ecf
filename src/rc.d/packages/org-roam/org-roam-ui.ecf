@@ -1,0 +1,33 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A graphical frontend for exploring your org-roam Zettelkasten
+;; https://github.com/org-roam/org-roam-ui
+
+;;; Extensible Emacs HTTP 1.1 server
+;;; https://github.com/skeeto/emacs-web-server
+(desire 'simple-httpd)
+
+;;; A websocket implementation in elisp, for emacs
+;;; https://github.com/ahyatt/emacs-websocket
+(desire 'websocket)
+
+;;; Disable warnings
+(add-to-list 'warning-suppress-log-types '(websocket) t)
+(add-to-list 'warning-suppress-types '(websocket) t)
+
+;;; Org-Roam-UI can sync your Emacs theme. This is the default behavior
+(setopt org-roam-ui-sync-theme t)
+
+;;; ORUI follows you around Emacs by default
+(setopt org-roam-ui-follow t)
+
+;;; Updates to the graph
+(setopt org-roam-ui-update-on-save t)
+
+;;; By default, org-roam-ui will try to open itself in your default browser
+(setopt org-roam-ui-open-on-start nil)
+
+(load-library "org-roam-ui")
+
+(org-roam-ui-mode)
+
+;;;

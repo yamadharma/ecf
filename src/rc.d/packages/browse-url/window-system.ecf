@@ -1,1 +1,19 @@
-(setq browse-url-browser-function 'browse-url-netscape)
+;;; Удалить файл
+;; (setopt browse-url-browser-function 'browse-url-netscape)
+
+
+;;; Firefox
+;;(setopt browse-url-browser-function 'browse-url-generic
+;;      browse-url-generic-program "firefox")
+
+;;; Chromium
+;; (setopt browse-url-browser-function 'browse-url-generic
+;;      browse-url-generic-program "chromium-browser")
+
+;;; Google Chrome
+;; (setopt browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "google-chrome-stable")
+
+;;; Epiphany
+;; (setopt browse-url-browser-function 'browse-url-epiphany)
+;; (setopt browse-url-epiphany-new-window-is-tab t) ;; for tab instead of new window

@@ -3,8 +3,8 @@
 
 
 
-(setq LaTeX-begin-regexp "\\(?:begin\\|if@\\|ifx\\|ifnum\\)\\b")
-(setq LaTeX-end-regexp "\\(?:end\\|else\\|fi\\)\\b")
+(setopt LaTeX-begin-regexp "\\(?:begin\\|if@\\|ifx\\|ifnum\\)\\b")
+(setopt LaTeX-end-regexp "\\(?:end\\|else\\|fi\\)\\b")
 
 ; Note that I had to re-define LaTeX-indent-level-count. The diff is simply one cond branch:
 ; ((looking-at "else\\b"))
@@ -26,14 +26,14 @@
         (while (search-forward TeX-esc nil t)
           (cond
             ((looking-at "left\\b")
-             (setq count (+ count LaTeX-left-right-indent-level)))
+             (setopt count (+ count LaTeX-left-right-indent-level)))
             ((looking-at "right\\b")
-             (setq count (- count LaTeX-left-right-indent-level)))
+             (setopt count (- count LaTeX-left-right-indent-level)))
             ((looking-at LaTeX-begin-regexp)
-             (setq count (+ count LaTeX-indent-level)))
+             (setopt count (+ count LaTeX-indent-level)))
             ((looking-at "else\\b"))
             ((looking-at LaTeX-end-regexp)
-             (setq count (- count LaTeX-indent-level)))
+             (setopt count (- count LaTeX-indent-level)))
             ((looking-at (regexp-quote TeX-esc))
              (forward-char 1))))
         count))))

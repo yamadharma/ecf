@@ -1,0 +1,16 @@
+;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An opinionated Transient menu for Avy.
+;;; https://github.com/kickingvegas/casual-avy
+
+(desire 'casual-avy)
+(require 'casual-avy)
+
+(keymap-global-set "M-g" #'casual-avy-tmenu)
+
+;;; Imenu (index) Support
+(add-hook 'markdown-mode-hook #'imenu-add-menubar-index)
+(add-hook 'makefile-mode-hook #'imenu-add-menubar-index)
+(add-hook 'prog-mode-hook #'imenu-add-menubar-index)
+(add-hook 'org-mode-hook #'imenu-add-menubar-index)
+
+;;;

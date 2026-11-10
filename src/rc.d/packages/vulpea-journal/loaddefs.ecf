@@ -1,0 +1,16 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern daily journaling interface for Emacs with reactive sidebar widgets, built on vulpea
+;; https://github.com/d12frosted/vulpea-journal
+
+;;; Code:
+
+(desire 'vulpea)
+(desire 'vulpea-ui)
+
+;; (setopt org-directory-journal (concat org-directory "journal/"))
+;; (if (not (file-directory-p org-directory-journal))
+;;     (make-directory org-directory-journal t))
+
+;; (add-to-list 'vulpea-db-sync-directories org-directory-journal t)
+
+;;;

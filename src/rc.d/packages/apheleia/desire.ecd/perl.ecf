@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern Markdown formatter with smart typography and paragraph wrapping
+;; https://github.com/jlevy/flowmark
+
+;;; Code:
+
+;;;; Fix error. Remove `-t` flag
+(setf (alist-get 'perltidy apheleia-formatters)
+      '("perltidy" "--quiet" "--standard-error-output"))
+
+;;;

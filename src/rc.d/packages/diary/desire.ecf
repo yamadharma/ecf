@@ -1,11 +1,11 @@
 ;; Use a slightly nonstandard diary file.
-(setq diary-file (expand-file-name "diary/DIARY" emacs-etc-dir))
+(setopt diary-file (expand-file-name "diary/DIARY" emacs-etc-dir))
 
 (add-hook 'diary-display-hook 'fancy-diary-display t)
 
 ;; This combination should be OK.
-(setq diary-list-include-blanks nil)
-(setq number-of-diary-entries 31)
+(setopt diary-list-include-blanks nil)
+(setopt number-of-diary-entries 31)
 
 ;; Make sure diary entries are sorted, and includes are processed.
 (add-hook 'list-diary-entries-hook 'include-other-diary-files)
@@ -20,7 +20,7 @@
 (add-hook 'mark-diary-entries-hook 'mark-included-diary-files)
 
 ;; How to print the visible diary.
-(setq print-diary-entries-hook 'print-buffer)
+(setopt print-diary-entries-hook 'print-buffer)
 
 (defun mms-mail-diary ()
   "Mail the contents of the fancy diary buffer to `user-mail-address'."

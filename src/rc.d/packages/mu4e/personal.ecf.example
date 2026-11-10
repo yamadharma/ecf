@@ -1,0 +1,71 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Mu4e mail client personal configuration
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Mail Identities
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defcustom ecf/mu4e-contexts
+  '((ecf/mu4e-context
+     :c-name  "Google"
+     :maildir "Gmail"
+     :mail    "a@gmail.com"
+     :smtp    "smtp.gmail.com"
+     :sent-action delete)
+
+    (ecf/mu4e-context
+     :c-name  "1-GMX"
+     :maildir "GMX"
+     :mail    "a@gmx.com"
+     :smtp    "mail.gmx.com")
+
+    (ecf/mu4e-context
+     :c-name    "2-GMX-alias"
+     :maildir   "GMX"
+     :mail      "a.alias@gmx.com"
+     :smtp      "mail.gmx.com"
+     :smtp-mail "a@gmx.com")
+
+    (ecf/mu4e-context
+     :c-name  "Apple"
+     :maildir "Apple"
+     :mail    "a@icloud.com"
+     :smtp    "smtp.mail.me.com")
+
+    (ecf/mu4e-context
+     :c-name  "3-Apple-alias"
+     :maildir "Apple"
+     :mail    "a@me.com"
+     :smtp    "smtp.mail.me.com"
+     :smtp-mail "a@icloud.com")
+
+    (ecf/mu4e-context
+     :c-name    "Proton"
+     :maildir   "Proton"
+     :mail      "a@protonmail.com"
+     :smtp      "127.0.0.1"
+     :smtp-type ssl
+     :smtp-port 999)
+
+    (ecf/mu4e-context
+     :c-name    "4-Proton-alias"
+     :maildir   "Proton"
+     :mail      "a@pm.com"
+     :smtp      "127.0.0.1"
+     :smtp-mail "a@protonmail.com"
+     :smtp-type ssl
+     :smtp-port 999))
+  
+  "Defining accounts and aliases.
+After changing it, reload the minor mode.
+See `ecf/mu4e-context' for function signature."
+  :type '(repeat sexp))
+
+
+;;;
+
+(setq mu4e-headers-fields ecf/mu4e-headers-fields)
+(setq mail-user-agent 'mu4e-user-agent)
+(setq mu4e-contexts (mapcar #'eval ecf/mu4e-contexts))
+(setq mu4e-bookmarks ecf/mu4e-bookmarks)
+
+;;;

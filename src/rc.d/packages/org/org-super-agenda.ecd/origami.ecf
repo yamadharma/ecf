@@ -1,0 +1,25 @@
+;;;; Supercharge your Org daily/weekly agenda by grouping items -*- coding: utf-8-unix; -*-
+;;; https://github.com/alphapapa/org-super-agenda
+;;; Allows folding different headings within an org-super-agenda using <TAB>
+
+(with-eval-after-load 'origami
+  (define-key org-super-agenda-header-map (kbd "<tab>") #'origami-toggle-node)
+
+  (defvar ecf/org-super-agenda-auto-show-groups
+    '("Today" "Due today" "Next to do"))
+
+  (defun ecf/org-super-agenda-origami-fold-default ()
+    "Fold certain groups by default in Org Super Agenda buffer."
+    (forward-line 3)
+    (cl-loop do (origami-forward-toggle-node (current-buffer) (point))
+             while (origami-forward-fold-same-level (current-buffer) (point)))
+    (--each ecf/org-super-agenda-auto-show-groups
+      (goto-char (point-min))
+      (when (re-search-forward (rx-to-string `(seq bol " " ,it)) nil t)
+        (origami-show-node (current-buffer) (point)))))
+
+  (add-hook 'org-agenda-mode 'origami-mode)
+  (add-hook 'org-agenda-finalize  'ecf/org-super-agenda-origami-fold-default))
+
+
+;;;;

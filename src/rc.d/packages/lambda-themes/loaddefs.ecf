@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A set of four light and dark themes for Emacs
+;;; https://github.com/Lambda-Emacs/lambda-themes
+
+(require 'lambda-themes)
+
+;;;

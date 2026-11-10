@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Drag and drop images to Emacs org-mode
+;; https://github.com/abo-abo/org-download
+
+;;; Code:
+
+;;;

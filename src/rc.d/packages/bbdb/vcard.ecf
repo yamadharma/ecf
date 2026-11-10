@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; vCard Import and Export for The Insidious Big Brother Database (BBDB)
+;; https://github.com/tohojo/bbdb-vcard
+
+(desire 'bbdb-vcard)
+(require 'bbdb-vcard)
+
+(define-key bbdb-mode-map [(v)] 'bbdb-vcard-export)
+(define-key bbdb-mode-map [(V)] 'bbdb-vcard-export-to-kill-ring)
+
+;;;

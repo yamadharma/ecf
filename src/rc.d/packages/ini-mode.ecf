@@ -1,0 +1,7 @@
+;;; Major mode for Windows-style ini files -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/Lindydancer/ini-mode
+
+(autoload 'ini-mode "ini-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
+
+;;;

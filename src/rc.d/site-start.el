@@ -1,165 +1,180 @@
-;;; site-start.el -*- coding: iso-2022-7bit-unix; -*-
+;;; site-start.el --- site-wide Emacs bootstrap for `desire'  -*- lexical-binding: t; coding: utf-8-unix; origami-fold-style: triple-braces; -*-
+
+;; Copyright (C) 2002-2026 Dmitry S. Kulyabov
+
+;; This file is NOT part of GNU Emacs.  Distributed under the same
+;; conditions as GNU Emacs, which are as follows:
+
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 ;;; Commentary:
-
 ;;
-;;  File id
+;; Site-wide bootstrap, loaded by Emacs before `~/.emacs' (`init.el').
 ;;
-;;      Copyright (C)  2002-2012 Dmitry S. Kulyabov
-;;      Keywords:      site-start
-;;      Author:        Dmitry S. Kulyabov <yamadharma@gmail.com>
-;;      Maintainer:    Dmitry S. Kulyabov <yamadharma@gmail.com>
+;; Responsibilities:
+;;   - XDG base directories and `rootpath'
+;;   - OS/Emacs flavour predicates: `IS-WINDOWS', `IS-MAC', `IS-BSD'
+;;   - `ecf-*-path' variables used by `rc.desire.el'
+;;   - `desirepath' bootstrap (see `rc.desirepath.el')
+;;   - `desire' bootstrap (see `rc.desire.el')
 ;;
-;;      This code is free software in terms of GNU Gen. pub. Lic. v3 or later
-;;
-;;  Description
-;;
-;;
-
-;;; Change Log:
+;; Bootstrap only: after this file loads, all subsequent `desire' logic
+;; is `.ecf'-driven.  See "Может быть, выделить исходные файлы в
+;; отдельный каталог" in the project discussion for the boundary
+;; between bootstrap (this file + `rc.desirepath.el' + `rc.desire.el')
+;; and configuration (`rc.packages.el' or `packages.ecf', plus `*.ecf').
 
 ;;; Code:
 
-;;{{{ Win32 environment hook
+;;; Global Variables {{{
 
-(if (eq system-type 'windows-nt)
-  (progn
-    (setenv "USER" (downcase (getenv "USERNAME")))
-    (setenv "HOME" (getenv "USERPROFILE"))
-  )
-)
+(defconst NATIVECOMP (if (fboundp 'native-comp-available-p) (native-comp-available-p)))
+(defconst EMACS27+   (> emacs-major-version 26))
+(defconst EMACS28+   (> emacs-major-version 27))
+(defconst EMACS29+   (> emacs-major-version 28))
+(defconst EMACS30+   (> emacs-major-version 29))
+(defconst IS-MAC     (eq system-type 'darwin))
+(defconst IS-LINUX   (eq system-type 'gnu/linux))
+(defconst IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
+(defconst IS-BSD     (or IS-MAC (eq system-type 'berkeley-unix)))
+
+;; Win32 environment hook {{{
+
+(if IS-WINDOWS
+    (progn
+      (setenv "USER" (downcase (getenv "USERNAME")))
+      (setenv "HOME" (getenv "USERPROFILE"))))
 
 ;;}}}
-;;{{{ Global Variables
-
-;;{{{ XDG Base Directory Specification
+;; XDG Base Directory Specification {{{
 ;; http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 (defvar xdg_data_home
-  (or (getenv "XDG_DATA_HOME") (expand-file-name "~/.local/share/"))
-)
+  (or (getenv "XDG_DATA_HOME") (expand-file-name "~/.local/share/")))
 
 (defvar xdg_config_home
-  (or (getenv "XDG_CONFIG_HOME") (expand-file-name "~/.config"))
-)
+  (or (getenv "XDG_CONFIG_HOME") (expand-file-name "~/.config/")))
 
-;(defvar xdg_data_dirs
-;  (getenv "XDG_DATA_DIRS")
-;)
+(defvar xdg_data_dirs
+  (getenv "XDG_DATA_DIRS")
+  )
 
 (defvar xdg_cache_home
-  (or (getenv "XDG_CACHE_HOME") (expand-file-name "~/.cache"))
-)
+  (or (getenv "XDG_CACHE_HOME") (expand-file-name "~/.cache/")))
 
 ;;}}}
+;; Desire Global Variables {{{
 
 (defvar rootpath
   (expand-file-name "/usr/")
-  "*Name of emacs prefix directory."
-)
+  "*Name of emacs prefix directory.")
 
 (defvar home-cache-path
-  (expand-file-name "elisp" xdg_cache_home)
-  "*Name of directory where various temporal emacs related files reside."
-)
+  (expand-file-name "elisp/" xdg_cache_home)
+  "*Name of directory where various temporal emacs related files reside.")
 
 (defvar ecf-home-etc-path
-  (expand-file-name "ecf" xdg_config_home)
-  "*Name ecf config files directory."
-)
+  (expand-file-name "ecf/" xdg_config_home)
+  "*Name ecf config files directory.")
 
 (defvar home-data-path
-  (expand-file-name "elisp" xdg_data_home)
-  "*Name of directory where various temporal emacs related files reside."
-)
+  (expand-file-name "elisp/" xdg_data_home)
+  "*Name of directory where various temporal emacs related files reside.")
 
 (defvar ecf-etc-path
-    "/etc/ecf"    
-    "*Host-wide ecf config files directory."
-)
+  "/etc/ecf/"
+  "*Host-wide ecf config files directory.")
 
 (defvar site-lisp-path
   (concat rootpath "share/site-lisp/")
-  "*Name of directory where various emacs related site-wide files reside."
-)
+  "*Name of directory where various emacs related site-wide files reside.")
 
 (defvar ecf-site-lisp-path
   (expand-file-name "rc.d" site-lisp-path)
-  "*Site-wide ecf config files directory."
-)
+  "*Site-wide ecf config files directory.")
 
-(defvar tiny-path-lisp-path
-  (expand-file-name "common/packages/ecf/tiny" site-lisp-path)
-  "*Name of directory where tinypath.el reside."
-)
+(defvar desire-lisp-path
+  ;; (expand-file-name "common/packages/ecf/tiny" site-lisp-path)
+  (expand-file-name "share/emacs/site-lisp/desire" rootpath)
+  "*Name of directory where desire reside.")
 
 (defvar home-etc-path
   xdg_config_home
-  ;(expand-file-name "~/.config/")
-  "*Name home config files directory."
-)
+  "*Name home config files directory.")
 
 (defvar emacs-etc-dir
   xdg_config_home
-  ;(expand-file-name "~/.config/")
-  "*Name of directory where various emacs related files reside."
-)
+  "*Name of directory where various emacs related files reside.")
 
 ;;}}}
-;;{{{ Prepare needed dirs
+;; Prepare needed dirs {{{
 
 (if (not (file-directory-p home-cache-path))
-  (make-directory home-cache-path t)
-)
+    (make-directory home-cache-path t))
 
 (if (not (file-directory-p home-data-path))
-  (make-directory home-data-path t)
-)
+    (make-directory home-data-path t))
 
 (if (not (file-directory-p emacs-etc-dir))
-  (make-directory emacs-etc-dir t)
-)
+    (make-directory emacs-etc-dir t))
 
 (if (not (file-directory-p "~/tmp"))
-  (make-directory "~/tmp" t)
-)
+    (make-directory "~/tmp" t))
 
 ;;}}}
-;;{{{ Tinypath load
+;;; Set eln-cache dir {{{
 
-;; Search user, host-wide, site-wide configs
+(when (boundp 'native-comp-eln-load-path)
+  (startup-redirect-eln-cache (expand-file-name "eln/" home-cache-path)))
+
+;;}}}
+;;; Desirepath load
+
+;;;; Enable .el.gz/.el.bz2 support for load/require
+(setq desirepath--compression-support 'default)
+
+;;;; Enable .el.gz/.el.bz2 support for autoload
+(setq desirepath--compression-support 'all)
+
+;;;; Supported extensions (.gz .bz2 default)
+;; (setq desirepath--compressed-file-extensions '(".gz" ".bz2" ".zst"))
+
+;;;; Search user, host-wide, site-wide configs
 
 (setq ecf-config-load-path
-  (list
-    ecf-home-etc-path
-    ecf-etc-path
-    ecf-site-lisp-path
-  )
-)
+      (list
+       ecf-home-etc-path
+       ecf-etc-path
+       ecf-site-lisp-path))
 
 (setq load-path
-  (append
-    ecf-config-load-path
-    load-path
-  )
-)
+      (append
+       ecf-config-load-path
+       load-path))
 
-(load "rc.tinypath")
+(load "rc.desirepath")
 
-;;}}}
-;;{{{ Desire load
+;;; Desire load
 
 ;; Directory order hack
 (setq load-path
-  (append
-    ecf-config-load-path
-    load-path
-  )
-)
+      (append
+       ecf-config-load-path
+       load-path))
 
 (load "rc.desire")
 
-;;}}}
-
 ;;;  end of site-start.el
-

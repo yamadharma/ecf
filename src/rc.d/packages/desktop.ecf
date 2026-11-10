@@ -1,7 +1,7 @@
 ;;; desktop.ecf --- Load desktop settings -*- coding: iso-2022-7bit-unix; -*-
 
 (require 'desktop)
-(setq desktop-enable t)
+(setopt desktop-enable t)
 (setq-default save-place t)
 
 (mapcar

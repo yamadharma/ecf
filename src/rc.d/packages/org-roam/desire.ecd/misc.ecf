@@ -2,6 +2,6 @@
 
 ;; Toggle truncate lines in org-roam buffers
 ;; Make org-mode always use wrapped lines
-(setq org-startup-truncated nil)
+(setopt org-startup-truncated nil)
 
 ;;;

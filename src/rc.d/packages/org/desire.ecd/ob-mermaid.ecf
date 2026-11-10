@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Generate mermaid diagrams within Emacs org-mode babel
+;; https://github.com/arnm/ob-mermaid
+
+(desire 'ob-mermaid)
+(require 'ob-mermaid)
+
+(setopt ob-mermaid-cli-path (expand-file-name "~/.local/share/pnpm/mmdc"))
+
+;; (cl-pushnew '(mermaid . t) load-language-list)
+
+;; (org-babel-do-load-languages 'org-babel-load-languages
+;; 			     load-language-list)
+
+;;;

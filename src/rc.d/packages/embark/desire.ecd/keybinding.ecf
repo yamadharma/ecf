@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs Mini-Buffer Actions Rooted in Keymaps
+;; https://github.com/oantolin/embark
+
+;;; Code:
+
+(general-define-key
+ "C-." #'embark-act
+ "C-;"  #'embark-dwim        ;; good alternative: M-.
+ "C-h B" #'embark-bindings)  ;; alternative for `describe-bindings'
+
+;;; Optionally replace the key help with a completing-read interface
+(setopt prefix-help-command #'embark-prefix-help-command)
+
+;;;

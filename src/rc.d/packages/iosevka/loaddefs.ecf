@@ -1,0 +1,25 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set Iosevka font
+;; https://be5invis.github.io/Iosevka/
+
+;;; Code:
+
+;;;; "Моноширинный шрифт (default / fixed-pitch / fontset)."
+(setopt ecf/mono-font-family "Iosevka Nerd Font")
+
+;;;; "Пропорциональный шрифт для variable-pitch."
+;; (setopt ecf/prop-font-family "Iosevka Aile")
+(setopt ecf/prop-font-family "Iosevka Etoile")
+
+;;;; "Высота шрифта в 1/10 pt (120 = 12pt)."
+(setopt ecf/font-height 120)
+
+;;; "Наборы символов, для которых явно задаётся шрифт."
+(setopt ecf/font-charsets '(latin cyrillic greek))
+
+;;;"Спецификация моноширинного шрифта для frame-alist."
+;;;; Строка вида "Family-12" для default-frame-alist / initial-frame-alist
+(setopt ecf/mono-frame-font
+  (format "%s-%d" ecf/mono-font-family (/ ecf/font-height 10)))
+
+;;;

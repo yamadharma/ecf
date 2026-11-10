@@ -1,0 +1,14 @@
+;;; Ivy UI for Projectile -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/ericdanan/counsel-projectile
+
+;;; Description
+;; Counsel-projectile provides further ivy integration into projectile
+;; by taking advantage of ivy's support for selecting from a list of
+;; actions and applying an action without leaving the completion
+;; session
+
+(desire 'counsel-projectile)
+
+(require 'counsel-projectile)
+
+;;;

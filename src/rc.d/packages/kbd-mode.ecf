@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs mode for syntax highlighting kmonad's .kbd files.
+;;; https://github.com/kmonad/kbd-mode
+
+(autoload 'kdb-mode "kbd-mode.el" "Kmonad's .kbd files" t)
+(add-to-list 'auto-mode-alist '("\\.kbd$" . kbd-mode))
+
+;;;

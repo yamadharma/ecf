@@ -1,0 +1,20 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A client for Language Server Protocol servers
+;;; https://github.com/joaotavora/eglot
+
+(require 'eglot)
+
+;;; Control blocking of LSP connection attempts
+(setopt eglot-sync-connect nil)
+
+(setopt eglot-connect-timeout 10)
+(setopt eglot-autoshutdown t)
+(setopt eglot-send-changes-idle-time 0.5)
+
+;;; Disable `eglot-auto-display-help-buffer` because :select t in its popup rule causes eglot to steal focus too often.
+(setopt eglot-auto-display-help-buffer nil)
+
+;;; Disable any debug logging and may speed things up
+(setopt eglot-events-buffer-size 0)
+
+;;;

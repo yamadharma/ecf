@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs SVG Child Frames
+;;;; https://github.com/thisisran/nova
+
+(require 'nova)
+
+;;;

@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Org Roam integration with bibliography management software
+;;; https://github.com/org-roam/org-roam-bibtex
+
+(require 'bibtex-completion)
+(require 'orb-ivy)
+
+(setopt orb-note-actions-interface 'ivy)
+
+;;;

@@ -1,0 +1,6 @@
+;;; Make Emacs use the $PATH set up by the user's shell -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/purcell/exec-path-from-shell
+
+(exec-path-from-shell-initialize)
+
+;;;

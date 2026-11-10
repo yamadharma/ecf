@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Additional mapping for specific modes related to mu4e
+
+(define-key mu4e-main-mode-map          (kbd "x")          #'bury-buffer)
+(define-key mu4e-main-mode-map          (kbd "I")          #'mu4e-update-index)
+(define-key mu4e-view-mode-map          (kbd "<tab>")      #'shr-next-link)
+(define-key mu4e-view-mode-map          (kbd "<backtab>")  #'shr-previous-link)
+(define-key mu4e-headers-mode-map       (kbd "M")          #'mu4e-headers-mark-all)
+(define-key mu4e-headers-mode-map       (kbd "N")          #'mu4e-headers-mark-all-unread-read)
+
+;;;
+

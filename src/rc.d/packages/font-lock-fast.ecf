@@ -1,2 +1,2 @@
 (desire' font-lock)
-(setq font-lock-support-mode 'fast-lock-mode)
+(setopt font-lock-support-mode 'fast-lock-mode)

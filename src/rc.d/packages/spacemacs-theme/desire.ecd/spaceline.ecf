@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Powerline theme from Spacemacs
+;; https://github.com/TheBB/spaceline
+
+(desire 'spaceline)
+(setopt powerline-default-separator 'arrow-fade)
+(require 'spaceline-config)
+
+;;; The theme used by Spacemacs
+(spaceline-spacemacs-theme)
+;;; A theme which is similar to the one used by Spacemacs, but which has been designed to look good without the dependencies that the Spacemacs theme needs.
+;; (spaceline-emacs-theme)
+
+;;;

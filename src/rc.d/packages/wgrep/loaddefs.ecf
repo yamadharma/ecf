@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Writable grep buffer and apply the changes to files
+;;; https://github.com/mhayashi1120/Emacs-wgrep
+
+(require 'wgrep)
+
+;;;

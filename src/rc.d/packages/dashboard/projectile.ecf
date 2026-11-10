@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An extensible emacs dashboard
+;;; https://github.com/emacs-dashboard/emacs-dashboard
+
+;;; Add projects to dashboard-items
+(add-to-list 'dashboard-items '(projects . 5) t)
+
+;;; 
+
+

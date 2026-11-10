@@ -1,0 +1,26 @@
+;;; Mu4e mail client  -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://www.djcbsoftware.nl/code/mu/
+
+;;; Load mu4e
+(defun mu4e-load ()
+  "Start email client."
+  (interactive)
+  ;;; Check presence of mu index
+  (if (eq (call-process "mu" nil nil nil "info") 0)
+      t
+      ;;; Initialize index
+    (shell-command "mu init --maildir=~/Maildir $(grep -e \"^IMAPAccount\" ~/.mbsyncrc | cut -d\" \" -f2 | xargs -I {} -n 1 echo \"--my-address=\"{})"))
+  (require 'mu4e)
+  (mu4e))
+
+;;; Mu4e is the default program it uses when you press C-x m (compose-mail)
+(setopt mail-user-agent 'mu4e-user-agent)
+(setopt message-mail-user-agent 'mu4e-user-agent)
+
+;;; To specify mu4e as your preferred method for reading mail
+(setopt read-mail-command 'mu4e)
+
+(provide 'html2text) ; disable obsolete package
+
+;;;
+

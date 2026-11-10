@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extensions to Dired
+;;; https://github.com/emacsmirror/dired-plus
+;;; https://www.emacswiki.org/emacs/DiredPlus
+
+(require 'dired+)
+
+;;;

@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+(when (and IS-BSD (not (executable-find "gls")))
+  (message "Cannot find gls (GNU ls). This may cause issues with dired"))
+
+;;;

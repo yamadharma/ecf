@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Message citation style used by Gmail
+(with-eval-after-load 'message
+  (setopt message-cite-style message-cite-style-gmail))
+
+;;; Customize the reply-quote-string
+;; (setopt message-citation-line-format "On %Y-%m-%d at %R %Z, %f wrote...\n")
+(setopt message-citation-line-format "%N [%Y-%m-%d %a %H:%M] wrote:\n")
+
+;;; Choose to use the formatted string
+(setopt message-citation-line-function 'message-insert-formatted-citation-line)
+
+;;;

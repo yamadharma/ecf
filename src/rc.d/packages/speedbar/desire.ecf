@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Show all files
+(setopt speedbar-show-unknown-files t)
+
+;;; Use text for buttons
+;; (setopt speedbar-use-images nil) 
+
+;;;

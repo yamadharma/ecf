@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs plugin to read .fb2 and .fb2.zip ebooks
+;;; https://github.com/jumper047/fb2-reader
+
+(add-to-list 'auto-mode-alist '("\\.fb2\\(.zip\\|\\)$" . fb2-reader-mode))
+
+;;;

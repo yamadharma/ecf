@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Embark actions and export for Vulpea notes
+;; https://github.com/fabcontigiani/embark-vulpea
+
+;;; Code:
+
+(desire 'embark-vulpea :recipe '(:fetcher github :repo "fabcontigiani/embark-vulpea" :branch "main"))
+
+(require 'embark-vulpea)
+
+;;;

@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Emacs calibre client - A Document Management Solution in Emacs
+;; https://github.com/chenyanming/calibredb.el
+
+;;; Code:
+
+(require 'calibredb)
+
+;;;; Size indicator
+(setopt calibredb-size-show t)
+
+;;;

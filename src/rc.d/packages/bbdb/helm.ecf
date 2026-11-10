@@ -1,0 +1,10 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A Helm interface for bbdb
+;; https://github.com/emacs-helm/helm-bbdb
+
+(desire 'helm-bbdb)
+(autoload 'helm-bbdb "helm-bbdb.el" nil t)
+
+(add-to-list 'helm-completing-read-handlers-alist '(bbdb-edit-field . nil))
+
+;;;

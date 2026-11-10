@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extra protocols to make like Fever, NewsBlur, Nextcloud/ownCloud News and Tiny Tiny RSS work with elfeed
+;; https://github.com/fasheng/elfeed-protocol
+
+;;; Code:
+
+(desire 'elfeed-protocol)
+(require 'elfeed-protocol)
+
+;;;; curl recommend
+(setopt elfeed-use-curl t)
+(elfeed-set-timeout 36000)
+;;;;; For https without a trust certificate
+(setopt elfeed-curl-extra-arguments '("--insecure"))
+
+;;;; enable elfeed-protocol
+(setq elfeed-protocol-enabled-protocols '(fever newsblur owncloud ttrss))
+(elfeed-protocol-enable)

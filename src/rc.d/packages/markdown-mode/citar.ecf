@@ -1,0 +1,15 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Interface to citar
+;;; https://github.com/emacs-citar/citar
+
+(require 'citar-markdown)
+
+(general-define-key
+ :keymaps 'markdown-mode-map
+ :prefix "C-c B"
+ "b" #'("Insert citation" . citar-insert-citation)
+ "r" #'("Insert reference" . citar-insert-reference)
+ "o" #'("Open note" . citar-open-notes))
+
+
+;;;

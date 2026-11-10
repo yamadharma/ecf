@@ -1,0 +1,13 @@
+;;; Imenu - dynamic completion-based buffer navigation -*- coding: utf-8-unix; -*-
+;; 
+
+(setopt imenu-use-markers t)
+(setopt imenu-auto-rescan t)
+(setopt imenu-auto-rescan-maxout 600000)
+(setopt imenu-max-item-length 100)
+(setopt imenu-use-popup-menu nil)
+(setopt imenu-eager-completion-buffer t)
+(setopt imenu-space-replacement " ")
+(setopt imenu-level-separator "/")
+
+;;;

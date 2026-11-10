@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Override Emacs' default mechanism for making buffer names unique
+;;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Uniquify.html
+
+(require 'uniquify)
+
+(setq
+  uniquify-buffer-name-style 'post-forward
+  uniquify-separator ":")
+
+;;;

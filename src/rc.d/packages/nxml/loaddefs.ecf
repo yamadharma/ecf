@@ -9,7 +9,7 @@
     'nxml-mode)
 )
 
-(setq magic-mode-alist
+(setopt magic-mode-alist
   (cons '("<****?xml " . nxml-mode)
     magic-mode-alist)
 )

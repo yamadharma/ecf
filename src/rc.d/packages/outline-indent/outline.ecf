@@ -1,0 +1,29 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Folding text based on indentation
+;; https://github.com/jamescherti/outline-indent.el
+
+;;; Code:
+
+;;;; Автоматическое включение outline-minor-mode с outline-indent
+(defun my-outline-minor-with-indent ()
+  "Включить outline-minor-mode и outline-indent-mode вместе."
+  (outline-minor-mode 1)
+  (when (derived-mode-p 'prog-mode)
+    (outline-indent-mode 1)))
+
+;;;; Настройка outline-regexp для разных языков
+(defun ecf/set-outline-regexp ()
+  "Установить outline-regexp для текущего режима."
+  (cond
+   ((derived-mode-p 'emacs-lisp-mode 'lisp-mode)
+    (setq-local outline-regexp ";;;+ "))
+   ((derived-mode-p 'python-mode)
+    (setq-local outline-regexp "def \\|class \\|# "))
+   ((derived-mode-p 'js-mode 'typescript-mode)
+    (setq-local outline-regexp "function \\|class \\|const \\|let \\|var \\|// "))
+   (t
+    (setq-local outline-regexp "^[ \t]*[A-Za-z0-9]"))))
+
+(add-hook 'outline-minor-mode-hook 'ecf/set-outline-regexp)
+
+;;;

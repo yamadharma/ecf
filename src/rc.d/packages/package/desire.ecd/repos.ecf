@@ -1,0 +1,45 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set up repos
+
+;;; Code:
+
+;;;; Repos
+;;;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+
+(setopt package-archives
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+	("nongnu" . "https://elpa.nongnu.org/nongnu/")
+	("gnu-devel" . "https://elpa.gnu.org/devel/")
+        ("melpa" . "https://melpa.org/packages/")
+	("melpa-stable" . "https://stable.melpa.org/packages/")))
+
+;;;; Mirror for some Emacs package archives
+;;;; https://github.com/d12frosted/elpa-mirror
+;; (setopt package-archives
+;;       '(("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")
+;; 	("melpa-stable" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/stable-melpa")
+;;         ("gnu" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/gnu/")
+;; 	("nongnu" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/nongnu")))
+
+;;;; https://gitlab.com/d12frosted/elpa-mirror/
+;; (setopt package-archives
+;;       '(("melpa" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/melpa")
+;; 	("melpa-stable" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/stable-melpa")
+;;         ("gnu" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/gnu")
+;; 	("nongnu" . "https://gitlab.com/d12frosted/elpa-mirror/-/tree/master/nongnu")))
+
+(unless package--initialized
+  (package-initialize))
+
+;;;; Refreshing the content or the list-packages in case it is empty
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;;;; Dirty hack
+(setopt package-check-signature nil)
+;;;; Network timeout
+(setopt url-request-timeout 10)  ; 10 секунд
+
+(desire 'gnu-elpa-keyring-update)
+
+;;;

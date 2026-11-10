@@ -1,0 +1,30 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; BibTeX mode
+
+;; (setopt bibtex-mode-user-optional-fields
+;;       '(("isbn"     "ISBN number")
+;;	("anu"      "Where to find this item at the ANU")
+;;	("url"      "URL of online document")
+;;	("abstract" "Abstract, if available")))
+
+;;; Predefined dialects include BibTeX and biblatex
+(setopt bibtex-dialect 'biblatex)
+
+(setopt bibtex-align-at-equal-sign t)
+(setopt bibtex-text-indentation 20)
+
+;; (define-key bibtex-mode-map (kbd "C-c \\") #'bibtex-fill-entry))
+
+(setopt bibtex-sort-ignore-string-entries t)
+(add-hook 'bibtex-mode-hook 'turn-on-auto-fill)
+
+(setopt bibtex-autokey-year-length 4
+      bibtex-autokey-name-year-separator "_"
+      bibtex-autokey-year-title-separator "_"
+      bibtex-autokey-titleword-separator "-"
+      bibtex-autokey-titlewords 4
+      bibtex-autokey-titlewords-stretch 1
+      bibtex-autokey-titleword-length 10
+      bibtex-autokey-preserve-case nil)
+
+;;;

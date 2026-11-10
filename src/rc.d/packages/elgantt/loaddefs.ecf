@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;;  A Gantt Chart (Calendar) for Org Mode
+;;; https://github.com/legalnonsense/elgantt
+
+(require 'elgantt)
+
+;;;

@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Hide tabs
+
+(setopt tabs-auto-hide t)
+(setopt tabs-auto-hide-delay 3)
+
+;;;

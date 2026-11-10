@@ -1,0 +1,58 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Ef-themes
+;;; https://git.sr.ht/~protesilaos/ef-themes
+;;; https://github.com/protesilaos/ef-themes
+;;; https://gitlab.com/protesilaos/ef-themes
+
+;;; Code:
+
+;; | Light                 | Dark                 |
+;; |-----------------------+----------------------|
+;; | ef-deuteranopia-light | ef-deuteranopia-dark |
+;; | ef-duo-light          | ef-duo-dark          |
+;; | ef-elea-light         | ef-elea-dark         |
+;; | ef-maris-light        | ef-maris-dark        |
+;; | ef-melissa-light      | ef-melissa-dark      |
+;; | ef-trio-light         | ef-trio-dark         |
+;; | ef-tritanopia-light   | ef-tritanopia-dark   |
+;; | ef-summer             | ef-winter            |
+;; | ef-day                | ef-night             |
+;; | ef-autumn             | ef-spring            |
+;; | ef-eagle              | ef-owl               |
+;; | ef-orange             | ef-fig               |
+;; | ef-arbutus            | ef-bio               |
+;; | ef-cyprus             | ef-cherie            |
+;; | ef-kassio             | ef-dream             |
+;; | ef-reverie            | ef-rosa              |
+
+;;; Deuteranopia themes
+;;; For red-green color deficiency
+;;; ef-deuteranopia-light
+(modus-themes-load-theme 'ef-deuteranopia-light)
+;;; ef-deuteranopia-dark
+;; (load-theme 'ef-deuteranopia-dark :no-confirm)
+;;; If you like two specific themes and want to switch between them
+(setopt ef-themes-to-toggle '(ef-deuteranopia-light ef-deuteranopia-dark))
+
+;;; Tritanopia theme
+;;; For blue-yellow color deficiency
+;;; ef-tritanopia-light
+;; (modus-themes-load-theme 'ef-tritanopia-light)
+;;; ef-tritanopia-dark
+;; (modus-themes-load-theme 'ef-tritanopia-dark)
+;;; If you like two specific themes and want to switch between them
+;; (setopt ef-themes-to-toggle '(ef-tritanopia-light ef-tritanopia-dark))
+
+
+;;; ef-arbutus
+;; (modus-themes-load-theme 'ef-arbutus)
+;;; ef-rosa
+;; (modus-themes-load-theme 'ef-rosa)
+;; (setopt ef-themes-to-toggle '(ef-arbutus ef-rosa))
+
+;;; ef-melissa
+;; (modus-themes-load-theme 'ef-melissa-light)
+;; (modus-themes-load-theme 'ef-melissa-dark)
+;; (setopt ef-themes-to-toggle '(ef-melissa-light ef-melissa-dark))
+
+;;;

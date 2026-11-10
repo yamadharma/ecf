@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs Tab Line
+
+;;; Code
+
+(general-define-key
+ "C-<prior>" 'tab-line-switch-to-prev-tab
+ "C-<iso-lefttab>" 'tab-line-switch-to-prev-tab
+ "s-[" 'tab-line-switch-to-prev-tab
+ "C-<next>" 'tab-line-switch-to-next-tab
+ "C-<tab>" 'tab-line-switch-to-next-tab
+ "s-]" 'tab-line-switch-to-next-tab)
+
+ ;;;

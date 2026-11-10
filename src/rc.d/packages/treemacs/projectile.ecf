@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Projectile integration for treemacs
+
+;;; Code:
+
+(desire 'treemacs-projectile)
+(require 'treemacs-projectile)
+
+;;;

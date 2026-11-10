@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Sign/encrypt message verification
+
+(setopt mm-verify-option 'known)
+
+;;;
+

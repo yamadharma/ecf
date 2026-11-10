@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Key-bindings
+;;; https://github.com/tmalsburg/helm-bibtex
+
+(define-key helm-command-map "b" 'helm-bibtex)
+(define-key helm-command-map "B" 'helm-bibtex-with-local-bibliography)
+(define-key helm-command-map "n" 'helm-bibtex-with-notes)
+
+;;;

@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An Emacs web feeds client
+;; https://github.com/skeeto/elfeed
+
+;;; Code:
+
+;;;; Mark all as read
+(defun mark-all-read-and-refresh ()
+  (interactive)
+  (when (y-or-n-p "Mark all items as read?")
+    (elfeed-mark-all-as-read)
+    (elfeed-search-fetch nil)))
+;;;

@@ -1,0 +1,11 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Tabs and ribbons for the mode-line
+;;; https://github.com/tarsius/moody
+
+
+(setopt x-underline-at-descent-line t)
+(moody-replace-mode-line-buffer-identification)
+(moody-replace-vc-mode)
+(moody-replace-eldoc-minibuffer-message-function)
+
+;;;

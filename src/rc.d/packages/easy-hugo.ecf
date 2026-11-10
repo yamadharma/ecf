@@ -4,15 +4,15 @@
 
 (require 'easy-hugo)
 
-(setq easy-hugo-server-flags "-D")
+(setopt easy-hugo-server-flags "-D")
 
 ;; Main blog
-(setq easy-hugo-basedir "~/work/blog/git/")
-;(setq easy-hugo-url "https://yourblogdomain")
-;(setq easy-hugo-sshdomain "blogdomain")
-(setq easy-hugo-root "~/work/blog/git")
-(setq easy-hugo-previewtime "300")
-(setq easy-hugo-postdir "content/ru/post")
+(setopt easy-hugo-basedir "~/work/blog/git/")
+;(setopt easy-hugo-url "https://yourblogdomain")
+;(setopt easy-hugo-sshdomain "blogdomain")
+(setopt easy-hugo-root "~/work/blog/git")
+(setopt easy-hugo-previewtime "300")
+(setopt easy-hugo-postdir "content/ru/post")
 (setq
     easy-hugo-preview-url "http://localhost:1313/"
     easy-hugo-default-ext ".md"

@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; Persistent storage for Emacs
+;; https://github.com/rolandwalker/persistent-soft
+
+(require 'persistent-soft)
+
+;;;

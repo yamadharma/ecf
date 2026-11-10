@@ -1,0 +1,8 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; A custom org link type for pdf-tools
+;;; https://github.com/fuxialexander/org-pdftools
+
+(require 'org-noter-pdftools)
+
+;;;
+

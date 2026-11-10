@@ -1,0 +1,7 @@
+;;; Smart line-wrapping with wrap-prefix -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://elpa.gnu.org/packages/adaptive-wrap.html
+;; https://github.com/emacsmirror/adaptive-wrap
+
+(require 'adaptive-wrap)
+
+;;;

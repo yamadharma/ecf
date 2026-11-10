@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An Emacs web feeds client
+;; https://github.com/skeeto/elfeed
+
+;;; Code:
+
+(require 'elfeed)
+
+;;;; Elfeed-protocol
+(desire 'elfeed-protocol)
+(require 'elfeed-protocol)
+
+;;;

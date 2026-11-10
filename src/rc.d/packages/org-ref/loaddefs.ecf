@@ -1,0 +1,6 @@
+;;; Citations, cross-references, indexes, glossaries and bibtex utilities for org-mode -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://github.com/jkitchin/org-ref
+
+
+
+;;;

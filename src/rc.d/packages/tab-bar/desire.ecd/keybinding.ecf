@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs Tab Bar key bindings
+
+;;; Code:
+
+(general-define-key
+ ;;;; Select the previous available tab
+ ;; "C-{"  'tab-bar-switch-to-prev-tab
+ "s-{" 'tab-bar-switch-to-prev-tab
+;;;; Select the next available tab
+ ;; "C-}" 'tab-bar-switch-to-next-tab
+ "s-}" 'tab-bar-switch-to-next-tab)
+
+ ;; "s-t" 'tab-bar-new-tab
+ ;; "s-w" 'tab-bar-close-tab
+
+;;;

@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Major and minor mode info with Helm
+;;; https://github.com/emacs-helm/helm-describe-modes
+
+(desire 'helm-describe-modes)
+(require 'helm-describe-modes)
+(global-set-key [remap describe-mode] #'helm-describe-modes)
+
+;;;

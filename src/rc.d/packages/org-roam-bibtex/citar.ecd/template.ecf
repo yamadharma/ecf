@@ -1,0 +1,100 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; citar/org-roam integration
+;;; https://github.com/emacs-citar/citar-org-roam
+
+(setq citar-org-roam-subdir "literature")
+(setq citar-org-roam-note-title-template "${author} - ${title}")
+
+(setq citar-org-roam-template-fields
+      '((:citar-citekey "key")
+	(:citar-title "title")
+	(:citar-author "author" "editor")
+	(:citar-date "date" "year" "issued")
+	(:citar-pages "pages" "pagetotal")
+	(:citar-type "=type=")
+	(:citar-doi "doi")
+	(:citar-url "url")
+	(:citar-journal "journal" "journaltitle")
+	(:citar-subtitle "subtitle")
+	(:citar-year "year")
+	))
+
+(add-to-list 'org-roam-capture-templates
+             '("n" "literature note" plain "%?"
+               :target
+               (file+head
+                "literature/%<%Y>/${citar-citekey}.org"
+                "#+title: %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title}
+#+created: %U
+#+last_modified: %U
+#+language: ru
+#+date: %<%Y-%m-%dT%H:%M:%S%:z>
+#+filetags:
+#+roam_refs: cite:${citar-citekey}
+:SETUP_LOCAL:
+#+startup: overview num inlineimages latexpreview
+#+options: ^:{} num:t tex:t tex:t
+:END:
+:SETUP_HUGO:
+#+hugo_custom_front_matter: :slug ${citar-citekey}
+:END:
+
+* %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${subtitle}
+:PROPERTIES:
+:export_hugo_section: blog/%<%Y>
+:export_hugo_bundle: %<%Y-%m-%d>--${citar-citekey}
+:export_file_name: index.ru.md
+:export_language: ru
+:END:
+
+${citar-author} (${citar-date}) ${citar-title} ${citar-subtitle} [cite:@${citar-citekey}].
+
+#+hugo: more
+@@hugo:{{< toc >}}@@
+
+** Резюме
+
+** Библиография
+#+print_bibliography:
+
+* %(bibtex-completion-apa-format-authors-abbrev \"${citar-author}\") (${citar-date}) ${citar-title} ${citart-subtitle} [English] :noexport:
+:PROPERTIES:
+:export_hugo_section: blog/%<%Y>
+:export_hugo_bundle: %<%Y-%m-%d>--${citar-citekey}
+:export_file_name: index.en.md
+:export_language: en
+:END:
+
+${citar-author} (${citar-date}) ${citar-title} ${citar-subtitle} [cite:@${citar-citekey}].
+
+#+hugo: more
+@@hugo:{{< toc >}}@@
+
+** Summary
+
+** References
+#+print_bibliography:
+
+* Notes
+:PROPERTIES:
+:Custom_ID: ${citar-citekey}
+:author: ${citar-author}
+:title: ${citar-title}
+:subtitle: ${citar-subtitle}
+:journal: ${citar-journal}
+:date: ${citar-date}
+:year: ${citar-year}
+:doi: ${citar-doi}
+:url: ${citar-url}
+:pages: ${citar-pages}
+:noter_document: %(orb-get-attached-file \"${citar-citekey}\")
+:noter_page:
+:END:")
+               :immediate-finish t
+               :jump-to-captured t
+               :unnarrowed t
+               :hook org-id-get-create))
+
+(setopt citar-org-roam-capture-template-key "n")
+
+;;;

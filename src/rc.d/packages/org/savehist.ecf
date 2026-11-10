@@ -1,0 +1,6 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; `org-agenda-files` is remembered between Emacs sessions
+(add-to-list 'savehist-additional-variables 'org-agenda-files)
+
+;;;

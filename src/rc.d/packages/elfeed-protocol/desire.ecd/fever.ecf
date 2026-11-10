@@ -1,0 +1,17 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Extra protocols to make like Fever, NewsBlur, Nextcloud/ownCloud News and Tiny Tiny RSS work with elfeed
+;; https://github.com/fasheng/elfeed-protocol
+
+;;; Code:
+
+(setopt elfeed-protocol-fever-update-unread-only t)
+
+(setopt elfeed-protocol-fever-fetch-category-as-tag t)
+
+(setopt elfeed-protocol-fever-update-unread-only t)
+
+(general-define-key
+ :keymaps 'elfeed-search-mode-map
+ "C-c C-u" #'("Retry initial sync operation" . elfeed-protocol-fever-reinit))
+
+  ;;;

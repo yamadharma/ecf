@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; company-mode completion backend for BBDB in message-mode
+;; https://github.com/company-mode/company-mode
+
+(require 'company-bbdb)
+
+;;;

@@ -1,4 +1,5 @@
-;; desire.el --- versatile configuration for emacs lisp packages -*- coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; desire.el --- versatile configuration for emacs lisp packages
 
 ;; Authors:         Martin Schwenke <martin@meltin.net>
 ;;                  Graham Williams <Graham.Williams@cmis.csiro.au>
@@ -9,7 +10,7 @@
 ;; Keywords: setup configuration
 
 ;; Copyright (C) 1995, 1996, 1997, 1998, 1999, 2000, 2001 Martin Schwenke and Graham Williams
-;; Copyright (C) 2002-2020 Dmitry S. Kulyabov
+;; Copyright (C) 2002-2021 Dmitry S. Kulyabov
 
 ;; This file is NOT part of GNU Emacs.  It is, however, distributed
 ;; under the same conditions as GNU Emacs, which are as follows:
@@ -29,6 +30,8 @@
 ;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 (require 'cl-lib)
+(require 'desire-core-lib)
+;; (require 'desire-core-packages)
 
 (defvar desire-load-path nil
   "*List of directories to be searched by `desire' for configuration data.")
@@ -71,29 +74,45 @@ The function `desired' will add an item to this list.")
 (defvar desire-precondition nil
   "*Precondition for package loading.")
 
-(defun desired (package &optional fname precond)
+;; (defun desired (package &optional fname precond)
+(cl-defun desired (package
+		  &key precondition-lisp-library precondition-system-executable)
   "Add PACKAGE (a symbol) as something which is `desirable'.
   The optional argument FNAME is a string containing
   the name of the file that, when loaded, will
   trigger dynamic loading of extra configuration files. If FNAME is
   omitted then the string corresponding to PACKAGE is used instead.
   PRECOND is name of file as precondition for package loadind."
+
   (or (symbolp package)
       (error "Wrong type argument to `desired': symbolp, %s"
 	     (prin1-to-string package))
-  )
+      )
+  
+  ;; Message: found executable precondition
+  (if precondition-system-executable
+      (if (executable-find precondition-system-executable)
+	  (message "Executable file found %s to load package %s" 
+		   (prin1-to-string precondition-system-executable)
+		   (prin1-to-string package))
+	(message "Cannot find executable %s to load package %s"
+		 (prin1-to-string precondition-system-executable)
+		 (prin1-to-string package)))
+    nil)
+  
   ;; Check precondition
   (if (and
-	(not (desiredp package))
-	(if precond
-	  (
-	    if (stringp precond)
-	      (locate-library precond)
-	      nil
-	  )
-	  t
-	)
-      )
+       (not (desiredp package))
+       (if precondition-lisp-library
+	   (if (stringp precondition-lisp-library)
+	       (locate-library precondition-lisp-library)
+	     nil)
+	 t)
+       (if precondition-system-executable
+	   (if (stringp precondition-system-executable)
+	       (executable-find precondition-system-executable)
+	     nil)
+	 t))
     (add-to-list 'desirable (symbol-name package))
     nil
   )
@@ -246,8 +265,8 @@ then nothing happens and nil is returned."
 ) ; end defun desire
 
 (cl-defun desire (package
-    &key initname precondition-lisp-library precondition-system-executable (ensure desire-package-autoinstall))
-"Arrange loading and configuration of a desired emacs PACKAGE.
+		  &key initname precondition-lisp-library precondition-system-executable ensurename (ensure desire-package-autoinstall) recipe)
+  "Arrange loading and configuration of a desired emacs PACKAGE.
 PACKAGE is a symbol representing the name of a package.  The aim is to
 set up some autoloads and other initial configuration, and possibly
 organise for more configuration files to be dynamically loaded when
@@ -257,19 +276,24 @@ Accepts the following optional arguments:
 
 Accepts the following properties:
 
-  :initname FNAME
+ :initname FNAME
     FNAME is a string containing the name of the file that, when loaded, will
     trigger dynamic loading of extra configuration files. If FNAME is
     omitted then the string corresponding to PACKAGE is used instead.
-  :precondition PRECOND
+ :precondition PRECOND
     PRECOND is name of lisp file as precondition for package loadind.
-  :executable EXECUTABLE
+ :executable EXECUTABLE
     EXECUTABLE is name of executable file as precondition for package loadind.
-  :autoinstall BOOL
+ :ensurename PACKAGE-NAME Name of package on repository (like melpa).
+ :autoinstall BOOL
     Specifies package autoinstallation.
     `t' - package autoinstalled.
     `nil' - package not autoinstalled.
     Default from `desire-package-autoinstall' variable.
+ :recipe RECIPE
+   Specifies a straight.el recipe to allow you to acquire packages from external
+   sources. See https://github.com/raxod502/straight.el#the-recipe-format for
+   details on this recipe.
 
 Each directory in `desire-load-path' is searched in order to see if
 configuration data for PACKAGE exists.  The configuration data takes
@@ -309,20 +333,54 @@ then nothing happens and nil is returned."
 (message "fname: %s" fname)
 
 ;; Set lisp library precondition
-(setq precond precondition-lisp-library)
+(if precondition-lisp-library
+    (setq precond precondition-lisp-library)
+  (setq precond (prin1-to-string package)))
 
-;; check executable precondition
+(message "precond: %s" precond)
+
+;; Use recipe for straight.el
+(setq straight-recipe nil)
+(if recipe
+    (setq straight-recipe (cons package recipe))
+  nil)
+
+;; (when (and recipe (keywordp (car-safe recipe)))
+;;   (plist-put! plist :recipe `(quote ,recipe)))
+
+(message "recipe: %s ; %s ; recipe =  %s" package recipe straight-recipe)
+
+;; Check ensure key
+(if ensure
+    ;; check if the package is already installed
+    (if (or
+	 (if (stringp package)
+	     (locate-library package)
+	   nil)
+	 (if (stringp precond)
+	     (locate-library precond)
+	   nil))
+	t
+      ;; install package
+      (if ensurename
+	  (desire-install-package ensurename recipe)
+	(desire-install-package package recipe))
+      ))
+
+(message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
+
+;;; Message: found executable precondition
 (if precondition-system-executable
-    (if (executable-find ensure-system-executable)
+    (if (executable-find precondition-system-executable)
 	(message "Executable file found %s to load package %s" 
-		 (prin1-to-string ensure-system-executable)
+		 (prin1-to-string precondition-system-executable)
 		 (prin1-to-string package))
-      (error "Cannot find executable %s to load package %s"
-	     (prin1-to-string ensure-system-executable)
+      (message "Cannot find executable %s to load package %s"
+	     (prin1-to-string precondition-system-executable)
 	     (prin1-to-string package)))
   nil)
 
-;; Check precondition
+;;; Check precondition
 (if (and
      (not (desiredp package))
      (if precond
@@ -330,7 +388,11 @@ then nothing happens and nil is returned."
 	     (locate-library precond)
 	   nil)
        t)
-     )
+     (if precondition-system-executable
+	 (if (stringp precondition-system-executable)
+	     (executable-find precondition-system-executable)
+	   nil)
+       t))
     (let*
 	((dirs desire-load-path)
 	 (pname (symbol-name package))
@@ -339,23 +401,25 @@ then nothing happens and nil is returned."
       (message "precondition: %s" precondition-lisp-library)
       (message "precond: %s" precond)
 
-      ;; Check ensure key
-      (if ensure
-	  ;; check if the package is already installed
-	  (if (or
-	       (if (stringp package)
-		   (locate-library package)
-		 nil)
-	       (if (stringp precond)
-		   (locate-library precond)
-		 nil)
-	       )
-	      t
-	    ;; install package
-	    (desire-install-package package)
-	    ))
-     
-      (message "ensure: %s : %s" package ensure)
+      ;; ;; Check ensure key
+      ;; (if ensure
+      ;; 	  ;; check if the package is already installed
+      ;; 	  (if (or
+      ;; 	       (if (stringp package)
+      ;; 		   (locate-library package)
+      ;; 		 nil)
+      ;; 	       (if (stringp precond)
+      ;; 		   (locate-library precond)
+      ;; 		 nil)
+      ;; 	       )
+      ;; 	      t
+      ;; 	    ;; install package
+      ;; 	    (if ensurename
+      ;; 		(desire-install-package ensurename)
+      ;; 	      (desire-install-package package))
+      ;; 	    ))
+
+      ;; (message "ensure: %s : %s; ensurename = %s " package ensure ensurename)
 
       ;;Test
       ;; unconditional desirable
@@ -367,7 +431,7 @@ then nothing happens and nil is returned."
 	(let ((prefix (expand-file-name pname (car dirs))))
 	
 	  (cond
-	   ;; Check for configuration file
+	   ;;; Check for configuration file
 	   ((desire-readable-regular-file-p
 	     (concat prefix desire-extension))
 	    
@@ -379,11 +443,11 @@ then nothing happens and nil is returned."
 	    ;;(setq dirs nil)
 	    (setq dirs (cdr dirs)))
 
-	   ;; Check for configuration directory
+	   ;;; Check for configuration directory
 	   ((and (file-directory-p prefix)
 		 (file-readable-p prefix))
 	    
-	    ;; If file specified by desire-loaddefs exists then load it.
+	    ;;; If file specified by desire-loaddefs exists then load it.
 	    (if (and desire-loaddefs
 		     (desire-readable-regular-file-p
 		      (expand-file-name
@@ -578,41 +642,47 @@ is the directory name with the prefix directory and extension removed."
 )
 
 (defun desire-readable-dir-p (dir)
-
-  "Determine if DIR is a readable directory."
-
+  "Determine if DIR is a readable directory."  
   (and
    (file-directory-p dir)
-   (file-readable-p  dir)
-  )
-)
+   (file-readable-p dir)))
 
 (defun desire-require (feature &optional fname)
+  "Work like function require.
+  If feature FEATURE is not loaded, load it from FNAME.
+  If FEATURE is not a member of the list `features', then the feature
+  is not loaded; so load the file FNAME."
+  (if (not fname)
+      (setq fname (prin1-to-string feature)))
+  (if (require feature fname 1)
+      t
+    (message "Package not found : %s" fname)))
 
-;;{{{ Description
+;; (defun desire-install-package (package recipe)
+;;   "Install PACKAGE from repository"
+;;   (unless (package-installed-p package)
+;;     (if recipe
+;; 	(straight-use-package straight-recipe)
+;;       (progn
+;; 	(package-refresh-contents)
+;; 	(package-install package))
+;;       )))
 
-"Work like function require.
-If feature FEATURE is not loaded, load it from FNAME.
-If FEATURE is not a member of the list `features', then the feature
-is not loaded; so load the file FNAME."
+(defun desire-install-package (package &optional recipe)
+  "Install PACKAGE from repository"
+  (unless (package-installed-p package)
+    (if recipe
+	;; Only clone the package, don't build them.
+	;; Straight hasn't been fully configured by this point.
+	;; (straight-use-package straight-recipe nil t)
+	;; (straight-use-package straight-recipe)
+	(quelpa straight-recipe)      
+      (progn
+	(package-refresh-contents)
+	(package-install package))
+      )))
 
-;;}}}
-
-(if (not fname)
-    (setq fname (prin1-to-string feature))
-  )
-(if (require feature fname 1)
-    t
-  (message "Package not found : %s" fname)
-  )
-)
-
-(defun desire-install-package (package)
-"Install PACKAGE from repository"
-(unless (package-installed-p package)
-  (package-install package))
-)
 
 (provide 'desire)
 
-;;
+;;;

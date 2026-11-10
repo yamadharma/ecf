@@ -1,0 +1,8 @@
+;;; Exporting to Beamer -*- coding: utf-8-unix; -*-
+
+(require 'ox-beamer)
+
+;; Heading levels to be exported as frames
+(setopt org-beamer-frame-level 3)
+
+;;;

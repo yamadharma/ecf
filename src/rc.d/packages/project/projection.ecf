@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Projectile like project management library built on Emacs project.el
+;;;; https://github.com/mohkale/projection
+
+;;; Code:
+
+(require 'projection)
+
+;;;; Enable `projection-hook', adds the possibility to run functions in per-project basis
+(global-projection-hook-mode 1)
+
+;;;

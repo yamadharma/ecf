@@ -1,0 +1,14 @@
+(defun ecf/org-set-created (&optional force)
+  "Set CREATED property in current Org heading.
+With prefix argument FORCE (C-u), overwrite existing value."
+  (interactive "P")
+  (org-back-to-heading)
+  (let ((existing (org-entry-get nil "CREATED")))
+    (if (and existing (not force))
+        (message "CREATED already set: %s (C-u to overwrite)" existing)
+      (org-set-property "CREATED"
+                        (format-time-string "[%Y-%m-%d %a %H:%M]"))
+      (message "CREATED set"))))
+
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c C-.") #'ecf/org-set-created))

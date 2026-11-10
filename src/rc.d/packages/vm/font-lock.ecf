@@ -16,7 +16,7 @@
 
 ;;; (desire 'make-regexp)
 
-;;; (setq vm-font-lock-keywords
+;;; (setopt vm-font-lock-keywords
 ;;;       (let* ((cite-prefix "A-Za-z")
 ;;; 	     (cite-suffix (concat cite-prefix "0-9_.@-")))
 ;;; 	(list
@@ -73,7 +73,7 @@
 
 ;; AJK/GEC: VM summary buffer
 
-;;(setq vm-summary-font-lock-keywords
+;;(setopt vm-summary-font-lock-keywords
 ;;      '(
 ;;	("^\\( *[0-9]+ \\*.*\\)$" 1 font-lock-summary-marked-face  t)
 ;;	("^\\( *[0-9]+   .*\\)$"  1 font-lock-summary-seen-face    t)

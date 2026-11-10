@@ -1,0 +1,6 @@
+;;;
+
+(add-to-list 'LaTeX-verbatim-environments "minted")
+;; (add-to-list 'tex-verbatim-environments "minted")
+
+;;;

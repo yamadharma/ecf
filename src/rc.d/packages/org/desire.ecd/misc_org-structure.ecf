@@ -1,33 +1,33 @@
-;; Org Task structure and presentation
+;;; Org Task structure and presentation -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
 
-;; Controlling display of leading stars on headlines
-(setq org-hide-leading-stars nil)
+;;; Controlling display of leading stars on headlines
+;; (setopt org-hide-leading-stars nil)
 
-;; org-indent mode
-(setq org-startup-indented t)
+;;; Enable org-indent mode
+;; (setopt org-startup-indented t)
+
+;;; Toggle truncate lines
+(setopt org-startup-truncated nil)
 
 ;; Handling blank lines
-(setq org-cycle-separator-lines 0)
-(setq org-blank-before-new-entry (quote ((heading)
+(setopt org-cycle-separator-lines 0)
+(setopt org-blank-before-new-entry (quote ((heading)
                                          (plain-list-item))))
 
-;; Adding new tasks quickly without disturbing the current task content
-; To create new headings in a project file it is really convenient
-; to use C-RET, C-S-RET, M-RET, and M-S-RET. 
-; This inserts a new headline possibly with a TODO keyword.
-(setq org-insert-heading-respect-content nil)
+;;; Adding new tasks quickly without disturbing the current task content
+;; To create new headings in a project file it is really convenient
+;; to use C-RET, C-S-RET, M-RET, and M-S-RET. 
+;; This inserts a new headline possibly with a TODO keyword.
+(setopt org-insert-heading-respect-content nil)
 
-;; Notes at the top
-(setq org-reverse-note-order nil)
+;;; Searching and showing results
+(setopt org-show-following-heading t)
+(setopt org-show-hierarchy-above t)
+(setopt org-show-siblings (quote ((default))))
 
-;; Searching and showing results
-(setq org-show-following-heading t)
-(setq org-show-hierarchy-above t)
-(setq org-show-siblings (quote ((default))))
-
-;; Editing and Special key handling
-(setq org-special-ctrl-a/e t)
-(setq org-special-ctrl-k t)
-(setq org-yank-adjusted-subtrees t)
+;;; Editing and Special key handling
+(setopt org-special-ctrl-a/e t)
+(setopt org-special-ctrl-k t)
+(setopt org-yank-adjusted-subtrees t)
 
 

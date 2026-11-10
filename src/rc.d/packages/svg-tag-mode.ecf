@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; A minor mode for Emacs that replace keywords with nice SVG labels
+;; https://github.com/rougier/svg-tag-mode
+
+(require 'svg-tag-mode)
+
+;;;

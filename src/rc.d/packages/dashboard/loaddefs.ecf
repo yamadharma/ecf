@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; An extensible emacs dashboard
+;;; https://github.com/emacs-dashboard/emacs-dashboard
+
+(require 'dashboard)
+
+(dashboard-setup-startup-hook)
+
+;;;

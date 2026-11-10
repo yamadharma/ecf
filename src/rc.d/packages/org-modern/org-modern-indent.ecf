@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; org-modern and org-indent, working together
+;; https://github.com/jdtsmith/org-modern-indent
+
+;;; org-indent mode
+(setopt org-startup-indented t)
+
+(require 'org-modern-indent)
+
+;;; Adds extra indentation
+(setopt org-modern-hide-stars nil)
+
+;;; Or other chars. So top bracket is drawn promptly
+(setopt org-modern-block-name '("" . "")) 
+
+(add-hook 'org-mode-hook #'org-modern-indent-mode 90)
+(add-hook 'org-journal-mode-hook #'org-modern-indent-mode 90)
+
+;;;

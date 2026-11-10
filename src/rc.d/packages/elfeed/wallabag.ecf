@@ -1,0 +1,13 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs wallabag client - A Read It Later/Web Archiving Solution in Emacs
+;; https://github.com/chenyanming/wallabag.el
+
+;;; Code:
+
+(require 'wallabag)
+
+(general-define-key
+ :keymaps 'elfeed-show-mode-map
+ "w" #'("Add entry to wallabag" . wallabag-add-entry))
+
+;;;

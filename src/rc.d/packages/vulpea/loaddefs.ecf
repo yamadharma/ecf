@@ -1,0 +1,18 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Database layer for org-mode notes with async indexing, rich queries, backlink discovery, and external change detection
+;; https://github.com/d12frosted/vulpea
+
+;;; Code:
+
+(setopt org-roam-directory (file-truename "~/work/org/notes"))
+
+(if (not (file-directory-p org-roam-directory))
+    (make-directory org-roam-directory t))
+
+;;;; Directories to index
+(setopt vulpea-db-sync-directories (list org-roam-directory))
+
+;;;; Extra file extensions
+(setopt vulpea-db-extra-extensions '(".org.age" ".org.gpg"))
+
+;;;

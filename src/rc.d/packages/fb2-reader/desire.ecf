@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs plugin to read .fb2 and .fb2.zip ebooks
+;;; https://github.com/jumper047/fb2-reader
+
+(require 'fb2-reader)
+
+;;; Render book with fixed width
+;; (fb2-reader-page-width 120)
+;; (fb2-reader-image-max-width 400)
+;; (fb2-reader-image-max-height 400)
+
+;;;

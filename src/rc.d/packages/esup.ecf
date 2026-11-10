@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; ESUP - Emacs Start Up Profiler
+;; https://github.com/jschaf/esup
+
+(require 'esup)
+
+;;;

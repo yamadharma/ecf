@@ -12,7 +12,7 @@
 ;; as a base and add a few tweaks.
 
 (require 'org-inlinetask)
-(setq org-inlinetask-show-first-star t)
+(setopt org-inlinetask-show-first-star t)
 
 ;; Less gray please.
 (set-face-attribute 'org-inlinetask nil
@@ -22,14 +22,7 @@
   (set-face-attribute 'org-superstar-first nil
                       :foreground "#9000e1"))
 
-;; Set different bullets, with one getting a terminal fallback.
-;; (setq org-superstar-headline-bullets-list
-;;       '("◉" ("🞛" ?◈) "○" "▷"))
-
 ;; Set up a different marker for graphic display.
-(setq org-superstar-first-inlinetask-bullet ?🞸)
-
-;; Stop cycling bullets to emphasize hierarchy of headlines.
-(setq org-superstar-cycle-headline-bullets nil)
+(setopt org-superstar-first-inlinetask-bullet ?🞸)
 
 ;;;

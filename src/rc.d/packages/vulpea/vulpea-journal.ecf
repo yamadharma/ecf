@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Modern daily journaling interface for Emacs with reactive sidebar widgets, built on vulpea
+;; https://github.com/d12frosted/vulpea-journal
+
+;;; Code:
+
+(require 'vulpea-journal)
+
+;;;

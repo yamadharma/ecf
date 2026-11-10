@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Configure Unicode fonts for Emacs
+;; https://github.com/rolandwalker/unicode-fonts
+
+;;; Code:
+
+;;;; Requires font-utils
+(desire 'font-utils)
+
+;;;; Requires ucs-utils
+(desire 'ucs-utils)
+
+;;;; Uses if present
+(desire 'persistent-soft)
+
+;;;; Load package
+(require 'unicode-fonts)
+
+;;;

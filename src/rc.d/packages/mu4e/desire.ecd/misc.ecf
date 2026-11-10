@@ -1,0 +1,69 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+
+;;; Async mode
+(setopt mu4e-enable-async-operations t)
+
+;;; Mode-line notifications
+(setopt mu4e-enable-mode-line t)
+
+;;; Make sure plain text mails flow correctly for recipients (visual-line-mode + auto-fill upon sending)
+(setopt mu4e-compose-format-flowed t)
+
+;;; Configuration for sending mail
+(setopt send-mail-function 'smtpmail-send-it
+      message-send-mail-function 'smtpmail-send-it)
+
+(setopt mu4e-update-interval 400
+      mu4e-view-show-addresses t
+      mu4e-sent-messages-behavior 'sent
+      smtpmail-stream-type 'starttls
+      ;;; close after sending
+      message-kill-buffer-on-exit t 
+      ;; start with the first (default) context;
+      mu4e-context-policy 'pick-first
+      ;; compose with the current context, or ask (ask-if-none | ask)
+      mu4e-compose-context-policy 'ask
+      ;; use helm/ivy
+      ;; mu4e-completing-read-function
+      ;; (cond ((featurep! :completion ivy) #'ivy-completing-read)
+      ;;       ((featurep! :completion helm) #'completing-read)
+      ;;       (t #'ido-completing-read))
+      ;;; no need to ask
+      mu4e-confirm-quit nil
+      ;;; Rename files when moving. Needed for mbsync 
+      mu4e-change-filenames-when-moving t
+      mu4e-completing-read-function 'completing-read
+      mu4e-compose-signature-auto-include t
+      mu4e-confirm-quit nil
+      mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version)
+      mu4e-headers-auto-update t
+      mu4e-headers-date-format "%d/%m/%Y %H:%M"
+      mu4e-maildir (expand-file-name "~/Maildir")       ;; IMPORTANT
+      mu4e-main-buffer-hide-personal-addresses t
+      mu4e-main-buffer-name "*mu4e-main*"
+      mu4e-update-interval 600
+      mu4e-view-prefer-html t
+      mu4e-view-show-addresses 't
+      smtpmail-smtp-service 587
+      starttls-use-gnutls t)
+
+(setopt message-citation-line-function 'message-insert-formatted-citation-line)
+(setopt mu4e-mu-binary (or (executable-find "mu") "/usr/bin/mu"))
+(setopt mu4e-main-hide-personal-addresses t)
+
+;;; Run cleanup after indexing
+(setopt mu4e-index-cleanup t)
+;;; No lazy check and partial indexing
+(setopt mu4e-index-lazy-check nil)
+
+;;; Including related messages
+;; Include messages that are related to these messages
+;;; You can toggle between including/not-including with `W`
+(setopt mu4e-headers-include-related nil)
+
+;;; Skipping duplicates
+;;; You can toggle between the skipping/not skipping with `V`
+(setopt mu4e-headers-skip-duplicates t)
+
+;;;
+

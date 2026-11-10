@@ -1,0 +1,19 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Treemacs - a tree layout file explorer for Emacs
+;; https://github.com/Alexander-Miller/treemacs
+
+;;; Code:
+
+(general-define-key
+ "M-0" 'treemacs-select-window)
+
+(general-define-key
+ :prefix "C-x t"
+ "1" 'treemacs-delete-other-windows
+ "t" 'treemacs
+ "d" 'treemacs-select-directory
+ "B" 'treemacs-bookmark
+ "C-t" 'treemacs-find-file
+ "M-t" 'treemacs-find-tag)
+
+;;;

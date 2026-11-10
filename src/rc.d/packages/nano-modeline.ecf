@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; GNU Emacs / N Λ N O Modeline
+;; https://github.com/rougier/nano-modeline
+
+(require 'nano-modeline)
+
+(nano-modeline-mode)
+
+;;;

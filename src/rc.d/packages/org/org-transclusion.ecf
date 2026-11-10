@@ -1,0 +1,5 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Emacs package to enable transclusion with Org Mode
+;; https://github.com/nobiot/org-transclusion
+
+ (require 'org-transclusion)

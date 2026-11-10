@@ -1,0 +1,14 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Advanced replacement for BufferMenu
+;;; https://www.emacswiki.org/emacs/IbufferMode
+
+;; Use instead of buffer-list
+(global-set-key (kbd "C-x C-b") 'ibuffer) 
+
+;; Stop yes-no prompt on delete
+(setopt ibuffer-expert t) 
+
+;; (global-set-key (kbd "C-x C-b") 'ibuffer-other-window)
+(setopt ibuffer-default-sorting-mode 'major-mode)
+
+;;;

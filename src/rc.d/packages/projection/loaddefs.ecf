@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Projectile like project management library built on Emacs project.el
+;;;; https://github.com/mohkale/projection
+
+;;; Code:
+
+;;;

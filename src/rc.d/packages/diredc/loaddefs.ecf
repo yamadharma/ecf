@@ -1,0 +1,9 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Midnight Commander features (plus) for emacs dired-mode
+;;; https://github.com/Boruch-Baum/emacs-diredc
+
+(global-set-key (kbd "S-<f11>") 'diredc)
+;; (global-set-key [remap dired-other-frame] 'diredc)
+
+;;;
+

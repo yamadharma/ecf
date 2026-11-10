@@ -1,0 +1,26 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Set emoji
+
+;;; Code:
+
+(set-fontset-font
+ t
+ 'emoji
+ (cond
+  ((member "Noto Color Emoji" (font-family-list)) "Noto Color Emoji")
+  ((member "Noto Emoji" (font-family-list)) "Noto Emoji")
+  ((member "Segoe UI Emoji" (font-family-list)) "Segoe UI Emoji")
+  ((member "Symbola" (font-family-list)) "Symbola")
+  ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
+  nil 'append))
+
+(set-fontset-font
+ t
+ 'symbol
+ (cond
+  ((member "Symbola" (font-family-list)) "Symbola")
+  ((member "Segoe UI Symbol" (font-family-list)) "Segoe UI Symbol")
+  ((member "Apple Symbols" (font-family-list)) "Apple Symbols")
+  nil 'append))
+
+;;;

@@ -1,0 +1,12 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Treemacs - a tree layout file explorer for Emacs
+;; https://github.com/Alexander-Miller/treemacs
+
+;;; Code:
+
+(desire 'treemacs-tab-bar)
+(require 'treemacs-tab-bar)
+
+(setopt treemacs-set-scope-type 'Tabs)
+
+;;;

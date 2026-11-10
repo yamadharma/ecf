@@ -1,4 +1,7 @@
 # Emacs Configuration Framework
 
-## Каталоги ##
+## Repositories
 
+- <https://github.com/yamadharma/ecf>
+- <https://gitverse.ru/dharma/ecf>
+- <https://sourcecraft.dev/yamadharma/ecf>

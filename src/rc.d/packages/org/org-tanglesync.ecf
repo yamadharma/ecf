@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Syncing org src blocks with tangled external files
+;;; https://gitlab.com/mtekman/org-tanglesync.el
+
+(require 'org-tanglesync)
+
+;;;

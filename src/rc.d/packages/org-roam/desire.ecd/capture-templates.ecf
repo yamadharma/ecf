@@ -1,31 +1,65 @@
-;;; Capture template for org-roam -*- coding: utf-8-unix; -*-
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Capture template for org-roam
 
-;;; do enable time-stamps
-(setq time-stamp-active t)
+;;; Code:
 
-;; (setq
-;;  time-stamp-active t          ; do enable time-stamps
-;;  time-stamp-pattern "5/#+LAST_MODIFIED: [%04y-%02m-%02d %a %02H:%02M]"
-;;  time-stamp-format "%04y-%02m-%02d %a %02H:%02M") ; date format
+;;;; do enable time-stamps
+(setopt time-stamp-active t)
 
-(setq org-roam-capture-templates
-      '(("d" "default" plain (function org-roam--capture-get-point)
-	 "%?"
-	 :file-name "%<%Y%m%d%H%M%S>-${slug}"
-	 ;; :file-name "%(format-time-string \"%Y-%m-%d--%H-%M-%SZ--${slug}\" (current-time) t)"
-	 ;; :head "#+TITLE: ${title} \n#+CREATED: %U\n#+LAST_MODIFIED: %U\n#+ROAM_ALIAS: \n\n- tags :: "
-	 ;; :head "#+title: ${title} \n#+created: %U\n#+last_modified: %U\n#+roam_alias:\n#+roam_tags:\n#+setupfile: ../templates/hugo.org\n#+hugo_lastmod: Time-stamp: <>\n\n"
-	 :head "#+TITLE: ${title}
-#+CREATED: %U
-#+LAST_MODIFIED: %U
-#+STARTUP: overview hidestars hideblocks
-#+LANGUAGE: ru
-#+SETUPFILE: ~/me/org/templates/hugo.org
-#+EXPORT_FILE_NAME: %<%Y-%m-%d>-${slug}
-#+HUGO_CUSTOM_FRONT_MATTER: :slug ${slug}
-#+HUGO_CATEGORIES: blog
-#+HUGO_TAGS:
-#+DATE: %<%Y-%m-%dT%H:%M:%S%:z>\n\n"
-	 :unnarrowed t)))
+(setopt org-roam-capture-templates
+	'(("s" "per Section flow (two language)" plain
+	   "#+created: %U
+#+last_modified: %U
+#+language: ru
+#+date: %<%Y-%m-%dT%H:%M:%S%:z>
+#+filetags:
+
+:SETUP_LOCAL:
+#+startup: overview num inlineimages latexpreview
+#+options: ^:{} num:t
+:END:
+:SETUP_HUGO:
+#+hugo_custom_front_matter: :slug ${slug}
+:END:
+
+
+* ${title}
+:PROPERTIES:
+:export_hugo_section: blog/%<%Y>
+:export_hugo_bundle: %<%Y-%m-%d>--${slug}
+:export_file_name: index.ru.md
+:export_language: ru
+:header-args: :dir (format \"%s\" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%dT%H%M%S> :async yes :cache yes
+:END:
+
+${title}
+
+#+hugo: more
+@@hugo:{{< toc >}}@@
+
+%?
+
+* ${title} [English] :noexport:
+:PROPERTIES:
+:export_hugo_section: blog/%<%Y>
+:export_hugo_bundle: %<%Y-%m-%d>--${slug}
+:export_file_name: index.en.md
+:export_language: en
+:header-args: :dir (format \"%s\" org-roam-directory) :output-dir media/%<%Y>/%<%Y%m%dT%H%M%S> :async yes :cache yes
+:END:
+
+${title} [English]
+
+#+hugo: more
+@@hugo:{{< toc >}}@@
+"
+	   :target
+	   (file+head
+	    "public/%<%Y>/%<%Y%m%dT%H%M%S>--${slug}.org"
+	    "#+title: ${title}")
+	   :immediate-finish t
+	   :jump-to-captured t
+	   :unnarrowed t)
+	  ))
 
 ;;;

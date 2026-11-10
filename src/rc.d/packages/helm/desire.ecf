@@ -1,0 +1,18 @@
+;;; Helm. Emacs incremental completion and selection narrowing framework -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;; https://emacs-helm.github.io/helm/
+;; https://github.com/emacs-helm/helm/wiki
+
+;;; Disable Helm header
+;; default value is nil
+;;;
+;; (setq-default helm-no-header t)
+
+;;; Define Helm position
+;; The supported values are bottom, top, left and right
+;;;
+;; (setq-default helm-position 'top)
+
+;;; Enable helm completion everywhere
+(helm-mode 1)
+
+;;;

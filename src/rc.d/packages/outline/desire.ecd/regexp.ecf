@@ -1,0 +1,61 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Outline mode commands for Emacs
+
+;;; Code:
+
+;;;; Универсальная настройка outline-regexp
+(defun ecf/set-outline-regexp ()
+  "Установить outline-regexp в зависимости от режима."
+  (cond
+   ;; Emacs Lisp
+   ((derived-mode-p 'emacs-lisp-mode 'lisp-mode 'lisp-interaction-mode)
+    (setq-local outline-regexp ";;;+ \\|(def\\(un\\|subst\\|macro\\|advice\\|struct\\|class\\|method\\|generic\\)"))
+
+   ;; Python
+   ((derived-mode-p 'python-mode)
+    (setq-local outline-regexp "def \\|class \\|# "))
+
+   ;; JavaScript/TypeScript
+   ((derived-mode-p 'js-mode 'js2-mode 'javascript-mode 'typescript-mode)
+    (setq-local outline-regexp "function\\|class\\|const\\|let\\|var\\|// "))
+
+   ;; Java
+   ((derived-mode-p 'java-mode)
+    (setq-local outline-regexp "class\\|interface\\|enum\\|@interface\\|public\\|protected\\|private\\|// "))
+
+   ;; C/C++
+   ((derived-mode-p 'c-mode 'c++-mode)
+    (setq-local outline-regexp "^[ \t]*#[ \t]*\\(if\\|else\\|elif\\|endif\\|define\\|include\\)\\|// "))
+
+   ;; Web (HTML/CSS)
+   ((derived-mode-p 'web-mode)
+    (setq-local outline-regexp "</?[a-z]+\\|^[ \t]*//\\|^[ \t]*/\\*\\|^[ \t]*\\*"))
+
+   ;; Ruby
+   ((derived-mode-p 'ruby-mode)
+    (setq-local outline-regexp "def \\|class \\|module \\|# "))
+
+   ;; Go
+   ((derived-mode-p 'go-mode)
+    (setq-local outline-regexp "func \\|type \\|struct \\|interface \\|// "))
+
+   ;; Rust
+   ((derived-mode-p 'rust-mode)
+    (setq-local outline-regexp "fn \\|struct \\|enum \\|impl \\|trait \\|mod \\|// "))
+
+   ;; PHP
+   ((derived-mode-p 'php-mode)
+    (setq-local outline-regexp "function\\|class\\|trait\\|interface\\|//\\|/\\*"))
+
+   ;; Shell script
+   ((derived-mode-p 'sh-mode 'bash-mode)
+    (setq-local outline-regexp "function\\|# "))
+
+   ;; Общий случай для других языков
+   (t
+    (setq-local outline-regexp "^[ \t]*[A-Za-z0-9]"))))
+
+;; Хук для установки regexp при включении outline-minor-mode
+(add-hook 'outline-minor-mode-hook 'ecf/set-outline-regexp)
+
+;;;

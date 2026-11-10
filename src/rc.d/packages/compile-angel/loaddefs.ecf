@@ -1,0 +1,7 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Compile Emacs Lisp libraries automatically.
+;;; https://github.com/jamescherti/compile-angel.el
+
+;; (require 'compile-angel)
+
+;;;

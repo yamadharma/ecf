@@ -1,0 +1,22 @@
+;;; -*- mode: emacs-lisp; lexical-binding: t; coding: utf-8-unix; -*-
+;;; Luhmann-style folgezettel IDs for Org-Roam
+;; https://github.com/landerwells/folgezett.el
+
+;;; Code:
+
+;;;; Restrict the placement prompt to specific capture template keys. When nil (the default), every new org-roam capture triggers the prompt
+;; (setopt folgezett-capture-keys '("z"))
+(setopt folgezett-capture-keys nil)
+
+;;;; When non-nil, parent-child relationships are injected into org-roam's database during indexing
+(setopt folgezett-db-link-parent t)
+
+;;;; When non-nil, the folgezettel ID is prepended to the filename on assignment and after new-node capture finalization
+(setopt folgezett-include-id-in-filename nil)
+
+(setopt folgezett-show-id-in-completions t)
+(setopt folgezett-export-parent-label "Previous")
+
+(folgezett-setup)
+
+;;;

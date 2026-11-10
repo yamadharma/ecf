@@ -1,14 +1,16 @@
 ;;; saveplace.ecf -*- coding: iso-2022-7bit-unix; -*-
 
-(custom-set-variables
- '(save-place t)
- '(save-place-file 
-   (expand-file-name 
-     (concat home-cache-path "/saveplace.el")
-   )
- )
-)
+;(custom-set-variables
+; '(save-place t)
+; '(save-place-file 
+;   (expand-file-name 
+;     (concat home-cache-path "/saveplace.el")
+;   )
+; )
+;)
 
-(require 'saveplace)
+;(require 'saveplace)
+
+(save-place-mode 1)
 
 ;;; saveplace.ecf ends here
